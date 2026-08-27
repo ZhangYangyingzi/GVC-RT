@@ -1,0 +1,18 @@
+# Core inference dependencies for GVC-RT.
+# Validated in the environment with Python 3.12.12 and PyTorch 2.6.0+cu124. 
+# Optional perceptual metrics are documented in README.md.
+
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+
+einops==0.8.2
+numpy==2.4.4
+Pillow==12.0.0
+scipy==1.17.0
+tqdm==4.67.3
+lpips==0.1.4
+DISTS-pytorch==0.1
+
+# Required to build the C++ range/arithmetic-coding extension.
+pybind11==3.0.1
+setuptools==82.0.1
