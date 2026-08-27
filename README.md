@@ -8,6 +8,8 @@
 
 This repository provides the official code for **GVC-RT**, a generative video codec designed for perceptual compression at ultra-low bitrates while retaining real-time coding speed.
 
+:fire: **GVC-RT is accepted by ACM MM 2026.**
+
 ⭐ If **GVC-RT** is helpful to you, please star this repo. Thanks! 🤗
 
 ## ✅ TODO
