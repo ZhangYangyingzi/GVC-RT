@@ -1,0 +1,26 @@
+V2 actual final evaluation reader audit
+=======================================
+Manifest: /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/test_manifest.json
+Evaluation entry: /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/evaluate.py
+Reader implementation: /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/eval_core.py matched_frames()
+
+Actual V2 evaluation path for all six videos:
+source_frames/<tag>/imN.png -> PIL.Image.open(...).convert('RGB') -> np.uint8 HWC RGB
+-> torch.from_numpy -> NCHW float32 / 255 -> wrapper [0,1]
+-> replicate padding -> float16 * 2 - 1 -> GVC encoder [-1,1].
+
+The final V2 PNG loader alone is the same PIL reader for UVG and U-Long: YES.
+The complete reader/conversion path from original source is the same: NO.
+
+U-Long PNG preparation:
+MP4/H.264 yuv420p -> ffmpeg -> rgb24 -> uint8 RGB PNG.
+Metadata reports BT.709 and limited (tv) range for all three U-Long sources.
+
+UVG PNG preparation:
+raw planar 8-bit YUV420 -> YUV420Reader -> nearest-neighbor chroma expansion
+-> channels remain [Y,Cb,Cr] -> Image.fromarray(...), which interprets them as [R,G,B].
+No YUV-to-RGB conversion is called. The imported ycbcr2rgb function is unused.
+Raw .yuv has no embedded matrix/range metadata; ffprobe therefore reports those fields unknown.
+
+Tensor channel order: NCHW RGB as declared by the V2 loader, but UVG PNG channel contents are
+Y/Cb/Cr because of the earlier PNG preparation defect.

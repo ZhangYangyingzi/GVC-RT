@@ -1,0 +1,31 @@
+{
+  "name": "GVC-RT V1.6 attribution and quality guard",
+  "seed": 916116,
+  "v15": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_5_frame_budget_allocation",
+  "v12": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_2_oracle_residual_codec",
+  "v11_manifest": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_1_diagnosis/manifest.json",
+  "v13_samples": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_3_code_optimization_diagnosis/results_v1/samples.json",
+  "gpu_uuid": "GPU-e7309963-f9fb-d0be-1886-d26b609ddef0",
+  "level": 3,
+  "delta": 9.042649269104004,
+  "code_shape": [1, 8, 17, 30],
+  "valid_hw": [1080, 1920],
+  "gop_frames": 16,
+  "p_frames": 15,
+  "lambda_p": 0.001,
+  "candidate_order": ["Z", "E", "O1", "O2"],
+  "budgets": [0, 0.1, 0.25, 0.5],
+  "guard_methods": {
+    "M2_E_FRAME_GUARD": ["Z", "E"],
+    "M4_O_FRAME_GUARD": ["Z", "E", "O1", "O2"]
+  },
+  "guard": "candidate MSE <= frame ZERO MSE and candidate LPIPS <= frame ZERO LPIPS",
+  "guard_tolerance": 0.0,
+  "guard_tolerance_basis": "Train2 repeatability audit; freeze before Val6",
+  "same_rate": "per-video piecewise linear interpolation of each metric versus log(total_bpp), ORIGINAL_FP32 nominal QP0-3, overlap only, no extrapolation",
+  "network_updates": 0,
+  "code_updates": 0,
+  "new_lambdas": 0,
+  "new_quantization_levels": 0,
+  "new_entropy_formats": 0
+}

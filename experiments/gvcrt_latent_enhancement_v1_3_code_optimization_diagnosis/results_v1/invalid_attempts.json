@@ -1,0 +1,15 @@
+{
+  "preflight": {"initial_gpu0_launch_refused": true, "reason": "other tasks occupied GPU0 before any experimental CUDA work; GPU6 was selected and fixed before prepare"},
+  "quantized_dispatch_error": {
+    "invalid_stage": "B6_lambda0",
+    "invalid_updates": 900,
+    "reason": "stage.startswith(B_) did not recognize B6_lambda0, so the six lambda0 runs used continuous u; missing actual_frame_packet_bits triggered a fail before candidate selection",
+    "artifacts_retained": "optimizations/B6_lambda0 and B6_lambda0_checkpoints.csv; NOT valid Q2 or RD evidence",
+    "fix": "quantized=True is now an explicit argument at all B call sites",
+    "corrected_stage_prefix": "B6q_lambda",
+    "continuous_A_rerun": false,
+    "optimizer_lr_lambda_rules_changed": false,
+    "numerical_scale_corrections": 0,
+    "network_updates": 0
+  }
+}

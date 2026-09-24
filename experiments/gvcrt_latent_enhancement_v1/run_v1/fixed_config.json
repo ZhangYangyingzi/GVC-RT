@@ -1,0 +1,74 @@
+{
+  "name": "GVC-RT Latent Enhancement V1",
+  "seed": 91401,
+  "gpu_uuid": "GPU-9f8e23af-ce47-d03e-07a6-2e89cc8ef3bb",
+  "checkpoint_i": "checkpoints/GVC-RT_I.pt",
+  "checkpoint_p": "checkpoints/GVC-RT_P.pt",
+  "dataset_root": "/Huang_group/zyyz/tianyi/UltraVideo-Long",
+  "valid_hw": [
+    1080,
+    1920
+  ],
+  "padded_hw": [
+    1088,
+    1920
+  ],
+  "frames": 16,
+  "intra_period": -1,
+  "reset_interval": 96,
+  "qp_candidates": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "base_qp_selection": "lowest measured complete I/P bits on fixed Train2",
+  "force_zero_thres": 0.12,
+  "architecture": {
+    "latent_channels": 18,
+    "hidden_channels": 64,
+    "enhancement_channels": 8,
+    "grid_hw": [
+      17,
+      30
+    ],
+    "blocks": 2
+  },
+  "training": {
+    "batch_size": 1,
+    "lr": 0.0001,
+    "optimizer": "Adam",
+    "continuous_steps": 500,
+    "quantized_steps": 1000,
+    "generalization_steps": 1500,
+    "generalization_videos": 8,
+    "total_step_cap": 3000,
+    "lambda_p": 0.001,
+    "lambda_r": 0.01,
+    "deltas": [
+      0.125,
+      0.5,
+      2.0
+    ],
+    "continuous_gate_db": 0.2,
+    "quantized_gate_db": 0.0
+  },
+  "metrics": {
+    "rgb_range": [
+      0,
+      1
+    ],
+    "psnr": "mean per-frame RGB PSNR, including I",
+    "msssim": "repo calc_msssim_rgb five scale, RGB, data_range=1",
+    "lpips": "alex v0.1, normalize=True for RGB [0,1]",
+    "bpp": "all actual bytes * 8 / (frames * valid height * valid width)",
+    "kbps": "all actual bits / measured clip duration / 1000"
+  },
+  "execution": {
+    "codec_dtype": "float16",
+    "generator_training_dtype": "float32",
+    "tf32": false,
+    "torch_threads": 4,
+    "no_download": true
+  }
+}

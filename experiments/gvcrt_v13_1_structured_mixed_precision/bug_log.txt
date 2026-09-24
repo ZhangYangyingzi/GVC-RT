@@ -1,0 +1,26 @@
+V13.1 execution bug log
+
+2026-09-23 native RANS output buffer
+- Trigger: uvg/HoneyBee, QP1, G4, frame 43, trajectory uvg_02_qp1_G4_T3613, candidate F010.
+- Captured stack: entropy_models.py:get_encoded_stream -> v13_codec.py:_encode_y.
+- Code fact: src/cpp/py_rans/rans.cpp allocated one output byte per input symbol while out-of-support symbols can emit additional bypass bins.
+- Fix location: native_fix/py_rans/rans.cpp.
+- Fix: enlarge only the temporary backwards-writing buffer; entropy probabilities, symbol order, RANS operations, and serialized bytes are unchanged.
+
+2026-09-23 zero-active w1 stream
+- Trigger: uvg/HoneyBee, QP1, G4, frame 42, trajectory uvg_02_qp1_G4_T3515, candidate F010.
+- Captured stack: entropy_models.py:set_stream -> v13_codec.py:decode_w1_by_mode.
+- Code fact: zero active w1 symbols produce an empty standalone w1 stream; RansDecInit cannot read an empty stream.
+- Fix location: v13_codec.py:encode_w1_by_mode and decode_w1_by_mode.
+- Fix: encode the zero-symbol partition as an empty byte string and decode it directly as an all-zero symbol tensor; reject inconsistent empty/non-empty combinations.
+
+2026-09-23 coarse activity threshold
+- Trigger: entropy symbol mismatch during HoneyBee mixed-candidate evaluation.
+- Code fact: the encoder helper reapplied force_zero_thres after dividing scale by the coarse delta, while the decoder used the original codec activity mask.
+- Fix location: v13_codec.py:encode_w1_by_mode.
+- Fix: use the original-scale activity mask once and disable the helper's second threshold pass while building indexes for the already-selected symbols.
+
+Recovery
+- HoneyBee QP1 and QP3 were rerun from isolated per-granularity checkpoints.
+- Pre-fix failures and intermediate files are retained under sanity/.
+- Final cell markers: uvg_02_qp1_done.json PASS; uvg_02_qp3_done.json PASS.

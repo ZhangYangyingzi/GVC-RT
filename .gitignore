@@ -10,3 +10,61 @@ out_bin/
 *.bin
 *.yuv
 output*.json
+
+# Large experiment caches / tensors
+**/cache/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Common generated artifacts
+*.mp4
+*.avi
+*.mov
+*.yuv
+*.log
+__pycache__/
+*.pyc
+wandb/
+.cache/
+
+# Generated frame directories
+**/reconstruction_frames/
+**/proxy_frames/
+**/input_frames/
+**/source_frames/
+**/source_frames_fixed/
+**/source_only/
+**/baseline_frames/
+
+# Split/intermediate experiment artifacts
+**/parts/
+
+# Generated codec bitstreams / temporary files
+*.orc
+*.orc2
+*.ors1
+*.mkv
+*.partial
+*.err
+
+# Compiled binaries
+*.so
+
+# Bulk generated PNG frames
+experiments/gvcrt_vs_dcvc_rt_matched_rate/reconstructions/
+experiments/gvcrt_public_virat_720p_480p_qp01/bitstreams/**/*.png
+experiments/gvcrt_latent_enhancement_v1/data/**/*.png
+experiments/uvg_color_reader_audit/frames/
+
+# Per-run diagnostic PNGs; keep JSON/CSV summaries
+experiments/gvcrt_latent_enhancement_v1_3_code_optimization_diagnosis/results_v1/**/*.png
+experiments/gvcrt_latent_enhancement_v1_1_diagnosis/results_v1/**/*.png
+experiments/gvcrt_latent_enhancement_v1_2_oracle_residual_codec/results_v1/**/*.png
+experiments/gvcrt_latent_enhancement_v1_4_rate_gap_diagnosis/results_v1/**/*.png
+
+# Large raw experiment tables
+experiments/gvcrt_v13_generator_aware_mixed_precision/block_probe.csv
+experiments/gvcrt_v13_1_structured_mixed_precision/trajectory_steps.csv
+experiments/gvcrt_v14_replacement_oracle/tile_interventions.csv

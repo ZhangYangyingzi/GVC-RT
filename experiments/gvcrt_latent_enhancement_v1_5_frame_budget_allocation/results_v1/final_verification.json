@@ -1,0 +1,42 @@
+{
+  "allocator": {
+    "short_gop_bruteforce_cases": 72,
+    "passed": true
+  },
+  "splits": {
+    "Train2": {
+      "videos": 2,
+      "allocation_rows": 32,
+      "selected_frame_rows": 480,
+      "real_streams": 12,
+      "all_budget_constraints_hold": true,
+      "all_stream_hashes_match": true,
+      "independent_receiver_videos": 2,
+      "rgb_torch_equal": true
+    },
+    "Val6": {
+      "videos": 6,
+      "allocation_rows": 96,
+      "selected_frame_rows": 1440,
+      "real_streams": 37,
+      "all_budget_constraints_hold": true,
+      "all_stream_hashes_match": true,
+      "independent_receiver_videos": 6,
+      "rgb_torch_equal": true
+    }
+  },
+  "invalid_stream_rejection": {
+    "truncated": true,
+    "trailing": true,
+    "crc_corrupt": true,
+    "wrong_base_binding": true
+  },
+  "optimization": {
+    "selected_checkpoints": 180,
+    "code_updates": 27000,
+    "network_updates": 0,
+    "interrupted_artifacts": 0
+  },
+  "model_frozen": true,
+  "passed": true
+}

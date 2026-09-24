@@ -1,0 +1,100 @@
+{
+  "uvg_source_paths_verified": true,
+  "ulong_source_paths_verified": true,
+  "same_reader_path_uvg_ulong": false,
+  "same_final_v2_png_reader_uvg_ulong": true,
+  "same_upstream_source_conversion_uvg_ulong": false,
+  "ffprobe_complete": true,
+  "pipeline_vs_ffmpeg_complete": true,
+  "rgb_bgr_swap_checked": true,
+  "color_matrix_checked": true,
+  "range_checked": true,
+  "tensor_range_checked": true,
+  "identity_preprocess_checked": true,
+  "visualization_source_checked": true,
+  "videos": {
+    "fresh_ulong_00": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": true,
+      "model_input_color_ok": true,
+      "visualization_color_ok": true,
+      "pipeline_vs_ffmpeg_mean_mae": 0.0,
+      "swapped_vs_ffmpeg_mean_mae": 39.91285670653292,
+      "possible_rgb_bgr_swap": false,
+      "best_color_candidates": [],
+      "suspected_stage": "none",
+      "suspected_issue": "none"
+    },
+    "fresh_ulong_01": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": true,
+      "model_input_color_ok": true,
+      "visualization_color_ok": true,
+      "pipeline_vs_ffmpeg_mean_mae": 0.0,
+      "swapped_vs_ffmpeg_mean_mae": 18.271046971450616,
+      "possible_rgb_bgr_swap": false,
+      "best_color_candidates": [],
+      "suspected_stage": "none",
+      "suspected_issue": "none"
+    },
+    "fresh_ulong_10": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": true,
+      "model_input_color_ok": true,
+      "visualization_color_ok": true,
+      "pipeline_vs_ffmpeg_mean_mae": 0.0,
+      "swapped_vs_ffmpeg_mean_mae": 13.662637201003086,
+      "possible_rgb_bgr_swap": false,
+      "best_color_candidates": [],
+      "suspected_stage": "none",
+      "suspected_issue": "none"
+    },
+    "uvg_00": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": false,
+      "model_input_color_ok": false,
+      "visualization_color_ok": false,
+      "pipeline_vs_ffmpeg_mean_mae": 64.89775527263374,
+      "swapped_vs_ffmpeg_mean_mae": 57.29237766846708,
+      "possible_rgb_bgr_swap": true,
+      "best_color_candidates": [
+        "BT.601_limited"
+      ],
+      "suspected_stage": "source PNG preparation",
+      "suspected_issue": "Y/Cb/Cr channels were saved as RGB without YUV-to-RGB conversion"
+    },
+    "uvg_01": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": false,
+      "model_input_color_ok": false,
+      "visualization_color_ok": false,
+      "pipeline_vs_ffmpeg_mean_mae": 38.539689790702155,
+      "swapped_vs_ffmpeg_mean_mae": 33.28670167020319,
+      "possible_rgb_bgr_swap": true,
+      "best_color_candidates": [
+        "BT.601_limited"
+      ],
+      "suspected_stage": "source PNG preparation",
+      "suspected_issue": "Y/Cb/Cr channels were saved as RGB without YUV-to-RGB conversion"
+    },
+    "uvg_02": {
+      "raw_source_color_ok": true,
+      "pipeline_reader_color_ok": false,
+      "model_input_color_ok": false,
+      "visualization_color_ok": false,
+      "pipeline_vs_ffmpeg_mean_mae": 43.886453430426954,
+      "swapped_vs_ffmpeg_mean_mae": 53.934740949717074,
+      "possible_rgb_bgr_swap": false,
+      "best_color_candidates": [
+        "BT.601_limited"
+      ],
+      "suspected_stage": "source PNG preparation",
+      "suspected_issue": "Y/Cb/Cr channels were saved as RGB without YUV-to-RGB conversion"
+    }
+  },
+  "uvg_pipeline_all_pass": false,
+  "ulong_pipeline_all_pass": true,
+  "suspected_stage": "UVG source PNG preparation",
+  "suspected_issue": "raw YUV420 Y/Cb/Cr channels saved directly as RGB PNG without conversion",
+  "status": "AUDIT_COMPLETE"
+}

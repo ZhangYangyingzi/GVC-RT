@@ -1,0 +1,36 @@
+V14 replacement-oracle implementation audit
+
+Repository commit: d0e32bfa3e8e282f9a77437c223c605858eea637
+Manifest SHA256: c83891099893efaac4dea8be0066d294780bd0abab583eb4063c27718e513b4e
+V13.1 manifest SHA256: c83891099893efaac4dea8be0066d294780bd0abab583eb4063c27718e513b4e
+
+Transmitted variable and predictor
+- v14_codec.py:80-91 prepares the original GVC-RT w1 symbols and computes q_pred.
+- v14_codec.py:24-40 obtains the real Gaussian integer CDF, its scale indexes, and the per-CDF argmax.
+- q_pred depends on decoder-reproducible s1 scale indexes only.
+- v14_codec.py:205-211 reconstructs s1 from decoded z and w0 before predicting w1.
+
+Replacement actions
+- v14_codec.py:95-111 applies FULL, PRED_ONLY, CORR1, CORR2, and CORR4 to integer w1 symbols.
+- PRED_ONLY reconstructs q_pred without a correction symbol.
+- CORR1/CORR2/CORR4 reconstruct q_pred + step * round((q_true-q_pred)/step).
+
+Correction entropy coding
+- v14_codec.py:153-166 integrates the frozen Gaussian PMF into correction-symbol bins.
+- v14_codec.py:168-181 writes retained original w1 and correction symbols through the native RANS coder.
+- v14_codec.py:183-200 independently recovers retained and correction symbols through native RANS decode.
+
+Mode-map syntax
+- v14_codec.py:120-151 implements raster RLE, dominant-mode sparse exceptions, and packed 2-bit syntax.
+- v14_codec.py:220-239 stores/parses the selected map syntax and all RANS substreams in the GVR1 payload.
+
+Causal reconstruction
+- v14_codec.py:201-215 parses the map before w1, decodes z/w0, independently predicts q_pred, decodes retained/correction w1, reconstructs latent/feature/RGB, and updates the decoder reference state.
+- run_v14.py evaluates each intervention from a restored trajectory-local decoder state.
+- run_v14.py sequence search carries independent encoder/decoder snapshots and complete bitstream prefixes.
+
+Optimization/training
+- No optimizer is instantiated.
+- No backward call is made.
+- Candidate generation and search execute without gradient updates.
+- The only changed coding decisions are w1 FULL/PRED_ONLY/CORR2/CORR4 actions.

@@ -1,0 +1,132 @@
+{
+  "initialization": "ZERO_START",
+  "selected_indices": [
+    1,
+    3,
+    5
+  ],
+  "selected_lambdas": [
+    0.011790604283044334,
+    0.18864966852870935,
+    3.0183946964593495
+  ],
+  "all_candidates": [
+    {
+      "index": 0,
+      "lambda": 0.0,
+      "mean_L_image": 0.007732234996059503,
+      "mean_psnr_gain_vs_ZERO": 0.5336265504005292,
+      "mean_lpips_change_vs_ZERO": -0.02613963435093562,
+      "projected_fraction": 0.9564175687108094,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.9339070567986231
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.9789280806229959
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "lambda": 0.011790604283044334,
+      "mean_L_image": 0.007739613789037166,
+      "mean_psnr_gain_vs_ZERO": 0.535245581583173,
+      "mean_lpips_change_vs_ZERO": -0.026641132930914562,
+      "projected_fraction": 0.8838497304445845,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.9197074010327022
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.8479920598564666
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "lambda": 0.04716241713217734,
+      "mean_L_image": 0.007749196309800265,
+      "mean_psnr_gain_vs_ZERO": 0.5085583906556389,
+      "mean_lpips_change_vs_ZERO": -0.02332292248805364,
+      "projected_fraction": 0.771651477318212,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.8796901893287435
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.6636127653076805
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "lambda": 0.18864966852870935,
+      "mean_L_image": 0.007898979903155766,
+      "mean_psnr_gain_vs_ZERO": 0.12026550330740211,
+      "mean_lpips_change_vs_ZERO": -0.00467728575070699,
+      "projected_fraction": 0.38457358653907564,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.7613597246127367
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.007787448465414567
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "lambda": 0.7545986741148374,
+      "mean_L_image": 0.008304452720052808,
+      "mean_psnr_gain_vs_ZERO": 0.0,
+      "mean_lpips_change_vs_ZERO": 0.0,
+      "projected_fraction": 0.008282708742173722,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.008777969018932874
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.007787448465414567
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "lambda": 3.0183946964593495,
+      "mean_L_image": 0.008304452720052808,
+      "mean_psnr_gain_vs_ZERO": 0.0,
+      "mean_lpips_change_vs_ZERO": 0.0,
+      "projected_fraction": 0.008282708742173722,
+      "projection_not_a_formal_RD_point": true,
+      "per_video": [
+        {
+          "video": "fb63c34e-0c28-4a4d-b8f8-59932b5e7875",
+          "calibration_only_projected_fraction": 0.008777969018932874
+        },
+        {
+          "video": "c227e33d-910e-4e39-a325-0fe1d1116436",
+          "calibration_only_projected_fraction": 0.007787448465414567
+        }
+      ]
+    }
+  ],
+  "checkpoint_selection": "minimum L_image + lambda * R_actual_frame_bpp among recorded steps incl0; tie lower actual bits then lower step",
+  "sequence_budget_selection": "one feasible whole-sequence lambda candidate with minimum mean L_image; tie fewer actual bits; fixed ZERO no-stream fallback allowed; never mix frames across lambda candidates",
+  "frozen_before_Train2_rest24_or_Val6": true
+}

@@ -1,0 +1,76 @@
+{
+  "GVC-RT": {
+    "repo": "/Huang_group/zyyz/Projects/GVC-RT",
+    "git_commit": "d0e32bfa3e8e282f9a77437c223c605858eea637",
+    "I_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+    "I_sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+    "P_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+    "P_sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+    "B2_checkpoint": "expericent_generation_input/expericent_generator_aware_latent_distortion_v11/b2_uniform_distill_training/checkpoints/update_0200.pt",
+    "supported_experiment_qp": [
+      1,
+      3
+    ],
+    "rate_source": "complete saved entropy bitstream bytes"
+  },
+  "DCVC-RT": {
+    "repo": "/Huang_group/zyyz/Projects/DCVC_RT",
+    "git_commit": "75d9d1a8fe801015d630db8e484682afeb0eee60",
+    "I_checkpoint": "/Huang_group/zyyz/Projects/DCVC_RT/checkpoints/cvpr2025_image.pth.tar",
+    "I_sha256": "555eff5f4026774f477bebdcbb3b52548e0da230803959dcebcea4d732a90dd9",
+    "P_checkpoint": "/Huang_group/zyyz/Projects/DCVC_RT/checkpoints/cvpr2025_video.pth.tar",
+    "P_sha256": "b12e7faf4ddb6126d8e138a627ed6a349b8e1052d3ed9e343e1ba266466675d6",
+    "legal_qp_indices": [
+      0,
+      63
+    ],
+    "tested_rate_controls": [
+      "I0_P0",
+      "I10_P10",
+      "I11_P10",
+      "I11_P11",
+      "I16_P16",
+      "I17_P17",
+      "I19_P19",
+      "I1_P1",
+      "I23_P23",
+      "I24_P24",
+      "I26_P26",
+      "I27_P27",
+      "I27_P28",
+      "I28_P28",
+      "I32_P32",
+      "I34_P34",
+      "I36_P36",
+      "I38_P38",
+      "I40_P40",
+      "I8_P8"
+    ],
+    "entropy_interface": "official compress/decompress RANS via MLCodec_extensions_cpp",
+    "container": "official SPS/IP stream_helper",
+    "rate_source": "complete saved entropy bitstream bytes"
+  },
+  "common_input": {
+    "frames": 64,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "padding_internal": [
+      1920,
+      1088
+    ],
+    "metric_crop": [
+      1920,
+      1080
+    ],
+    "fps_by_video": {
+      "fresh_ulong:0": 30.0,
+      "fresh_ulong:1": 29.97002997002997,
+      "fresh_ulong:10": 29.97002997002997,
+      "uvg:0": 120.0,
+      "uvg:1": 120.0,
+      "uvg:2": 120.0
+    }
+  }
+}

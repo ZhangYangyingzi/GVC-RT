@@ -1,0 +1,19 @@
+{
+  "network_parameter_updates": 0,
+  "Q1": "RATE_JUMPS_PRIMARILY_TRACK_NONZERO_DENSITY_AND_NONZERO_SYMBOL_INFORMATION; zero self-information becomes substantial for sparse candidates, while per-coded-frame headers are small",
+  "Q2": "NO_BIT_SAVING_FOR_ANY_COMPLETE_FORMAL_CANDIDATE_WITH_IDENTICAL_INTEGER_CODES; ORS1 selected dense fallback for every formal nonzero frame",
+  "Q2_probe_qualification": "ORS1 saved bits for fixed rate-only probes with 1, 4, 16, and 64 nonzeros; one sparse scheme failing on formal codes does not invalidate all sparse coding",
+  "Q3": "INTERMEDIATE_LAMBDA_FOUND_ONE_T2_ONLY_POINT; lambda 0.09432483426435467 used 26.2559% and gained 0.287655 dB IP with improved LPIPS",
+  "complete_Train2_budget_success": false,
+  "failure_reason": "T1 had no nonzero useful candidate within 50%; lowest measured useful T1 candidate remained 73.6145%",
+  "Val6_Q2_run": false,
+  "Val6_reason": "predeclared joint Train2 gate failed",
+  "advantage_attribution": "lambda coverage and code optimization on T2, not sparse recoding",
+  "same_rate_original": "nonzero overlap points improve PSNR but worsen MS-SSIM and LPIPS",
+  "highest_priority_next_change": "replace the dense enhancement representation with explicit block/channel-gated sparse structure and include skip-mode actual-rate behavior in the differentiable rate model before training a fast encoder",
+  "valid_new_code_runs": 108,
+  "valid_new_code_updates": 16200,
+  "historical_invalid_900_updates_excluded": true,
+  "real_time_claim": false,
+  "unbounded_search_performed": false
+}

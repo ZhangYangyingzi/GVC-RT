@@ -1,0 +1,22 @@
+{
+  "schema": "gvcrt_v13_generator_aware_mixed_precision_v1",
+  "source_experiment": "experiments/gvcrt_v12_4_sequence_discrete_beam",
+  "frames": 64,
+  "requested_qps": [1, 3],
+  "multi_qp": [0, 1, 2, 3],
+  "block_h": 4,
+  "block_w": 4,
+  "precision_modes": {"0": 1, "1": 2, "2": 4},
+  "target_rate_ratio": [0.95, 0.9, 0.8],
+  "proposal_rate_reduction": [0.025, 0.05, 0.1, 0.2],
+  "beam_width": 8,
+  "successors": ["all_1x", "mild", "medium", "aggressive"],
+  "mode_map_coder": "raster RLE; 2-bit mode plus unsigned Exp-Golomb(run_length-1)",
+  "optimization_distortion": "sum final frozen B2 plus De-Tokenizer RGB MSE",
+  "final_rate_source": "actual complete RANS bitstream bytes including mode syntax",
+  "seed": 20260922,
+  "random_seed": 20260922,
+  "probe_batch_size": 8,
+  "training": false,
+  "modified_symbol_family": "w1"
+}

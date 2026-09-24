@@ -1,0 +1,1487 @@
+{
+  "status": "INTERFACE-PASS",
+  "fused_available": false,
+  "environment": {
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "executable": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+    "platform": "Linux-5.4.0-125-generic-x86_64-with-glibc2.31",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "gpu_uuid": "GPU-9f8e23af-ce47-d03e-07a6-2e89cc8ef3bb",
+    "git_commit": "d0e32bfa3e8e282f9a77437c223c605858eea637",
+    "git_status": "?? experiments/\n?? real_data/\n?? smoke_data/\n?? smoke_out_bin/\n?? smoke_output.json\n?? smoke_test.json\n?? virat_GVC_RT_q0_reconstructed.mp4\n?? virat_GVC_RT_q1_reconstructed.mp4\n?? virat_q0_out/\n?? virat_q0_summary.json\n?? virat_q1_out/\n?? virat_q1_summary.json\n?? virat_visual_test.json\n"
+  },
+  "weights": {
+    "I": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "keys": 596,
+      "missing": [],
+      "unexpected": [],
+      "strict": true
+    },
+    "P": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "keys": 537,
+      "missing": [],
+      "unexpected": [],
+      "strict": true
+    }
+  },
+  "causal_replay_exact": true,
+  "frames": [
+    {
+      "frame": 0,
+      "qp": 0,
+      "type": "I",
+      "base_bits": 28184,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.0790935829281807,
+      "dpb": [
+        {
+          "poc": 0,
+          "feature": null,
+          "frame": "ac7b362bd676048c22143cdde594f355fe76a1fa4e41c19dc5f197d008d6f259"
+        }
+      ],
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "ac7b362bd676048c22143cdde594f355fe76a1fa4e41c19dc5f197d008d6f259"
+    },
+    {
+      "frame": 1,
+      "qp": 2,
+      "type": "P",
+      "base_bits": 37360,
+      "sps": {
+        "sps_id": 1,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 1
+      },
+      "decode_seconds": 0.06159424036741257,
+      "dpb": [
+        {
+          "poc": 1,
+          "feature": "6a04dfc3002a0bd0b963e73a07e971f57049a387c83a2154717c4a20ceb9293d",
+          "frame": "eb75dd7eb9a113f48bc1027dc61fc092ed602c3a0f91058fea940ec73c9a16bb"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -8.484375,
+        8.0078125
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.267578125,
+        1.2666015625
+      ],
+      "ell_sha256": "280468635ebf49e3bf8927d3da1bbe08493d7c8ae8f16349be58e95fce5b9cc6",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.67529296875,
+        1.2958984375
+      ],
+      "q_recon_sha256": "258dae7f334b224a983f39c6c24243124f9c5c55daa625d6631eec3ab1f6ee62",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "eb75dd7eb9a113f48bc1027dc61fc092ed602c3a0f91058fea940ec73c9a16bb"
+    },
+    {
+      "frame": 2,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 7800,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04647650569677353,
+      "dpb": [
+        {
+          "poc": 2,
+          "feature": "71115bbdb3429047a8791c11f984ecde268cb42a46207276ef27968acf237e57",
+          "frame": "b2c68b748e0397f172ee948b954268423b15da5ea419d695c56c812bd051c853"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -10.1796875,
+        9.015625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.22265625,
+        1.1552734375
+      ],
+      "ell_sha256": "9004002564ef3517f92fc1da9479b850d654594ed8f1be99461764c1bf6dd69c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "b2c68b748e0397f172ee948b954268423b15da5ea419d695c56c812bd051c853"
+    },
+    {
+      "frame": 3,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 2632,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.040588222444057465,
+      "dpb": [
+        {
+          "poc": 3,
+          "feature": "f93f9588755708d21c24672a9b6abb4a08d664940834088e3e9ec0e0ef03ab63",
+          "frame": "fe9d8a0a9b83af09d47a83a9972cb7e4c6cb2a21e8180536d92dff7097ee9465"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.1171875,
+        8.0234375
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.2294921875,
+        1.1611328125
+      ],
+      "ell_sha256": "97590dad2b7969a6fe24b324b697b46d3a8a56e69b7d067581e766cc259ebd6c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "fe9d8a0a9b83af09d47a83a9972cb7e4c6cb2a21e8180536d92dff7097ee9465"
+    },
+    {
+      "frame": 4,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 2576,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04053344577550888,
+      "dpb": [
+        {
+          "poc": 4,
+          "feature": "1490d48d5bc49a22642de2a6b54373593a872cbe542697eb53ed190d61a50bee",
+          "frame": "fdce2b5ace565a74fc09e2998c0f84a1f627f0565dca75ad30ed787eaa016bdf"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.9140625,
+        8.640625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1767578125,
+        1.125
+      ],
+      "ell_sha256": "41833aa2273052b5cd576ca16fdf4884d689a1798c81dd3d1c0f2ef42c74da2c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "fdce2b5ace565a74fc09e2998c0f84a1f627f0565dca75ad30ed787eaa016bdf"
+    },
+    {
+      "frame": 5,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 1912,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04594806581735611,
+      "dpb": [
+        {
+          "poc": 5,
+          "feature": "412bdda016be0efaa29cbb8e64560574491fe3905dc785a7fd1eac176eae00d7",
+          "frame": "769140609c1cbad4961b35764c090aeb3ca3c74165e0f1923959a3a9224ffa3f"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.4921875,
+        8.46875
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1767578125,
+        1.140625
+      ],
+      "ell_sha256": "6e26e2b3a57542e12fb6aebdf65357241c02665a593b34700891f3dc0af56445",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "769140609c1cbad4961b35764c090aeb3ca3c74165e0f1923959a3a9224ffa3f"
+    },
+    {
+      "frame": 6,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 2224,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04034632444381714,
+      "dpb": [
+        {
+          "poc": 6,
+          "feature": "540282a320e402a8614842be930b5c97639ec3c811a599477377a7b6629823b4",
+          "frame": "e58e9deb4c1849f306826c7037f2d9ca073a022721eac9f339299a1ba7d56529"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.671875,
+        8.2578125
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1650390625,
+        1.1220703125
+      ],
+      "ell_sha256": "f8ade45b621b83ad0b4bd902f7455996253086789f25cfdfe0cc086a25731cf3",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "e58e9deb4c1849f306826c7037f2d9ca073a022721eac9f339299a1ba7d56529"
+    },
+    {
+      "frame": 7,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 1224,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.042389459908008575,
+      "dpb": [
+        {
+          "poc": 7,
+          "feature": "ee4a4ef40545726b4430f6c0479c3bfa1ba902ae72f44776f8b6ff37bc5b8f68",
+          "frame": "195996c845079794811d4d474bc370ee085daabb021182bdde398598f4a95462"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.921875,
+        8.6953125
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1787109375,
+        1.138671875
+      ],
+      "ell_sha256": "393dd12eb7ca875b0f186b2f3cf010340a91b6cef24093be087bf35e97b55a12",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "195996c845079794811d4d474bc370ee085daabb021182bdde398598f4a95462"
+    }
+  ],
+  "encoding": [
+    {
+      "frame": 0,
+      "type": "I",
+      "qp": 0,
+      "use_ada_i": 0,
+      "base_bits": 28184,
+      "encode_seconds": 1.337723284959793
+    },
+    {
+      "frame": 1,
+      "type": "P",
+      "qp": 2,
+      "use_ada_i": 1,
+      "base_bits": 37360,
+      "encode_seconds": 0.037656269967556
+    },
+    {
+      "frame": 2,
+      "type": "P",
+      "qp": 0,
+      "use_ada_i": 0,
+      "base_bits": 7800,
+      "encode_seconds": 0.027969665825366974
+    },
+    {
+      "frame": 3,
+      "type": "P",
+      "qp": 1,
+      "use_ada_i": 0,
+      "base_bits": 2632,
+      "encode_seconds": 0.02807951718568802
+    },
+    {
+      "frame": 4,
+      "type": "P",
+      "qp": 0,
+      "use_ada_i": 0,
+      "base_bits": 2576,
+      "encode_seconds": 0.027972832322120667
+    },
+    {
+      "frame": 5,
+      "type": "P",
+      "qp": 1,
+      "use_ada_i": 0,
+      "base_bits": 1912,
+      "encode_seconds": 0.027970843017101288
+    },
+    {
+      "frame": 6,
+      "type": "P",
+      "qp": 0,
+      "use_ada_i": 0,
+      "base_bits": 2224,
+      "encode_seconds": 0.02797754853963852
+    },
+    {
+      "frame": 7,
+      "type": "P",
+      "qp": 1,
+      "use_ada_i": 0,
+      "base_bits": 1224,
+      "encode_seconds": 0.027983590960502625
+    }
+  ],
+  "reset_switch_exact": true,
+  "reset_switch_frames": [
+    {
+      "frame": 0,
+      "qp": 0,
+      "type": "I",
+      "base_bits": 28184,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04663307964801788,
+      "dpb": [
+        {
+          "poc": 0,
+          "feature": null,
+          "frame": "ac7b362bd676048c22143cdde594f355fe76a1fa4e41c19dc5f197d008d6f259"
+        }
+      ],
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "ac7b362bd676048c22143cdde594f355fe76a1fa4e41c19dc5f197d008d6f259"
+    },
+    {
+      "frame": 1,
+      "qp": 2,
+      "type": "P",
+      "base_bits": 37360,
+      "sps": {
+        "sps_id": 1,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 1
+      },
+      "decode_seconds": 0.041716091334819794,
+      "dpb": [
+        {
+          "poc": 1,
+          "feature": "6a04dfc3002a0bd0b963e73a07e971f57049a387c83a2154717c4a20ceb9293d",
+          "frame": "eb75dd7eb9a113f48bc1027dc61fc092ed602c3a0f91058fea940ec73c9a16bb"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -8.484375,
+        8.0078125
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.267578125,
+        1.2666015625
+      ],
+      "ell_sha256": "280468635ebf49e3bf8927d3da1bbe08493d7c8ae8f16349be58e95fce5b9cc6",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.67529296875,
+        1.2958984375
+      ],
+      "q_recon_sha256": "258dae7f334b224a983f39c6c24243124f9c5c55daa625d6631eec3ab1f6ee62",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "eb75dd7eb9a113f48bc1027dc61fc092ed602c3a0f91058fea940ec73c9a16bb"
+    },
+    {
+      "frame": 2,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 7800,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.040277063846588135,
+      "dpb": [
+        {
+          "poc": 2,
+          "feature": "71115bbdb3429047a8791c11f984ecde268cb42a46207276ef27968acf237e57",
+          "frame": "b2c68b748e0397f172ee948b954268423b15da5ea419d695c56c812bd051c853"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -10.1796875,
+        9.015625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.22265625,
+        1.1552734375
+      ],
+      "ell_sha256": "9004002564ef3517f92fc1da9479b850d654594ed8f1be99461764c1bf6dd69c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "b2c68b748e0397f172ee948b954268423b15da5ea419d695c56c812bd051c853"
+    },
+    {
+      "frame": 3,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 2632,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04024634510278702,
+      "dpb": [
+        {
+          "poc": 3,
+          "feature": "f93f9588755708d21c24672a9b6abb4a08d664940834088e3e9ec0e0ef03ab63",
+          "frame": "fe9d8a0a9b83af09d47a83a9972cb7e4c6cb2a21e8180536d92dff7097ee9465"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.1171875,
+        8.0234375
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.2294921875,
+        1.1611328125
+      ],
+      "ell_sha256": "97590dad2b7969a6fe24b324b697b46d3a8a56e69b7d067581e766cc259ebd6c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "fe9d8a0a9b83af09d47a83a9972cb7e4c6cb2a21e8180536d92dff7097ee9465"
+    },
+    {
+      "frame": 4,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 2576,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04025349020957947,
+      "dpb": [
+        {
+          "poc": 4,
+          "feature": "1490d48d5bc49a22642de2a6b54373593a872cbe542697eb53ed190d61a50bee",
+          "frame": "fdce2b5ace565a74fc09e2998c0f84a1f627f0565dca75ad30ed787eaa016bdf"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.9140625,
+        8.640625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1767578125,
+        1.125
+      ],
+      "ell_sha256": "41833aa2273052b5cd576ca16fdf4884d689a1798c81dd3d1c0f2ef42c74da2c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "fdce2b5ace565a74fc09e2998c0f84a1f627f0565dca75ad30ed787eaa016bdf"
+    },
+    {
+      "frame": 5,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 19656,
+      "sps": {
+        "sps_id": 1,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 1
+      },
+      "decode_seconds": 0.04151561111211777,
+      "dpb": [
+        {
+          "poc": 5,
+          "feature": "72f5d081aa7f8afd4b01f8f0e2d5fd2491614cb343f395220952147587e7bc93",
+          "frame": "033b95399a193c927157c8b1fc05a8f5a344c8ec8908c1a50e7f9e2b8afb9339"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -8.8046875,
+        7.921875
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.3056640625,
+        1.2119140625
+      ],
+      "ell_sha256": "17025be7db87272329b91237a712c89815ba497b4911c4748109156223f46000",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "033b95399a193c927157c8b1fc05a8f5a344c8ec8908c1a50e7f9e2b8afb9339"
+    },
+    {
+      "frame": 6,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 2544,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04027871787548065,
+      "dpb": [
+        {
+          "poc": 6,
+          "feature": "396d60c69ac8a9c6f31bcbb4aa5a1194d3636eb581ea0a8d35f54489c752a9c8",
+          "frame": "bb6de251a1e5518753c56725e6ab17e0d10b92d7a7d04e54ebfc1b2cac4eb3b1"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -10.3515625,
+        9.2734375
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.26171875,
+        1.16796875
+      ],
+      "ell_sha256": "23fb6cdb29eb5b0db555421511389aa6d7fc92b9b46a972abc9d84151ccfb2a0",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "bb6de251a1e5518753c56725e6ab17e0d10b92d7a7d04e54ebfc1b2cac4eb3b1"
+    },
+    {
+      "frame": 7,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 1336,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04027077555656433,
+      "dpb": [
+        {
+          "poc": 7,
+          "feature": "4a75ce10d0731af8246428804fc58e6ce549a916d5b2b0b177e7227bac30717c",
+          "frame": "98a4f1d73e18fb239dfd89f6a20067b2cea077f665e06069b84d76d58b001b09"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -8.8671875,
+        7.890625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.2919921875,
+        1.1630859375
+      ],
+      "ell_sha256": "a198f7a1e4cac9d47cc7d91d7deecf4434f2af3c654991d20f171141781087db",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "98a4f1d73e18fb239dfd89f6a20067b2cea077f665e06069b84d76d58b001b09"
+    },
+    {
+      "frame": 8,
+      "qp": 0,
+      "type": "I",
+      "base_bits": 28064,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04701688140630722,
+      "dpb": [
+        {
+          "poc": 8,
+          "feature": null,
+          "frame": "f2d7c45affb3e41eddaa2065adb0dea280bcc1ebb150ebdf58c628bd98fa9676"
+        }
+      ],
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "f2d7c45affb3e41eddaa2065adb0dea280bcc1ebb150ebdf58c628bd98fa9676"
+    },
+    {
+      "frame": 9,
+      "qp": 2,
+      "type": "P",
+      "base_bits": 36744,
+      "sps": {
+        "sps_id": 1,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 1
+      },
+      "decode_seconds": 0.04177604615688324,
+      "dpb": [
+        {
+          "poc": 9,
+          "feature": "3eaea5664c69a628672a45ebf32fd048f8c810bcc9f336343fea8f925042c8fe",
+          "frame": "fab1ac1444172cb3e144ae12be9e13d64cca9cad1594dd306d36ce458610c83f"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -8.765625,
+        8.265625
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.2646484375,
+        1.21875
+      ],
+      "ell_sha256": "11204c73e402099dce04d9d9871bf3574eb463b486834864c80096fee03c801a",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.67529296875,
+        1.2958984375
+      ],
+      "q_recon_sha256": "258dae7f334b224a983f39c6c24243124f9c5c55daa625d6631eec3ab1f6ee62",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "fab1ac1444172cb3e144ae12be9e13d64cca9cad1594dd306d36ce458610c83f"
+    },
+    {
+      "frame": 10,
+      "qp": 0,
+      "type": "P",
+      "base_bits": 7208,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04032769799232483,
+      "dpb": [
+        {
+          "poc": 10,
+          "feature": "93d6d583635ef9987aada64f2ccb2281e40133156f37c4f8cfb9f4d185020c59",
+          "frame": "8c965d5cd026a1999de7513a4823502b61e78654bd0d107997869416361ae790"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -10.4375,
+        9.2734375
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.20703125,
+        1.193359375
+      ],
+      "ell_sha256": "a2d08024a1cf3a837fb367dddc5d73814e40fc8f3e9720b964bdf933bdf6b02c",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.3935546875,
+        1.26953125
+      ],
+      "q_recon_sha256": "6ebff6aede59ecbce5a2df4e93f271554ad8c6654f500ab3c42d68975a0b33c2",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "8c965d5cd026a1999de7513a4823502b61e78654bd0d107997869416361ae790"
+    },
+    {
+      "frame": 11,
+      "qp": 1,
+      "type": "P",
+      "base_bits": 2832,
+      "sps": {
+        "sps_id": 0,
+        "height": 1088,
+        "width": 1920,
+        "ec_part": 1,
+        "use_ada_i": 0
+      },
+      "decode_seconds": 0.04024262726306915,
+      "dpb": [
+        {
+          "poc": 11,
+          "feature": "1865cdc2b9b4976daa91b503d3a8120c3c93004d9f30fe362e75ceaac71c7697",
+          "frame": "053a631c597bbf0f34e461b0a0f0682270eb4da399a2d6680e5ab82347408edd"
+        }
+      ],
+      "feature_shape": [
+        1,
+        256,
+        136,
+        240
+      ],
+      "feature_range": [
+        -9.171875,
+        8.0546875
+      ],
+      "y_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "bypass_exact": true,
+      "bypass_dpb_exact": true,
+      "ell_immutable": true,
+      "ell_shape": [
+        1,
+        18,
+        68,
+        120
+      ],
+      "ell_range": [
+        -1.1884765625,
+        1.23046875
+      ],
+      "ell_sha256": "daf768ad1d96bc39fdcef23d1c1c08421229a4024b55fbc7740c0415fa296e13",
+      "q_recon_shape": [
+        1,
+        320,
+        1,
+        1
+      ],
+      "q_recon_range": [
+        -0.6123046875,
+        1.283203125
+      ],
+      "q_recon_sha256": "333864a8bbb5edb631c74f5014056f09a9bbb15ec8853e720b761ddefbe3e7d3",
+      "x_base_shape": [
+        1,
+        3,
+        1088,
+        1920
+      ],
+      "x_base_range": [
+        -1.0,
+        1.0
+      ],
+      "x_base_sha256": "053a631c597bbf0f34e461b0a0f0682270eb4da399a2d6680e5ab82347408edd"
+    }
+  ],
+  "fp32_vs_official_fp16": {
+    "max_abs_rgb01": 0.01062069833278656,
+    "mse_rgb01": 1.5030580868824472e-07,
+    "note": "Same FP16-decoded ell/q; full FP32 generator. This difference is not enhancement gain."
+  },
+  "torch_vs_official_same_precision_exact": true,
+  "parameters": {
+    "encoder": 128008,
+    "decoder": 35026,
+    "base_only": 30418,
+    "entropy": 8
+  },
+  "gradient_steps": [
+    {
+      "step": 0,
+      "mse": 0.023577595129609108,
+      "encoder": 0.0,
+      "decoder": 0.1303659917604617
+    },
+    {
+      "step": 1,
+      "mse": 0.022768864408135414,
+      "encoder": 0.00026012555789696506,
+      "decoder": 0.12224865289411264
+    },
+    {
+      "step": 2,
+      "mse": 0.021996332332491875,
+      "encoder": 0.0004970637103603016,
+      "decoder": 0.11484013081333193
+    }
+  ],
+  "gradient_seconds": 0.7095281034708023,
+  "gradient_peak_allocated_bytes": 9394479104,
+  "base_weights_unchanged": true,
+  "enhancement_entropy": {
+    "roundtrip_exact": true,
+    "boundary_roundtrip_exact": true,
+    "overflow_rejected": true,
+    "actual_bits": 10376,
+    "estimated_bits": 10146.7958984375,
+    "header_bytes": 24,
+    "symbol_min": -0.0,
+    "symbol_max": -0.0
+  }
+}

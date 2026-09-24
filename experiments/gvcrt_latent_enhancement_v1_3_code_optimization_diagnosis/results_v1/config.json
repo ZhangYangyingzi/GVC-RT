@@ -1,0 +1,99 @@
+{
+  "name": "GVC-RT V1.3 fixed-decoder code optimization diagnosis",
+  "seed": 915013,
+  "v12": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_2_oracle_residual_codec",
+  "gpu_uuid": "GPU-76210030-c72b-28f8-f8ca-f21276be4417",
+  "model": "results_v1/stage_B/checkpoint_1500.pt",
+  "level": 3,
+  "delta": 9.042649269104004,
+  "code_shape": [
+    1,
+    8,
+    17,
+    30
+  ],
+  "code_scalar_count": 4080,
+  "baseline": "V1 stage_D same-model ZERO; exact ell_c from V1.2",
+  "valid_hw": [
+    1080,
+    1920
+  ],
+  "padded_hw": [
+    1088,
+    1920
+  ],
+  "base_qp": 0,
+  "intra_period": -1,
+  "reset_interval": 96,
+  "dtype": "float32 D_enh/G, original FP16 base stream and I frame; TF32 disabled",
+  "torch_threads": 4,
+  "metric_workers": 4,
+  "steps": 150,
+  "snapshots": [
+    0,
+    25,
+    50,
+    100,
+    150
+  ],
+  "optimizer": "Adam",
+  "adam_betas": [
+    0.9,
+    0.999
+  ],
+  "adam_eps": 1e-08,
+  "lambda_p": 0.001,
+  "lr_rule": "physical continuous-code lr = 0.02 * median RMS of six actual encoder u tensors; quantization-domain lr = physical lr / fixed l3 delta",
+  "scale_correction": "at most one numerical scale correction on six frames, only if a concrete numerical/domain/gradient issue is found; all attempts retained",
+  "A": {
+    "initializations": [
+      "ENCODER_START",
+      "ZERO_START"
+    ],
+    "domain": "physical pre-quantizer u; no rounding; residual_scale remains applied",
+    "selection": "minimum recorded MSE+0.001 LPIPS including step0; tie lower step",
+    "global_initialization": "lower six-frame mean selected L_image; exact tie favors ZERO_START",
+    "expansion_gate_psnr_db": 0.2,
+    "extension": "only chosen global initialization, fixed optimizer/lr/steps/selection; remaining Train2 24 P and Val6 90 P",
+    "not_a_rate_distortion_point": true
+  },
+  "B": {
+    "initialization": "ZERO_START",
+    "initialization_rationale": "fixed teacher-free coding algorithm; validates zero-input gradient; no initializer search outside six frames",
+    "domain": "dimensionless z; forward s=round(z) with STE; physical decoder input u_hat=s*fixed_delta",
+    "R_est": "frozen V1.2 factorized logistic probability of STE integer symbols, bits divided by 1080*1920; includes no zero-grid skip approximation",
+    "hard_state_gradient_cache": "same sample/lambda and exactly identical rounded symbols permit reuse of the frozen deterministic STE objective gradient; every checkpoint is freshly hard-rendered and coded; first reuse checked against fresh backward (atol1e-7 rtol1e-5)",
+    "lambda_reference_rule": "median over six frames of ||dL_image/dz||_2 / ||dR_est_bpp/dz||_2 at encoder-initialized hard-quantized z; record loss and gradient scales",
+    "lambda_multipliers": [
+      0,
+      0.0625,
+      0.25,
+      1,
+      4,
+      16
+    ],
+    "nonzero_selection": "retain lowest and highest pressure; choose third from middle candidates whose six-frame projected full-sequence ratio is closest in log space to 25%; projection is calibration only, not an RD result",
+    "checkpoint_selection": "minimum L_image + lambda * R_actual_frame_bpp among recorded steps incl0; tie lower actual bits then lower step",
+    "R_actual_frame_bpp": "actual ORC2 frame packet bits plus (86-byte sequence header + 1-byte I flag)/15, divided by valid pixels; sums exactly to full-sequence file cost",
+    "snapshot_streams": "legal diagnostic 16-frame containers with only current frame nonzero; not formal full-sequence RD points",
+    "always_run_six_even_if_A_fails": true,
+    "sequence_selection": "one feasible whole-sequence lambda candidate with minimum mean L_image; tie fewer actual bits; fixed ZERO no-stream fallback allowed; never mix frames across lambda candidates",
+    "budgets": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "Val6_gate": "exists a budget where both Train2 clips meet actual bytes, aggregate full IP PSNR gain >=0.1dB and aggregate LPIPS worsening <=0.0001",
+    "existing_encoder_comparator": "same budget/whole-sequence selection over existing V1.2 l0-l3 actual streams plus same ZERO no-stream fallback"
+  },
+  "mismatch": "cyclic next video in fixed manifest order, same P index, same branch/domain; decode each stream in own valid context before exchanging",
+  "splits": [
+    "network_train6",
+    "Train2_rest24",
+    "Val6_90P"
+  ],
+  "quality": "V1 PSNR and five-scale RGB MS-SSIM functions; LPIPS alex v0.1 normalize=True; valid RGB [0,1]",
+  "network_updates": 0,
+  "no_download": true,
+  "no_new_architecture_or_distillation": true
+}

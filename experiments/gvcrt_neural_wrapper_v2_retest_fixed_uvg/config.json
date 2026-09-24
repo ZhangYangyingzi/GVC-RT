@@ -1,0 +1,17 @@
+{
+  "schema": "gvcrt_neural_wrapper_v2_retest_fixed_uvg",
+  "source_fix": {
+    "uvg_reader": "ffmpeg rawvideo yuv420p to rgb24",
+    "uvg_color_matrix": "BT.601",
+    "uvg_color_range": "limited",
+    "fixed_source_isolated": true
+  },
+  "checkpoint_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint",
+  "methods": ["original", "stage_a", "beta_low", "beta_mid", "beta_high"],
+  "qps": [0, 1, 2, 3],
+  "frames": 64,
+  "visualization_qps": [1, 3],
+  "fps_policy": "manifest fps",
+  "real_rans": true,
+  "independent_decode": true
+}

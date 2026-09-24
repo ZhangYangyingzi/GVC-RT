@@ -1,0 +1,34 @@
+{
+  "schema": "gvcrt_v14_replacement_oracle_v1",
+  "frames": 64,
+  "requested_qps": [1, 3],
+  "granularities": {"G8": 8, "G16": 16},
+  "actions": {"FULL": 0, "PRED_ONLY": 1, "CORR2": 2, "CORR4": 3},
+  "micro_actions": ["FULL", "PRED_ONLY", "CORR1", "CORR2", "CORR4"],
+  "candidate_fractions": [0.0, 0.05, 0.1, 0.2, 0.35, 0.5, 0.7, 1.0],
+  "mixed_lambdas": [0.0, 0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],
+  "target_rate_ratios": [0.99, 0.975, 0.95, 0.9, 0.8],
+  "beam_width": 16,
+  "prefix_max_rate_ratio": 1.05,
+  "rate_buckets": [[0.0, 0.8], [0.8, 0.9], [0.9, 0.95], [0.95, 0.975], [0.975, 0.99], [0.99, 1.0], [1.0, 1.025], [1.025, 1.05]],
+  "probe_batch_size": 8,
+  "random_seed": 20260923,
+  "training": false,
+  "modified_symbol_family": "w1",
+  "source_v13_1": "../gvcrt_v13_1_structured_mixed_precision",
+  "repository_commit": "d0e32bfa3e8e282f9a77437c223c605858eea637",
+  "checkpoints": {
+    "iframe": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+    },
+    "pframe": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    },
+    "b2": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_generator_aware_latent_distortion_v11/checkpoints/b2/lr_1e-04/update_0200.pt",
+      "sha256": "0ea5ac6dcf7e8e9f143367c05b6319c60b2d13565a0f7f79aaefdb13050bfc77"
+    }
+  }
+}

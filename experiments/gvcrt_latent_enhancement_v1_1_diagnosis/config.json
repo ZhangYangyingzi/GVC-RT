@@ -1,0 +1,69 @@
+{
+  "name": "GVC-RT Latent Enhancement V1.1 Diagnosis",
+  "seed": 914011,
+  "v1_directory": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1",
+  "gpu_uuid": "GPU-9f8e23af-ce47-d03e-07a6-2e89cc8ef3bb",
+  "base_qp": 0,
+  "valid_hw": [1080,1920],
+  "padded_hw": [1088,1920],
+  "intra_period": -1,
+  "reset_interval": 96,
+  "force_zero_thres": 0.12,
+  "codec_dtype": "float16",
+  "generator_dtype": "float32",
+  "tf32": false,
+  "torch_threads": 4,
+  "metric_workers": 4,
+  "ablation": {
+    "split": "Val6",
+    "checkpoint": "run_v1/stage_d/checkpoint.pt",
+    "levels": [{"index":0,"delta":0.125},{"index":1,"delta":0.5},{"index":2,"delta":2.0}],
+    "modes": ["REAL","ZERO","WRONG_SOURCE","CONTINUOUS"],
+    "donor_rule": "manifest val order cyclic successor (i+1)%6, no self; donor frame=current frame; same quantization level; decode each file against its own base identity before exchange",
+    "wrong_source_replacement": "swap decoded enhancement symbols/u_hat only; delta is identical; no source-dependent mean/scale/hyperprior exists; keep current ell and q_recon",
+    "zero_rule": "zero integers through s.float()*delta and the same D/G; never call no-stream bypass",
+    "continuous_rule": "same frozen E on original RGB [0,1] with replicated bottom padding; use pre-division u directly in model units",
+    "diagnostic_modes_have_no_formal_rate": ["ZERO","WRONG_SOURCE","CONTINUOUS"],
+    "references": ["ORIGINAL_FP16","REFERENCE_FP32","BASE_ONLY"],
+    "metric_deduplication": "only exactly equal output tensors for the same source frame may reuse metric results; all requested network forwards still executed"
+  },
+  "oracle": {
+    "split": "Train2",
+    "checkpoint": "run_v1/stage_c/checkpoint.pt",
+    "zero_start_delta": 2.0,
+    "selection": "first, middle, last P frame in each existing Train2 clip; metadata-driven before optimization",
+    "expected_frame_indices": [1,8,15],
+    "initializations": ["ORIGINAL_START","ZERO_START"],
+    "objectives": ["MSE_ONLY","MSE_LPIPS"],
+    "lambda_p": 0.001,
+    "lambda_p_source": "V1 training.lambda_p, confirmed active in C/D logs",
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "steps": 150,
+    "snapshots": [0,25,50,100,150],
+    "delta_initialization": "zeros_like(ell_start)",
+    "fail_run_if_nonfinite": true,
+    "abnormal_delta_max_abs_stop": 10.0,
+    "abnormal_mse_stop": 1.0,
+    "crop_boxes_xyxy": {
+      "fb63c34e-0c28-4a4d-b8f8-59932b5e7875": [576,480,960,864],
+      "c227e33d-910e-4e39-a325-0fe1d1116436": [960,120,1344,504]
+    }
+  },
+  "rate_analysis": {
+    "split": "Val6",
+    "delta": 2.0,
+    "protocol_changes": false,
+    "all_zero_flag_estimate": "retain all existing container/frame headers; add 1 byte per P-frame containing zero flag plus byte alignment; omit complete arithmetic payload for zero grids; estimate only"
+  },
+  "metrics": {
+    "implementation": "V1 evaluation.py/source src.utils.metrics; same float64 scipy MS-SSIM and PSNR; LPIPS alex v0.1 normalize=True",
+    "range": [0,1],
+    "region": "original valid 1080x1920, padding excluded",
+    "scopes": ["P","IP"],
+    "quality_mean": "equal per-frame means; per-video and aggregate both saved",
+    "norm": "L2 and RMS (sqrt mean square); relative L2 = norm(delta)/max(norm(start),1e-12)"
+  },
+  "no_network_training": true,
+  "no_download": true
+}

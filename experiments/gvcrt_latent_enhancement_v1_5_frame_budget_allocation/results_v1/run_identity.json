@@ -1,0 +1,62 @@
+{
+  "config_sha256": "bbaa9590fa53f1335165dca05f57afcef02a6af3e0ac57d045b233ffca6203e5",
+  "model_sha256": "ea095cd0d647fe122ed0beb743adf8922a789fe057ea432b7066171e02870a36",
+  "allocator_test": {
+    "short_gop_bruteforce_cases": 72,
+    "passed": true
+  },
+  "gpu_preflight": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,memory.used,memory.total,utilization.gpu",
+      "--format=csv,noheader,nounits"
+    ],
+    "all_allowed_gpu_rows": [
+      {
+        "index": 4,
+        "uuid": "GPU-990e972c-5711-6d17-048b-577f18976ff3",
+        "memory_used_mib": 15991,
+        "memory_total_mib": 40960,
+        "memory_free_mib": 24969,
+        "utilization_percent": 0
+      },
+      {
+        "index": 5,
+        "uuid": "GPU-e7309963-f9fb-d0be-1886-d26b609ddef0",
+        "memory_used_mib": 13508,
+        "memory_total_mib": 40960,
+        "memory_free_mib": 27452,
+        "utilization_percent": 34
+      },
+      {
+        "index": 6,
+        "uuid": "GPU-76210030-c72b-28f8-f8ca-f21276be4417",
+        "memory_used_mib": 9643,
+        "memory_total_mib": 40960,
+        "memory_free_mib": 31317,
+        "utilization_percent": 13
+      },
+      {
+        "index": 7,
+        "uuid": "GPU-09edf901-be5d-63cc-7971-373200bcc105",
+        "memory_used_mib": 5817,
+        "memory_total_mib": 40960,
+        "memory_free_mib": 35143,
+        "utilization_percent": 35
+      }
+    ],
+    "chosen": {
+      "index": 5,
+      "uuid": "GPU-e7309963-f9fb-d0be-1886-d26b609ddef0",
+      "memory_used_mib": 13508,
+      "memory_total_mib": 40960,
+      "memory_free_mib": 27452,
+      "utilization_percent": 34
+    }
+  },
+  "historical_inputs": {
+    "v12": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_2_oracle_residual_codec",
+    "v13": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_3_code_optimization_diagnosis",
+    "v14": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1_4_rate_gap_diagnosis"
+  }
+}

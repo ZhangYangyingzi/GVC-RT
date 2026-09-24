@@ -1,0 +1,35 @@
+--- a/native_fix/py_rans/rans.cpp
++++ b/native_fix/py_rans/rans.cpp
+@@
+-    uint8_t* output = new uint8_t[total_symbol_size];  // too much space ?
+-    uint8_t* ptrEnd = output + total_symbol_size;
++    const size_t output_capacity = static_cast<size_t>(total_symbol_size) * 16 + 1024;
++    uint8_t* output = new uint8_t[output_capacity];
++    uint8_t* ptrEnd = output + output_capacity;
+--- a/v13_codec.py
++++ b/v13_codec.py
+@@
+     threshold = model.gaussian_encoder.force_zero_thres
+     active = torch.ones_like(scales, dtype=torch.bool) if threshold is None else scales > threshold
++    if not bool(active.any()):
++        return b""
+@@
+-        combined = model.gaussian_encoder.build_indexes_encoder(
+-            symbols[select], (scales / MODE_TO_DELTA[mode])[select])
++        saved_threshold = model.gaussian_encoder.force_zero_thres
++        model.gaussian_encoder.force_zero_thres = None
++        try:
++            combined = model.gaussian_encoder.build_indexes_encoder(
++                symbols[select], (scales / MODE_TO_DELTA[mode])[select])
++        finally:
++            model.gaussian_encoder.force_zero_thres = saved_threshold
+@@
+     active = torch.ones_like(scales, dtype=torch.bool) if threshold is None else scales > threshold
+     result = torch.zeros_like(scales)
++    if not bool(active.any()):
++        if len(stream) != 0:
++            raise ValueError("non-empty w1 stream for zero active symbols")
++        return result
++    if len(stream) == 0:
++        raise ValueError("empty w1 stream with active symbols")
+     model.entropy_coder.set_stream(stream)

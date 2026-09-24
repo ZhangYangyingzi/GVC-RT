@@ -1,0 +1,2555 @@
+{
+  "git_commit": "d0e32bfa3e8e282f9a77437c223c605858eea637",
+  "environment": {
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "executable": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "platform": "Linux-5.4.0-125-generic-x86_64-with-glibc2.31"
+  },
+  "checkpoints": {
+    "ablation": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_d/checkpoint.pt",
+      "sha256": "238b0740cebbc9012e0f3486e1ea178e1d944e8d47801d1216fa8743163e812a",
+      "stage": "stage_d",
+      "steps_in_stage": 1500,
+      "enhancement_keys": 32,
+      "base_only_keys": 12,
+      "entropy_keys": 1,
+      "strict_match": true
+    },
+    "oracle": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_c/checkpoint.pt",
+      "sha256": "8c5002d627ca8130a5d317321f5e924d32b58f7110e40dde34d0bf77ed975cce",
+      "stage": "stage_c",
+      "steps_in_stage": 1000,
+      "enhancement_keys": 32,
+      "base_only_keys": 12,
+      "entropy_keys": 1,
+      "strict_match": true
+    }
+  },
+  "used_files_sha256": {
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/config.json": "03221291c6548cb546cc388f33861e3be98008f995b50a03c0071a51fc3c2487",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/manifest.json": "a21b82e2908409d541f285a4c0ff2c347d2b0893f1e398f4b25e01187a50f6b1",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/report.md": "2aea975ba9c6eeab6934e50d8f1394fd6dfac9f7e7db3b214f1a77af2a1274ae",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/enhancement.py": "082c0c097bc8032d1ec1fcc7496d8b8f75bb05f2c09da08f81ceb3397b3321af",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/evaluation.py": "916171cb989ba5f3eb9b7ec347d2032b72ef9089b89a66519ea68d71743df522",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/codec.py": "f839e80babf6f34818bc0fba182598516a0c97ead6a23f9b585d93ff95196838",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_d/checkpoint.pt": "238b0740cebbc9012e0f3486e1ea178e1d944e8d47801d1216fa8743163e812a",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_c/checkpoint.pt": "8c5002d627ca8130a5d317321f5e924d32b58f7110e40dde34d0bf77ed975cce",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q0.bin": "f2e9bec80c013209eed8f30aca2b8c49779a0584cdb7b003b58907856ce935b2",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": "aaf1b42dfa80b2d6a490edf8a1db47c064f509cf533197f88f70a722e933dbd3",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": "81113ac41b686e28b714642ef6a2ef342796d0d0486072e66989e7ebf689606f",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": "ab563fb333730f2f822dc59ddaffcd4f5613f728e6dcc74ed1082bb99435131e",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q0.bin": "40a0749c1989e15d8a4720d9fe075953934452f10bdb39203cb9aec15509ce4e",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/30884276-8cb2-485e-b0ca-a22605c1801f.gle": "97e8a6d9b0daf2f46a6fcafeeb74539f76a30e074ba10f7deabab1e090ca1c48",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/30884276-8cb2-485e-b0ca-a22605c1801f.gle": "dcdee28bfb71c357fe580204de787ad46242fb6c6b1b28c78f8b88006038ac62",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/30884276-8cb2-485e-b0ca-a22605c1801f.gle": "2753064f65bed90fbc06c4754cf186123f0c7c7b34788ea1558f837d00d0fc0a",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q0.bin": "ff567e752e38be392d4233023512fb5505f2cf33cb077fdc43c683fdec29b7e9",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/66d34721-a96d-4a92-9042-0847e057f3ba.gle": "1c44a5f77c5536f064f95144880fc4d415b76531e328e67ee6f7a5fbc77ec0c0",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/66d34721-a96d-4a92-9042-0847e057f3ba.gle": "b09f3c1a828a9542c382ed766e5bb9add5ace7963286dcb053594e4f1dc62790",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/66d34721-a96d-4a92-9042-0847e057f3ba.gle": "df76ff1b58d4445276ac52fae3aca82df3b38567dba25f56f2ae041cbe8dd2da",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q0.bin": "bb57329f013992eb272450cc351cad844539be57793ec9fd3034cee1ca958bb7",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": "d0ccbc404fc91115aecc2da54425509c8420d7247e2abb74d3246a85378a57f9",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": "9dfe1d36ca0e0aaf0f39b0987adf1d8cf3b0165919d99f4e9c7dd56c95b06eb6",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": "cd20c699134f8d9564c56dd422154c5b2a2bfdcfa457bd4b807a24aa7d3abaa5",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q0.bin": "0c3d3a1c7947d7406c09714d2858d8b8c2b7cedeab7120d73bb99f49617c0423",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": "fd3f047870400c3a4ba5ca6b8d70a021b07f8721d57ac2f193150bd354088910",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": "300a5cc6445ef4d6e604fd75cb85ba215a6873c4b3f8fa26a80178a4ee32aabf",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": "b127bfb7fe16ce9bfc6b392631c3fb9f34f224a9db3583120f4216709229b2c1",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q0.bin": "9283f008bc7bdf8c59929ebe05887bfd5a42a81b04c9b64cc78f75113979fb25",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/2996c286-14c5-4157-95ba-f2a73fae0187.gle": "dafbade235bfa8dfa8a77ef3c909b2bf0c51272a9c3980122cd5041074b90f1c",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/2996c286-14c5-4157-95ba-f2a73fae0187.gle": "3068a9609f8daf915d9272e3448193286854cc6af5766fe4b02297c4e1f13ecb",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/2996c286-14c5-4157-95ba-f2a73fae0187.gle": "c4f9620c48dea20fe7836b1a4d4da60a93d50467875e15ad3b54ac9546550c06"
+  },
+  "AGENTS": "No applicable AGENTS.md found at repository/ancestors or nested experiment paths",
+  "v1_inventory": {
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/evaluation.py": {
+      "size": 2933,
+      "mtime_ns": 1789385582572053144
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/prepare_data.py": {
+      "size": 5206,
+      "mtime_ns": 1789384710444972594
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/supplemental.py": {
+      "size": 2427,
+      "mtime_ns": 1789385872175764993
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/README.md": {
+      "size": 3150,
+      "mtime_ns": 1789387414574040657
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/review_val.py": {
+      "size": 2344,
+      "mtime_ns": 1789389523494346870
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/supplemental.console.log": {
+      "size": 1611,
+      "mtime_ns": 1789388180817735312
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/audit_notes.md": {
+      "size": 7545,
+      "mtime_ns": 1789386749427694211
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/analyze_streams.py": {
+      "size": 2215,
+      "mtime_ns": 1789387977855565108
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/codec.py": {
+      "size": 7983,
+      "mtime_ns": 1789384932809409925
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/summarize.py": {
+      "size": 4662,
+      "mtime_ns": 1789386042118756696
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/verify_outputs.py": {
+      "size": 4499,
+      "mtime_ns": 1789390693970633116
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/enhancement.py": {
+      "size": 9164,
+      "mtime_ns": 1789385206858350275
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/report.md": {
+      "size": 18672,
+      "mtime_ns": 1789391063561533581
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/manifest.json": {
+      "size": 33914,
+      "mtime_ns": 1789384755337029813
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_experiment.py": {
+      "size": 17617,
+      "mtime_ns": 1789385697536631597
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/receiver.py": {
+      "size": 4518,
+      "mtime_ns": 1789386500136964071
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1.console.log": {
+      "size": 38684,
+      "mtime_ns": 1789390387371767438
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_audit.py": {
+      "size": 9784,
+      "mtime_ns": 1789385206862350292
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/benchmark_e2e.py": {
+      "size": 5033,
+      "mtime_ns": 1789390181526141751
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/config.json": {
+      "size": 1442,
+      "mtime_ns": 1789384688712951489
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/reproduce.py": {
+      "size": 3064,
+      "mtime_ns": 1789390693958632872
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/summarize.cpython-312.pyc": {
+      "size": 8123,
+      "mtime_ns": 1789390729871354945
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/run_audit.cpython-312.pyc": {
+      "size": 16688,
+      "mtime_ns": 1789385601264145807
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/benchmark_e2e.cpython-312.pyc": {
+      "size": 9286,
+      "mtime_ns": 1789390729859354707
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/supplemental.cpython-312.pyc": {
+      "size": 4274,
+      "mtime_ns": 1789390729871354945
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/evaluation.cpython-312.pyc": {
+      "size": 6806,
+      "mtime_ns": 1789385601260145787
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/reproduce.cpython-312.pyc": {
+      "size": 5844,
+      "mtime_ns": 1789390729863354786
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/run_experiment.cpython-312.pyc": {
+      "size": 29549,
+      "mtime_ns": 1789387962443393842
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/review_val.cpython-312.pyc": {
+      "size": 4192,
+      "mtime_ns": 1789390729867354865
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/prepare_data.cpython-312.pyc": {
+      "size": 7800,
+      "mtime_ns": 1789385601260145787
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/enhancement.cpython-312.pyc": {
+      "size": 17142,
+      "mtime_ns": 1789385219522401334
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/analyze_streams.cpython-312.pyc": {
+      "size": 4500,
+      "mtime_ns": 1789390729859354707
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/verify_outputs.cpython-312.pyc": {
+      "size": 9156,
+      "mtime_ns": 1789390729871354945
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/codec.cpython-312.pyc": {
+      "size": 14703,
+      "mtime_ns": 1789384946045446711
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/__pycache__/receiver.cpython-312.pyc": {
+      "size": 8090,
+      "mtime_ns": 1789390729863354786
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/nvidia_smi.txt": {
+      "size": 4538,
+      "mtime_ns": 1789385224986423533
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/audit_base.bin": {
+      "size": 10489,
+      "mtime_ns": 1789385230534446178
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/audit.json": {
+      "size": 32279,
+      "mtime_ns": 1789385242994497407
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/enhancement_roundtrip.bin": {
+      "size": 1297,
+      "mtime_ns": 1789385242978497341
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/reset_switch.bin": {
+      "size": 22117,
+      "mtime_ns": 1789385236706471490
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/audit_base.bin": {
+      "size": 10489,
+      "mtime_ns": 1789384955153472620
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/nvidia_smi.txt": {
+      "size": 4538,
+      "mtime_ns": 1789384949553456634
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/interrupted.json": {
+      "size": 895,
+      "mtime_ns": 1789385872163764762
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/reset_switch.bin": {
+      "size": 22117,
+      "mtime_ns": 1789384961377490599
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/gradient_diagnostic.pt": {
+      "size": 664422,
+      "mtime_ns": 1789385242970497308
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/enhancement_roundtrip.bin": {
+      "size": 1296,
+      "mtime_ns": 1789384967577508727
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/gradient_diagnostic.pt": {
+      "size": 664422,
+      "mtime_ns": 1789384967573508715
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a/pip_freeze.txt": {
+      "size": 1909,
+      "mtime_ns": 1789384946601448279
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/receiver_no_enhancement.pt": {
+      "size": 199068288,
+      "mtime_ns": 1789390528231098738
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/stage_a_v2/pip_freeze.txt": {
+      "size": 1909,
+      "mtime_ns": 1789385222078411706
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/symbol_utilization.json": {
+      "size": 15350,
+      "mtime_ns": 1789390525235031360
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/aggregate_metrics.json": {
+      "size": 13147,
+      "mtime_ns": 1789390519218895643
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/fixed_config.json": {
+      "size": 1677,
+      "mtime_ns": 1789385627580277220
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/aggregate_metrics.csv": {
+      "size": 5055,
+      "mtime_ns": 1789390519218895643
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/paired_comparisons.json": {
+      "size": 12117,
+      "mtime_ns": 1789390519218895643
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/qp_selection.json": {
+      "size": 131,
+      "mtime_ns": 1789385659132436180
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/verification.json": {
+      "size": 1858,
+      "mtime_ns": 1789390741691589650
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0004.png": {
+      "size": 3639896,
+      "mtime_ns": 1789384746961017794
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0011.png": {
+      "size": 3726814,
+      "mtime_ns": 1789384747773018935
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0009.png": {
+      "size": 3699758,
+      "mtime_ns": 1789384747537018603
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0006.png": {
+      "size": 3730980,
+      "mtime_ns": 1789384747193018120
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0012.png": {
+      "size": 3780133,
+      "mtime_ns": 1789384747889019097
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0015.png": {
+      "size": 3773669,
+      "mtime_ns": 1789384748249019604
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0007.png": {
+      "size": 3665193,
+      "mtime_ns": 1789384747309018283
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0014.png": {
+      "size": 3883775,
+      "mtime_ns": 1789384748133019441
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0008.png": {
+      "size": 3719829,
+      "mtime_ns": 1789384747425018445
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0010.png": {
+      "size": 3808068,
+      "mtime_ns": 1789384747657018772
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0002.png": {
+      "size": 3695289,
+      "mtime_ns": 1789384746733017477
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0005.png": {
+      "size": 3623059,
+      "mtime_ns": 1789384747077017957
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/status.json": {
+      "size": 573,
+      "mtime_ns": 1789390387371767438
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0000.png": {
+      "size": 3693687,
+      "mtime_ns": 1789384746497017148
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0001.png": {
+      "size": 3690194,
+      "mtime_ns": 1789384746617017315
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0013.png": {
+      "size": 3757126,
+      "mtime_ns": 1789384748001019254
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/30884276-8cb2-485e-b0ca-a22605c1801f/0003.png": {
+      "size": 3652916,
+      "mtime_ns": 1789384746845017633
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/symbol_train2.json": {
+      "size": 3889,
+      "mtime_ns": 1789387988547683316
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/decision.json": {
+      "size": 1306,
+      "mtime_ns": 1789391063577533859
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0011.png": {
+      "size": 1265678,
+      "mtime_ns": 1789384738165005827
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0004.png": {
+      "size": 3896995,
+      "mtime_ns": 1789384736017003005
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0011.png": {
+      "size": 3897472,
+      "mtime_ns": 1789384736805004036
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0009.png": {
+      "size": 3859094,
+      "mtime_ns": 1789384736581003743
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0012.png": {
+      "size": 3881908,
+      "mtime_ns": 1789384736917004183
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0004.png": {
+      "size": 1228962,
+      "mtime_ns": 1789384737661005161
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0009.png": {
+      "size": 1262071,
+      "mtime_ns": 1789384738009005619
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0006.png": {
+      "size": 3856334,
+      "mtime_ns": 1789384736245003304
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0011.png": {
+      "size": 3428918,
+      "mtime_ns": 1789384733072999205
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0013.png": {
+      "size": 3877885,
+      "mtime_ns": 1789384737033004335
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0012.png": {
+      "size": 1219768,
+      "mtime_ns": 1789384738237005922
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0004.png": {
+      "size": 3445482,
+      "mtime_ns": 1789384732308998232
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0015.png": {
+      "size": 3883150,
+      "mtime_ns": 1789384737269004645
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0009.png": {
+      "size": 3428483,
+      "mtime_ns": 1789384732852998925
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0006.png": {
+      "size": 1232635,
+      "mtime_ns": 1789384737801005346
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0012.png": {
+      "size": 3477579,
+      "mtime_ns": 1789384733176999339
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0007.png": {
+      "size": 3851424,
+      "mtime_ns": 1789384736357003450
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0013.png": {
+      "size": 1241141,
+      "mtime_ns": 1789384738305006012
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0006.png": {
+      "size": 3438790,
+      "mtime_ns": 1789384732532998518
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0014.png": {
+      "size": 3949302,
+      "mtime_ns": 1789384737149004487
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0013.png": {
+      "size": 3439532,
+      "mtime_ns": 1789384733292999487
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0015.png": {
+      "size": 1262269,
+      "mtime_ns": 1789384738469006229
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0008.png": {
+      "size": 3923185,
+      "mtime_ns": 1789384736469003596
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0015.png": {
+      "size": 3440167,
+      "mtime_ns": 1789384733504999759
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0007.png": {
+      "size": 1263343,
+      "mtime_ns": 1789384737869005435
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0002.png": {
+      "size": 3894188,
+      "mtime_ns": 1789384735793002714
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0014.png": {
+      "size": 3458835,
+      "mtime_ns": 1789384733400999626
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0007.png": {
+      "size": 3414555,
+      "mtime_ns": 1789384732636998651
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0005.png": {
+      "size": 3866923,
+      "mtime_ns": 1789384736133003157
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0010.png": {
+      "size": 3930812,
+      "mtime_ns": 1789384736693003889
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0014.png": {
+      "size": 1238399,
+      "mtime_ns": 1789384738385006118
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0000.png": {
+      "size": 3909408,
+      "mtime_ns": 1789384735569002423
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0001.png": {
+      "size": 3898960,
+      "mtime_ns": 1789384735681002568
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0008.png": {
+      "size": 3465995,
+      "mtime_ns": 1789384732740998782
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/5763dae9-ae82-4e1c-90e1-5cb217d20def/0003.png": {
+      "size": 3836310,
+      "mtime_ns": 1789384735905002859
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0008.png": {
+      "size": 1251842,
+      "mtime_ns": 1789384737937005525
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0002.png": {
+      "size": 3417495,
+      "mtime_ns": 1789384732088997953
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0002.png": {
+      "size": 1204084,
+      "mtime_ns": 1789384737521004977
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0010.png": {
+      "size": 3468678,
+      "mtime_ns": 1789384732960999062
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0005.png": {
+      "size": 3422325,
+      "mtime_ns": 1789384732424998381
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0000.png": {
+      "size": 3403459,
+      "mtime_ns": 1789384731852997654
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0010.png": {
+      "size": 1243494,
+      "mtime_ns": 1789384738089005725
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0001.png": {
+      "size": 3395201,
+      "mtime_ns": 1789384731976997810
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0005.png": {
+      "size": 1260136,
+      "mtime_ns": 1789384737729005251
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/fb63c34e-0c28-4a4d-b8f8-59932b5e7875/0003.png": {
+      "size": 3421766,
+      "mtime_ns": 1789384732200998095
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0000.png": {
+      "size": 7923,
+      "mtime_ns": 1789384737385004797
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0011.png": {
+      "size": 2600270,
+      "mtime_ns": 1789384752581025792
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0001.png": {
+      "size": 1183175,
+      "mtime_ns": 1789384737453004887
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0004.png": {
+      "size": 2567860,
+      "mtime_ns": 1789384751877024775
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/df010442-3739-4f14-ab75-acfd7db0dcb2/0003.png": {
+      "size": 1257291,
+      "mtime_ns": 1789384737589005066
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0012.png": {
+      "size": 2642151,
+      "mtime_ns": 1789384752685025943
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0013.png": {
+      "size": 2600213,
+      "mtime_ns": 1789384752785026087
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0007.png": {
+      "size": 2576893,
+      "mtime_ns": 1789384752173025202
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0006.png": {
+      "size": 2584265,
+      "mtime_ns": 1789384752077025064
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0014.png": {
+      "size": 2608365,
+      "mtime_ns": 1789384752885026232
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0009.png": {
+      "size": 2599310,
+      "mtime_ns": 1789384752381025503
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0015.png": {
+      "size": 2577540,
+      "mtime_ns": 1789384752985026377
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0008.png": {
+      "size": 2624916,
+      "mtime_ns": 1789384752281025358
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0011.png": {
+      "size": 2025223,
+      "mtime_ns": 1789384749469021331
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0004.png": {
+      "size": 2032829,
+      "mtime_ns": 1789384748853020458
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0010.png": {
+      "size": 2617872,
+      "mtime_ns": 1789384752481025647
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0002.png": {
+      "size": 2533786,
+      "mtime_ns": 1789384751681024493
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0012.png": {
+      "size": 2038604,
+      "mtime_ns": 1789384749565021467
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0009.png": {
+      "size": 2024459,
+      "mtime_ns": 1789384749289021076
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0006.png": {
+      "size": 2038926,
+      "mtime_ns": 1789384749025020701
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0000.png": {
+      "size": 2407357,
+      "mtime_ns": 1789384751489024217
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0005.png": {
+      "size": 2561919,
+      "mtime_ns": 1789384751977024919
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0013.png": {
+      "size": 2036188,
+      "mtime_ns": 1789384749673021621
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0003.png": {
+      "size": 2547027,
+      "mtime_ns": 1789384751781024638
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/46da3cc3-6beb-425c-a870-c8d7bae89311/0001.png": {
+      "size": 2509664,
+      "mtime_ns": 1789384751585024355
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0015.png": {
+      "size": 2043150,
+      "mtime_ns": 1789384749849021870
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0014.png": {
+      "size": 2074188,
+      "mtime_ns": 1789384749761021746
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0007.png": {
+      "size": 2008997,
+      "mtime_ns": 1789384749113020825
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0008.png": {
+      "size": 2029469,
+      "mtime_ns": 1789384749201020950
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0011.png": {
+      "size": 2326289,
+      "mtime_ns": 1789384742637011828
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0002.png": {
+      "size": 2102061,
+      "mtime_ns": 1789384748673020203
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0010.png": {
+      "size": 2057374,
+      "mtime_ns": 1789384749381021206
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0000.png": {
+      "size": 2100956,
+      "mtime_ns": 1789384748493019949
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0005.png": {
+      "size": 2018395,
+      "mtime_ns": 1789384748941020582
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0001.png": {
+      "size": 2103665,
+      "mtime_ns": 1789384748585020078
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0004.png": {
+      "size": 2256801,
+      "mtime_ns": 1789384742013010979
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/66d34721-a96d-4a92-9042-0847e057f3ba/0003.png": {
+      "size": 2059411,
+      "mtime_ns": 1789384748765020333
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0009.png": {
+      "size": 2299785,
+      "mtime_ns": 1789384742457011583
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0011.png": {
+      "size": 1653185,
+      "mtime_ns": 1789384750961023459
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0006.png": {
+      "size": 2262231,
+      "mtime_ns": 1789384742189011218
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0012.png": {
+      "size": 2385293,
+      "mtime_ns": 1789384742729011953
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0004.png": {
+      "size": 1788669,
+      "mtime_ns": 1789384750401022659
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0013.png": {
+      "size": 2332380,
+      "mtime_ns": 1789384742821012079
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0009.png": {
+      "size": 1708598,
+      "mtime_ns": 1789384750801023230
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0015.png": {
+      "size": 2358687,
+      "mtime_ns": 1789384743001012323
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0014.png": {
+      "size": 2363814,
+      "mtime_ns": 1789384742913012204
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0007.png": {
+      "size": 2267577,
+      "mtime_ns": 1789384742277011338
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0012.png": {
+      "size": 1616964,
+      "mtime_ns": 1789384751037023567
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0006.png": {
+      "size": 1730284,
+      "mtime_ns": 1789384750565022893
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0008.png": {
+      "size": 2324470,
+      "mtime_ns": 1789384742369011464
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0002.png": {
+      "size": 2219189,
+      "mtime_ns": 1789384741841010747
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0011.png": {
+      "size": 999511,
+      "mtime_ns": 1789384741249009947
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0010.png": {
+      "size": 2324842,
+      "mtime_ns": 1789384742549011708
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0004.png": {
+      "size": 960600,
+      "mtime_ns": 1789384740873009440
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0005.png": {
+      "size": 2225301,
+      "mtime_ns": 1789384742101011098
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0013.png": {
+      "size": 1636523,
+      "mtime_ns": 1789384751117023682
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0011.png": {
+      "size": 1389742,
+      "mtime_ns": 1789384745877016283
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0009.png": {
+      "size": 982216,
+      "mtime_ns": 1789384741141009801
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0012.png": {
+      "size": 1010692,
+      "mtime_ns": 1789384741301010017
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0015.png": {
+      "size": 1638818,
+      "mtime_ns": 1789384751277023912
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0011.png": {
+      "size": 3308066,
+      "mtime_ns": 1789384740049008333
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0000.png": {
+      "size": 2167835,
+      "mtime_ns": 1789384741669010514
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0004.png": {
+      "size": 1431944,
+      "mtime_ns": 1789384745357015564
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0006.png": {
+      "size": 986560,
+      "mtime_ns": 1789384740977009579
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0001.png": {
+      "size": 2184778,
+      "mtime_ns": 1789384741757010633
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0007.png": {
+      "size": 1718113,
+      "mtime_ns": 1789384750645023007
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0004.png": {
+      "size": 3311358,
+      "mtime_ns": 1789384739265007286
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0009.png": {
+      "size": 1388290,
+      "mtime_ns": 1789384745733016085
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0009.png": {
+      "size": 3293306,
+      "mtime_ns": 1789384739829008039
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/205640d4-62ab-4cc5-b82f-922b8890cc6e/0003.png": {
+      "size": 2205842,
+      "mtime_ns": 1789384741929010866
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0014.png": {
+      "size": 1651181,
+      "mtime_ns": 1789384751197023797
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0012.png": {
+      "size": 1401286,
+      "mtime_ns": 1789384745953016390
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0012.png": {
+      "size": 3358538,
+      "mtime_ns": 1789384740161008484
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0006.png": {
+      "size": 3289911,
+      "mtime_ns": 1789384739489007586
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0008.png": {
+      "size": 1705232,
+      "mtime_ns": 1789384750721023115
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0006.png": {
+      "size": 1419919,
+      "mtime_ns": 1789384745513015780
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0015.png": {
+      "size": 1002001,
+      "mtime_ns": 1789384741461010233
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0013.png": {
+      "size": 1007521,
+      "mtime_ns": 1789384741353010087
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0013.png": {
+      "size": 3310615,
+      "mtime_ns": 1789384740273008634
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0014.png": {
+      "size": 1012258,
+      "mtime_ns": 1789384741405010158
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0008.png": {
+      "size": 995296,
+      "mtime_ns": 1789384741085009725
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0015.png": {
+      "size": 3330741,
+      "mtime_ns": 1789384740505008945
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0007.png": {
+      "size": 978692,
+      "mtime_ns": 1789384741033009655
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0002.png": {
+      "size": 950338,
+      "mtime_ns": 1789384740769009299
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0007.png": {
+      "size": 3283580,
+      "mtime_ns": 1789384739601007735
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0010.png": {
+      "size": 1001131,
+      "mtime_ns": 1789384741193009871
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0014.png": {
+      "size": 3340077,
+      "mtime_ns": 1789384740393008795
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0005.png": {
+      "size": 973437,
+      "mtime_ns": 1789384740925009509
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0013.png": {
+      "size": 1392094,
+      "mtime_ns": 1789384746025016490
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0000.png": {
+      "size": 939626,
+      "mtime_ns": 1789384740657009150
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0008.png": {
+      "size": 3335041,
+      "mtime_ns": 1789384739713007885
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0001.png": {
+      "size": 944934,
+      "mtime_ns": 1789384740713009225
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0015.png": {
+      "size": 1401567,
+      "mtime_ns": 1789384746173016696
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0002.png": {
+      "size": 3288395,
+      "mtime_ns": 1789384739029006972
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b24ab511-4101-4fb8-a473-8eb5bfb4a299/0003.png": {
+      "size": 948949,
+      "mtime_ns": 1789384740821009370
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0010.png": {
+      "size": 3317131,
+      "mtime_ns": 1789384739937008183
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0007.png": {
+      "size": 1406083,
+      "mtime_ns": 1789384745585015879
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0005.png": {
+      "size": 3267982,
+      "mtime_ns": 1789384739377007436
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0000.png": {
+      "size": 3289711,
+      "mtime_ns": 1789384738789006653
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0002.png": {
+      "size": 1930669,
+      "mtime_ns": 1789384750237022424
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0014.png": {
+      "size": 1409607,
+      "mtime_ns": 1789384746101016596
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0008.png": {
+      "size": 1397974,
+      "mtime_ns": 1789384745657015979
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0001.png": {
+      "size": 3289435,
+      "mtime_ns": 1789384738913006817
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d/0003.png": {
+      "size": 3261316,
+      "mtime_ns": 1789384739145007127
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0002.png": {
+      "size": 1438939,
+      "mtime_ns": 1789384745213015364
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0010.png": {
+      "size": 1636523,
+      "mtime_ns": 1789384750881023344
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0005.png": {
+      "size": 1744889,
+      "mtime_ns": 1789384750485022778
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0000.png": {
+      "size": 1931102,
+      "mtime_ns": 1789384750061022172
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0010.png": {
+      "size": 1393179,
+      "mtime_ns": 1789384745805016185
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0005.png": {
+      "size": 1419093,
+      "mtime_ns": 1789384745433015669
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0001.png": {
+      "size": 1931308,
+      "mtime_ns": 1789384750149022298
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/b3d4cebf-21ab-41e1-b79a-729d35794681/0003.png": {
+      "size": 1866108,
+      "mtime_ns": 1789384750321022544
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0004.png": {
+      "size": 2907048,
+      "mtime_ns": 1789384743673013243
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0011.png": {
+      "size": 2918596,
+      "mtime_ns": 1789384744437014293
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0009.png": {
+      "size": 2923664,
+      "mtime_ns": 1789384744225014000
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0012.png": {
+      "size": 2924315,
+      "mtime_ns": 1789384744545014442
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0006.png": {
+      "size": 2919305,
+      "mtime_ns": 1789384743897013550
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0013.png": {
+      "size": 2921799,
+      "mtime_ns": 1789384744653014591
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0015.png": {
+      "size": 2928156,
+      "mtime_ns": 1789384744869014887
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0014.png": {
+      "size": 2927181,
+      "mtime_ns": 1789384744761014739
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0007.png": {
+      "size": 2920923,
+      "mtime_ns": 1789384744009013703
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0008.png": {
+      "size": 2925457,
+      "mtime_ns": 1789384744117013851
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0000.png": {
+      "size": 1437665,
+      "mtime_ns": 1789384745069015164
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_c/checkpoint.pt": {
+      "size": 792610,
+      "mtime_ns": 1789386654158685764
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_c/training_summary.json": {
+      "size": 330,
+      "mtime_ns": 1789386654162685807
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_c/training.jsonl": {
+      "size": 344187,
+      "mtime_ns": 1789386653978683822
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q2/metrics.csv": {
+      "size": 4227,
+      "mtime_ns": 1789388109824992547
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q2/summary.json": {
+      "size": 1736,
+      "mtime_ns": 1789388109824992547
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0011.png": {
+      "size": 5011487,
+      "mtime_ns": 1789384754801029026
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0004.png": {
+      "size": 5051872,
+      "mtime_ns": 1789384753889027692
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0012.png": {
+      "size": 5067103,
+      "mtime_ns": 1789384754929029213
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0009.png": {
+      "size": 4986211,
+      "mtime_ns": 1789384754537028639
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0013.png": {
+      "size": 5019946,
+      "mtime_ns": 1789384755065029413
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0006.png": {
+      "size": 5016988,
+      "mtime_ns": 1789384754149028071
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0015.png": {
+      "size": 5020915,
+      "mtime_ns": 1789384755325029795
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0007.png": {
+      "size": 4989854,
+      "mtime_ns": 1789384754277028259
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0014.png": {
+      "size": 5033150,
+      "mtime_ns": 1789384755197029607
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0008.png": {
+      "size": 5055581,
+      "mtime_ns": 1789384754405028446
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 45017795,
+      "mtime_ns": 1789385779401886904
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 32464359,
+      "mtime_ns": 1789385818402700683
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_train2/metrics.csv": {
+      "size": 4318,
+      "mtime_ns": 1789385818426701173
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0002.png": {
+      "size": 4997781,
+      "mtime_ns": 1789384753633027319
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_train2/summary.json": {
+      "size": 1738,
+      "mtime_ns": 1789385818426701173
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0010.png": {
+      "size": 5026298,
+      "mtime_ns": 1789384754669028832
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0000.png": {
+      "size": 5044776,
+      "mtime_ns": 1789384753369026935
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0005.png": {
+      "size": 4991803,
+      "mtime_ns": 1789384754017027878
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0003.png": {
+      "size": 4998857,
+      "mtime_ns": 1789384753761027505
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/2996c286-14c5-4157-95ba-f2a73fae0187/0001.png": {
+      "size": 5043529,
+      "mtime_ns": 1789384753501027127
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_b_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 25760867,
+      "mtime_ns": 1789386114943896066
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_b_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 30709609,
+      "mtime_ns": 1789386076191299056
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_b_train2/metrics.csv": {
+      "size": 4249,
+      "mtime_ns": 1789386114967896430
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_b_train2/summary.json": {
+      "size": 1736,
+      "mtime_ns": 1789386114971896491
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/c227e33d-910e-4e39-a325-0fe1d1116436_timing.json": {
+      "size": 3129,
+      "mtime_ns": 1789386982302025977
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.gle": {
+      "size": 19068,
+      "mtime_ns": 1789386917685394874
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/c227e33d-910e-4e39-a325-0fe1d1116436.gle": {
+      "size": 18933,
+      "mtime_ns": 1789386968849895461
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 31637553,
+      "mtime_ns": 1789386966205869755
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 26031792,
+      "mtime_ns": 1789387017586366284
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/metrics.csv": {
+      "size": 4640,
+      "mtime_ns": 1789387017610366514
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/c227e33d-910e-4e39-a325-0fe1d1116436_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789386981142014740
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789386929693512973
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review/c227e33d-910e-4e39-a325-0fe1d1116436.png": {
+      "size": 4675007,
+      "mtime_ns": 1789388195737889480
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/summary.json": {
+      "size": 1805,
+      "mtime_ns": 1789387017610366514
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.png": {
+      "size": 5094714,
+      "mtime_ns": 1789388188349813220
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l1/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_timing.json": {
+      "size": 3127,
+      "mtime_ns": 1789386930725523105
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q3/summary.json": {
+      "size": 1734,
+      "mtime_ns": 1789388180817735312
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q3/metrics.csv": {
+      "size": 4237,
+      "mtime_ns": 1789388180817735312
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23341925,
+      "mtime_ns": 1789389052178084160
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/metrics.csv": {
+      "size": 12373,
+      "mtime_ns": 1789389240779799264
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 31603380,
+      "mtime_ns": 1789389089946428922
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 29269215,
+      "mtime_ns": 1789389202927456257
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 25873292,
+      "mtime_ns": 1789389165403115665
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0001.png": {
+      "size": 1438294,
+      "mtime_ns": 1789384745141015264
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 35497427,
+      "mtime_ns": 1789389240759799083
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0010.png": {
+      "size": 2922603,
+      "mtime_ns": 1789384744329014144
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0002.png": {
+      "size": 2914111,
+      "mtime_ns": 1789384743445012931
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/summary.json": {
+      "size": 5162,
+      "mtime_ns": 1789389240783799301
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_d_val6/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 26927936,
+      "mtime_ns": 1789389127838774111
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0005.png": {
+      "size": 2912924,
+      "mtime_ns": 1789384743789013402
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/026aa77c-d036-41b7-a998-83c1911fe2bf/0003.png": {
+      "size": 1429194,
+      "mtime_ns": 1789384745285015464
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0001.png": {
+      "size": 2917311,
+      "mtime_ns": 1789384743337012783
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0000.png": {
+      "size": 2843841,
+      "mtime_ns": 1789384743229012635
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_b/checkpoint.pt": {
+      "size": 792610,
+      "mtime_ns": 1789386031834589609
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/add4637a-5002-4a0f-bb6a-27cdd5b33189/0003.png": {
+      "size": 2908950,
+      "mtime_ns": 1789384743557013084
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_b/training_summary.json": {
+      "size": 330,
+      "mtime_ns": 1789386031834589609
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_b/training.jsonl": {
+      "size": 154995,
+      "mtime_ns": 1789386031650586604
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_d/checkpoint.pt": {
+      "size": 792610,
+      "mtime_ns": 1789387902178713696
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_d/training.jsonl": {
+      "size": 516992,
+      "mtime_ns": 1789387901990711547
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/stage_d/training_summary.json": {
+      "size": 330,
+      "mtime_ns": 1789387902178713696
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q1/metrics.csv": {
+      "size": 4221,
+      "mtime_ns": 1789388038264226769
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23042761,
+      "mtime_ns": 1789389278552141024
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2_q1/summary.json": {
+      "size": 1735,
+      "mtime_ns": 1789388038264226769
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 31020877,
+      "mtime_ns": 1789389317132489593
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 25498707,
+      "mtime_ns": 1789389393557178729
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/metrics.csv": {
+      "size": 12285,
+      "mtime_ns": 1789389468881856390
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 34999610,
+      "mtime_ns": 1789389468845856067
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0011.png": {
+      "size": 2428155,
+      "mtime_ns": 1789384734833001468
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 28844944,
+      "mtime_ns": 1789389431277518261
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 26309285,
+      "mtime_ns": 1789389354956830877
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_d_val6/summary.json": {
+      "size": 5150,
+      "mtime_ns": 1789389468885856427
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_c_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 31499766,
+      "mtime_ns": 1789386773335941635
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_c_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 25969759,
+      "mtime_ns": 1789386811844335858
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_c_train2/metrics.csv": {
+      "size": 4208,
+      "mtime_ns": 1789386811880336224
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23893480,
+      "mtime_ns": 1789387939019131508
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 47885755,
+      "mtime_ns": 1789387976827553717
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_c_train2/summary.json": {
+      "size": 1730,
+      "mtime_ns": 1789386811884336265
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0009.png": {
+      "size": 2385084,
+      "mtime_ns": 1789384734633001210
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0012.png": {
+      "size": 2433315,
+      "mtime_ns": 1789384734933001597
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0006.png": {
+      "size": 2382679,
+      "mtime_ns": 1789384734333000824
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 54226819,
+      "mtime_ns": 1789388129585200883
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/metrics.csv": {
+      "size": 12303,
+      "mtime_ns": 1789388130745213073
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 33784539,
+      "mtime_ns": 1789388091204795037
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 32021588,
+      "mtime_ns": 1789388053392390207
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0013.png": {
+      "size": 2397157,
+      "mtime_ns": 1789384735041001738
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/summary.json": {
+      "size": 5147,
+      "mtime_ns": 1789388130749213116
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0007.png": {
+      "size": 2362848,
+      "mtime_ns": 1789384734433000952
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0014.png": {
+      "size": 2462742,
+      "mtime_ns": 1789384735145001872
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0015.png": {
+      "size": 2440525,
+      "mtime_ns": 1789384735249002007
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0008.png": {
+      "size": 2414430,
+      "mtime_ns": 1789384734533001081
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q0/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 33146689,
+      "mtime_ns": 1789388015719981571
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0002.png": {
+      "size": 2350913,
+      "mtime_ns": 1789384733933000308
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0010.png": {
+      "size": 2444797,
+      "mtime_ns": 1789384734733001340
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 47687426,
+      "mtime_ns": 1789388206169996900
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0005.png": {
+      "size": 2378884,
+      "mtime_ns": 1789384734233000694
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0000.png": {
+      "size": 2321571,
+      "mtime_ns": 1789384733737000057
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/metrics.csv": {
+      "size": 12307,
+      "mtime_ns": 1789388352135470934
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 45020243,
+      "mtime_ns": 1789385699056639373
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0001.png": {
+      "size": 2341054,
+      "mtime_ns": 1789384733833000179
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 31838422,
+      "mtime_ns": 1789388279066739449
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0004.png": {
+      "size": 2377178,
+      "mtime_ns": 1789384734129000561
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 32474574,
+      "mtime_ns": 1789385739141006586
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/data/c227e33d-910e-4e39-a325-0fe1d1116436/0003.png": {
+      "size": 2341601,
+      "mtime_ns": 1789384734033000436
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 33477518,
+      "mtime_ns": 1789388315415104821
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/e2e/enhancement.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390494602334383
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/e2e/base.bin": {
+      "size": 11620,
+      "mtime_ns": 1789390491906272321
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/e2e/timing.json": {
+      "size": 1156,
+      "mtime_ns": 1789390497510401194
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 53837985,
+      "mtime_ns": 1789388352111470695
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2/metrics.csv": {
+      "size": 4120,
+      "mtime_ns": 1789385740201030315
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_b_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 30808667,
+      "mtime_ns": 1789386154800489609
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 32800223,
+      "mtime_ns": 1789388242558369275
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_train2/summary.json": {
+      "size": 1723,
+      "mtime_ns": 1789385740201030315
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/summary.json": {
+      "size": 5168,
+      "mtime_ns": 1789388352139470973
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_b_train2/metrics.csv": {
+      "size": 4216,
+      "mtime_ns": 1789386192897038957
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/30884276-8cb2-485e-b0ca-a22605c1801f.gle": {
+      "size": 32794,
+      "mtime_ns": 1789389522746340156
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_b_train2/summary.json": {
+      "size": 1732,
+      "mtime_ns": 1789386192897038957
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/026aa77c-d036-41b7-a998-83c1911fe2bf_timing.json": {
+      "size": 3132,
+      "mtime_ns": 1789389484457996349
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/30884276-8cb2-485e-b0ca-a22605c1801f_timing.json": {
+      "size": 3128,
+      "mtime_ns": 1789389535470454341
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/2996c286-14c5-4157-95ba-f2a73fae0187_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389738584273072
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23345111,
+      "mtime_ns": 1789389519950315060
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/2996c286-14c5-4157-95ba-f2a73fae0187_timing.json": {
+      "size": 3129,
+      "mtime_ns": 1789389739756283548
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/metrics.csv": {
+      "size": 13512,
+      "mtime_ns": 1789389775028598727
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 31512781,
+      "mtime_ns": 1789389570882771957
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/66d34721-a96d-4a92-9042-0847e057f3ba_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389585502903015
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base_only_b_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 25729854,
+      "mtime_ns": 1789386192873038616
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/46da3cc3-6beb-425c-a870-c8d7bae89311_timing.json": {
+      "size": 3133,
+      "mtime_ns": 1789389687679817896
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/2996c286-14c5-4157-95ba-f2a73fae0187.gle": {
+      "size": 32820,
+      "mtime_ns": 1789389726512165160
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 25861315,
+      "mtime_ns": 1789389672235679721
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": {
+      "size": 32838,
+      "mtime_ns": 1789389674955704059
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/026aa77c-d036-41b7-a998-83c1911fe2bf_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389483469987473
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 29224360,
+      "mtime_ns": 1789389723636139448
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/b3d4cebf-21ab-41e1-b79a-729d35794681_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389636255357667
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/b3d4cebf-21ab-41e1-b79a-729d35794681_timing.json": {
+      "size": 3131,
+      "mtime_ns": 1789389637207366191
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q1/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23569432,
+      "mtime_ns": 1789388168269605153
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/summary.json": {
+      "size": 5391,
+      "mtime_ns": 1789389775032598763
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/46da3cc3-6beb-425c-a870-c8d7bae89311_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389686763809701
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 35366472,
+      "mtime_ns": 1789389775012598584
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": {
+      "size": 32838,
+      "mtime_ns": 1789389471485879793
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": {
+      "size": 32823,
+      "mtime_ns": 1789389624415251641
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/30884276-8cb2-485e-b0ca-a22605c1801f_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389534490445548
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 26911371,
+      "mtime_ns": 1789389621835228535
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/66d34721-a96d-4a92-9042-0847e057f3ba_timing.json": {
+      "size": 3129,
+      "mtime_ns": 1789389586450911512
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l0/66d34721-a96d-4a92-9042-0847e057f3ba.gle": {
+      "size": 32823,
+      "mtime_ns": 1789389573530795698
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/30884276-8cb2-485e-b0ca-a22605c1801f.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390135572727891
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23256461,
+      "mtime_ns": 1789388605369928935
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.gle": {
+      "size": 5298,
+      "mtime_ns": 1789387020138390787
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 47484435,
+      "mtime_ns": 1789388641762274417
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.gle": {
+      "size": 34248,
+      "mtime_ns": 1789386814676364649
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 31095980,
+      "mtime_ns": 1789388713634952232
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/metrics.csv": {
+      "size": 12344,
+      "mtime_ns": 1789388787167640213
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/c227e33d-910e-4e39-a325-0fe1d1116436_timing.json": {
+      "size": 3135,
+      "mtime_ns": 1789387084050999891
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/2996c286-14c5-4157-95ba-f2a73fae0187_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390350138824270
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/c227e33d-910e-4e39-a325-0fe1d1116436_timing.json": {
+      "size": 3125,
+      "mtime_ns": 1789386879405015720
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/c227e33d-910e-4e39-a325-0fe1d1116436.gle": {
+      "size": 34083,
+      "mtime_ns": 1789386866108883036
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 33197688,
+      "mtime_ns": 1789388749859291798
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 53305735,
+      "mtime_ns": 1789388787135639915
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/summary.json": {
+      "size": 5171,
+      "mtime_ns": 1789388787167640213
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/026aa77c-d036-41b7-a998-83c1911fe2bf_timing.json": {
+      "size": 3129,
+      "mtime_ns": 1789390098087523283
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 31744933,
+      "mtime_ns": 1789386863352855468
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/30884276-8cb2-485e-b0ca-a22605c1801f_timing.json": {
+      "size": 3133,
+      "mtime_ns": 1789390148201123110
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q3/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 32122981,
+      "mtime_ns": 1789388677482611998
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 31421356,
+      "mtime_ns": 1789387068530852757
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23214687,
+      "mtime_ns": 1789390132992646506
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/c227e33d-910e-4e39-a325-0fe1d1116436.gle": {
+      "size": 5298,
+      "mtime_ns": 1789387071042876605
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 26140208,
+      "mtime_ns": 1789386915001368422
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/c227e33d-910e-4e39-a325-0fe1d1116436_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789386878317004882
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/66d34721-a96d-4a92-9042-0847e057f3ba_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390198206638915
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/metrics.csv": {
+      "size": 4634,
+      "mtime_ns": 1789386915025368659
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23896139,
+      "mtime_ns": 1789388825083993041
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789386826588485464
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_timing.json": {
+      "size": 3129,
+      "mtime_ns": 1789386827640496111
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l0/summary.json": {
+      "size": 1815,
+      "mtime_ns": 1789386915029368698
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 47891476,
+      "mtime_ns": 1789388862720342089
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/metrics.csv": {
+      "size": 12583,
+      "mtime_ns": 1789389014393738495
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 25981500,
+      "mtime_ns": 1789387119015329644
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 32026074,
+      "mtime_ns": 1789388937833035532
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/2996c286-14c5-4157-95ba-f2a73fae0187_timing.json": {
+      "size": 3125,
+      "mtime_ns": 1789390351158850499
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 33789875,
+      "mtime_ns": 1789388975649383203
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 54233779,
+      "mtime_ns": 1789389014369738275
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 24442034,
+      "mtime_ns": 1789385700388646190
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/summary.json": {
+      "size": 5172,
+      "mtime_ns": 1789389014397738532
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/c227e33d-910e-4e39-a325-0fe1d1116436_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789387083046990387
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/reference_fp32_val6/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 33155334,
+      "mtime_ns": 1789388900240688980
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 13118865,
+      "mtime_ns": 1789385740173029689
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 31419324,
+      "mtime_ns": 1789390183450199520
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/metrics.csv": {
+      "size": 4735,
+      "mtime_ns": 1789387119039329870
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/metrics.csv": {
+      "size": 13745,
+      "mtime_ns": 1789390387351766940
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 5972278,
+      "mtime_ns": 1789387940075143389
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23376505,
+      "mtime_ns": 1789388388119826986
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/2996c286-14c5-4157-95ba-f2a73fae0187.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390338222516167
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 26119536,
+      "mtime_ns": 1789387978111567944
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 47374553,
+      "mtime_ns": 1789388424796187302
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 10522923,
+      "mtime_ns": 1789388054364400679
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 15150826,
+      "mtime_ns": 1789388092396807716
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/46da3cc3-6beb-425c-a870-c8d7bae89311_timing.json": {
+      "size": 3130,
+      "mtime_ns": 1789390300273513623
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789387031914503667
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/metrics.csv": {
+      "size": 12327,
+      "mtime_ns": 1789388569337585215
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/b3d4cebf-21ab-41e1-b79a-729d35794681_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390248732096372
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 31394880,
+      "mtime_ns": 1789388497092890608
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/summary.json": {
+      "size": 1827,
+      "mtime_ns": 1789387119039329870
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/5763dae9-ae82-4e1c-90e1-5cb217d20def_q0.json": {
+      "size": 25095,
+      "mtime_ns": 1789387124519381345
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 25759759,
+      "mtime_ns": 1789390285033101458
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387183347930617
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 33365400,
+      "mtime_ns": 1789388532933236153
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q0.bin": {
+      "size": 9501,
+      "mtime_ns": 1789387142927553862
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_c_train2_l2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_timing.json": {
+      "size": 3128,
+      "mtime_ns": 1789387032930513392
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 53339530,
+      "mtime_ns": 1789388569313584986
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q3.bin": {
+      "size": 25604,
+      "mtime_ns": 1789387199756082790
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/026aa77c-d036-41b7-a998-83c1911fe2bf_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390097083490349
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390287557170108
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385648676383339
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/summary.json": {
+      "size": 5165,
+      "mtime_ns": 1789388569337585215
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 29070001,
+      "mtime_ns": 1789388130729212905
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/b3d4cebf-21ab-41e1-b79a-729d35794681_timing.json": {
+      "size": 3133,
+      "mtime_ns": 1789390249700123616
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/source_videos/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 13004302,
+      "mtime_ns": 1789388016807993451
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387168707794474
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/46da3cc3-6beb-425c-a870-c8d7bae89311.png": {
+      "size": 4390350,
+      "mtime_ns": 1789390552251634044
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q2.json": {
+      "size": 25094,
+      "mtime_ns": 1789385642568352545
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/66d34721-a96d-4a92-9042-0847e057f3ba.png": {
+      "size": 3595430,
+      "mtime_ns": 1789390538763334515
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 28967449,
+      "mtime_ns": 1789390335558446856
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 35125898,
+      "mtime_ns": 1789390387331766441
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q0.bin": {
+      "size": 10243,
+      "mtime_ns": 1789387203248115120
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/original_val6_q2/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 32278660,
+      "mtime_ns": 1789388460788538537
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/transition_diagnostics.json": {
+      "size": 8903,
+      "mtime_ns": 1789390560327812112
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/summary.json": {
+      "size": 5430,
+      "mtime_ns": 1789390387355767039
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/205640d4-62ab-4cc5-b82f-922b8890cc6e_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387135871487806
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/2996c286-14c5-4157-95ba-f2a73fae0187.png": {
+      "size": 5738763,
+      "mtime_ns": 1789390559123785625
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/026aa77c-d036-41b7-a998-83c1911fe2bf.png": {
+      "size": 3630178,
+      "mtime_ns": 1789390524583016677
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/b3d4cebf-21ab-41e1-b79a-729d35794681.png": {
+      "size": 3038980,
+      "mtime_ns": 1789390545583486303
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/46da3cc3-6beb-425c-a870-c8d7bae89311_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390299353488900
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/review_val6/30884276-8cb2-485e-b0ca-a22605c1801f.png": {
+      "size": 4407913,
+      "mtime_ns": 1789390532007183465
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/205640d4-62ab-4cc5-b82f-922b8890cc6e_q0.bin": {
+      "size": 11612,
+      "mtime_ns": 1789387134423474239
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390085123095243
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q0.json": {
+      "size": 25081,
+      "mtime_ns": 1789387156223678099
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/30884276-8cb2-485e-b0ca-a22605c1801f_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390147221092624
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390236807758739
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 26755713,
+      "mtime_ns": 1789390234391689861
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q2.bin": {
+      "size": 20856,
+      "mtime_ns": 1789387184811944212
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q0.bin": {
+      "size": 10432,
+      "mtime_ns": 1789387179023890443
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/66d34721-a96d-4a92-9042-0847e057f3ba.gle": {
+      "size": 4488,
+      "mtime_ns": 1789390185914273343
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387171663821991
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l2/66d34721-a96d-4a92-9042-0847e057f3ba_timing.json": {
+      "size": 3134,
+      "mtime_ns": 1789390199198668224
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q3.bin": {
+      "size": 17033,
+      "mtime_ns": 1789387164043751027
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q1.json": {
+      "size": 25101,
+      "mtime_ns": 1789385651932399777
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/30884276-8cb2-485e-b0ca-a22605c1801f.gle": {
+      "size": 17598,
+      "mtime_ns": 1789389828421132678
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q2.json": {
+      "size": 25062,
+      "mtime_ns": 1789385655076415664
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d_q0.bin": {
+      "size": 10944,
+      "mtime_ns": 1789387128695420535
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/2996c286-14c5-4157-95ba-f2a73fae0187_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789390045993765606
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387165615765675
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/026aa77c-d036-41b7-a998-83c1911fe2bf_timing.json": {
+      "size": 3127,
+      "mtime_ns": 1789389790488736822
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387144363567295
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b24ab511-4101-4fb8-a473-8eb5bfb4a299_q0.json": {
+      "size": 25100,
+      "mtime_ns": 1789387133139462206
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/026aa77c-d036-41b7-a998-83c1911fe2bf.mkv": {
+      "size": 23287255,
+      "mtime_ns": 1789389825569050060
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q3.bin": {
+      "size": 28632,
+      "mtime_ns": 1789387187743971429
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/30884276-8cb2-485e-b0ca-a22605c1801f_timing.json": {
+      "size": 3137,
+      "mtime_ns": 1789389841305712429
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/66d34721-a96d-4a92-9042-0847e057f3ba_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389893223952393
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385635480316881
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b24ab511-4101-4fb8-a473-8eb5bfb4a299_q0.bin": {
+      "size": 7656,
+      "mtime_ns": 1789387131451446382
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387159111705045
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q3.bin": {
+      "size": 16862,
+      "mtime_ns": 1789387176123863482
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/2996c286-14c5-4157-95ba-f2a73fae0187_timing.json": {
+      "size": 3135,
+      "mtime_ns": 1789390047053802397
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/add4637a-5002-4a0f-bb6a-27cdd5b33189_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387138943516576
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/metrics.csv": {
+      "size": 13512,
+      "mtime_ns": 1789390082747016133
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q0.bin": {
+      "size": 11839,
+      "mtime_ns": 1789387190735999189
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q3.json": {
+      "size": 25072,
+      "mtime_ns": 1789387165863767986
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/30884276-8cb2-485e-b0ca-a22605c1801f.mkv": {
+      "size": 31419963,
+      "mtime_ns": 1789389878675339739
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/df010442-3739-4f14-ab75-acfd7db0dcb2_q0.bin": {
+      "size": 15706,
+      "mtime_ns": 1789387125663392084
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q0.json": {
+      "size": 25102,
+      "mtime_ns": 1789387180695905981
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/2996c286-14c5-4157-95ba-f2a73fae0187.gle": {
+      "size": 17763,
+      "mtime_ns": 1789390034073348799
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387195196040542
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/46da3cc3-6beb-425c-a870-c8d7bae89311_timing.json": {
+      "size": 3135,
+      "mtime_ns": 1789389996179985234
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/b3d4cebf-21ab-41e1-b79a-729d35794681_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389943461983741
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q3.json": {
+      "size": 25083,
+      "mtime_ns": 1789385658372432334
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387192164012433
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/b3d4cebf-21ab-41e1-b79a-729d35794681.mkv": {
+      "size": 25792120,
+      "mtime_ns": 1789389980203391958
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/026aa77c-d036-41b7-a998-83c1911fe2bf_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389789544728390
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/46da3cc3-6beb-425c-a870-c8d7bae89311.gle": {
+      "size": 17733,
+      "mtime_ns": 1789389982867491670
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/b3d4cebf-21ab-41e1-b79a-729d35794681_timing.json": {
+      "size": 3135,
+      "mtime_ns": 1789389944482023690
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/46da3cc3-6beb-425c-a870-c8d7bae89311.mkv": {
+      "size": 29145433,
+      "mtime_ns": 1789390031333252183
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q1.json": {
+      "size": 25123,
+      "mtime_ns": 1789387195440042803
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/2996c286-14c5-4157-95ba-f2a73fae0187.mkv": {
+      "size": 35407872,
+      "mtime_ns": 1789390082723015333
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387130131434004
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/summary.json": {
+      "size": 5417,
+      "mtime_ns": 1789390082751016267
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/46da3cc3-6beb-425c-a870-c8d7bae89311_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389995179948427
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385642320351296
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/026aa77c-d036-41b7-a998-83c1911fe2bf.gle": {
+      "size": 17688,
+      "mtime_ns": 1789389777552621274
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387211324189820
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387150039620355
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387152911647181
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/30884276-8cb2-485e-b0ca-a22605c1801f_receiver.pt": {
+      "size": 398137510,
+      "mtime_ns": 1789389840249665282
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_c_train2/fb63c34e-0c28-4a4d-b8f8-59932b5e7875.mkv": {
+      "size": 31747339,
+      "mtime_ns": 1789386695031123047
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/b3d4cebf-21ab-41e1-b79a-729d35794681.gle": {
+      "size": 17639,
+      "mtime_ns": 1789389931837524929
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_c_train2/c227e33d-910e-4e39-a325-0fe1d1116436.mkv": {
+      "size": 26107151,
+      "mtime_ns": 1789386734139534869
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q1.bin": {
+      "size": 10173,
+      "mtime_ns": 1789387157619691126
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q0.json": {
+      "size": 25067,
+      "mtime_ns": 1789387205036131667
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/66d34721-a96d-4a92-9042-0847e057f3ba.mkv": {
+      "size": 26833380,
+      "mtime_ns": 1789389929273422836
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_c_train2/metrics.csv": {
+      "size": 4251,
+      "mtime_ns": 1789386734163535120
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385651688398544
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q3.bin": {
+      "size": 17753,
+      "mtime_ns": 1789387151483633844
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/continuous_c_train2/summary.json": {
+      "size": 1729,
+      "mtime_ns": 1789386734163535120
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387204784129336
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/66d34721-a96d-4a92-9042-0847e057f3ba.gle": {
+      "size": 17673,
+      "mtime_ns": 1789389881279450238
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/add4637a-5002-4a0f-bb6a-27cdd5b33189_q0.bin": {
+      "size": 14385,
+      "mtime_ns": 1789387137491502980
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q1.bin": {
+      "size": 14631,
+      "mtime_ns": 1789387181927917427
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q0.bin": {
+      "size": 11620,
+      "mtime_ns": 1789385633856308720
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/quantized_d_val6_l1/66d34721-a96d-4a92-9042-0847e057f3ba_timing.json": {
+      "size": 3138,
+      "mtime_ns": 1789389894171991924
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q0.bin": {
+      "size": 13098,
+      "mtime_ns": 1789385647188375832
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q3.json": {
+      "size": 25049,
+      "mtime_ns": 1789385645868369175
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387201332097383
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q1.json": {
+      "size": 25168,
+      "mtime_ns": 1789387183595932920
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q1.bin": {
+      "size": 13900,
+      "mtime_ns": 1789387206516145360
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385658124431079
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q3.json": {
+      "size": 25056,
+      "mtime_ns": 1789387214792221867
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q1.json": {
+      "size": 25085,
+      "mtime_ns": 1789387208268161565
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385654828414410
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q2.json": {
+      "size": 25076,
+      "mtime_ns": 1789387211568192075
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q2.json": {
+      "size": 25088,
+      "mtime_ns": 1789387198416070378
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387147203593850
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q1.bin": {
+      "size": 10770,
+      "mtime_ns": 1789387170227808626
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q0.bin": {
+      "size": 8649,
+      "mtime_ns": 1789387167227780691
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q3.json": {
+      "size": 25074,
+      "mtime_ns": 1789387201584099717
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b24ab511-4101-4fb8-a473-8eb5bfb4a299_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387132895459919
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q2.json": {
+      "size": 25100,
+      "mtime_ns": 1789387150291622709
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q2.bin": {
+      "size": 13380,
+      "mtime_ns": 1789387173175836062
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387214544219575
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387189171984680
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/5763dae9-ae82-4e1c-90e1-5cb217d20def_q0.bin": {
+      "size": 9367,
+      "mtime_ns": 1789387122827365457
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q1.bin": {
+      "size": 15491,
+      "mtime_ns": 1789385650228391172
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q2.bin": {
+      "size": 18231,
+      "mtime_ns": 1789385640672342997
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q0.json": {
+      "size": 25073,
+      "mtime_ns": 1789385648920384570
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q3.json": {
+      "size": 25038,
+      "mtime_ns": 1789387177787878954
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q1.json": {
+      "size": 25095,
+      "mtime_ns": 1789387171915824337
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387177543876685
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q0.bin": {
+      "size": 8190,
+      "mtime_ns": 1789387154527662269
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387186267957729
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q3.bin": {
+      "size": 23469,
+      "mtime_ns": 1789387213044205716
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q3.json": {
+      "size": 25080,
+      "mtime_ns": 1789387153155649459
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q0.json": {
+      "size": 25091,
+      "mtime_ns": 1789385635728318127
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/df010442-3739-4f14-ab75-acfd7db0dcb2_q0.json": {
+      "size": 25106,
+      "mtime_ns": 1789387127343407850
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/6abe8db0-2b11-4d8a-b4f4-3a07bc09721d_q0.json": {
+      "size": 25092,
+      "mtime_ns": 1789387130375436292
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q2.bin": {
+      "size": 19917,
+      "mtime_ns": 1789387196736054813
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q3.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385645620367925
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q2.json": {
+      "size": 25140,
+      "mtime_ns": 1789387186515960032
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q3.json": {
+      "size": 25131,
+      "mtime_ns": 1789387189419986981
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387174627849569
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387162247734287
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q0.json": {
+      "size": 25092,
+      "mtime_ns": 1789387192412014732
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q2.json": {
+      "size": 25080,
+      "mtime_ns": 1789387174867851801
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q0.json": {
+      "size": 25092,
+      "mtime_ns": 1789387144607569577
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q2.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387198172068118
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789385638876333958
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/df010442-3739-4f14-ab75-acfd7db0dcb2_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387127095405524
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q2.bin": {
+      "size": 18107,
+      "mtime_ns": 1789387209720174991
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/205640d4-62ab-4cc5-b82f-922b8890cc6e_q0.json": {
+      "size": 25085,
+      "mtime_ns": 1789387136119490129
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q1.json": {
+      "size": 25086,
+      "mtime_ns": 1789387147447596131
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/66d34721-a96d-4a92-9042-0847e057f3ba_q0.json": {
+      "size": 25084,
+      "mtime_ns": 1789387168951796746
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q1.bin": {
+      "size": 14437,
+      "mtime_ns": 1789385637272325890
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q1.json": {
+      "size": 25108,
+      "mtime_ns": 1789385639124335206
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q1.bin": {
+      "size": 11447,
+      "mtime_ns": 1789387145779580537
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/b3d4cebf-21ab-41e1-b79a-729d35794681_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387180447903677
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q3.bin": {
+      "size": 22900,
+      "mtime_ns": 1789385656536423046
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/5763dae9-ae82-4e1c-90e1-5cb217d20def_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387124275379055
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q2.bin": {
+      "size": 13211,
+      "mtime_ns": 1789387160743720265
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/026aa77c-d036-41b7-a998-83c1911fe2bf_q2.bin": {
+      "size": 14347,
+      "mtime_ns": 1789387148607606973
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q1.json": {
+      "size": 25090,
+      "mtime_ns": 1789387159359707358
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/c227e33d-910e-4e39-a325-0fe1d1116436_q2.bin": {
+      "size": 18899,
+      "mtime_ns": 1789385653288406627
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/add4637a-5002-4a0f-bb6a-27cdd5b33189_q0.json": {
+      "size": 25086,
+      "mtime_ns": 1789387139195518935
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/46da3cc3-6beb-425c-a870-c8d7bae89311_q1.bin": {
+      "size": 14973,
+      "mtime_ns": 1789387193772027342
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q2.json": {
+      "size": 25090,
+      "mtime_ns": 1789387162491736562
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/fb63c34e-0c28-4a4d-b8f8-59932b5e7875_q3.bin": {
+      "size": 22897,
+      "mtime_ns": 1789385644076360142
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/30884276-8cb2-485e-b0ca-a22605c1801f_q0.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387155975675785
+    },
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_latent_enhancement_v1/run_v1/base/2996c286-14c5-4157-95ba-f2a73fae0187_q1.pt": {
+      "size": 204976140,
+      "mtime_ns": 1789387208016159235
+    }
+  }
+}

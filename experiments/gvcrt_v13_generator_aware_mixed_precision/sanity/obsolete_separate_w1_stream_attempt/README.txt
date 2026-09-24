@@ -1,0 +1,1 @@
+These partial probe rows used three separately flushed w1 mode streams. The native RANS extension crashes when a partition contains one symbol. They are retained for debugging and excluded from V13 results. The final implementation encodes mode partitions sequentially into one w1 RANS stream and flushes once.

@@ -1,0 +1,51 @@
+{
+  "phase": "evaluate",
+  "status": "COMPLETE",
+  "network_updates": 0,
+  "Q1_six_frame_gate": {
+    "initialization": "ENCODER_START",
+    "selected_mean_PSNR_gain_vs_encoder": 0.24552205483329578,
+    "selected_mean_LPIPS_change_vs_encoder": 0.001143453021844228,
+    "expand": true,
+    "criterion": "six-frame selected mean PSNR improvement >=0.2 dB",
+    "initialization_mean_selected_objective": {
+      "ENCODER_START": 0.006962048509929962,
+      "ZERO_START": 0.007361058084030443
+    }
+  },
+  "Q2_Val6_expanded": false,
+  "Q1_extension_completed": true,
+  "Q2_Train2_gate": {
+    "split": "Train2",
+    "budgets": [
+      {
+        "budget": 0.1,
+        "all_sequences_feasible": true,
+        "mean_IP_PSNR_gain": 0.0,
+        "mean_IP_LPIPS_change": 0.0,
+        "fallback_sequences": 2,
+        "pass": false
+      },
+      {
+        "budget": 0.25,
+        "all_sequences_feasible": true,
+        "mean_IP_PSNR_gain": 0.0,
+        "mean_IP_LPIPS_change": 0.0,
+        "fallback_sequences": 2,
+        "pass": false
+      },
+      {
+        "budget": 0.5,
+        "all_sequences_feasible": true,
+        "mean_IP_PSNR_gain": 0.0,
+        "mean_IP_LPIPS_change": 0.0,
+        "fallback_sequences": 2,
+        "pass": false
+      }
+    ],
+    "expand_Val6": false,
+    "network_updates": 0,
+    "whole_sequence_selection_only": true
+  },
+  "historical_files_unchanged": true
+}

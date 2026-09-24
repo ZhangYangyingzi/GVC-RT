@@ -1,0 +1,7 @@
+Debug execution log
+- First launch stopped before model execution because the independent debug directory did not add the repository root to sys.path. The debug script was corrected; the traceback remains in logs/run.log.
+- Old V13 candidate admission computes saved_bits from whole-frame actual byte delta and appends a candidate only when saved_bits > 0.
+- The debug implementation admits candidates when estimated_saved_bits > 0 and retains actual RANS bytes as measured outputs.
+- The first completed debug beam retained an all-1x optimized state identical to the separately retained baseline path. The debug beam was corrected to expand the baseline path separately and exclude that duplicate from optimized beam slots; the complete debug experiment was rerun.
+- No change was applied to the copied mixed quantizer, RANS, mode-map, or decoder reconstruction implementation.
+- The original V13 directory was not modified.

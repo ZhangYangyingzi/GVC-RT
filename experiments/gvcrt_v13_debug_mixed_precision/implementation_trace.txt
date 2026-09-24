@@ -1,0 +1,18 @@
+V13-debug implementation trace (code facts only)
+
+True w1 variable
+- experiments/gvcrt_v13_debug_mixed_precision/v13_codec.py:145-168 prepare_frame computes r1=(y_scaled-means1*mask1)*mask1, packs r1w with single_part_for_writing_2x, quantizes q1w=round(r1w/delta), and reconstructs r1hatw=q1w*delta.
+- Baseline delta0 is 1.0. q is the packed centered int8-range residual index. r_hat is delta*q.
+
+Probability and coder
+- experiments/gvcrt_v13_debug_mixed_precision/v13_codec.py:256-280 encode_w1_by_mode selects active symbols by mode and builds indexes using predicted scale/delta.
+- src/models/entropy_models.py:260-295 constructs the original Gaussian CDF table with unit-bin CDF differences and 16-bit integer CDF conversion.
+- experiments/gvcrt_v13_debug_mixed_precision/v13_codec.py:322-345 encode_mixed writes z, w0, w1 RANS streams and the mode-map syntax.
+
+Decoder reconstruction
+- experiments/gvcrt_v13_debug_mixed_precision/v13_codec.py:283-299 decode_w1_by_mode parses each deterministic mode partition with scale/delta indexes.
+- experiments/gvcrt_v13_debug_mixed_precision/v13_codec.py:390-421 decode_mixed reconstructs yhat1 from decoded w1*delta, then decodes the compression feature, B2 codeword and RGB.
+
+Generator path
+- src/models/video_model_gvcrt.py:300-303 get_recon_and_feature maps compression latent to feature and calls recon_generation_net.
+- src/models/video_model_gvcrt.py:70-77 PretrainedReconWrapper maps feature through pixel_unshuffle and mlp (B2) to an 18-channel codeword, then through the frozen decoder.

@@ -1,0 +1,7 @@
+{
+  "status": "INTERRUPTED_IMPLEMENTATION_DEBUG",
+  "reason": "The first audit command reached its 120 second tool timeout during the small, full-int8-range native rANS boundary test. No PASS was recorded for this attempt.",
+  "follow_up": "An isolated boundary reproduction also stalled. Code review found src/cpp/py_rans/rans.cpp:221 allocates only total_symbol_size bytes, which is insufficient for high-entropy symbols plus termination. Enhancement coding was replaced with an isolated arithmetic reference implementation; original base codec code and extension were not modified.",
+  "valid_replacement_evidence": "../stage_a_v2/audit.json",
+  "artifacts": "These original partial files are retained; the enhancement file uses the superseded native-rANS format and must not be evaluated with the current arithmetic decoder. gradient_diagnostic.pt is not a compression-result checkpoint."
+}

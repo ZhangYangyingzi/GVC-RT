@@ -1,0 +1,20 @@
+{
+  "frames": 16,
+  "qp": 0,
+  "delta": 2.0,
+  "base_encode_wall_seconds": 2.9816063567996025,
+  "sender_base_latent_acquisition_seconds": 1.38072919100523,
+  "sender_analysis_actual_entropy_seconds": 1.3152149319648743,
+  "receiver_base_decode_seconds": 1.5757292434573174,
+  "receiver_actual_entropy_synthesis_generation_seconds": 1.331556312739849,
+  "total_seconds": 8.584836035966873,
+  "total_ms_per_frame": 536.5522522479296,
+  "peak_allocated_bytes": 1516260864,
+  "base_bits": 92960,
+  "enhancement_bits": 35904,
+  "dpb_unchanged": true,
+  "sender_receiver_base_latent_exact": true,
+  "included": "PNG reads twice, padding, actual base coding, sender local base decode to obtain ell, CPU DPB hashes/clones, actual enhancement entropy coding, file I/O, independent receiver base decode, enhancement entropy decode and RGB synthesis",
+  "excluded": "model loading/CDF initialization of base codec, physical network transfer, metrics, output video rendering; no warm-up frames discarded",
+  "cache": "No latent/reconstruction cache; OS filesystem cache may be warm. Diagnostic decode computes original RGB before enhanced RGB; both costs included."
+}

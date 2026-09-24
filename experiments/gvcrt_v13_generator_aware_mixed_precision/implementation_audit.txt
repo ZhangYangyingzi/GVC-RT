@@ -1,0 +1,34 @@
+GVC-RT V13 implementation audit
+
+Repository commit: recorded at run time in run.log and config.runtime.json.
+
+w1 coded variable
+- src/layers/cuda_inference.py:56-74 process_with_mask computes y_res=(y-means_hat)*mask, rounds y_res, applies force_zero_thres activity, clamps to [-128,127], and reconstructs y_hat=y_q+means_hat.
+- src/models/common_model.py:154-171 compress_prior_2x applies process_with_mask for the second spatial-prior pass and packs y_q_1 with single_part_for_writing_2x. This packed centered residual symbol tensor is w1.
+- Tensor shape at run time is recorded per frame in block_probe.csv and frame_candidate_maps.csv. Layout is B,C/2,H,W after single_part_for_writing_2x.
+
+Symbol ordering
+- src/models/entropy_models.py:277-289 GaussianEncoder flattens symbols and scales in contiguous tensor order.
+- src/layers/cuda_inference.py:144-166 build_index_enc combines each signed symbol with its uint8 scale-table index.
+- src/models/entropy_models.py:45-48 passes the flattened combined int16 sequence to the RANS encoder.
+- V13 spatial blocks use raster order over H,W; all packed w1 channels at a spatial position share one mode.
+
+Original quantization rule
+- Unit-step centered residual quantization: q=clamp(round(y-means),-128,127) on active mask positions; reconstruction is q+means.
+- force_zero_thres=0.12 in the loaded P-frame model; symbols at inactive scale positions are omitted and reconstructed as zero residual.
+
+Probability and CDF path
+- src/models/entropy_models.py:246-274 GaussianEncoder.update constructs zero-mean Gaussian unit-bin PMFs with CDF(q+0.5)-CDF(q-0.5), quantizes them to precision 16, retains tail mass, per-scale support, offsets, and minimum positive integer frequencies through pmf_to_quantized_cdf.
+- src/models/entropy_models.py:277-289 chooses one of 128 log-spaced scale-table CDFs using the predicted scale.
+- V13 coarse mode q=round(r/delta) uses the unchanged table and scale index built from predicted_scale/delta. This is the same variable-domain integral F((q+0.5)delta)-F((q-0.5)delta).
+
+RANS path
+- src/models/video_model_gvcrt.py:354-393 original encoder order is z, w0, w1 followed by one flush.
+- src/models/video_model_gvcrt.py:396-428 original decoder order is z, w0, w1.
+- src/models/entropy_models.py:12-73 wraps MLCodec_extensions_cpp RansEncoder/RansDecoder.
+- V13 all-1x uses the original joint payload syntax. V13 mixed/global-coarse syntax uses independently length-delimited z, w0, and w1 RANS payloads plus a deterministic mode header/map, and decodes each payload from a fresh RANS decoder state.
+- All active w1 mode groups are encoded sequentially into one w1 RANS stream and flushed once; the decoder consumes the groups from that same stream in the matching deterministic order.
+
+Frozen parameters
+- I codec, P encoder/decoder, B2 bridge, De-Tokenizer/generator, spatial prior, hyperprior, and entropy probability network parameters are loaded with eval() and requires_grad_(False).
+- Parameter hashes before and after each cell are recorded in per-cell done JSON and baseline_cells.csv.
