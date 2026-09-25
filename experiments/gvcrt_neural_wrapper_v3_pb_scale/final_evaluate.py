@@ -46,10 +46,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--gpu", type=int, choices=(4, 5, 6, 7), required=True)
     parser.add_argument("--tags", required=True, help="Comma-separated frozen test tags")
+    parser.add_argument("--selection-file", default="selected_checkpoint.json")
+    parser.add_argument("--output-prefix", default="final_v3")
+    parser.add_argument("--method", default="v3_beta_low")
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
     device = torch.device("cuda:0")
-    selected = json.loads((ROOT / "selected_checkpoint.json").read_text())
+    selected = json.loads((ROOT / args.selection_file).read_text())
     if selected["stage"] != "stage_b" or selected["used_final_test"]:
         raise RuntimeError("checkpoint was not selected solely from validation")
     checkpoint = Path(selected["checkpoint"])
@@ -61,7 +64,7 @@ def main():
     tags = args.tags.split(",")
     if not set(tags) <= set(lookup):
         raise ValueError("tag outside frozen test set")
-    output = ROOT / "parts" / f"final_v3_gpu{args.gpu}.csv"
+    output = ROOT / "parts" / f"{args.output_prefix}_gpu{args.gpu}.csv"
     output.parent.mkdir(parents=True, exist_ok=True)
     with open(output if output.exists() else os.devnull, newline="") as handle:
         complete = {(row["video_tag"], int(row["qp"])) for row in csv.DictReader(handle)}
@@ -73,13 +76,13 @@ def main():
             continue
         frames = load_frames(video_tag)
         for qp in pending:
-            bitstream = ROOT / "bitstreams" / "final" / video_tag / f"v3_beta_low_qp{qp}.bin"
-            save_root = (ROOT / "reconstruction_frames" / video_tag / f"v3_beta_low_qp{qp}") if qp in (1, 3) else None
+            bitstream = ROOT / "bitstreams" / args.output_prefix / video_tag / f"{args.method}_qp{qp}.bin"
+            save_root = (ROOT / "reconstruction_frames" / video_tag / f"{args.method}_qp{qp}") if qp in (1, 3) else None
             summary, _ = run_stream(frames, qp, joint, device, float(video["fps"]),
                                     bitstream, save_root=save_root, quality=quality)
             row = {"dataset": video["dataset"], "video": video["name"],
                    "video_id": video["video_id"], "video_tag": video_tag,
-                   "method": "v3_beta_low", "stage": "stage_b",
+                   "method": args.method, "stage": "stage_b",
                    "beta": "beta_low", "checkpoint": str(checkpoint),
                    "checkpoint_sha256": checkpoint_digest, "qp": qp,
                    "num_frames": 64, "fps": video["fps"], **summary}

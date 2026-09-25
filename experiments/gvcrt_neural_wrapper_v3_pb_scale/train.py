@@ -70,10 +70,17 @@ def main():
     parser.add_argument("--gpu", type=int, choices=(4,5,6,7), required=True)
     parser.add_argument("--stage", choices=("stage_a", "stage_b"), required=True)
     parser.add_argument("--max-steps", type=int)
+    parser.add_argument("--target-steps", type=int,
+                        help="Optional extended total for a resumed trajectory.")
+    parser.add_argument("--checkpoint-steps", default=None,
+                        help="Comma-separated additional checkpoint steps.")
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
     cfg = json.loads((ROOT / "config.json").read_text())
-    tc = cfg[args.stage]; total = tc["updates"]
+    tc = cfg[args.stage]; total = args.target_steps or tc["updates"]
+    checkpoint_steps = set(tc["checkpoint_steps"])
+    if args.checkpoint_steps:
+        checkpoint_steps.update(int(value) for value in args.checkpoint_steps.split(","))
     limit = min(total, args.max_steps) if args.max_steps else total
     beta = tc["beta"]
     rng = random.Random(cfg["seed"] + (0 if args.stage == "stage_a" else 5000))
@@ -159,7 +166,7 @@ def main():
         if step%100==0:
             write_csv(history_path, history)
             print(f"{args.stage} {step}/{total} loss={sums['loss']:.6f} LPIPS={sums['LPIPS']:.6f}",flush=True)
-        if step in tc["checkpoint_steps"]:
+        if step in checkpoint_steps:
             save(outdir / f"step_{step:04d}.pt",args.stage,step,beta,wrapper,bridge,generator,optimizer,hashes,rng)
     write_csv(history_path,history)
     result={"status":"PASS" if limit==total else "SMOKE_PASS","stage":args.stage,"steps":limit,
