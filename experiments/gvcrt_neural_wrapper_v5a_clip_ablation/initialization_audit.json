@@ -1,0 +1,89 @@
+{
+  "initialized_from_same_v4_1_step20000": true,
+  "optimizer_state_restored_both": true,
+  "optimizer_state_identical": true,
+  "compression_core_identical": true,
+  "compression_core_frozen": true,
+  "saved_rng_restored_both": true,
+  "wrapper_state_identical": true,
+  "wrapper_trainable": true,
+  "bridge_state_identical": true,
+  "bridge_trainable": true,
+  "generator_state_identical": true,
+  "generator_trainable": true,
+  "clip4_control_initialized_identically": true,
+  "clip8_initialized_identically": true,
+  "status": "PASS",
+  "branches": {
+    "clip4_control": {
+      "status": "PASS",
+      "branch": "clip4_control",
+      "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+      "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+      "source_step": 20000,
+      "actual_resume_step": 0,
+      "optimizer_state_restored": true,
+      "optimizer_state_count": 264,
+      "optimizer_state_hash": "a4fa271c3b48580cc0582147a0a6b393bca85f9273e7baed30d6bb688a09608e",
+      "hashes": {
+        "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+        "wrapper": "7bab7f0c966f8f9fcefff2eb76b2d7c4b50188aadbde215eea8fa6041a624d27",
+        "bridge": "a48dc3e5294d7f01714bc567a028e11743b8c961d0107135722da7f948c80af4",
+        "generator": "53c7a8e732efd829c89a8eaaed5156cb5d32fe08daeb67239fe4eab28edde50d"
+      },
+      "wrapper_equal_to_checkpoint": true,
+      "bridge_equal_to_checkpoint": true,
+      "generator_equal_to_checkpoint": true,
+      "trainable_parameters": {
+        "wrapper": 372803,
+        "bridge": 801124,
+        "generator": 33776640
+      },
+      "compression_trainable_parameters": 0,
+      "saved_rng_restored": true,
+      "missing_rng_states": [
+        "python_rng_state",
+        "numpy_rng_state"
+      ],
+      "clip_length": 4,
+      "loss_denominator": 3,
+      "expected_updates": 7000,
+      "gpu": 4
+    },
+    "clip8": {
+      "status": "PASS",
+      "branch": "clip8",
+      "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+      "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+      "source_step": 20000,
+      "actual_resume_step": 0,
+      "optimizer_state_restored": true,
+      "optimizer_state_count": 264,
+      "optimizer_state_hash": "a4fa271c3b48580cc0582147a0a6b393bca85f9273e7baed30d6bb688a09608e",
+      "hashes": {
+        "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+        "wrapper": "7bab7f0c966f8f9fcefff2eb76b2d7c4b50188aadbde215eea8fa6041a624d27",
+        "bridge": "a48dc3e5294d7f01714bc567a028e11743b8c961d0107135722da7f948c80af4",
+        "generator": "53c7a8e732efd829c89a8eaaed5156cb5d32fe08daeb67239fe4eab28edde50d"
+      },
+      "wrapper_equal_to_checkpoint": true,
+      "bridge_equal_to_checkpoint": true,
+      "generator_equal_to_checkpoint": true,
+      "trainable_parameters": {
+        "wrapper": 372803,
+        "bridge": 801124,
+        "generator": 33776640
+      },
+      "compression_trainable_parameters": 0,
+      "saved_rng_restored": true,
+      "missing_rng_states": [
+        "python_rng_state",
+        "numpy_rng_state"
+      ],
+      "clip_length": 8,
+      "loss_denominator": 7,
+      "expected_updates": 3000,
+      "gpu": 5
+    }
+  }
+}
