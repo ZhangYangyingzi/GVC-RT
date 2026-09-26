@@ -1,0 +1,31 @@
+{
+  "stage": "beta_high",
+  "beta": 17.302782275540444,
+  "step": 10000,
+  "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/checkpoints/beta_high/step_10000.pt",
+  "checkpoint_sha256": "71c1f46f6b0dc82120c4c23b24bb9770d7b0cec261b15eb7d6d31adf8f1db9f5",
+  "validation_metrics": {
+    "branch": "beta_high",
+    "beta": 17.302782275540444,
+    "step": 10000,
+    "qp": "all",
+    "mean_real_kbps": 170.44191371128872,
+    "mean_bpp": 0.00274024241255144,
+    "mean_LPIPS": 0.17699726392553808,
+    "mean_DISTS": 0.11061651484730343,
+    "rate_change_percent": -13.728921285640839,
+    "mean_bitrate_change_percent": -11.347577461969033,
+    "LPIPS_change": -0.022372247690024494,
+    "DISTS_change": -0.0013199352348844118,
+    "rate_lower_count": 24,
+    "LPIPS_nonworse_count": 20,
+    "DISTS_nonworse_count": 12,
+    "triple_nonworse_count": 12,
+    "point_count": 24,
+    "eligible": true,
+    "selected": true
+  },
+  "used_final_test": false,
+  "selection_rule": "Gate arithmetic mean real kbps < Original, mean LPIPS <= Original, mean DISTS <= Original over 24 validation points. Minimize mean real kbps; candidates within <0.5% of minimum tie by LPIPS, DISTS, then rate. PSNR excluded.",
+  "validation_csv_sha256": "7bd875872c6467c914bdba04c729fb1afdbd0c3343a1dcdf7974897300b55a92"
+}

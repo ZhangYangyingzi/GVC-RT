@@ -1,0 +1,21 @@
+{
+  "schema": "gvcrt_neural_wrapper_v4_progressive_joint",
+  "seed": 20260924,
+  "gpus": [4, 5, 6, 7],
+  "clip_length": 4,
+  "crop": [256, 256],
+  "qps": [0, 1, 2, 3],
+  "online_random_sampling": true,
+  "updates": 10000,
+  "checkpoint_steps": [0, 1000, 2000, 5000, 10000],
+  "initial_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v3_pb_scale/checkpoints/stage_b/step_20000.pt",
+  "branches": {
+    "beta_low": {"beta": 8.651391137770222, "seed_offset": 7000},
+    "beta_mid": {"beta": 11.535188183693629, "seed_offset": 8000},
+    "beta_high": {"beta": 17.302782275540443, "seed_offset": 9000}
+  },
+  "optimizer": {"name": "AdamW", "wrapper_lr": 0.00005, "bridge_lr": 0.000003, "generator_lr": 0.0000005, "weight_decay": 0.0001, "gradient_clip_norm": 1.0},
+  "lambda_proxy": 0.01,
+  "validation": {"frames": 32, "qps": [0, 1, 2, 3]},
+  "final_test": {"frames": 64, "qps": [0, 1, 2, 3]}
+}
