@@ -1,0 +1,70 @@
+{
+  "schema": "gvcrt_v4_1_high_convergence_metrics",
+  "seed": 20260924,
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "clip_length": 4,
+  "crop": [
+    256,
+    256
+  ],
+  "qps": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "online_random_sampling": true,
+  "updates": 10000,
+  "checkpoint_steps": [
+    10000,
+    15000,
+    20000
+  ],
+  "initial_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/checkpoints/beta_high/step_10000.pt",
+  "branches": {
+    "beta_high": {
+      "beta": 17.302782275540444,
+      "seed_offset": 9000
+    }
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0
+  },
+  "lambda_proxy": 0.01,
+  "validation": {
+    "frames": 32,
+    "qps": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "final_test": {
+    "frames": 64,
+    "qps": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/checkpoints/beta_high/step_10000.pt",
+  "source_step": 10000,
+  "target_step": 20000,
+  "beta": 17.302782275540444,
+  "scheduler": null,
+  "metric_use": "evaluation only",
+  "equal_rate_grid_points": 100,
+  "rate_axis": "log(kbps)"
+}
