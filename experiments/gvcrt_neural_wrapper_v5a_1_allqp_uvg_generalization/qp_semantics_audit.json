@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "get_qp_num": 10,
+  "supported_external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "qp_shift": [
+    0,
+    2,
+    1
+  ],
+  "internal_qp_tensor_length": {
+    "q_scale_enc": 12,
+    "q_scale_dec": 12,
+    "q_scale_feature": 12,
+    "q_scale_recon": 12
+  },
+  "index_map": [
+    0,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    2
+  ],
+  "official_i_frame_qp_behavior": "actual I QP = external qp_i; first frame only in this experiment",
+  "official_p_frame_qp_behavior": "actual P QP = external qp_p + qp_shift[index_map[frame_index % 8]]",
+  "external_i_and_p_base_equal": true,
+  "actual_internal_qp_range": [
+    0,
+    11
+  ],
+  "no_periodic_I_reset": true,
+  "adaptive_reset_disabled": true,
+  "evaluation_core": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py",
+  "source_hashes": {
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/common_model.py": "b8671f241847223dab55ffb7051ec0343fce5b61870b8576e8ed5f74e1c13ccf",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+    "/Huang_group/zyyz/Projects/GVC-RT/test_video_gvcrt_1088.py": "34c6b2610cdd23eceed739f88e24bd563d775b769dc8ae0a0adf56bd67c3f51d",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py": "baab2301edd905ea63a9ca59f0311f21dc0bd44e0a1680d8de3766bf224a44e2",
+    "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766"
+  },
+  "note": "index_map cycles do not reset the causal DPB; internal QP10/11 are not external rate points"
+}

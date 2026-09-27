@@ -1,0 +1,72 @@
+{
+  "schema": "V5-A.1 evaluation only",
+  "evaluation_only": true,
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "checkpoints": {
+    "original": {
+      "path": "",
+      "sha256": ""
+    },
+    "v41_20000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+      "sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73"
+    },
+    "clip4_control": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/checkpoints/clip4_control/step_7000.pt",
+      "sha256": "36a9aa03f96a06817dbeba4f84b2aa9bebd773fdcef4cca4417b80e4b1a09e2e"
+    },
+    "clip8": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/checkpoints/clip8/step_3000.pt",
+      "sha256": "cbb3909104ea58829d085573018c6899284b8f6ccb8048036a07eea1d270f6f1"
+    }
+  },
+  "checkpoint_path_evidence": {
+    "original": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/parts/final/original/video_0_qp0.json",
+    "v41_20000": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/parts/final/v41_20000/video_0_qp0.json",
+    "clip4_control": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/parts/final/clip4_control/video_0_qp0.json",
+    "clip8": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/parts/final/clip8/video_0_qp0.json"
+  },
+  "source_hashes": {
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py": "baab2301edd905ea63a9ca59f0311f21dc0bd44e0a1680d8de3766bf224a44e2",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/metric_runtime.py": "36f5a7f263acd4e7086c6dcd5f8effdeb981b4b69075a110a9ddc704a59f44fd",
+    "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py": "c9ee133a67ccaa37927e970397271ada47894f54130e91d39b3489a136f5a991",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/evaluate.py": "b7ef8416f3bce3c21da27e39f7d41bb59836b22b91e6fd74f1c944cf0b83e653",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/test_manifest.json": "e7835240c86d5b6529252dba4d7f9fd49ca1953fc934792bc3d20b2f915713bf",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/config.json": "a05d0f567382e0c2b90d9f11a8ebb54fe4a445bb55d3d981665405c86d30e831",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/final_rd_points.csv": "9255696a5f8391b768875442edec350eb504d11aae1ff01aea2f3ddf2f3d1e46",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/final_qp_summary.csv": "3da595f10a1a0f8d1dbab5c641a0ea2e9186a2857534d1d430dcd11de4be5efe",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_clip_ablation/final_integrity.json": "16afb13db078dda3e34a8f34f40af34ecab33551617bff68a3039b48e7a1d693"
+  },
+  "ulong_manifest_sha256": "e7835240c86d5b6529252dba4d7f9fd49ca1953fc934792bc3d20b2f915713bf",
+  "uvg_manifest_sha256": "a0b70ac5fef6805edf419b8f8ddcbc8ed9433859c7c21bbdcbe23c33cfa674a4",
+  "metric_audit_sha256": "cedbc8f5f3f2d187b7a139b611a7eb2e51b5262f9ec9780fc23a0ead0d665513",
+  "training_allowed": false,
+  "processing_canvas": [
+    1920,
+    1088
+  ],
+  "metric_crop": [
+    1920,
+    1080
+  ],
+  "FID_pooling": "dataset x method x external QP, all actual source frames",
+  "SSIM_definition": "unchanged V4/V4.1 global RGB SSIM implementation; not windowed SSIM",
+  "numeric_tolerance": 2e-06
+}
