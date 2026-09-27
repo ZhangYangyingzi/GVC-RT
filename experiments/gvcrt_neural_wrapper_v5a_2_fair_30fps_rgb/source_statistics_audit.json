@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "input_units": "RGB [0,1]",
+  "gray": "BT.709 luma weights 0.2126/0.7152/0.0722 applied to RGB",
+  "sobel": "scipy ndimage.sobel / 8, reflect boundary",
+  "laplacian": "variance of scipy ndimage.laplace per grayscale frame, then mean",
+  "p95": "exact linear quantile from all within-sequence absolute RGB component differences; separate frame-mean p95 also supplied",
+  "optical_flow": "optional source flow magnitude not requested as mandatory; existing PWC remains used for FloLPIPS"
+}

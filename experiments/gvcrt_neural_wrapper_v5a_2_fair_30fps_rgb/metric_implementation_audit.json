@@ -1,0 +1,54 @@
+{
+  "repository_commit": "373a30006cf18831334adde1a144e3b59107b554",
+  "repository_evidence": [
+    "README.md",
+    "src/utils/metrics.py",
+    "expericent_generation_input/expericent_perceptual_temporal_refiner_v6/METRIC_PROTOCOL_AUDIT.md"
+  ],
+  "official_gvcrt_metric_pipeline": "No executable published FloLPIPS/FID pipeline located in checked repository; reuse existing documented GVC-RT experiment adapters. No claim of equivalence to a private paper pipeline.",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "scipy": "1.17.0",
+    "numpy": "2.4.4",
+    "lpips": "0.1.4",
+    "DISTS-pytorch": "0.1",
+    "pytorch-fid": "not installed",
+    "torchmetrics": "not installed",
+    "clean-fid": "not installed"
+  },
+  "source_and_weight_sha256": {
+    "/Huang_group/zyyz/Projects/cosmos-predict1/upsample_LUVE/stage28_exact_stage23_fallback/flolpips_compat.py": "282d13bcdc9029aa64c589de88cbbcc1619556fd90a7d1ef4c336a19d5fb21ca",
+    "/Huang_group/zyyz/Projects/cosmos-predict1/upsample_LUVE/stage28_exact_stage23_fallback/third_party/flolpips/flolpips.py": "2f1c976ca4d63ef9545cd6032c081868dda19245602f2f9bd584ae4685056e34",
+    "/Huang_group/zyyz/Projects/cosmos-predict1/upsample_LUVE/stage28_exact_stage23_fallback/third_party/flolpips/pwcnet.py": "9a0b01f10fa0625c2a0f5d26cb859cd47174747588d38e8bd1f270ed0cf3309d",
+    "/Huang_group/zyyz/Projects/cosmos-predict1/upsample_LUVE/stage28_exact_stage23_fallback/third_party/flolpips/weights/v0.1/alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+    "/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints/pwc-network-default.pytorch": "ad2dc62b63b9d10ad42a6969179b3f996d4115e2ec6421bf532f99cf278ffcd2",
+    "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py": "c9ee133a67ccaa37927e970397271ada47894f54130e91d39b3489a136f5a991",
+    "/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+  },
+  "FloLPIPS": {
+    "implementation_source": "official Danier et al. FloLPIPS source through existing local compatibility adapter",
+    "module_path": "/Huang_group/zyyz/Projects/cosmos-predict1/upsample_LUVE/stage28_exact_stage23_fallback/flolpips_compat.py",
+    "commit": "66dd39937e961c56cf162651074eacbfb5f9aab1",
+    "input_range": "float32 RGB [0,1]; normalize=True maps to [-1,1] in LPIPS; no YUV or BGR conversion",
+    "flow_estimator": "official PWCNet default weights, pure PyTorch 9x9 correlation compatibility implementation",
+    "frame_normalization": "source and decoded reconstruction clamped to [0,1], no uint8 requantization",
+    "resize_crop": "1920x1080 full frames, remove codec bottom padding only; PWC internally bilinear-resizes to multiples of 64 (1920x1088), rescales flow to original dimensions; no external resize/crop",
+    "temporal_order": "adjacent frames t -> t+1 in original order; score on t using reference flow minus reconstruction flow; arithmetic mean of 31 validation or 63 final transitions; no transitions across videos",
+    "zero_flow_policy": "fail explicitly, no invented zero or replacement metric"
+  },
+  "FID": {
+    "implementation_source": "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py",
+    "feature_extractor": "FID InceptionV3 pool3 2048D with cached pytorch-fid TensorFlow-port weights",
+    "input_range": "float32 RGB [0,1]",
+    "preprocessing": "full 1920x1080 frame; bilinear resize to 299x299, align_corners=False; scale 2*x-1; transform_input=False; no uint8 quantization",
+    "aggregation": "pool frames across all videos within split and method x QP, never average per-video FID",
+    "validation_samples": 192,
+    "final_samples": 512,
+    "all_qp_fid": "not requested as mandatory; not computed",
+    "numerical_implementation": "existing low_rank_fid: float64 centered features, unbiased N-1 covariance, exact low-rank SVD trace",
+    "sample_limitations": "finite correlated video-frame samples; sample counts reported in each result"
+  },
+  "use": "evaluation only; no influence on training loss",
+  "status": "PASS"
+}
