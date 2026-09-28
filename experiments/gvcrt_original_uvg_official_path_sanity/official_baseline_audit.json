@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "official_script": "/Huang_group/zyyz/Projects/GVC-RT/test_video_gvcrt_1088.py",
+  "official_script_sha256": "34c6b2610cdd23eceed739f88e24bd563d775b769dc8ae0a0adf56bd67c3f51d",
+  "official_path": "Unmodified run_one_point_with_stream, get_src_reader/get_src_frame, padding, shift_qp, compress/write_ip/decompress/DPB",
+  "source_alias": "Local im1.png..im64.png symlinks point directly to unchanged frame_000000.png..frame_000063.png",
+  "official_padding_semantics": {
+    "mode": "replicate",
+    "canvas": [
+      1920,
+      1088
+    ],
+    "bottom": 8,
+    "right": 0,
+    "metric_crop": [
+      1920,
+      1080
+    ]
+  },
+  "current_padding_semantics": {
+    "mode": "replicate",
+    "canvas": [
+      1920,
+      1088
+    ],
+    "bottom": 8,
+    "right": 0,
+    "metric_crop": [
+      1920,
+      1080
+    ]
+  },
+  "official_qp_semantics": {
+    "external": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "index_map": [
+      0,
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      2
+    ],
+    "first": "I",
+    "later": "causal P",
+    "intra_period": -1,
+    "reset_interval": -1
+  },
+  "current_qp_semantics": {
+    "external": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "index_map": [
+      0,
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      2
+    ],
+    "first": "I",
+    "later": "causal P",
+    "intra_period": -1,
+    "reset_interval": -1
+  },
+  "official_force_zero_thres": null,
+  "current_force_zero_thres": 0.12,
+  "official_bpp_denominator": "1920*1088 coded canvas",
+  "comparison_bpp_denominator": "1920*1080 valid source pixels",
+  "rate_accounting_fps": 30.0,
+  "official_native_metrics_preserved": true,
+  "comparison_metrics": "Same V5-A.2 metric implementation on fresh independently decoded RGB tensors; native official metrics additionally retained",
+  "checkpoint_parser_note": "Official parser has different default spelling; explicitly pass user-requested checkpoints/GVC-RT_I.pt and GVC-RT_P.pt",
+  "parity_policy": "No tuning to force parity. Strict byte_exact requires identical complete bitstream SHA256, not only equal length. Numeric diagnostic tolerance 1e-6 relative bitrate and 2e-6 absolute common metric; native metrics separately preserved.",
+  "official_I_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+  "current_original_I_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+  "official_I_sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+  "current_original_I_sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+  "I_hash_match": true,
+  "official_P_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+  "current_original_P_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+  "official_P_sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+  "current_original_P_sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+  "P_hash_match": true
+}
