@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "reference": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_2_fair_30fps_rgb/config.json",
+  "source_resolution": [
+    1920,
+    1080
+  ],
+  "processing_canvas": [
+    1920,
+    1088
+  ],
+  "padding_right": 0,
+  "padding_bottom": 8,
+  "padding_mode": "replicate",
+  "codec_input": "RGB [0,1] to float16, replicate padding to multiple of 64, then 2*x-1",
+  "metric_crop": "original source dimensions",
+  "two_entropy_coders": true,
+  "force_zero_thres": 0.12,
+  "force_zero_evidence": "unchanged V5-A.2 neural evaluation",
+  "intra_period": -1,
+  "reset_interval": -1,
+  "index_map": [
+    0,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    2
+  ],
+  "bpp_denominator": "source width*height, as requested"
+}
