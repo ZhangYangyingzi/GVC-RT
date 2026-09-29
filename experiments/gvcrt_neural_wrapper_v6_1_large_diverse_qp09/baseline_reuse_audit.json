@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "threshold": 0.12,
+  "official_none_results_excluded": true,
+  "ulong_uvg": {
+    "candidate": "V5-A.2 Original",
+    "source_hashes_verified": true,
+    "frames": 64,
+    "fps": 30.0,
+    "padding": [
+      1920,
+      1088
+    ],
+    "metric_crop": [
+      1920,
+      1080
+    ],
+    "base_checkpoints": {
+      "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    },
+    "metric_implementation_sha256": "cedbc8f5f3f2d187b7a139b611a7eb2e51b5262f9ec9780fc23a0ead0d665513",
+    "threshold_evidence": "gvc_hooks.load_models default .12; fresh threshold-.12 parity points QP0 and QP9 required on each dataset before any reuse"
+  },
+  "virat720": {
+    "reuse": false,
+    "reason": "Existing 720p baseline uses threshold=None; fresh .12 Original required"
+  },
+  "datasets": {
+    "ulong": {
+      "reuse": true,
+      "checked_points": 80,
+      "fresh_parity": [
+        {
+          "QP": 0,
+          "bitstream_and_decode_exact": true,
+          "metric_absolute_differences": {
+            "LPIPS": 0.0,
+            "DISTS": 0.0,
+            "PSNR": 0.0,
+            "SSIM": 0.0,
+            "MS_SSIM": 0.0,
+            "FloLPIPS": 0.0
+          },
+          "features_match": true
+        },
+        {
+          "QP": 9,
+          "bitstream_and_decode_exact": true,
+          "metric_absolute_differences": {
+            "LPIPS": 0.0,
+            "DISTS": 0.0,
+            "PSNR": 0.0,
+            "SSIM": 0.0,
+            "MS_SSIM": 0.0,
+            "FloLPIPS": 0.0
+          },
+          "features_match": true
+        }
+      ],
+      "reason": null,
+      "threshold": 0.12,
+      "source_hashes_match": true,
+      "frames_match": true,
+      "fps_match": true,
+      "padding_match": true,
+      "checkpoint_hashes_match": true,
+      "metric_implementation_match": true
+    },
+    "uvg": {
+      "reuse": true,
+      "checked_points": 70,
+      "fresh_parity": [
+        {
+          "QP": 0,
+          "bitstream_and_decode_exact": true,
+          "metric_absolute_differences": {
+            "LPIPS": 0.0,
+            "DISTS": 0.0,
+            "PSNR": 0.0,
+            "SSIM": 0.0,
+            "MS_SSIM": 0.0,
+            "FloLPIPS": 0.0
+          },
+          "features_match": true
+        },
+        {
+          "QP": 9,
+          "bitstream_and_decode_exact": true,
+          "metric_absolute_differences": {
+            "LPIPS": 0.0,
+            "DISTS": 0.0,
+            "PSNR": 0.0,
+            "SSIM": 0.0,
+            "MS_SSIM": 0.0,
+            "FloLPIPS": 0.0
+          },
+          "features_match": true
+        }
+      ],
+      "reason": null,
+      "threshold": 0.12,
+      "source_hashes_match": true,
+      "frames_match": true,
+      "fps_match": true,
+      "padding_match": true,
+      "checkpoint_hashes_match": true,
+      "metric_implementation_match": true
+    }
+  },
+  "decision": "Reuse only matching datasets; rerun Original where any check fails"
+}

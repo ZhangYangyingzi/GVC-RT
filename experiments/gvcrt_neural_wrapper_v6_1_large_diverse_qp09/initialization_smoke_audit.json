@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "physical_gpu": 4,
+  "optimizer_updates": 0,
+  "source_checkpoint_unchanged": true,
+  "trainable_weights_unchanged": true,
+  "compression_unchanged": true,
+  "clip_length": 4,
+  "crop": [
+    256,
+    256
+  ],
+  "sample": {
+    "video": "clips_long_1920/f437ec5c-85c5-4681-8d65-e2523ede71da.mp4",
+    "start": 1410,
+    "crop_x": 1614,
+    "crop_y": 774
+  },
+  "checks": [
+    {
+      "external_qp": 0,
+      "actual_i_qp": 0,
+      "actual_training_p_qps": [
+        0,
+        0,
+        0
+      ],
+      "loss": 0.19176429510116577,
+      "gradient_norms": {
+        "wrapper": 0.7361107419627281,
+        "bridge": 2.5721103670221885,
+        "generator": 3.3107960414610753
+      }
+    },
+    {
+      "external_qp": 9,
+      "actual_i_qp": 9,
+      "actual_training_p_qps": [
+        9,
+        9,
+        9
+      ],
+      "loss": 0.2541005462408066,
+      "gradient_norms": {
+        "wrapper": 1.8498178925164586,
+        "bridge": 1.2954366368027448,
+        "generator": 0.7567775648043847
+      }
+    }
+  ]
+}

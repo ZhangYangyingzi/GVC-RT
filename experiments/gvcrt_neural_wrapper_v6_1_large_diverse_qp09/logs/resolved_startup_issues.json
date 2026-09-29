@@ -1,0 +1,11 @@
+{
+  "status": "RESOLVED",
+  "current_training_produces_finite_updates": true,
+  "issues": [
+    {"issue": "Preflight source assertion quote syntax", "resolution": "Corrected delimiters; preflight PASS"},
+    {"issue": "Preflight logging directory not yet created", "resolution": "Created only the new experiment logs directory"},
+    {"issue": "Python3.12 versus setuptools60.2.0 pkgutil.ImpImporter", "resolution": "Isolated existing setuptools75.1.0 in new runtime_dependencies; original shared environment unchanged", "log": "logs/initialization_smoke_attempt1_error.log"},
+    {"issue": "optimizer.param_groups accessed as a function", "resolution": "Use existing list property; restored optimizer and real updates verified", "log": "logs/train.log"},
+    {"issue": "Pipeline restart must not duplicate surviving validation", "resolution": "Adopt existing file locks and fixed per-method GPU mapping", "log": "logs/pipeline.log"}
+  ]
+}

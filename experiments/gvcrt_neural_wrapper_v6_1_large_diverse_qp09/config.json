@@ -1,0 +1,100 @@
+{
+  "schema": "gvcrt_v6_1_large_diverse_qp09",
+  "seed": 20260928,
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "training_gpu": 4,
+  "validation_gpus": [
+    5,
+    6,
+    7
+  ],
+  "multi_gpu_mode": "Existing process-per-GPU orchestration: one training process, independent validation/evaluation workers; no DDP or optimizer changes",
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+  "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "source_checkpoint_step": 20000,
+  "additional_updates": 40000,
+  "effective_final_step": 60000,
+  "checkpoint_additional_updates": [
+    0,
+    5000,
+    10000,
+    20000,
+    30000,
+    40000
+  ],
+  "qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "force_zero_thres": 0.12,
+  "clip_length": 4,
+  "crop": [
+    256,
+    256
+  ],
+  "beta": 17.302782275540444,
+  "lambda_proxy": 0.01,
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0
+  },
+  "restore_optimizer": true,
+  "scheduler": null,
+  "per_gpu_batch": 1,
+  "detach_dpb_every_frame": true,
+  "validation_count": 32,
+  "validation_frames": 32,
+  "validation_qps": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "selection_datasets": [
+    "validation_ulong"
+  ],
+  "selection_rule": "Among checkpoints passing LPIPS/DISTS equal-rate-negative gates and nonpositive valid BD-rate gates, maximize mean same-QP bitrate reduction on validation; earliest additional step breaks ties. If none pass, rank validation-only normalized mean equal-rate LPIPS/DISTS delta, earliest tie; record fallback.",
+  "final_datasets": [
+    "ulong",
+    "uvg",
+    "virat720"
+  ],
+  "optional_virat480": "Not scheduled; optional scope deferred",
+  "old_train_count": 256,
+  "train_count": 1024,
+  "profiling": {
+    "workers": 8,
+    "uniform_frame_pairs": 4,
+    "statistics_canvas": [
+      256,
+      144
+    ],
+    "training_preprocessing_unchanged": true
+  },
+  "stratification": {
+    "temporal_bins": 4,
+    "texture_bins": 4,
+    "temporal": "temporal_rgb_L1",
+    "texture": "sobel_edge_energy"
+  },
+  "entropy_metrics_note": "Training retains existing differentiable rate loss; all validation/final reported rates use full real RANS bitstreams only"
+}
