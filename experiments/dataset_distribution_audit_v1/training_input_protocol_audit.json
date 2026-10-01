@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "seed": 20261001,
+  "training_loader_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/train.py",
+  "training_loader_sha256": "7e20653dfeedb3859f7083bc4c75f765bbe970a69f87d9b13b19e936a71b0e93",
+  "current_wrapper_training": {
+    "clip_length": 4,
+    "frame_stride": 1,
+    "selection": "rng.choice video; uniform start, then shared random spatial crop",
+    "source_fps_used": false,
+    "crop": [
+      256,
+      256
+    ],
+    "resize": false,
+    "RGB_range": [
+      0,
+      1
+    ],
+    "normalization": "uint8 RGB / 255; codec subsequently casts half and applies 2*x-1"
+  },
+  "original_training_code_availability": "README states training code not released; no claim about unobserved official training loader",
+  "evaluation_loader": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v5a_2_fair_30fps_rgb/canonical_loader.py",
+  "standardized_content_view": {
+    "max_frames": 32,
+    "long_side": 512,
+    "aspect_ratio_preserved": true,
+    "resize": "OpenCV INTER_AREA shrinking / INTER_LINEAR enlarging",
+    "video_temporal": "first up-to-32 nearest timestamp frames at <=30fps, unique ordered indices, no duplicate/interpolation",
+    "vimeo_temporal": "all seven images in official order, fps unknown",
+    "RGB_range": [
+      0,
+      1
+    ]
+  },
+  "actual_codec_input_view": {
+    "ulong": "first 32 raw frames decoded with ffmpeg RGB24; preserves V5-A.2 color/order pipeline; no resize or temporal resampling; comparison fps30",
+    "uvg": "first32 of exact frozen canonical64; full64 existing Original codec profile reused",
+    "virat": "first32 frozen720 PNGs, unique source segments; existing full-length720/480 codec profiles reused",
+    "vimeo": "all seven native448x256 RGB images; current wrapper would still apply random256crop during training, but this diagnostic uses full-frame inference",
+    "vimeo_comparison_fps": "30 assumed only for kbps; source fps remains missing, use bpp for coverage"
+  }
+}

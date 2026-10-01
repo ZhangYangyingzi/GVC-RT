@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "dataset_exists": true,
+  "official_train_split_available": true,
+  "structure": "sep",
+  "number_of_usable_train_sequences": 64612,
+  "number_of_usable_train_frames": 452284,
+  "complete_train_extracted": true,
+  "archive_present": true,
+  "sampled_train_sequences": 2048,
+  "fully_decoded_sample_frames": 14336,
+  "corrupt_samples_count": 0,
+  "corrupt_samples": [],
+  "unsampled_full_decode_corruption_status": "Not exhaustively tested; all extracted image headers inventoried",
+  "resolutions": [
+    "448x256"
+  ],
+  "direct_current_wrapper_loader_compatible": false,
+  "reason": "Current sample_clip uses cv2.VideoCapture on a video path, not an image-sequence directory",
+  "minimal_adapter": "Read im1.png through im7.png in temporal order as RGB; choose four consecutive frames and one shared random 256x256 crop; float /255; no resize, interpolation or looped frames",
+  "sampled_extraction_bytes": 1949407606,
+  "remaining_full_extraction_required_for_this_experiment": false,
+  "full_archive_uncompressed_bytes": 87764799585,
+  "codec_32_frame_requirement_satisfied": false,
+  "codec_frame_count_decision": "User approved seven native frames, no padding/concatenation"
+}

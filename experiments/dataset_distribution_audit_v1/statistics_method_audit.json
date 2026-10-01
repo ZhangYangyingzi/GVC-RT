@@ -1,0 +1,12 @@
+{
+  "status": "FROZEN",
+  "luminance": "0.2126R+0.7152G+0.0722B",
+  "spatial": "frame-average moments; Sobel 3x3 scale1/8 reflect border; gradient magnitude; Laplacian ksize3 variance",
+  "high_frequency_energy": "mean((Y-GaussianBlur(Y,5x5,sigma1,reflect))**2)",
+  "edge_threshold": 0.05,
+  "edge_definition": "fraction of normalized Sobel magnitude >0.05",
+  "temporal_percentiles": "percentiles of adjacent-frame mean absolute RGB differences",
+  "camera": "goodFeaturesToTrack(400,quality=.01,minDistance=8); pyramidal LK21x21,maxLevel3; estimateAffinePartial2D RANSAC3px,2000iterations,confidence.99; deterministic RNG0",
+  "camera_failure_policy": "Missing numeric camera fields and explicit status, never silent identity/zero fill; average over successful pairs with coverage count",
+  "compensated_residual": "Warp previous RGB by estimated partial affine to current coordinates; exclude invalid border mask; mean absolute/squared RGB residual"
+}
