@@ -1,0 +1,81 @@
+{
+  "beta": 0,
+  "branch": "beta_0",
+  "schema": "gvcrt_v6_2_objective_calibration",
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+  "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "train_manifest": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_1_large_diverse_qp09/train_manifest_1024.json",
+  "train_manifest_sha256": "bdef22e4671a3c0a4ae8a3431428ec543a9729035f625149968aa9816334f3dc",
+  "updates": 3000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000,
+    2000,
+    3000
+  ],
+  "betas": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    12,
+    17.302782275540444
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_qps": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "clip_length": 4,
+  "crop": [
+    256,
+    256
+  ],
+  "lambda_proxy": 0.01,
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0
+  },
+  "force_zero_thres": 0.12,
+  "old_artifact_hashes": {
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_1_large_diverse_qp09/train_manifest_1024.json": "bdef22e4671a3c0a4ae8a3431428ec543a9729035f625149968aa9816334f3dc",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_1_large_diverse_qp09/data_split_integrity.json": "d8102aa70b6219e124202b979ccc30af06bbdc2b1725a69e6141d102862e5d82",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/train_extension.py": "fbc305f263eb651f4901ae56fe99065a758dac44c6908551330972070c87b73c",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/metric_runtime.py": "36f5a7f263acd4e7086c6dcd5f8effdeb981b4b69075a110a9ddc704a59f44fd",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py": "baab2301edd905ea63a9ca59f0311f21dc0bd44e0a1680d8de3766bf224a44e2"
+  },
+  "notes": "Fresh optimizer each branch; no final/test dataset used in selection",
+  "optimizer_fresh": true,
+  "initialization_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "qp_semantics_audit": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/qp_semantics_train_eval_audit.json"
+}

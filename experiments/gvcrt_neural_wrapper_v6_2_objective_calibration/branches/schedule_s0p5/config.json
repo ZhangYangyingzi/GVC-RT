@@ -1,0 +1,67 @@
+{
+  "revision": "fullqp_schedule_v1",
+  "seed": 20260929,
+  "branches": [
+    "schedule_s0p5",
+    "schedule_s1p0",
+    "schedule_s1p5",
+    "schedule_s2p0",
+    "fixed_beta17p3028_aligned_qp"
+  ],
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+  "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "train_manifest": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_1_large_diverse_qp09/train_manifest_1024.json",
+  "train_manifest_sha256": "bdef22e4671a3c0a4ae8a3431428ec543a9729035f625149968aa9816334f3dc",
+  "updates": 3000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000,
+    2000,
+    3000
+  ],
+  "validation_qps": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "clip_length": 4,
+  "crop": 256,
+  "batch": 1,
+  "force_zero_thres": 0.12,
+  "lambda_proxy": 0.01,
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "optional_beta0": "Skipped: legacy beta0 retained as pilot, not certified by this revision; prioritize five required branches",
+  "validation_frames": 32,
+  "validation_frames_basis": "Reuse V6.1 validation protocol",
+  "comparison_anchor": "original codec plus initial step0 secondary comparison",
+  "audit_hashes": {
+    "qp_train_eval_semantics_audit.json": "8a7bb68e6920ed9bc5ce4646757e29d2ed0a96cb798474ac3478f6aed3fd4ad5",
+    "gvc_lambda_schedule_audit.json": "6580a74ed2110f33e056ac33c99b79c2e170688ac3b3b4fab3155272436c1748",
+    "validation_normal_manifest.json": "e47dd2dcd488a2385861c7c73cbf4a3c7ae7b72ee5f6922f8cec5bb34138b237",
+    "validation_hard_manifest.json": "d48aa0e5a9ee7dd35dfa8be8fd3b72e1ea0bb8fc4ae62fe39e73ac32f3e90984",
+    "training_source_hash_audit.json": "1ff2c9c28fbb5ca33120a30deed663f6fafb3b62e024b26f4c5c0a735e124548",
+    "validation_split_integrity.json": "b43a06dc7215c95b9fb7d86a26464e248ea6deba7bad91e18f58256f7ea97df7"
+  },
+  "branch": "schedule_s0p5",
+  "scale": 0.5,
+  "fixed_or_schedule": "schedule",
+  "fresh_optimizer": true
+}

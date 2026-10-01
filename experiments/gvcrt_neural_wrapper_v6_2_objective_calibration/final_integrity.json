@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "revision": "fullqp_schedule_v1",
+  "completed_unix": 1790795155.6646643,
+  "old_source_hashes_unchanged": true,
+  "train_manifest_exact_reuse": true,
+  "no_UVG_VIRAT": true,
+  "no_final_test_used": true,
+  "normal_hard_train_test_disjoint": true,
+  "qp_semantics_equal": true,
+  "uniform_qp_sampling": true,
+  "fresh_optimizer_each_branch": true,
+  "identical_initialization": true,
+  "paired_branch_sampling": true,
+  "real_RANS_complete": true,
+  "independent_decode_complete": true,
+  "all_requested_checkpoints_evaluated": true,
+  "all_measured_metrics_finite": true,
+  "bd_rate_undefined_policy": "Retain invalid status/reason; never fabricate or monotonicize measurements",
+  "required_branches": [
+    "schedule_s0p5",
+    "schedule_s1p0",
+    "schedule_s1p5",
+    "schedule_s2p0",
+    "fixed_beta17p3028_aligned_qp"
+  ],
+  "checkpoints": [
+    0,
+    250,
+    500,
+    1000,
+    2000,
+    3000
+  ],
+  "validation_points": 11904,
+  "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "artifacts": {
+    "qp_train_eval_semantics_audit.json": "8a7bb68e6920ed9bc5ce4646757e29d2ed0a96cb798474ac3478f6aed3fd4ad5",
+    "gvc_lambda_schedule_audit.json": "6580a74ed2110f33e056ac33c99b79c2e170688ac3b3b4fab3155272436c1748",
+    "paired_sampling_audit.json": "92ab997693d792b737c76ad2127c9347fe5855b5d0381c57c31e07cc1be84f64",
+    "initialization_audit.json": "23d49e25e1e8602f47c071e3d6ffe17bd6faf5f4cd2bbdc9555395ff003c1524",
+    "validation_normal_manifest.json": "e47dd2dcd488a2385861c7c73cbf4a3c7ae7b72ee5f6922f8cec5bb34138b237",
+    "validation_hard_manifest.json": "d48aa0e5a9ee7dd35dfa8be8fd3b72e1ea0bb8fc4ae62fe39e73ac32f3e90984",
+    "loss_component_statistics.csv": "85a6dd13d44b375787fc1f1f53048dcb7862c9f6bc351510f91879c377f66426",
+    "loss_component_trajectory.csv": "d50ec60314609754d21143d793d70eb99d21fc50e05738f7845b99024f919ef4",
+    "gradient_balance_diagnostics.csv": "cafa92930bc1301ce30e39e9ef3dabf5e4be46351b05447f39f78027c5c38b61",
+    "proxy_transformation_summary.csv": "d05d11865641ef1ae1f308b7ea4b2a9bbef5cbec711c80bdcbbff4b252e2a59d",
+    "objective_trajectory.csv": "c377d27749e82f947bb65bbe306149d8f68ba22d89903cc591be8dcec2ca777a",
+    "validation_candidate_table.csv": "e7639a0dad230c888c5c4dbd5b188ec13a665d0238833b828bb839d973798b6e"
+  },
+  "old_experiments_untouched": true
+}
