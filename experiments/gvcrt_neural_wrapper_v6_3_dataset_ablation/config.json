@@ -1,0 +1,69 @@
+{
+  "seed": 20260929,
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+  "source_checkpoint_sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+  "train_manifest": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_1_large_diverse_qp09/train_manifest_1024.json",
+  "train_manifest_sha256": "bdef22e4671a3c0a4ae8a3431428ec543a9729035f625149968aa9816334f3dc",
+  "clip_length": 4,
+  "crop": 256,
+  "batch": 1,
+  "force_zero_thres": 0.12,
+  "lambda_proxy": 0.01,
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "schema": "v63_dataset_ablation_v1",
+  "branches": [
+    "ulong_only",
+    "vimeo_only",
+    "mixed_50_50"
+  ],
+  "updates": 1000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000
+  ],
+  "test_checkpoint_step": 1000,
+  "objective": "exact AST from V6.2 fullqp_train.py::main::run_clip; schedule_s1p0",
+  "qp_seed": 20260929,
+  "sample_seed": 20260929,
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "minimum_free_training_mib": 22000,
+  "minimum_free_evaluation_mib": 16000,
+  "no_test_checkpoint_selection": true,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "baseline_checkpoints": {
+    "v62": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/branches/schedule_s1p0/checkpoints/step_1000.pt",
+      "sha256": "fe63a6f00ca6bae59b23c8683146dbe64b6be67c1463a552af851bbfc31e9cba",
+      "module_hashes": {
+        "wrapper": "140f673ba5471f1341a49df3e20b82159f551cfdb175b51af0533904e554f530",
+        "bridge": "6df8920959a6762f1f91f5cf8d8f4e54492e8f552bdf5c9fa2368e882fcdf534",
+        "generator": "e442ffc30e77a5ef32c2e2a9d3e1c623500ec940b2ceda81752bb9ed4c29c4dd"
+      }
+    }
+  }
+}

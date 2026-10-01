@@ -1,0 +1,85 @@
+{
+  "status": "RUNNING",
+  "phase": "evaluation",
+  "pid": 957689,
+  "updated_unix": 1790870566.2576694,
+  "branches": {
+    "ulong_only": {
+      "status": "PASS",
+      "update": 1000,
+      "target": 1000,
+      "gpu": 4,
+      "pid": 958095,
+      "source_counts": {
+        "ulong": 1000
+      },
+      "checkpoints": [
+        0,
+        250,
+        500,
+        1000
+      ],
+      "updated_unix": 1790869858.6275597
+    },
+    "vimeo_only": {
+      "status": "PASS",
+      "update": 1000,
+      "target": 1000,
+      "gpu": 6,
+      "pid": 958096,
+      "source_counts": {
+        "vimeo": 1000
+      },
+      "checkpoints": [
+        0,
+        250,
+        500,
+        1000
+      ],
+      "updated_unix": 1790869448.6194956
+    },
+    "mixed_50_50": {
+      "status": "PASS",
+      "update": 1000,
+      "target": 1000,
+      "gpu": 7,
+      "pid": 958097,
+      "source_counts": {
+        "ulong": 500,
+        "vimeo": 500
+      },
+      "checkpoints": [
+        0,
+        250,
+        500,
+        1000
+      ],
+      "updated_unix": 1790869659.781292
+    }
+  },
+  "active_jobs": {
+    "eval_ulong_vimeo_only_1": {
+      "pid": 998021,
+      "gpu": 4,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_3_dataset_ablation/logs/eval_ulong_vimeo_only_1.log"
+    },
+    "eval_ulong_mixed_50_50_1": {
+      "pid": 998022,
+      "gpu": 6,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_3_dataset_ablation/logs/eval_ulong_mixed_50_50_1.log"
+    },
+    "eval_ulong_ulong_only_2": {
+      "pid": 998023,
+      "gpu": 7,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_3_dataset_ablation/logs/eval_ulong_ulong_only_2.log"
+    },
+    "eval_ulong_vimeo_only_2": {
+      "pid": 998024,
+      "gpu": 5,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_3_dataset_ablation/logs/eval_ulong_vimeo_only_2.log"
+    }
+  },
+  "failures": {},
+  "total_completed_points": 692,
+  "expected_points": 1550
+}
