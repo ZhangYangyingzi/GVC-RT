@@ -1,0 +1,66 @@
+{
+  "schema": "gvcrt_v62b_final_generalization",
+  "checkpoints": {
+    "v41": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/checkpoints/beta_high/step_20000.pt",
+      "sha256": "c185e1f69fd5f249a4aa3753ddee1dc23d4402d5d6f74d18ef6b51b559fbdb73",
+      "module_hashes": {
+        "wrapper": "7bab7f0c966f8f9fcefff2eb76b2d7c4b50188aadbde215eea8fa6041a624d27",
+        "bridge": "a48dc3e5294d7f01714bc567a028e11743b8c961d0107135722da7f948c80af4",
+        "generator": "53c7a8e732efd829c89a8eaaed5156cb5d32fe08daeb67239fe4eab28edde50d"
+      }
+    },
+    "v62": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/branches/schedule_s1p0/checkpoints/step_1000.pt",
+      "sha256": "fe63a6f00ca6bae59b23c8683146dbe64b6be67c1463a552af851bbfc31e9cba",
+      "module_hashes": {
+        "wrapper": "140f673ba5471f1341a49df3e20b82159f551cfdb175b51af0533904e554f530",
+        "bridge": "6df8920959a6762f1f91f5cf8d8f4e54492e8f552bdf5c9fa2368e882fcdf534",
+        "generator": "e442ffc30e77a5ef32c2e2a9d3e1c623500ec940b2ceda81752bb9ed4c29c4dd"
+      }
+    }
+  },
+  "methods": [
+    "original",
+    "v41",
+    "v62"
+  ],
+  "datasets": [
+    "ulong",
+    "uvg",
+    "virat720",
+    "virat480"
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "force_zero_thres": 0.12,
+  "no_training": true,
+  "no_model_selection": true,
+  "gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "expected_points": 930,
+  "fresh_all_points": true,
+  "visualization_policy": "First two U-Long; Beauty/Jockey/ReadySteadyGo; first two paired VIRAT sequences at both resolutions; QP0/4/9; save all decoded frames via existing engine helper",
+  "audit_hashes": {
+    "source_manifest.json": "b30bd5e60aa2049163043cde306e6a18cd964fa095e6433f23a3cc125da68ab3",
+    "frozen_candidate_audit.json": "41ec8445e1936694b742a9a1a19b779264131df8731da01d42222f80dbafa752",
+    "baseline_reuse_audit.json": "d664b531c644cd1ed8b69d4aac630adee39b561dd0658208626ebaa4078373f6",
+    "virat_rate_accounting_audit.json": "4f4fda9f0421f79d8e2f111db91023a793db89691d6fc0c17d4a7b222ac5972c",
+    "qp_semantics_audit.json": "64f594aaec577d4b5c093c478942bbfd571d9b622348c3dc92e3a9f24d51e705",
+    "metric_implementation_audit.json": "d3608bf06010e1e5cbac598094ea12994670518b105feab4e662a5e5d456a962"
+  }
+}
