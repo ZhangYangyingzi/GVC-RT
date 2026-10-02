@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "engine": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_parallel_v5a3_v60/engine.py",
+  "original_loading": "gvc_hooks.load_models: original GVC-RT_I.pt and GVC-RT_P.pt; no joint payload",
+  "wrapper_loading": "eco.load_joint loads wrapper strictly, float32 eval, requires_grad False",
+  "BG_loading": "eco.apply_joint strictly loads only recon_generation_net.mlp and decoder; eval float16",
+  "compression_hash_definition": "All I-model named parameters plus P-model named parameters excluding recon_generation_net.*",
+  "sender_state": "DMC.compress saves decoded latent feature; apply_feature_adaptor uses feature after I frame; no reconstructed RGB feedback or feature reset in runtime",
+  "independent_factorization_supported_by_source": true,
+  "independent_decode": "Runtime creates a fresh decoder and validates reconstructed-frame hashes and latent state synchronization",
+  "no_training": true,
+  "force_zero_thres": 0.12,
+  "full_runtime_hash_and_bitstream_smoke_required": true,
+  "runtime_smoke_audit_sha256": "2158219eabf57b48831fa7aeb09204a0588b3405c76a28bbf1d9d3a664e90f0d"
+}
