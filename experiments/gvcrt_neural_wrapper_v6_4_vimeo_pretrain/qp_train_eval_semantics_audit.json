@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "revision": "fullqp_schedule_v1",
+  "rows": [
+    {
+      "external_qp": 0,
+      "I_QP": 0,
+      "frame1_P_QP": 2,
+      "frame2_P_QP": 0,
+      "frame3_P_QP": 1,
+      "training": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "evaluation": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 1,
+      "I_QP": 1,
+      "frame1_P_QP": 3,
+      "frame2_P_QP": 1,
+      "frame3_P_QP": 2,
+      "training": [
+        1,
+        3,
+        1,
+        2
+      ],
+      "evaluation": [
+        1,
+        3,
+        1,
+        2
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 2,
+      "I_QP": 2,
+      "frame1_P_QP": 4,
+      "frame2_P_QP": 2,
+      "frame3_P_QP": 3,
+      "training": [
+        2,
+        4,
+        2,
+        3
+      ],
+      "evaluation": [
+        2,
+        4,
+        2,
+        3
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 3,
+      "I_QP": 3,
+      "frame1_P_QP": 5,
+      "frame2_P_QP": 3,
+      "frame3_P_QP": 4,
+      "training": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "evaluation": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 4,
+      "I_QP": 4,
+      "frame1_P_QP": 6,
+      "frame2_P_QP": 4,
+      "frame3_P_QP": 5,
+      "training": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "evaluation": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 5,
+      "I_QP": 5,
+      "frame1_P_QP": 7,
+      "frame2_P_QP": 5,
+      "frame3_P_QP": 6,
+      "training": [
+        5,
+        7,
+        5,
+        6
+      ],
+      "evaluation": [
+        5,
+        7,
+        5,
+        6
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 6,
+      "I_QP": 6,
+      "frame1_P_QP": 8,
+      "frame2_P_QP": 6,
+      "frame3_P_QP": 7,
+      "training": [
+        6,
+        8,
+        6,
+        7
+      ],
+      "evaluation": [
+        6,
+        8,
+        6,
+        7
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 7,
+      "I_QP": 7,
+      "frame1_P_QP": 9,
+      "frame2_P_QP": 7,
+      "frame3_P_QP": 8,
+      "training": [
+        7,
+        9,
+        7,
+        8
+      ],
+      "evaluation": [
+        7,
+        9,
+        7,
+        8
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 8,
+      "I_QP": 8,
+      "frame1_P_QP": 10,
+      "frame2_P_QP": 8,
+      "frame3_P_QP": 9,
+      "training": [
+        8,
+        10,
+        8,
+        9
+      ],
+      "evaluation": [
+        8,
+        10,
+        8,
+        9
+      ],
+      "exact_match": true
+    },
+    {
+      "external_qp": 9,
+      "I_QP": 9,
+      "frame1_P_QP": 11,
+      "frame2_P_QP": 9,
+      "frame3_P_QP": 10,
+      "training": [
+        9,
+        11,
+        9,
+        10
+      ],
+      "evaluation": [
+        9,
+        11,
+        9,
+        10
+      ],
+      "exact_match": true
+    }
+  ],
+  "training_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/fullqp_common.py",
+  "shift_source": "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py",
+  "shift_source_sha256": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+  "index_source": "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py",
+  "INDEX_MAP": [
+    0,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    2
+  ],
+  "evaluation_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_parallel_v5a3_v60/engine.py",
+  "evaluation_source_sha256": "809d5cf2172754f07a8397d08bcec5a8e0504447b6661bc6a296bda65ebdb2c7",
+  "evaluation_expression": "qp if i == 0 else pe.shift_qp(qp, eco.INDEX_MAP[i % 8])",
+  "method": "Execute real DMC.shift_qp and AST-extracted evaluator expression independently; no copied parity list",
+  "runtime_endpoint_smoke": "Required per branch before optimizer updates"
+}

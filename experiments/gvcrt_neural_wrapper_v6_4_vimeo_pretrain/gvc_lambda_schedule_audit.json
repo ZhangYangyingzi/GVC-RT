@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "whether_found_in_code": false,
+  "source": "arXiv:2608.04891v1 section 6.1 + latest user specification section 4",
+  "source_url": "https://arxiv.org/html/2608.04891v1#S6.SS1",
+  "evidence": "Paper states QP 0 through 9 and interpolation between 0.08 and 0.9; it does not explicitly specify linear versus logarithmic interpolation. The linear rule here is the user-specified calibration protocol, NOT claimed to be recovered official code.",
+  "repository_evidence": "README marks training code release incomplete; searched Python and project documentation, no official lambda schedule found",
+  "formula": "0.08 + external_qp * (0.9 - 0.08) / 9",
+  "rows": [
+    {
+      "external_qp": 0,
+      "lambda_q": 0.08,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 1,
+      "lambda_q": 0.1711111111111111,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 2,
+      "lambda_q": 0.26222222222222225,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 3,
+      "lambda_q": 0.35333333333333333,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 4,
+      "lambda_q": 0.4444444444444445,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 5,
+      "lambda_q": 0.5355555555555556,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 6,
+      "lambda_q": 0.6266666666666666,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 7,
+      "lambda_q": 0.7177777777777777,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 8,
+      "lambda_q": 0.8088888888888889,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    },
+    {
+      "external_qp": 9,
+      "lambda_q": 0.9,
+      "whether_found_in_code": false,
+      "source": "paper endpoints + user linear formula"
+    }
+  ]
+}
