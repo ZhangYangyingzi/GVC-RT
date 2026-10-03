@@ -1,0 +1,17 @@
+{
+  "reason": "CUDA reflection_pad2d backward rejects deterministic algorithms; use exactly equivalent slicing and concatenation for right/bottom reflection padding",
+  "before_objective_sha256": "1d37146685747eeb5b850dbfe41e9c8447eefb32581e9a3d9f04e88c966ebc98",
+  "after_objective_sha256": "52c678cefa6923f144a90fff534e5fcf4d004c2aea3c145918b30f6a0c7e6239",
+  "formal_updates_before_revision": 0,
+  "calibration_completed_before_revision": false,
+  "determinism_disabled": false,
+  "verification": "First MS-SSIM call asserts exact padding equality and unchanged MS-SSIM value against original implementation",
+  "independent_experiment_exclusion": "V6.5b aggregate.py changed externally while this task was running. V6.5b is not imported or used by V6.6; excluded its four Python files from dependency freezing, consistent with the active-output inventory exclusion. No V6.6 code changes any V6.5b file. All actual V6.6 dependencies remain hashed.",
+  "gate_revision": {
+    "before_sha256": "05f5384f57f1d8ccba2cdb3e28929f66ebbb57e16ce191a655a69adae684c01d",
+    "after_sha256": "7a073d605b29b50472883ed69c4682ef6689898a0a0ed30c5b878bcf67447cf9",
+    "reason": "Additionally compare loaded training/calibration frame SHA256 and actual QPs to the original V6.4 logs",
+    "formal_updates_before_revision": 0,
+    "transient_launch_failure": "Both B and C failed the frozen-protocol check during resealing, before any formal updates; relaunched after the hash manifest was synchronized"
+  }
+}
