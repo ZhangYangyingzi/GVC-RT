@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "video": "Jockey",
+      "original_frame": 0,
+      "canonical_index": 0,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "2b50656e54bbf32965b0a07d125d1716fcd5dfd2d54be46b860b9b3c04894219",
+      "canonical_sha256": "2b50656e54bbf32965b0a07d125d1716fcd5dfd2d54be46b860b9b3c04894219"
+    },
+    {
+      "video": "Jockey",
+      "original_frame": 4,
+      "canonical_index": 1,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "456fc7cb1246f75c87b18c2d3789eff48738833d6b594979bbe70920070acce0",
+      "canonical_sha256": "456fc7cb1246f75c87b18c2d3789eff48738833d6b594979bbe70920070acce0"
+    },
+    {
+      "video": "Jockey",
+      "original_frame": 32,
+      "canonical_index": 8,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "39a5257e78d985daa2d776424e8db2cfef279aa23faf2d3b637ce559bcbd888f",
+      "canonical_sha256": "39a5257e78d985daa2d776424e8db2cfef279aa23faf2d3b637ce559bcbd888f"
+    },
+    {
+      "video": "Jockey",
+      "original_frame": 64,
+      "canonical_index": 16,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "d99a7df32e9896176a9de2e593ef041b3937a2647adad72cf222ee74bae63609",
+      "canonical_sha256": "d99a7df32e9896176a9de2e593ef041b3937a2647adad72cf222ee74bae63609"
+    },
+    {
+      "video": "Jockey",
+      "original_frame": 128,
+      "canonical_index": 32,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "2a49a402be7b63ac21de0fa77566fa97aad09bfbca977bf914042f8563dfcb1e",
+      "canonical_sha256": "2a49a402be7b63ac21de0fa77566fa97aad09bfbca977bf914042f8563dfcb1e"
+    },
+    {
+      "video": "Jockey",
+      "original_frame": 192,
+      "canonical_index": 48,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "426b76f603dea064c4c93dd2c3ec68b18885377aac62abf6ec386a5c8ef0c540",
+      "canonical_sha256": "426b76f603dea064c4c93dd2c3ec68b18885377aac62abf6ec386a5c8ef0c540"
+    }
+  ],
+  "conversion_command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-threads",
+    "1",
+    "-f",
+    "rawvideo",
+    "-pixel_format",
+    "yuv420p",
+    "-video_size",
+    "1920x1080",
+    "-framerate",
+    "120",
+    "-i",
+    "/Huang_group/zyyz/datasets/UVG/Bosphorus_1920x1080_120fps_420_8bit_YUV.yuv",
+    "-vf",
+    "scale=in_color_matrix=bt709:in_range=limited:out_range=full,format=rgb24",
+    "-frames:v",
+    "96",
+    "-threads",
+    "1",
+    "-pix_fmt",
+    "rgb24",
+    "-f",
+    "rawvideo",
+    "pipe:1"
+  ]
+}

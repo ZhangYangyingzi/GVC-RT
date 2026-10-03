@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "video": "YachtRide",
+      "original_frame": 0,
+      "canonical_index": 0,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "29b2c69051aabacdc3efab657e1b53318ad5f86b64a4d5ee84be2d663de6ab6f",
+      "canonical_sha256": "29b2c69051aabacdc3efab657e1b53318ad5f86b64a4d5ee84be2d663de6ab6f"
+    },
+    {
+      "video": "YachtRide",
+      "original_frame": 4,
+      "canonical_index": 1,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "f5c820d690bf655a5895d688cdb1c0af9de286efa8db2fab6e64e8cb10d04ef7",
+      "canonical_sha256": "f5c820d690bf655a5895d688cdb1c0af9de286efa8db2fab6e64e8cb10d04ef7"
+    },
+    {
+      "video": "YachtRide",
+      "original_frame": 32,
+      "canonical_index": 8,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "399fe104a739493fde558b561a99401bc7ae4ae54103c778571e4474a000699a",
+      "canonical_sha256": "399fe104a739493fde558b561a99401bc7ae4ae54103c778571e4474a000699a"
+    },
+    {
+      "video": "YachtRide",
+      "original_frame": 64,
+      "canonical_index": 16,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "e964e99282a9a9e042d79c98f5745be12d39b6ee550af29ee90b338ed9f7c24c",
+      "canonical_sha256": "e964e99282a9a9e042d79c98f5745be12d39b6ee550af29ee90b338ed9f7c24c"
+    },
+    {
+      "video": "YachtRide",
+      "original_frame": 128,
+      "canonical_index": 32,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "1a687549f42312b2b51f9d27d08125b984c936011f36e5570643a3bd84ca0d48",
+      "canonical_sha256": "1a687549f42312b2b51f9d27d08125b984c936011f36e5570643a3bd84ca0d48"
+    },
+    {
+      "video": "YachtRide",
+      "original_frame": 192,
+      "canonical_index": 48,
+      "exact_equality": true,
+      "max_abs_error": 0,
+      "original_sha256": "66d68219b5f46a15ac5e738ba9507517523a600e7540885acd037381f60c2991",
+      "canonical_sha256": "66d68219b5f46a15ac5e738ba9507517523a600e7540885acd037381f60c2991"
+    }
+  ],
+  "conversion_command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-threads",
+    "1",
+    "-f",
+    "rawvideo",
+    "-pixel_format",
+    "yuv420p",
+    "-video_size",
+    "1920x1080",
+    "-framerate",
+    "120",
+    "-i",
+    "/Huang_group/zyyz/datasets/UVG/Bosphorus_1920x1080_120fps_420_8bit_YUV.yuv",
+    "-vf",
+    "scale=in_color_matrix=bt709:in_range=limited:out_range=full,format=rgb24",
+    "-frames:v",
+    "96",
+    "-threads",
+    "1",
+    "-pix_fmt",
+    "rgb24",
+    "-f",
+    "rawvideo",
+    "pipe:1"
+  ]
+}
