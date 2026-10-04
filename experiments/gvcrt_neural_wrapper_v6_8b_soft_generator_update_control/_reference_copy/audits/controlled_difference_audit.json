@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "same_B1000_source": true,
+  "same_source_parameter_hashes": true,
+  "same_optimizer_initialization": true,
+  "same_training_plans": true,
+  "same_QP_sequence": true,
+  "same_LR": true,
+  "same_optimizer_hyperparameters": true,
+  "same_total_updates": true,
+  "same_architecture": true,
+  "same_compression_core": true,
+  "same_B_objective": true,
+  "same_lambda_struct": true,
+  "teacher_frozen": true,
+  "teacher_not_used_at_inference": true,
+  "no_extra_inference_parameters": true,
+  "no_extra_transmitted_bits": true,
+  "only_difference": "C1 adds training-only Original-GVC-RT interface cosine preservation",
+  "evidence": [
+    "branch_initialization_equivalence.json",
+    "interface_preservation_feasibility.json",
+    "parameter_update_audit_C0.json",
+    "parameter_update_audit_C1.json"
+  ],
+  "inference_implementation": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2b_final_generalization_test/evaluate.py"
+}

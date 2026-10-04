@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "gpu": 4,
+  "pre_step_losses_exactly_identical": true,
+  "all_gradient_tensors_exactly_identical": true,
+  "wrapper_updates_exactly_identical": true,
+  "bridge_updates_exactly_identical": true,
+  "generator_update_order_verified": true,
+  "disposable_only": true,
+  "no_formal_checkpoint_written": true,
+  "results": {
+    "C1_reference": {
+      "generator_lr": 5e-07,
+      "loss": {
+        "loss": 0.28592684864997864,
+        "LPIPS": 0.09537294010321298,
+        "DISTS": 0.13449670871098834,
+        "D": 0.22986964384714764,
+        "rate_bpp": 0.013608815769354502,
+        "beta_rate": 0.05189802559713523,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "raw_alignment_loss": 0.10345880190531412,
+        "weighted_alignment_loss": 0.0029196842418362694,
+        "interface_cosine_similarity": 0.8965411980946858,
+        "teacher_interface_norm": 29.618764241536454,
+        "student_interface_norm": 30.907904942830406,
+        "beta_q": 3.813559322033898,
+        "lambda_q": 0.26222222222222225,
+        "rate_to_distortion_ratio": 0.2257715491639468
+      },
+      "gradient_norms": {
+        "wrapper": 0.31657434528169814,
+        "bridge": 1.072078714608577,
+        "generator": 0.5027476822650236
+      },
+      "gradient_hash": "60a8278fbdba3e5b14f2811a7d695c754d375d32469f1aaf71beaad9c8fc4958",
+      "module_update_norms": {
+        "wrapper": 0.0053607343455282465,
+        "bridge": 0.0006090177768593656,
+        "generator": 0.0006897964905043692
+      },
+      "teacher_frozen": true,
+      "compression_frozen": true
+    },
+    "G50": {
+      "generator_lr": 2.5e-07,
+      "loss": {
+        "loss": 0.28592684864997864,
+        "LPIPS": 0.09537294010321298,
+        "DISTS": 0.13449670871098834,
+        "D": 0.22986964384714764,
+        "rate_bpp": 0.013608815769354502,
+        "beta_rate": 0.05189802559713523,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "raw_alignment_loss": 0.10345880190531412,
+        "weighted_alignment_loss": 0.0029196842418362694,
+        "interface_cosine_similarity": 0.8965411980946858,
+        "teacher_interface_norm": 29.618764241536454,
+        "student_interface_norm": 30.907904942830406,
+        "beta_q": 3.813559322033898,
+        "lambda_q": 0.26222222222222225,
+        "rate_to_distortion_ratio": 0.2257715491639468
+      },
+      "gradient_norms": {
+        "wrapper": 0.31657434528169814,
+        "bridge": 1.072078714608577,
+        "generator": 0.5027476822650236
+      },
+      "gradient_hash": "60a8278fbdba3e5b14f2811a7d695c754d375d32469f1aaf71beaad9c8fc4958",
+      "module_update_norms": {
+        "wrapper": 0.0053607343455282465,
+        "bridge": 0.0006090177768593656,
+        "generator": 0.00034494832962815635
+      },
+      "teacher_frozen": true,
+      "compression_frozen": true
+    },
+    "G25": {
+      "generator_lr": 1.25e-07,
+      "loss": {
+        "loss": 0.28592684864997864,
+        "LPIPS": 0.09537294010321298,
+        "DISTS": 0.13449670871098834,
+        "D": 0.22986964384714764,
+        "rate_bpp": 0.013608815769354502,
+        "beta_rate": 0.05189802559713523,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "raw_alignment_loss": 0.10345880190531412,
+        "weighted_alignment_loss": 0.0029196842418362694,
+        "interface_cosine_similarity": 0.8965411980946858,
+        "teacher_interface_norm": 29.618764241536454,
+        "student_interface_norm": 30.907904942830406,
+        "beta_q": 3.813559322033898,
+        "lambda_q": 0.26222222222222225,
+        "rate_to_distortion_ratio": 0.2257715491639468
+      },
+      "gradient_norms": {
+        "wrapper": 0.31657434528169814,
+        "bridge": 1.072078714608577,
+        "generator": 0.5027476822650236
+      },
+      "gradient_hash": "60a8278fbdba3e5b14f2811a7d695c754d375d32469f1aaf71beaad9c8fc4958",
+      "module_update_norms": {
+        "wrapper": 0.0053607343455282465,
+        "bridge": 0.0006090177768593656,
+        "generator": 0.0001725716158846382
+      },
+      "teacher_frozen": true,
+      "compression_frozen": true
+    }
+  }
+}

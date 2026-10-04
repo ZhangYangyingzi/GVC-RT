@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "independent_teacher_student_DPB": true,
+  "teacher_parameters_frozen": true,
+  "teacher_gradients_none": true,
+  "native_teacher_forward_equals_independent_RANS_decode": true,
+  "teacher_deterministic": true,
+  "teacher_rng_fork_restored": true,
+  "teacher_input": "raw source x",
+  "student_input": "P(x)",
+  "actual_qps": [
+    2,
+    4,
+    2,
+    3
+  ],
+  "reset": "clear_dpb/set_curr_poc(0) each clip; native add_ref_frame after every frame",
+  "P_reference_feature": "native compression decoder feature, own instance only",
+  "force_zero_thres": 0.12,
+  "teacher_initial_hashes": {
+    "I": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "P": "cf4cd3255e1598aa14183dc21d0c211518ce7042f72bd6fc60329c63431d410f"
+  }
+}
