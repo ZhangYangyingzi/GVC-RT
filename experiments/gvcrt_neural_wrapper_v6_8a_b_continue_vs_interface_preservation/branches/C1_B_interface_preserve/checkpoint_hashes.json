@@ -1,0 +1,196 @@
+{
+  "1000": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/branches/B_joint_structure_guard/checkpoints/step_1000.pt",
+    "sha256": "97b44de2aadfcebfab03148619bf2b30a94ae80c95b885bf3bed741147130b0f",
+    "source_reference": true,
+    "step": 1000,
+    "module_hashes": {
+      "wrapper": "08af77ed98ac1495f21c9b438b0927faef4e7e2516c0ed6deda56dd6b1db4c89",
+      "bridge": "8ef432b0e40a2d0fdd6026c1fdb0583c71b42a9109b05825476b8ab49220fb4a",
+      "generator": "90e21aa5329a2cdaf418618021a0bf7d8ac63c80b85881404ee669be82e6ec16"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "1250": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_8a_b_continue_vs_interface_preservation/branches/C1_B_interface_preserve/checkpoints/step_1250.pt",
+    "sha256": "0c96e58e9e0ee27912c06778988af1dc57e5845aaf13cffa529cb8d1e61fcf98",
+    "step": 1250,
+    "branch": "C1_B_interface_preserve",
+    "module_hashes": {
+      "wrapper": "429c985777726037bc0c8109f7423f89b86942138ff44dc716ef1769a24b7661",
+      "bridge": "56a9ca8970f45a196c8d0a368bdfb10407f37a51d5e5e340b5e76d27b5799c85",
+      "generator": "d4ab18d4848f4b0a3d8d4a74d1eb0202719b925deab1afaa085ac22f8e962a0e"
+    },
+    "optimizer": {
+      "hash": "76362fa50e7e4668d5fde0dd2c5e35b9ae89e05463dc0c0dd2e00dc3dca3db93",
+      "state_entries": 264,
+      "groups": [
+        {
+          "lr": 5e-05,
+          "name": "wrapper",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 24
+        },
+        {
+          "lr": 3e-06,
+          "name": "bridge",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 28
+        },
+        {
+          "lr": 5e-07,
+          "name": "generator",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 212
+        }
+      ]
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "lambda_struct": 0.045785124942642835,
+    "lambda_align": 0.028220742743291956,
+    "source_B1000_sha256": "97b44de2aadfcebfab03148619bf2b30a94ae80c95b885bf3bed741147130b0f",
+    "training_plan_sha256": "e73f690b87d916354ca10f81a944b3235a7447cf20d7871d415020300bb6d937",
+    "config_sha256": "97ecd31d1531c96f430e001985238f4e35ffb3633a93cd3f8071e553dcc9967f",
+    "code_hashes": {
+      "freeze_protocol.py": "868e817e7451d0e3c7cddc8a58965e3f4b3d523f1b42e259412d8baa2c2fce3b",
+      "fid_worker.py": "907e90ce992404afde4e18b9351f4fbc4046b5c170c3d2afa893c857984c37b2",
+      "objective.py": "ac9ac1f03f6e585482542cbb80d74e20aa90d393f29b7aebf39290dc22c55e13",
+      "train.py": "e302e56783a186080cae0427d66dc642edbe5aab48988d7300eaf7889a86d0e7",
+      "parallel_scheduler.py": "235a445c40ddf229cbf4284ae51df5097b81978a568153bacc39fe98cdd7013b",
+      "heldout.py": "50253bdf1a8d4024547d33e26a11900c9aa1e7335e7ef5a5c40f81609b2819d0",
+      "report.py": "9f04f0b5e105328e6a85a8b8889eb0f353a6ea2cbe2da148d9c0c04c3e50fe03",
+      "diagnostics.py": "2465100b1a17bcfdbafd29c8f52e4df3ed7585b0d77cad2c114dd0ff5d868358",
+      "prepare.py": "feae8b4edf80aa65b9fdd4de68cc5f4b7c451430942e5470cf925996936c927d",
+      "model_runtime.py": "2eed062bb8451fc27ba7ddbad9b0c8f97f0ebcc8d302752ad818e0ee8e30b356",
+      "selftest.py": "6d60adcf45f9fa98e6ca789a3ef26c7b5f2dad31ce827c8c2af08bd19dc528cf",
+      "evaluate.py": "0b31db63f18c7c63106815321220737dc5e35da836a46cfaf41a16242acf53cf",
+      "run_pipeline.py": "365ad8e9ba88bcfe8e727e4aec9415f7e7cbfbbd7b58231b935fc36e8538e153",
+      "v68_io.py": "036a4b05990787ec2d7674ba288284904a48c33a58a1772c746acb385d644446",
+      "audit_interface.py": "52f43f1c128a18b32f84e6cce0cc33119df16a0905a76e12b8cfbd59ea55f8fb"
+    }
+  },
+  "1500": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_8a_b_continue_vs_interface_preservation/branches/C1_B_interface_preserve/checkpoints/step_1500.pt",
+    "sha256": "57a4cc59f8e5554d96196d6eecb5f9e869a8f7966643a31b522274f8cbad6ab7",
+    "step": 1500,
+    "branch": "C1_B_interface_preserve",
+    "module_hashes": {
+      "wrapper": "e4ca7e3fe0e78e3ffbf2b09ae07f314f27a37457605b09a63edf92b321e900ef",
+      "bridge": "d703cfce7332e2f454aa915969e627b41689daeecf413b8797bd657f3d7325dc",
+      "generator": "36bbdf0a0be2e466bc0356ed1a9a42fb8eb9b5c12de428ff24fceda623ef2b83"
+    },
+    "optimizer": {
+      "hash": "da4f4749d1f0e186ab41d73bb3156474750b30e55e00a7a70b3b05c0830c9293",
+      "state_entries": 264,
+      "groups": [
+        {
+          "lr": 5e-05,
+          "name": "wrapper",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 24
+        },
+        {
+          "lr": 3e-06,
+          "name": "bridge",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 28
+        },
+        {
+          "lr": 5e-07,
+          "name": "generator",
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "parameters": 212
+        }
+      ]
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "lambda_struct": 0.045785124942642835,
+    "lambda_align": 0.028220742743291956,
+    "source_B1000_sha256": "97b44de2aadfcebfab03148619bf2b30a94ae80c95b885bf3bed741147130b0f",
+    "training_plan_sha256": "e73f690b87d916354ca10f81a944b3235a7447cf20d7871d415020300bb6d937",
+    "config_sha256": "97ecd31d1531c96f430e001985238f4e35ffb3633a93cd3f8071e553dcc9967f",
+    "code_hashes": {
+      "freeze_protocol.py": "868e817e7451d0e3c7cddc8a58965e3f4b3d523f1b42e259412d8baa2c2fce3b",
+      "fid_worker.py": "907e90ce992404afde4e18b9351f4fbc4046b5c170c3d2afa893c857984c37b2",
+      "objective.py": "ac9ac1f03f6e585482542cbb80d74e20aa90d393f29b7aebf39290dc22c55e13",
+      "train.py": "e302e56783a186080cae0427d66dc642edbe5aab48988d7300eaf7889a86d0e7",
+      "parallel_scheduler.py": "235a445c40ddf229cbf4284ae51df5097b81978a568153bacc39fe98cdd7013b",
+      "heldout.py": "50253bdf1a8d4024547d33e26a11900c9aa1e7335e7ef5a5c40f81609b2819d0",
+      "report.py": "9f04f0b5e105328e6a85a8b8889eb0f353a6ea2cbe2da148d9c0c04c3e50fe03",
+      "diagnostics.py": "2465100b1a17bcfdbafd29c8f52e4df3ed7585b0d77cad2c114dd0ff5d868358",
+      "prepare.py": "feae8b4edf80aa65b9fdd4de68cc5f4b7c451430942e5470cf925996936c927d",
+      "model_runtime.py": "2eed062bb8451fc27ba7ddbad9b0c8f97f0ebcc8d302752ad818e0ee8e30b356",
+      "selftest.py": "6d60adcf45f9fa98e6ca789a3ef26c7b5f2dad31ce827c8c2af08bd19dc528cf",
+      "evaluate.py": "0b31db63f18c7c63106815321220737dc5e35da836a46cfaf41a16242acf53cf",
+      "run_pipeline.py": "365ad8e9ba88bcfe8e727e4aec9415f7e7cbfbbd7b58231b935fc36e8538e153",
+      "v68_io.py": "036a4b05990787ec2d7674ba288284904a48c33a58a1772c746acb385d644446",
+      "audit_interface.py": "52f43f1c128a18b32f84e6cce0cc33119df16a0905a76e12b8cfbd59ea55f8fb"
+    }
+  }
+}

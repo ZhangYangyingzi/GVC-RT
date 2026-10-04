@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "interface_mode": "original_gvcrt_generator_interface_cosine_preservation",
+  "teacher_module": "pm.recon_generation_net.decoder",
+  "student_module": "pm.recon_generation_net.decoder",
+  "teacher_hook_position": "forward_pre_hook inputs[0]",
+  "student_hook_position": "forward_pre_hook inputs[0]",
+  "teacher_shape": [
+    1,
+    18,
+    16,
+    16
+  ],
+  "student_shape": [
+    1,
+    18,
+    16,
+    16
+  ],
+  "dtype": {
+    "teacher": "torch.float16",
+    "student": "torch.float32",
+    "cosine": "float32"
+  },
+  "semantic_description": "18-channel bridge codeword directly consumed by the pretrained de-tokenizer; q_recon is a separate argument; no projection, resize, slicing or normalization",
+  "shape_exact_match": true,
+  "same_interface_semantics": true,
+  "bridge_output_exactly_decoder_input": true,
+  "teacher_checkpoint": [
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt"
+  ],
+  "teacher_checkpoint_sha256": {
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+  },
+  "teacher_frozen": true,
+  "student_trainable_modules": [
+    "wrapper",
+    "bridge",
+    "generator"
+  ],
+  "teacher_tensors": {
+    "compression_output": {
+      "shape": [
+        1,
+        256,
+        32,
+        32
+      ],
+      "dtype": "torch.float16"
+    },
+    "bridge_input": {
+      "shape": [
+        1,
+        1024,
+        16,
+        16
+      ],
+      "dtype": "torch.float16"
+    },
+    "bridge_output": {
+      "shape": [
+        1,
+        18,
+        16,
+        16
+      ],
+      "dtype": "torch.float16"
+    },
+    "generator_input": {
+      "shape": [
+        1,
+        18,
+        16,
+        16
+      ],
+      "dtype": "torch.float16"
+    },
+    "final_RGB": {
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "dtype": "torch.float16"
+    }
+  },
+  "student_tensors": {
+    "compression_output": {
+      "shape": [
+        1,
+        256,
+        32,
+        32
+      ],
+      "dtype": "torch.float16"
+    },
+    "bridge_input": {
+      "shape": [
+        1,
+        1024,
+        16,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    "bridge_output": {
+      "shape": [
+        1,
+        18,
+        16,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    "generator_input": {
+      "shape": [
+        1,
+        18,
+        16,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    "final_RGB": {
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "dtype": "torch.float32"
+    }
+  },
+  "source_files_inspected": [
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/improved_model_gvcrt.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/image_model_gvcrt.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/train.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/objective.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/train.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/core.py"
+  ],
+  "source_file_hashes": {
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/improved_model_gvcrt.py": "88a8caa6589c885e746472dcb5962cf1d2a501020e0d7b8745afde111469212c",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/image_model_gvcrt.py": "2d34ef89df55955e1f57404d2df9b6345952dff38d3aa26ec5d3b5ecca6383ad",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/train.py": "52234af51588e13e9353be5d6298c8111502ab075eb9684b90705f83c7d196f9",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/objective.py": "52c678cefa6923f144a90fff534e5fcf4d004c2aea3c145918b30f6a0c7e6239",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/train.py": "7e20653dfeedb3859f7083bc4c75f765bbe970a69f87d9b13b19e936a71b0e93",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/core.py": "0d9c1c511029d80890aa3caf78705a564a896f5565641528c91b31b39be13875"
+  },
+  "exact_LFQ_objective_reproduction": false,
+  "margin_loss": false
+}
