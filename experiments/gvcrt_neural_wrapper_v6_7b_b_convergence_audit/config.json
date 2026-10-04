@@ -1,0 +1,98 @@
+{
+  "no_training": true,
+  "no_checkpoint_selection": true,
+  "checkpoints": {
+    "A_baseline": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_4_vimeo_pretrain/branches/vimeo_only/checkpoints/step_1000.pt",
+      "sha256": "1c7c9a3f89cbbe4abd4ba6f6f7c963d2fab22737e9928fe222f3aa4c8a8c75e1",
+      "step": 1000,
+      "module_hashes": {
+        "wrapper": "d67362eddbaece049736fb7100290c0484ba8bba8027b62b63403829a63229c5",
+        "bridge": "c33722358f6b200205fbd9db4c6d2cb15e40eb47ff6db6bedabff13e2ffffe95",
+        "generator": "637cfcf974520190e34e3e254ea5cf1d5a0ec6e77715077faed82a4e81804693"
+      },
+      "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+    },
+    "B250": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/branches/B_joint_structure_guard/checkpoints/step_0250.pt",
+      "sha256": "9e2850d185396b60d29eb1764b69f161cf8c4544f81080252ff9dd5d5b1e7b3b",
+      "step": 250,
+      "module_hashes": {
+        "wrapper": "f5d3305a87b3d5b6fc58621840ad37134d4ec01783f9fd594ad105c2b5097c52",
+        "bridge": "0ed1b923601571303e7e3192578141bfadb73b7f91c9b745c67e1de489ff3c3d",
+        "generator": "a45c008afd4c57b0b433ff320348a2d13a8403fcc2540d2f91d5b888f0e3c1bf"
+      },
+      "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+    },
+    "B500": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/branches/B_joint_structure_guard/checkpoints/step_0500.pt",
+      "sha256": "82b590265414fc826ce11c5997f436c50f4ba5db6354fde450e48e0714f644b7",
+      "step": 500,
+      "module_hashes": {
+        "wrapper": "4881a9d6d5df3e2cbaf2c94ac942ecf85a6e14bd040dea68937a52d647f03915",
+        "bridge": "8339620f930b02c17963b40b1801cb1cbefb57df48eab5e71d12c1506108bbee",
+        "generator": "be7f412ba320ae75a4631d7a37e032e321d188414068213e08b279dd4c897131"
+      },
+      "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+    },
+    "B1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/branches/B_joint_structure_guard/checkpoints/step_1000.pt",
+      "sha256": "97b44de2aadfcebfab03148619bf2b30a94ae80c95b885bf3bed741147130b0f",
+      "step": 1000,
+      "module_hashes": {
+        "wrapper": "08af77ed98ac1495f21c9b438b0927faef4e7e2516c0ed6deda56dd6b1db4c89",
+        "bridge": "8ef432b0e40a2d0fdd6026c1fdb0583c71b42a9109b05825476b8ab49220fb4a",
+        "generator": "90e21aa5329a2cdaf418618021a0bf7d8ac63c80b85881404ee669be82e6ec16"
+      },
+      "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+    }
+  },
+  "methods": [
+    "original",
+    "A_baseline",
+    "B250",
+    "B500",
+    "B1000"
+  ],
+  "primary_metrics": [
+    "LPIPS",
+    "DISTS",
+    "FloLPIPS",
+    "FID"
+  ],
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "force_zero_thres": 0.12,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "bootstrap_seed": 20261004,
+  "bootstrap_repeats": 20,
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "minimum_free_evaluation_mib": 16000,
+  "gpu_policy": "User permits sharing occupied GPU 4/5/6/7 when memory sufficient; never terminate other processes",
+  "expected_main_points": 1550,
+  "fresh_main_points": 620,
+  "reused_main_points": 930,
+  "expected_fid_points": 200,
+  "expected_bootstrap_points": 4000,
+  "heldout_limit": 32,
+  "heldout_qps": [
+    0,
+    4,
+    9
+  ]
+}
