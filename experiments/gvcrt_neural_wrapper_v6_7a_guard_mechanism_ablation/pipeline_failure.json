@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_7a_guard_mechanism_ablation/run_pipeline.py\", line 50, in main\n    if not (ROOT/'audits/guard_gradient_calibration.json').exists():queue('calibration',[('calibration_BDE','train.py',['--branch',D,'--calibrate'])],cfg['minimum_free_training_mib'])\n                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_7a_guard_mechanism_ablation/run_pipeline.py\", line 38, in queue\n    log.close();del active[k];assert code==0,f'{k} exited {code}; see log';print('FINISHED',k,flush=True)\n                                     ^^^^^^^\nAssertionError: calibration_BDE exited 1; see log\n",
+  "unix": 1791041716.2595975
+}

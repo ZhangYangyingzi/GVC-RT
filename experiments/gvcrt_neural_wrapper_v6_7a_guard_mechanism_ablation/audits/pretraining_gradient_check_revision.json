@@ -1,0 +1,11 @@
+{
+  "formal_updates_before_revision": 0,
+  "calibration_completed_before_revision": false,
+  "failed_check": "0.01 times the unit L1 gradient norm compared against V6.6 backward of 0.01*L1",
+  "replacement_check": "Directly differentiate the identical 0.01*L1 term and compare to V6.6 with the original tolerance; retain unit L1 gradients for lambda_D calculation",
+  "additional_verification": "After computing each lambda exactly once, measure actual weighted backward gradients on the same 32 clips and require ratios within 0.095-0.105; do not retune weights",
+  "training_loss_changed": false,
+  "calibration_plans_changed": false,
+  "objective_sha256_before": "8876f5a907867da7b2c49cb5ccfb6d3cbf4fc3348768c9c1c58101a40b368ea9",
+  "objective_sha256_after": "128f9784dc45ab7e5137885e63c14a530b7ee42fbbeb29da8acd7bdcbd26e05d"
+}

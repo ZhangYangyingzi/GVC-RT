@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/branches/B_joint_structure_guard/checkpoints/step_1000.pt",
+    "sha256": "97b44de2aadfcebfab03148619bf2b30a94ae80c95b885bf3bed741147130b0f",
+    "step": 1000,
+    "module_hashes": {
+      "wrapper": "08af77ed98ac1495f21c9b438b0927faef4e7e2516c0ed6deda56dd6b1db4c89",
+      "bridge": "8ef432b0e40a2d0fdd6026c1fdb0583c71b42a9109b05825476b8ab49220fb4a",
+      "generator": "90e21aa5329a2cdaf418618021a0bf7d8ac63c80b85881404ee669be82e6ec16"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "lambda_B": 0.045785124942642835,
+  "calibration_gradient_ratio": 0.1,
+  "objective": "L_main + 0.01*L1(P(x),x) + lambda_B*(1-MS_SSIM(P(x),x))",
+  "objective_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_6_controlled_training/objective.py",
+  "objective_sha256": "52c678cefa6923f144a90fff534e5fcf4d004c2aea3c145918b30f6a0c7e6239",
+  "calibration_sha256": "855e66b21134f38eeda8f39234143241bf7c1aaa3af4ae99049d1d4136d05143",
+  "not_retrained": true,
+  "differentiable_msssim_AST_equal": true
+}
