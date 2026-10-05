@@ -1,0 +1,3629 @@
+{
+  "status": "PASS",
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "multiple_processes_per_gpu": true,
+  "live_memory_reservation": true,
+  "events": [
+    {
+      "event": "start",
+      "task": "train_C_plain",
+      "gpu": 5,
+      "PID": 4018144,
+      "reserved_mib": 12000,
+      "unix": 1791176505.8142881
+    },
+    {
+      "event": "start",
+      "task": "train_S_cond_image",
+      "gpu": 5,
+      "PID": 4018145,
+      "reserved_mib": 12000,
+      "unix": 1791176505.8339221
+    },
+    {
+      "event": "start",
+      "task": "train_T_cond_temporal",
+      "gpu": 7,
+      "PID": 4018146,
+      "reserved_mib": 12000,
+      "unix": 1791176505.845447
+    },
+    {
+      "event": "start",
+      "task": "smoke_C1500",
+      "gpu": 7,
+      "PID": 4025000,
+      "reserved_mib": 12000,
+      "unix": 1791177080.4336908
+    },
+    {
+      "event": "start",
+      "task": "heldout_original",
+      "gpu": 5,
+      "PID": 4025006,
+      "reserved_mib": 7000,
+      "unix": 1791177080.4727724
+    },
+    {
+      "event": "start",
+      "task": "heldout_C1500",
+      "gpu": 7,
+      "PID": 4025951,
+      "reserved_mib": 7000,
+      "unix": 1791177162.9621675
+    },
+    {
+      "event": "finish",
+      "task": "smoke_C1500",
+      "gpu": 7,
+      "PID": 4025000,
+      "returncode": 0,
+      "unix": 1791177234.7981012
+    },
+    {
+      "event": "finish",
+      "task": "train_T_cond_temporal",
+      "gpu": 7,
+      "PID": 4018146,
+      "returncode": 0,
+      "unix": 1791177245.3186116
+    },
+    {
+      "event": "start",
+      "task": "smoke_S1500",
+      "gpu": 7,
+      "PID": 4026898,
+      "reserved_mib": 12000,
+      "unix": 1791177245.5747688
+    },
+    {
+      "event": "start",
+      "task": "smoke_T1500",
+      "gpu": 7,
+      "PID": 4027014,
+      "reserved_mib": 12000,
+      "unix": 1791177255.921082
+    },
+    {
+      "event": "finish",
+      "task": "train_C_plain",
+      "gpu": 5,
+      "PID": 4018144,
+      "returncode": 0,
+      "unix": 1791177276.3451684
+    },
+    {
+      "event": "start",
+      "task": "smoke_C2000",
+      "gpu": 5,
+      "PID": 4027301,
+      "reserved_mib": 12000,
+      "unix": 1791177276.8083997
+    },
+    {
+      "event": "finish",
+      "task": "smoke_S1500",
+      "gpu": 7,
+      "PID": 4026898,
+      "returncode": 0,
+      "unix": 1791177400.4804158
+    },
+    {
+      "event": "start",
+      "task": "heldout_C2000",
+      "gpu": 7,
+      "PID": 4028783,
+      "reserved_mib": 7000,
+      "unix": 1791177400.7773647
+    },
+    {
+      "event": "finish",
+      "task": "smoke_T1500",
+      "gpu": 7,
+      "PID": 4027014,
+      "returncode": 0,
+      "unix": 1791177421.170593
+    },
+    {
+      "event": "start",
+      "task": "heldout_S1500",
+      "gpu": 7,
+      "PID": 4029075,
+      "reserved_mib": 7000,
+      "unix": 1791177421.4500296
+    },
+    {
+      "event": "finish",
+      "task": "smoke_C2000",
+      "gpu": 5,
+      "PID": 4027301,
+      "returncode": 0,
+      "unix": 1791177462.4561932
+    },
+    {
+      "event": "start",
+      "task": "smoke_T2000",
+      "gpu": 5,
+      "PID": 4029765,
+      "reserved_mib": 12000,
+      "unix": 1791177462.7276943
+    },
+    {
+      "event": "finish",
+      "task": "smoke_T2000",
+      "gpu": 5,
+      "PID": 4029765,
+      "returncode": 0,
+      "unix": 1791177648.2697167
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_0",
+      "gpu": 5,
+      "PID": 4032928,
+      "reserved_mib": 12000,
+      "unix": 1791177648.5562456
+    },
+    {
+      "event": "finish",
+      "task": "train_S_cond_image",
+      "gpu": 5,
+      "PID": 4018145,
+      "returncode": 0,
+      "unix": 1791177658.624467
+    },
+    {
+      "event": "start",
+      "task": "smoke_S2000",
+      "gpu": 5,
+      "PID": 4033134,
+      "reserved_mib": 12000,
+      "unix": 1791177659.082163
+    },
+    {
+      "event": "finish",
+      "task": "smoke_S2000",
+      "gpu": 5,
+      "PID": 4033134,
+      "returncode": 0,
+      "unix": 1791177875.774436
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_1",
+      "gpu": 5,
+      "PID": 4036918,
+      "reserved_mib": 12000,
+      "unix": 1791177876.0857422
+    },
+    {
+      "event": "finish",
+      "task": "heldout_C1500",
+      "gpu": 7,
+      "PID": 4025951,
+      "returncode": 0,
+      "unix": 1791178154.7191315
+    },
+    {
+      "event": "start",
+      "task": "heldout_S2000",
+      "gpu": 7,
+      "PID": 4041688,
+      "reserved_mib": 7000,
+      "unix": 1791178155.0312226
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_0",
+      "gpu": 5,
+      "PID": 4032928,
+      "returncode": 0,
+      "unix": 1791178258.0993936
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_2",
+      "gpu": 5,
+      "PID": 4043370,
+      "reserved_mib": 12000,
+      "unix": 1791178258.3572357
+    },
+    {
+      "event": "finish",
+      "task": "heldout_C2000",
+      "gpu": 7,
+      "PID": 4028783,
+      "returncode": 0,
+      "unix": 1791178340.8437111
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_3",
+      "gpu": 7,
+      "PID": 4044802,
+      "reserved_mib": 12000,
+      "unix": 1791178341.110567
+    },
+    {
+      "event": "finish",
+      "task": "heldout_S1500",
+      "gpu": 7,
+      "PID": 4029075,
+      "returncode": 0,
+      "unix": 1791178351.177368
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_4",
+      "gpu": 7,
+      "PID": 4044944,
+      "reserved_mib": 12000,
+      "unix": 1791178351.478192
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_1",
+      "gpu": 5,
+      "PID": 4036918,
+      "returncode": 0,
+      "unix": 1791178650.7793617
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_5",
+      "gpu": 5,
+      "PID": 4048910,
+      "reserved_mib": 12000,
+      "unix": 1791178651.1004796
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_3",
+      "gpu": 7,
+      "PID": 4044802,
+      "returncode": 0,
+      "unix": 1791179012.592144
+    },
+    {
+      "event": "start",
+      "task": "heldout_T1500",
+      "gpu": 7,
+      "PID": 4053029,
+      "reserved_mib": 7000,
+      "unix": 1791179012.9127479
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_4",
+      "gpu": 7,
+      "PID": 4044944,
+      "returncode": 0,
+      "unix": 1791179022.962645
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C1500_6",
+      "gpu": 7,
+      "PID": 4053151,
+      "reserved_mib": 12000,
+      "unix": 1791179023.2770536
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_2",
+      "gpu": 5,
+      "PID": 4043370,
+      "returncode": 0,
+      "unix": 1791179033.3254027
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_0",
+      "gpu": 5,
+      "PID": 4053301,
+      "reserved_mib": 12000,
+      "unix": 1791179033.6155062
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_5",
+      "gpu": 5,
+      "PID": 4048910,
+      "returncode": 0,
+      "unix": 1791179405.2101073
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_1",
+      "gpu": 5,
+      "PID": 4058080,
+      "reserved_mib": 12000,
+      "unix": 1791179405.4814498
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C1500_6",
+      "gpu": 7,
+      "PID": 4053151,
+      "returncode": 0,
+      "unix": 1791179467.1843026
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_C1500",
+      "gpu": null,
+      "PID": 4058878,
+      "reserved_mib": 0,
+      "unix": 1791179467.222116
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_2",
+      "gpu": 7,
+      "PID": 4058890,
+      "reserved_mib": 12000,
+      "unix": 1791179467.519287
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_C1500",
+      "gpu": null,
+      "PID": 4058878,
+      "returncode": 0,
+      "unix": 1791179487.9315898
+    },
+    {
+      "event": "finish",
+      "task": "heldout_original",
+      "gpu": 5,
+      "PID": 4025006,
+      "returncode": 0,
+      "unix": 1791179694.5626493
+    },
+    {
+      "event": "start",
+      "task": "heldout_T2000",
+      "gpu": 5,
+      "PID": 4061868,
+      "reserved_mib": 7000,
+      "unix": 1791179694.8576758
+    },
+    {
+      "event": "finish",
+      "task": "heldout_S2000",
+      "gpu": 7,
+      "PID": 4041688,
+      "returncode": 0,
+      "unix": 1791179808.2150817
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_0",
+      "gpu": 5,
+      "PID": 4053301,
+      "returncode": 0,
+      "unix": 1791179849.5108707
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_3",
+      "gpu": 5,
+      "PID": 4063742,
+      "reserved_mib": 12000,
+      "unix": 1791179849.7954867
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_4",
+      "gpu": 7,
+      "PID": 4064021,
+      "reserved_mib": 12000,
+      "unix": 1791179870.454208
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_2",
+      "gpu": 7,
+      "PID": 4058890,
+      "returncode": 0,
+      "unix": 1791179901.258437
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_5",
+      "gpu": 7,
+      "PID": 4065235,
+      "reserved_mib": 12000,
+      "unix": 1791179973.8921182
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_1",
+      "gpu": 5,
+      "PID": 4058080,
+      "returncode": 0,
+      "unix": 1791180221.7418761
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_6",
+      "gpu": 5,
+      "PID": 4068042,
+      "reserved_mib": 12000,
+      "unix": 1791180222.0145588
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_4",
+      "gpu": 7,
+      "PID": 4064021,
+      "returncode": 0,
+      "unix": 1791180459.302887
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C1500_7",
+      "gpu": 7,
+      "PID": 4070802,
+      "reserved_mib": 12000,
+      "unix": 1791180469.9309642
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_5",
+      "gpu": 7,
+      "PID": 4065235,
+      "returncode": 0,
+      "unix": 1791180614.289865
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_3",
+      "gpu": 5,
+      "PID": 4063742,
+      "returncode": 0,
+      "unix": 1791180624.6495128
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_0",
+      "gpu": 5,
+      "PID": 4072544,
+      "reserved_mib": 12000,
+      "unix": 1791180624.9573004
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_1",
+      "gpu": 7,
+      "PID": 4073317,
+      "reserved_mib": 12000,
+      "unix": 1791180687.0094016
+    },
+    {
+      "event": "finish",
+      "task": "heldout_T1500",
+      "gpu": 7,
+      "PID": 4053029,
+      "returncode": 0,
+      "unix": 1791180852.0575545
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_6",
+      "gpu": 5,
+      "PID": 4068042,
+      "returncode": 0,
+      "unix": 1791180965.87861
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_2",
+      "gpu": 5,
+      "PID": 4076530,
+      "reserved_mib": 12000,
+      "unix": 1791180966.151919
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_C1500",
+      "gpu": null,
+      "PID": 4076986,
+      "reserved_mib": 0,
+      "unix": 1791181007.2084913
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C1500_7",
+      "gpu": 7,
+      "PID": 4070802,
+      "returncode": 0,
+      "unix": 1791181017.5602758
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_3",
+      "gpu": 7,
+      "PID": 4077093,
+      "reserved_mib": 12000,
+      "unix": 1791181017.831019
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_C1500",
+      "gpu": null,
+      "PID": 4076986,
+      "returncode": 0,
+      "unix": 1791181038.22622
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_1",
+      "gpu": 7,
+      "PID": 4073317,
+      "returncode": 0,
+      "unix": 1791181224.4194813
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_4",
+      "gpu": 7,
+      "PID": 4079288,
+      "reserved_mib": 12000,
+      "unix": 1791181224.7143357
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_0",
+      "gpu": 5,
+      "PID": 4072544,
+      "returncode": 0,
+      "unix": 1791181327.8617644
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_5",
+      "gpu": 5,
+      "PID": 4080415,
+      "reserved_mib": 12000,
+      "unix": 1791181328.1463604
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_3",
+      "gpu": 7,
+      "PID": 4077093,
+      "returncode": 0,
+      "unix": 1791181482.9298763
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_6",
+      "gpu": 7,
+      "PID": 4082162,
+      "reserved_mib": 12000,
+      "unix": 1791181483.2888749
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_2",
+      "gpu": 5,
+      "PID": 4076530,
+      "returncode": 0,
+      "unix": 1791181555.279893
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C1500_7",
+      "gpu": 5,
+      "PID": 4083013,
+      "reserved_mib": 12000,
+      "unix": 1791181555.5677505
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_5",
+      "gpu": 5,
+      "PID": 4080415,
+      "returncode": 0,
+      "unix": 1791181658.6231482
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_0",
+      "gpu": 5,
+      "PID": 4084311,
+      "reserved_mib": 12000,
+      "unix": 1791181658.9125407
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_4",
+      "gpu": 7,
+      "PID": 4079288,
+      "returncode": 0,
+      "unix": 1791181668.977095
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_1",
+      "gpu": 7,
+      "PID": 4084448,
+      "reserved_mib": 12000,
+      "unix": 1791181669.2893384
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_6",
+      "gpu": 7,
+      "PID": 4082162,
+      "returncode": 0,
+      "unix": 1791181731.0545897
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_2",
+      "gpu": 7,
+      "PID": 4085223,
+      "reserved_mib": 12000,
+      "unix": 1791181731.3278341
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C1500_7",
+      "gpu": 5,
+      "PID": 4083013,
+      "returncode": 0,
+      "unix": 1791181865.3870764
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_C1500",
+      "gpu": null,
+      "PID": 4086812,
+      "reserved_mib": 0,
+      "unix": 1791181865.427121
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_3",
+      "gpu": 5,
+      "PID": 4086836,
+      "reserved_mib": 12000,
+      "unix": 1791181865.7033203
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_C1500",
+      "gpu": null,
+      "PID": 4086812,
+      "returncode": 0,
+      "unix": 1791181896.4432287
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_1",
+      "gpu": 7,
+      "PID": 4084448,
+      "returncode": 0,
+      "unix": 1791182010.111553
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_4",
+      "gpu": 7,
+      "PID": 4088681,
+      "reserved_mib": 12000,
+      "unix": 1791182020.671573
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_2",
+      "gpu": 7,
+      "PID": 4085223,
+      "returncode": 0,
+      "unix": 1791182041.0589273
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_5",
+      "gpu": 7,
+      "PID": 4088915,
+      "reserved_mib": 12000,
+      "unix": 1791182041.3270192
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_0",
+      "gpu": 5,
+      "PID": 4084311,
+      "returncode": 0,
+      "unix": 1791182092.8146803
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_6",
+      "gpu": 5,
+      "PID": 4089552,
+      "reserved_mib": 12000,
+      "unix": 1791182093.0963156
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_5",
+      "gpu": 7,
+      "PID": 4088915,
+      "returncode": 0,
+      "unix": 1791182247.8039327
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C1500_7",
+      "gpu": 7,
+      "PID": 4092093,
+      "reserved_mib": 12000,
+      "unix": 1791182248.0701597
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_3",
+      "gpu": 5,
+      "PID": 4086836,
+      "returncode": 0,
+      "unix": 1791182278.8051138
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_0",
+      "gpu": 5,
+      "PID": 4092494,
+      "reserved_mib": 12000,
+      "unix": 1791182279.193355
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_4",
+      "gpu": 7,
+      "PID": 4088681,
+      "returncode": 0,
+      "unix": 1791182309.941959
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_1",
+      "gpu": 7,
+      "PID": 4093271,
+      "reserved_mib": 12000,
+      "unix": 1791182341.2665522
+    },
+    {
+      "event": "finish",
+      "task": "heldout_T2000",
+      "gpu": 5,
+      "PID": 4061868,
+      "returncode": 0,
+      "unix": 1791182351.3441393
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_6",
+      "gpu": 5,
+      "PID": 4089552,
+      "returncode": 0,
+      "unix": 1791182371.9993644
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_2",
+      "gpu": 5,
+      "PID": 4093635,
+      "reserved_mib": 12000,
+      "unix": 1791182372.31463
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_C1500",
+      "gpu": null,
+      "PID": 4094202,
+      "reserved_mib": 0,
+      "unix": 1791182423.74037
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C1500_7",
+      "gpu": 7,
+      "PID": 4092093,
+      "returncode": 0,
+      "unix": 1791182434.0476346
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_3",
+      "gpu": 7,
+      "PID": 4094276,
+      "reserved_mib": 12000,
+      "unix": 1791182434.3162394
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_C1500",
+      "gpu": null,
+      "PID": 4094202,
+      "returncode": 0,
+      "unix": 1791182454.7089734
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_4",
+      "gpu": 6,
+      "PID": 4098398,
+      "reserved_mib": 12000,
+      "unix": 1791182858.1446078
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_5",
+      "gpu": 6,
+      "PID": 4098399,
+      "reserved_mib": 12000,
+      "unix": 1791182858.1922126
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_C2000_6",
+      "gpu": 6,
+      "PID": 4098400,
+      "reserved_mib": 12000,
+      "unix": 1791182858.2195108
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_0",
+      "gpu": 5,
+      "PID": 4092494,
+      "returncode": 0,
+      "unix": 1791182868.2834227
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_0",
+      "gpu": 4,
+      "PID": 4098520,
+      "reserved_mib": 12000,
+      "unix": 1791182868.5578737
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_1",
+      "gpu": 4,
+      "PID": 4098521,
+      "reserved_mib": 12000,
+      "unix": 1791182868.6034136
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_2",
+      "gpu": 5,
+      "PID": 4098522,
+      "reserved_mib": 12000,
+      "unix": 1791182868.6489065
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_3",
+      "gpu": 4,
+      "PID": 4098523,
+      "reserved_mib": 12000,
+      "unix": 1791182868.6855109
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_1",
+      "gpu": 7,
+      "PID": 4093271,
+      "returncode": 0,
+      "unix": 1791182878.746753
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_4",
+      "gpu": 7,
+      "PID": 4098652,
+      "reserved_mib": 12000,
+      "unix": 1791182879.003733
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_3",
+      "gpu": 7,
+      "PID": 4094276,
+      "returncode": 0,
+      "unix": 1791183075.3980322
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_5",
+      "gpu": 7,
+      "PID": 4101207,
+      "reserved_mib": 12000,
+      "unix": 1791183086.0235267
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_6",
+      "gpu": 7,
+      "PID": 4101209,
+      "reserved_mib": 12000,
+      "unix": 1791183086.071201
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_2",
+      "gpu": 5,
+      "PID": 4093635,
+      "returncode": 0,
+      "unix": 1791183096.1319683
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_C2000_7",
+      "gpu": 5,
+      "PID": 4101325,
+      "reserved_mib": 12000,
+      "unix": 1791183096.40145
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_2",
+      "gpu": 5,
+      "PID": 4098522,
+      "returncode": 0,
+      "unix": 1791183602.6896076
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_0",
+      "gpu": 5,
+      "PID": 4110487,
+      "reserved_mib": 12000,
+      "unix": 1791183602.981397
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_4",
+      "gpu": 7,
+      "PID": 4098652,
+      "returncode": 0,
+      "unix": 1791183623.497621
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_6",
+      "gpu": 6,
+      "PID": 4098400,
+      "returncode": 0,
+      "unix": 1791183675.3491156
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_3",
+      "gpu": 4,
+      "PID": 4098523,
+      "returncode": 0,
+      "unix": 1791183675.350121
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_1",
+      "gpu": 4,
+      "PID": 4111373,
+      "reserved_mib": 12000,
+      "unix": 1791183675.6085074
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_2",
+      "gpu": 6,
+      "PID": 4111379,
+      "reserved_mib": 12000,
+      "unix": 1791183675.659894
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_5",
+      "gpu": 6,
+      "PID": 4098399,
+      "returncode": 0,
+      "unix": 1791183696.0323546
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_3",
+      "gpu": 6,
+      "PID": 4111721,
+      "reserved_mib": 12000,
+      "unix": 1791183696.3062494
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_C2000_4",
+      "gpu": 6,
+      "PID": 4098398,
+      "returncode": 0,
+      "unix": 1791183747.8315704
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_1",
+      "gpu": 4,
+      "PID": 4098521,
+      "returncode": 0,
+      "unix": 1791183747.8324032
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_C2000",
+      "gpu": null,
+      "PID": 4112339,
+      "reserved_mib": 0,
+      "unix": 1791183747.873818
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_4",
+      "gpu": 4,
+      "PID": 4112347,
+      "reserved_mib": 12000,
+      "unix": 1791183748.1348612
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_5",
+      "gpu": 6,
+      "PID": 4112348,
+      "reserved_mib": 12000,
+      "unix": 1791183748.184159
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_0",
+      "gpu": 4,
+      "PID": 4098520,
+      "returncode": 0,
+      "unix": 1791183768.666287
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_C2000",
+      "gpu": null,
+      "PID": 4112339,
+      "returncode": 0,
+      "unix": 1791183768.6669416
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_6",
+      "gpu": 4,
+      "PID": 4112618,
+      "reserved_mib": 12000,
+      "unix": 1791183768.983009
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_7",
+      "gpu": 5,
+      "PID": 4101325,
+      "returncode": 0,
+      "unix": 1791183810.163113
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_C2000_7",
+      "gpu": 5,
+      "PID": 4113116,
+      "reserved_mib": 12000,
+      "unix": 1791183810.4710233
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_6",
+      "gpu": 7,
+      "PID": 4101209,
+      "returncode": 0,
+      "unix": 1791183851.5813582
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_0",
+      "gpu": 7,
+      "PID": 4113667,
+      "reserved_mib": 12000,
+      "unix": 1791183851.846189
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_C2000_5",
+      "gpu": 7,
+      "PID": 4101207,
+      "returncode": 0,
+      "unix": 1791183861.9280705
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_C2000",
+      "gpu": null,
+      "PID": 4113769,
+      "reserved_mib": 0,
+      "unix": 1791183861.979742
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_1",
+      "gpu": 7,
+      "PID": 4113785,
+      "reserved_mib": 12000,
+      "unix": 1791183862.3024657
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_C2000",
+      "gpu": null,
+      "PID": 4113769,
+      "returncode": 0,
+      "unix": 1791183893.12329
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_2",
+      "gpu": 7,
+      "PID": 4116263,
+      "reserved_mib": 12000,
+      "unix": 1791184038.0092542
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_6",
+      "gpu": 4,
+      "PID": 4112618,
+      "returncode": 0,
+      "unix": 1791184130.8208337
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_3",
+      "gpu": 4,
+      "PID": 4117592,
+      "reserved_mib": 12000,
+      "unix": 1791184131.0953805
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_5",
+      "gpu": 6,
+      "PID": 4112348,
+      "returncode": 0,
+      "unix": 1791184141.1833339
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_4",
+      "gpu": 6,
+      "PID": 4117719,
+      "reserved_mib": 12000,
+      "unix": 1791184141.4740381
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_7",
+      "gpu": 5,
+      "PID": 4113116,
+      "returncode": 0,
+      "unix": 1791184151.5792038
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_5",
+      "gpu": 5,
+      "PID": 4117838,
+      "reserved_mib": 12000,
+      "unix": 1791184151.8676004
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_0",
+      "gpu": 5,
+      "PID": 4110487,
+      "returncode": 0,
+      "unix": 1791184193.0000012
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_6",
+      "gpu": 5,
+      "PID": 4118411,
+      "reserved_mib": 12000,
+      "unix": 1791184193.2698433
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_0",
+      "gpu": 7,
+      "PID": 4113667,
+      "returncode": 0,
+      "unix": 1791184244.6393952
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_1",
+      "gpu": 7,
+      "PID": 4113785,
+      "returncode": 0,
+      "unix": 1791184254.9632926
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_2",
+      "gpu": 6,
+      "PID": 4111379,
+      "returncode": 0,
+      "unix": 1791184265.3375514
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_3",
+      "gpu": 6,
+      "PID": 4111721,
+      "returncode": 0,
+      "unix": 1791184265.338468
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_C2000_7",
+      "gpu": 6,
+      "PID": 4119434,
+      "reserved_mib": 12000,
+      "unix": 1791184265.6357732
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_0",
+      "gpu": 7,
+      "PID": 4119442,
+      "reserved_mib": 12000,
+      "unix": 1791184265.6854618
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_1",
+      "gpu": 6,
+      "PID": 4119443,
+      "reserved_mib": 12000,
+      "unix": 1791184265.7406192
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_1",
+      "gpu": 4,
+      "PID": 4111373,
+      "returncode": 0,
+      "unix": 1791184296.493735
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_2",
+      "gpu": 4,
+      "PID": 4119942,
+      "reserved_mib": 12000,
+      "unix": 1791184296.7682421
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_C2000",
+      "gpu": null,
+      "PID": 4120194,
+      "reserved_mib": 0,
+      "unix": 1791184317.2291718
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_C2000_4",
+      "gpu": 4,
+      "PID": 4112347,
+      "returncode": 0,
+      "unix": 1791184327.558445
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_3",
+      "gpu": 4,
+      "PID": 4120399,
+      "reserved_mib": 12000,
+      "unix": 1791184327.9224875
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_C2000",
+      "gpu": null,
+      "PID": 4120194,
+      "returncode": 0,
+      "unix": 1791184348.374116
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_4",
+      "gpu": 7,
+      "PID": 4120854,
+      "reserved_mib": 12000,
+      "unix": 1791184359.0656476
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_5",
+      "gpu": 5,
+      "PID": 4117838,
+      "returncode": 0,
+      "unix": 1791184379.4952517
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_5",
+      "gpu": 5,
+      "PID": 4121173,
+      "reserved_mib": 12000,
+      "unix": 1791184379.7709813
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_6",
+      "gpu": 5,
+      "PID": 4118411,
+      "returncode": 0,
+      "unix": 1791184431.2208102
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S1500_6",
+      "gpu": 5,
+      "PID": 4121855,
+      "reserved_mib": 12000,
+      "unix": 1791184431.5084977
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_2",
+      "gpu": 7,
+      "PID": 4116263,
+      "returncode": 0,
+      "unix": 1791184462.2988188
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_4",
+      "gpu": 6,
+      "PID": 4117719,
+      "returncode": 0,
+      "unix": 1791184586.4352992
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_7",
+      "gpu": 6,
+      "PID": 4119434,
+      "returncode": 0,
+      "unix": 1791184586.4358354
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_0",
+      "gpu": 6,
+      "PID": 4123749,
+      "reserved_mib": 12000,
+      "unix": 1791184586.7397974
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_1",
+      "gpu": 6,
+      "PID": 4123750,
+      "reserved_mib": 12000,
+      "unix": 1791184586.7960367
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_C2000_3",
+      "gpu": 4,
+      "PID": 4117592,
+      "returncode": 0,
+      "unix": 1791184617.5741854
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_C2000",
+      "gpu": null,
+      "PID": 4124154,
+      "reserved_mib": 0,
+      "unix": 1791184617.6318226
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_2",
+      "gpu": 4,
+      "PID": 4124162,
+      "reserved_mib": 12000,
+      "unix": 1791184617.8929644
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_C2000",
+      "gpu": null,
+      "PID": 4124154,
+      "returncode": 0,
+      "unix": 1791184648.6824992
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_0",
+      "gpu": 7,
+      "PID": 4119442,
+      "returncode": 0,
+      "unix": 1791184762.4208379
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_3",
+      "gpu": 7,
+      "PID": 4125734,
+      "reserved_mib": 12000,
+      "unix": 1791184762.7006428
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_4",
+      "gpu": 7,
+      "PID": 4126207,
+      "reserved_mib": 12000,
+      "unix": 1791184804.0456219
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_1",
+      "gpu": 6,
+      "PID": 4119443,
+      "returncode": 0,
+      "unix": 1791184928.2092967
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_5",
+      "gpu": 6,
+      "PID": 4127641,
+      "reserved_mib": 12000,
+      "unix": 1791184928.465479
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_2",
+      "gpu": 4,
+      "PID": 4119942,
+      "returncode": 0,
+      "unix": 1791185052.3037298
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_6",
+      "gpu": 4,
+      "PID": 4129039,
+      "reserved_mib": 12000,
+      "unix": 1791185052.5711808
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_4",
+      "gpu": 7,
+      "PID": 4120854,
+      "returncode": 0,
+      "unix": 1791185073.0014877
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_5",
+      "gpu": 5,
+      "PID": 4121173,
+      "returncode": 0,
+      "unix": 1791185104.0083747
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S1500_7",
+      "gpu": 5,
+      "PID": 4129616,
+      "reserved_mib": 12000,
+      "unix": 1791185104.2707143
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_6",
+      "gpu": 5,
+      "PID": 4121855,
+      "returncode": 0,
+      "unix": 1791185166.0566027
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_0",
+      "gpu": 5,
+      "PID": 4130310,
+      "reserved_mib": 12000,
+      "unix": 1791185166.3300893
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S1500_3",
+      "gpu": 4,
+      "PID": 4120399,
+      "returncode": 0,
+      "unix": 1791185197.14062
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_S1500",
+      "gpu": null,
+      "PID": 4130676,
+      "reserved_mib": 0,
+      "unix": 1791185197.1867464
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_1",
+      "gpu": 4,
+      "PID": 4130684,
+      "reserved_mib": 12000,
+      "unix": 1791185197.4417162
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_S1500",
+      "gpu": null,
+      "PID": 4130676,
+      "returncode": 0,
+      "unix": 1791185217.9124172
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_2",
+      "gpu": 4,
+      "PID": 4124162,
+      "returncode": 0,
+      "unix": 1791185404.0201046
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_2",
+      "gpu": 4,
+      "PID": 4133029,
+      "reserved_mib": 12000,
+      "unix": 1791185404.344445
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_1",
+      "gpu": 6,
+      "PID": 4123750,
+      "returncode": 0,
+      "unix": 1791185445.507309
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_3",
+      "gpu": 7,
+      "PID": 4125734,
+      "returncode": 0,
+      "unix": 1791185445.5082376
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_3",
+      "gpu": 6,
+      "PID": 4133481,
+      "reserved_mib": 12000,
+      "unix": 1791185445.8253565
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_4",
+      "gpu": 7,
+      "PID": 4133482,
+      "reserved_mib": 12000,
+      "unix": 1791185445.8798878
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_0",
+      "gpu": 6,
+      "PID": 4123749,
+      "returncode": 0,
+      "unix": 1791185455.9536777
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_5",
+      "gpu": 6,
+      "PID": 4133621,
+      "reserved_mib": 12000,
+      "unix": 1791185456.2631564
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_4",
+      "gpu": 7,
+      "PID": 4126207,
+      "returncode": 0,
+      "unix": 1791185476.739171
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_6",
+      "gpu": 7,
+      "PID": 4133895,
+      "reserved_mib": 12000,
+      "unix": 1791185477.0330524
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_5",
+      "gpu": 6,
+      "PID": 4127641,
+      "returncode": 0,
+      "unix": 1791185663.0196261
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S1500_7",
+      "gpu": 6,
+      "PID": 4136271,
+      "reserved_mib": 12000,
+      "unix": 1791185663.2791123
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_6",
+      "gpu": 7,
+      "PID": 4133895,
+      "returncode": 0,
+      "unix": 1791185735.3764935
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_0",
+      "gpu": 7,
+      "PID": 4137244,
+      "reserved_mib": 12000,
+      "unix": 1791185735.6557367
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_7",
+      "gpu": 5,
+      "PID": 4129616,
+      "returncode": 0,
+      "unix": 1791185776.7821522
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_1",
+      "gpu": 5,
+      "PID": 4137778,
+      "reserved_mib": 12000,
+      "unix": 1791185777.1037903
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S1500_6",
+      "gpu": 4,
+      "PID": 4129039,
+      "returncode": 0,
+      "unix": 1791185818.314154
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_5",
+      "gpu": 6,
+      "PID": 4133621,
+      "returncode": 0,
+      "unix": 1791185818.3150842
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_S1500",
+      "gpu": null,
+      "PID": 4138320,
+      "reserved_mib": 0,
+      "unix": 1791185818.3635974
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_2",
+      "gpu": 4,
+      "PID": 4138328,
+      "reserved_mib": 12000,
+      "unix": 1791185818.6124084
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_3",
+      "gpu": 6,
+      "PID": 4138329,
+      "reserved_mib": 12000,
+      "unix": 1791185818.669771
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_0",
+      "gpu": 5,
+      "PID": 4130310,
+      "returncode": 0,
+      "unix": 1791185839.07335
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_4",
+      "gpu": 5,
+      "PID": 4139171,
+      "reserved_mib": 12000,
+      "unix": 1791185839.321557
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_4",
+      "gpu": 7,
+      "PID": 4133482,
+      "returncode": 0,
+      "unix": 1791185849.4178529
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_S1500",
+      "gpu": null,
+      "PID": 4138320,
+      "returncode": 0,
+      "unix": 1791185849.418754
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_5",
+      "gpu": 7,
+      "PID": 4139447,
+      "reserved_mib": 12000,
+      "unix": 1791185860.002627
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_1",
+      "gpu": 4,
+      "PID": 4130684,
+      "returncode": 0,
+      "unix": 1791185911.4583757
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_6",
+      "gpu": 4,
+      "PID": 4140163,
+      "reserved_mib": 12000,
+      "unix": 1791185911.7469501
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_3",
+      "gpu": 6,
+      "PID": 4133481,
+      "returncode": 0,
+      "unix": 1791185983.8243663
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S1500_7",
+      "gpu": 6,
+      "PID": 4141283,
+      "reserved_mib": 12000,
+      "unix": 1791185984.1130178
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_7",
+      "gpu": 6,
+      "PID": 4136271,
+      "returncode": 0,
+      "unix": 1791185994.2112825
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_0",
+      "gpu": 6,
+      "PID": 4141407,
+      "reserved_mib": 12000,
+      "unix": 1791185994.4673405
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S1500_2",
+      "gpu": 4,
+      "PID": 4133029,
+      "returncode": 0,
+      "unix": 1791186014.903541
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_S1500",
+      "gpu": null,
+      "PID": 4141752,
+      "reserved_mib": 0,
+      "unix": 1791186014.9531708
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_1",
+      "gpu": 4,
+      "PID": 4141771,
+      "reserved_mib": 12000,
+      "unix": 1791186015.3254733
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_S1500",
+      "gpu": null,
+      "PID": 4141752,
+      "returncode": 0,
+      "unix": 1791186046.1988258
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_5",
+      "gpu": 7,
+      "PID": 4139447,
+      "returncode": 0,
+      "unix": 1791186056.4907002
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_2",
+      "gpu": 7,
+      "PID": 4142376,
+      "reserved_mib": 12000,
+      "unix": 1791186056.7650242
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_0",
+      "gpu": 7,
+      "PID": 4137244,
+      "returncode": 0,
+      "unix": 1791186066.863526
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_3",
+      "gpu": 7,
+      "PID": 4142498,
+      "reserved_mib": 12000,
+      "unix": 1791186067.1051025
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_1",
+      "gpu": 5,
+      "PID": 4137778,
+      "returncode": 0,
+      "unix": 1791186201.2401063
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_6",
+      "gpu": 4,
+      "PID": 4140163,
+      "returncode": 0,
+      "unix": 1791186201.2410398
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_4",
+      "gpu": 5,
+      "PID": 4144379,
+      "reserved_mib": 12000,
+      "unix": 1791186201.5217931
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_5",
+      "gpu": 4,
+      "PID": 4144380,
+      "reserved_mib": 12000,
+      "unix": 1791186201.5789754
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_3",
+      "gpu": 6,
+      "PID": 4138329,
+      "returncode": 0,
+      "unix": 1791186232.3186543
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_S2000_6",
+      "gpu": 6,
+      "PID": 4144828,
+      "reserved_mib": 12000,
+      "unix": 1791186232.6036243
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_0",
+      "gpu": 7,
+      "PID": 4144833,
+      "reserved_mib": 12000,
+      "unix": 1791186232.663282
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_2",
+      "gpu": 4,
+      "PID": 4138328,
+      "returncode": 0,
+      "unix": 1791186253.1037147
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_4",
+      "gpu": 5,
+      "PID": 4139171,
+      "returncode": 0,
+      "unix": 1791186253.104602
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_1",
+      "gpu": 5,
+      "PID": 4145091,
+      "reserved_mib": 12000,
+      "unix": 1791186253.427547
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_2",
+      "gpu": 4,
+      "PID": 4145092,
+      "reserved_mib": 12000,
+      "unix": 1791186253.486063
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S1500_7",
+      "gpu": 6,
+      "PID": 4141283,
+      "returncode": 0,
+      "unix": 1791186263.5669768
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_S1500",
+      "gpu": null,
+      "PID": 4145216,
+      "reserved_mib": 0,
+      "unix": 1791186263.6122751
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_3",
+      "gpu": 6,
+      "PID": 4145228,
+      "reserved_mib": 12000,
+      "unix": 1791186263.9465034
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_S1500",
+      "gpu": null,
+      "PID": 4145216,
+      "returncode": 0,
+      "unix": 1791186294.7635112
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_0",
+      "gpu": 6,
+      "PID": 4141407,
+      "returncode": 0,
+      "unix": 1791186563.6037107
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_4",
+      "gpu": 6,
+      "PID": 4148797,
+      "reserved_mib": 12000,
+      "unix": 1791186563.867894
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_1",
+      "gpu": 4,
+      "PID": 4141771,
+      "returncode": 0,
+      "unix": 1791186760.160088
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_5",
+      "gpu": 4,
+      "PID": 4155381,
+      "reserved_mib": 12000,
+      "unix": 1791186760.4188457
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_2",
+      "gpu": 7,
+      "PID": 4142376,
+      "returncode": 0,
+      "unix": 1791186801.5816689
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_3",
+      "gpu": 7,
+      "PID": 4142498,
+      "returncode": 0,
+      "unix": 1791186884.398568
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_6",
+      "gpu": 7,
+      "PID": 4156789,
+      "reserved_mib": 12000,
+      "unix": 1791186884.6875596
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_4",
+      "gpu": 5,
+      "PID": 4144379,
+      "returncode": 0,
+      "unix": 1791186967.1819234
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_S2000_7",
+      "gpu": 5,
+      "PID": 4157721,
+      "reserved_mib": 12000,
+      "unix": 1791186967.4665303
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_1",
+      "gpu": 5,
+      "PID": 4145091,
+      "returncode": 0,
+      "unix": 1791187018.959217
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_0",
+      "gpu": 5,
+      "PID": 4158291,
+      "reserved_mib": 12000,
+      "unix": 1791187019.278403
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_S2000",
+      "gpu": null,
+      "PID": 4158397,
+      "reserved_mib": 0,
+      "unix": 1791187029.4405146
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_5",
+      "gpu": 4,
+      "PID": 4144380,
+      "returncode": 0,
+      "unix": 1791187039.8229084
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_S2000_6",
+      "gpu": 6,
+      "PID": 4144828,
+      "returncode": 0,
+      "unix": 1791187039.8233418
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_0",
+      "gpu": 7,
+      "PID": 4144833,
+      "returncode": 0,
+      "unix": 1791187039.8236344
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_1",
+      "gpu": 7,
+      "PID": 4158534,
+      "reserved_mib": 12000,
+      "unix": 1791187040.1154056
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_2",
+      "gpu": 4,
+      "PID": 4158539,
+      "reserved_mib": 12000,
+      "unix": 1791187040.1848257
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_3",
+      "gpu": 6,
+      "PID": 4158542,
+      "reserved_mib": 12000,
+      "unix": 1791187040.2538476
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_S2000",
+      "gpu": null,
+      "PID": 4158397,
+      "returncode": 0,
+      "unix": 1791187050.368701
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_2",
+      "gpu": 4,
+      "PID": 4145092,
+      "returncode": 0,
+      "unix": 1791187091.7139993
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_3",
+      "gpu": 6,
+      "PID": 4145228,
+      "returncode": 0,
+      "unix": 1791187091.7150419
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_4",
+      "gpu": 6,
+      "PID": 4159246,
+      "reserved_mib": 12000,
+      "unix": 1791187092.0250201
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_5",
+      "gpu": 4,
+      "PID": 4159247,
+      "reserved_mib": 12000,
+      "unix": 1791187092.0851207
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_6",
+      "gpu": 7,
+      "PID": 4159644,
+      "reserved_mib": 12000,
+      "unix": 1791187123.1783342
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_4",
+      "gpu": 6,
+      "PID": 4148797,
+      "returncode": 0,
+      "unix": 1791187361.0062256
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_S2000_7",
+      "gpu": 6,
+      "PID": 4162619,
+      "reserved_mib": 12000,
+      "unix": 1791187361.3317845
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_5",
+      "gpu": 4,
+      "PID": 4155381,
+      "returncode": 0,
+      "unix": 1791187485.3248558
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_0",
+      "gpu": 4,
+      "PID": 4164203,
+      "reserved_mib": 12000,
+      "unix": 1791187485.624231
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_6",
+      "gpu": 7,
+      "PID": 4156789,
+      "returncode": 0,
+      "unix": 1791187495.794085
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_5",
+      "gpu": 4,
+      "PID": 4159247,
+      "returncode": 0,
+      "unix": 1791187495.7954473
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_1",
+      "gpu": 4,
+      "PID": 4164338,
+      "reserved_mib": 12000,
+      "unix": 1791187496.0798342
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_6",
+      "gpu": 7,
+      "PID": 4159644,
+      "returncode": 0,
+      "unix": 1791187526.8996196
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_2",
+      "gpu": 7,
+      "PID": 4164815,
+      "reserved_mib": 12000,
+      "unix": 1791187527.181043
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_3",
+      "gpu": 7,
+      "PID": 4165474,
+      "reserved_mib": 12000,
+      "unix": 1791187578.9219139
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_S2000_7",
+      "gpu": 5,
+      "PID": 4157721,
+      "returncode": 0,
+      "unix": 1791187630.4562685
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_2",
+      "gpu": 4,
+      "PID": 4158539,
+      "returncode": 0,
+      "unix": 1791187630.4572263
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_S2000",
+      "gpu": null,
+      "PID": 4166137,
+      "reserved_mib": 0,
+      "unix": 1791187630.5095317
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_4",
+      "gpu": 5,
+      "PID": 4166156,
+      "reserved_mib": 12000,
+      "unix": 1791187630.7813666
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_5",
+      "gpu": 4,
+      "PID": 4166159,
+      "reserved_mib": 12000,
+      "unix": 1791187630.843519
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_1",
+      "gpu": 7,
+      "PID": 4158534,
+      "returncode": 0,
+      "unix": 1791187640.9315171
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_S2000",
+      "gpu": null,
+      "PID": 4166137,
+      "returncode": 0,
+      "unix": 1791187661.6016965
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_3",
+      "gpu": 6,
+      "PID": 4158542,
+      "returncode": 0,
+      "unix": 1791187671.9317653
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_6",
+      "gpu": 6,
+      "PID": 4166736,
+      "reserved_mib": 12000,
+      "unix": 1791187672.2120795
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_0",
+      "gpu": 5,
+      "PID": 4158291,
+      "returncode": 0,
+      "unix": 1791187692.6534948
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_S2000_7",
+      "gpu": 5,
+      "PID": 4167043,
+      "reserved_mib": 12000,
+      "unix": 1791187692.9360986
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_4",
+      "gpu": 6,
+      "PID": 4159246,
+      "returncode": 0,
+      "unix": 1791187703.0478618
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_0",
+      "gpu": 6,
+      "PID": 4167216,
+      "reserved_mib": 12000,
+      "unix": 1791187703.3528051
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_S2000",
+      "gpu": null,
+      "PID": 4167348,
+      "reserved_mib": 0,
+      "unix": 1791187713.516378
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_S2000_7",
+      "gpu": 6,
+      "PID": 4162619,
+      "returncode": 0,
+      "unix": 1791187723.8714178
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_1",
+      "gpu": 6,
+      "PID": 4167546,
+      "reserved_mib": 12000,
+      "unix": 1791187724.1449966
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_S2000",
+      "gpu": null,
+      "PID": 4167348,
+      "returncode": 0,
+      "unix": 1791187744.57841
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_2",
+      "gpu": 7,
+      "PID": 4168198,
+      "reserved_mib": 12000,
+      "unix": 1791187765.5155919
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_5",
+      "gpu": 4,
+      "PID": 4166159,
+      "returncode": 0,
+      "unix": 1791187889.5161417
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_3",
+      "gpu": 4,
+      "PID": 4170055,
+      "reserved_mib": 12000,
+      "unix": 1791187889.7922792
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_0",
+      "gpu": 4,
+      "PID": 4164203,
+      "returncode": 0,
+      "unix": 1791187899.9690862
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_4",
+      "gpu": 4,
+      "PID": 4170195,
+      "reserved_mib": 12000,
+      "unix": 1791187900.2594097
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_1",
+      "gpu": 4,
+      "PID": 4164338,
+      "returncode": 0,
+      "unix": 1791187910.3700154
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_5",
+      "gpu": 4,
+      "PID": 4170384,
+      "reserved_mib": 12000,
+      "unix": 1791187910.6609104
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_2",
+      "gpu": 7,
+      "PID": 4164815,
+      "returncode": 0,
+      "unix": 1791187931.1437
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_7",
+      "gpu": 5,
+      "PID": 4167043,
+      "returncode": 0,
+      "unix": 1791187951.8043487
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T1500_6",
+      "gpu": 5,
+      "PID": 4170917,
+      "reserved_mib": 12000,
+      "unix": 1791187952.0904534
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_3",
+      "gpu": 7,
+      "PID": 4165474,
+      "returncode": 0,
+      "unix": 1791187982.8775437
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_6",
+      "gpu": 6,
+      "PID": 4166736,
+      "returncode": 0,
+      "unix": 1791187982.8780289
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_0",
+      "gpu": 6,
+      "PID": 4171300,
+      "reserved_mib": 12000,
+      "unix": 1791187983.1458828
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_1",
+      "gpu": 7,
+      "PID": 4171418,
+      "reserved_mib": 12000,
+      "unix": 1791187993.5795918
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_S2000_4",
+      "gpu": 5,
+      "PID": 4166156,
+      "returncode": 0,
+      "unix": 1791188003.6910415
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_S2000",
+      "gpu": null,
+      "PID": 4171549,
+      "reserved_mib": 0,
+      "unix": 1791188003.7474835
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_2",
+      "gpu": 5,
+      "PID": 4171566,
+      "reserved_mib": 12000,
+      "unix": 1791188004.0734124
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_S2000",
+      "gpu": null,
+      "PID": 4171549,
+      "returncode": 0,
+      "unix": 1791188034.893144
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_0",
+      "gpu": 6,
+      "PID": 4167216,
+      "returncode": 0,
+      "unix": 1791188293.7647188
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_3",
+      "gpu": 6,
+      "PID": 4175338,
+      "reserved_mib": 12000,
+      "unix": 1791188294.0677204
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_2",
+      "gpu": 7,
+      "PID": 4168198,
+      "returncode": 0,
+      "unix": 1791188335.2320628
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_4",
+      "gpu": 7,
+      "PID": 4175802,
+      "reserved_mib": 12000,
+      "unix": 1791188335.5028133
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_1",
+      "gpu": 6,
+      "PID": 4167546,
+      "returncode": 0,
+      "unix": 1791188459.402004
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_5",
+      "gpu": 6,
+      "PID": 4177362,
+      "reserved_mib": 12000,
+      "unix": 1791188459.6825187
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_1",
+      "gpu": 7,
+      "PID": 4171418,
+      "returncode": 0,
+      "unix": 1791188645.9589176
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_6",
+      "gpu": 7,
+      "PID": 4179545,
+      "reserved_mib": 12000,
+      "unix": 1791188646.2535224
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_6",
+      "gpu": 5,
+      "PID": 4170917,
+      "returncode": 0,
+      "unix": 1791188687.4571438
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T1500_7",
+      "gpu": 5,
+      "PID": 4180010,
+      "reserved_mib": 12000,
+      "unix": 1791188687.7152164
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_5",
+      "gpu": 4,
+      "PID": 4170384,
+      "returncode": 0,
+      "unix": 1791188718.5775898
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_0",
+      "gpu": 4,
+      "PID": 4180510,
+      "reserved_mib": 12000,
+      "unix": 1791188718.9000204
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_2",
+      "gpu": 5,
+      "PID": 4171566,
+      "returncode": 0,
+      "unix": 1791188729.0155892
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_1",
+      "gpu": 5,
+      "PID": 4180611,
+      "reserved_mib": 12000,
+      "unix": 1791188729.3016133
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_3",
+      "gpu": 4,
+      "PID": 4170055,
+      "returncode": 0,
+      "unix": 1791188739.4179053
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_2",
+      "gpu": 4,
+      "PID": 4180774,
+      "reserved_mib": 12000,
+      "unix": 1791188739.7643101
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_3",
+      "gpu": 7,
+      "PID": 4180891,
+      "reserved_mib": 12000,
+      "unix": 1791188750.1355174
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T1500_4",
+      "gpu": 4,
+      "PID": 4170195,
+      "returncode": 0,
+      "unix": 1791188770.625913
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_T1500",
+      "gpu": null,
+      "PID": 4181117,
+      "reserved_mib": 0,
+      "unix": 1791188770.6823123
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_4",
+      "gpu": 4,
+      "PID": 4181135,
+      "reserved_mib": 12000,
+      "unix": 1791188770.9514308
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_T1500",
+      "gpu": null,
+      "PID": 4181117,
+      "returncode": 0,
+      "unix": 1791188791.4443934
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_0",
+      "gpu": 6,
+      "PID": 4171300,
+      "returncode": 0,
+      "unix": 1791188874.1990466
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_5",
+      "gpu": 6,
+      "PID": 4182404,
+      "reserved_mib": 12000,
+      "unix": 1791188874.4912565
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_4",
+      "gpu": 7,
+      "PID": 4175802,
+      "returncode": 0,
+      "unix": 1791188967.5440917
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_3",
+      "gpu": 6,
+      "PID": 4175338,
+      "returncode": 0,
+      "unix": 1791189081.3941061
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_6",
+      "gpu": 6,
+      "PID": 4184914,
+      "reserved_mib": 12000,
+      "unix": 1791189081.6564617
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_5",
+      "gpu": 6,
+      "PID": 4177362,
+      "returncode": 0,
+      "unix": 1791189184.959739
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T1500_7",
+      "gpu": 6,
+      "PID": 4186323,
+      "reserved_mib": 12000,
+      "unix": 1791189185.2545233
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_5",
+      "gpu": 6,
+      "PID": 4182404,
+      "returncode": 0,
+      "unix": 1791189247.2303843
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_0",
+      "gpu": 6,
+      "PID": 4187155,
+      "reserved_mib": 12000,
+      "unix": 1791189247.5024467
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_6",
+      "gpu": 7,
+      "PID": 4179545,
+      "returncode": 0,
+      "unix": 1791189299.0079043
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_1",
+      "gpu": 7,
+      "PID": 4187966,
+      "reserved_mib": 12000,
+      "unix": 1791189309.655825
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_3",
+      "gpu": 7,
+      "PID": 4180891,
+      "returncode": 0,
+      "unix": 1791189330.112844
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_2",
+      "gpu": 7,
+      "PID": 4188240,
+      "reserved_mib": 12000,
+      "unix": 1791189330.3876908
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_T1500",
+      "gpu": null,
+      "PID": 4188656,
+      "reserved_mib": 0,
+      "unix": 1791189361.2844274
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T1500_7",
+      "gpu": 5,
+      "PID": 4180010,
+      "returncode": 0,
+      "unix": 1791189371.658656
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_3",
+      "gpu": 5,
+      "PID": 4188785,
+      "reserved_mib": 12000,
+      "unix": 1791189371.9500768
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_0",
+      "gpu": 4,
+      "PID": 4180510,
+      "returncode": 0,
+      "unix": 1791189382.0673304
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_6",
+      "gpu": 6,
+      "PID": 4184914,
+      "returncode": 0,
+      "unix": 1791189382.0682619
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_T1500",
+      "gpu": null,
+      "PID": 4188656,
+      "returncode": 0,
+      "unix": 1791189382.06899
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_4",
+      "gpu": 6,
+      "PID": 4188922,
+      "reserved_mib": 12000,
+      "unix": 1791189382.382693
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_5",
+      "gpu": 4,
+      "PID": 4188923,
+      "reserved_mib": 12000,
+      "unix": 1791189382.4505446
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_2",
+      "gpu": 4,
+      "PID": 4180774,
+      "returncode": 0,
+      "unix": 1791189392.5500972
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_6",
+      "gpu": 4,
+      "PID": 4189263,
+      "reserved_mib": 12000,
+      "unix": 1791189392.8447905
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_1",
+      "gpu": 5,
+      "PID": 4180611,
+      "returncode": 0,
+      "unix": 1791189402.965033
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_4",
+      "gpu": 4,
+      "PID": 4181135,
+      "returncode": 0,
+      "unix": 1791189402.9659534
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T1500_7",
+      "gpu": 5,
+      "PID": 4189418,
+      "reserved_mib": 12000,
+      "unix": 1791189403.2296066
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_0",
+      "gpu": 4,
+      "PID": 4189419,
+      "reserved_mib": 12000,
+      "unix": 1791189403.2978613
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_1",
+      "gpu": 7,
+      "PID": 4189420,
+      "reserved_mib": 12000,
+      "unix": 1791189403.3496957
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_T1500",
+      "gpu": null,
+      "PID": 4190905,
+      "reserved_mib": 0,
+      "unix": 1791189454.906916
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T1500_7",
+      "gpu": 6,
+      "PID": 4186323,
+      "returncode": 0,
+      "unix": 1791189465.2244802
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_2",
+      "gpu": 6,
+      "PID": 4191056,
+      "reserved_mib": 12000,
+      "unix": 1791189465.4888399
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_T1500",
+      "gpu": null,
+      "PID": 4190905,
+      "returncode": 0,
+      "unix": 1791189485.9993541
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_5",
+      "gpu": 4,
+      "PID": 4188923,
+      "returncode": 0,
+      "unix": 1791189641.2054856
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_3",
+      "gpu": 4,
+      "PID": 4194119,
+      "reserved_mib": 12000,
+      "unix": 1791189641.4870307
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_6",
+      "gpu": 4,
+      "PID": 4189263,
+      "returncode": 0,
+      "unix": 1791189651.6526287
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_4",
+      "gpu": 4,
+      "PID": 4194284,
+      "reserved_mib": 12000,
+      "unix": 1791189651.9227989
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_7",
+      "gpu": 5,
+      "PID": 4189418,
+      "returncode": 0,
+      "unix": 1791189672.413965
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_5",
+      "gpu": 5,
+      "PID": 823,
+      "reserved_mib": 12000,
+      "unix": 1791189672.6878765
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_0",
+      "gpu": 6,
+      "PID": 4187155,
+      "returncode": 0,
+      "unix": 1791189682.8544745
+    },
+    {
+      "event": "start",
+      "task": "eval_uvg_T2000_6",
+      "gpu": 6,
+      "PID": 976,
+      "reserved_mib": 12000,
+      "unix": 1791189683.1276853
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_3",
+      "gpu": 5,
+      "PID": 4188785,
+      "returncode": 0,
+      "unix": 1791189745.0786068
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_0",
+      "gpu": 5,
+      "PID": 1913,
+      "reserved_mib": 12000,
+      "unix": 1791189745.4290576
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_1",
+      "gpu": 7,
+      "PID": 4187966,
+      "returncode": 0,
+      "unix": 1791189776.2681532
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_2",
+      "gpu": 7,
+      "PID": 4188240,
+      "returncode": 0,
+      "unix": 1791189786.6376884
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_1",
+      "gpu": 7,
+      "PID": 2464,
+      "reserved_mib": 12000,
+      "unix": 1791189786.922962
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T1500_4",
+      "gpu": 6,
+      "PID": 4188922,
+      "returncode": 0,
+      "unix": 1791189828.0691442
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_T1500",
+      "gpu": null,
+      "PID": 2954,
+      "reserved_mib": 0,
+      "unix": 1791189828.1280074
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_2",
+      "gpu": 6,
+      "PID": 2962,
+      "reserved_mib": 12000,
+      "unix": 1791189828.3754272
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_T1500",
+      "gpu": null,
+      "PID": 2954,
+      "returncode": 0,
+      "unix": 1791189859.1734924
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_0",
+      "gpu": 4,
+      "PID": 4189419,
+      "returncode": 0,
+      "unix": 1791189941.9531965
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_3",
+      "gpu": 4,
+      "PID": 4322,
+      "reserved_mib": 12000,
+      "unix": 1791189942.213512
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_1",
+      "gpu": 7,
+      "PID": 4189420,
+      "returncode": 0,
+      "unix": 1791190014.5886612
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_4",
+      "gpu": 7,
+      "PID": 5168,
+      "reserved_mib": 12000,
+      "unix": 1791190014.8549407
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_5",
+      "gpu": 7,
+      "PID": 7664,
+      "reserved_mib": 12000,
+      "unix": 1791190170.1668894
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_2",
+      "gpu": 6,
+      "PID": 4191056,
+      "returncode": 0,
+      "unix": 1791190201.090334
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_6",
+      "gpu": 6,
+      "PID": 9255,
+      "reserved_mib": 12000,
+      "unix": 1791190201.3904982
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_5",
+      "gpu": 5,
+      "PID": 823,
+      "returncode": 0,
+      "unix": 1791190377.4380598
+    },
+    {
+      "event": "start",
+      "task": "eval_ulong_T2000_7",
+      "gpu": 5,
+      "PID": 13245,
+      "reserved_mib": 12000,
+      "unix": 1791190377.7316434
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_0",
+      "gpu": 5,
+      "PID": 1913,
+      "returncode": 0,
+      "unix": 1791190532.862233
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_0",
+      "gpu": 5,
+      "PID": 14890,
+      "reserved_mib": 12000,
+      "unix": 1791190533.1523197
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_1",
+      "gpu": 7,
+      "PID": 2464,
+      "returncode": 0,
+      "unix": 1791190543.275755
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_1",
+      "gpu": 7,
+      "PID": 15017,
+      "reserved_mib": 12000,
+      "unix": 1791190543.587795
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_3",
+      "gpu": 4,
+      "PID": 4194119,
+      "returncode": 0,
+      "unix": 1791190740.3675625
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_4",
+      "gpu": 7,
+      "PID": 5168,
+      "returncode": 0,
+      "unix": 1791190761.1108065
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_4",
+      "gpu": 4,
+      "PID": 4194284,
+      "returncode": 0,
+      "unix": 1791190771.494809
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_2",
+      "gpu": 4,
+      "PID": 17407,
+      "reserved_mib": 12000,
+      "unix": 1791190771.819217
+    },
+    {
+      "event": "finish",
+      "task": "eval_uvg_T2000_6",
+      "gpu": 6,
+      "PID": 976,
+      "returncode": 0,
+      "unix": 1791190906.4920025
+    },
+    {
+      "event": "start",
+      "task": "fid_uvg_T2000",
+      "gpu": null,
+      "PID": 18836,
+      "reserved_mib": 0,
+      "unix": 1791190906.553946
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_5",
+      "gpu": 7,
+      "PID": 7664,
+      "returncode": 0,
+      "unix": 1791190916.9184117
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_3",
+      "gpu": 7,
+      "PID": 18957,
+      "reserved_mib": 12000,
+      "unix": 1791190917.2265005
+    },
+    {
+      "event": "finish",
+      "task": "fid_uvg_T2000",
+      "gpu": null,
+      "PID": 18836,
+      "returncode": 0,
+      "unix": 1791190937.714394
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_7",
+      "gpu": 5,
+      "PID": 13245,
+      "returncode": 0,
+      "unix": 1791191041.3215022
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_4",
+      "gpu": 5,
+      "PID": 20246,
+      "reserved_mib": 12000,
+      "unix": 1791191041.604358
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_1",
+      "gpu": 7,
+      "PID": 15017,
+      "returncode": 0,
+      "unix": 1791191134.8460886
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_5",
+      "gpu": 7,
+      "PID": 21234,
+      "reserved_mib": 12000,
+      "unix": 1791191135.1455345
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_0",
+      "gpu": 5,
+      "PID": 14890,
+      "returncode": 0,
+      "unix": 1791191207.6203225
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_6",
+      "gpu": 5,
+      "PID": 22046,
+      "reserved_mib": 12000,
+      "unix": 1791191207.8935099
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_2",
+      "gpu": 6,
+      "PID": 2962,
+      "returncode": 0,
+      "unix": 1791191228.359743
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_3",
+      "gpu": 4,
+      "PID": 4322,
+      "returncode": 0,
+      "unix": 1791191269.759306
+    },
+    {
+      "event": "start",
+      "task": "eval_virat720_T2000_7",
+      "gpu": 4,
+      "PID": 22752,
+      "reserved_mib": 12000,
+      "unix": 1791191270.070477
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_3",
+      "gpu": 7,
+      "PID": 18957,
+      "returncode": 0,
+      "unix": 1791191352.7038918
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_0",
+      "gpu": 7,
+      "PID": 23701,
+      "reserved_mib": 12000,
+      "unix": 1791191352.9795818
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_5",
+      "gpu": 7,
+      "PID": 21234,
+      "returncode": 0,
+      "unix": 1791191383.9230397
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_1",
+      "gpu": 7,
+      "PID": 24293,
+      "reserved_mib": 12000,
+      "unix": 1791191404.9877417
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_6",
+      "gpu": 5,
+      "PID": 22046,
+      "returncode": 0,
+      "unix": 1791191560.1791015
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_2",
+      "gpu": 5,
+      "PID": 26084,
+      "reserved_mib": 12000,
+      "unix": 1791191560.5044658
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_4",
+      "gpu": 5,
+      "PID": 20246,
+      "returncode": 0,
+      "unix": 1791191570.681931
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_3",
+      "gpu": 5,
+      "PID": 26198,
+      "reserved_mib": 12000,
+      "unix": 1791191570.9506037
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_4",
+      "gpu": 7,
+      "PID": 26319,
+      "reserved_mib": 12000,
+      "unix": 1791191581.4032128
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_0",
+      "gpu": 7,
+      "PID": 23701,
+      "returncode": 0,
+      "unix": 1791191716.2170172
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_1",
+      "gpu": 7,
+      "PID": 24293,
+      "returncode": 0,
+      "unix": 1791191778.5340028
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_5",
+      "gpu": 7,
+      "PID": 28582,
+      "reserved_mib": 12000,
+      "unix": 1791191778.8184552
+    },
+    {
+      "event": "start",
+      "task": "fid_ulong_T2000",
+      "gpu": null,
+      "PID": 35182,
+      "reserved_mib": 0,
+      "unix": 1791191903.2635705
+    },
+    {
+      "event": "finish",
+      "task": "eval_ulong_T2000_6",
+      "gpu": 6,
+      "PID": 9255,
+      "returncode": 0,
+      "unix": 1791191913.6606393
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_6",
+      "gpu": 6,
+      "PID": 35303,
+      "reserved_mib": 12000,
+      "unix": 1791191913.953826
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_4",
+      "gpu": 7,
+      "PID": 26319,
+      "returncode": 0,
+      "unix": 1791191934.4797924
+    },
+    {
+      "event": "start",
+      "task": "eval_virat480_T2000_7",
+      "gpu": 7,
+      "PID": 35533,
+      "reserved_mib": 12000,
+      "unix": 1791191934.746694
+    },
+    {
+      "event": "finish",
+      "task": "fid_ulong_T2000",
+      "gpu": null,
+      "PID": 35182,
+      "returncode": 0,
+      "unix": 1791191944.9343882
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_5",
+      "gpu": 7,
+      "PID": 28582,
+      "returncode": 0,
+      "unix": 1791191986.4691362
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_2",
+      "gpu": 5,
+      "PID": 26084,
+      "returncode": 0,
+      "unix": 1791191996.8623335
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_3",
+      "gpu": 5,
+      "PID": 26198,
+      "returncode": 0,
+      "unix": 1791192007.2733266
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_2",
+      "gpu": 4,
+      "PID": 17407,
+      "returncode": 0,
+      "unix": 1791192100.9113874
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_7",
+      "gpu": 7,
+      "PID": 35533,
+      "returncode": 0,
+      "unix": 1791192142.5373387
+    },
+    {
+      "event": "start",
+      "task": "fid_virat720_T2000",
+      "gpu": null,
+      "PID": 39089,
+      "reserved_mib": 0,
+      "unix": 1791192173.7255945
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat720_T2000_7",
+      "gpu": 4,
+      "PID": 22752,
+      "returncode": 0,
+      "unix": 1791192184.1640897
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat720_T2000",
+      "gpu": null,
+      "PID": 39089,
+      "returncode": 0,
+      "unix": 1791192204.9658139
+    },
+    {
+      "event": "finish",
+      "task": "eval_virat480_T2000_6",
+      "gpu": 6,
+      "PID": 35303,
+      "returncode": 0,
+      "unix": 1791192703.0935962
+    },
+    {
+      "event": "start",
+      "task": "fid_virat480_T2000",
+      "gpu": null,
+      "PID": 47589,
+      "reserved_mib": 0,
+      "unix": 1791192703.1674721
+    },
+    {
+      "event": "finish",
+      "task": "fid_virat480_T2000",
+      "gpu": null,
+      "PID": 47589,
+      "returncode": 0,
+      "unix": 1791192734.41033
+    }
+  ]
+}
