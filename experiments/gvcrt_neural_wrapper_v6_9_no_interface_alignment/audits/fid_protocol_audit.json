@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "implementation": "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py",
+  "implementation_sha256": "c9ee133a67ccaa37927e970397271ada47894f54130e91d39b3489a136f5a991",
+  "package": {
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "numpy": "2.4.4",
+    "scipy": "1.17.0"
+  },
+  "feature_network": "Existing patched pytorch-fid compatible Inception-v3 (1008-class pretrained state)",
+  "feature_layer": "2048-dimensional final average-pool; classifier replaced by Identity",
+  "input_range": "float RGB [0,1]",
+  "RGB_order": "RGB NCHW",
+  "resize": "bilinear 299x299 align_corners=False",
+  "normalization": "2*x-1; transform_input=False; no ImageNet mean/std",
+  "frame_sampling": "all exact frozen canonical frames, no stride/resampling",
+  "number_of_GT_frames": {
+    "uvg": 448,
+    "ulong": 512,
+    "virat720": 579,
+    "virat480": 579
+  },
+  "number_of_reconstructed_frames": {
+    "uvg": 448,
+    "ulong": 512,
+    "virat720": 579,
+    "virat480": 579
+  },
+  "GT_feature_cache_policy": "One original QP0 GT array per dataset with source manifest and array/file SHA256; every input feature pool verified against it using prior tolerance rtol=1e-5 atol=1e-6; max differences recorded",
+  "per_dataset_or_per_sequence": "Formal FID pooled per dataset/method/QP; no averaging per-frame or per-sequence FID",
+  "weights_path": "/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+  "weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+  "covariance": "float64 unbiased covariance, exact existing low_rank_fid SVD formula",
+  "rate_axis": "sum(real_bits)/sum(frame_count/fps)/1000 kbps",
+  "prior_use": [
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_4_vimeo_pretrain/metric_implementation_audit.json",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2b_final_generalization_test/report.py",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_parallel_v5a3_v60/engine.py"
+  ],
+  "bootstrap": "20 repeats, paired sampling with replacement within each sequence, preserve each sequence frame count; same indices for every method/QP; diagnostic only"
+}
