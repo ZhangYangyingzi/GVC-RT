@@ -1,0 +1,22 @@
+{
+  "status": "PASS_NATIVE_RECHECK",
+  "reason": "After full-P loading, update() constructs a new EntropyCoder and clears the earlier canvas-based dual-coder setting. Restore it after CDF generation.",
+  "training_status_at_revision": "PASS step2000; no training objective, optimizer, weights, data, or precision changes",
+  "preserved_initial_seal": "audits/source_versions/pre_entropy_mode_fix/local_protocol.json",
+  "changed_files": [
+    "codec_runtime.py",
+    "report.py"
+  ],
+  "before": {
+    "codec_runtime.py": "85969f82dafe7d20acd6e8fba97df7e6f71bed81d8a872457a34caa4f56e181e",
+    "report.py": "85590dbecdd3f5e223ad89979939a264ea4228895bf1e4e9f102c6bb92792d2e"
+  },
+  "after": {
+    "codec_runtime.py": "3fe27f727e448d7990b557411333e7008eb90830e2174be5a4031eabf1d8eaba",
+    "report.py": "06fadbb2cd826ba1c09df6e85dbd1016d886d8ff1fc2802fc140702fcf57faf5"
+  },
+  "failed_RD_points_written": 0,
+  "heldout_before_revision": "256x448 is single-coder; unchanged behavior; existing independent-decode checks passed",
+  "training_checkpoints_rewritten": false,
+  "failed_attempt_logs_preserved": true
+}

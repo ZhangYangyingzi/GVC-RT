@@ -1,0 +1,11 @@
+{
+  "status": "RECORDED",
+  "affected_methods": ["original"],
+  "affected_datasets": ["uvg", "ulong", "virat720", "virat480"],
+  "affected_qps": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "mismatch": "V6.10 FID records use method original, but their referenced bootstrap CSV rows retain Original_GVCRT. Strict method identity validation rejected reuse of those 40 summaries.",
+  "action": "Recompute only dataset FID and bootstrap summaries from verified reused features, identical GT caches and the unchanged 20 frozen bootstrap draws. No codec rerun and no new frame pool.",
+  "source_experiment": "experiments/gvcrt_neural_wrapper_v6_10_conditional_perceptual_supervision",
+  "source_records": "parts/fid/{dataset}/original/qp{QP}.json",
+  "destination_records": "parts/fid/{dataset}/original/qp{QP}.json"
+}
