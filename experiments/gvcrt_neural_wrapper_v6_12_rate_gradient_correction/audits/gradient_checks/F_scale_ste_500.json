@@ -1,0 +1,772 @@
+{
+  "status": "PASS",
+  "continuation_step": 500,
+  "modules": {
+    "q_scale_enc": {
+      "parameters": 1,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "q_scale_enc"
+      ],
+      "gradient_norm": 0.0
+    },
+    "q_scale_dec": {
+      "parameters": 1,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "q_scale_dec"
+      ],
+      "gradient_norm": 0.0
+    },
+    "q_scale_feature": {
+      "parameters": 1,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "q_scale_feature"
+      ],
+      "gradient_norm": 0.0
+    },
+    "q_scale_recon": {
+      "parameters": 1,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "q_scale_recon"
+      ],
+      "gradient_norm": 0.0
+    },
+    "bit_estimator_z": {
+      "parameters": 11,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "bit_estimator_z.f1.h",
+        "bit_estimator_z.f1.b",
+        "bit_estimator_z.f1.a",
+        "bit_estimator_z.f2.h",
+        "bit_estimator_z.f2.b",
+        "bit_estimator_z.f2.a",
+        "bit_estimator_z.f3.h",
+        "bit_estimator_z.f3.b",
+        "bit_estimator_z.f3.a",
+        "bit_estimator_z.f4.h",
+        "bit_estimator_z.f4.b"
+      ],
+      "gradient_norm": 0.0
+    },
+    "feature_adaptor_i": {
+      "parameters": 12,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "feature_adaptor_i.adaptor.weight",
+        "feature_adaptor_i.adaptor.bias",
+        "feature_adaptor_i.dc.0.weight",
+        "feature_adaptor_i.dc.0.bias",
+        "feature_adaptor_i.dc.2.weight",
+        "feature_adaptor_i.dc.2.bias",
+        "feature_adaptor_i.dc.3.weight",
+        "feature_adaptor_i.dc.3.bias",
+        "feature_adaptor_i.ffn.0.weight",
+        "feature_adaptor_i.ffn.0.bias",
+        "feature_adaptor_i.ffn.2.weight",
+        "feature_adaptor_i.ffn.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "feature_adaptor_p": {
+      "parameters": 2,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "feature_adaptor_p.weight",
+        "feature_adaptor_p.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "feature_extractor": {
+      "parameters": 60,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "feature_extractor.conv1.0.dc.0.weight",
+        "feature_extractor.conv1.0.dc.0.bias",
+        "feature_extractor.conv1.0.dc.2.weight",
+        "feature_extractor.conv1.0.dc.2.bias",
+        "feature_extractor.conv1.0.dc.3.weight",
+        "feature_extractor.conv1.0.dc.3.bias",
+        "feature_extractor.conv1.0.ffn.0.weight",
+        "feature_extractor.conv1.0.ffn.0.bias",
+        "feature_extractor.conv1.0.ffn.2.weight",
+        "feature_extractor.conv1.0.ffn.2.bias",
+        "feature_extractor.conv1.1.dc.0.weight",
+        "feature_extractor.conv1.1.dc.0.bias",
+        "feature_extractor.conv1.1.dc.2.weight",
+        "feature_extractor.conv1.1.dc.2.bias",
+        "feature_extractor.conv1.1.dc.3.weight",
+        "feature_extractor.conv1.1.dc.3.bias",
+        "feature_extractor.conv1.1.ffn.0.weight",
+        "feature_extractor.conv1.1.ffn.0.bias",
+        "feature_extractor.conv1.1.ffn.2.weight",
+        "feature_extractor.conv1.1.ffn.2.bias",
+        "feature_extractor.conv2.0.dc.0.weight",
+        "feature_extractor.conv2.0.dc.0.bias",
+        "feature_extractor.conv2.0.dc.2.weight",
+        "feature_extractor.conv2.0.dc.2.bias",
+        "feature_extractor.conv2.0.dc.3.weight",
+        "feature_extractor.conv2.0.dc.3.bias",
+        "feature_extractor.conv2.0.ffn.0.weight",
+        "feature_extractor.conv2.0.ffn.0.bias",
+        "feature_extractor.conv2.0.ffn.2.weight",
+        "feature_extractor.conv2.0.ffn.2.bias",
+        "feature_extractor.conv2.1.dc.0.weight",
+        "feature_extractor.conv2.1.dc.0.bias",
+        "feature_extractor.conv2.1.dc.2.weight",
+        "feature_extractor.conv2.1.dc.2.bias",
+        "feature_extractor.conv2.1.dc.3.weight",
+        "feature_extractor.conv2.1.dc.3.bias",
+        "feature_extractor.conv2.1.ffn.0.weight",
+        "feature_extractor.conv2.1.ffn.0.bias",
+        "feature_extractor.conv2.1.ffn.2.weight",
+        "feature_extractor.conv2.1.ffn.2.bias",
+        "feature_extractor.conv2.2.dc.0.weight",
+        "feature_extractor.conv2.2.dc.0.bias",
+        "feature_extractor.conv2.2.dc.2.weight",
+        "feature_extractor.conv2.2.dc.2.bias",
+        "feature_extractor.conv2.2.dc.3.weight",
+        "feature_extractor.conv2.2.dc.3.bias",
+        "feature_extractor.conv2.2.ffn.0.weight",
+        "feature_extractor.conv2.2.ffn.0.bias",
+        "feature_extractor.conv2.2.ffn.2.weight",
+        "feature_extractor.conv2.2.ffn.2.bias",
+        "feature_extractor.conv2.3.dc.0.weight",
+        "feature_extractor.conv2.3.dc.0.bias",
+        "feature_extractor.conv2.3.dc.2.weight",
+        "feature_extractor.conv2.3.dc.2.bias",
+        "feature_extractor.conv2.3.dc.3.weight",
+        "feature_extractor.conv2.3.dc.3.bias",
+        "feature_extractor.conv2.3.ffn.0.weight",
+        "feature_extractor.conv2.3.ffn.0.bias",
+        "feature_extractor.conv2.3.ffn.2.weight",
+        "feature_extractor.conv2.3.ffn.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "enc": {
+      "parameters": 36,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "enc.conv1.weight",
+        "enc.conv1.bias",
+        "enc.conv2.0.adaptor.weight",
+        "enc.conv2.0.adaptor.bias",
+        "enc.conv2.0.dc.0.weight",
+        "enc.conv2.0.dc.0.bias",
+        "enc.conv2.0.dc.2.weight",
+        "enc.conv2.0.dc.2.bias",
+        "enc.conv2.0.dc.3.weight",
+        "enc.conv2.0.dc.3.bias",
+        "enc.conv2.0.ffn.0.weight",
+        "enc.conv2.0.ffn.0.bias",
+        "enc.conv2.0.ffn.2.weight",
+        "enc.conv2.0.ffn.2.bias",
+        "enc.conv2.1.dc.0.weight",
+        "enc.conv2.1.dc.0.bias",
+        "enc.conv2.1.dc.2.weight",
+        "enc.conv2.1.dc.2.bias",
+        "enc.conv2.1.dc.3.weight",
+        "enc.conv2.1.dc.3.bias",
+        "enc.conv2.1.ffn.0.weight",
+        "enc.conv2.1.ffn.0.bias",
+        "enc.conv2.1.ffn.2.weight",
+        "enc.conv2.1.ffn.2.bias",
+        "enc.conv3.dc.0.weight",
+        "enc.conv3.dc.0.bias",
+        "enc.conv3.dc.2.weight",
+        "enc.conv3.dc.2.bias",
+        "enc.conv3.dc.3.weight",
+        "enc.conv3.dc.3.bias",
+        "enc.conv3.ffn.0.weight",
+        "enc.conv3.ffn.0.bias",
+        "enc.conv3.ffn.2.weight",
+        "enc.conv3.ffn.2.bias",
+        "enc.down.weight",
+        "enc.down.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "hyper_enc": {
+      "parameters": 34,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "hyper_enc.conv.0.dc.0.weight",
+        "hyper_enc.conv.0.dc.0.bias",
+        "hyper_enc.conv.0.dc.2.weight",
+        "hyper_enc.conv.0.dc.2.bias",
+        "hyper_enc.conv.0.dc.3.weight",
+        "hyper_enc.conv.0.dc.3.bias",
+        "hyper_enc.conv.0.ffn.0.weight",
+        "hyper_enc.conv.0.ffn.0.bias",
+        "hyper_enc.conv.0.ffn.2.weight",
+        "hyper_enc.conv.0.ffn.2.bias",
+        "hyper_enc.conv.1.down.weight",
+        "hyper_enc.conv.1.down.bias",
+        "hyper_enc.conv.1.conv.dc.0.weight",
+        "hyper_enc.conv.1.conv.dc.0.bias",
+        "hyper_enc.conv.1.conv.dc.2.weight",
+        "hyper_enc.conv.1.conv.dc.2.bias",
+        "hyper_enc.conv.1.conv.dc.3.weight",
+        "hyper_enc.conv.1.conv.dc.3.bias",
+        "hyper_enc.conv.1.conv.ffn.0.weight",
+        "hyper_enc.conv.1.conv.ffn.0.bias",
+        "hyper_enc.conv.1.conv.ffn.2.weight",
+        "hyper_enc.conv.1.conv.ffn.2.bias",
+        "hyper_enc.conv.2.down.weight",
+        "hyper_enc.conv.2.down.bias",
+        "hyper_enc.conv.2.conv.dc.0.weight",
+        "hyper_enc.conv.2.conv.dc.0.bias",
+        "hyper_enc.conv.2.conv.dc.2.weight",
+        "hyper_enc.conv.2.conv.dc.2.bias",
+        "hyper_enc.conv.2.conv.dc.3.weight",
+        "hyper_enc.conv.2.conv.dc.3.bias",
+        "hyper_enc.conv.2.conv.ffn.0.weight",
+        "hyper_enc.conv.2.conv.ffn.0.bias",
+        "hyper_enc.conv.2.conv.ffn.2.weight",
+        "hyper_enc.conv.2.conv.ffn.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "hyper_dec": {
+      "parameters": 34,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "hyper_dec.conv.0.up.conv.0.weight",
+        "hyper_dec.conv.0.up.conv.0.bias",
+        "hyper_dec.conv.0.conv.dc.0.weight",
+        "hyper_dec.conv.0.conv.dc.0.bias",
+        "hyper_dec.conv.0.conv.dc.2.weight",
+        "hyper_dec.conv.0.conv.dc.2.bias",
+        "hyper_dec.conv.0.conv.dc.3.weight",
+        "hyper_dec.conv.0.conv.dc.3.bias",
+        "hyper_dec.conv.0.conv.ffn.0.weight",
+        "hyper_dec.conv.0.conv.ffn.0.bias",
+        "hyper_dec.conv.0.conv.ffn.2.weight",
+        "hyper_dec.conv.0.conv.ffn.2.bias",
+        "hyper_dec.conv.1.up.conv.0.weight",
+        "hyper_dec.conv.1.up.conv.0.bias",
+        "hyper_dec.conv.1.conv.dc.0.weight",
+        "hyper_dec.conv.1.conv.dc.0.bias",
+        "hyper_dec.conv.1.conv.dc.2.weight",
+        "hyper_dec.conv.1.conv.dc.2.bias",
+        "hyper_dec.conv.1.conv.dc.3.weight",
+        "hyper_dec.conv.1.conv.dc.3.bias",
+        "hyper_dec.conv.1.conv.ffn.0.weight",
+        "hyper_dec.conv.1.conv.ffn.0.bias",
+        "hyper_dec.conv.1.conv.ffn.2.weight",
+        "hyper_dec.conv.1.conv.ffn.2.bias",
+        "hyper_dec.conv.2.dc.0.weight",
+        "hyper_dec.conv.2.dc.0.bias",
+        "hyper_dec.conv.2.dc.2.weight",
+        "hyper_dec.conv.2.dc.2.bias",
+        "hyper_dec.conv.2.dc.3.weight",
+        "hyper_dec.conv.2.dc.3.bias",
+        "hyper_dec.conv.2.ffn.0.weight",
+        "hyper_dec.conv.2.ffn.0.bias",
+        "hyper_dec.conv.2.ffn.2.weight",
+        "hyper_dec.conv.2.ffn.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "temporal_prior_encoder": {
+      "parameters": 12,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "temporal_prior_encoder.down.weight",
+        "temporal_prior_encoder.down.bias",
+        "temporal_prior_encoder.conv.dc.0.weight",
+        "temporal_prior_encoder.conv.dc.0.bias",
+        "temporal_prior_encoder.conv.dc.2.weight",
+        "temporal_prior_encoder.conv.dc.2.bias",
+        "temporal_prior_encoder.conv.dc.3.weight",
+        "temporal_prior_encoder.conv.dc.3.bias",
+        "temporal_prior_encoder.conv.ffn.0.weight",
+        "temporal_prior_encoder.conv.ffn.0.bias",
+        "temporal_prior_encoder.conv.ffn.2.weight",
+        "temporal_prior_encoder.conv.ffn.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "y_prior_fusion": {
+      "parameters": 32,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "y_prior_fusion.conv.0.dc.0.weight",
+        "y_prior_fusion.conv.0.dc.0.bias",
+        "y_prior_fusion.conv.0.dc.2.weight",
+        "y_prior_fusion.conv.0.dc.2.bias",
+        "y_prior_fusion.conv.0.dc.3.weight",
+        "y_prior_fusion.conv.0.dc.3.bias",
+        "y_prior_fusion.conv.0.ffn.0.weight",
+        "y_prior_fusion.conv.0.ffn.0.bias",
+        "y_prior_fusion.conv.0.ffn.2.weight",
+        "y_prior_fusion.conv.0.ffn.2.bias",
+        "y_prior_fusion.conv.1.dc.0.weight",
+        "y_prior_fusion.conv.1.dc.0.bias",
+        "y_prior_fusion.conv.1.dc.2.weight",
+        "y_prior_fusion.conv.1.dc.2.bias",
+        "y_prior_fusion.conv.1.dc.3.weight",
+        "y_prior_fusion.conv.1.dc.3.bias",
+        "y_prior_fusion.conv.1.ffn.0.weight",
+        "y_prior_fusion.conv.1.ffn.0.bias",
+        "y_prior_fusion.conv.1.ffn.2.weight",
+        "y_prior_fusion.conv.1.ffn.2.bias",
+        "y_prior_fusion.conv.2.dc.0.weight",
+        "y_prior_fusion.conv.2.dc.0.bias",
+        "y_prior_fusion.conv.2.dc.2.weight",
+        "y_prior_fusion.conv.2.dc.2.bias",
+        "y_prior_fusion.conv.2.dc.3.weight",
+        "y_prior_fusion.conv.2.dc.3.bias",
+        "y_prior_fusion.conv.2.ffn.0.weight",
+        "y_prior_fusion.conv.2.ffn.0.bias",
+        "y_prior_fusion.conv.2.ffn.2.weight",
+        "y_prior_fusion.conv.2.ffn.2.bias",
+        "y_prior_fusion.conv.3.weight",
+        "y_prior_fusion.conv.3.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "y_spatial_prior": {
+      "parameters": 24,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "y_spatial_prior.conv.0.adaptor.weight",
+        "y_spatial_prior.conv.0.adaptor.bias",
+        "y_spatial_prior.conv.0.dc.0.weight",
+        "y_spatial_prior.conv.0.dc.0.bias",
+        "y_spatial_prior.conv.0.dc.2.weight",
+        "y_spatial_prior.conv.0.dc.2.bias",
+        "y_spatial_prior.conv.0.dc.3.weight",
+        "y_spatial_prior.conv.0.dc.3.bias",
+        "y_spatial_prior.conv.0.ffn.0.weight",
+        "y_spatial_prior.conv.0.ffn.0.bias",
+        "y_spatial_prior.conv.0.ffn.2.weight",
+        "y_spatial_prior.conv.0.ffn.2.bias",
+        "y_spatial_prior.conv.1.dc.0.weight",
+        "y_spatial_prior.conv.1.dc.0.bias",
+        "y_spatial_prior.conv.1.dc.2.weight",
+        "y_spatial_prior.conv.1.dc.2.bias",
+        "y_spatial_prior.conv.1.dc.3.weight",
+        "y_spatial_prior.conv.1.dc.3.bias",
+        "y_spatial_prior.conv.1.ffn.0.weight",
+        "y_spatial_prior.conv.1.ffn.0.bias",
+        "y_spatial_prior.conv.1.ffn.2.weight",
+        "y_spatial_prior.conv.1.ffn.2.bias",
+        "y_spatial_prior.conv.2.weight",
+        "y_spatial_prior.conv.2.bias"
+      ],
+      "gradient_norm": 0.0
+    },
+    "dec": {
+      "parameters": 36,
+      "active": 0,
+      "nonzero": 0,
+      "inactive_names": [
+        "dec.up.conv.0.weight",
+        "dec.up.conv.0.bias",
+        "dec.conv1.0.adaptor.weight",
+        "dec.conv1.0.adaptor.bias",
+        "dec.conv1.0.dc.0.weight",
+        "dec.conv1.0.dc.0.bias",
+        "dec.conv1.0.dc.2.weight",
+        "dec.conv1.0.dc.2.bias",
+        "dec.conv1.0.dc.3.weight",
+        "dec.conv1.0.dc.3.bias",
+        "dec.conv1.0.ffn.0.weight",
+        "dec.conv1.0.ffn.0.bias",
+        "dec.conv1.0.ffn.2.weight",
+        "dec.conv1.0.ffn.2.bias",
+        "dec.conv1.1.dc.0.weight",
+        "dec.conv1.1.dc.0.bias",
+        "dec.conv1.1.dc.2.weight",
+        "dec.conv1.1.dc.2.bias",
+        "dec.conv1.1.dc.3.weight",
+        "dec.conv1.1.dc.3.bias",
+        "dec.conv1.1.ffn.0.weight",
+        "dec.conv1.1.ffn.0.bias",
+        "dec.conv1.1.ffn.2.weight",
+        "dec.conv1.1.ffn.2.bias",
+        "dec.conv1.2.dc.0.weight",
+        "dec.conv1.2.dc.0.bias",
+        "dec.conv1.2.dc.2.weight",
+        "dec.conv1.2.dc.2.bias",
+        "dec.conv1.2.dc.3.weight",
+        "dec.conv1.2.dc.3.bias",
+        "dec.conv1.2.ffn.0.weight",
+        "dec.conv1.2.ffn.0.bias",
+        "dec.conv1.2.ffn.2.weight",
+        "dec.conv1.2.ffn.2.bias",
+        "dec.conv2.weight",
+        "dec.conv2.bias"
+      ],
+      "gradient_norm": 0.0
+    }
+  },
+  "updates": {
+    "q_scale_enc": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "q_scale_dec": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "q_scale_feature": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "q_scale_recon": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "bit_estimator_z": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "feature_adaptor_i": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "feature_adaptor_p": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "feature_extractor": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "enc": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "hyper_enc": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "hyper_dec": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "temporal_prior_encoder": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "y_prior_fusion": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "y_spatial_prior": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    },
+    "dec": {
+      "master_changed": 0,
+      "deployment_changed": 0,
+      "max_master_delta": 0.0
+    }
+  },
+  "PBG_gradient_norms": {
+    "wrapper": 0.2005271896061976,
+    "bridge": 0.7956303062372305,
+    "generator": 0.6453786071999391
+  },
+  "loss_components": {
+    "frames": [
+      {
+        "Gaussian_scale": [
+          {
+            "pass_index": 0,
+            "active_count": 2162,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 307.1843259327572,
+              "nonzero": 2162,
+              "elements": 2162,
+              "max_abs": 84.30438995361328
+            },
+            "native_scale_dtype": "torch.float32"
+          },
+          {
+            "pass_index": 1,
+            "active_count": 637,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 152.4646043178731,
+              "nonzero": 637,
+              "elements": 637,
+              "max_abs": 30.305421829223633
+            },
+            "native_scale_dtype": "torch.float32"
+          }
+        ],
+        "R_y": {
+          "wrapper": {
+            "norm": 0.013472585853013834,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "R_z": {
+          "wrapper": {
+            "norm": 0.009207846063671515,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "units": "bpp divided by three P frames"
+      },
+      {
+        "Gaussian_scale": [
+          {
+            "pass_index": 0,
+            "active_count": 2129,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 67.41614470415934,
+              "nonzero": 2129,
+              "elements": 2129,
+              "max_abs": 24.434587478637695
+            },
+            "native_scale_dtype": "torch.float32"
+          },
+          {
+            "pass_index": 1,
+            "active_count": 617,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 55.73279926946677,
+              "nonzero": 617,
+              "elements": 617,
+              "max_abs": 37.65235137939453
+            },
+            "native_scale_dtype": "torch.float32"
+          }
+        ],
+        "R_y": {
+          "wrapper": {
+            "norm": 0.003027807734062794,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "R_z": {
+          "wrapper": {
+            "norm": 0.0017663037003278251,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "units": "bpp divided by three P frames"
+      },
+      {
+        "Gaussian_scale": [
+          {
+            "pass_index": 0,
+            "active_count": 1365,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 11.797914092564488,
+              "nonzero": 1365,
+              "elements": 1365,
+              "max_abs": 2.7782180309295654
+            },
+            "native_scale_dtype": "torch.float32"
+          },
+          {
+            "pass_index": 1,
+            "active_count": 483,
+            "scale_gradient": {
+              "is_none": false,
+              "finite": true,
+              "norm": 10.898474026893641,
+              "nonzero": 483,
+              "elements": 483,
+              "max_abs": 8.538593292236328
+            },
+            "native_scale_dtype": "torch.float32"
+          }
+        ],
+        "R_y": {
+          "wrapper": {
+            "norm": 0.00017697505031606152,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "R_z": {
+          "wrapper": {
+            "norm": 0.0008250980910006072,
+            "parameters": 24,
+            "active": 24,
+            "finite": true
+          },
+          "bridge": {
+            "norm": 0.0,
+            "parameters": 28,
+            "active": 0,
+            "finite": true
+          },
+          "generator": {
+            "norm": 0.0,
+            "parameters": 212,
+            "active": 0,
+            "finite": true
+          },
+          "compression_core": {
+            "norm": 0.0,
+            "parameters": 0,
+            "active": 0,
+            "finite": true
+          }
+        },
+        "units": "bpp divided by three P frames"
+      }
+    ]
+  },
+  "PBG_preclip_norm": 1.0439120531082153,
+  "core_preclip_norm": 0.0,
+  "PBG_clip_factor": 0.9579341852489863,
+  "core_clip_factor": 1.0,
+  "I_and_quality_unchanged": true,
+  "extra_optimizer_updates": 0,
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "master_core_hash": "b4f7207c5e84592fe283e46c6d5da0f81feead8ac337e145433c53825c025440",
+  "deployment_core_hash": "b4f7207c5e84592fe283e46c6d5da0f81feead8ac337e145433c53825c025440",
+  "master_dtypes": [
+    "torch.float16"
+  ],
+  "deployment_dtype": "torch.float16"
+}

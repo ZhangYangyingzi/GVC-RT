@@ -1,0 +1,5114 @@
+{
+  "status": "PASS",
+  "comparisons": [
+    {
+      "branch": "F_scale_ste",
+      "QP": 0,
+      "actual_qps": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.4171957770983378,
+        "LPIPS": 0.11833625783522922,
+        "DISTS": 0.1582536300023397,
+        "D": 0.2765898903210958,
+        "rate_bpp": 0.011149313611288864,
+        "beta_rate": 0.13936642309029895,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 12.5,
+        "lambda_q": 0.08,
+        "rate_to_distortion_ratio": 0.5038738868167132,
+        "R_y0": 554.5535227457682,
+        "R_y1": 132.1518376668294,
+        "R_z": 43.976064682006836,
+        "total_rate": 730.681416829427
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2058,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 576,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.012765883143937177,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0027857781613304733,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1892,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 544,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0025400514422452116,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0008635637344476756,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1728,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 519,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.003881620054340739,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0005496829748112259,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2058,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 305.16477534572226,
+                  "nonzero": 2058,
+                  "elements": 2058,
+                  "max_abs": 52.304840087890625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 576,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 139.1572983636427,
+                  "nonzero": 576,
+                  "elements": 576,
+                  "max_abs": 41.995399475097656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.01526093495506047,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0027857781613304733,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1892,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 141.00882691989375,
+                  "nonzero": 1892,
+                  "elements": 1892,
+                  "max_abs": 52.304840087890625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 544,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 47.4021270926378,
+                  "nonzero": 544,
+                  "elements": 544,
+                  "max_abs": 21.95540428161621
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0040963515799404574,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0008635637344476756,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1728,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 124.32181248141762,
+                  "nonzero": 1728,
+                  "elements": 1728,
+                  "max_abs": 58.407379150390625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 519,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 63.68829174782784,
+                  "nonzero": 519,
+                  "elements": 519,
+                  "max_abs": 46.85829162597656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0029124971821033177,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0005496829748112259,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    },
+    {
+      "branch": "F_scale_ste",
+      "QP": 4,
+      "actual_qps": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.23605111738046008,
+        "LPIPS": 0.0795579825838407,
+        "DISTS": 0.11920815706253052,
+        "D": 0.19876614212989807,
+        "rate_bpp": 0.01602022411922614,
+        "beta_rate": 0.0360455047339201,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 2.25,
+        "lambda_q": 0.4444444444444445,
+        "rate_to_distortion_ratio": 0.181346301476051,
+        "R_y0": 772.8337097167969,
+        "R_y1": 194.5844980875651,
+        "R_z": 82.483216603597,
+        "total_rate": 1049.9014078776042
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2121,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 616,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03891901595471939,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.02638178105650144,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2065,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 593,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.007648545195011884,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.004103290549065279,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2033,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 587,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.004488049115593066,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.003910952941727531,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2121,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 359.0141894586287,
+                  "nonzero": 2121,
+                  "elements": 2121,
+                  "max_abs": 91.13981628417969
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 616,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 137.83226375811853,
+                  "nonzero": 616,
+                  "elements": 616,
+                  "max_abs": 30.305421829223633
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.043588238578230555,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.02638178105650144,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2065,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 150.96154898631528,
+                  "nonzero": 2065,
+                  "elements": 2065,
+                  "max_abs": 58.407379150390625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 593,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 95.24251350223118,
+                  "nonzero": 593,
+                  "elements": 593,
+                  "max_abs": 41.995399475097656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.008182505189744511,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.004103290549065279,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2033,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 207.77316249946276,
+                  "nonzero": 2033,
+                  "elements": 2033,
+                  "max_abs": 52.305110931396484
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 587,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 75.57907420489985,
+                  "nonzero": 587,
+                  "elements": 587,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.005167919754177092,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.003910952941727531,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    },
+    {
+      "branch": "F_scale_ste",
+      "QP": 9,
+      "actual_qps": [
+        9,
+        11,
+        9,
+        10
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.1874236712853114,
+        "LPIPS": 0.05371497695644696,
+        "DISTS": 0.10393204291661581,
+        "D": 0.15764701863129935,
+        "rate_bpp": 0.025683465103308357,
+        "beta_rate": 0.02853718462089698,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 1.1111111111111112,
+        "lambda_q": 0.9,
+        "rate_to_distortion_ratio": 0.1810195008358451,
+        "R_y0": 1196.1875,
+        "R_y1": 340.01572672526044,
+        "R_z": 146.98838297526044,
+        "total_rate": 1683.1915690104165
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2146,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 624,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03398461485888952,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.007963453018747176,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2122,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 613,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.009220633437644857,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.019928435512919875,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2139,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 620,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.02858079085431449,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.01805715758353451,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2146,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 272.08455945895764,
+                  "nonzero": 2146,
+                  "elements": 2146,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 624,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 147.2469676617708,
+                  "nonzero": 624,
+                  "elements": 624,
+                  "max_abs": 52.305110931396484
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03857689752432528,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.007963453018747176,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2122,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 213.28986119689372,
+                  "nonzero": 2122,
+                  "elements": 2122,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 613,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 104.67080241884554,
+                  "nonzero": 613,
+                  "elements": 613,
+                  "max_abs": 30.305421829223633
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.00995132557474862,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.019928435512919875,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2139,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 251.15761278301753,
+                  "nonzero": 2139,
+                  "elements": 2139,
+                  "max_abs": 65.24526977539062
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 620,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 134.91737419245285,
+                  "nonzero": 620,
+                  "elements": 620,
+                  "max_abs": 41.99526596069336
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03113872956780368,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.01805715758353451,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0,
+                "parameters": 0,
+                "active": 0,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    },
+    {
+      "branch": "J_scale_ste",
+      "QP": 0,
+      "actual_qps": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.4171957770983378,
+        "LPIPS": 0.11833625783522922,
+        "DISTS": 0.1582536300023397,
+        "D": 0.2765898903210958,
+        "rate_bpp": 0.011149313611288864,
+        "beta_rate": 0.13936642309029895,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 12.5,
+        "lambda_q": 0.08,
+        "rate_to_distortion_ratio": 0.5038738868167132,
+        "R_y0": 554.5535227457682,
+        "R_y1": 132.1518376668294,
+        "R_z": 43.976064682006836,
+        "total_rate": 730.681416829427
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2058,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 576,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.012765883143937177,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.07779123857920694,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0027857781613304733,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.008089468450843238,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1892,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 544,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0025400514422452116,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.02333830688877644,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0008635637344476756,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.008678318448588247,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1728,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 519,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.003881620054340739,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.04037155983056398,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0005496829748112259,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.006441042303882751,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2058,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 305.16477534572226,
+                  "nonzero": 2058,
+                  "elements": 2058,
+                  "max_abs": 52.304840087890625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 576,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 139.1572983636427,
+                  "nonzero": 576,
+                  "elements": 576,
+                  "max_abs": 41.995399475097656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.01526093495506047,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.07188534608660116,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0027857781613304733,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.008089468450843238,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1892,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 141.00882691989375,
+                  "nonzero": 1892,
+                  "elements": 1892,
+                  "max_abs": 52.304840087890625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 544,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 47.4021270926378,
+                  "nonzero": 544,
+                  "elements": 544,
+                  "max_abs": 21.95540428161621
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0040963515799404574,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.06805473768047338,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0008635637344476756,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.008678318448588247,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 1728,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 124.32181248141762,
+                  "nonzero": 1728,
+                  "elements": 1728,
+                  "max_abs": 58.407379150390625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 519,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 63.68829174782784,
+                  "nonzero": 519,
+                  "elements": 519,
+                  "max_abs": 46.85829162597656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.0029124971821033177,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.05824946612058636,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.0005496829748112259,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.006441042303882751,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    },
+    {
+      "branch": "J_scale_ste",
+      "QP": 4,
+      "actual_qps": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.23605111738046008,
+        "LPIPS": 0.0795579825838407,
+        "DISTS": 0.11920815706253052,
+        "D": 0.19876614212989807,
+        "rate_bpp": 0.01602022411922614,
+        "beta_rate": 0.0360455047339201,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 2.25,
+        "lambda_q": 0.4444444444444445,
+        "rate_to_distortion_ratio": 0.181346301476051,
+        "R_y0": 772.8337097167969,
+        "R_y1": 194.5844980875651,
+        "R_z": 82.483216603597,
+        "total_rate": 1049.9014078776042
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2121,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 616,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03891901595471939,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.10060358277928547,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.02638178105650144,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.015397533746103956,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2065,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 593,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.007648545195011884,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.03972369310150585,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.004103290549065279,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.025595990202382138,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2033,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 587,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.004488049115593066,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.07767466110134469,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.003910952941727531,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.012624355982142177,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2121,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 359.0141894586287,
+                  "nonzero": 2121,
+                  "elements": 2121,
+                  "max_abs": 91.13981628417969
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 616,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 137.83226375811853,
+                  "nonzero": 616,
+                  "elements": 616,
+                  "max_abs": 30.305421829223633
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.043588238578230555,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.09845239109513695,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.02638178105650144,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.015397533746103956,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2065,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 150.96154898631528,
+                  "nonzero": 2065,
+                  "elements": 2065,
+                  "max_abs": 58.407379150390625
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 593,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 95.24251350223118,
+                  "nonzero": 593,
+                  "elements": 593,
+                  "max_abs": 41.995399475097656
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.008182505189744511,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.10419264738519825,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.004103290549065279,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.025595990202382138,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2033,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 207.77316249946276,
+                  "nonzero": 2033,
+                  "elements": 2033,
+                  "max_abs": 52.305110931396484
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 587,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 75.57907420489985,
+                  "nonzero": 587,
+                  "elements": 587,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.005167919754177092,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.10835040858022103,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.003910952941727531,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.012624355982142177,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    },
+    {
+      "branch": "J_scale_ste",
+      "QP": 9,
+      "actual_qps": [
+        9,
+        11,
+        9,
+        10
+      ],
+      "loss_and_rate_components_exact": true,
+      "max_loss_difference": 0.0,
+      "components": {
+        "loss": 0.1874236712853114,
+        "LPIPS": 0.05371497695644696,
+        "DISTS": 0.10393204291661581,
+        "D": 0.15764701863129935,
+        "rate_bpp": 0.025683465103308357,
+        "beta_rate": 0.02853718462089698,
+        "proxy_L1": 0.033811305960019425,
+        "lambda_proxy_proxy_L1": 0.00033811305183917284,
+        "proxy_MS_SSIM": 0.9803133209546406,
+        "structure_loss_raw": 0.01968667904535929,
+        "weighted_structure_loss": 0.000901357076751689,
+        "beta_q": 1.1111111111111112,
+        "lambda_q": 0.9,
+        "rate_to_distortion_ratio": 0.1810195008358451,
+        "R_y0": 1196.1875,
+        "R_y1": 340.01572672526044,
+        "R_z": 146.98838297526044,
+        "total_rate": 1683.1915690104165
+      },
+      "reconstructions": [
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "quantization_and_rates": [
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        },
+        {
+          "R_y0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_y1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "R_z": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "total_rate": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [],
+            "dtype": "torch.float32"
+          },
+          "z_hard": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              4,
+              4
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "hard1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          },
+          "active0": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "active1": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.bool"
+          },
+          "y_hat": {
+            "exact": true,
+            "max_abs_difference": 0.0,
+            "shape": [
+              1,
+              128,
+              16,
+              16
+            ],
+            "dtype": "torch.float16"
+          }
+        }
+      ],
+      "legacy_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2146,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 624,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03398461485888952,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.09226778228648032,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.007963453018747176,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0177818294075068,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2122,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 613,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.009220633437644857,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.09014450779856492,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.019928435512919875,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.05280424446185487,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2139,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 620,
+                "scale_gradient": {
+                  "is_none": true,
+                  "finite": true,
+                  "norm": 0.0,
+                  "nonzero": 0,
+                  "elements": 0,
+                  "max_abs": 0.0
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.02858079085431449,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.15279300526113773,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.01805715758353451,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.031653696666241966,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      },
+      "scale_ste_gradient_paths": {
+        "frames": [
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2146,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 272.08455945895764,
+                  "nonzero": 2146,
+                  "elements": 2146,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 624,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 147.2469676617708,
+                  "nonzero": 624,
+                  "elements": 624,
+                  "max_abs": 52.305110931396484
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03857689752432528,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.10360061494638048,
+                "parameters": 297,
+                "active": 246,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.007963453018747176,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.0177818294075068,
+                "parameters": 297,
+                "active": 154,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2122,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 213.28986119689372,
+                  "nonzero": 2122,
+                  "elements": 2122,
+                  "max_abs": 37.65235137939453
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 613,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 104.67080241884554,
+                  "nonzero": 613,
+                  "elements": 613,
+                  "max_abs": 30.305421829223633
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.00995132557474862,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.13154772531917128,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.019928435512919875,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.05280424446185487,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          },
+          {
+            "Gaussian_scale": [
+              {
+                "pass_index": 0,
+                "active_count": 2139,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 251.15761278301753,
+                  "nonzero": 2139,
+                  "elements": 2139,
+                  "max_abs": 65.24526977539062
+                },
+                "native_scale_dtype": "torch.float32"
+              },
+              {
+                "pass_index": 1,
+                "active_count": 620,
+                "scale_gradient": {
+                  "is_none": false,
+                  "finite": true,
+                  "norm": 134.91737419245285,
+                  "nonzero": 620,
+                  "elements": 620,
+                  "max_abs": 41.99526596069336
+                },
+                "native_scale_dtype": "torch.float32"
+              }
+            ],
+            "R_y": {
+              "wrapper": {
+                "norm": 0.03113872956780368,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.15304851816060672,
+                "parameters": 297,
+                "active": 236,
+                "finite": true
+              }
+            },
+            "R_z": {
+              "wrapper": {
+                "norm": 0.01805715758353451,
+                "parameters": 24,
+                "active": 24,
+                "finite": true
+              },
+              "bridge": {
+                "norm": 0.0,
+                "parameters": 28,
+                "active": 0,
+                "finite": true
+              },
+              "generator": {
+                "norm": 0.0,
+                "parameters": 212,
+                "active": 0,
+                "finite": true
+              },
+              "compression_core": {
+                "norm": 0.031653696666241966,
+                "parameters": 297,
+                "active": 144,
+                "finite": true
+              }
+            },
+            "units": "bpp divided by three P frames"
+          }
+        ]
+      }
+    }
+  ],
+  "unmodified_old_core_checked": true,
+  "forward_tolerance": 0.0,
+  "optimizer_steps_during_equivalence": 0
+}
