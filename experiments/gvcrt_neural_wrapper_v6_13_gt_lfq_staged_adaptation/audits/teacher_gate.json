@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "selected_candidate": "pretrain262144",
+  "EMA": true,
+  "selection_rule": "official use_ema=True; coordinate compatibility, not quality ranking",
+  "official_source": {
+    "status": "VERIFIED_DOWNLOAD",
+    "repo": "TencentARC/Open-MAGVIT2-Tokenizer-262144-Pretrain",
+    "revision": "a39791fc8f874dfbd6a74f38ff0ffdb405597fff",
+    "official_code_commit": "c1544efff959ba18d453089071307a7115698551",
+    "checkpoint": {
+      "url": "https://huggingface.co/TencentARC/Open-MAGVIT2-Tokenizer-262144-Pretrain/resolve/a39791fc8f874dfbd6a74f38ff0ffdb405597fff/pretrain256_262144.ckpt",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/teacher_weights/pretrain256_262144.ckpt",
+      "sha256": "8bd75e7f57c91be0cbf0a9a266e41bcf0105a2fc259d5117f8e721df69856078",
+      "bytes": 921243718
+    },
+    "official_lfs_sha256": "8bd75e7f57c91be0cbf0a9a266e41bcf0105a2fc259d5117f8e721df69856078",
+    "candidate_only": true
+  },
+  "strict_encoder_loading": true,
+  "continuous_before_sign": true,
+  "normalization": "official identity (no extra normalization)",
+  "coordinate_verification": {
+    "channels": 18,
+    "identity_argmax_all_channels": true,
+    "positive_same_index_correlations": true,
+    "no_channel_transform": true,
+    "no_latent_interpolation": true,
+    "source": "fixed 16 U-Long + 16 Vimeo non-test samples"
+  },
+  "records": {
+    "teacher_checks/pretrain262144_ema/teacher_loading.json": "6c93043eaa50372558803b535af18bc4d97fe0d517bf4a750ff209dbda9e84b6",
+    "teacher_checks/pretrain262144_ema/teacher_compatibility_progress.json": "6836292952ab5ced58b852028fc5312e6503635d358d656294f60048760303c1",
+    "teacher_checks/pretrain262144_ema/teacher_compatibility_raw.json": "9dcd25ff52b5e86b2cf2c529a029162e0906f81765a9dacf6755cc7da11c9fc6"
+  },
+  "raw_csv_sha256": "413bf015f3c50babe7f509de4da60f14a4e89db9e768f79e653055072625a740",
+  "historical_ori_training_teacher_exact_SHA256": "not embedded in released ori checkpoints; no assertion of exact historical checkpoint identity",
+  "native_interface_binding": "verified empirically in unchanged latent axes on fixed non-test inputs, backed by official continuous-LFQ definition and native Open-MAGVIT2 encoder architecture"
+}

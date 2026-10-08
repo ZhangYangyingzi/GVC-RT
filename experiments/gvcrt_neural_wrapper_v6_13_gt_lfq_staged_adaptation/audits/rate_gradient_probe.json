@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "interior",
+      "forward_exact": true,
+      "symbol_gradient_exact": true,
+      "literal_detached_symbol_probe": true,
+      "legacy_sigma_gradient": null,
+      "scale_ste_sigma_gradient": [
+        1.7150979042053223,
+        1.6519596576690674,
+        0.34994804859161377,
+        -0.04014003276824951
+      ],
+      "stable": [
+        0.2931746542453766,
+        0.5938198566436768,
+        1.1565213203430176,
+        1.9254626035690308
+      ],
+      "symbol_gradient": [
+        0.0,
+        0.8046775460243225,
+        1.01365065574646,
+        0.7610219717025757
+      ],
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "estimated_bits": 6.104683876037598,
+      "analytic_scale_FP64": [
+        1.7150978072510819,
+        1.6519594991347353,
+        0.34994807029511216,
+        -0.04014006689272969
+      ],
+      "analytic_symbol_FP64": [
+        -0.0,
+        0.8046774590852757,
+        1.0136505555302004,
+        0.7610224506595893
+      ],
+      "max_scale_derivative_error": 1.585343321064414e-07,
+      "max_symbol_derivative_error": 4.789570136054522e-07,
+      "analytic_atol": 1e-06,
+      "analytic_rtol": 1e-05
+    },
+    {
+      "case": "inactive",
+      "forward_exact": true,
+      "symbol_gradient_exact": true,
+      "literal_detached_symbol_probe": true,
+      "legacy_sigma_gradient": null,
+      "scale_ste_sigma_gradient": [
+        0.0,
+        0.0
+      ],
+      "stable": [],
+      "symbol_gradient": [
+        0.0,
+        0.0
+      ],
+      "active": [
+        false,
+        false
+      ],
+      "estimated_bits": 0.0
+    },
+    {
+      "case": "empty",
+      "forward_exact": true,
+      "symbol_gradient_exact": true,
+      "literal_detached_symbol_probe": true,
+      "legacy_sigma_gradient": null,
+      "scale_ste_sigma_gradient": [],
+      "stable": [],
+      "symbol_gradient": [],
+      "active": [],
+      "estimated_bits": 0.0
+    },
+    {
+      "case": "boundaries",
+      "forward_exact": true,
+      "symbol_gradient_exact": true,
+      "literal_detached_symbol_probe": true,
+      "legacy_sigma_gradient": null,
+      "scale_ste_sigma_gradient": [
+        0.0,
+        0.0,
+        0.0,
+        0.08978720009326935,
+        0.0
+      ],
+      "stable": [
+        16.0,
+        16.0
+      ],
+      "symbol_gradient": [
+        0.0,
+        0.0,
+        0.0,
+        0.0056334733963012695,
+        0.0056334733963012695
+      ],
+      "active": [
+        false,
+        false,
+        false,
+        true,
+        true
+      ],
+      "estimated_bits": 10.657602310180664
+    },
+    {
+      "case": "floor",
+      "forward_exact": true,
+      "symbol_gradient_exact": true,
+      "literal_detached_symbol_probe": true,
+      "legacy_sigma_gradient": null,
+      "scale_ste_sigma_gradient": [
+        0.0
+      ],
+      "stable": [
+        0.2931746542453766
+      ],
+      "symbol_gradient": [
+        0.0
+      ],
+      "active": [
+        true
+      ],
+      "estimated_bits": 29.89735221862793
+    }
+  ],
+  "analytic_reference": "Derivative of continuous Gaussian interval probability at stable table values; NOT finite differences of discrete indexing",
+  "symbols_fixed_when_measuring_sigma": true
+}

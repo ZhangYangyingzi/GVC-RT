@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "native_checkpoints": {
+    "I": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+    },
+    "P": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    }
+  },
+  "fresh_optimizer": true,
+  "optimizer_initial_state_entries": 0,
+  "module_hashes": {
+    "wrapper": "41338d8e0bc317af72d0e85d8a80212e4f18d966bf2fd1791a61a17e9591434f",
+    "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+    "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+  },
+  "core_hash": "d3bf30efd8e9b5806cbb132f1502d1a64b974ecd2b8300d3155b37feacef5fde",
+  "optimizer_settings": {
+    "hash": "5fd0b089bdc3c9c60bddf5edc8b29c35a918026291db0ddd3d96b2a481d86611",
+    "state_entries": 0,
+    "groups": [
+      {
+        "name": "wrapper",
+        "lr": 5e-05,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "parameters": 24
+      },
+      {
+        "name": "bridge",
+        "lr": 3e-06,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "parameters": 28
+      },
+      {
+        "name": "compression_core",
+        "lr": 1e-06,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "parameters": 297
+      }
+    ]
+  },
+  "RNG": {
+    "torch": "853c6763d267fa9560ef29eadd9d83c51395fbe47c8774a1e2b36039e9ac89eb",
+    "cuda": "aa93496e9a2e65676737a1008b65155b95ef2c65c0702ccfd985697a972975ef",
+    "python": "46da28906fa49b143b0b48dde4ddd23ebb68db08327edd372ad31da250f26601"
+  }
+}

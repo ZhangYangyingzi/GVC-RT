@@ -1,0 +1,146 @@
+{
+  "schema": "v6_13_gt_lfq_staged_adaptation",
+  "seed": 20261007,
+  "branches": [
+    "A_image_rate",
+    "B_gt_lfq_cosine"
+  ],
+  "updates": 5000,
+  "checkpoint_steps": [
+    0,
+    100,
+    500,
+    1000,
+    2000,
+    3000,
+    5000
+  ],
+  "evaluation_step": 5000,
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "clip_length": 4,
+  "crop": 256,
+  "batch": 1,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "optimizer": {
+    "name": "AdamW",
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "compression_core_lr": 1e-06,
+    "weight_decay": 0.0001,
+    "wrapper_bridge_clip": 1.0,
+    "compression_core_clip": 1.0
+  },
+  "trainable": [
+    "wrapper",
+    "bridge",
+    "P_compression_core"
+  ],
+  "frozen": [
+    "I_model",
+    "generator",
+    "quality_models",
+    "teacher"
+  ],
+  "domain_probability": {
+    "ulong": 0.5,
+    "vimeo": 0.5
+  },
+  "lambda_cosine": {
+    "A_image_rate": 0.0,
+    "B_gt_lfq_cosine": 0.2
+  },
+  "cosine_eps": 1e-08,
+  "cosine_dim": 1,
+  "lambda_proxy": 0.01,
+  "lambda_struct": 0.045785124942642835,
+  "rate_gradient_mode": "scale_ste",
+  "force_zero_thres": 0.12,
+  "teacher_gate_required": true,
+  "teacher_gate_passed": true,
+  "final_datasets": [
+    "ulong",
+    "uvg"
+  ],
+  "final_methods": [
+    "original",
+    "v62",
+    "A5000",
+    "B5000"
+  ],
+  "expected_final_RD_points": 600,
+  "expected_pooled_FID_points": 80,
+  "expected_bootstrap_rows": 1600,
+  "compatibility_QPs": [
+    0,
+    4,
+    9
+  ],
+  "init_checkpoints": {
+    "I": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+    },
+    "P": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    }
+  },
+  "teacher_candidate": "pretrain262144",
+  "teacher_EMA": true,
+  "teacher_checkpoint": {
+    "url": "https://huggingface.co/TencentARC/Open-MAGVIT2-Tokenizer-262144-Pretrain/resolve/a39791fc8f874dfbd6a74f38ff0ffdb405597fff/pretrain256_262144.ckpt",
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/teacher_weights/pretrain256_262144.ckpt",
+    "sha256": "8bd75e7f57c91be0cbf0a9a266e41bcf0105a2fc259d5117f8e721df69856078",
+    "bytes": 921243718
+  },
+  "methods": [
+    "original",
+    "v62",
+    "A5000",
+    "B5000"
+  ],
+  "validation_steps": [
+    0,
+    100,
+    500,
+    1000,
+    2000,
+    3000,
+    5000
+  ],
+  "evaluation_steps": [
+    5000
+  ],
+  "gradient_check_steps": [
+    1,
+    100,
+    500,
+    1000,
+    2000,
+    3000,
+    5000
+  ],
+  "master_dtype": "float32",
+  "core_compute_dtype": "float16",
+  "bridge_generator_compute_dtype": "float32",
+  "deployment_dtype": "native ori half",
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "source_checkpoint": "native ori I/P only",
+  "initial_optimizer_state": "empty"
+}
