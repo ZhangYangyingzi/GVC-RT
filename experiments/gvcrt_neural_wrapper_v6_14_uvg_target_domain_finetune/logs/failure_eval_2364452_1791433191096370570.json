@@ -1,0 +1,4 @@
+{
+  "status": "FAIL",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_14_uvg_target_domain_finetune/evaluate.py\", line 13, in <module>\n    evaluator().main()\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2b_final_generalization_test/evaluate.py\", line 56, in main\n    torch.set_num_threads(2);cfg=check_frozen();assert load(ROOT/'preflight_audit.json')['status']=='PASS'\n                                 ^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_14_uvg_target_domain_finetune/v614_io.py\", line 50, in frozen\n    for p,h in load(ROOT/'audits/local_hashes.json').items():assert sha(ROOT/p)==h,('local protocol changed',p)\n                                                                    ^^^^^^^^^^^^^^\nAssertionError: ('local protocol changed', 'select_checkpoint.py')\n"
+}

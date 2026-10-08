@@ -1,0 +1,21 @@
+{
+  "source": "V6.2b unchanged codec/evaluator/metrics",
+  "source_manifest_sha256": "b30bd5e60aa2049163043cde306e6a18cd964fa095e6433f23a3cc125da68ab3",
+  "rate_axis": "actual bpp",
+  "kbps_fps": 30,
+  "frames": 64,
+  "source_frame_indices": "inherited verbatim",
+  "canvas": [
+    1920,
+    1088
+  ],
+  "metric_crop": [
+    1920,
+    1080
+  ],
+  "force_zero_thres": 0.12,
+  "QP_sha256": "64f594aaec577d4b5c093c478942bbfd571d9b622348c3dc92e3a9f24d51e705",
+  "validation_selection": "common all-candidate ln(bpp) interval, 100 uniform points, PCHIP mean LPIPS+DISTS, tie earliest adaptation step",
+  "holdout_gate": "training PASS + frozen checkpoint index; no holdout selection",
+  "FID": "separate split-specific GT feature pools; never mean per-video FID"
+}
