@@ -1,0 +1,24 @@
+{
+  "seed": 20261008,
+  "domain_seed": 20261009,
+  "domain_probability": {
+    "ulong": 0.5,
+    "uvg": 0.5
+  },
+  "domain_selection": "independent random.Random; random()<0.5",
+  "video_selection": "uniform within selected domain",
+  "ulong_sampler": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/train.py:sample_clip",
+  "uvg_pool": "existing 64 canonical frames per training video",
+  "shared_crop": 256,
+  "frames": 4,
+  "QP": "fixed external_qp replay from v6.14; independent of both RNG streams",
+  "validation_QPs": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "validation_ulong_frames": 32
+}

@@ -1,0 +1,4 @@
+{
+  "status": "FAIL",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_15_mixed_domain_replay/train.py\", line 89, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_15_mixed_domain_replay/train.py\", line 40, in main\n    s=torch.load(latest,map_location='cpu',weights_only=True);assert (s['adaptation_step']==0 or all(s['code_hashes'][n]==h for n,h in code.items())) and s['config_sha256']==sha(ROOT/'config.json') and s['source_checkpoint_sha256']==EXPECTED\n                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

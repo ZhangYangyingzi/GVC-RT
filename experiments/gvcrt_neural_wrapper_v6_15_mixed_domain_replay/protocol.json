@@ -1,0 +1,40 @@
+{
+  "no_training": false,
+  "no_selection": true,
+  "actual_bpp": "complete bitstream bytes*8/(frames*width*height)",
+  "kbps": "bits/frame * inherited per-video rate_accounting_fps / 1000",
+  "frames": 64,
+  "unchanged_color_conversion": true,
+  "padding": "replicate to multiples of 64; crop to original 1920x1080",
+  "codec_dtype": "float16",
+  "wrapper_dtype": "float32",
+  "force_zero_thres": 0.12,
+  "methods": [
+    "original",
+    "v62_initial",
+    "uvg_adapt_1000",
+    "uvg_adapt_5000",
+    "mixed_1000",
+    "mixed_5000"
+  ],
+  "external_QP": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "comparison": "six-model common actual bpp interval; 100 uniform ln(bpp) points; PCHIP without extrapolation",
+  "delta": "method-reference; negative better",
+  "FID": "pooled fixed dataset frame features; dataset mean actual bpp; no cross-dataset pooling",
+  "fixed_report_steps": [
+    1000,
+    5000
+  ],
+  "validation": "historical U-Long normal/hard 32 frames QP 0,2,4,6,8,9; Bosphorus 64 frames QP 0-9; no selection"
+}
