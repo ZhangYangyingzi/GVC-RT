@@ -1,0 +1,569 @@
+cannot import cuda implementation for inference, fallback to pytorch.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_15_mixed_domain_replay/train.py", line 89, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_15_mixed_domain_replay/train.py", line 40, in main
+    s=torch.load(latest,map_location='cpu',weights_only=True);assert (s['adaptation_step']==0 or all(s['code_hashes'][n]==h for n,h in code.items())) and s['config_sha256']==sha(ROOT/'config.json') and s['source_checkpoint_sha256']==EXPECTED
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+cannot import cuda implementation for inference, fallback to pytorch.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+TRAIN 1 /5000
+TRAIN 10 /5000
+TRAIN 20 /5000
+TRAIN 30 /5000
+TRAIN 40 /5000
+TRAIN 50 /5000
+TRAIN 60 /5000
+TRAIN 70 /5000
+TRAIN 80 /5000
+TRAIN 90 /5000
+TRAIN 100 /5000
+TRAIN 110 /5000
+TRAIN 120 /5000
+TRAIN 130 /5000
+TRAIN 140 /5000
+TRAIN 150 /5000
+TRAIN 160 /5000
+TRAIN 170 /5000
+TRAIN 180 /5000
+TRAIN 190 /5000
+TRAIN 200 /5000
+TRAIN 210 /5000
+TRAIN 220 /5000
+TRAIN 230 /5000
+TRAIN 240 /5000
+TRAIN 250 /5000
+TRAIN 260 /5000
+TRAIN 270 /5000
+TRAIN 280 /5000
+TRAIN 290 /5000
+TRAIN 300 /5000
+TRAIN 310 /5000
+TRAIN 320 /5000
+TRAIN 330 /5000
+TRAIN 340 /5000
+TRAIN 350 /5000
+TRAIN 360 /5000
+TRAIN 370 /5000
+TRAIN 380 /5000
+TRAIN 390 /5000
+TRAIN 400 /5000
+TRAIN 410 /5000
+TRAIN 420 /5000
+TRAIN 430 /5000
+TRAIN 440 /5000
+TRAIN 450 /5000
+TRAIN 460 /5000
+TRAIN 470 /5000
+TRAIN 480 /5000
+TRAIN 490 /5000
+TRAIN 500 /5000
+TRAIN 510 /5000
+TRAIN 520 /5000
+TRAIN 530 /5000
+TRAIN 540 /5000
+TRAIN 550 /5000
+TRAIN 560 /5000
+TRAIN 570 /5000
+TRAIN 580 /5000
+TRAIN 590 /5000
+TRAIN 600 /5000
+TRAIN 610 /5000
+TRAIN 620 /5000
+TRAIN 630 /5000
+TRAIN 640 /5000
+TRAIN 650 /5000
+TRAIN 660 /5000
+TRAIN 670 /5000
+TRAIN 680 /5000
+TRAIN 690 /5000
+TRAIN 700 /5000
+TRAIN 710 /5000
+TRAIN 720 /5000
+TRAIN 730 /5000
+TRAIN 740 /5000
+TRAIN 750 /5000
+TRAIN 760 /5000
+TRAIN 770 /5000
+TRAIN 780 /5000
+TRAIN 790 /5000
+TRAIN 800 /5000
+TRAIN 810 /5000
+TRAIN 820 /5000
+TRAIN 830 /5000
+TRAIN 840 /5000
+TRAIN 850 /5000
+TRAIN 860 /5000
+TRAIN 870 /5000
+TRAIN 880 /5000
+TRAIN 890 /5000
+TRAIN 900 /5000
+TRAIN 910 /5000
+TRAIN 920 /5000
+TRAIN 930 /5000
+TRAIN 940 /5000
+TRAIN 950 /5000
+TRAIN 960 /5000
+TRAIN 970 /5000
+TRAIN 980 /5000
+TRAIN 990 /5000
+TRAIN 1000 /5000
+TRAIN 1010 /5000
+TRAIN 1020 /5000
+TRAIN 1030 /5000
+TRAIN 1040 /5000
+TRAIN 1050 /5000
+TRAIN 1060 /5000
+TRAIN 1070 /5000
+TRAIN 1080 /5000
+TRAIN 1090 /5000
+TRAIN 1100 /5000
+TRAIN 1110 /5000
+TRAIN 1120 /5000
+TRAIN 1130 /5000
+TRAIN 1140 /5000
+TRAIN 1150 /5000
+TRAIN 1160 /5000
+TRAIN 1170 /5000
+TRAIN 1180 /5000
+TRAIN 1190 /5000
+TRAIN 1200 /5000
+TRAIN 1210 /5000
+TRAIN 1220 /5000
+TRAIN 1230 /5000
+TRAIN 1240 /5000
+TRAIN 1250 /5000
+TRAIN 1260 /5000
+TRAIN 1270 /5000
+TRAIN 1280 /5000
+TRAIN 1290 /5000
+TRAIN 1300 /5000
+TRAIN 1310 /5000
+TRAIN 1320 /5000
+TRAIN 1330 /5000
+TRAIN 1340 /5000
+TRAIN 1350 /5000
+TRAIN 1360 /5000
+TRAIN 1370 /5000
+TRAIN 1380 /5000
+TRAIN 1390 /5000
+TRAIN 1400 /5000
+TRAIN 1410 /5000
+TRAIN 1420 /5000
+TRAIN 1430 /5000
+TRAIN 1440 /5000
+TRAIN 1450 /5000
+TRAIN 1460 /5000
+TRAIN 1470 /5000
+TRAIN 1480 /5000
+TRAIN 1490 /5000
+TRAIN 1500 /5000
+TRAIN 1510 /5000
+TRAIN 1520 /5000
+TRAIN 1530 /5000
+TRAIN 1540 /5000
+TRAIN 1550 /5000
+TRAIN 1560 /5000
+TRAIN 1570 /5000
+TRAIN 1580 /5000
+TRAIN 1590 /5000
+TRAIN 1600 /5000
+TRAIN 1610 /5000
+TRAIN 1620 /5000
+TRAIN 1630 /5000
+TRAIN 1640 /5000
+TRAIN 1650 /5000
+TRAIN 1660 /5000
+TRAIN 1670 /5000
+TRAIN 1680 /5000
+TRAIN 1690 /5000
+TRAIN 1700 /5000
+TRAIN 1710 /5000
+TRAIN 1720 /5000
+TRAIN 1730 /5000
+TRAIN 1740 /5000
+TRAIN 1750 /5000
+TRAIN 1760 /5000
+TRAIN 1770 /5000
+TRAIN 1780 /5000
+TRAIN 1790 /5000
+TRAIN 1800 /5000
+TRAIN 1810 /5000
+TRAIN 1820 /5000
+TRAIN 1830 /5000
+TRAIN 1840 /5000
+TRAIN 1850 /5000
+TRAIN 1860 /5000
+TRAIN 1870 /5000
+TRAIN 1880 /5000
+TRAIN 1890 /5000
+TRAIN 1900 /5000
+TRAIN 1910 /5000
+TRAIN 1920 /5000
+TRAIN 1930 /5000
+TRAIN 1940 /5000
+TRAIN 1950 /5000
+TRAIN 1960 /5000
+TRAIN 1970 /5000
+TRAIN 1980 /5000
+TRAIN 1990 /5000
+TRAIN 2000 /5000
+TRAIN 2010 /5000
+TRAIN 2020 /5000
+TRAIN 2030 /5000
+TRAIN 2040 /5000
+TRAIN 2050 /5000
+TRAIN 2060 /5000
+TRAIN 2070 /5000
+TRAIN 2080 /5000
+TRAIN 2090 /5000
+TRAIN 2100 /5000
+TRAIN 2110 /5000
+TRAIN 2120 /5000
+TRAIN 2130 /5000
+TRAIN 2140 /5000
+TRAIN 2150 /5000
+TRAIN 2160 /5000
+TRAIN 2170 /5000
+TRAIN 2180 /5000
+TRAIN 2190 /5000
+TRAIN 2200 /5000
+TRAIN 2210 /5000
+TRAIN 2220 /5000
+TRAIN 2230 /5000
+TRAIN 2240 /5000
+TRAIN 2250 /5000
+TRAIN 2260 /5000
+TRAIN 2270 /5000
+TRAIN 2280 /5000
+TRAIN 2290 /5000
+TRAIN 2300 /5000
+TRAIN 2310 /5000
+TRAIN 2320 /5000
+TRAIN 2330 /5000
+TRAIN 2340 /5000
+TRAIN 2350 /5000
+TRAIN 2360 /5000
+TRAIN 2370 /5000
+TRAIN 2380 /5000
+TRAIN 2390 /5000
+TRAIN 2400 /5000
+TRAIN 2410 /5000
+TRAIN 2420 /5000
+TRAIN 2430 /5000
+TRAIN 2440 /5000
+TRAIN 2450 /5000
+TRAIN 2460 /5000
+TRAIN 2470 /5000
+TRAIN 2480 /5000
+TRAIN 2490 /5000
+TRAIN 2500 /5000
+TRAIN 2510 /5000
+TRAIN 2520 /5000
+TRAIN 2530 /5000
+TRAIN 2540 /5000
+TRAIN 2550 /5000
+TRAIN 2560 /5000
+TRAIN 2570 /5000
+TRAIN 2580 /5000
+TRAIN 2590 /5000
+TRAIN 2600 /5000
+TRAIN 2610 /5000
+TRAIN 2620 /5000
+TRAIN 2630 /5000
+TRAIN 2640 /5000
+TRAIN 2650 /5000
+TRAIN 2660 /5000
+TRAIN 2670 /5000
+TRAIN 2680 /5000
+TRAIN 2690 /5000
+TRAIN 2700 /5000
+TRAIN 2710 /5000
+TRAIN 2720 /5000
+TRAIN 2730 /5000
+TRAIN 2740 /5000
+TRAIN 2750 /5000
+TRAIN 2760 /5000
+TRAIN 2770 /5000
+TRAIN 2780 /5000
+TRAIN 2790 /5000
+TRAIN 2800 /5000
+TRAIN 2810 /5000
+TRAIN 2820 /5000
+TRAIN 2830 /5000
+TRAIN 2840 /5000
+TRAIN 2850 /5000
+TRAIN 2860 /5000
+TRAIN 2870 /5000
+TRAIN 2880 /5000
+TRAIN 2890 /5000
+TRAIN 2900 /5000
+TRAIN 2910 /5000
+TRAIN 2920 /5000
+TRAIN 2930 /5000
+TRAIN 2940 /5000
+TRAIN 2950 /5000
+TRAIN 2960 /5000
+TRAIN 2970 /5000
+TRAIN 2980 /5000
+TRAIN 2990 /5000
+TRAIN 3000 /5000
+TRAIN 3010 /5000
+TRAIN 3020 /5000
+TRAIN 3030 /5000
+TRAIN 3040 /5000
+TRAIN 3050 /5000
+TRAIN 3060 /5000
+TRAIN 3070 /5000
+TRAIN 3080 /5000
+TRAIN 3090 /5000
+TRAIN 3100 /5000
+TRAIN 3110 /5000
+TRAIN 3120 /5000
+TRAIN 3130 /5000
+TRAIN 3140 /5000
+TRAIN 3150 /5000
+TRAIN 3160 /5000
+TRAIN 3170 /5000
+TRAIN 3180 /5000
+TRAIN 3190 /5000
+TRAIN 3200 /5000
+TRAIN 3210 /5000
+TRAIN 3220 /5000
+TRAIN 3230 /5000
+TRAIN 3240 /5000
+TRAIN 3250 /5000
+TRAIN 3260 /5000
+TRAIN 3270 /5000
+TRAIN 3280 /5000
+TRAIN 3290 /5000
+TRAIN 3300 /5000
+TRAIN 3310 /5000
+TRAIN 3320 /5000
+TRAIN 3330 /5000
+TRAIN 3340 /5000
+TRAIN 3350 /5000
+TRAIN 3360 /5000
+TRAIN 3370 /5000
+TRAIN 3380 /5000
+TRAIN 3390 /5000
+TRAIN 3400 /5000
+TRAIN 3410 /5000
+TRAIN 3420 /5000
+TRAIN 3430 /5000
+TRAIN 3440 /5000
+TRAIN 3450 /5000
+TRAIN 3460 /5000
+TRAIN 3470 /5000
+TRAIN 3480 /5000
+TRAIN 3490 /5000
+TRAIN 3500 /5000
+TRAIN 3510 /5000
+TRAIN 3520 /5000
+TRAIN 3530 /5000
+TRAIN 3540 /5000
+TRAIN 3550 /5000
+TRAIN 3560 /5000
+TRAIN 3570 /5000
+TRAIN 3580 /5000
+TRAIN 3590 /5000
+TRAIN 3600 /5000
+TRAIN 3610 /5000
+TRAIN 3620 /5000
+TRAIN 3630 /5000
+TRAIN 3640 /5000
+TRAIN 3650 /5000
+TRAIN 3660 /5000
+TRAIN 3670 /5000
+TRAIN 3680 /5000
+TRAIN 3690 /5000
+TRAIN 3700 /5000
+TRAIN 3710 /5000
+TRAIN 3720 /5000
+cannot import cuda implementation for inference, fallback to pytorch.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+TRAIN 3710 /5000
+TRAIN 3720 /5000
+TRAIN 3730 /5000
+TRAIN 3740 /5000
+TRAIN 3750 /5000
+TRAIN 3760 /5000
+TRAIN 3770 /5000
+TRAIN 3780 /5000
+TRAIN 3790 /5000
+TRAIN 3800 /5000
+TRAIN 3810 /5000
+TRAIN 3820 /5000
+TRAIN 3830 /5000
+TRAIN 3840 /5000
+TRAIN 3850 /5000
+TRAIN 3860 /5000
+TRAIN 3870 /5000
+TRAIN 3880 /5000
+TRAIN 3890 /5000
+TRAIN 3900 /5000
+TRAIN 3910 /5000
+TRAIN 3920 /5000
+TRAIN 3930 /5000
+TRAIN 3940 /5000
+TRAIN 3950 /5000
+TRAIN 3960 /5000
+TRAIN 3970 /5000
+TRAIN 3980 /5000
+TRAIN 3990 /5000
+TRAIN 4000 /5000
+TRAIN 4010 /5000
+TRAIN 4020 /5000
+TRAIN 4030 /5000
+TRAIN 4040 /5000
+TRAIN 4050 /5000
+TRAIN 4060 /5000
+TRAIN 4070 /5000
+TRAIN 4080 /5000
+TRAIN 4090 /5000
+TRAIN 4100 /5000
+TRAIN 4110 /5000
+TRAIN 4120 /5000
+TRAIN 4130 /5000
+TRAIN 4140 /5000
+TRAIN 4150 /5000
+TRAIN 4160 /5000
+TRAIN 4170 /5000
+TRAIN 4180 /5000
+TRAIN 4190 /5000
+TRAIN 4200 /5000
+TRAIN 4210 /5000
+TRAIN 4220 /5000
+TRAIN 4230 /5000
+TRAIN 4240 /5000
+TRAIN 4250 /5000
+TRAIN 4260 /5000
+TRAIN 4270 /5000
+TRAIN 4280 /5000
+TRAIN 4290 /5000
+TRAIN 4300 /5000
+TRAIN 4310 /5000
+TRAIN 4320 /5000
+TRAIN 4330 /5000
+TRAIN 4340 /5000
+TRAIN 4350 /5000
+TRAIN 4360 /5000
+TRAIN 4370 /5000
+TRAIN 4380 /5000
+TRAIN 4390 /5000
+TRAIN 4400 /5000
+TRAIN 4410 /5000
+TRAIN 4420 /5000
+TRAIN 4430 /5000
+TRAIN 4440 /5000
+TRAIN 4450 /5000
+TRAIN 4460 /5000
+TRAIN 4470 /5000
+TRAIN 4480 /5000
+TRAIN 4490 /5000
+TRAIN 4500 /5000
+TRAIN 4510 /5000
+TRAIN 4520 /5000
+TRAIN 4530 /5000
+TRAIN 4540 /5000
+TRAIN 4550 /5000
+TRAIN 4560 /5000
+TRAIN 4570 /5000
+TRAIN 4580 /5000
+TRAIN 4590 /5000
+TRAIN 4600 /5000
+TRAIN 4610 /5000
+TRAIN 4620 /5000
+TRAIN 4630 /5000
+TRAIN 4640 /5000
+TRAIN 4650 /5000
+TRAIN 4660 /5000
+TRAIN 4670 /5000
+TRAIN 4680 /5000
+TRAIN 4690 /5000
+TRAIN 4700 /5000
+TRAIN 4710 /5000
+TRAIN 4720 /5000
+TRAIN 4730 /5000
+TRAIN 4740 /5000
+TRAIN 4750 /5000
+TRAIN 4760 /5000
+TRAIN 4770 /5000
+TRAIN 4780 /5000
+TRAIN 4790 /5000
+TRAIN 4800 /5000
+TRAIN 4810 /5000
+TRAIN 4820 /5000
+TRAIN 4830 /5000
+TRAIN 4840 /5000
+TRAIN 4850 /5000
+TRAIN 4860 /5000
+TRAIN 4870 /5000
+TRAIN 4880 /5000
+TRAIN 4890 /5000
+TRAIN 4900 /5000
+TRAIN 4910 /5000
+TRAIN 4920 /5000
+TRAIN 4930 /5000
+TRAIN 4940 /5000
+TRAIN 4950 /5000
+TRAIN 4960 /5000
+TRAIN 4970 /5000
+TRAIN 4980 /5000
+TRAIN 4990 /5000
+TRAIN 5000 /5000
+TRAINING PASS
