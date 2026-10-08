@@ -1,0 +1,96 @@
+{
+  "schema": "v614b_cross_domain_retention",
+  "checkpoints": {
+    "v62_initial": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/branches/schedule_s1p0/checkpoints/step_1000.pt",
+      "sha256": "fe63a6f00ca6bae59b23c8683146dbe64b6be67c1463a552af851bbfc31e9cba",
+      "module_hashes": {
+        "wrapper": "140f673ba5471f1341a49df3e20b82159f551cfdb175b51af0533904e554f530",
+        "bridge": "6df8920959a6762f1f91f5cf8d8f4e54492e8f552bdf5c9fa2368e882fcdf534",
+        "generator": "e442ffc30e77a5ef32c2e2a9d3e1c623500ec940b2ceda81752bb9ed4c29c4dd"
+      }
+    },
+    "uvg_adapt_1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_14_uvg_target_domain_finetune/evaluation/checkpoints/uvg_adapt_1000.pt",
+      "sha256": "2664406a5644c42059301c9058f57c42753273183a88c65f35ecc37a99a2f212",
+      "module_hashes": {
+        "wrapper": "cbedfcb214ccf7e432a4e85283235520c67691dc8039a5d60d67d578518836d4",
+        "bridge": "d8bd494667c02498847cb305bb2880218eb431902e324d928c3311d1fa45464d",
+        "generator": "482172ba0e1cf5b9df4092e8746f99d5666bf429da0c8ca2512841b677fb0eb7"
+      }
+    },
+    "uvg_adapt_5000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_14_uvg_target_domain_finetune/evaluation/checkpoints/uvg_adapt_5000.pt",
+      "sha256": "69872e373a2322772d82c185709109a12a5db3ee000c52016412b4a1eb1d4be6",
+      "module_hashes": {
+        "wrapper": "b44e88604fe544f17cfed0ea46fa8dfcdddce5e9e68e6fa1618e73821e00bdb7",
+        "bridge": "9bab6bfcb60fb6cb84362700ade28b4b179d5a0a828058ec80ac6a9cb62724da",
+        "generator": "5db9780b407095223d758ab913a2e5c6f519bf452a315f8e772b85820239392f"
+      }
+    }
+  },
+  "methods": [
+    "original",
+    "v62_initial",
+    "uvg_adapt_1000",
+    "uvg_adapt_5000"
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "force_zero_thres": 0.12,
+  "no_training": true,
+  "no_model_selection": true,
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_workers_per_gpu": 1,
+  "datasets": [
+    "ulong",
+    "hevc_b"
+  ],
+  "expected_points": 520,
+  "deployment_receiver_hashes": {
+    "v62_initial": {
+      "bridge": "7394950d15fd97433ae4b017e4681bfc80143eb889910a34ed17b625ba08bcc9",
+      "generator": "97bf13e3c9e3693dc36e38e80ad0520349b58ba0320151a2fe2abcf43523b3ef"
+    },
+    "uvg_adapt_1000": {
+      "bridge": "16e20dc2b3ef2e9f6f9b9281fb59c21b579757411c8a0b1098a7ca0ec845bb3b",
+      "generator": "11e08618b14a3fc7a6c185c0d89762e72de209b6b9ef1813da777a1d6b7a15bb"
+    },
+    "uvg_adapt_5000": {
+      "bridge": "6aed9873bbf50ce67f82571869abc8f89a48e6b54fe457a3162e21f3d9211f76",
+      "generator": "dbf18a293e755ce9d9c711f0f9fe526790ec9bbba87ef94345acca65501545f5"
+    }
+  },
+  "original_receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "metric_module_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow_perceptual_inception": [
+      "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+    ]
+  }
+}
