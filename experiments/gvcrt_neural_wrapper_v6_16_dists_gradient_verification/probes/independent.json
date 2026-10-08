@@ -1,0 +1,496 @@
+{
+  "status": "PASS",
+  "values": {
+    "A": 0.15790653228759766,
+    "B": 0.15790653228759766
+  },
+  "forward_difference": 0.0,
+  "sampling": {
+    "seed": 20261008,
+    "shape": [
+      1,
+      3,
+      128,
+      128
+    ],
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "range": [
+      0.15,
+      0.85
+    ],
+    "rule": ".15+.7*torch.rand; x then y; independent of all video pools"
+  },
+  "input_sha256": "aa8a365aed104f5b63541395429cf85482dc46e99af2c71398c6930bec00f901",
+  "x_sha256": "b816996b2edc4ea55fa8efec64e112daa627bc8073458b438dfb16fdf3175d84",
+  "target_sha256": "1eb5615dbf864aadfe0eb4eba725d4d14705e56efe7685f4430cb9249b53d2ee",
+  "records": [
+    {
+      "mode": "A",
+      "DISTS": 0.15790653228759766,
+      "DISTS_scalar_requires_grad": true,
+      "image_gradient": {
+        "norm": 0.0013754307113644255,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 49152
+      },
+      "LPIPS_image_gradient": {
+        "norm": 0.16401524660965394,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 49152
+      },
+      "layers": [
+        {
+          "layer": 0,
+          "kind": "RGB",
+          "shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": null,
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0013754307113644255,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 1,
+          "kind": "deep",
+          "shape": [
+            1,
+            64,
+            128,
+            128
+          ],
+          "requires_grad": false,
+          "grad_fn": null,
+          "connected_to_output": false,
+          "output_gradient": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        {
+          "layer": 2,
+          "kind": "deep",
+          "shape": [
+            1,
+            128,
+            64,
+            64
+          ],
+          "requires_grad": false,
+          "grad_fn": null,
+          "connected_to_output": false,
+          "output_gradient": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        {
+          "layer": 3,
+          "kind": "deep",
+          "shape": [
+            1,
+            256,
+            32,
+            32
+          ],
+          "requires_grad": false,
+          "grad_fn": null,
+          "connected_to_output": false,
+          "output_gradient": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        {
+          "layer": 4,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            16,
+            16
+          ],
+          "requires_grad": false,
+          "grad_fn": null,
+          "connected_to_output": false,
+          "output_gradient": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        {
+          "layer": 5,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "requires_grad": false,
+          "grad_fn": null,
+          "connected_to_output": false,
+          "output_gradient": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        }
+      ]
+    },
+    {
+      "mode": "B",
+      "DISTS": 0.15790653228759766,
+      "DISTS_scalar_requires_grad": true,
+      "image_gradient": {
+        "norm": 0.10329397426560538,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 49152
+      },
+      "LPIPS_image_gradient": {
+        "norm": 0.16401524660965394,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 49152
+      },
+      "layers": [
+        {
+          "layer": 0,
+          "kind": "RGB",
+          "shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": null,
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0013754307113644255,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 1,
+          "kind": "deep",
+          "shape": [
+            1,
+            64,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.00010783001538872873,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 2,
+          "kind": "deep",
+          "shape": [
+            1,
+            128,
+            64,
+            64
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.002276711142247641,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 3,
+          "kind": "deep",
+          "shape": [
+            1,
+            256,
+            32,
+            32
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.03450506619099128,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 4,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            16,
+            16
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.05557940328919883,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        },
+        {
+          "layer": 5,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.06240785631499684,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 49152
+          }
+        }
+      ]
+    }
+  ],
+  "finite_difference": [
+    {
+      "mode": "A",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.01,
+      "autograd": -5.281733137962874e-06,
+      "finite_difference": -0.0004023313522338867,
+      "absolute_error": 0.00039704961909592384,
+      "tolerance": 3.105634662759258e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "A",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.003,
+      "autograd": -5.281733137962874e-06,
+      "finite_difference": -0.00042716661118902266,
+      "absolute_error": 0.0004218848780510598,
+      "tolerance": 3.105634662759258e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "A",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.001,
+      "autograd": -5.281733137962874e-06,
+      "finite_difference": -0.0003874301619362086,
+      "absolute_error": 0.00038214842879824573,
+      "tolerance": 3.105634662759258e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.01,
+      "autograd": -0.0004130940942559391,
+      "finite_difference": -0.0004023313522338867,
+      "absolute_error": 1.0762742022052407e-05,
+      "tolerance": 0.00011261881885118782,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.003,
+      "autograd": -0.0004130940942559391,
+      "finite_difference": -0.00042716661118902266,
+      "absolute_error": 1.4072516933083534e-05,
+      "tolerance": 0.00011261881885118782,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 0,
+      "direction_kind": "seeded_random",
+      "direction_sha256": "4a4bd43245b6592f0d2972485ddb58c0eb8506fcf9df879ad5b60cdc4a35b8ce",
+      "epsilon": 0.001,
+      "autograd": -0.0004130940942559391,
+      "finite_difference": -0.0003874301619362086,
+      "absolute_error": 2.566393231973052e-05,
+      "tolerance": 0.00011261881885118782,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "A",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.01,
+      "autograd": 2.010205207625404e-05,
+      "finite_difference": 0.10085105895996094,
+      "absolute_error": 0.10083095690788468,
+      "tolerance": 3.4020410415250805e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "A",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.003,
+      "autograd": 2.010205207625404e-05,
+      "finite_difference": 0.10261932760477066,
+      "absolute_error": 0.1025992255526944,
+      "tolerance": 3.4020410415250805e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "A",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.001,
+      "autograd": 2.010205207625404e-05,
+      "finite_difference": 0.10323523730039597,
+      "absolute_error": 0.10321513524831971,
+      "tolerance": 3.4020410415250805e-05,
+      "within_tolerance": false,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.01,
+      "autograd": 0.1032939925789833,
+      "finite_difference": 0.10085105895996094,
+      "absolute_error": 0.0024429336190223694,
+      "tolerance": 0.02068879851579666,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.003,
+      "autograd": 0.1032939925789833,
+      "finite_difference": 0.10261932760477066,
+      "absolute_error": 0.0006746649742126465,
+      "tolerance": 0.02068879851579666,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    },
+    {
+      "mode": "B",
+      "direction": 1,
+      "direction_kind": "B_gradient",
+      "direction_sha256": "1b3b748f751a1ab91a47569fa6adf83cf4bd30b842659f29e5bf053230979323",
+      "epsilon": 0.001,
+      "autograd": 0.1032939925789833,
+      "finite_difference": 0.10323523730039597,
+      "absolute_error": 5.875527858734131e-05,
+      "tolerance": 0.02068879851579666,
+      "within_tolerance": true,
+      "input": "independent RGB tensor; no codec or STE"
+    }
+  ],
+  "quality_hash_before": [
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+  ],
+  "quality_hash_after": [
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+  ],
+  "optimizer_step": false,
+  "probe_script_sha256": "39f8dfcc1dddb7b31ff674c5649cb7feb52704f460f2eb2107ece7fb04d1268d",
+  "runtime_audit_sha256": "ca2da16d4ceaa5f788305dba394506244d07554324ab63f4086df7f70ad7bd8d"
+}

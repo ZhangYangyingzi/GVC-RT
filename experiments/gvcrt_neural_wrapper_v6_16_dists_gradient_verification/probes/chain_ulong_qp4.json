@@ -1,0 +1,1370 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "domain": "ulong",
+      "plan": {
+        "domain": "ulong",
+        "video": "clips_long_1920/c2c7f8bb-b26a-4264-b4e4-9e4c931c4bb8.mp4",
+        "source_frame_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "canonical_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "crop_x": 249,
+        "crop_y": 580,
+        "crop_size": 256,
+        "cropped_RGB_sha256": [
+          "44aff63244d8214261fa4ad40596cc518f9d55fa33d748bc06793dda7877c718",
+          "4c9df30b391e25bb52a042a071028c813e862decad6c9c0889f98348f4423bf9",
+          "b875fbc35a20feb05fc21af68bb6d8102d97caee67aa65b3d1766edfc6f438ff",
+          "68f398417a9db20b9cc2ce5b03279c10709218dc4f51ce549e8d78af1323896c"
+        ],
+        "replay_step": 4
+      },
+      "external_QP": 4,
+      "actual_QPs": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "frame": 1,
+      "values": {
+        "A": 0.1797504425048828,
+        "B": 0.1797504425048828
+      },
+      "forward_difference": 0.0,
+      "DISTS": {
+        "A": {
+          "DISTS": 0.1797504425048828,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00039759557014390994,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.00039759557014390994,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.01781780685206049,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 318487
+            },
+            "bridge": {
+              "norm": 0.053996237462305634,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 0.025400647927184206,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        },
+        "B": {
+          "DISTS": 0.1797504425048828,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00039759557014390994,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00042497897921521625,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.0034657525581247204,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.028097256774341578,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.11384399633887135,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.2591250001462731,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.3199336835105105,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.8432881035718889,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 318487
+            },
+            "bridge": {
+              "norm": 4.140116476927927,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 2.3347707401767965,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        }
+      },
+      "other_components": {
+        "LPIPS": {
+          "wrapper": {
+            "norm": 0.4106838792148944,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 318487
+          },
+          "bridge": {
+            "norm": 1.8036428244891132,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "generator": {
+            "norm": 1.015221075324425,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          }
+        },
+        "rate_bpp": {
+          "wrapper": {
+            "norm": 0.09638085299429758,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 318487
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "proxy_L1": {
+          "wrapper": {
+            "norm": 0.8844322650784201,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 318487
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        }
+      }
+    },
+    {
+      "domain": "ulong",
+      "plan": {
+        "domain": "ulong",
+        "video": "clips_long_1920/c2c7f8bb-b26a-4264-b4e4-9e4c931c4bb8.mp4",
+        "source_frame_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "canonical_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "crop_x": 249,
+        "crop_y": 580,
+        "crop_size": 256,
+        "cropped_RGB_sha256": [
+          "44aff63244d8214261fa4ad40596cc518f9d55fa33d748bc06793dda7877c718",
+          "4c9df30b391e25bb52a042a071028c813e862decad6c9c0889f98348f4423bf9",
+          "b875fbc35a20feb05fc21af68bb6d8102d97caee67aa65b3d1766edfc6f438ff",
+          "68f398417a9db20b9cc2ce5b03279c10709218dc4f51ce549e8d78af1323896c"
+        ],
+        "replay_step": 4
+      },
+      "external_QP": 4,
+      "actual_QPs": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "frame": 2,
+      "values": {
+        "A": 0.17477631568908691,
+        "B": 0.17477631568908691
+      },
+      "forward_difference": 0.0,
+      "DISTS": {
+        "A": {
+          "DISTS": 0.17477631568908691,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.0003920738030655417,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.0003920738030655417,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.016247559087138964,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 317718
+            },
+            "bridge": {
+              "norm": 0.05231278691190905,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 0.0230714403622806,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        },
+        "B": {
+          "DISTS": 0.17477631568908691,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.0003920738030655417,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00041521231085230183,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.003229548024137916,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.028116922982532044,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.1191535903214477,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.28442183802092563,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.3273793284510842,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.9804183217558566,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 317718
+            },
+            "bridge": {
+              "norm": 3.6664537254916745,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 2.141261228334832,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        }
+      },
+      "other_components": {
+        "LPIPS": {
+          "wrapper": {
+            "norm": 0.30617020185673993,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 317718
+          },
+          "bridge": {
+            "norm": 1.2836756871601689,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "generator": {
+            "norm": 0.8314355829280011,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          }
+        },
+        "rate_bpp": {
+          "wrapper": {
+            "norm": 0.030436193419118723,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 317718
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "proxy_L1": {
+          "wrapper": {
+            "norm": 0.8853572574670475,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 317718
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        }
+      }
+    },
+    {
+      "domain": "ulong",
+      "plan": {
+        "domain": "ulong",
+        "video": "clips_long_1920/c2c7f8bb-b26a-4264-b4e4-9e4c931c4bb8.mp4",
+        "source_frame_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "canonical_indices": [
+          209,
+          210,
+          211,
+          212
+        ],
+        "crop_x": 249,
+        "crop_y": 580,
+        "crop_size": 256,
+        "cropped_RGB_sha256": [
+          "44aff63244d8214261fa4ad40596cc518f9d55fa33d748bc06793dda7877c718",
+          "4c9df30b391e25bb52a042a071028c813e862decad6c9c0889f98348f4423bf9",
+          "b875fbc35a20feb05fc21af68bb6d8102d97caee67aa65b3d1766edfc6f438ff",
+          "68f398417a9db20b9cc2ce5b03279c10709218dc4f51ce549e8d78af1323896c"
+        ],
+        "replay_step": 4
+      },
+      "external_QP": 4,
+      "actual_QPs": [
+        4,
+        6,
+        4,
+        5
+      ],
+      "frame": 3,
+      "values": {
+        "A": 0.17544203996658325,
+        "B": 0.17544203996658325
+      },
+      "forward_difference": 0.0,
+      "DISTS": {
+        "A": {
+          "DISTS": 0.17544203996658325,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00038912515727103185,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": false,
+              "grad_fn": null,
+              "connected_to_output": false,
+              "output_gradient": {
+                "norm": 0.0,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 0,
+                "effective_parameters": 0,
+                "effective_elements": 0
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.00038912515727103185,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.013315660982350293,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 316565
+            },
+            "bridge": {
+              "norm": 0.05258481136782465,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 0.022567248567881188,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        },
+        "B": {
+          "DISTS": 0.17544203996658325,
+          "layers": [
+            {
+              "layer": 0,
+              "kind": "RGB",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "SliceBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00038912515727103185,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 1,
+              "kind": "deep",
+              "shape": [
+                1,
+                64,
+                256,
+                256
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.00041812922013045726,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 2,
+              "kind": "deep",
+              "shape": [
+                1,
+                128,
+                128,
+                128
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.0031994283767283315,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 3,
+              "kind": "deep",
+              "shape": [
+                1,
+                256,
+                64,
+                64
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.02684283638542583,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 4,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                32,
+                32
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.09732581782411275,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            },
+            {
+              "layer": 5,
+              "kind": "deep",
+              "shape": [
+                1,
+                512,
+                16,
+                16
+              ],
+              "requires_grad": true,
+              "grad_fn": "ReluBackward0",
+              "connected_to_output": true,
+              "output_gradient": {
+                "norm": 0.327730501252554,
+                "finite": true,
+                "total_parameters": 1,
+                "connected_parameters": 1,
+                "effective_parameters": 1,
+                "effective_elements": 196608
+              }
+            }
+          ],
+          "reconstruction_gradient": {
+            "norm": 0.3685884213111495,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          },
+          "PBG_gradients": {
+            "wrapper": {
+              "norm": 0.4665389729481573,
+              "finite": true,
+              "total_parameters": 24,
+              "connected_parameters": 24,
+              "effective_parameters": 24,
+              "effective_elements": 316565
+            },
+            "bridge": {
+              "norm": 3.8619764379111254,
+              "finite": true,
+              "total_parameters": 28,
+              "connected_parameters": 28,
+              "effective_parameters": 28,
+              "effective_elements": 801124
+            },
+            "generator": {
+              "norm": 2.419435074448654,
+              "finite": true,
+              "total_parameters": 212,
+              "connected_parameters": 212,
+              "effective_parameters": 212,
+              "effective_elements": 33776640
+            }
+          }
+        }
+      },
+      "other_components": {
+        "LPIPS": {
+          "wrapper": {
+            "norm": 0.3993225713207233,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 316565
+          },
+          "bridge": {
+            "norm": 1.3819111505241415,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "generator": {
+            "norm": 0.9385590543286443,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          }
+        },
+        "rate_bpp": {
+          "wrapper": {
+            "norm": 0.07466789423828481,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 316565
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "proxy_L1": {
+          "wrapper": {
+            "norm": 0.8896315314917047,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 316565
+          },
+          "bridge": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          },
+          "generator": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 0,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        }
+      }
+    }
+  ],
+  "optimizer_step": false,
+  "model_parameters_unchanged": true,
+  "quality_parameters_unchanged": true
+}

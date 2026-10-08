@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "sources": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_15_mixed_domain_replay/train.py",
+      "sha256": "90535d47c710516e03e62754cfd198879ad7d70e94ab8bbcf93f71b09199da30",
+      "snapshot": "dependency_sources/00_train.py"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/fullqp_train.py",
+      "sha256": "6a749c1011c64468dd61a10d7fff0cefa9b404a7f3c7dc747af7bd14a931e629",
+      "snapshot": "dependency_sources/01_fullqp_train.py"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/fullqp_common.py",
+      "sha256": "41695c0ea40ebd46bc4785f761515aec2a4a4f2f5471d9917d58f4cbcdbd5e6c",
+      "snapshot": "dependency_sources/02_fullqp_common.py"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/train.py",
+      "sha256": "7e20653dfeedb3859f7083bc4c75f765bbe970a69f87d9b13b19e936a71b0e93",
+      "snapshot": "dependency_sources/03_train.py"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/core.py",
+      "sha256": "0d9c1c511029d80890aa3caf78705a564a896f5565641528c91b31b39be13875",
+      "snapshot": "dependency_sources/04_core.py"
+    },
+    {
+      "path": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py",
+      "sha256": "da9162307ae51bc58ffe259e7e778973e8586286652d36c3e9885e94bc269da8",
+      "snapshot": "dependency_sources/05_DISTS_pt.py"
+    }
+  ],
+  "DISTS_class_file": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py",
+  "forward_signature": "(self, x, y, require_grad=False, batch_average=False)",
+  "forward_source": "    def forward(self, x, y, require_grad=False, batch_average=False):\n        if require_grad:\n            feats0 = self.forward_once(x)\n            feats1 = self.forward_once(y)   \n        else:\n            with torch.no_grad():\n                feats0 = self.forward_once(x)\n                feats1 = self.forward_once(y) \n        dist1 = 0 \n        dist2 = 0 \n        c1 = 1e-6\n        c2 = 1e-6\n        w_sum = self.alpha.sum() + self.beta.sum()\n        alpha = torch.split(self.alpha/w_sum, self.chns, dim=1)\n        beta = torch.split(self.beta/w_sum, self.chns, dim=1)\n        for k in range(len(self.chns)):\n            x_mean = feats0[k].mean([2,3], keepdim=True)\n            y_mean = feats1[k].mean([2,3], keepdim=True)\n            S1 = (2*x_mean*y_mean+c1)/(x_mean**2+y_mean**2+c1)\n            dist1 = dist1+(alpha[k]*S1).sum(1,keepdim=True)\n\n            x_var = ((feats0[k]-x_mean)**2).mean([2,3], keepdim=True)\n            y_var = ((feats1[k]-y_mean)**2).mean([2,3], keepdim=True)\n            xy_cov = (feats0[k]*feats1[k]).mean([2,3],keepdim=True) - x_mean*y_mean\n            S2 = (2*xy_cov+c2)/(x_var+y_var+c2)\n            dist2 = dist2+(beta[k]*S2).sum(1,keepdim=True)\n\n        score = 1 - (dist1+dist2).squeeze()\n        if batch_average:\n            return score.mean()\n        else:\n            return score\n",
+  "forward_once_source": "    def forward_once(self, x):\n        h = (x-self.mean)/self.std\n        h = self.stage1(h)\n        h_relu1_2 = h\n        h = self.stage2(h)\n        h_relu2_2 = h\n        h = self.stage3(h)\n        h_relu3_3 = h\n        h = self.stage4(h)\n        h_relu4_3 = h\n        h = self.stage5(h)\n        h_relu5_3 = h\n        return [x,h_relu1_2, h_relu2_2, h_relu3_3, h_relu4_3, h_relu5_3]\n",
+  "package_versions": {
+    "DISTS-pytorch": "0.1",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "lpips": "0.1.4"
+  },
+  "historical_call": "quality[1](output,target).mean()",
+  "fixed_call": "quality[1](output,target,require_grad=True).mean()",
+  "default_require_grad": false
+}
