@@ -1,0 +1,56 @@
+{
+  "no_training": true,
+  "comparison": "diagnostic same-external-QP; not equal-rate",
+  "methods": [
+    "original",
+    "v62_initial",
+    "mixed_1000",
+    "dists_fixed_1000",
+    "dists_w05_1000"
+  ],
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "uvg_validation",
+    "hevc_b"
+  ],
+  "external_qps": [
+    0,
+    4,
+    9
+  ],
+  "frames_per_point": 64,
+  "frame_index": "one-based 1..64; historical artifacts zero-based 0..63",
+  "actual_QP": "historical shift_qp mapping; inherited qp_semantics_audit.json",
+  "rate": "complete persisted real RANS stream bytes * 8 / (64 * 1920 * 1080)",
+  "frame_bits": "complete stream accounting; first frame includes SPS header; cumulative sum of real_bits",
+  "causal_path": "unchanged historical Runtime.run; DPB retained across P frames; decoded reference only",
+  "independent_decode": "fresh decoder over persisted RANS stream; reconstruction SHA equality and state sync required",
+  "codec_dtype": "FP16",
+  "wrapper_dtype": "FP32",
+  "force_zero_thres": 0.12,
+  "color_conversion": "inherited canonical RGB; half -> replicate pad -> 2*x-1",
+  "canvas": [
+    1920,
+    1088
+  ],
+  "metric_crop": [
+    1920,
+    1080
+  ],
+  "FloLPIPS": "historical transition from frame i-1 to frame i, assigned to target frame; frame1 undefined NaN",
+  "evaluation_DISTS": "historical value-only evaluation; no backward",
+  "windows": [
+    "1-8",
+    "9-16",
+    "17-32",
+    "33-48",
+    "49-64"
+  ],
+  "std": "population standard deviation ddof=0; undefined FloLPIPS frame1 excluded",
+  "drift": "mean frames49-64 minus mean frames1-8",
+  "excess_drift": "method drift minus original drift at same external QP",
+  "slope": "ordinary least squares with intercept over frames2-64 for raw and method-original delta",
+  "aggregation": "equal sequence weights within each dataset; datasets remain separate",
+  "reuse": "exact method/export checkpoint hash, canonical frames, actual QPs, real bytes, code, metric versions, decode and synchronization artifacts verified"
+}
