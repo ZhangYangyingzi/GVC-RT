@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "callables": {
+    "perceptual": {
+      "file": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/core.py",
+      "sha256": "0d9c1c511029d80890aa3caf78705a564a896f5565641528c91b31b39be13875",
+      "signature": "(output, target, quality)",
+      "source": "def perceptual(output, target, quality):\n    lpips_value = quality[0](output, target, normalize=True).mean()\n    dists_value = quality[1](output, target).mean()\n    return lpips_value + dists_value, lpips_value, dists_value\n"
+    },
+    "quality_models": {
+      "file": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v2_joint/core.py",
+      "sha256": "0d9c1c511029d80890aa3caf78705a564a896f5565641528c91b31b39be13875",
+      "signature": "(device)",
+      "source": "def quality_models(device):\n    import lpips\n    from DISTS_pytorch import DISTS\n    return (lpips.LPIPS(net=\"alex\", verbose=False).to(device).eval().requires_grad_(False),\n            DISTS().to(device).eval().requires_grad_(False))\n"
+    },
+    "DISTS_forward": {
+      "file": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py",
+      "sha256": "da9162307ae51bc58ffe259e7e778973e8586286652d36c3e9885e94bc269da8",
+      "signature": "(self, x, y, require_grad=False, batch_average=False)",
+      "source": "    def forward(self, x, y, require_grad=False, batch_average=False):\n        if require_grad:\n            feats0 = self.forward_once(x)\n            feats1 = self.forward_once(y)   \n        else:\n            with torch.no_grad():\n                feats0 = self.forward_once(x)\n                feats1 = self.forward_once(y) \n        dist1 = 0 \n        dist2 = 0 \n        c1 = 1e-6\n        c2 = 1e-6\n        w_sum = self.alpha.sum() + self.beta.sum()\n        alpha = torch.split(self.alpha/w_sum, self.chns, dim=1)\n        beta = torch.split(self.beta/w_sum, self.chns, dim=1)\n        for k in range(len(self.chns)):\n            x_mean = feats0[k].mean([2,3], keepdim=True)\n            y_mean = feats1[k].mean([2,3], keepdim=True)\n            S1 = (2*x_mean*y_mean+c1)/(x_mean**2+y_mean**2+c1)\n            dist1 = dist1+(alpha[k]*S1).sum(1,keepdim=True)\n\n            x_var = ((feats0[k]-x_mean)**2).mean([2,3], keepdim=True)\n            y_var = ((feats1[k]-y_mean)**2).mean([2,3], keepdim=True)\n            xy_cov = (feats0[k]*feats1[k]).mean([2,3],keepdim=True) - x_mean*y_mean\n            S2 = (2*xy_cov+c2)/(x_var+y_var+c2)\n            dist2 = dist2+(beta[k]*S2).sum(1,keepdim=True)\n\n        score = 1 - (dist1+dist2).squeeze()\n        if batch_average:\n            return score.mean()\n        else:\n            return score\n"
+    },
+    "DISTS_forward_once": {
+      "file": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py",
+      "sha256": "da9162307ae51bc58ffe259e7e778973e8586286652d36c3e9885e94bc269da8",
+      "signature": "(self, x)",
+      "source": "    def forward_once(self, x):\n        h = (x-self.mean)/self.std\n        h = self.stage1(h)\n        h_relu1_2 = h\n        h = self.stage2(h)\n        h_relu2_2 = h\n        h = self.stage3(h)\n        h_relu3_3 = h\n        h = self.stage4(h)\n        h_relu4_3 = h\n        h = self.stage5(h)\n        h_relu5_3 = h\n        return [x,h_relu1_2, h_relu2_2, h_relu3_3, h_relu4_3, h_relu5_3]\n"
+    }
+  },
+  "quality_classes": [
+    "lpips.lpips.LPIPS",
+    "DISTS_pytorch.DISTS_pt.DISTS"
+  ],
+  "frozen_parameters": true,
+  "eval_state": true
+}

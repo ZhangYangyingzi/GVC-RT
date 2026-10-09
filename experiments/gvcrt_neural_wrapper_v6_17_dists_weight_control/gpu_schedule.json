@@ -1,0 +1,11 @@
+{
+  "allowed_gpus": [4, 5, 6, 7],
+  "allow_sharing": true,
+  "require_idle": false,
+  "max_experiment_workers_per_gpu": 1,
+  "minimum_free_memory_MiB": 14000,
+  "basis": "V6.16 observed training and evaluation allocations fit well below 14 GiB; reserve includes additional headroom",
+  "training_gpus": 1,
+  "OOM_requeue": true,
+  "terminate_other_tasks": false
+}

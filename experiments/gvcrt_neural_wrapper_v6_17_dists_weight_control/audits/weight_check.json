@@ -1,0 +1,798 @@
+{
+  "status": "PASS",
+  "optimizer_updates": 0,
+  "sample": {
+    "domain": "uvg",
+    "video": "ShakeNDry",
+    "source_frame_indices": [
+      8,
+      12,
+      16,
+      20
+    ],
+    "canonical_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "crop_x": 898,
+    "crop_y": 245,
+    "crop_size": 256,
+    "cropped_RGB_sha256": [
+      "ae020692bc56493f1ec97966f3f6dc4586df7f1d75dddcf9c85f10a2a870a46e",
+      "7b8318e497785691a763638c1f2b1c084d3fef35af617f7e5ba9e20ac8aca1ec",
+      "28ad334b4793241ea67734e0050f6beeea72c922957a743bb0e306d4b1c7e230",
+      "7a47fcd9024d9c317bb91400ae96ae76b435df33c63ed2261c02c2614aa1e94d"
+    ],
+    "replay_step": 1
+  },
+  "external_qp": 2,
+  "actual_qps": [
+    2,
+    4,
+    2,
+    3
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "reconstruction_sha256": "687a7d710e05f7cb5b7b4576677e08d56dd86340bde1dda82de06cd569397786",
+      "same_reconstruction_graph": true,
+      "values": {
+        "1.0": {
+          "LPIPS": 0.2784266471862793,
+          "DISTS": 0.22437942028045654,
+          "rate_bpp": 0.008480852469801903,
+          "beta_rate": 0.03234223276376724,
+          "proxy_L1": 0.04125647991895676,
+          "loss": 0.5355609059333801
+        },
+        "0.5": {
+          "LPIPS": 0.2784266471862793,
+          "DISTS": 0.22437942028045654,
+          "rate_bpp": 0.008480852469801903,
+          "beta_rate": 0.03234223276376724,
+          "proxy_L1": 0.04125647991895676,
+          "loss": 0.4233711361885071
+        }
+      },
+      "loss_difference": 0.11218976974487305,
+      "expected_difference": 0.11218971014022827,
+      "deep_features": [
+        {
+          "layer": 0,
+          "kind": "RGB",
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "SliceBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0014526954548513952,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 1,
+          "kind": "deep",
+          "shape": [
+            1,
+            64,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0025569190887463527,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 2,
+          "kind": "deep",
+          "shape": [
+            1,
+            128,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.005655555600098149,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 3,
+          "kind": "deep",
+          "shape": [
+            1,
+            256,
+            64,
+            64
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.032140979153525914,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 4,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.14778857024664194,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 5,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            16,
+            16
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.3658760657821655,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      ],
+      "PBG_gradient_scaling": {
+        "wrapper": {
+          "weight1": {
+            "norm": 1.2753914913363722,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 292354
+          },
+          "weight05": {
+            "norm": 0.6395998548675583,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 292354
+          },
+          "half_gradient_residual_norm": 0.002533068447267292,
+          "tolerance": 0.0038262744740091164
+        },
+        "bridge": {
+          "weight1": {
+            "norm": 3.3594855591580366,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "weight05": {
+            "norm": 1.6797427795790183,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.010078556677474109
+        },
+        "generator": {
+          "weight1": {
+            "norm": 2.8290606348382585,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "weight05": {
+            "norm": 1.4145303174191293,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.008487281904514775
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "reconstruction_sha256": "ff06a6f5c6c5e46dd50933bc92d5e2b9087cc5013db2c8f570fb855e06593220",
+      "same_reconstruction_graph": true,
+      "values": {
+        "1.0": {
+          "LPIPS": 0.30448007583618164,
+          "DISTS": 0.2328042984008789,
+          "rate_bpp": 0.0047069755382835865,
+          "beta_rate": 0.017950329929590225,
+          "proxy_L1": 0.040704064071178436,
+          "loss": 0.555641770362854
+        },
+        "0.5": {
+          "LPIPS": 0.30448007583618164,
+          "DISTS": 0.2328042984008789,
+          "rate_bpp": 0.0047069755382835865,
+          "beta_rate": 0.017950329929590225,
+          "proxy_L1": 0.040704064071178436,
+          "loss": 0.43923959136009216
+        }
+      },
+      "loss_difference": 0.11640217900276184,
+      "expected_difference": 0.11640214920043945,
+      "deep_features": [
+        {
+          "layer": 0,
+          "kind": "RGB",
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "SliceBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.001362242018769393,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 1,
+          "kind": "deep",
+          "shape": [
+            1,
+            64,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0037099542342760557,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 2,
+          "kind": "deep",
+          "shape": [
+            1,
+            128,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.006396310113674187,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 3,
+          "kind": "deep",
+          "shape": [
+            1,
+            256,
+            64,
+            64
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.033425878213147756,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 4,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.17450734847529162,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 5,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            16,
+            16
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.26827304647775563,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      ],
+      "PBG_gradient_scaling": {
+        "wrapper": {
+          "weight1": {
+            "norm": 2.034326193239471,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 289665
+          },
+          "weight05": {
+            "norm": 1.0179548557067106,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 289665
+          },
+          "half_gradient_residual_norm": 0.0014975138097235482,
+          "tolerance": 0.0061030785797184135
+        },
+        "bridge": {
+          "weight1": {
+            "norm": 4.652397845448691,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "weight05": {
+            "norm": 2.3261989227243456,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.013957293536346073
+        },
+        "generator": {
+          "weight1": {
+            "norm": 2.870604218276907,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "weight05": {
+            "norm": 1.4353021091384535,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.00861191265483072
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "reconstruction_sha256": "395196cfc8b6865778b554f2e772c01c682b40d6da6c4f5a9d09406587bfcbfc",
+      "same_reconstruction_graph": true,
+      "values": {
+        "1.0": {
+          "LPIPS": 0.28872835636138916,
+          "DISTS": 0.25904011726379395,
+          "rate_bpp": 0.008648369461297989,
+          "beta_rate": 0.03298106789588928,
+          "proxy_L1": 0.040356703102588654,
+          "loss": 0.5811530947685242
+        },
+        "0.5": {
+          "LPIPS": 0.28872835636138916,
+          "DISTS": 0.25904011726379395,
+          "rate_bpp": 0.008648369461297989,
+          "beta_rate": 0.03298106789588928,
+          "proxy_L1": 0.040356703102588654,
+          "loss": 0.4516330361366272
+        }
+      },
+      "loss_difference": 0.12952005863189697,
+      "expected_difference": 0.12952005863189697,
+      "deep_features": [
+        {
+          "layer": 0,
+          "kind": "RGB",
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "SliceBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.0017496944120160938,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 1,
+          "kind": "deep",
+          "shape": [
+            1,
+            64,
+            256,
+            256
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.001606648109937522,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 2,
+          "kind": "deep",
+          "shape": [
+            1,
+            128,
+            128,
+            128
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.005800810129135717,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 3,
+          "kind": "deep",
+          "shape": [
+            1,
+            256,
+            64,
+            64
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.03397562480191677,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 4,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.1481693936232476,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        },
+        {
+          "layer": 5,
+          "kind": "deep",
+          "shape": [
+            1,
+            512,
+            16,
+            16
+          ],
+          "requires_grad": true,
+          "grad_fn": "ReluBackward0",
+          "connected_to_output": true,
+          "output_gradient": {
+            "norm": 0.1791744553872458,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      ],
+      "PBG_gradient_scaling": {
+        "wrapper": {
+          "weight1": {
+            "norm": 1.110677454238365,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 291970
+          },
+          "weight05": {
+            "norm": 0.5558564174695585,
+            "finite": true,
+            "total_parameters": 24,
+            "connected_parameters": 24,
+            "effective_parameters": 24,
+            "effective_elements": 291970
+          },
+          "half_gradient_residual_norm": 0.001457201243181935,
+          "tolerance": 0.003332132362715095
+        },
+        "bridge": {
+          "weight1": {
+            "norm": 3.612982364347681,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "weight05": {
+            "norm": 1.8064911821738405,
+            "finite": true,
+            "total_parameters": 28,
+            "connected_parameters": 28,
+            "effective_parameters": 28,
+            "effective_elements": 801124
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.010839047093043043
+        },
+        "generator": {
+          "weight1": {
+            "norm": 1.9238678712070993,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "weight05": {
+            "norm": 0.9619339356035497,
+            "finite": true,
+            "total_parameters": 212,
+            "connected_parameters": 212,
+            "effective_parameters": 212,
+            "effective_elements": 33776640
+          },
+          "half_gradient_residual_norm": 0.0,
+          "tolerance": 0.005771703613621298
+        }
+      }
+    }
+  ],
+  "exact_training_objective_totals": {
+    "1.0": {
+      "loss": 0.5574519236882527,
+      "LPIPS": 0.2905450264612834,
+      "DISTS": 0.23874127864837646,
+      "D": 0.5292863051096599,
+      "rate_bpp": 0.007278732489794493,
+      "beta_rate": 0.02775787686308225,
+      "proxy_L1": 0.040772415697574615,
+      "lambda_proxy_proxy_L1": 0.0004077241464983672,
+      "beta_q": 3.813559322033898,
+      "lambda_q": 0.26222222222222225,
+      "rate_to_distortion_ratio": 0.05244397331862053
+    },
+    "0.5": {
+      "loss": 0.4380812545617422,
+      "LPIPS": 0.2905450264612834,
+      "DISTS": 0.23874127864837646,
+      "D": 0.40991566578547156,
+      "rate_bpp": 0.007278732489794493,
+      "beta_rate": 0.02775787686308225,
+      "proxy_L1": 0.040772415697574615,
+      "lambda_proxy_proxy_L1": 0.0004077241464983672,
+      "beta_q": 3.813559322033898,
+      "lambda_q": 0.26222222222222225,
+      "rate_to_distortion_ratio": 0.06771606742546227
+    }
+  },
+  "exact_training_reconstruction_hashes": {
+    "1.0": [
+      "687a7d710e05f7cb5b7b4576677e08d56dd86340bde1dda82de06cd569397786",
+      "ff06a6f5c6c5e46dd50933bc92d5e2b9087cc5013db2c8f570fb855e06593220",
+      "395196cfc8b6865778b554f2e772c01c682b40d6da6c4f5a9d09406587bfcbfc"
+    ],
+    "0.5": [
+      "687a7d710e05f7cb5b7b4576677e08d56dd86340bde1dda82de06cd569397786",
+      "ff06a6f5c6c5e46dd50933bc92d5e2b9087cc5013db2c8f570fb855e06593220",
+      "395196cfc8b6865778b554f2e772c01c682b40d6da6c4f5a9d09406587bfcbfc"
+    ]
+  },
+  "total_PBG_gradients": {
+    "1.0": {
+      "wrapper": {
+        "norm": 1.9578827451775946,
+        "finite": true,
+        "total_parameters": 24,
+        "connected_parameters": 24,
+        "effective_parameters": 24,
+        "effective_elements": 300424
+      },
+      "bridge": {
+        "norm": 8.743779818844208,
+        "finite": true,
+        "total_parameters": 28,
+        "connected_parameters": 28,
+        "effective_parameters": 28,
+        "effective_elements": 801124
+      },
+      "generator": {
+        "norm": 4.246081377599103,
+        "finite": true,
+        "total_parameters": 212,
+        "connected_parameters": 212,
+        "effective_parameters": 212,
+        "effective_elements": 33776640
+      }
+    },
+    "0.5": {
+      "wrapper": {
+        "norm": 2.1253765456610383,
+        "finite": true,
+        "total_parameters": 24,
+        "connected_parameters": 24,
+        "effective_parameters": 24,
+        "effective_elements": 300424
+      },
+      "bridge": {
+        "norm": 7.690225646278049,
+        "finite": true,
+        "total_parameters": 28,
+        "connected_parameters": 28,
+        "effective_parameters": 28,
+        "effective_elements": 801124
+      },
+      "generator": {
+        "norm": 3.696549453933642,
+        "finite": true,
+        "total_parameters": 212,
+        "connected_parameters": 212,
+        "effective_parameters": 212,
+        "effective_elements": 33776640
+      }
+    }
+  },
+  "model_hashes_before": {
+    "wrapper": "140f673ba5471f1341a49df3e20b82159f551cfdb175b51af0533904e554f530",
+    "bridge": "6df8920959a6762f1f91f5cf8d8f4e54492e8f552bdf5c9fa2368e882fcdf534",
+    "generator": "e442ffc30e77a5ef32c2e2a9d3e1c623500ec940b2ceda81752bb9ed4c29c4dd"
+  },
+  "model_hashes_after": {
+    "wrapper": "140f673ba5471f1341a49df3e20b82159f551cfdb175b51af0533904e554f530",
+    "bridge": "6df8920959a6762f1f91f5cf8d8f4e54492e8f552bdf5c9fa2368e882fcdf534",
+    "generator": "e442ffc30e77a5ef32c2e2a9d3e1c623500ec940b2ceda81752bb9ed4c29c4dd"
+  },
+  "quality_hashes_before": [
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+  ],
+  "quality_hashes_after": [
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+  ],
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "inherited_gradient_audit_sha256": "d2d5a2e97f13d7513a26f032ad671559796fbd30430f97ca9d7095d6d07c91bc"
+}
