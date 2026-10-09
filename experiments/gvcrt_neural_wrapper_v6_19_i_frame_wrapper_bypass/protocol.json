@@ -1,0 +1,92 @@
+{
+  "source_protocol": {
+    "no_training": false,
+    "no_selection": true,
+    "actual_bpp": "complete bitstream bytes*8/(frames*width*height)",
+    "kbps": "bits/frame * inherited per-video rate_accounting_fps / 1000",
+    "frames": 64,
+    "unchanged_color_conversion": true,
+    "padding": "replicate to multiples of 64; crop to original 1920x1080",
+    "codec_dtype": "float16",
+    "wrapper_dtype": "float32",
+    "force_zero_thres": 0.12,
+    "methods": [
+      "original",
+      "v617_initial",
+      "A_1000",
+      "B_1000",
+      "C_1000"
+    ],
+    "external_QP": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "comparison": "five-model common actual bpp interval; 100 ln(bpp) PCHIP; no extrapolation",
+    "delta": "method-reference; negative better",
+    "FID": "pooled fixed dataset frame features; dataset mean actual bpp; no cross-dataset pooling",
+    "fixed_report_steps": [
+      1000
+    ],
+    "validation": "historical U-Long normal/hard 32 frames QP 0,2,4,6,8,9; Bosphorus 64 frames QP 0-9; no selection",
+    "new_branch": "dists_w05_1000",
+    "evaluation_DISTS": "unweighted; unchanged implementation",
+    "fixed_evaluation_step": 1000,
+    "new_branches": [
+      "A_1000",
+      "B_1000",
+      "C_1000"
+    ],
+    "source_model": "v6.17 final step1000"
+  },
+  "source_protocol_sha256": "147b539e602730ffaa1883054d7e094c9c9248d0bc26364a095af0ac33714d69",
+  "no_training": true,
+  "methods": [
+    "original",
+    "B_standard",
+    "B_i_bypass"
+  ],
+  "frames": 64,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "only_modification": "B_i_bypass uses raw RGB before frozen I codec for frame0; frames1..63 retain P/B/G; actual reconstructed DPB retained",
+  "cache_includes_I_frame_mode": true,
+  "metric_crop": [
+    1920,
+    1080
+  ],
+  "coding_canvas": [
+    1920,
+    1088
+  ],
+  "equal_rate": {
+    "models": 3,
+    "grid": 100,
+    "space": "ln(bpp)",
+    "interpolator": "PCHIP",
+    "extrapolation": false
+  },
+  "FID_pools": {
+    "ulong": 512,
+    "uvg_holdout": 128,
+    "hevc_b": 320,
+    "uvg_validation": 64
+  }
+}
