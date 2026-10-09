@@ -1,0 +1,157 @@
+{
+  "schema": "v620",
+  "checkpoints": {
+    "B_standard": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/evaluation/checkpoints/B_1000.pt",
+      "sha256": "c1d0b8d00179ff1b2d10497f3261458e815ebf7612e20d5b81143a04f9a97681",
+      "module_hashes": {
+        "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+        "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+        "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+      }
+    },
+    "B_i_bypass": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/evaluation/checkpoints/B_1000.pt",
+      "sha256": "c1d0b8d00179ff1b2d10497f3261458e815ebf7612e20d5b81143a04f9a97681",
+      "module_hashes": {
+        "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+        "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+        "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+      }
+    },
+    "wrapped_i_control_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/evaluation/checkpoints/wrapped_i_control_0.pt",
+      "sha256": "f4dcf9a368ec50c0fd4a33aabf9e24eb120c0ad2462fc6ba67550416c6bc3fbe",
+      "module_hashes": {
+        "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+        "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+        "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+      }
+    },
+    "native_i_adapt_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/evaluation/checkpoints/native_i_adapt_0.pt",
+      "sha256": "7893b9db6ab9c5d79aea488be618db263507a766da037fe9ac5b4fb2240a7b81",
+      "module_hashes": {
+        "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+        "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+        "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+      }
+    },
+    "wrapped_i_control_1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/evaluation/checkpoints/wrapped_i_control_1000.pt",
+      "sha256": "0e16b38e31c06f1399f4db5c9408871c8953de5f7fcac3aa2b3eaa7df82d65d0",
+      "module_hashes": {
+        "wrapper": "a851f4eea37c0293760bcd7281e2aba9150a0dc92c335d5fdc82d0e468f912f8",
+        "bridge": "74c04a0cb5db6524ca3253882f427a8d0dc1cc0071ec506efe9f532df5373a25",
+        "generator": "63ee8a3cea82c43bbca89fc0ec34bdaca1e363207cd0f228f8ad703c26dde733"
+      }
+    },
+    "native_i_adapt_1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/evaluation/checkpoints/native_i_adapt_1000.pt",
+      "sha256": "fc98a06260a53be215f9f0997acb30e8c76fa0d815df94beccc2449407158130",
+      "module_hashes": {
+        "wrapper": "784c3f0f2bac51504edf39bbebf10c29f1e782c8733949e236f84deb6209ac6b",
+        "bridge": "af64d6c834c476d081728a23bf57b1f069aa8903f276e02a390bfb1b2a76b371",
+        "generator": "b1e5b7d9b6ade8c157279ae092c48499b23f55efe6302e9a56b60347fad582f9"
+      }
+    }
+  },
+  "methods": [
+    "original",
+    "B_standard",
+    "B_i_bypass",
+    "wrapped_i_control_1000",
+    "native_i_adapt_1000"
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "force_zero_thres": 0.12,
+  "no_training": false,
+  "no_model_selection": true,
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_workers_per_gpu": 1,
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b",
+    "uvg_validation"
+  ],
+  "expected_points": 800,
+  "deployment_receiver_hashes": {
+    "B_standard": {
+      "bridge": "2fdd4faf2a67683b9c8551f5033ca27d7f511a1c6417f1d8414c8af7e40e0abf",
+      "generator": "df8bfdbe37ed1879e84a0b074e3e01c5d87991a0e887b1575d7ef40ae90a540b"
+    },
+    "B_i_bypass": {
+      "bridge": "2fdd4faf2a67683b9c8551f5033ca27d7f511a1c6417f1d8414c8af7e40e0abf",
+      "generator": "df8bfdbe37ed1879e84a0b074e3e01c5d87991a0e887b1575d7ef40ae90a540b"
+    },
+    "wrapped_i_control_0": {
+      "bridge": "2fdd4faf2a67683b9c8551f5033ca27d7f511a1c6417f1d8414c8af7e40e0abf",
+      "generator": "df8bfdbe37ed1879e84a0b074e3e01c5d87991a0e887b1575d7ef40ae90a540b"
+    },
+    "native_i_adapt_0": {
+      "bridge": "2fdd4faf2a67683b9c8551f5033ca27d7f511a1c6417f1d8414c8af7e40e0abf",
+      "generator": "df8bfdbe37ed1879e84a0b074e3e01c5d87991a0e887b1575d7ef40ae90a540b"
+    },
+    "wrapped_i_control_1000": {
+      "bridge": "dc67dd4a2257b4da6dd77f35e137f9a3b4722b2e91959153cd4bedfae111868b",
+      "generator": "9c26b693d0e53c1f20fbc5e36120c8286d1348716e1fb8a081280f334aff90bd"
+    },
+    "native_i_adapt_1000": {
+      "bridge": "c1c5d7c88b583bc087b7068a138ea5e5b5d6e892e4da7c1393f7e39281c4e799",
+      "generator": "12a1501a146828da89009ca515d1674b0dbd5f6d03d2b65320b46fc0bbdcb5c1"
+    }
+  },
+  "original_receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "metric_module_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow_perceptual_inception": [
+      "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+    ]
+  },
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/branches/B/checkpoints/adaptation_step_1000.pt",
+    "sha256": "a0340761c74cce2308aa133796a18d649b0f89db382af2c47b8b908a47525b88",
+    "module_hashes": {
+      "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+      "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+      "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "i_frame_modes": {
+    "original": "native_original",
+    "B_standard": "wrapper_standard",
+    "B_i_bypass": "native_RGB_bypass",
+    "wrapped_i_control_1000": "wrapper_standard",
+    "native_i_adapt_1000": "native_RGB_bypass",
+    "wrapped_i_control_0": "wrapper_standard",
+    "native_i_adapt_0": "native_RGB_bypass"
+  }
+}

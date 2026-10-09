@@ -1,0 +1,89 @@
+{
+  "schema": "v620",
+  "branch": "dists_w05",
+  "source_step": 1000,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/branches/B/checkpoints/adaptation_step_1000.pt",
+    "sha256": "a0340761c74cce2308aa133796a18d649b0f89db382af2c47b8b908a47525b88",
+    "module_hashes": {
+      "wrapper": "fa8e76885664decc86e848a6cc78f257276bbf8d8ad0b3b768f9d4867824152e",
+      "bridge": "472ac863117a0ab4c23e01d8447d614c2a5f0c00ee4af0af489edbc4aa381d66",
+      "generator": "5d914ecfd2c0e7ecbdc968a717cb7b856024ae75e1fedd8940fb33abb0fc9a68"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "seed": 20261010,
+  "updates": 1000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000
+  ],
+  "train_fit_steps": [],
+  "lambda_proxy": 0.01,
+  "force_zero_thres": 0.12,
+  "objective": "LPIPS + 0.5*DISTS(require_grad=True) + beta(q)*rate_bpp + 0.01*proxy_L1",
+  "optimizer": {
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "fresh_optimizer": true,
+  "restore_source_optimizer": false,
+  "clip_length": 16,
+  "crop": 256,
+  "batch": 1,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "primary_checkpoint": 1000,
+  "domain_seed": 20261009,
+  "fixed_report_steps": [
+    1000
+  ],
+  "lambda_dists": 0.5,
+  "branches": [
+    "wrapped_i_control",
+    "native_i_adapt"
+  ],
+  "P_targets_per_update": 15,
+  "source_experiment": "v618_B",
+  "cleaned_original_ULong_count": 1020,
+  "exclude_historical_test_identities": true,
+  "methods": [
+    "original",
+    "B_standard",
+    "B_i_bypass",
+    "wrapped_i_control_1000",
+    "native_i_adapt_1000"
+  ],
+  "expected_points": 800,
+  "training_plan_reused": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/plans/AB.json",
+  "i_frame_modes": {
+    "original": "native_original",
+    "B_standard": "wrapper_standard",
+    "B_i_bypass": "native_RGB_bypass",
+    "wrapped_i_control_1000": "wrapper_standard",
+    "native_i_adapt_1000": "native_RGB_bypass",
+    "wrapped_i_control_0": "wrapper_standard",
+    "native_i_adapt_0": "native_RGB_bypass"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "source": "v619",
+  "step0_weights_shared": true,
+  "continuous16": true,
+  "P_frames": 15,
+  "reference_resets": [
+    0
+  ],
+  "points": 8,
+  "evidence": [
+    {
+      "branch": "wrapped_i_control",
+      "sequence": "HoneyBee",
+      "QP": 0,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 6,
+        "baseline": "B_standard",
+        "baseline_bitstream_sha256": "a147711d9f0a71e5be43f2ee02d1db3166a9990184bf4fe95285a67a5591e52f",
+        "baseline_reconstruction_sha256": "b27c1c5108199e8ec51ddee4c3ee8d82b42ae1d83b26e2abdf052438cb9cadbe"
+      },
+      "native_I_match": null,
+      "bitstream_sha256": "a147711d9f0a71e5be43f2ee02d1db3166a9990184bf4fe95285a67a5591e52f",
+      "reconstruction_sha256": "b27c1c5108199e8ec51ddee4c3ee8d82b42ae1d83b26e2abdf052438cb9cadbe"
+    },
+    {
+      "branch": "wrapped_i_control",
+      "sequence": "HoneyBee",
+      "QP": 4,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 6,
+        "baseline": "B_standard",
+        "baseline_bitstream_sha256": "e50cc7f22e910e63c251c7d0aaa27f6512d0ba09d85a8053e1c9261db146868c",
+        "baseline_reconstruction_sha256": "c2641b799997fedc1156187df0ebf41c811b4dfd7261cb01bfa8a65fb8e5fe1f"
+      },
+      "native_I_match": null,
+      "bitstream_sha256": "e50cc7f22e910e63c251c7d0aaa27f6512d0ba09d85a8053e1c9261db146868c",
+      "reconstruction_sha256": "c2641b799997fedc1156187df0ebf41c811b4dfd7261cb01bfa8a65fb8e5fe1f"
+    },
+    {
+      "branch": "wrapped_i_control",
+      "sequence": "Jockey",
+      "QP": 0,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 7,
+        "baseline": "B_standard",
+        "baseline_bitstream_sha256": "60e4f7bad03780b254bfab5c4a57900d0e7b73ab87785d9e29668379cc60bde8",
+        "baseline_reconstruction_sha256": "9a45c5195042ce4c81096731dd51b49b82a954378dd114e456a39467fddf7d7b"
+      },
+      "native_I_match": null,
+      "bitstream_sha256": "60e4f7bad03780b254bfab5c4a57900d0e7b73ab87785d9e29668379cc60bde8",
+      "reconstruction_sha256": "9a45c5195042ce4c81096731dd51b49b82a954378dd114e456a39467fddf7d7b"
+    },
+    {
+      "branch": "wrapped_i_control",
+      "sequence": "Jockey",
+      "QP": 4,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 7,
+        "baseline": "B_standard",
+        "baseline_bitstream_sha256": "ffeecf63edd987c4001504957ec2b14fa489d064894da538411b8c9d03546e19",
+        "baseline_reconstruction_sha256": "1555fdbb3d16dda1f5a45f682a3485051f8b105c489cbd748ed1a8bb924d25bd"
+      },
+      "native_I_match": null,
+      "bitstream_sha256": "ffeecf63edd987c4001504957ec2b14fa489d064894da538411b8c9d03546e19",
+      "reconstruction_sha256": "1555fdbb3d16dda1f5a45f682a3485051f8b105c489cbd748ed1a8bb924d25bd"
+    },
+    {
+      "branch": "native_i_adapt",
+      "sequence": "HoneyBee",
+      "QP": 0,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 4,
+        "baseline": "B_i_bypass",
+        "baseline_bitstream_sha256": "50553a876cc110da95ff192ef6468efc4a945124d04f139af7a849f849c1f6e1",
+        "baseline_reconstruction_sha256": "d09fab1e05bdf96d83304f0515be85b3855b613de251f348b86cf9892a58c56a"
+      },
+      "native_I_match": {
+        "status": "PASS",
+        "payload_sha256": "fc4c553bbe7a6cb06555f6bfb141dc40a5515ca69561ee46fb5e5ee1af140612",
+        "decoded_tensor_sha256": "fb407fe0b3aced11a02a1e1f55b26e1c6140a75916c80472094f05dea9a7c3b6",
+        "source_original_point": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/parts/uvg_holdout/original/video_02_qp0.json",
+        "same_GPU": 4
+      },
+      "bitstream_sha256": "50553a876cc110da95ff192ef6468efc4a945124d04f139af7a849f849c1f6e1",
+      "reconstruction_sha256": "d09fab1e05bdf96d83304f0515be85b3855b613de251f348b86cf9892a58c56a"
+    },
+    {
+      "branch": "native_i_adapt",
+      "sequence": "HoneyBee",
+      "QP": 4,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 4,
+        "baseline": "B_i_bypass",
+        "baseline_bitstream_sha256": "960b020905eff22cc27ed0346343f8c1cad22fd2567de79bb70c005a73b1821d",
+        "baseline_reconstruction_sha256": "6d6bcd4b61e6c9980325c47a4f9b79ff521b86d16c75ca02aa3d8622aab91293"
+      },
+      "native_I_match": {
+        "status": "PASS",
+        "payload_sha256": "27294e26f0998cbc41516ba3975b69ba6fdf7ea338f585e2af2e66a7d3608411",
+        "decoded_tensor_sha256": "e6e485eee475815a905b8af0197e4d7bac47fb00ad492b45d135ed4059b43fba",
+        "source_original_point": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/parts/uvg_holdout/original/video_02_qp4.json",
+        "same_GPU": 4
+      },
+      "bitstream_sha256": "960b020905eff22cc27ed0346343f8c1cad22fd2567de79bb70c005a73b1821d",
+      "reconstruction_sha256": "6d6bcd4b61e6c9980325c47a4f9b79ff521b86d16c75ca02aa3d8622aab91293"
+    },
+    {
+      "branch": "native_i_adapt",
+      "sequence": "Jockey",
+      "QP": 0,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 5,
+        "baseline": "B_i_bypass",
+        "baseline_bitstream_sha256": "562b59d0ef6cac95c0e68c5a3f607b111c359ca74455b92a2e2539bcad54c24d",
+        "baseline_reconstruction_sha256": "d743441d9a07ab5ce2bd9e63201fd85b1a50671b6b28a4cf028e6900676ac5ce"
+      },
+      "native_I_match": {
+        "status": "PASS",
+        "payload_sha256": "127a96a4e8c30f8d6de7c4af835d0b3c0b2bed89ebe0263770e5a63d9d7309d7",
+        "decoded_tensor_sha256": "0a6586d7b7e3bddc17997193c2fce4049005d26955d5c5434719c3c40f651eb8",
+        "source_original_point": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/parts/uvg_holdout/original/video_03_qp0.json",
+        "same_GPU": 5
+      },
+      "bitstream_sha256": "562b59d0ef6cac95c0e68c5a3f607b111c359ca74455b92a2e2539bcad54c24d",
+      "reconstruction_sha256": "d743441d9a07ab5ce2bd9e63201fd85b1a50671b6b28a4cf028e6900676ac5ce"
+    },
+    {
+      "branch": "native_i_adapt",
+      "sequence": "Jockey",
+      "QP": 4,
+      "same_GPU": {
+        "status": "PASS",
+        "physical_gpu": 5,
+        "baseline": "B_i_bypass",
+        "baseline_bitstream_sha256": "027d042b3e8548c6b5761a8e92ee363f3e71d7daa5e7cf190750327f9ee92ef7",
+        "baseline_reconstruction_sha256": "a223042a1bf600f9b0f0d2bd5249579ac12c89f63f627b283b73a7498181454b"
+      },
+      "native_I_match": {
+        "status": "PASS",
+        "payload_sha256": "464a36802102876617e631c6f0febe724da529d2f9430015eb71deeb072636ef",
+        "decoded_tensor_sha256": "c3915a13c9b0de103ce959c20ed8731b07261e36278866e9183ed8bfe187e175",
+        "source_original_point": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/parts/uvg_holdout/original/video_03_qp4.json",
+        "same_GPU": 5
+      },
+      "bitstream_sha256": "027d042b3e8548c6b5761a8e92ee363f3e71d7daa5e7cf190750327f9ee92ef7",
+      "reconstruction_sha256": "a223042a1bf600f9b0f0d2bd5249579ac12c89f63f627b283b73a7498181454b"
+    }
+  ]
+}
