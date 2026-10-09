@@ -1,0 +1,24 @@
+{
+  "status": "BLOCKED",
+  "commands_executed": [
+    "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/prepare.py",
+    "nvidia-smi --query-gpu=index,memory.free,memory.total --format=csv,noheader",
+    "git ls-remote origin refs/heads/main"
+  ],
+  "source_checkpoint_sha256_verified": "3a9279f503346f58658a0792a02399a59e63b1542127c868f0a3401f56ba1629",
+  "PBG_state_hashes_verified_against_source_index": true,
+  "source_saved_compression_hash_verified": true,
+  "loaded_GPU_model_probe_completed": false,
+  "remote_target": "git@github-zyyz:ZhangYangyingzi/GVC-RT.git",
+  "remote_main_observed": "31413e85e02ec0707e91b6645bec7a3941cdbb1d",
+  "read_access_verified": true,
+  "push_permission_not_yet_verified": true,
+  "GPU_worker_count": 0,
+  "training_updates": 0,
+  "historical_files_changed_by_this_task": false,
+  "new_implementation": "partial; no GPU numerical/codec validation performed",
+  "preparation_failure": "AssertionError: historical training/test overlap, 4 source identities",
+  "conflict_evidence": "audits/original_pool_historical_test_conflicts.json",
+  "git_commit_created": false,
+  "git_push_performed": false
+}

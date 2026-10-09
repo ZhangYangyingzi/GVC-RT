@@ -1,0 +1,27 @@
+{
+  "status": "BLOCKED",
+  "training_steps": {
+    "A": 0,
+    "B": 0,
+    "C": 0
+  },
+  "expected_RD": 800,
+  "completed_RD": 0,
+  "completed_reused_baselines": 0,
+  "completed_new_RD": 0,
+  "missing": [
+    "frozen sampling plans",
+    "expanded data pools",
+    "GPU implementation probes",
+    "step0 codec gate",
+    "A/B/C training",
+    "final evaluation",
+    "aggregation and RD PNG",
+    "git commit and push"
+  ],
+  "blocking_error": "Four original v6.17 training identities appear in historical final test splits. Retain all original 1024 versus exclude all historical test sources requires an explicit scope decision.",
+  "evidence": "audits/original_pool_historical_test_conflicts.json",
+  "historical_files_modified": false,
+  "GPU_workers_started": 0,
+  "implementation_status": "PARTIAL_NOT_VALIDATED"
+}

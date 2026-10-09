@@ -1,0 +1,72 @@
+{
+  "schema": "v618",
+  "branch": "dists_w05",
+  "source_step": 1000,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_17_dists_weight_control/checkpoints/adaptation_step_1000.pt",
+    "sha256": "3a9279f503346f58658a0792a02399a59e63b1542127c868f0a3401f56ba1629",
+    "module_hashes": {
+      "wrapper": "46f4d10ca32a85ed5dfbb18ad1425226bf806191b683123597a2cee055b8e8f5",
+      "bridge": "50c15e9915dce7f4c2fe681be4a2012315153e2fb2c85d70be787740a667337a",
+      "generator": "7d62faf1d025dbaeca24f6d9567f0bffcbae7ad92edc136cfa3c9c1ac846d9fb"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "seed": 20261010,
+  "updates": 1000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000
+  ],
+  "train_fit_steps": [],
+  "lambda_proxy": 0.01,
+  "force_zero_thres": 0.12,
+  "objective": "LPIPS + 0.5*DISTS(require_grad=True) + beta(q)*rate_bpp + 0.01*proxy_L1",
+  "optimizer": {
+    "wrapper_lr": 5e-05,
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "fresh_optimizer": true,
+  "restore_source_optimizer": false,
+  "clip_length": 16,
+  "crop": 256,
+  "batch": 1,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "primary_checkpoint": 1000,
+  "domain_seed": 20261009,
+  "fixed_report_steps": [
+    1000
+  ],
+  "lambda_dists": 0.5,
+  "branches": [
+    "A",
+    "B",
+    "C"
+  ],
+  "P_targets_per_update": 15,
+  "source_experiment": "v6.17",
+  "cleaned_original_ULong_count": 1020,
+  "exclude_historical_test_identities": true
+}

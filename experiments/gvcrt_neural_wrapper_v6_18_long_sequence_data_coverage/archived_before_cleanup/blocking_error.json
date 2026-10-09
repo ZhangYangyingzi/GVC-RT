@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "phase": "prepare",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/prepare.py\", line 199, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/prepare.py\", line 185, in main\n    if not (ROOT/'train_manifest_ulong_expanded.json').exists():ulong_pool(load(V17/'train_manifest_ulong.json')['videos'])\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_18_long_sequence_data_coverage/prepare.py\", line 54, in ulong_pool\n    assert not origids & ids,('historical training/test overlap',sorted(origids & ids))\n           ^^^^^^^^^^^^^^^^^\nAssertionError: ('historical training/test overlap', ['13f4e519-7883-4ad1-94cc-bbd7e7a11dc9', '2466e2b4-8a42-4eab-b201-819bf32c5e18', '25f55fd7-bb0c-4157-a4ff-eed4c7c748b8', 'ff222496-a918-4655-ac39-db604e446ec4'])\n"
+}
