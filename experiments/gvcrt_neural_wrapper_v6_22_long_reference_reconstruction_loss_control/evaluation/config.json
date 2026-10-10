@@ -1,0 +1,147 @@
+{
+  "schema": "v622",
+  "checkpoints": {
+    "B_initial": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control/evaluation/checkpoints/B_1000.pt",
+      "sha256": "726ec48bee958e7fc3d41aee1964f677d6a169551c057b738039b814bcd92b06",
+      "module_hashes": {
+        "wrapper": "4648ce37eb289187b85c08f47f97c7a421cf0612f35448592ced49ec5522bba3",
+        "bridge": "0fe547c81f2053d9974a8f122a386f9c03786fafd74a13fb6947edc54c3a0b09",
+        "generator": "140b6f2365ee0ca4ee1ee431ba76f59b9ee8823484e5fa768e25e7fd1cd33faa"
+      }
+    },
+    "B0_continue_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B0_continue_0.pt",
+      "sha256": "3d4fd8483326b5c2c1ea6b80181d9cd962d13e4938c558596b47151e967cf3da",
+      "module_hashes": {
+        "wrapper": "4648ce37eb289187b85c08f47f97c7a421cf0612f35448592ced49ec5522bba3",
+        "bridge": "0fe547c81f2053d9974a8f122a386f9c03786fafd74a13fb6947edc54c3a0b09",
+        "generator": "140b6f2365ee0ca4ee1ee431ba76f59b9ee8823484e5fa768e25e7fd1cd33faa"
+      }
+    },
+    "B1_reconstruction_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B1_reconstruction_0.pt",
+      "sha256": "9ba66dcab68801de9a17cf09ae58a8e3a90ecf90530386777b3f977fd06e6a8e",
+      "module_hashes": {
+        "wrapper": "4648ce37eb289187b85c08f47f97c7a421cf0612f35448592ced49ec5522bba3",
+        "bridge": "0fe547c81f2053d9974a8f122a386f9c03786fafd74a13fb6947edc54c3a0b09",
+        "generator": "140b6f2365ee0ca4ee1ee431ba76f59b9ee8823484e5fa768e25e7fd1cd33faa"
+      }
+    },
+    "B0_continue_1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B0_continue_1000.pt",
+      "sha256": "16ce267eb657211cb9393a757c340ad2f1e485f716f679595475941b030eaf74",
+      "module_hashes": {
+        "wrapper": "56afd877fc6034f3b2fab19b37dba58e20d6ce623ca814e97b7fdd6abf35bbc1",
+        "bridge": "26b79379ec595471f13b23d3f56b124c8ea18a6cb7f151104fd402c836f83787",
+        "generator": "024572977ce1e5db487461ff35b502f599c02389c9d99113fb00134d6531856f"
+      }
+    },
+    "B1_reconstruction_1000": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B1_reconstruction_1000.pt",
+      "sha256": "11cb82f925da17e35a423ab1340328087866fece80cd3f9008834cbee81778c1",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+        "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+      }
+    }
+  },
+  "methods": [
+    "original",
+    "B_initial",
+    "B0_continue_1000",
+    "B1_reconstruction_1000"
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "force_zero_thres": 0.12,
+  "no_training": false,
+  "no_model_selection": true,
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_workers_per_gpu": 1,
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b",
+    "uvg_validation"
+  ],
+  "expected_points": 640,
+  "deployment_receiver_hashes": {
+    "B_initial": {
+      "bridge": "270d5951e411826e6e361bd68623678d057d35e5c927045337e44f4c44b0d55a",
+      "generator": "e55f3ec6a33ed9dd4ac708b1896aeb6c912d2289f41897397d2be4a4078a46cf"
+    },
+    "B0_continue_0": {
+      "bridge": "270d5951e411826e6e361bd68623678d057d35e5c927045337e44f4c44b0d55a",
+      "generator": "e55f3ec6a33ed9dd4ac708b1896aeb6c912d2289f41897397d2be4a4078a46cf"
+    },
+    "B1_reconstruction_0": {
+      "bridge": "270d5951e411826e6e361bd68623678d057d35e5c927045337e44f4c44b0d55a",
+      "generator": "e55f3ec6a33ed9dd4ac708b1896aeb6c912d2289f41897397d2be4a4078a46cf"
+    },
+    "B0_continue_1000": {
+      "bridge": "e8a8c43c379c03f639ee35f9c2e204069589863625ab44b9a4943c9f0eb7c42a",
+      "generator": "7a62a9512e265dfe94017cc2d25293851b6210d2bc6db6570a9d5e0b5115dc0c"
+    },
+    "B1_reconstruction_1000": {
+      "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
+      "generator": "8bed5ce27d2cf859386333cfbe15de0058a508de76284b250a7a012b98be7a3d"
+    }
+  },
+  "original_receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "metric_module_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow_perceptual_inception": [
+      "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+    ]
+  },
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/branches/native_i_adapt/checkpoints/adaptation_step_1000.pt",
+    "sha256": "a47f3238b174aa40140ca0527c40c1f84294fc780b0bb95145be22dc65d57ea5",
+    "module_hashes": {
+      "wrapper": "784c3f0f2bac51504edf39bbebf10c29f1e782c8733949e236f84deb6209ac6b",
+      "bridge": "af64d6c834c476d081728a23bf57b1f069aa8903f276e02a390bfb1b2a76b371",
+      "generator": "b1e5b7d9b6ade8c157279ae092c48499b23f55efe6302e9a56b60347fad582f9"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "i_frame_modes": {
+    "original": "native_original",
+    "native_initial": "native_RGB_bypass",
+    "A_1000": "native_RGB_bypass",
+    "B_1000": "native_RGB_bypass",
+    "C_1000": "native_RGB_bypass",
+    "A_0": "native_RGB_bypass",
+    "B_0": "native_RGB_bypass",
+    "C_0": "native_RGB_bypass"
+  },
+  "IPs": [
+    -1
+  ]
+}

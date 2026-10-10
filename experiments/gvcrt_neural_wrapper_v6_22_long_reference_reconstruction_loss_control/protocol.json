@@ -1,0 +1,86 @@
+{
+  "schema": "v622",
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control/branches/B/checkpoints/adaptation_step_1000.pt",
+    "sha256": "fa753d77c58ebd9eca271d32b9e56fef686185f717f12ceea96e1f20ae7d9a18",
+    "module_hashes": {
+      "wrapper": "4648ce37eb289187b85c08f47f97c7a421cf0612f35448592ced49ec5522bba3",
+      "bridge": "0fe547c81f2053d9974a8f122a386f9c03786fafd74a13fb6947edc54c3a0b09",
+      "generator": "140b6f2365ee0ca4ee1ee431ba76f59b9ee8823484e5fa768e25e7fd1cd33faa"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "frames": 64,
+  "IPs": [
+    -1
+  ],
+  "methods": [
+    "original",
+    "B_initial",
+    "B0_continue_1000",
+    "B1_reconstruction_1000"
+  ],
+  "expected_points": 640,
+  "I_positions": {
+    "-1": [
+      0
+    ]
+  },
+  "I_input": "native_RGB_no_wrapper",
+  "QP_phase": "distance_from_most_recent_I",
+  "reference_reset": "clear_DPB_and_set_POC_0_both_sides_initialize_from_native_I_independent_decode",
+  "full_bytes": true,
+  "rate_denominator": "64*1920*1080",
+  "fps": "inherited per-video rate_accounting_fps",
+  "metrics": "unchanged v620; all63 transitions including I refresh; dataset pooled FID",
+  "training": {
+    "shared_plan_sha256": "969a1e9346daa9302bdb007277a4fd417c5a2e3a4a7a5681d0f7fbaba98225ff",
+    "calibration_plan_sha256": "42bb2d311832739df57aea460926e03c60fa95b43101506858739e63498284ec",
+    "reference": "native_I_at_0_then_current_model_no_grad_P1_to48_then_supervised_P49_to63",
+    "targets": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "normalization_denominator": 15,
+    "reference_detach": true,
+    "BPTT": false,
+    "optimizer": {
+      "wrapper_lr": 5e-05,
+      "bridge_lr": 3e-06,
+      "generator_lr": 5e-07,
+      "weight_decay": 0.0001,
+      "grad_clip": 1.0
+    },
+    "updates": 1000,
+    "branches": [
+      "B0_continue",
+      "B1_reconstruction"
+    ],
+    "lambda_rec": 0.1383589248954108,
+    "reconstruction_unit_gradient_scale": 4096.0,
+    "weighted_reconstruction_backward_scale": 29604.16180666535,
+    "gradient_formula": "g_base + lambda_rec * grad(4096 * mean15 reconstruction_L1) / 4096, FP32 restoration and weighting"
+  },
+  "source_protocol_sha256": "620a9ab13a81611adcd64642f5ab3624b1a7c2c4f14a9d644365e71d92071ed5",
+  "equal_rate": {
+    "grid_points": 100,
+    "space": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolation": false
+  },
+  "checkpoint_selection": false,
+  "relative_change": "100*(dataset method_mean-dataset reference_mean)/dataset reference_mean; per-video percent mean separate"
+}

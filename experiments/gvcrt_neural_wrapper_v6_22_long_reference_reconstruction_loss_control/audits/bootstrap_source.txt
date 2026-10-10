@@ -1,0 +1,33 @@
+from pathlib import Path
+import json,shutil
+R=Path(__file__).resolve().parent;V=R.parent/'gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control'
+for n in ['io21.py','adapter.py','evaluate.py','gradient_tools.py','sampling.py','publish_checkpoints.py','train.py','report.py','plot.py','publish_github.py','restore_text_shards.py','.gitignore']:
+ shutil.copy2(V/n,R/n)
+p=R/'io21.py';s=p.read_text();s=s.replace("V20=ROOT.parent", "V21=ROOT.parent/'gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control'\nV20=ROOT.parent",1).replace('a47f3238b174aa40140ca0527c40c1f84294fc780b0bb95145be22dc65d57ea5','fa753d77c58ebd9eca271d32b9e56fef686185f717f12ceea96e1f20ae7d9a18').replace("BRANCHES=('A','B','C')","BRANCHES=('B0_continue','B1_reconstruction')").replace('IPS=(-1,31,32)','IPS=(-1,)').replace("METHODS=('original','native_initial','A_1000','B_1000','C_1000')","METHODS=('original','B_initial','B0_continue_1000','B1_reconstruction_1000')").replace("EVAL_METHODS=(*METHODS,'A_0','B_0','C_0')","EVAL_METHODS=(*METHODS,'B0_continue_0','B1_reconstruction_0')").replace('(V20,V18,V19,V17,V16,V15,V62,V4,BASE,ENGINE,REPO', '(V21,V20,V18,V19,V17,V16,V15,V62,V4,BASE,ENGINE,REPO');p.write_text(s)
+p=R/'sampling.py';s=p.read_text().replace('20261011','20261022').replace('shared_ABC=True','shared_B0_B1=True');s += '''
+
+def calibration_plan():
+    rng=random.Random(20261023);jobs=[]
+    sys.path.insert(0,str(REPO));sys.path.insert(0,str(REPO/'expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src'))
+    from gvc_hooks import INDEX_MAP
+    from src.models.video_model_gvcrt import qp_shift
+    for d in ('ulong','uvg'):
+        videos=load(ROOT/f'train_manifest_{d}.json')['videos']
+        for q in range(10):
+            for repeat in range(2):
+                v=rng.choice(videos);start=rng.randrange(v['frames']-63);x=rng.randrange(v['width']-255);y=rng.randrange(v['height']-255);indices=list(range(start,start+64))
+                r=dict(adaptation_step=len(jobs)+1,domain=d,video=v['filename' if d=='ulong' else 'name'],source_path=v['path' if d=='ulong' else 'source_path'],source_sha256=v['sha256' if d=='ulong' else 'source_sha256'],canonical_indices=indices,source_frame_indices=indices if d=='ulong' else v['source_frame_indices'][start:start+64],crop_x=x,crop_y=y,crop_size=256,external_qp=q,actual_qps=[q+qp_shift[INDEX_MAP[p%len(INDEX_MAP)]] for p in range(49,64)],supervised_window_positions=list(range(49,64)),normalization_denominator=15,repeat=repeat)
+                jobs.append((r,v,'calibration'))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:rows=list(pool.map(verify_sample,jobs))
+    dump(ROOT/'plans/calibration.json',dict(seed=20261023,updates=rows,samples=40,optimizer_updates=0,training_data_only=True))
+''';p.write_text(s)
+p=R/'adapter.py';s=p.read_text().replace("assert ip==-1 and m in METHODS[:2] and sha(r['reused_from'])==r['reused_sha256'] and r['reuse_verified']", "assert ip==-1 and m in METHODS[:2] and sha(r['reused_from'])==r['reused_sha256'] and r['reuse_verified']");p.write_text(s)
+p=R/'evaluate.py';s=p.read_text().replace("V20/'adapter.py'","V21/'adapter.py'").replace("V20/'evaluation/config.json'","V21/'evaluation/config.json'").replace("oldm='native_i_adapt_1000'","oldm='B_1000'");p.write_text(s)
+p=R/'train.py';s=p.read_text().replace("    from patchgan import create,update\n",'').replace("disc,dopt,drng=create(torch.device('cuda:0')) if a.branch=='C' else (None,None,None)","disc,dopt,drng=None,None,None").replace("'gradient_tools.py','patchgan.py'","'gradient_tools.py'").replace("{'A':'short_reference_current_loss','B':'long_reference_current_loss','C':'short_reference_PatchGAN'}[a.branch]","a.branch").replace("48*step if a.branch=='B' else 0","48*step").replace("[0 if a.branch=='B' else 48]","[0]").replace("48000 if a.branch=='B' else 0","48000").replace("schema='v621'","schema='v622'").replace("source_experiment='v620_native_i_adapt'","source_experiment='v621_B_1000'");p.write_text(s)
+p=R/'report.py';s=p.read_text().replace("PAIRS=(('B_1000','A_1000'),('C_1000','A_1000'),*((m,b) for m in METHODS[2:] for b in METHODS[:2]))", "PAIRS=(('B1_reconstruction_1000','B0_continue_1000'),*((m,b) for m in METHODS[2:] for b in METHODS[:2]))")
+a=s.index("    ips=tuple(");b=s.index("    dump(ROOT/'audits/GT_feature_pools.json'",a);s=s[:a]+s[b:]
+s=s.replace("r['warmup_frames']==(48 if b=='B' else 0)","r['warmup_frames']==48").replace("r['D_optimizer_updates']==(1 if b=='C' else 0)","r['D_optimizer_updates']==0").replace("48000 if b=='B' else 0","48000").replace("D_updates=1000 if b=='C' else 0","D_updates=0").replace('2400','640').replace("    assert load(ROOT/'audits/adversarial_backward_scaling.json')['status']=='PASS'", "    assert load(ROOT/'audits/calibration_integrity.json')['status']=='PASS'")
+s=s.replace("        r['relative_change_definition']='mean per-video relative metric change; NOT BD-rate';out.append(r)", "        r['mean_per_video_relative_change_percent']=r.pop('relative_change_percent')\n        r['relative_change_percent']=100*(r['method_mean']-r['reference_mean'])/r['reference_mean'] if complete and r['reference_mean'] else None\n        r['relative_change_definition']='100*(dataset method_mean-dataset reference_mean)/dataset reference_mean; NOT BD-rate';out.append(r)")
+p.write_text(s)
+p=R/'plot.py';s=p.read_text();s=s[:s.index('for d in DATASETS:\n    for m in METHODS:')]+"print('PLOTS PASS 16',flush=True)\n";p.write_text(s)
+p=R/'publish_github.py';s=p.read_text().replace('v6.21','v6.22').replace('v621_','v622_').replace('reference-length loss and GOP control','long-reference reconstruction-loss control');p.write_text(s)
