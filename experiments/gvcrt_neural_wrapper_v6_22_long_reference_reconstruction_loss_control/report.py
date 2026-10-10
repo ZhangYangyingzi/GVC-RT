@@ -19,8 +19,8 @@ def summarize(d,per,n,pairs=PAIRS):
             r=dict(dataset=d,method=method,reference=reference,metric=metric,status='available' if complete else 'unavailable',expected_sequences=n,available_sequences=len(ok),rate_axis='per-video actual bpp',aggregation='equal video weight; unavailable if any sequence unavailable',grid_points_per_sequence=100,shared_interval='all methods common per-video interval; see per-sequence/grid',reason='' if complete else 'one or more videos unavailable')
             for k in ('method_mean','reference_mean','delta','better_grid_fraction','relative_change_percent'):r[k]=statistics.mean(t[k] for t in ok) if complete and all(t[k] is not None for t in ok) else None
             r['mean_per_video_relative_change_percent']=r.pop('relative_change_percent')
-        r['relative_change_percent']=100*(r['method_mean']-r['reference_mean'])/r['reference_mean'] if complete and r['reference_mean'] else None
-        r['relative_change_definition']='100*(dataset method_mean-dataset reference_mean)/dataset reference_mean; NOT BD-rate';out.append(r)
+            r['relative_change_percent']=100*(r['method_mean']-r['reference_mean'])/r['reference_mean'] if complete and r['reference_mean'] else None
+            r['relative_change_definition']='100*(dataset method_mean-dataset reference_mean)/dataset reference_mean; NOT BD-rate';out.append(r)
     return out
 def window_rows(r,fr,tr):
     out=[]
@@ -76,7 +76,7 @@ def main():
                     rr,gg=comparisons(d,v['name'],metric,[r for r in raw if r['video_index']==v['video_index']]);per.extend(rr);grid.extend(gg)
             fidrows,gg=comparisons(d,'pooled_dataset','FID',pooled,True);grid.extend(gg)
             for name,rows in [('equal_rate_per_sequence',per),('equal_rate_summary',summarize(d,per,len(vs))),('equal_rate_fid_pooled',fidrows),('common_rate_grid',grid or [dict(status='unavailable')])]:write(out/(name+'.csv'),[dict(r,IP=ip) for r in rows])
-            stored[(ip,d)]=(raw,pooled);counts[f'ip_{ip}/{d}']=dict(expected=len(vs)*50,completed=len(raw),pooled_FID=len(pooled))
+            stored[(ip,d)]=(raw,pooled);counts[f'ip_{ip}/{d}']=dict(expected=len(vs)*len(METHODS)*10,completed=len(raw),pooled_FID=len(pooled))
             unavailable.extend(dict(r,IP=ip) for r in per+fidrows if r['status']=='unavailable');print('TABLES',ip,d,len(raw),flush=True)
     dump(ROOT/'audits/GT_feature_pools.json',poolaudit)
     subprocess.run([PLOT_PYTHON,'-B',str(ROOT/'plot.py')],check=True,cwd=REPO)
@@ -94,6 +94,7 @@ def main():
         for cp in index.values():assert sha(cp['path'])==cp['sha256'] and sha(cp['inference']['path'])==cp['inference']['sha256']
         assert index['0']['module_hashes']==load(ROOT/'config.json')['source_checkpoint']['module_hashes'];branches[b]=dict(updates=1000,supervised_P_frames=15000,warmup_P_frames=48000,D_updates=0,checkpoints=index)
     assert load(ROOT/'audits/implementation_check.json')['status']==load(ROOT/'audits/step0_codec_equivalence.json')['status']=='PASS'
+    assert all(r['expected']==r['completed'] for r in counts.values())
     assert sum(r['completed'] for r in counts.values())==640
     prior=load(ROOT/'audits/historical_inventory.json');now=historical_inventory();changed=[p for p,s in prior.items() if now.get(p)!=s];assert not changed,changed
     frozen()

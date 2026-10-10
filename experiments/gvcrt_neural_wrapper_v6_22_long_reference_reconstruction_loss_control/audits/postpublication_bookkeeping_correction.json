@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "expected_completed_by_dataset": {
+    "ip_-1/ulong": {
+      "expected": 320,
+      "completed": 320,
+      "pooled_FID": 40
+    },
+    "ip_-1/uvg_holdout": {
+      "expected": 80,
+      "completed": 80,
+      "pooled_FID": 40
+    },
+    "ip_-1/hevc_b": {
+      "expected": 200,
+      "completed": 200,
+      "pooled_FID": 40
+    },
+    "ip_-1/uvg_validation": {
+      "expected": 40,
+      "completed": 40,
+      "pooled_FID": 40
+    }
+  },
+  "equal_rate_summary_rows": {
+    "results/ip_-1/ulong/equal_rate_summary.csv": 15,
+    "results/ip_-1/uvg_validation/equal_rate_summary.csv": 15,
+    "results/ip_-1/hevc_b/equal_rate_summary.csv": 15,
+    "results/ip_-1/uvg_holdout/equal_rate_summary.csv": 15
+  },
+  "dataset_relative_change_formula_verified": true,
+  "all_three_paired_metrics_present": true,
+  "code_sha256": "23b63e0f87732c0dc1ae8a32d42893a9ed84cc84565a295db47710b578e069ec",
+  "changes": [
+    "Count expected points from four methods instead of inherited five-method constant",
+    "Emit dataset comparison summary for each of LPIPS, DISTS and FloLPIPS"
+  ]
+}
