@@ -1,0 +1,62 @@
+{
+  "no_training": true,
+  "seed": 20261010,
+  "methods": [
+    "original",
+    "native_i_adapt_1000",
+    "wrapped_i_control_1000"
+  ],
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "expected_points": 480,
+  "target_frames": 128,
+  "bootstrap_repeats": 1000,
+  "sample_repeats": 100,
+  "sample_sizes": [
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation",
+  "source_config_sha256": "fd1637ce4ec5704fb5d0caca84bb0f69d3cbc31dedd687a2f0b76e1b8f48b5ac",
+  "reuse_historical_runtime": true,
+  "no_teacher_forcing": true,
+  "first_I_modes": {
+    "original": "native_original",
+    "B_standard": "wrapper_standard",
+    "B_i_bypass": "native_RGB_bypass",
+    "wrapped_i_control_1000": "wrapper_standard",
+    "native_i_adapt_1000": "native_RGB_bypass",
+    "wrapped_i_control_0": "wrapper_standard",
+    "native_i_adapt_0": "native_RGB_bypass"
+  },
+  "sample_rule": "sequence-balanced counts; uniform without replacement inside sequence; same frame identities for GT and all methods/QPs",
+  "bootstrap_rule": "within-sequence full-length sampling with replacement; paired GT and all methods and QPs; dataset-specific deterministic seed",
+  "FID": "exact float64 sample-covariance low-rank FID",
+  "KID": "unbiased polynomial MMD squared k(x,y)=(1+x dot y/2048)^3",
+  "equal_rate": "three-method common measured bpp interval,100 uniform ln(bpp),PCHIP,no extrapolation",
+  "padding": [
+    1920,
+    1088
+  ],
+  "metric_crop": [
+    1920,
+    1080
+  ],
+  "codec_dtype": "float16",
+  "wrapper_dtype": "float32",
+  "force_zero_thres": 0.12
+}

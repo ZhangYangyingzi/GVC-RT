@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "dataset": "uvg_validation",
+  "QP": 0,
+  "pool_size": 128,
+  "sequence_lengths": [
+    128
+  ],
+  "sample_rows": 900,
+  "bootstrap_rows": 3000,
+  "bootstrap_repeats": 1000,
+  "unavailable_sample_sizes": [
+    {
+      "sample_size": 256,
+      "pool_size": 128,
+      "reason": "sample size exceeds available pool"
+    },
+    {
+      "sample_size": 512,
+      "pool_size": 128,
+      "reason": "sample size exceeds available pool"
+    },
+    {
+      "sample_size": 1024,
+      "pool_size": 128,
+      "reason": "sample size exceeds available pool"
+    }
+  ],
+  "features": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21a_fid_reliability_audit/features/uvg_validation/original/Bosphorus/qp0.npz",
+      "sha256": "09f25c52e05b1baa801c02ddaee23675d94714130ca15183a41b11f9f80c17f6"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21a_fid_reliability_audit/features/uvg_validation/native_i_adapt_1000/Bosphorus/qp0.npz",
+      "sha256": "18dc274d6898c1da5415e0b1f23d30335bd13c63e66f74318c7d50ac06a9fac6"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21a_fid_reliability_audit/features/uvg_validation/wrapped_i_control_1000/Bosphorus/qp0.npz",
+      "sha256": "1636d274a0b0bcbf517c068c3ba5ff8107503ba059001f096dbad7b3cae1869e"
+    }
+  ],
+  "elapsed_seconds": 41.673113107681274,
+  "physical_gpu": 6,
+  "peak_memory_MiB": 24.0
+}
