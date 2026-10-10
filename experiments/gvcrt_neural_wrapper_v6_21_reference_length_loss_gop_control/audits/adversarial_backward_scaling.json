@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "scale": 4096.0,
+  "compared_scales": [
+    256.0,
+    4096.0
+  ],
+  "parameter_dtypes": [
+    "torch.float32"
+  ],
+  "gradient_dtypes": [
+    "torch.float32"
+  ],
+  "restored_adversarial_gradients": {
+    "wrapper": {
+      "norm": 0.003082011492080731,
+      "finite": true,
+      "total_parameters": 24,
+      "connected_parameters": 24,
+      "effective_parameters": 24,
+      "effective_elements": 258799
+    },
+    "bridge": {
+      "norm": 0.008949520618506518,
+      "finite": true,
+      "total_parameters": 28,
+      "connected_parameters": 28,
+      "effective_parameters": 28,
+      "effective_elements": 801124
+    },
+    "generator": {
+      "norm": 0.0033657790892878815,
+      "finite": true,
+      "total_parameters": 212,
+      "connected_parameters": 212,
+      "effective_parameters": 212,
+      "effective_elements": 33776640
+    }
+  },
+  "comparisons": {
+    "wrapper": {
+      "relative_L2": 0.08524888100480231,
+      "cosine": 0.9972199766837995
+    },
+    "bridge": {
+      "relative_L2": 0.0,
+      "cosine": 1.0000000000000002
+    },
+    "generator": {
+      "relative_L2": 6.548442994302635e-37,
+      "cosine": 1.0
+    }
+  },
+  "formula": "g_base + grad(S * 0.01 * L_adv / 15) / S",
+  "FP32_unscale": true,
+  "separate_gradients": true,
+  "forward_reconstruction_unchanged": true,
+  "unscaled_loss_unchanged": true,
+  "C_zero_adv_matches_A": true,
+  "merged_gradients_verified": true,
+  "formal_plan_updates_consumed": 0,
+  "formal_optimizer_updates": 0
+}

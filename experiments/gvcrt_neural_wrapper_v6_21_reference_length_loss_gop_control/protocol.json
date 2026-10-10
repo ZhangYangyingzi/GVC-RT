@@ -1,0 +1,129 @@
+{
+  "schema": "v621",
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/branches/native_i_adapt/checkpoints/adaptation_step_1000.pt",
+    "sha256": "a47f3238b174aa40140ca0527c40c1f84294fc780b0bb95145be22dc65d57ea5",
+    "module_hashes": {
+      "wrapper": "784c3f0f2bac51504edf39bbebf10c29f1e782c8733949e236f84deb6209ac6b",
+      "bridge": "af64d6c834c476d081728a23bf57b1f069aa8903f276e02a390bfb1b2a76b371",
+      "generator": "b1e5b7d9b6ade8c157279ae092c48499b23f55efe6302e9a56b60347fad582f9"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "frames": 64,
+  "IPs": [
+    -1,
+    31,
+    32
+  ],
+  "methods": [
+    "original",
+    "native_initial",
+    "A_1000",
+    "B_1000",
+    "C_1000"
+  ],
+  "expected_points": 2400,
+  "I_positions": {
+    "-1": [
+      0
+    ],
+    "31": [
+      0,
+      31,
+      62
+    ],
+    "32": [
+      0,
+      32
+    ]
+  },
+  "I_input": "native_RGB_no_wrapper",
+  "QP_phase": "distance_from_most_recent_I",
+  "reference_reset": "clear_DPB_and_set_POC_0_both_sides_initialize_from_native_I_independent_decode",
+  "full_bytes": true,
+  "rate_denominator": "64*1920*1080",
+  "fps": "inherited per-video rate_accounting_fps",
+  "metrics": "unchanged v620; all63 transitions including I refresh; dataset pooled FID",
+  "training": {
+    "shared_plan_sha256": "633bc74c5b16923b54cb44c6ccd8f90a9b81cf118699063bf808adf51b101932",
+    "target_positions": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "denominator": 15,
+    "updates": 1000,
+    "A": {
+      "I": 48,
+      "warmup": 0
+    },
+    "B": {
+      "I": 0,
+      "warmup": 48,
+      "no_grad": true
+    },
+    "C": {
+      "I": 48,
+      "warmup": 0,
+      "PatchGAN": {
+        "channels": [
+          3,
+          64,
+          128,
+          256,
+          512,
+          1
+        ],
+        "kernel": 4,
+        "padding": 1,
+        "strides": [
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "spectral_norm": true,
+        "activation": "LeakyReLU(0.2)",
+        "lr": 0.0002,
+        "betas": [
+          0.0,
+          0.9
+        ],
+        "weight_decay": 0,
+        "seed": 20261012
+      },
+      "lambda_adv": 0.01
+    },
+    "reference_detach": true,
+    "optimizer": {
+      "wrapper_lr": 5e-05,
+      "bridge_lr": 3e-06,
+      "generator_lr": 5e-07,
+      "weight_decay": 0.0001,
+      "grad_clip": 1.0
+    },
+    "loss": "LPIPS + 0.5*DISTS(require_grad=True) + beta(q)*rate_bpp + 0.01*proxy_L1"
+  },
+  "source_protocol_sha256": "434e80c6571c21ccee652bfd1d5b90320e11fede860e30268c971158ea8d8d3f",
+  "equal_rate": {
+    "grid_points": 100,
+    "space": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolation": false
+  },
+  "checkpoint_selection": false
+}

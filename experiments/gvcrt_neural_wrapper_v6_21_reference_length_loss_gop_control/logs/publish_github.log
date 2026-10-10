@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control/publish_github.py", line 61, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control/publish_github.py", line 33, in main
+    files=files_for_upload();relative=ROOT.relative_to(REPO);workbase=REPO.parent/'GVC-RT-publication-worktrees';workbase.mkdir(exist_ok=True)
+          ^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_21_reference_length_loss_gop_control/publish_github.py", line 23, in files_for_upload
+    assert hashlib.sha256(''.join(chunks).encode()).hexdigest()==sha(p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

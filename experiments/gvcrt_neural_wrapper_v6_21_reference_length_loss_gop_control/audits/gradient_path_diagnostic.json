@@ -1,0 +1,950 @@
+{
+  "status": "RECORDED",
+  "optimizer_updates": 0,
+  "models_unchanged": true,
+  "training_config_unchanged": true,
+  "rows": [
+    {
+      "domain": "uvg",
+      "plan_step": 1,
+      "source_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        124,
+        128,
+        132,
+        136,
+        140,
+        144,
+        148,
+        152,
+        156,
+        160,
+        164,
+        168,
+        172,
+        176,
+        180,
+        184,
+        188,
+        192,
+        196,
+        200,
+        204,
+        208,
+        212,
+        216,
+        220,
+        224,
+        228,
+        232,
+        236,
+        240,
+        244,
+        248,
+        252
+      ],
+      "crop": [
+        1034,
+        654
+      ],
+      "input_crop_sha256": "0f2e58b2eb92abf7b8c8b9819ba7b83f2ee94ab3f809dfbeb6d51383e77a8457",
+      "external_qp": 5,
+      "actual_qp": 7,
+      "backward_diagnostic_scale": 1.0,
+      "unscaled_weighted_loss": -6.972182745812461e-06,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.0,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 0,
+          "effective_elements": 0
+        },
+        "bridge": {
+          "norm": 0.000570016823565001,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.00022422541441253306,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.0323827311807139e-07,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 3
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.9078629801560714e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    },
+    {
+      "domain": "uvg",
+      "plan_step": 1,
+      "source_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        124,
+        128,
+        132,
+        136,
+        140,
+        144,
+        148,
+        152,
+        156,
+        160,
+        164,
+        168,
+        172,
+        176,
+        180,
+        184,
+        188,
+        192,
+        196,
+        200,
+        204,
+        208,
+        212,
+        216,
+        220,
+        224,
+        228,
+        232,
+        236,
+        240,
+        244,
+        248,
+        252
+      ],
+      "crop": [
+        1034,
+        654
+      ],
+      "input_crop_sha256": "0f2e58b2eb92abf7b8c8b9819ba7b83f2ee94ab3f809dfbeb6d51383e77a8457",
+      "external_qp": 5,
+      "actual_qp": 7,
+      "backward_diagnostic_scale": 256.0,
+      "unscaled_weighted_loss": -6.972182745812461e-06,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.00016803455689397826,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 247652
+        },
+        "bridge": {
+          "norm": 0.000570016823565001,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.00022422541441253306,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.376053864161174e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 186898
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.1695213222996872e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 32473
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.3998193450743334e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 244663
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.9078629801560714e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    },
+    {
+      "domain": "uvg",
+      "plan_step": 1,
+      "source_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        124,
+        128,
+        132,
+        136,
+        140,
+        144,
+        148,
+        152,
+        156,
+        160,
+        164,
+        168,
+        172,
+        176,
+        180,
+        184,
+        188,
+        192,
+        196,
+        200,
+        204,
+        208,
+        212,
+        216,
+        220,
+        224,
+        228,
+        232,
+        236,
+        240,
+        244,
+        248,
+        252
+      ],
+      "crop": [
+        1034,
+        654
+      ],
+      "input_crop_sha256": "0f2e58b2eb92abf7b8c8b9819ba7b83f2ee94ab3f809dfbeb6d51383e77a8457",
+      "external_qp": 5,
+      "actual_qp": 7,
+      "backward_diagnostic_scale": 4096.0,
+      "unscaled_weighted_loss": -6.972182745812461e-06,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.00016385271385261981,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 247652
+        },
+        "bridge": {
+          "norm": 0.000570016823565001,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.00022422541441253306,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 3.0481866507897235e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196168
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.250189036847124e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 32758
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.3994103049960345e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 261023
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.9078629801560714e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    },
+    {
+      "domain": "ulong",
+      "plan_step": 8,
+      "source_indices": [
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "crop": [
+        1520,
+        635
+      ],
+      "input_crop_sha256": "255bfbb8511f062f843724839214cf54b4502574b934c05b7e504bd6f9dbfdeb",
+      "external_qp": 6,
+      "actual_qp": 8,
+      "backward_diagnostic_scale": 1.0,
+      "unscaled_weighted_loss": -3.723114059539512e-05,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.0,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 0,
+          "effective_elements": 0
+        },
+        "bridge": {
+          "norm": 0.0005026311161387273,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.0002032327570962921,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 0.0,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 0,
+            "effective_elements": 0
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 8.429369702178807e-08,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 2
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.7550872868462206e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    },
+    {
+      "domain": "ulong",
+      "plan_step": 8,
+      "source_indices": [
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "crop": [
+        1520,
+        635
+      ],
+      "input_crop_sha256": "255bfbb8511f062f843724839214cf54b4502574b934c05b7e504bd6f9dbfdeb",
+      "external_qp": 6,
+      "actual_qp": 8,
+      "backward_diagnostic_scale": 256.0,
+      "unscaled_weighted_loss": -3.723114059539512e-05,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.00014493362067354127,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 338087
+        },
+        "bridge": {
+          "norm": 0.0005026311161387273,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.0002032327570962921,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.922587616926751e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 180081
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.5881832412833975e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 32518
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.2008127303539994e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 242400
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.7550872868462206e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    },
+    {
+      "domain": "ulong",
+      "plan_step": 8,
+      "source_indices": [
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "crop": [
+        1520,
+        635
+      ],
+      "input_crop_sha256": "255bfbb8511f062f843724839214cf54b4502574b934c05b7e504bd6f9dbfdeb",
+      "external_qp": 6,
+      "actual_qp": 8,
+      "backward_diagnostic_scale": 4096.0,
+      "unscaled_weighted_loss": -3.723114059539512e-05,
+      "LPBG_gradients": {
+        "wrapper": {
+          "norm": 0.00014359228403358385,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 338087
+        },
+        "bridge": {
+          "norm": 0.0005026311161387273,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.0002032327570962921,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "layers": {
+        "proxy_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.1211301109694966e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 195630
+          }
+        },
+        "encoder_latent_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.6237032473728427e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 32752
+          }
+        },
+        "decoder_feature_FP16": {
+          "dtype": "torch.float16",
+          "requires_grad": true,
+          "stats": {
+            "norm": 1.200348457201919e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 260952
+          }
+        },
+        "reconstruction_FP32": {
+          "dtype": "torch.float32",
+          "requires_grad": true,
+          "stats": {
+            "norm": 2.7550872868462206e-06,
+            "finite": true,
+            "total_parameters": 1,
+            "connected_parameters": 1,
+            "effective_parameters": 1,
+            "effective_elements": 196608
+          }
+        }
+      },
+      "optimizer_updates": 0,
+      "training_settings_changed": false
+    }
+  ]
+}

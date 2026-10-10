@@ -1,0 +1,36 @@
+{
+  "status": "BLOCKED",
+  "training_updates": {
+    "A": 0,
+    "B": 0,
+    "C": 0
+  },
+  "expected_RD": 2400,
+  "completed_RD": 320,
+  "reused_baseline_points": 320,
+  "fresh_real_RANS_points": 0,
+  "preflight": "PASS",
+  "shared_training_plan_records": 1000,
+  "training_pools": {
+    "ulong": 1020,
+    "uvg": 4
+  },
+  "training_implementation_check": "FAIL",
+  "blocker": {
+    "code": "ADVERSARIAL_WRAPPER_ZERO_GRADIENT",
+    "details": "Weighted adversarial-only gradients are finite but zero for wrapper in the unchanged native FP16 path. Bridge/generator gradients are finite and nonzero. No-optimizer-update diagnostic scaling restores wrapper gradients, but backward scaling is not enabled for training because the requested precision path is frozen.",
+    "diagnostic": "audits/gradient_path_diagnostic.json",
+    "requires_user_authorization": "Permit numerically stabilized adversarial backward scaling and FP32 unscaling/accumulation while preserving the forward path and loss coefficients; otherwise retain the current failure and do not train."
+  },
+  "missing": [
+    "P/B/G adversarial-gradient requirement",
+    "step0 same-GPU codec equivalence",
+    "A/B/C 1000 updates each",
+    "2080 new formal evaluation points",
+    "final numerical tables and plots",
+    "Git commit and push"
+  ],
+  "model_parameters_unchanged_in_diagnostics": true,
+  "publication_status": "NOT_ATTEMPTED_EXPERIMENT_BLOCKED",
+  "commit": null
+}

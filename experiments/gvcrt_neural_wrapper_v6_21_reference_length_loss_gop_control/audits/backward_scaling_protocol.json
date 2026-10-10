@@ -1,0 +1,14 @@
+{
+  "authorized": true,
+  "branch": "C",
+  "scale": 4096,
+  "comparison_scale": 256,
+  "formula": "g_base + grad(S * 0.01 * L_adv / 15) / S",
+  "unscale_dtype": "torch.float32",
+  "parameter_dtype": "torch.float32",
+  "gradient_buffer_dtype": "torch.float32",
+  "base_gradients_not_rescaled": true,
+  "forward_loss_weight_unchanged": 0.01,
+  "clip_after_accumulation": true,
+  "formal_plan_consumed_by_checks": false
+}
