@@ -1,6 +1,7 @@
 """Reassemble published text shards without replacing any differing file."""
 from io21 import *
-for item in load(ROOT/'file_index.json')['files']:
+from index_io import read_file_index
+for item in read_file_index():
     if 'shards' not in item:continue
     target=ROOT/item['path'];assert target.resolve().is_relative_to(ROOT)
     if target.exists():

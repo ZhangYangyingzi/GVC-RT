@@ -1,0 +1,34 @@
+{
+  "allowed_physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "worker_visible_device": 0,
+  "headroom": {
+    "multiplier": 1.2,
+    "additional_MiB": 2048
+  },
+  "initial_estimates_MiB": {
+    "eval": 9000,
+    "probe": 14000,
+    "init": 5000
+  },
+  "training_admission": "max(measured full-step peak + 1024 MiB, 6000 MiB), then headroom",
+  "pending_reservation": "subtract max(reservation - observed PID GPU usage,0) for every live task, including model loading",
+  "max_workers": null,
+  "per_GPU_worker_limit": null,
+  "threads_per_worker": 2,
+  "host_logical_CPUs": 96,
+  "host_memory_available_kB": "924262720",
+  "OOM_retries": 8,
+  "ordinary_task_retries": 3,
+  "scheduler_lock": "pipeline.lock",
+  "active_PID_start_identity": "Linux /proc/PID/stat starttime",
+  "reference_peak_files": [
+    "audits/A_continue_pretraining.json",
+    "audits/B_capped_projected_pretraining.json",
+    "audits/C_capped_conditional_projected_pretraining.json"
+  ]
+}

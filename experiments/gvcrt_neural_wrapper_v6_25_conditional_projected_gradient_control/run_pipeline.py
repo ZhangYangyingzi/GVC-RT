@@ -27,7 +27,9 @@ def main():
   for m in (*METHODS,*history):
    for v in sources(d):
     for q in range(10):add(f'eval_{d}_{m}_{v["video_index"]}_{q}','eval','evaluate.py',['--dataset',d,'--method',m,'--video',str(v['video_index']),'--qps',str(q)],method=m,dataset=d,video=v['video_index'],qps=[q],smoke=False)
+ add('historical_visual','visual','historical_visual.py',[])
  def done(j):
+  if j['kind']=='visual':return passed(ROOT/'historical/visual_integrity.json')
   if j['kind']=='cpu':return passed(ROOT/'historical/final_integrity.json')
   if j['kind']=='probe':return passed(ROOT/'audits'/f'{j["branch"]}_pretraining.json')
   if j['kind']=='init':return (ROOT/'branches'/j['branch']/'checkpoint_index.json').exists() and '0' in load(ROOT/'branches'/j['branch']/'checkpoint_index.json')
@@ -70,7 +72,7 @@ def main():
    j=jobs[k];del active[k];error=''
    if rc or not done(j):
     error=Path(w['log']).read_text()[w['offset']:][-8000:];oom='out of memory' in error.lower();retry=attempts.get(k,1)<(8 if oom else 3)
-    if oom:memory[j['kind']]=max(memory[j['kind']]*1.15,w['required_MiB']*.9)
+    if oom:memory[j['kind']]=max(memory.get(j['kind'],9000)*1.15,w['required_MiB']*.9)
     if not retry:blocked[k]=dict(error=error,log=w['log'],attempts=attempts.get(k,1))
    else:
     if j['kind']=='probe':peak=load(ROOT/'audits'/f'{j["branch"]}_pretraining.json')['peak_memory_MiB'];memory['train']=max(memory['train'],peak);memory['probe']=max(memory['probe'],peak)
@@ -105,7 +107,9 @@ def main():
    if k in active or k in blocked or j['kind']=='cpu' or done(j):continue
    if j['kind']=='train' and not (passed(ROOT/'audits'/f'{j["branch"]}_pretraining.json') and passed(ROOT/'audits'/f'{j["branch"]}_codec_equivalence.json')):continue
    if j['kind']=='eval' and j['method']!='original' and j['method'] not in cfg['checkpoints']:continue
-   required=int(memory.get(j['kind'],14000)*1.2+2048);valid=[g for g in free if free[g]>=required]
+   peak=memory.get(j['kind'],9000)
+   if j['kind']=='train':peak=max(load(ROOT/'audits'/f'{j["branch"]}_pretraining.json')['peak_memory_MiB']+1024,6000)
+   required=int(peak*1.2+2048);valid=[g for g in free if free[g]>=required]
    if not valid:continue
    gpu=max(valid,key=lambda g:free[g]);before=free[gpu];free[gpu]-=required;argv=[PYTHON,'-B','-u',str(ROOT/j['script']),*j['args'],'--gpu',str(gpu)];command(argv);log=ROOT/'logs'/f'{k}.log';offset=log.stat().st_size if log.exists() else 0;f=log.open('a');p=subprocess.Popen(argv,cwd=REPO,stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL);active[k]=dict(PID=p.pid,identity=identity(p.pid),gpu=gpu,required_MiB=required,log=str(log),offset=offset,proc=p,stream=f);attempts[k]=attempts.get(k,0)+1;event(dict(event='start',task=k,kind=j['kind'],method=j.get('method'),branch=j.get('branch'),dataset=j.get('dataset'),video=j.get('video'),qps=j.get('qps'),physical_gpu=gpu,logical_gpu=0,CUDA_VISIBLE_DEVICES=str(gpu),PID=p.pid,process_start=identity(p.pid),free_before_MiB=before,reservation_MiB=required,retry_count=attempts[k]-1));print('START',k,'GPU',gpu,flush=True)
   state('training_and_evaluation')

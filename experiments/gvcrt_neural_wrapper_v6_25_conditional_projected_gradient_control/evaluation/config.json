@@ -1,5 +1,5 @@
 {
-  "schema": "v624",
+  "schema": "v625",
   "checkpoints": {
     "B1_initial": {
       "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B1_reconstruction_1000.pt",
@@ -63,13 +63,41 @@
         "bridge": "b8889038e8c8427238939deac989df6718d14a5e61bf38e055487939f3edfb40",
         "generator": "39e1c462a8780ef1cbb2273eed39353b71faecc4fc00dc39d987b8c909eeff6c"
       }
+    },
+    "A_continue_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_25_conditional_projected_gradient_control/evaluation/checkpoints/A_continue_0.pt",
+      "sha256": "c3dd8f1e7f704558cf3c01ad3e63fd406c7c31e6093493553d9adcdbd3a04df6",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+        "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+      }
+    },
+    "B_capped_projected_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_25_conditional_projected_gradient_control/evaluation/checkpoints/B_capped_projected_0.pt",
+      "sha256": "fd593eff26a05031e34fe2b9872e7d9c965e7ee1b1bef58014fc71703c01ff46",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+        "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+      }
+    },
+    "C_capped_conditional_projected_0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_25_conditional_projected_gradient_control/evaluation/checkpoints/C_capped_conditional_projected_0.pt",
+      "sha256": "df31a024400720e8293e731247dafefefb3debf0ec64018d662ee0551ad21cc1",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+        "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+      }
     }
   },
   "methods": [
     "original",
     "B1_initial",
     "A_continue_1000",
-    "B_projected_1000"
+    "B_capped_projected_1000",
+    "C_capped_conditional_projected_1000"
   ],
   "external_qps": [
     0,
@@ -101,7 +129,7 @@
     "hevc_b",
     "uvg_validation"
   ],
-  "expected_points": 640,
+  "expected_points": 800,
   "deployment_receiver_hashes": {
     "B1_initial": {
       "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
@@ -130,6 +158,18 @@
     "historical_B_projected_1000": {
       "bridge": "e435b9b6ba05b5a0e207f847bbc66ca6e1d2b9410814ed82ddffca68d34a8c78",
       "generator": "8367633d650e9ca11f03ebb7fbb96718db0aaec1bdbb6f9c87c4ad23165b0e46"
+    },
+    "A_continue_0": {
+      "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
+      "generator": "8bed5ce27d2cf859386333cfbe15de0058a508de76284b250a7a012b98be7a3d"
+    },
+    "B_capped_projected_0": {
+      "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
+      "generator": "8bed5ce27d2cf859386333cfbe15de0058a508de76284b250a7a012b98be7a3d"
+    },
+    "C_capped_conditional_projected_0": {
+      "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
+      "generator": "8bed5ce27d2cf859386333cfbe15de0058a508de76284b250a7a012b98be7a3d"
     }
   },
   "original_receiver_hashes": {
@@ -169,5 +209,6 @@
   },
   "IPs": [
     -1
-  ]
+  ],
+  "historical_early_expected_points": 640
 }

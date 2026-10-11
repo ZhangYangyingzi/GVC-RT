@@ -40,7 +40,7 @@ def main():
             for v in vs:
                 for m in METHODS:
                     for q in range(10):
-                        r=load(point(d,m,v['video_index'],q,ip));validate(r,v,q,m,ip);reused+=bool(r.get('reused'));raw.append(dict(r,rate_axis='actual bpp',aggregation='per-video measured RD point'))
+                        r=load(point(d,m,v['video_index'],q,ip));validate(r,v,q,m,ip);sourcefps=float(v.get('source_fps_metadata',v['rate_accounting_fps']));r.update(source_fps_metadata=sourcefps,kbps_source_fps=r['bits_per_frame']*sourcefps/1000,kbps_rate_accounting_fps=r['bits_per_frame']*v['rate_accounting_fps']/1000);dump(point(d,m,v['video_index'],q,ip),r);reused+=bool(r.get('reused'));raw.append(dict(r,rate_axis='actual bpp',aggregation='per-video measured RD point'))
                         fr=read(r['frame_metrics_path']);tr=read(r['transitions_path'])
                         for i,f in enumerate(fr):
                             last=0 if ip<0 else i//ip*ip
