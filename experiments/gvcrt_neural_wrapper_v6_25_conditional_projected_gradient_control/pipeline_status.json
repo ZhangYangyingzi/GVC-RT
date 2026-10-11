@@ -3,23 +3,15 @@
   "phase": "stage_publication",
   "PID": 2024054,
   "training_steps": {
-    "A_continue": 810,
-    "B_capped_projected": 570,
-    "C_capped_conditional_projected": 550
+    "A_continue": 1000,
+    "B_capped_projected": 700,
+    "C_capped_conditional_projected": 690
   },
   "completed_RD": 320,
   "expected_RD": 800,
   "completed_historical": 640,
   "expected_historical": 640,
   "active": {
-    "train_A_continue": {
-      "PID": 2022207,
-      "identity": "4938707306",
-      "gpu": 5,
-      "required_MiB": 18848,
-      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_25_conditional_projected_gradient_control/logs/train_A_continue.log",
-      "offset": 0
-    },
     "train_B_capped_projected": {
       "PID": 2022340,
       "identity": "4938708411",
@@ -702,9 +694,10 @@
   "events": [],
   "blocked": {},
   "published_stages": [
-    "code_protocol_ready"
+    "code_protocol_ready",
+    "historical_diagnosis_complete"
   ],
-  "updated_unix": 1791748699.162635,
-  "publication_phase": "historical_diagnosis_complete",
+  "updated_unix": 1791750738.0540743,
+  "publication_phase": "A_continue_trained",
   "publication_pending": true
 }
