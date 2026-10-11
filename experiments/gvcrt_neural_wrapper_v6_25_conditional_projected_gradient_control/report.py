@@ -112,6 +112,15 @@ def main():
     for path in ROOT.rglob('*'):
         if path.is_file() and path.suffix in ('.pt','.pth','.npz','.npy','.bin') and 'vendor' not in path.parts:
             binary.append(dict(path=str(path),bytes=path.stat().st_size,sha256=sha(path),server_only=True))
+    indexed={x['path'] for x in binary};external={Path(load(ROOT/'config.json')['source_checkpoint']['path'])}
+    for p in (ROOT/'parts').rglob('*.json'):
+        r=load(p)
+        for key in ('bitstream_path','feature_path','checkpoint_path'):
+            if r.get(key):external.add(Path(r[key]))
+    for p in external:
+        if str(p) not in indexed:
+            assert p.is_file(),('missing indexed server artifact',str(p))
+            binary.append(dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p),server_only=True,referenced_historical_artifact=True));indexed.add(str(p))
     dump(ROOT/'binary_artifacts_index.json',dict(artifacts=binary))
     dump(ROOT/'audits/computational_integrity.json',dict(status='PASS',branches=branches,expected_RD=800,completed_RD=800,counts=counts,reused=reused,fresh=800-reused,unavailable_comparisons=unavailable,missing=[],failures=[],historical_files_unchanged=True,source_checkpoint_sha256=EXPECTED,lambda_ceiling=.014448280572707944,lambda_rec=.1383589248954108,real_RANS=True,independent_decode=True,projected_feature_buffers_frozen=True,RD_PNG=len(list((ROOT/'results').rglob('Rate_*.png'))),source_hashes=load(ROOT/'audits/dependencies.json'),finished_unix=time.time()))
     print('COMPUTATIONAL PASS 800/800',flush=True)

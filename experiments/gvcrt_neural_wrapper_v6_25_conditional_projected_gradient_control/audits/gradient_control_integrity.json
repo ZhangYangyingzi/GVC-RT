@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "rho": 0.05,
+  "lambda_ceiling": 0.014448280572707944,
+  "eps": 1e-12,
+  "FP32_restore": true,
+  "window_mean_before_weight": true,
+  "combined_then_global_clip": true,
+  "branches": {
+    "A_continue": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 0,
+      "violations": 0,
+      "ceiling_steps": 0.0,
+      "clipped_steps": 939,
+      "distributions": {
+        "lambda_eff": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "gradient_cosine": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "global_clip_coefficient": {
+          "min": 0.12455381771651418,
+          "max": 1.0,
+          "mean": 0.5434949495836814,
+          "median": 0.5129545426037382
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        }
+      },
+      "retry_count": 0,
+      "failed_worker_attempts": 0,
+      "numeric_failure_attempts": 0,
+      "failure_records": [],
+      "ceiling_fraction": 0.0,
+      "clipping_fraction": 0.939,
+      "adversarial_statistics_applicable": false
+    },
+    "B_capped_projected": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 1000,
+      "violations": 0,
+      "ceiling_steps": 1.0,
+      "clipped_steps": 947,
+      "distributions": {
+        "lambda_eff": {
+          "min": 9.233485563345181e-05,
+          "max": 0.014448280572707944,
+          "mean": 0.0008509595428438178,
+          "median": 0.0006707223636897834
+        },
+        "adv_B1_ratio": {
+          "min": 0.023628218629016453,
+          "max": 0.04999999999999994,
+          "mean": 0.049973628218628635,
+          "median": 0.049999999999999656
+        },
+        "gradient_cosine": {
+          "min": -0.5239356381135971,
+          "max": 0.47735682347354397,
+          "mean": 0.010085879574527066,
+          "median": 0.0014347699822919284
+        },
+        "global_clip_coefficient": {
+          "min": 0.12983634670008895,
+          "max": 1.0,
+          "mean": 0.5398516951330542,
+          "median": 0.5096399598621193
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.004287548335073613,
+          "max": 0.12756204478704186,
+          "mean": 0.026769466066257148,
+          "median": 0.022953390162146838
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.009115470754308038,
+          "max": 0.054335797180494166,
+          "mean": 0.026112017342729336,
+          "median": 0.02537160496795016
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.042731558640069695,
+          "max": 0.16782482312925603,
+          "mean": 0.08833539039532265,
+          "median": 0.08644440433384078
+        }
+      },
+      "retry_count": 0,
+      "failed_worker_attempts": 0,
+      "numeric_failure_attempts": 0,
+      "failure_records": [],
+      "ceiling_fraction": 0.001,
+      "clipping_fraction": 0.947,
+      "adversarial_statistics_applicable": true
+    },
+    "C_capped_conditional_projected": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 1000,
+      "violations": 0,
+      "ceiling_steps": 1.0,
+      "clipped_steps": 936,
+      "distributions": {
+        "lambda_eff": {
+          "min": 0.00010298389957813366,
+          "max": 0.014448280572707944,
+          "mean": 0.0009098770041717503,
+          "median": 0.0006987082913873394
+        },
+        "adv_B1_ratio": {
+          "min": 0.01925660135183424,
+          "max": 0.04999999999999995,
+          "mean": 0.04996925660135143,
+          "median": 0.049999999999999635
+        },
+        "gradient_cosine": {
+          "min": -0.5157549201468629,
+          "max": 0.4959318332001415,
+          "mean": 0.005977425969122935,
+          "median": 0.002634457857268838
+        },
+        "global_clip_coefficient": {
+          "min": 0.12255440671215174,
+          "max": 1.0,
+          "mean": 0.5427933305981751,
+          "median": 0.5195074235812248
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.0035701501206564525,
+          "max": 0.1257055999193986,
+          "mean": 0.02583481726396815,
+          "median": 0.021958779338734295
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.006764455503502931,
+          "max": 0.04965513815077713,
+          "mean": 0.025521196067380552,
+          "median": 0.024810648097944536
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.03762635588008865,
+          "max": 0.16046742562602076,
+          "mean": 0.0883687211506214,
+          "median": 0.08618477359934462
+        }
+      },
+      "retry_count": 0,
+      "failed_worker_attempts": 0,
+      "numeric_failure_attempts": 0,
+      "failure_records": [],
+      "ceiling_fraction": 0.001,
+      "clipping_fraction": 0.936,
+      "adversarial_statistics_applicable": true
+    }
+  }
+}
