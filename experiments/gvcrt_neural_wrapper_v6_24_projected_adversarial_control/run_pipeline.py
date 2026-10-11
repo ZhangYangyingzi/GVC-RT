@@ -1,0 +1,128 @@
+"""Recoverable, memory-based GPU 4-7 scheduler, then verified publication."""
+import argparse,fcntl,traceback
+from io21 import *
+def alive(pid,start):
+    try:
+        a=(Path('/proc')/str(pid)/'stat').read_text().rsplit(') ',1)[1].split()
+        return a[0]!='Z' and a[19]==start
+    except (FileNotFoundError,ProcessLookupError):return False
+def identity(pid):return (Path('/proc')/str(pid)/'stat').read_text().rsplit(') ',1)[1].split()[19]
+def passed(p):return p.exists() and load(p).get('status')=='PASS'
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--status',action='store_true');args=ap.parse_args()
+    if args.status:print(json.dumps(load(ROOT/'pipeline_status.json'),indent=2));return
+    os.chdir(REPO);os.environ.update(CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',MKL_NUM_THREADS='2')
+    (ROOT/'logs').mkdir(exist_ok=True);lock=(ROOT/'pipeline.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);command([PYTHON,'-B','-u',str(Path(__file__).resolve())])
+    def cpu(script):
+        cmd=[PYTHON,'-B','-u',str(ROOT/script)];command(cmd)
+        with (ROOT/'logs'/f'{Path(script).stem}.log').open('a') as f:subprocess.run(cmd,cwd=REPO,stdout=f,stderr=subprocess.STDOUT,check=True)
+    assert passed(ROOT/'preflight_audit.json');frozen()
+    gpu_start=subprocess.check_output(['nvidia-smi','--query-gpu=index,memory.total,memory.used,memory.free,utilization.gpu','--format=csv,noheader,nounits'],text=True).splitlines()
+    dump(ROOT/'audits/GPU_start.json',dict(allowed_physical_GPUs=[4,5,6,7],states=[line for line in gpu_start if int(line.split(',')[0]) in (4,5,6,7)]))
+    from adapter import validate
+    from publish_checkpoints import publish
+    prior=load(ROOT/'pipeline_status.json');active={};jobs={};checked={};attempts=prior.get('attempts',{});events=prior.get('events',[]);memory=prior.get('memory',{});max_workers=None
+    def schedule(row):
+        with (ROOT/'gpu_schedule.jsonl').open('a') as f:f.write(json.dumps(row)+'\n')
+    def add(key,kind,script,args,**kw):jobs[key]=dict(kind=kind,script=script,args=args,**kw)
+    add('calibration','probe','calibrate.py',[])
+    for b in BRANCHES:
+        add('init_'+b,'init','train.py',['--branch',b,'--initialize-only'],branch=b);add('train_'+b,'train','train.py',['--branch',b],branch=b)
+    val=sources('uvg_validation')[0]
+    def ev(key,ip,d,m,v,qs,smoke=False):
+        add(key,'eval','evaluate.py',['--ip',str(ip),'--dataset',d,'--method',m,'--video',str(v['video_index']),'--qps',','.join(map(str,qs))],ip=ip,dataset=d,method=m,video=v['video_index'],qps=list(qs),smoke=smoke)
+    for b in BRANCHES:ev('step0_'+b,-1,'uvg_validation',b+'_0',val,(0,9),True)
+    for ip in IPS:
+        for d in DATASETS:
+            for m in METHODS:
+                for v in sources(d):
+                    for q in range(10):ev(f'RD_{ip}_{d}_{m}_{v["video_index"]}_q{q}',ip,d,m,v,[q])
+    def trained(b):return passed(ROOT/'branches'/b/'training_integrity.json')
+    def done(j):
+        if j['kind']=='probe':return passed(ROOT/'audits/calibration_integrity.json')
+        if j['kind']=='init':
+            p=ROOT/'branches'/j['branch']/'checkpoint_index.json';return p.exists() and '0' in load(p)
+        if j['kind']=='train':return trained(j['branch'])
+        v=next(v for v in sources(j['dataset']) if v['video_index']==j['video'])
+        for q in j['qps']:
+            p=point(j['dataset'],j['method'],j['video'],q,j['ip'])
+            if not p.exists():return False
+            stamp=(p.stat().st_size,p.stat().st_mtime_ns)
+            if checked.get(str(p))!=stamp:
+                try:validate(load(p),v,q,j['method'],j['ip'])
+                except (AssertionError,ValueError,KeyError,OSError):return False
+                checked[str(p)]=stamp
+        return True
+    for k,w in prior.get('active',{}).items():
+        if k in jobs and alive(w['PID'],w['identity']):active[k]=dict(w,proc=None,stream=None)
+    gate=ROOT/'audits/step0_codec_equivalence.json'
+    def status(phase):
+        steps={b:load(ROOT/'branches'/b/'training_status.json').get('adaptation_step',0) if (ROOT/'branches'/b/'training_status.json').exists() else 0 for b in BRANCHES}
+        count=sum(point(d,m,v['video_index'],q,ip).exists() for ip in IPS for d in DATASETS for m in METHODS for v in sources(d) for q in range(10))
+        dump(ROOT/'pipeline_status.json',dict(status='RUNNING',phase=phase,PID=os.getpid(),training_steps=steps,completed_RD=count,expected_RD=640,active={k:{x:y for x,y in w.items() if x not in ('proc','stream')} for k,w in active.items()},attempts=attempts,events=events,memory=memory,max_workers=max_workers,updated_unix=time.time()))
+    while not passed(ROOT/'final_integrity.json'):
+        for k,w in list(active.items()):
+            rc=(None if alive(w['PID'],w['identity']) else 0 if done(jobs[k]) else -1) if w['proc'] is None else w['proc'].poll()
+            if rc is None:continue
+            if w['stream']:w['stream'].close()
+            j=jobs[k]
+            if rc==0:
+                measured=[]
+                if j['kind']=='eval':measured=[load(point(j['dataset'],j['method'],j['video'],q,j['ip'])).get('peak_memory_MiB',0) for q in j['qps'] if point(j['dataset'],j['method'],j['video'],q,j['ip']).exists()]
+                elif j['kind']=='train':measured=[load(ROOT/'branches'/j['branch']/'training_integrity.json').get('peak_memory_MiB',0)]
+                elif j['kind']=='probe':measured=[load(ROOT/'audits/implementation_check.json').get('peak_memory_MiB',0)]
+                memory[j['kind']]=max([memory.get(j['kind'],0),*measured])
+            schedule(dict(event='exit',physical_gpu=w['gpu'],PID=w['PID'],task=k,exit_code=rc,retry=attempts[k]-1,peak_memory_MiB=memory.get(jobs[k]['kind'],0),unix=time.time()))
+            del active[k];events.append(dict(event='finish',task=k,rc=rc,gpu=w['gpu'],unix=time.time()));print('FINISH',k,rc,flush=True)
+            if rc or not done(jobs[k]):
+                with open(w['log']) as f:f.seek(w['offset']);error=f.read()
+                oom='out of memory' in error.lower();retry=(oom and attempts[k]<8) or (jobs[k]['kind'] in ('eval','train') and attempts[k]<3)
+                events.append(dict(event='failure',task=k,error=error[-5000:],retry=retry,OOM=oom,unix=time.time()))
+                if retry:
+                    if oom:events.append(dict(event='memory_reservation_retry',task=k,gpu=w['gpu'],peak_estimate_MiB=memory.get(jobs[k]['kind'],0),unix=time.time()))
+                    continue
+                raise RuntimeError(f'{k} rc={rc}\n'+error[-6000:])
+        if passed(ROOT/'audits/calibration_integrity.json') and not (ROOT/'audits/baseline_reuse.json').exists():cpu('reuse.py')
+        cfg=publish()
+        if not gate.exists() and all(done(jobs['step0_'+b]) for b in BRANCHES):
+            checks=[]
+            for b in BRANCHES:
+                assert load(ROOT/'branches'/b/'checkpoint_index.json')['0']['module_hashes']==load(ROOT/'config.json')['source_checkpoint']['module_hashes']
+                for q in (0,9):
+                    r=load(point('uvg_validation',b+'_0',val['video_index'],q));assert r['same_GPU_step0_verification']['status']=='PASS';checks.append(r['same_GPU_step0_verification'])
+            dump(gate,dict(status='PASS',same_GPU_native_source=checks,IP_minus1_source_B_reproduction=True,IPs=IPS,branches=BRANCHES))
+        if not active and all(done(j) for j in jobs.values()):status('aggregate');cpu('report.py');break
+        lines=subprocess.check_output(['nvidia-smi','--query-gpu=index,memory.free','--format=csv,noheader,nounits'],text=True).splitlines()
+        free={int(i):int(v) for i,v in (line.split(',') for line in lines) if int(i) in (4,5,6,7)}
+        observed={}
+        for line in subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,used_gpu_memory','--format=csv,noheader,nounits'],text=True).splitlines():
+            try:pid,used=map(int,line.split(','))
+            except ValueError:continue
+            observed[pid]=used
+            for k,w in active.items():
+                if w['PID']==pid:memory[jobs[k]['kind']]=max(memory.get(jobs[k]['kind'],0),used)
+        for w in active.values():
+            free[w['gpu']]=max(0,free[w['gpu']]-max(0,w['required_MiB']-observed.get(w['PID'],0)))
+        choices=list(free)
+        for k,j in jobs.items():
+            if k in active or done(j):continue
+            if j['kind']!='probe' and not passed(ROOT/'audits/calibration_integrity.json'):continue
+            if j['kind']=='train' and not passed(gate):continue
+            if j['kind']=='eval':
+                if j['method']!='original' and j['method'] not in cfg['checkpoints']:continue
+                if not j['smoke'] and not passed(gate):continue
+            peak=memory.get(j['kind'],0)
+            if j['kind']=='train' and passed(ROOT/'audits/implementation_check.json'):peak=max(peak,load(ROOT/'audits/implementation_check.json')['peak_memory_MiB'])
+            required=max(8000,int(peak*1.25+2048));valid=[g for g in choices if free[g]>=required]
+            if not valid:continue
+            gpu=max(valid,key=lambda g:free[g]);free_before=free[gpu];free[gpu]-=required;argv=[PYTHON,'-B','-u',str(ROOT/j['script']),*j['args'],'--gpu',str(gpu)];command(argv)
+            log=ROOT/'logs'/f'{k}.log';offset=log.stat().st_size if log.exists() else 0;f=log.open('a');p=subprocess.Popen(argv,cwd=REPO,stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL)
+            active[k]=dict(PID=p.pid,identity=identity(p.pid),gpu=gpu,log=str(log),offset=offset,required_MiB=required,proc=p,stream=f);attempts[k]=attempts.get(k,0)+1;schedule(dict(event='start',physical_gpu=gpu,PID=p.pid,task=k,free_before_MiB=free_before,reservation_MiB=required,retry=attempts[k]-1,unix=time.time()));print('START',k,'GPU',gpu,flush=True)
+        phase='training' if any(jobs[k]['kind']=='train' for k in active) else 'evaluation' if all(trained(b) for b in BRANCHES) else 'pretraining_checks'
+        status(phase if active else 'WAITING_GPU_MEMORY');time.sleep(10)
+    assert passed(ROOT/'final_integrity.json');status('publication');cpu('publish_github.py');pub=load(ROOT/'publication_status.json');assert pub['status']=='PASS'
+    s=load(ROOT/'pipeline_status.json');s.update(status='PASS',phase='complete',publication=pub,active={});dump(ROOT/'pipeline_status.json',s);print('PIPELINE COMPLETE',flush=True)
+if __name__=='__main__':
+    try:main()
+    except Exception:
+        s=load(ROOT/'pipeline_status.json') if (ROOT/'pipeline_status.json').exists() else {};s.update(status='FAIL',error=traceback.format_exc());dump(ROOT/'pipeline_status.json',s);dump(ROOT/'blocking_error.json',dict(status='FAIL',error=s['error'],unix=time.time()));raise

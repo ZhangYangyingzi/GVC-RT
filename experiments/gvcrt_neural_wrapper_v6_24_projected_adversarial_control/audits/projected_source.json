@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "implementation_sha256": "fe3746f2e6577757f5df050390adcfe4f506a52c72102c5e2448cfad87137487",
+  "model": "tf_efficientnet_lite1",
+  "pretrained": true,
+  "strict_state_dict": true,
+  "weight_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/weights/tf_efficientnet_lite1-bde8b488.pth",
+  "weight_sha256": "bde8b488209c0a4673f49b146cb183b9d8eed5cda5acc4962c54bf9ba5c28fa6",
+  "weight_bytes": 21939331,
+  "weight_source": "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/tf_efficientnet_lite1-bde8b488.pth",
+  "timm": "0.4.12",
+  "torch": "2.6.0+cu124",
+  "official_commit": "e1c246b8bdce4fac3c2bfcb69df309fc27df9b86",
+  "official_reference": "https://github.com/autonomousvision/projected-gan",
+  "adaptations": [
+    "tf_efficientnet_lite1 replaces official Lite0 as instructed",
+    "four independent scale means averaged equally",
+    "feature/projection eval and frozen",
+    "no differential augmentation"
+  ],
+  "input_range": "RGB [0,1] mapped to [-1,1], official interpolation224 bilinear",
+  "CCM_CSM": "official F_RandomProj(proj_type=2,cout=64,expand=True)",
+  "num_scales": 4,
+  "spectral_normalization_initial_power_iterations": 50,
+  "initialization_seed": 20261026,
+  "independent_RNG": true,
+  "feature_hash": "ed2de4a21e0be420a86d44be63f05c4e03d52d79b5c4020d4e67dce669da6ae9",
+  "dependencies": {
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/discriminator.py": "55cd375c8fcdf48948c3ff53c7d95d5f2b069d1dd8f9ed6623fe26788c2ce417",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/diffaug.py": "872977185457504dd78ee04ec4d370bf8508ba569a40ddf75384a3f090f4bdb4",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/networks_stylegan2.py": "e7c6bd62c13983b4f66c330ea3f0fb8534bf2762aca6c41f239795044d27ef13",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/blocks.py": "b83285d3c59836391041c06851e36277991f47af7b51ba81e8d2e23ca86eb9a2",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/networks_fastgan.py": "02904c0d0d0e34fd8cdb194bd029fb0a1bdb7c3a9f9d12a267410754be8a2812",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_24_projected_adversarial_control/vendor/projected-gan/pg_modules/projector.py": "269846286199d2f0d3bb3d6184d1ed72c955c6461f36f5e6efe3a6d9ffdd0284"
+  }
+}

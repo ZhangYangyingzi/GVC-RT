@@ -1,0 +1,195 @@
+{
+  "status": "PASS",
+  "initial_modules": {
+    "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+    "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+    "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+  },
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "feature_hash": "ed2de4a21e0be420a86d44be63f05c4e03d52d79b5c4020d4e67dce669da6ae9",
+  "projection_and_backbone_eval_frozen": true,
+  "G_discriminator_buffers_unchanged": true,
+  "D_PBG_unchanged": true,
+  "zero_lambda_adv_loss_gradient_equal": true,
+  "adversarial_gradients": {
+    "wrapper": {
+      "norm": 0.7867266503702739,
+      "finite": true,
+      "total_parameters": 24,
+      "connected_parameters": 24,
+      "effective_parameters": 24,
+      "effective_elements": 274424
+    },
+    "bridge": {
+      "norm": 3.6425480441193354,
+      "finite": true,
+      "total_parameters": 28,
+      "connected_parameters": 28,
+      "effective_parameters": 28,
+      "effective_elements": 801124
+    },
+    "generator": {
+      "norm": 4.796536176804661,
+      "finite": true,
+      "total_parameters": 212,
+      "connected_parameters": 212,
+      "effective_parameters": 212,
+      "effective_elements": 33776640
+    },
+    "all": {
+      "norm": 6.074031146735775,
+      "finite": true,
+      "total_parameters": 264,
+      "connected_parameters": 264,
+      "effective_parameters": 264,
+      "effective_elements": 34852188
+    }
+  },
+  "adversarial_rec_gradient_norm": 2.276106834411621,
+  "adversarial_scale": 4096.0,
+  "scale_stability": {
+    "wrapper": {
+      "relative_L2": 0.00048714867154829437,
+      "cosine": 0.9999998849267081
+    },
+    "bridge": {
+      "relative_L2": 0.0,
+      "cosine": 1.0000000000000002
+    },
+    "generator": {
+      "relative_L2": 0.0,
+      "cosine": 1.0000000000000002
+    }
+  },
+  "DISTS_layers": [
+    {
+      "layer": 0,
+      "kind": "RGB",
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "requires_grad": true,
+      "grad_fn": null,
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.00048158777750730513,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 1,
+      "kind": "deep",
+      "shape": [
+        1,
+        64,
+        256,
+        256
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 5.549768069934602e-05,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 2,
+      "kind": "deep",
+      "shape": [
+        1,
+        128,
+        128,
+        128
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.0005378107233152841,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 3,
+      "kind": "deep",
+      "shape": [
+        1,
+        256,
+        64,
+        64
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.010448090429514969,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 4,
+      "kind": "deep",
+      "shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.02573592207737792,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 5,
+      "kind": "deep",
+      "shape": [
+        1,
+        512,
+        16,
+        16
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.04935933427515328,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    }
+  ],
+  "optimizer_updates": 0,
+  "formal_plan_consumed": 0,
+  "peak_memory_MiB": 3896.0
+}
