@@ -1,0 +1,99 @@
+{
+  "schema": "v625",
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "frames": 64,
+  "IPs": [
+    -1
+  ],
+  "methods": [
+    "original",
+    "B1_initial",
+    "A_continue_1000",
+    "B_capped_projected_1000",
+    "C_capped_conditional_projected_1000"
+  ],
+  "expected_points": 800,
+  "I_positions": {
+    "-1": [
+      0
+    ]
+  },
+  "I_input": "native_RGB_no_wrapper",
+  "QP_phase": "distance_from_most_recent_I",
+  "reference_reset": "clear_DPB_and_set_POC_0_both_sides_initialize_from_native_I_independent_decode",
+  "full_bytes": true,
+  "rate_denominator": "64*1920*1080",
+  "fps": "inherited per-video rate_accounting_fps",
+  "metrics": "unchanged v620; all63 transitions including I refresh; dataset pooled FID",
+  "training": {
+    "shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+    "calibration_plan_sha256": "ce948c9107bdac84d560e1f6a3dadc9fce694a679a3e4dae81d6bd693b0bc2bd",
+    "reference": "native_I_at_0_then_current_model_no_grad_P1_to48_then_supervised_P49_to63",
+    "targets": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "normalization_denominator": 15,
+    "reference_detach": true,
+    "BPTT": false,
+    "optimizer": {
+      "wrapper_lr": 5e-05,
+      "bridge_lr": 3e-06,
+      "generator_lr": 5e-07,
+      "weight_decay": 0.0001,
+      "grad_clip": 1.0
+    },
+    "updates": 1000,
+    "branches": [
+      "A_continue",
+      "B_capped_projected",
+      "C_capped_conditional_projected"
+    ],
+    "lambda_rec": 0.1383589248954108,
+    "lambda_adv": "per-window gradient cap",
+    "reconstruction_unit_scale": 4096.0,
+    "adversarial_unit_scale": 4096.0,
+    "gradient_formula": "g0=mean15 complete B1; ga=mean15 unweighted adv; lambda=min(ceiling,.05*norm(g0)/(norm(ga)+eps)); clip(g0+lambda*ga)",
+    "rho": 0.05,
+    "lambda_ceiling": 0.014448280572707944,
+    "gradient_eps": 1e-12
+  },
+  "source_protocol_sha256": "023d59be81f61da331e8ddee4779e720b73f5180d5c027d045ce6e3a498997b3",
+  "equal_rate": {
+    "grid_points": 100,
+    "space": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolation": false
+  },
+  "checkpoint_selection": false,
+  "relative_change": "100*(dataset method_mean-dataset reference_mean)/dataset reference_mean; per-video percent mean separate",
+  "source_experiment": "v622_B1_1000",
+  "objective": "LPIPS + 0.5*DISTS(require_grad=True) + beta(q)*rate_bpp + 0.01*proxy_L1 + 0.1383589248954108*reconstruction_L1 + branch_lambda_adv*projected_adversarial",
+  "training_plan_reused": true,
+  "condition": {
+    "B_capped_projected": "zero",
+    "C_capped_conditional_projected": "actual_decoded_feature_detached"
+  }
+}
