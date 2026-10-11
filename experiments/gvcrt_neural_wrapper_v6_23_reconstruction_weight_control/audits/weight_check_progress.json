@@ -1,0 +1,124 @@
+{
+  "status": "RUNNING",
+  "completed_branch": "B_double",
+  "records": {
+    "B_half": {
+      "lambda_rec": 0.0691794624477054,
+      "losses": {
+        "loss": 0.34337814450263976,
+        "LPIPS": 0.2392939855655034,
+        "DISTS": 0.1903980255126953,
+        "D": 0.3344929973284403,
+        "rate_bpp": 0.0018565451745719958,
+        "beta_rate": 0.004177226527826861,
+        "proxy_L1": 0.036516388008991874,
+        "lambda_proxy_proxy_L1": 0.0003651638728721688,
+        "reconstruction_L1": 0.06277523239453632,
+        "weighted_reconstruction_L1": 0.004342756730814775,
+        "beta_q": 2.25,
+        "lambda_q": 0.4444444444444445,
+        "weighted_DISTS": 0.09519901275634765,
+        "lambda_rec": 0.0691794624477054,
+        "branch_lambda_rec": 0.0691794624477054,
+        "reconstruction_backward_scale": 4096.0,
+        "reconstruction_unit_gradient_scale": 4096.0
+      },
+      "restored_weighted_reconstruction_gradients": {
+        "wrapper": {
+          "norm": 0.005452879360952404,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 337447
+        },
+        "bridge": {
+          "norm": 0.055218127158900766,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.012321217858003646,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "expected_ratio_to_v622": 0.5,
+      "actual_norm_ratios": {
+        "wrapper": 0.5,
+        "bridge": 0.5,
+        "generator": 0.5
+      },
+      "merged_gradient_max_absolute_error": 8.940696716308594e-08,
+      "merged_gradient_checked": true,
+      "forward_reconstructions_identical": true,
+      "base_losses_and_rates_identical": true,
+      "production_default_branch_dispatch_checked": true
+    },
+    "B_double": {
+      "lambda_rec": 0.2767178497908216,
+      "losses": {
+        "loss": 0.3564064164956411,
+        "LPIPS": 0.2392939855655034,
+        "DISTS": 0.1903980255126953,
+        "D": 0.3344929973284403,
+        "rate_bpp": 0.0018565451745719958,
+        "beta_rate": 0.004177226527826861,
+        "proxy_L1": 0.036516388008991874,
+        "lambda_proxy_proxy_L1": 0.0003651638728721688,
+        "reconstruction_L1": 0.06277523239453632,
+        "weighted_reconstruction_L1": 0.0173710269232591,
+        "beta_q": 2.25,
+        "lambda_q": 0.4444444444444445,
+        "weighted_DISTS": 0.09519901275634765,
+        "lambda_rec": 0.2767178497908216,
+        "branch_lambda_rec": 0.2767178497908216,
+        "reconstruction_backward_scale": 4096.0,
+        "reconstruction_unit_gradient_scale": 4096.0
+      },
+      "restored_weighted_reconstruction_gradients": {
+        "wrapper": {
+          "norm": 0.021811517443809617,
+          "finite": true,
+          "total_parameters": 24,
+          "connected_parameters": 24,
+          "effective_parameters": 24,
+          "effective_elements": 337447
+        },
+        "bridge": {
+          "norm": 0.22087250863560307,
+          "finite": true,
+          "total_parameters": 28,
+          "connected_parameters": 28,
+          "effective_parameters": 28,
+          "effective_elements": 801124
+        },
+        "generator": {
+          "norm": 0.049284871432014585,
+          "finite": true,
+          "total_parameters": 212,
+          "connected_parameters": 212,
+          "effective_parameters": 212,
+          "effective_elements": 33776640
+        }
+      },
+      "expected_ratio_to_v622": 2.0,
+      "actual_norm_ratios": {
+        "wrapper": 2.0,
+        "bridge": 2.0,
+        "generator": 2.0
+      },
+      "merged_gradient_max_absolute_error": 5.960464477539063e-08,
+      "merged_gradient_checked": true,
+      "forward_reconstructions_identical": true,
+      "base_losses_and_rates_identical": true,
+      "production_default_branch_dispatch_checked": true
+    }
+  }
+}
