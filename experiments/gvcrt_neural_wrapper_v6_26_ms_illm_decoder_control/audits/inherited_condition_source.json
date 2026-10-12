@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "source": "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py",
+  "sha256": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+  "class_name": "PretrainedReconWrapper",
+  "function": "forward",
+  "lines": [
+    70,
+    77
+  ],
+  "captured_tensor": "pixel_unshuffle(decoded feature,2), input to mlp[0]",
+  "expected_training_shape": [
+    1,
+    1024,
+    16,
+    16
+  ],
+  "decoder_available": true,
+  "teacher_encoded": false,
+  "detached": true,
+  "runtime_shape": [
+    1,
+    1024,
+    16,
+    16
+  ],
+  "runtime_proof": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_25_conditional_projected_gradient_control/audits/C_capped_conditional_projected_pretraining.json",
+  "runtime_proof_sha256": "3b1f7f1fe792070f06d4401111ae875f0d70aed0580ae54cd4b2cfef782588db",
+  "decoder_producer": "DMC.get_recon_and_feature: dec(y_hat,ctx,q_d), then recon_generation_net(feature,q_recon)",
+  "real_fake_same_condition": true,
+  "condition_detached": true,
+  "B_zero_invariant": true,
+  "source_is_actual_reconstruction_call": true
+}

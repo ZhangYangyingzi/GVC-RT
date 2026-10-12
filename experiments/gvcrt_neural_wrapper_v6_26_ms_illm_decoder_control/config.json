@@ -1,0 +1,148 @@
+{
+  "schema": "v626",
+  "branch": null,
+  "source_step": 1000,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "seed": 20261024,
+  "updates": 1000,
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000
+  ],
+  "train_fit_steps": [],
+  "lambda_proxy": 0.01,
+  "force_zero_thres": 0.12,
+  "objective": "full B1 plus window-wise norm-controlled adversarial supervision for B/C; rho0.05, no lambda ceiling",
+  "optimizer": {
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "fresh_optimizer": true,
+  "restore_source_optimizer": false,
+  "clip_length": 64,
+  "crop": 256,
+  "batch": 1,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "primary_checkpoint": 1000,
+  "domain_seed": 20261024,
+  "fixed_report_steps": [
+    1000
+  ],
+  "lambda_dists": 0.5,
+  "branches": [
+    "A_decoder_continue",
+    "B_decoder_conditional_projected",
+    "C_decoder_illm"
+  ],
+  "P_targets_per_update": 15,
+  "source_experiment": "v625_protocol_v622_B1_initial",
+  "cleaned_original_ULong_count": 1020,
+  "exclude_historical_test_identities": true,
+  "methods": [
+    "original",
+    "B1_initial",
+    "A_decoder_continue_1000",
+    "B_decoder_conditional_projected_1000",
+    "C_decoder_illm_1000"
+  ],
+  "expected_points": 800,
+  "training_plan_reused": true,
+  "i_frame_modes": {
+    "original": "native_RGB_bypass",
+    "B1_initial": "native_RGB_bypass",
+    "A_continue_1000": "native_RGB_bypass",
+    "B_capped_projected_1000": "native_RGB_bypass",
+    "C_capped_conditional_projected_1000": "native_RGB_bypass",
+    "A_continue_0": "native_RGB_bypass",
+    "B_capped_projected_0": "native_RGB_bypass",
+    "C_capped_conditional_projected_0": "native_RGB_bypass"
+  },
+  "training_plan": "plans/shared.json",
+  "target_positions": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "IPs": [
+    -1
+  ],
+  "calibration_seed": 20261025,
+  "lambda_rec": 0.1383589248954108,
+  "lambda_adv": null,
+  "projected": {
+    "model": "tf_efficientnet_lite1",
+    "projection": "official CCM/CSM, frozen",
+    "scales": 4,
+    "diffaug": false,
+    "D_optimizer": {
+      "lr": 0.0002,
+      "betas": [
+        0.0,
+        0.9
+      ]
+    }
+  },
+  "rho": 0.05,
+  "lambda_ceiling": null,
+  "gradient_eps": 1e-12,
+  "conditional_channels": 1024,
+  "conditional_capture": "recon_generation_net.mlp[0] forward-pre-hook: pixel_unshuffle(decoded P feature,2)",
+  "condition_modes": {
+    "B_decoder_conditional_projected": "actual_decoded_P",
+    "C_decoder_illm": "actual_decoded_P"
+  },
+  "source_shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "historical_expected_new_points": 0,
+  "reconstruction_unit_scale": 4096.0,
+  "adversarial_unit_scale": 4096.0,
+  "text_shard_limit_bytes": 524288,
+  "frozen_wrapper": true,
+  "trainable_modules": [
+    "bridge",
+    "generator"
+  ],
+  "gradient_zero_threshold": 1e-12,
+  "labeler_weight_sha256": "3f58659bf2449b17f1f7eaf5ee64fd64d281da2f640d46148536ea6183eb9183"
+}

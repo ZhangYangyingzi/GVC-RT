@@ -1,0 +1,19 @@
+{
+  "schema": "v625",
+  "authoritative_fields": {
+    "B1_gradient_norm": "whole-window mean gradient of full B1 objective including weighted reconstruction L1",
+    "unweighted_adv_gradient_norm": "mean15 unweighted adversarial gradient, FP32 restored after unit scaling4096",
+    "weighted_adv_gradient_norm": "lambda_eff * unweighted_adv_gradient_norm",
+    "adv_B1_ratio": "weighted_adv_gradient_norm / B1_gradient_norm",
+    "lambda_eff": "min(ceiling,.05*norm(g0)/(norm(ga)+1e-12))"
+  },
+  "floating_cap_tolerance": 1e-08,
+  "unused_parameters": "autograd allow_unused=True; None contributes zero to FP32 buffers and norm",
+  "legacy_fields": {
+    "adversarial_star_weighted_gradient_norm": "Unused inherited accumulator placeholders in raw JSONL; excluded from canonical gradient_summary.csv. Use weighted_adv_gradient_norm and per-module lambda_eff*adv_gradient_norm.",
+    "reconstruction_backward_scale": "Inherited effective-weight notation. Actual unit backward scale is reconstruction_unit_gradient_scale=4096."
+  },
+  "raw_logs_preserved": true,
+  "summary_module_weighted_norm": "lambda_eff multiplied by corresponding restored unweighted module norm",
+  "A_gradient_cosine": "not applicable; empty in final readable summary"
+}
