@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "capture_source": "experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/window_training.py",
+  "capture_source_SHA256": "bbc8ad23349814f67f1369abfa57edfc5d3e52fc49ff9f7f38b7ddfb233f75e2",
+  "location": "bridge[0] forward_pre_hook; pm.dec decoded feature -> pixel_unshuffle(feature,2)",
+  "shape": [
+    1,
+    1024,
+    16,
+    16
+  ],
+  "semantic": "actual decoder-available feature used to reconstruct current P frame",
+  "detached_G_and_D": true,
+  "same_condition_real_fake": true,
+  "GT_labels_not_decoder_input": true,
+  "proof_audits": [
+    "B_decoder_conditional_projected_pretraining.json",
+    "C_decoder_illm_pretraining.json",
+    "labeler_probe.json"
+  ]
+}

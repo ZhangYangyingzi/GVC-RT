@@ -77,7 +77,7 @@ def main():
   an=sum(float(p.grad.double().square().sum()) for p in (disc.discriminator.input_sequence.parameters() if a.branch=='C_decoder_illm' else disc.adapters.parameters()) if p.grad is not None)**.5
   assert math.isfinite(an) and an>0
   assert all(p.grad is None or torch.isfinite(p.grad).all() for p in disc.d_parameters());dop.step();assert gh=={k:v4.module_hash(m) for k,m in models.items()} and fh==tensor_hash(disc.feature.state_dict())
-  checks=dict(discriminator_parameters=sum(p.numel() for p in disc.d_parameters()),discriminator_class='ConditionalUnetDiscriminator' if a.branch=='C_decoder_illm' else 'ProjectedConditionalMultiScaleD',zero_weight_actual_discriminator_path_gradient_difference=zero_differences,zero_weight_actual_discriminator_path_loss_error=abs(zero['loss']-oldloss['loss']),D_parameters_buffers_unchanged_in_G=True,G_unchanged_in_D=True,feature_projection_frozen=True,feature_input_gradient_norm=float(dz.norm()),condition_shape=list(c.shape),condition_detached=True,adapter_gradient_norm=an,condition_replacement_score_difference=changed,B_zero_preserved=(a.branch=='B_decoder_conditional_projected'),lambda_eff=loss['lambda_eff'],adv_B1_ratio=loss['adv_B1_ratio'],module_gradients=module_grads,D_loss=dv,G_updates=1,D_updates=1)
+  checks=dict(discriminator_parameters=sum(p.numel() for p in disc.d_parameters()),discriminator_class='ConditionalUnetDiscriminator' if a.branch=='C_decoder_illm' else 'ProjectedConditionalMultiScaleD',zero_weight_actual_discriminator_path_gradient_difference=zero_differences,zero_weight_actual_discriminator_path_loss_error=abs(zero['loss']-oldloss['loss']),D_parameters_buffers_unchanged_in_G=True,G_unchanged_in_D=True,feature_projection_frozen=True,feature_input_gradient_norm=float(dz.norm()),condition_shape=list(c.shape),condition_detached=True,adapter_gradient_norm=an,condition_replacement_score_difference=changed,B_zero_preserved=False,B_actual_decoded_condition=(a.branch=='B_decoder_conditional_projected'),lambda_eff=loss['lambda_eff'],adv_B1_ratio=loss['adv_B1_ratio'],module_gradients=module_grads,D_loss=dv,G_updates=1,D_updates=1)
  else:
   opt=torch.optim.AdamW([dict(params=list(m.parameters()),lr=load(ROOT/'config.json')['optimizer'][k+'_lr']) for k,m in models.items() if k!='wrapper'],weight_decay=1e-4);torch.nn.utils.clip_grad_norm_(params,1.);opt.step()
  assert core==v4.compression_hash(im,pm) and initial['wrapper']==v4.module_hash(models['wrapper'])
@@ -85,8 +85,10 @@ def main():
   import torch.nn.functional as F
   gt=frames[49];before=tensor_hash(disc.feature.state_dict());y=disc.labels(gt);raw=disc.feature(gt)
   with torch.no_grad():
-   f=disc.feature.encoder(gt);z=F.normalize(disc.feature.bottleneck_op.input_conv(f),dim=1);flat=z.permute(0,2,3,1).reshape(-1,8);code=disc.feature.bottleneck_op.child.child.codebooks[0];manual=(flat.square().sum(1,keepdim=True)+code.square().sum(1)[None]-2*flat@code.T).argmin(1).reshape(1,32,32)
-  assert torch.equal(y,raw.reshape(1,32,32)) and torch.equal(y,manual) and tensor_hash(disc.feature.state_dict())==before
+   f=disc.feature.encoder(gt);z=F.normalize(disc.feature.bottleneck_op.input_conv(f),dim=1);flat=z.permute(0,2,3,1).reshape(-1,8);vq=disc.feature.bottleneck_op.child.child;code=vq.codebooks[0];code=F.normalize(code,dim=1) if vq.normalize_codebook else code;manual=(code[None,:,:]-flat[:,None,:]).square().sum(2).argmin(1).reshape(1,32,32)
+  probe=dict(cache_vs_forward_mismatches=int((y!=raw.reshape(1,32,32)).sum()),manual_vs_official_mismatches=int((y!=manual).sum()),state_unchanged=tensor_hash(disc.feature.state_dict())==before)
+  dump(ROOT/'audits/labeler_spatial_check.json',probe)
+  assert probe['cache_vs_forward_mismatches']==probe['manual_vs_official_mismatches']==0 and probe['state_unchanged'],probe
   assert y.dtype==torch.long and y.min()>=0 and y.max()<1024
   dump(ROOT/'audits/labeler_probe.json',dict(status='PASS',weight_SHA256=sha(ROOT/'weights/vqvae_xcit_p8_ch64_cb1024_h8.ckpt'),shape=list(y.shape),dtype=str(y.dtype),min=int(y.min()),max=int(y.max()),row_major_BHW_layout=True,manual_nearest_codebook_indices_equal=True,stable_output=True,frozen_buffers=True,real_targets='y+1',fake_target=0,labels_no_codec_path=True))
  if actual_dists:dump(ROOT/'audits/actual_DISTS_optimizer_path.json',actual_dists)

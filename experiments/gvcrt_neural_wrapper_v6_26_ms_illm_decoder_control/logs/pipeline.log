@@ -1,0 +1,20 @@
+START init_A_decoder_continue GPU 6
+START init_B_decoder_conditional_projected GPU 4
+START check_C_decoder_illm GPU 7
+START init_C_decoder_illm GPU 5
+FINISH historical_cpu 0
+START codec_A_decoder_continue GPU 6
+FINISH init_A_decoder_continue 0
+FINISH init_B_decoder_conditional_projected 0
+FINISH init_C_decoder_illm 0
+START codec_B_decoder_conditional_projected GPU 4
+START codec_C_decoder_illm GPU 5
+FINISH check_C_decoder_illm 1
+START check_C_decoder_illm GPU 7
+FINISH check_C_decoder_illm 0
+START train_A_decoder_continue GPU 7
+FINISH codec_A_decoder_continue 0
+START train_B_decoder_conditional_projected GPU 6
+START train_C_decoder_illm GPU 6
+FINISH codec_B_decoder_conditional_projected 0
+FINISH codec_C_decoder_illm 0

@@ -7,7 +7,7 @@ CURRENT='--current' in sys.argv
 if CURRENT:HM=METHODS
 def main():
  import numpy as np
- from report import comparisons,summarize
+ from report import comparisons,summarize,PAIRS
  fid=module('v626_historical_fid',REPO/'expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py').low_rank_fid
  records={};out=ROOT/('results/fid_decomposition' if CURRENT else 'historical');out.mkdir(exist_ok=True)
  if (out/'fid_decomposition_raw.json').exists():records={f"{r['dataset']}/{r['method']}/{r['QP']}":r for r in load(out/'fid_decomposition_raw.json')}
@@ -35,7 +35,7 @@ def main():
      records[key]=r;dump(out/'fid_decomposition_raw.json',list(records.values()));write(out/'fid_decomposition_raw.csv',list(records.values()));dump(out/'status.json',dict(status='RUNNING',pooled_completed=len(records),pooled_expected=200));print('FID_COMPONENT',key,flush=True)
   if len(records)==200:break
   time.sleep(30)
- equal=[];bands=[];main=[];pairs=tuple((m,ref) for m in HM[2:] for ref in ('original','B1_initial'))
+ equal=[];bands=[];main=[];pairs=PAIRS if CURRENT else tuple((m,ref) for m in HM[2:] for ref in ('original','B1_initial'))
  for d in DATASETS:
   rows=[r for r in records.values() if r['dataset']==d];lo=max(min(r['bpp'] for r in rows if r['method']==m) for m in HM);hi=min(max(r['bpp'] for r in rows if r['method']==m) for m in HM)
   assert lo<hi;grid=np.linspace(np.log(lo),np.log(hi),100);values={}

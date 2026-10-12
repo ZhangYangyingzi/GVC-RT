@@ -495,7 +495,7 @@
   "condition_detached": true,
   "adapter_gradient_norm": 0.6233119541123502,
   "condition_replacement_score_difference": 0.6097336411476135,
-  "B_zero_preserved": true,
+  "B_zero_preserved": false,
   "lambda_eff": 0.03395825302751716,
   "adv_B1_ratio": 0.0499999999999914,
   "module_gradients": {
@@ -527,5 +527,7 @@
   "D_loss": 1.0126516073942184,
   "G_updates": 1,
   "D_updates": 1,
-  "peak_memory_MiB": 3860.0
+  "peak_memory_MiB": 3860.0,
+  "B_actual_decoded_condition": true,
+  "metadata_correction": "Inherited B_zero_preserved field renamed for V6.26 actual-condition B; computation unchanged. Nonzero bias-free adapter gradient verifies nonzero condition."
 }

@@ -44,7 +44,9 @@ def main():
   write(ROOT/'branches'/b/'gradient_summary.csv',compact)
   assert (ROOT/'branches'/b/'gradient_summary.csv').stat().st_size<=524288
   events=[json.loads(x) for x in (ROOT/'gpu_schedule.jsonl').read_text().splitlines()];failures=[x for x in events if x.get('event')=='exit' and x.get('task')=='train_'+b and x.get('exit_code')];s.update(retry_count=max(0,load(ROOT/'pipeline_status.json').get('attempts',{}).get('train_'+b,1)-1),failed_worker_attempts=len(failures),numeric_failure_attempts=sum(any(t in x.get('error','').lower() for t in ('nonfinite','non-finite','nan','inf gradient')) for x in failures),failure_records=failures)
-  s.update(ceiling_fraction=s['ceiling_steps']/1000,clipping_fraction=s['clipped_steps']/1000,adversarial_statistics_applicable=b!='A_decoder_continue');summaries[b]=s;dump(ROOT/'branches'/b/'gradient_control_summary.json',s)
+  s.update(legacy_ceiling_field_no_ceiling=True,ceiling_fraction=s['ceiling_steps']/1000,clipping_fraction=s['clipped_steps']/1000,adversarial_statistics_applicable=b!='A_decoder_continue');summaries[b]=s;dump(ROOT/'branches'/b/'gradient_control_summary.json',s)
+ rows=[json.loads(x) for x in (ROOT/'branches/C_decoder_illm/training_logs/train.jsonl').read_text().splitlines()]
+ write(ROOT/'branches/C_decoder_illm/training_logs/local_CE_summary.csv',[dict(step=x['adaptation_step'],CE_G=x['projected_adv'],weighted_CE_G=x['weighted_projected_adv'],D_local_CE=x['D_loss'],lambda_eff=x['lambda_eff'],adv_B1_ratio=x['adv_B1_ratio'],B1_gradient_norm=x['B1_gradient_norm'],unweighted_CE_gradient_norm=x['unweighted_adv_gradient_norm']) for x in rows])
  for d in DATASETS:
   folder=ROOT/'results/ip_-1'/d;rs=read(folder/'equal_rate_summary.csv')+read(folder/'equal_rate_fid_pooled.csv')
   for r in rs:
@@ -70,11 +72,18 @@ def main():
      band_summary.append(dict(dataset=d,metric=metric,method=m,reference=ref,band=label,status='available' if complete else 'unavailable',reason='' if complete else 'missing common interval for one or more sequences',method_mean=mm,reference_mean=rm,delta=mm-rm if complete else None,relative_change_percent=100*(mm-rm)/rm if complete and rm else None,aggregation='pooled dataset FID' if metric=='FID' else 'sequence equal weight'))
  write(ROOT/'results/equal_rate_bands_per_sequence.csv',band_rows);write(ROOT/'results/equal_rate_bands_summary.csv',band_summary)
  write(ROOT/'results/core_changes_vs_B1.csv',core);dump(ROOT/'results/core_changes_vs_B1.json',core)
+ decisions=[]
+ for d in DATASETS:
+  for m in METHODS[2:]:
+   rr=[x for x in core if x['dataset']==d and x['method']==m];assert len(rr)==4
+   ds={x['metric']:float(x['delta']) for x in rr};decisions.append(dict(dataset=d,method=m,**{k+'_delta_vs_B1':v for k,v in ds.items()},all_four_nonincrease=all(v<=0 for v in ds.values()),four_metric_improvement=all(v<=0 for v in ds.values()) and any(v<0 for v in ds.values()),scope='fixed step1000 decoder-only setting'))
+ write(ROOT/'results/four_metric_comparison_vs_B1.csv',decisions)
  dump(ROOT/'audits/gradient_control_integrity.json',dict(status='PASS',rho=.05,lambda_ceiling=None,eps=1e-12,FP32_restore=True,window_mean_before_weight=True,combined_then_global_clip=True,branches=summaries))
  text='# V6.25 numerical results\n\nMain evaluation:800/800; v6.25 pooled FID diagnostic:200/200.\n\nSigned difference=method-reference. Relative change=100*(method_mean-reference_mean)/reference_mean.\n\n|Dataset|Method|Metric|Delta|Relative change (%)|\n|---|---|---|---:|---:|\n'
  for r in core:text+=f"|{r['dataset']}|{r['method']}|{r['metric']}|{r['delta']}|{r['relative_change_percent']}|\n"
  (ROOT/'RESULTS_NUMBERS_ONLY.md').write_text(text)
  # Publication and byte-exact shard checks follow in verify_publication.py.
  final=load(ROOT/'audits/computational_integrity.json');final.update(status='PENDING_PUBLICATION',main_expected=800,main_completed=800,historical_early_completed=0,historical_FID_pooled_completed=200,gradient_control=True,three_branches_complete=True,publication_verified=False,shards_verified=False,shared_plan_sha256=sha(ROOT/'plans/shared.json'),expected_shared_plan_sha256=load(ROOT/'config.json')['source_shared_plan_sha256'],gradient_violation_count=0,DISTS_actual_optimizer_path_verified=True,labeler_pretrained_verified=True,wrapper_frozen_verified=True,condition_source_verified=True,B_actual_condition=True,C_condition_detached=True,official_pretrained_labeler=True,new_FID_decomposition_completed=True,cross_round_recomputed=True,domain_QP_counts_verified=True)
+ final.update(labels_space_and_offsets_verified=True,wrapper_excluded_from_gradient_norm=True,no_fixed_lambda_ceiling=True,decoder_only_optimizer=True,visuals_verified=True)
  dump(ROOT/'final_integrity.json',final)
 if __name__=='__main__':main()

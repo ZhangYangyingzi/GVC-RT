@@ -59,7 +59,6 @@
     "reference_detach": true,
     "BPTT": false,
     "optimizer": {
-      "wrapper_lr": 5e-05,
       "bridge_lr": 3e-06,
       "generator_lr": 5e-07,
       "weight_decay": 0.0001,
@@ -67,18 +66,23 @@
     },
     "updates": 1000,
     "branches": [
-      "A_continue",
-      "B_capped_projected",
-      "C_capped_conditional_projected"
+      "A_decoder_continue",
+      "B_decoder_conditional_projected",
+      "C_decoder_illm"
     ],
     "lambda_rec": 0.1383589248954108,
     "lambda_adv": "per-window gradient cap",
     "reconstruction_unit_scale": 4096.0,
     "adversarial_unit_scale": 4096.0,
-    "gradient_formula": "g0=mean15 complete B1; ga=mean15 unweighted adv; lambda=min(ceiling,.05*norm(g0)/(norm(ga)+eps)); clip(g0+lambda*ga)",
+    "gradient_formula": "g0=mean15 complete B1 on bridge+generator; ga=mean15 unweighted GAN; lambda=.05*norm(g0)/(norm(ga)+1e-12), no ceiling; FP32 merge then global clip1",
     "rho": 0.05,
-    "lambda_ceiling": 0.014448280572707944,
-    "gradient_eps": 1e-12
+    "lambda_ceiling": null,
+    "gradient_eps": 1e-12,
+    "frozen_wrapper": true,
+    "trainable_modules": [
+      "bridge",
+      "generator"
+    ]
   },
   "source_protocol_sha256": "023d59be81f61da331e8ddee4779e720b73f5180d5c027d045ce6e3a498997b3",
   "equal_rate": {
@@ -93,8 +97,16 @@
   "objective": "full B1 plus window-wise norm-controlled adversarial supervision for B/C; rho0.05, no lambda ceiling",
   "training_plan_reused": true,
   "condition": {
-    "B_capped_projected": "zero",
-    "C_capped_conditional_projected": "actual_decoded_feature_detached"
+    "capture": "actual decoded P feature at bridge input",
+    "shape": [
+      1,
+      1024,
+      16,
+      16
+    ],
+    "all_B_C_conditions": "actual detached context",
+    "real_fake_share_context": true,
+    "labels_only_for_C_CE_targets": true
   },
   "frozen_wrapper": true,
   "trainable_modules": [

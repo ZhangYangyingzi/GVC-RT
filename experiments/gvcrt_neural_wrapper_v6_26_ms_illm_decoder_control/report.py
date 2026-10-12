@@ -110,7 +110,7 @@ def main():
     assert load(ROOT/'historical/final_integrity.json')['status']=='PASS'
     binary=[]
     for path in ROOT.rglob('*'):
-        if path.is_file() and path.suffix in ('.pt','.pth','.npz','.npy','.bin') and 'vendor' not in path.parts:
+        if path.is_file() and path.suffix in ('.pt','.pth','.ckpt','.npz','.npy','.bin') and 'vendor' not in path.parts:
             binary.append(dict(path=str(path),bytes=path.stat().st_size,sha256=sha(path),server_only=True))
     indexed={x['path'] for x in binary};external={Path(load(ROOT/'config.json')['source_checkpoint']['path'])}
     for p in (ROOT/'parts').rglob('*.json'):
