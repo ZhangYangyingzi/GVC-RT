@@ -1,5 +1,5 @@
 {
-  "status": "PENDING_PUBLICATION",
+  "status": "PASS",
   "branches": {
     "A_decoder_continue": {
       "updates": 1000,
@@ -1305,8 +1305,8 @@
   "historical_FID_pooled_completed": 200,
   "gradient_control": true,
   "three_branches_complete": true,
-  "publication_verified": false,
-  "shards_verified": false,
+  "publication_verified": true,
+  "shards_verified": true,
   "shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
   "expected_shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
   "gradient_violation_count": 0,
@@ -1324,5 +1324,28 @@
   "wrapper_excluded_from_gradient_norm": true,
   "no_fixed_lambda_ceiling": true,
   "decoder_only_optimizer": true,
-  "visuals_verified": true
+  "visuals_verified": true,
+  "publication_commit": "883a36588cb529d42e3b36a1aec2ec9a37f83d48",
+  "remote_key_files": [
+    "audits/actual_DISTS_optimizer_path.json",
+    "audits/labeler_probe.json",
+    "audits/illm_source.json",
+    "config.json",
+    "protocol.json",
+    "final_integrity.json",
+    "file_index.json",
+    "RESULTS_NUMBERS_ONLY.md",
+    "historical/fid_decomposition_raw.csv",
+    "historical/fid_decomposition_equal_rate.csv",
+    "branches/A_decoder_continue/gradient_summary.csv",
+    "branches/B_decoder_conditional_projected/gradient_summary.csv",
+    "branches/C_decoder_illm/gradient_summary.csv",
+    "audits/A_decoder_continue_pretraining.json",
+    "audits/B_decoder_conditional_projected_pretraining.json",
+    "audits/C_decoder_illm_pretraining.json",
+    "results/ip_-1/ulong/equal_rate_summary.csv",
+    "results/ip_-1/uvg_holdout/equal_rate_summary.csv",
+    "results/ip_-1/hevc_b/equal_rate_summary.csv",
+    "results/ip_-1/uvg_validation/equal_rate_summary.csv"
+  ]
 }
