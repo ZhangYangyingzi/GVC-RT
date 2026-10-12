@@ -32,6 +32,8 @@ def labeler(device):
  m=proj.VqVaeProjector(model).to(device).eval().requires_grad_(False)
  dump(ROOT/'audits/illm_source.json',dict(status='PASS',commit='3f122808255a2278eea049119367eb3abc434862',source='https://github.com/facebookresearch/NeuralCompression',weight_source='https://dl.fbaipublicfiles.com/NeuralCompression/2023-muckley-msillm/vqvae_xcit_p8_ch64_cb1024_h8.ckpt',weight_path=str(WEIGHT),weight_bytes=WEIGHT.stat().st_size,weight_sha256=sha(WEIGHT),module_hash=tensor_hash(m.state_dict()),strict_full_autoencoder_load=True,adaptations=['selective package imports, no environment installation','omit eval VQ codebook_hits bookkeeping, identical quantize_vectors','ConditionalUnet context_in 220 to 1024, context_out16, factor8,1025 classes, identity norm'],source_files={str(p):sha(p) for p in OFFICIAL.rglob('*.py')},torch=torch.__version__))
  return m
+def local_ce(scores,target):
+ return -F.log_softmax(scores,dim=1).gather(1,target[:,None]).mean()
 class ILLM(torch.nn.Module):
  def __init__(self,feature,disc):super().__init__();self.feature=feature;self.discriminator=disc;self._target=None;self._labels={};self.weight_sha256=sha(WEIGHT)
  def d_parameters(self):return list(self.discriminator.parameters())
@@ -50,9 +52,9 @@ class ILLM(torch.nn.Module):
  def set_target(self,gt):self._target=self.labels(gt).detach()
  def scores(self,x,c):assert not c.requires_grad;return [self.discriminator(x,c.detach().float())]
  def adversarial(self,x,c):
-  s=self.scores(x,c)[0];assert s.shape==torch.Size([1,1025,32,32]);return F.cross_entropy(s,self._target+1)
+  s=self.scores(x,c)[0];assert s.shape==torch.Size([1,1025,32,32]);return local_ce(s,self._target+1)
  def d_loss(self,gt,fake,c):
-  y=self.labels(gt);return .5*F.cross_entropy(self.scores(gt,c)[0],y+1)+.5*F.cross_entropy(self.scores(fake.detach(),c)[0],torch.zeros_like(y))
+  y=self.labels(gt);return .5*local_ce(self.scores(gt,c)[0],y+1)+.5*local_ce(self.scores(fake.detach(),c)[0],torch.zeros_like(y))
  def g_mode(self):self.eval();self.feature.eval().requires_grad_(False);self.discriminator.requires_grad_(False)
  def d_mode(self):self.discriminator.train().requires_grad_(True);self.feature.eval().requires_grad_(False)
 def create_illm(device):

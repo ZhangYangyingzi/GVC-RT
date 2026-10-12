@@ -4,6 +4,9 @@ from report import PAIRS
 import statistics,math
 
 def main():
+ assert load(ROOT/'results/fid_decomposition/final_integrity.json')['status']=='PASS'
+ assert load(ROOT/'audits/cross_round_integrity.json')['status']=='PASS'
+ assert load(ROOT/'historical/visual_integrity.json')['status']=='PASS'
  from reconcile_gpu_schedule import main as reconcile
  reconcile()
  assert load(ROOT/'audits/computational_integrity.json')['status']=='PASS'
@@ -72,6 +75,6 @@ def main():
  for r in core:text+=f"|{r['dataset']}|{r['method']}|{r['metric']}|{r['delta']}|{r['relative_change_percent']}|\n"
  (ROOT/'RESULTS_NUMBERS_ONLY.md').write_text(text)
  # Publication and byte-exact shard checks follow in verify_publication.py.
- final=load(ROOT/'audits/computational_integrity.json');final.update(status='PENDING_PUBLICATION',main_expected=800,main_completed=800,historical_early_completed=0,historical_FID_pooled_completed=200,gradient_control=True,three_branches_complete=True,publication_verified=False,shards_verified=False,shared_plan_sha256=sha(ROOT/'plans/shared.json'),expected_shared_plan_sha256=load(ROOT/'config.json')['source_shared_plan_sha256'],gradient_violation_count=0,DISTS_actual_optimizer_path_verified=True,labeler_pretrained_verified=True,wrapper_frozen_verified=True,condition_source_verified=True,B_zero_condition_preserved=True,C_condition_detached=True,domain_QP_counts_verified=True)
+ final=load(ROOT/'audits/computational_integrity.json');final.update(status='PENDING_PUBLICATION',main_expected=800,main_completed=800,historical_early_completed=0,historical_FID_pooled_completed=200,gradient_control=True,three_branches_complete=True,publication_verified=False,shards_verified=False,shared_plan_sha256=sha(ROOT/'plans/shared.json'),expected_shared_plan_sha256=load(ROOT/'config.json')['source_shared_plan_sha256'],gradient_violation_count=0,DISTS_actual_optimizer_path_verified=True,labeler_pretrained_verified=True,wrapper_frozen_verified=True,condition_source_verified=True,B_actual_condition=True,C_condition_detached=True,official_pretrained_labeler=True,new_FID_decomposition_completed=True,cross_round_recomputed=True,domain_QP_counts_verified=True)
  dump(ROOT/'final_integrity.json',final)
 if __name__=='__main__':main()
