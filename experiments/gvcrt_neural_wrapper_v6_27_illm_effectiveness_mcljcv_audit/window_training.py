@@ -16,8 +16,10 @@ def replay(row,branch,device):
                 ok,bgr=cap.read();assert ok,(row['video'],i);a=cv2.cvtColor(bgr,cv2.COLOR_BGR2RGB);full.append(hashlib.sha256(a.tobytes()).hexdigest());arrays.append(a[y:y+256,x:x+256].copy())
         finally:cap.release()
     else:
-        for i in indices:
-            p=Path(v['input_dir'])/f'frame_{i:06d}.png';assert sha(p)==v['frame_file_sha256'][i]
+        for j,i in enumerate(indices):
+            directory=row.get('diagnostic_input_dir',v['input_dir'])
+            p=Path(directory)/f'frame_{i:06d}.png';assert sha(p)==(row['diagnostic_frame_file_sha256'][j] if 'diagnostic_input_dir' in row else v['frame_file_sha256'][i])
+            if 'diagnostic_input_dir' in row:assert sha(row['diagnostic_source_manifest'])==row['diagnostic_source_manifest_SHA256']
             with Image.open(p) as im:a=np.asarray(im,dtype=np.uint8)
             full.append(hashlib.sha256(a.tobytes()).hexdigest());arrays.append(a[y:y+256,x:x+256].copy())
     hashes=[hashlib.sha256(a.tobytes()).hexdigest() for a in arrays];assert hashes==row['cropped_RGB_sha256'] and full==row['full_RGB_sha256'];assert len(arrays)==64

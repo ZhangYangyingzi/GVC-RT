@@ -48,7 +48,7 @@ def diagnostics():
  ability=[]
  for key,rr in groups2.items():
   real=[r for r in rr if r['image']=='real'];fake=[r for r in rr if r['image']=='reconstruction'];realce=statistics.mean(float(r['CE_content']) for r in real);fakece=statistics.mean(float(r['CE_fake']) for r in fake);gce=statistics.mean(float(r['CE_content']) for r in fake);counts=(classcounts[key[:4]+('real',)] if key[4]=='all' else qp_classcounts[key[:4]+('real',key[4])])['GT'];freq=counts/counts.sum();nonzero=freq[freq>0]
-  ability.append(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],QP=key[4],windows=len({r['panel_id'] for r in real}),frames=len(real),CE_real=realce,CE_fake=fakece,CE_G=gce,D_loss=.5*(realce+fakece),uniform_CE_ln1025=math.log(1025),GT_frequency_entropy=-float((nonzero*np.log(nonzero)).sum()),GT_majority_top1=float(freq.max()),GT_majority_top5=float(np.sort(freq)[-5:].sum()),real_content_top1=statistics.mean(float(r['content_only_top1']) for r in real),real_content_top5=statistics.mean(float(r['content_only_top5']) for r in real),fake_content_top1=statistics.mean(float(r['content_only_top1']) for r in fake),fake_content_top5=statistics.mean(float(r['content_only_top5']) for r in fake),real_all_class_top1=statistics.mean(float(r['all_class_top1']) for r in real),fake_all_class_accuracy=statistics.mean(float(r['fake_class_accuracy']) for r in fake),real_p_fake=statistics.mean(float(r['p_fake']) for r in real),fake_p_fake=statistics.mean(float(r['p_fake']) for r in fake),AUROC_fake_from_frame_mean_p_fake=auc([float(r['p_fake']) for r in real],[float(r['p_fake']) for r in fake])))
+  ability.append(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],QP=key[4],windows=len({r['panel_id'] for r in real}),frames=len(real),CE_real=realce,CE_fake=fakece,CE_G=gce,D_loss=.5*(realce+fakece),uniform_CE_ln1025=math.log(1025),GT_frequency_entropy=-float((nonzero*np.log(nonzero)).sum()),balanced_prior_CE_real=-float((nonzero*np.log(nonzero)).sum())+math.log(2),balanced_prior_CE_fake=math.log(2),balanced_prior_D_loss=-.5*float((nonzero*np.log(nonzero)).sum())+math.log(2),balanced_prior_AUROC=.5,GT_majority_top1=float(freq.max()),GT_majority_top5=float(np.sort(freq)[-5:].sum()),real_content_top1=statistics.mean(float(r['content_only_top1']) for r in real),real_content_top5=statistics.mean(float(r['content_only_top5']) for r in real),fake_content_top1=statistics.mean(float(r['content_only_top1']) for r in fake),fake_content_top5=statistics.mean(float(r['content_only_top5']) for r in fake),real_all_class_top1=statistics.mean(float(r['all_class_top1']) for r in real),fake_all_class_accuracy=statistics.mean(float(r['fake_class_accuracy']) for r in fake),real_p_fake=statistics.mean(float(r['p_fake']) for r in real),fake_p_fake=statistics.mean(float(r['p_fake']) for r in fake),AUROC_fake_from_frame_mean_p_fake=auc([float(r['p_fake']) for r in real],[float(r['p_fake']) for r in fake])))
  write(ROOT/'diagnostics/discriminator_ability.csv',ability)
  hist=[]
  for key,cs in classcounts.items():
@@ -108,7 +108,7 @@ def diagnostics():
      valid=[float(r[metric]) for r in rs if r[metric]!=''];missing=len(rs)-len(valid)
      logstats.append(dict(branch=b,start=lo,end=hi,metric=metric,not_applicable_count=missing,status='available' if valid else 'not_applicable',**(distribution(valid) if valid else dict(count=0))))
  write(ROOT/'diagnostics/training_gradient_distributions.csv',logstats)
- dump(ROOT/'audits/diagnostic_integrity.json',dict(status='PASS',requested_points=240,declared_unavailable_points=40,expected_points=len(load(ROOT/'diagnostic_plan.json')['updates'])*4,completed_points=len(allpoints),fixed_panel_points=len(allpoints),matched_panel_points=len(allpoints),frames=len(allframes),optimizer_steps=0,no_training=True,states_unchanged=True,condition_detached=True,D_strict_checkpoint_restored=True,labeler_pretrained_verified=True,full15_frame_gradients=True,unit_scale4096=True,whole_BG_ratio_max=max(g['adv_B1_ratio'] for g in grads),DISTS_deep_valid=True))
+ dump(ROOT/'audits/diagnostic_integrity.json',dict(status='PASS',requested_points=240,declared_unavailable_points=0,expected_points=len(load(ROOT/'diagnostic_plan.json')['updates'])*4,completed_points=len(allpoints),fixed_panel_points=len(allpoints),matched_panel_points=len(allpoints),frames=len(allframes),optimizer_steps=0,no_training=True,states_unchanged=True,condition_detached=True,D_strict_checkpoint_restored=True,labeler_pretrained_verified=True,full15_frame_gradients=True,unit_scale4096=True,whole_BG_ratio_max=max(g['adv_B1_ratio'] for g in grads),DISTS_deep_valid=True))
  print('DIAGNOSTICS SUMMARY PASS',len(allpoints),flush=True)
 
 def evaluation():
@@ -118,8 +118,16 @@ def evaluation():
  for v in vs:
   for m in METHODS:
    for q in range(10):
-    r=load(point('mcljcv',m,v['video_index'],q));validate(r,v,q,m);raw.append(r);fr=read(r['frame_metrics_path']);tr=read(r['transitions_path']);windows.extend(window_rows(r,fr,tr))
+    r=load(point('mcljcv',m,v['video_index'],q));validate(r,v,q,m);r.update(source_path=v['source_path'],source_fps_metadata=v['source_fps_metadata'],kbps_source_fps=r['bits_per_frame']*v['source_fps_metadata']/1000,source_width=v['width'],source_height=v['height'],source_bit_depth=8,source_pixel_format='yuv420p');dump(point('mcljcv',m,v['video_index'],q),r);raw.append(r);fr=read(r['frame_metrics_path']);tr=read(r['transitions_path']);windows.extend(window_rows(r,fr,tr))
+    transitions={int(t['to_frame']):float(t['FloLPIPS']) for t in tr};cumulative=0;joined=[]
+    for f in fr:
+     i=int(f['frame']);cumulative+=int(f['real_bits']);joined.append(dict(f,dataset='mcljcv',sequence=v['name'],method=m,QP=q,source_frame_index=v['source_frame_indices'][i],actual_bits=int(f['real_bits']),cumulative_bits=cumulative,sequence_actual_bpp=r['bpp'],FloLPIPS=transitions.get(i),FloLPIPS_definition='target frame of adjacent transition; frame0 undefined'))
+    assert cumulative==r['total_bits'];write(ROOT/'results/mcljcv/per_frame'/m/f'video_{v["video_index"]:02d}_qp{q}.csv',joined)
   with np.load(next(r['feature_path'] for r in raw if r['method']=='original' and r['QP']==0 and r['video_index']==v['video_index'])) as z:gt.append(z['real'].copy())
+ for v in vs:
+  for q in range(10):
+   group=[r for r in raw if r['video_index']==v['video_index'] and r['QP']==q]
+   assert len(group)==5 and len({r['I_refresh_audits'][0]['payload_sha256'] for r in group})==1 and len({r['I_refresh_audits'][0]['native_I_sha256'] for r in group})==1
  reference=np.concatenate(gt);assert reference.shape==(64*len(vs),2048)
  gtpath=ROOT/'features/GT_mcljcv.npy'
  if gtpath.exists():
@@ -175,6 +183,6 @@ def evaluation():
    for q in range(10):
     rs=[r for r in raw if r['sequence'] not in confirmed and r['method']==m and r['QP']==q];rec2=np.concatenate([np.load(r['feature_path'])['reconstruction'] for r in rs]);pool2.append(dict(dataset='mcljcv',method=m,QP=q,bpp=statistics.mean(r['bpp'] for r in rs),FID=float(fid(ref2,rec2))))
   f2,_=comparisons('mcljcv','pooled_dataset','FID',pool2,True);write(out/'confirmed_overlap_excluded_equal_rate_summary.csv',summarize('mcljcv',per2,len(retained))+f2)
- dump(ROOT/'audits/evaluation_integrity.json',dict(status='PASS',N=len(vs),expected_points=len(vs)*50,completed_points=len(raw),fresh=len(raw),reused=0,real_RANS=True,independent_decode=True,total_bytes_include_all_headers_I=True,GT_fixed_pool=pool,FID_pooled_samples=len(reference),FID_float64_ddof1=True,FID_decomposition_closed=True,PCHIP_main=True,linear_diagnostic_components=True,no_extrapolation=True,comparisons=len(PAIRS),common_rates_saved=True))
+ dump(ROOT/'audits/evaluation_integrity.json',dict(status='PASS',N=len(vs),expected_points=len(vs)*50,completed_points=len(raw),fresh=len(raw),reused=0,real_RANS=True,independent_decode=True,native_I_all_methods_identical=True,total_bytes_include_all_headers_I=True,GT_fixed_pool=pool,FID_pooled_samples=len(reference),FID_float64_ddof1=True,FID_decomposition_closed=True,PCHIP_main=True,linear_diagnostic_components=True,no_extrapolation=True,comparisons=len(PAIRS),common_rates_saved=True))
  print('EVALUATION SUMMARY PASS',len(raw),flush=True)
 if __name__=='__main__':diagnostics();evaluation()

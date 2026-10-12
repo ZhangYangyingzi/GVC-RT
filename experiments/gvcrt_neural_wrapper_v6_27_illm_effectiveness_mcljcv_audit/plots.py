@@ -17,6 +17,8 @@ def main():
     for rp in ('fixed','matched'):
      rows=sorted([r for r in ability if r['domain']==domain and r['panel_type']==panel and r['reconstruction_panel']==rp and r.get('QP','all')=='all'],key=lambda r:int(r['step']))
      if rows:ax.plot([int(r['step']) for r in rows],[float(r[metric]) for r in rows],marker='o',label=f'{panel}/{rp}')
+   if metric in ('CE_real','CE_fake','CE_G'):ax.axhline(np.log(1025),linestyle=':',color='gray',label='uniform ln(1025)')
+   if metric=='AUROC_fake_from_frame_mean_p_fake':ax.axhline(.5,linestyle=':',color='gray',label='chance0.5')
    ax.set(xlabel='Checkpoint update',ylabel=metric,title=f'{domain} / {metric}');ax.legend();fig.tight_layout();fig.savefig(out/f'diagnostic_{domain}_{metric}.png',dpi=140);plt.close(fig)
  logs=read(ROOT/'diagnostics/training_logs/C_decoder_illm_gradient_summary.csv')
  for metric in ['lambda_eff','adv_B1_ratio','gradient_cosine','global_clip_coefficient','B1_gradient_norm','unweighted_adv_gradient_norm']:
@@ -35,6 +37,18 @@ def main():
   for m in METHODS:
    rs=sorted([r for r in rows if r['method']==m],key=lambda r:float(r['bpp']));ax.plot([float(r['bpp']) for r in rs],[float(r[metric]) for r in rs],marker='.',label=m)
   ax.set(xlabel='Actual bpp (dataset mean)',ylabel=metric,title=f'MCL-JCV / {metric}');ax.legend(fontsize=6);fig.tight_layout();fig.savefig(out/f'MCL_JCV_Rate_{metric}.png',dpi=140);plt.close(fig)
+ frame_groups={m:{} for m in METHODS}
+ for m in METHODS:
+  for path in (ROOT/'results/mcljcv/per_frame'/m).glob('*.csv'):
+   for r in read(path):
+    i=int(r['frame']);bucket=frame_groups[m].setdefault(i,{k:[] for k in ('LPIPS','DISTS','FloLPIPS')})
+    for k in bucket:
+     if r[k]:bucket[k].append(float(r[k]))
+ for metric in ('LPIPS','DISTS','FloLPIPS'):
+  fig,ax=plt.subplots()
+  for m in METHODS:
+   xs=sorted(frame_groups[m]);ys=[np.mean(frame_groups[m][i][metric]) if frame_groups[m][i][metric] else np.nan for i in xs];ax.plot(xs,ys,label=m)
+  ax.set(xlabel='Frame index / reference age (I0 only)',ylabel=metric,title=f'MCL-JCV / {metric} / all measured QPs, same-QP diagnostic');ax.legend(fontsize=6);fig.tight_layout();fig.savefig(out/f'MCL_JCV_per_frame_{metric}.png',dpi=140);plt.close(fig)
  windows=read(ROOT/'results/mcljcv/window_metrics.csv')
  for metric in ['LPIPS','DISTS','FloLPIPS']:
   fig,ax=plt.subplots();names=['1-1','2-8','9-16','17-32','33-48','49-64']

@@ -20,7 +20,7 @@ def reconstruct(model,panel,device):
  from window_training import replay
  path=ccache(model,panel)
  if path.exists():
-  s=torch.load(path,map_location='cpu',weights_only=True);assert s['plan_sha256']==sha(ROOT/'diagnostic_plan.json') and s['model_sha256']==(EXPECTED if model=='B1' else checkpoint(int(model[1:]))['sha256']);return s
+  s=torch.load(path,map_location='cpu',weights_only=True);accepted=load(ROOT/'audits/diagnostic_plan_revisions/revision.json')['accepted_plan_hashes'] if (ROOT/'audits/diagnostic_plan_revisions/revision.json').exists() else [sha(ROOT/'diagnostic_plan.json')];row=row_for(panel);assert s['source_cropped_RGB_sha256']==row['cropped_RGB_sha256'] and s['source_indices']==row['source_frame_indices'];assert s['plan_sha256'] in accepted and s['model_sha256']==(EXPECTED if model=='B1' else checkpoint(int(model[1:]))['sha256']);return s
  row=row_for(panel);frames=replay(row,'C_decoder_illm',device);step=None if model=='B1' else int(model[1:]);v4,im,pm,models,quality=load_g(step,device);before={k:v4.module_hash(m) for k,m in models.items()};core=v4.compression_hash(im,pm);captures=[];latent=[];hh=pm.dec.register_forward_hook(lambda m,a,o:captures.append(o));lh=models['bridge'][0].register_forward_pre_hook(lambda m,a:latent.append(a[0].detach()));common=module('diag_qp',V62/'fullqp_common.py');q=row['external_qp'];recframes=[];conditions=[];warm=[]
  try:
   with torch.no_grad():
