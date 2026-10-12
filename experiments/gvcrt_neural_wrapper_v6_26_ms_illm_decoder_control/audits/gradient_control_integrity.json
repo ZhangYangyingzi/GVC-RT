@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "rho": 0.05,
+  "lambda_ceiling": null,
+  "eps": 1e-12,
+  "FP32_restore": true,
+  "window_mean_before_weight": true,
+  "combined_then_global_clip": true,
+  "branches": {
+    "A_decoder_continue": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 0,
+      "violations": 0,
+      "ceiling_steps": 0.0,
+      "clipped_steps": 913,
+      "distributions": {
+        "lambda_eff": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "gradient_cosine": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "global_clip_coefficient": {
+          "min": 0.1239104404535522,
+          "max": 1.0,
+          "mean": 0.5762797479727132,
+          "median": 0.5482413201586085
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        }
+      },
+      "retry_count": 0,
+      "failed_worker_attempts": 0,
+      "numeric_failure_attempts": 0,
+      "failure_records": [],
+      "legacy_ceiling_field_no_ceiling": true,
+      "ceiling_fraction": 0.0,
+      "clipping_fraction": 0.913,
+      "adversarial_statistics_applicable": false
+    },
+    "B_decoder_conditional_projected": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 1000,
+      "violations": 0,
+      "ceiling_steps": 0.0,
+      "clipped_steps": 913,
+      "distributions": {
+        "lambda_eff": {
+          "min": 7.94533139101772e-05,
+          "max": 0.037754248952648874,
+          "mean": 0.0008829670437047216,
+          "median": 0.0006527816155595903
+        },
+        "adv_B1_ratio": {
+          "min": 0.0499999999999893,
+          "max": 0.04999999999999994,
+          "mean": 0.04999999999999959,
+          "median": 0.04999999999999965
+        },
+        "gradient_cosine": {
+          "min": -0.4651897114475953,
+          "max": 0.5307615940740322,
+          "mean": 0.0030308108949089435,
+          "median": -0.004141441925649222
+        },
+        "global_clip_coefficient": {
+          "min": 0.12520983891943166,
+          "max": 1.0,
+          "mean": 0.5751529543899717,
+          "median": 0.5483914507486416
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.007233698723159151,
+          "max": 0.05559742417072442,
+          "mean": 0.02447050822509158,
+          "median": 0.023418215570418267
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.041859518378131656,
+          "max": 0.16790725160928763,
+          "mean": 0.08609447150640648,
+          "median": 0.08259654107023767
+        }
+      },
+      "retry_count": 0,
+      "failed_worker_attempts": 0,
+      "numeric_failure_attempts": 0,
+      "failure_records": [],
+      "legacy_ceiling_field_no_ceiling": true,
+      "ceiling_fraction": 0.0,
+      "clipping_fraction": 0.913,
+      "adversarial_statistics_applicable": true
+    },
+    "C_decoder_illm": {
+      "steps": 1000,
+      "G_updates": 1000,
+      "D_updates": 1000,
+      "violations": 0,
+      "ceiling_steps": 0.0,
+      "clipped_steps": 911,
+      "distributions": {
+        "lambda_eff": {
+          "min": 0.010752463631954128,
+          "max": 4518.110655731846,
+          "mean": 176.58079670217248,
+          "median": 52.02390680899021
+        },
+        "adv_B1_ratio": {
+          "min": 0.04999999775391266,
+          "max": 0.049999999999991177,
+          "mean": 0.04999999991059189,
+          "median": 0.04999999997504199
+        },
+        "gradient_cosine": {
+          "min": -0.6857800658080719,
+          "max": 0.6332266202569812,
+          "mean": -0.012790982279909371,
+          "median": -0.012462909806438363
+        },
+        "global_clip_coefficient": {
+          "min": 0.12473399966013446,
+          "max": 1.0,
+          "mean": 0.5757330405629011,
+          "median": 0.549854552366575
+        },
+        "wrapper_weighted_adv_B1_ratio": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "bridge_weighted_adv_B1_ratio": {
+          "min": 0.043801687628608664,
+          "max": 0.21931766449660667,
+          "mean": 0.059606877590390926,
+          "median": 0.05642430096572998
+        },
+        "generator_weighted_adv_B1_ratio": {
+          "min": 0.015726880562557242,
+          "max": 0.07306336630372964,
+          "mean": 0.03055368206330757,
+          "median": 0.0294164481695864
+        }
+      },
+      "retry_count": 1,
+      "failed_worker_attempts": 1,
+      "numeric_failure_attempts": 0,
+      "failure_records": [
+        {
+          "event": "exit",
+          "task": "train_C_decoder_illm",
+          "physical_gpu": 6,
+          "logical_gpu": 0,
+          "PID": 2444859,
+          "process_start": "4941964556",
+          "exit_code": -15,
+          "retry_count": 0,
+          "peak_memory_MiB": 14000,
+          "error": "cannot import cuda implementation for inference, fallback to pytorch.\n[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...\n==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt\n    \u26a0\ufe0f [WARNING] No 'ema' or 'student' key. Using default state_dict...\n-------------------------------------------------------\nSub-Module                | Parameters Loaded\n-------------------------------------------------------\nenc (Encoder)             | 74         \u2705\ndec (Latent Dec)          | 120        \u2705\nrecon (Recon Head)        | 212        \u2705\nentropy (Prior/Hyper)     | 190        \u2705\n-------------------------------------------------------\n==> [DMCI] Full Load Finished.\n/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\n/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\nTRAIN C_decoder_illm 1 /1000\nTRAIN C_decoder_illm 10 /1000\nTRAIN C_decoder_illm 20 /1000\nTRAIN C_decoder_illm 30 /1000\nTRAIN C_decoder_illm 40 /1000\nTRAIN C_decoder_illm 50 /1000\nTRAIN C_decoder_illm 60 /1000\nTRAIN C_decoder_illm 70 /1000\nTRAIN C_decoder_illm 80 /1000\nTRAIN C_decoder_illm 90 /1000\nTRAIN C_decoder_illm 100 /1000\nTRAIN C_decoder_illm 110 /1000\nTRAIN C_decoder_illm 120 /1000\nTRAIN C_decoder_illm 130 /1000\nTRAIN C_decoder_illm 140 /1000\n",
+          "unix": 1791774426.857998
+        }
+      ],
+      "legacy_ceiling_field_no_ceiling": true,
+      "ceiling_fraction": 0.0,
+      "clipping_fraction": 0.911,
+      "adversarial_statistics_applicable": true
+    }
+  }
+}

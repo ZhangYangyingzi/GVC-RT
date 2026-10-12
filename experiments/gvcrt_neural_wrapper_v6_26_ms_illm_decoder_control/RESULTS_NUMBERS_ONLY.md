@@ -1,0 +1,56 @@
+# V6.26 numerical results
+
+Main evaluation:800/800; v6.25 pooled FID diagnostic:200/200.
+
+Signed difference=method-reference. Relative change=100*(method_mean-reference_mean)/reference_mean.
+
+|Dataset|Method|Metric|Delta|Relative change (%)|
+|---|---|---|---:|---:|
+|ulong|A_decoder_continue_1000|LPIPS|-0.0004608786808314551|-0.4339678471184714|
+|ulong|A_decoder_continue_1000|DISTS|-0.00034561659597681036|-0.445298456340004|
+|ulong|A_decoder_continue_1000|FloLPIPS|-0.00034787225856797583|-0.3500791580937079|
+|ulong|B_decoder_conditional_projected_1000|LPIPS|-0.00026653456582540955|-0.25097153876859435|
+|ulong|B_decoder_conditional_projected_1000|DISTS|-0.00018294902979473996|-0.235714724075247|
+|ulong|B_decoder_conditional_projected_1000|FloLPIPS|-0.0002643222395499173|-0.2659990982551825|
+|ulong|C_decoder_illm_1000|LPIPS|-0.0003210574842628817|-0.30231084891033655|
+|ulong|C_decoder_illm_1000|DISTS|-0.00021633099056850188|-0.2787246251482606|
+|ulong|C_decoder_illm_1000|FloLPIPS|-0.00022292454175265773|-0.22433877371094468|
+|ulong|A_decoder_continue_1000|FID|0.029090029424596438|0.12607407265999118|
+|ulong|B_decoder_conditional_projected_1000|FID|0.034257805602812275|0.14847083891530732|
+|ulong|C_decoder_illm_1000|FID|0.020255479032060267|0.08778577353695204|
+|uvg_holdout|A_decoder_continue_1000|LPIPS|-0.0009359545451833035|-0.6458423991899873|
+|uvg_holdout|A_decoder_continue_1000|DISTS|-0.0017620815954265173|-1.948547065159975|
+|uvg_holdout|A_decoder_continue_1000|FloLPIPS|-0.0016951091738782015|-1.1251914531149432|
+|uvg_holdout|B_decoder_conditional_projected_1000|LPIPS|-0.00050686793157099|-0.3497571572070039|
+|uvg_holdout|B_decoder_conditional_projected_1000|DISTS|-0.0016674590412872037|-1.8439114451951502|
+|uvg_holdout|B_decoder_conditional_projected_1000|FloLPIPS|-0.001168295555310614|-0.7754994154978851|
+|uvg_holdout|C_decoder_illm_1000|LPIPS|-0.000772273995799866|-0.5328969156100937|
+|uvg_holdout|C_decoder_illm_1000|DISTS|-0.0016591994672087143|-1.8347778336348728|
+|uvg_holdout|C_decoder_illm_1000|FloLPIPS|-0.0014658953032127763|-0.9730422628547665|
+|uvg_holdout|A_decoder_continue_1000|FID|0.09741536794800056|0.376554096791491|
+|uvg_holdout|B_decoder_conditional_projected_1000|FID|0.10457913117494728|0.40424525526446364|
+|uvg_holdout|C_decoder_illm_1000|FID|0.1345210912338635|0.5199843625906349|
+|hevc_b|A_decoder_continue_1000|LPIPS|-0.0007794287238467388|-0.4192267420917404|
+|hevc_b|A_decoder_continue_1000|DISTS|-0.0005286911174666102|-0.5934592235449235|
+|hevc_b|A_decoder_continue_1000|FloLPIPS|-0.0028950545770512178|-1.6066519584012848|
+|hevc_b|B_decoder_conditional_projected_1000|LPIPS|-0.000514022302327484|-0.2764741516115907|
+|hevc_b|B_decoder_conditional_projected_1000|DISTS|-0.0003109275979931032|-0.34901825430296496|
+|hevc_b|B_decoder_conditional_projected_1000|FloLPIPS|-0.0027955764099578564|-1.5514451262932902|
+|hevc_b|C_decoder_illm_1000|LPIPS|-0.0008509045325087204|-0.45767101478397654|
+|hevc_b|C_decoder_illm_1000|DISTS|-0.00043479547307277467|-0.4880607510242857|
+|hevc_b|C_decoder_illm_1000|FloLPIPS|-0.0033229374854698425|-1.8441117003441805|
+|hevc_b|A_decoder_continue_1000|FID|-0.4580490049567679|-1.085671993184815|
+|hevc_b|B_decoder_conditional_projected_1000|FID|-0.4496983563477426|-1.0658792085228286|
+|hevc_b|C_decoder_illm_1000|FID|-0.4330681486874073|-1.0264621363268576|
+|uvg_validation|A_decoder_continue_1000|LPIPS|-0.00012039464862272531|-0.11362733792617706|
+|uvg_validation|A_decoder_continue_1000|DISTS|-0.0004942557922760323|-0.6950735337343074|
+|uvg_validation|A_decoder_continue_1000|FloLPIPS|-2.596407436623434e-05|-0.027698394213736502|
+|uvg_validation|B_decoder_conditional_projected_1000|LPIPS|8.00186364176278e-05|0.07552083705239351|
+|uvg_validation|B_decoder_conditional_projected_1000|DISTS|-0.0007367335373516284|-1.0360707779861233|
+|uvg_validation|B_decoder_conditional_projected_1000|FloLPIPS|3.444437266431219e-05|0.03674515020425239|
+|uvg_validation|C_decoder_illm_1000|LPIPS|-1.811546311153059e-05|-0.017097203839323803|
+|uvg_validation|C_decoder_illm_1000|DISTS|-0.00030663443646134256|-0.43122100872980457|
+|uvg_validation|C_decoder_illm_1000|FloLPIPS|3.351758472620974e-05|0.035756455698884373|
+|uvg_validation|A_decoder_continue_1000|FID|-0.42443092894767903|-1.8321199535445294|
+|uvg_validation|B_decoder_conditional_projected_1000|FID|-0.5262474674292817|-2.2716263585454106|
+|uvg_validation|C_decoder_illm_1000|FID|-0.45261733483348154|-1.9537908147377054|
