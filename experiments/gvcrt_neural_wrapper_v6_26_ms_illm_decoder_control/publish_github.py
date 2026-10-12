@@ -1,7 +1,7 @@
-"""Publish only v6.25 reviewed assets from a latest-main isolated worktree."""
+"""Publish only v6.26 reviewed assets from a latest-main isolated worktree."""
 import shutil,traceback
 from io21 import *
-MESSAGE='experiment: publish v6.25 conditional projected gradient control stage'
+MESSAGE='Add v6.26 MS-ILLM decoder control experiment results'
 EXCLUDED={'label_cache','weights','dependencies','.git','cache','checkpoints','bitstreams','features','verification','decoded','rgb','decoded_frames','rgb_cache','__pycache__','upload_shards','file_index_parts','upload_manifest_parts'}
 SNAPSHOT={}
 def snapshot_sha(p):return hashlib.sha256(SNAPSHOT[str(p.relative_to(ROOT))]).hexdigest()
@@ -88,4 +88,3 @@ if __name__=='__main__':
     try:main()
     except Exception:
         old=load(ROOT/'publication_status.json') if (ROOT/'publication_status.json').exists() else {};old.update(status='FAIL',error=traceback.format_exc());dump(ROOT/'publication_status.json',old);raise
-

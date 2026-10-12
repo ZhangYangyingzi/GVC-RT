@@ -96,7 +96,7 @@ def main():
             if b!='A_decoder_continue':
                 assert r['G_D_buffers_unchanged'] and r['D_PBG_unchanged']
                 assert abs(r['weighted_projected_adv']-r['lambda_adv']*r['projected_adv'])<1e-7
-                assert r['feature_projection_hash']==load(ROOT/'audits/'+('illm_source.json' if b=='C_decoder_illm' else 'projected_source.json'))['module_hash' if b=='C_decoder_illm' else 'feature_hash']
+                assert r['feature_projection_hash']==load(ROOT/'audits'/('illm_source.json' if b=='C_decoder_illm' else 'projected_source.json'))['module_hash' if b=='C_decoder_illm' else 'feature_hash']
             assert r['D_optimizer_updates']==(r['adaptation_step'] if b!='A_decoder_continue' else 0)
         if b!='A_decoder_continue':write(folder/'training_logs/discriminator.csv',[{k:r[k] for k in ('adaptation_step','D_loss','D_grad_norm','D_optimizer_updates','D_lr','projected_adv','weighted_projected_adv','lambda_adv','feature_projection_hash','G_D_buffers_unchanged','D_PBG_unchanged')} for r in rows])
         index=load(folder/'checkpoint_index.json');assert sorted(map(int,index))==[0,250,500,1000]
@@ -127,4 +127,3 @@ def main():
 if __name__=='__main__':
     try:main()
     except Exception:dump(ROOT/'audits/computational_integrity.json',dict(status='FAIL',error=traceback.format_exc()));raise
-

@@ -79,7 +79,7 @@ def main():
    ds={x['metric']:float(x['delta']) for x in rr};decisions.append(dict(dataset=d,method=m,**{k+'_delta_vs_B1':v for k,v in ds.items()},all_four_nonincrease=all(v<=0 for v in ds.values()),four_metric_improvement=all(v<=0 for v in ds.values()) and any(v<0 for v in ds.values()),scope='fixed step1000 decoder-only setting'))
  write(ROOT/'results/four_metric_comparison_vs_B1.csv',decisions)
  dump(ROOT/'audits/gradient_control_integrity.json',dict(status='PASS',rho=.05,lambda_ceiling=None,eps=1e-12,FP32_restore=True,window_mean_before_weight=True,combined_then_global_clip=True,branches=summaries))
- text='# V6.25 numerical results\n\nMain evaluation:800/800; v6.25 pooled FID diagnostic:200/200.\n\nSigned difference=method-reference. Relative change=100*(method_mean-reference_mean)/reference_mean.\n\n|Dataset|Method|Metric|Delta|Relative change (%)|\n|---|---|---|---:|---:|\n'
+ text='# V6.26 numerical results\n\nMain evaluation:800/800; v6.25 pooled FID diagnostic:200/200.\n\nSigned difference=method-reference. Relative change=100*(method_mean-reference_mean)/reference_mean.\n\n|Dataset|Method|Metric|Delta|Relative change (%)|\n|---|---|---|---:|---:|\n'
  for r in core:text+=f"|{r['dataset']}|{r['method']}|{r['metric']}|{r['delta']}|{r['relative_change_percent']}|\n"
  (ROOT/'RESULTS_NUMBERS_ONLY.md').write_text(text)
  # Publication and byte-exact shard checks follow in verify_publication.py.
