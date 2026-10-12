@@ -1,0 +1,168 @@
+{
+  "status": "COMPLETE",
+  "implementation_error": "No confirmed historical MS-ILLM training/condition/gradient implementation error in audited paths. Two v627 CPU summary field-parser errors were found and fixed, with logs and diffs preserved; weights and raw scores were unchanged. This is not proof against all untested errors",
+  "local_content_learning": "insufficient evidence for reliable local content learning across available panels; report real content accuracy and frequency references separately from fake detection",
+  "learning_evidence": [
+    {
+      "domain": "ulong",
+      "panel": "seen",
+      "top1": 0.004596354166666667,
+      "majority": 0.01814453125,
+      "top5": 0.021253255208333332,
+      "majority_top5": 0.06261393229166666,
+      "AUROC": 0.5001222222222222,
+      "CE_real": 8.611778677304585,
+      "label_frequency_entropy": 6.689523955683763
+    },
+    {
+      "domain": "uvg",
+      "panel": "seen",
+      "top1": 0.000732421875,
+      "majority": 0.002822265625,
+      "top5": 0.0052669270833333335,
+      "majority_top5": 0.013525390625000001,
+      "AUROC": 0.4997666666666667,
+      "CE_real": 8.685366929372151,
+      "label_frequency_entropy": 6.816115874683811
+    },
+    {
+      "domain": "ulong",
+      "panel": "unseen",
+      "top1": 0.0030794270833333333,
+      "majority": 0.005143229166666667,
+      "top5": 0.013990885416666666,
+      "majority_top5": 0.021803385416666668,
+      "AUROC": 0.5007111111111111,
+      "CE_real": 8.629280287424724,
+      "label_frequency_entropy": 6.770894159678632
+    },
+    {
+      "domain": "uvg",
+      "panel": "unseen",
+      "top1": 0.0004947916666666667,
+      "majority": 0.004505208333333333,
+      "top5": 0.0036653645833333334,
+      "majority_top5": 0.01896484375,
+      "AUROC": 0.4988888888888889,
+      "CE_real": 8.60129784901937,
+      "label_frequency_entropy": 6.763063583235354
+    }
+  ],
+  "image_response": {
+    "normal_matching_conditions": true,
+    "mean_CE_content_rec_minus_real": 9.293026394314236e-07,
+    "mean_p_fake_rec_minus_real": -1.9988748762342664e-06
+  },
+  "condition_dependence": "zero/shuffled probes are OOD; effects alone do not establish a conditional shortcut; current evidence does not isolate excessive reliance",
+  "generator_response": {
+    "image_and_BG_gradients_finite_nonzero": true,
+    "whole_adv_B1_max": 0.04999999999980073,
+    "mean_reconstruction_MAE_step1000_vs_B1": 0.004402020051428634,
+    "optimizer_steps_in_audit": 0
+  },
+  "controlled_next_experiment": {
+    "factor": "D updates per G update",
+    "control": "current one D update per G versus two D updates per G, same source model/shared plan,1000 G updates,rho0.05 and other losses unchanged",
+    "not_executed_in_this_audit": true
+  },
+  "scope": "fixed64 frames, fixed trained models and1000-step historical budget; interpolation grids are not independent runs",
+  "measured_metric_decisions": [
+    {
+      "method": "A_decoder_continue_1000",
+      "reference": "original",
+      "available": true,
+      "all_three_perceptual_nonincrease": true,
+      "FID_higher": true,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": -0.009352074375731543,
+        "DISTS": -0.003705755363615617,
+        "FloLPIPS": -0.009911586212771282,
+        "FID": 1.5962646468609563
+      },
+      "diagnostic_mean_delta_D_mu": -0.040628283967363094,
+      "diagnostic_mean_delta_D_cov": 1.6395620534856417
+    },
+    {
+      "method": "A_decoder_continue_1000",
+      "reference": "B1_initial",
+      "available": true,
+      "all_three_perceptual_nonincrease": false,
+      "FID_higher": false,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": 0.00021248151621297939,
+        "DISTS": -0.0003158773609006495,
+        "FloLPIPS": 0.0006235717459970778,
+        "FID": -0.12512681003570986
+      },
+      "diagnostic_mean_delta_D_mu": -0.026400134008279716,
+      "diagnostic_mean_delta_D_cov": -0.10025749519668548
+    },
+    {
+      "method": "B_decoder_conditional_projected_1000",
+      "reference": "original",
+      "available": true,
+      "all_three_perceptual_nonincrease": true,
+      "FID_higher": true,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": -0.009207320097676943,
+        "DISTS": -0.0035912402723458085,
+        "FloLPIPS": -0.009733965093403145,
+        "FID": 1.5534687200643567
+      },
+      "diagnostic_mean_delta_D_mu": -0.036839303165327984,
+      "diagnostic_mean_delta_D_cov": 1.593042024702737
+    },
+    {
+      "method": "B_decoder_conditional_projected_1000",
+      "reference": "B1_initial",
+      "available": true,
+      "all_three_perceptual_nonincrease": false,
+      "FID_higher": false,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": 0.0003572357942675794,
+        "DISTS": -0.00020136226963084086,
+        "FloLPIPS": 0.0008011928653652149,
+        "FID": -0.16792273683230965
+      },
+      "diagnostic_mean_delta_D_mu": -0.02261115320624461,
+      "diagnostic_mean_delta_D_cov": -0.14677752397959012
+    },
+    {
+      "method": "C_decoder_illm_1000",
+      "reference": "original",
+      "available": true,
+      "all_three_perceptual_nonincrease": true,
+      "FID_higher": true,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": -0.00913085592294223,
+        "DISTS": -0.003620351710295892,
+        "FloLPIPS": -0.009600330681038046,
+        "FID": 1.654818813823548
+      },
+      "diagnostic_mean_delta_D_mu": -0.03835265760475571,
+      "diagnostic_mean_delta_D_cov": 1.6959055339664697
+    },
+    {
+      "method": "C_decoder_illm_1000",
+      "reference": "B1_initial",
+      "available": true,
+      "all_three_perceptual_nonincrease": false,
+      "FID_higher": false,
+      "four_metric_nonincrease": false,
+      "signed_deltas": {
+        "LPIPS": 0.0004336999690022926,
+        "DISTS": -0.00023047370758092473,
+        "FloLPIPS": 0.0009348272777303132,
+        "FID": -0.06657264307311887
+      },
+      "diagnostic_mean_delta_D_mu": -0.024124507645672335,
+      "diagnostic_mean_delta_D_cov": -0.04391401471585752
+    }
+  ],
+  "normal_image_discrimination": "Finite image derivatives are measurable; fixed-panel real/fake AUROC and content accuracy must be read together. These values do not establish reliable normal-condition image discrimination."
+}

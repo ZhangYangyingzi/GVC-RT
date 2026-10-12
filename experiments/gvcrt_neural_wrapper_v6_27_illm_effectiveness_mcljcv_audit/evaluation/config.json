@@ -1,5 +1,5 @@
 {
-  "schema": "v626",
+  "schema": "v627",
   "checkpoints": {
     "B1_initial": {
       "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/evaluation/checkpoints/B1_reconstruction_1000.pt",
@@ -112,7 +112,7 @@
     9
   ],
   "force_zero_thres": 0.12,
-  "no_training": false,
+  "no_training": true,
   "no_model_selection": true,
   "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
   "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
@@ -122,14 +122,10 @@
     6,
     7
   ],
-  "max_workers_per_gpu": 1,
   "datasets": [
-    "ulong",
-    "uvg_holdout",
-    "hevc_b",
-    "uvg_validation"
+    "mcljcv"
   ],
-  "expected_points": 800,
+  "expected_points": 1500,
   "deployment_receiver_hashes": {
     "B1_initial": {
       "bridge": "6c8ce9582a7b13099fc3ae20cc389574fb8c384fd937460ae162c997d751dd2c",
@@ -188,27 +184,23 @@
     ]
   },
   "source_checkpoint": {
-    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_20_native_i_reference_adaptation/branches/native_i_adapt/checkpoints/adaptation_step_1000.pt",
-    "sha256": "a47f3238b174aa40140ca0527c40c1f84294fc780b0bb95145be22dc65d57ea5",
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
     "module_hashes": {
-      "wrapper": "784c3f0f2bac51504edf39bbebf10c29f1e782c8733949e236f84deb6209ac6b",
-      "bridge": "af64d6c834c476d081728a23bf57b1f069aa8903f276e02a390bfb1b2a76b371",
-      "generator": "b1e5b7d9b6ade8c157279ae092c48499b23f55efe6302e9a56b60347fad582f9"
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
     },
     "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
   },
   "i_frame_modes": {
     "original": "native_original",
-    "native_initial": "native_RGB_bypass",
-    "A_1000": "native_RGB_bypass",
-    "B_1000": "native_RGB_bypass",
-    "C_1000": "native_RGB_bypass",
-    "A_0": "native_RGB_bypass",
-    "B_0": "native_RGB_bypass",
-    "C_0": "native_RGB_bypass"
+    "B1_initial": "native_RGB_bypass",
+    "A_decoder_continue_1000": "native_RGB_bypass",
+    "B_decoder_conditional_projected_1000": "native_RGB_bypass",
+    "C_decoder_illm_1000": "native_RGB_bypass"
   },
   "IPs": [
     -1
-  ],
-  "historical_early_expected_points": 640
+  ]
 }
