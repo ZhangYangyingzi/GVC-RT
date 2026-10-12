@@ -1,0 +1,37 @@
+{
+  "source": "MS-ILLM local categorical discriminator; fixed GVC-RT/B1",
+  "official_commit": "3f122808255a2278eea049119367eb3abc434862",
+  "official_optimizer": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/vendor/NeuralCompression-3f122808255a2278eea049119367eb3abc434862/projects/illm/conf/optimizer/model_adamw_disc_const.yaml",
+    "sha256": "3e22a413cc1eb32207c4e58de7eefd76a36f50de6cd121b82755a0c2c2d3caa5",
+    "D_recipe": {
+      "condition": "raw",
+      "optimizer": "AdamW",
+      "lr": 0.0004,
+      "betas": [
+        0.5,
+        0.9
+      ]
+    }
+  },
+  "architecture": {
+    "output_channels": 1025,
+    "output_downsampling_factor": 8,
+    "context_in": 1024,
+    "context_out": 16,
+    "norm_type": "identity"
+  },
+  "D_loss": ".5*mean(CE(D(GT,c), y+1))+.5*mean(CE(D(rec.detach,c),0)); whole-step frames averaged before one optimizer.step",
+  "B_rms": "one detached sqrt(mean(c.float()**2)) over C/H/W per frame; divisor max(r,1e-6)",
+  "C_zero": "zero condition during BOTH training and validation; same conditional architecture; adapter biases allowed",
+  "cache_forward": "exact V27 fixed-B1 STE hard-forward; codec half; wrapper eval FP32; bridge/generator train FP32 but ALL parameters frozen/no_grad; native I0; causal48 warmup and15 targets; refs detached",
+  "validation": "TINY all6 saved points:8 fit pairs +20 unseen windows; MAIN all5 saved points:40 seen+20 unseen windows; no validation-driven selection",
+  "unseen": "no source-frame overlap with shared-plan windows; does not assert absent historical exposure",
+  "predictive_frequency_reference": "training labels only; content Laplace alpha=1; balanced p_fake=.5; validation frequencies descriptive only",
+  "uniform_CE_1025": 6.932447891572509,
+  "shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "validation_plan_sha256": "5171f18339357560b26b91651b38368919a4fa49bf7a46a90a2c86eaf4fe0c05",
+  "tiny_plan_sha256": "81df9386b18071a7a40d77892e3a0161653f018be390fcaa1c4d223cb0261610",
+  "no_G_updates": true,
+  "no_new_RD_FID": true
+}

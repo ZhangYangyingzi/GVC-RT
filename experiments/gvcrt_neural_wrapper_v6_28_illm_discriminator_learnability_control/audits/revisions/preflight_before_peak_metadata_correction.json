@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "D_initial_hashes": {
+    "A_raw_current": "bd7a0af6a4f61a925f77a1e204ba621284a06813402229796d4fe60a4bc4100e",
+    "B_rms_current": "bd7a0af6a4f61a925f77a1e204ba621284a06813402229796d4fe60a4bc4100e",
+    "C_zero_current": "bd7a0af6a4f61a925f77a1e204ba621284a06813402229796d4fe60a4bc4100e",
+    "D_raw_official_optimizer": "bd7a0af6a4f61a925f77a1e204ba621284a06813402229796d4fe60a4bc4100e"
+  },
+  "branches": [
+    {
+      "branch": "A_raw_current",
+      "status": "PASS",
+      "CE_real": 6.93912672996521,
+      "CE_fake": 7.014942407608032,
+      "D_loss": 6.977034568786621,
+      "frames": 8,
+      "normalization_denominator": 8,
+      "condition_adapter_grad_norm": 0.4876423425145619,
+      "condition_adapter_grad_finite": true,
+      "image_unet_grad_norm": 0.9274808956230982,
+      "image_unet_grad_finite": true,
+      "parameter_change": {
+        "condition_adapter": 0.1674893934068322,
+        "image_unet": 1.4122790989814453
+      },
+      "readonly_CE_G_image_gradient": 0.0018357980297878385,
+      "buffers_unchanged": true,
+      "optimizer_fresh": true,
+      "FP32_D": true,
+      "no_G_updates": true
+    },
+    {
+      "branch": "B_rms_current",
+      "status": "PASS",
+      "CE_real": 6.938632011413574,
+      "CE_fake": 7.014033555984497,
+      "D_loss": 6.976332783699036,
+      "frames": 8,
+      "normalization_denominator": 8,
+      "condition_adapter_grad_norm": 0.2860529189852662,
+      "condition_adapter_grad_finite": true,
+      "image_unet_grad_norm": 0.825602264673117,
+      "image_unet_grad_finite": true,
+      "parameter_change": {
+        "condition_adapter": 0.15295707159049243,
+        "image_unet": 1.3892789173610829
+      },
+      "readonly_CE_G_image_gradient": 0.0016935438616201282,
+      "buffers_unchanged": true,
+      "optimizer_fresh": true,
+      "FP32_D": true,
+      "no_G_updates": true
+    },
+    {
+      "branch": "C_zero_current",
+      "status": "PASS",
+      "CE_real": 6.938444375991821,
+      "CE_fake": 7.011138677597046,
+      "D_loss": 6.974791526794434,
+      "frames": 8,
+      "normalization_denominator": 8,
+      "condition_adapter_grad_norm": 0.0031771504112273288,
+      "condition_adapter_grad_finite": true,
+      "image_unet_grad_norm": 0.791231385286574,
+      "image_unet_grad_finite": true,
+      "parameter_change": {
+        "condition_adapter": 0.0013685311528240226,
+        "image_unet": 1.3756645755342756
+      },
+      "readonly_CE_G_image_gradient": 0.0005251941620372236,
+      "buffers_unchanged": true,
+      "optimizer_fresh": true,
+      "FP32_D": true,
+      "no_G_updates": true
+    },
+    {
+      "branch": "D_raw_official_optimizer",
+      "status": "PASS",
+      "CE_real": 6.93912672996521,
+      "CE_fake": 7.014942407608032,
+      "D_loss": 6.977034568786621,
+      "frames": 8,
+      "normalization_denominator": 8,
+      "condition_adapter_grad_norm": 0.4876423425145619,
+      "condition_adapter_grad_finite": true,
+      "image_unet_grad_norm": 0.9274808956230982,
+      "image_unet_grad_finite": true,
+      "parameter_change": {
+        "condition_adapter": 0.2671498129612943,
+        "image_unet": 2.3937972808935544
+      },
+      "readonly_CE_G_image_gradient": 0.01616653986275196,
+      "buffers_unchanged": true,
+      "optimizer_fresh": true,
+      "FP32_D": true,
+      "no_G_updates": true
+    }
+  ],
+  "cache_peak_MiB": 0.0,
+  "D_peak_MiB": 962.0,
+  "physical_gpu": 4,
+  "logical_gpu": 0,
+  "no_G_updates": true,
+  "no_new_codec_evaluation": true,
+  "frame_average_equivalence": true
+}

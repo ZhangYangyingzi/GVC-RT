@@ -1,0 +1,139 @@
+{
+  "schema": "v628",
+  "seed": 20261028,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "D_source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/branches/C_decoder_illm/checkpoints/adaptation_step_0000.pt",
+    "sha256": "d1bf7680b4ca5cfa0322e53e11d9ce529d7dc69d3b544bf815267702bef16f50",
+    "source_step": 1000,
+    "adaptation_step": 0,
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "inference": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/evaluation/checkpoints/C_decoder_illm_0.pt",
+      "sha256": "63724fa2cf3add860569dd7bbf6da9ed26d78355f67fa8d6ed03ce5efff5f796",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+        "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+      }
+    }
+  },
+  "labeler_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/weights/vqvae_xcit_p8_ch64_cb1024_h8.ckpt",
+  "labeler_sha256": "3f58659bf2449b17f1f7eaf5ee64fd64d281da2f640d46148536ea6183eb9183",
+  "branches": {
+    "A_raw_current": {
+      "condition": "raw",
+      "optimizer": "Adam",
+      "lr": 0.0002,
+      "betas": [
+        0,
+        0.9
+      ]
+    },
+    "B_rms_current": {
+      "condition": "rms",
+      "optimizer": "Adam",
+      "lr": 0.0002,
+      "betas": [
+        0,
+        0.9
+      ]
+    },
+    "C_zero_current": {
+      "condition": "zero",
+      "optimizer": "Adam",
+      "lr": 0.0002,
+      "betas": [
+        0,
+        0.9
+      ]
+    },
+    "D_raw_official_optimizer": {
+      "condition": "raw",
+      "optimizer": "AdamW",
+      "lr": 0.0004,
+      "betas": [
+        0.5,
+        0.9
+      ]
+    }
+  },
+  "stages": {
+    "TINY": {
+      "updates": 2000,
+      "checkpoints": [
+        0,
+        100,
+        250,
+        500,
+        1000,
+        2000
+      ],
+      "frames": 8
+    },
+    "MAIN": {
+      "updates": 5000,
+      "checkpoints": [
+        0,
+        250,
+        1000,
+        2500,
+        5000
+      ],
+      "frames": 15
+    }
+  },
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "no_G_updates": true,
+  "no_new_codec_evaluation": true,
+  "fresh_D_optimizer": true,
+  "main_cycles": 5,
+  "clip_length": 64,
+  "targets": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "crop": 256,
+  "batch": 1,
+  "force_zero_thres": 0.12,
+  "lambda_dists": 0.5,
+  "FP32_D": true,
+  "D_grad_clip": null,
+  "AMP": false,
+  "scheduler": null,
+  "reservation_margin_MiB": 1024,
+  "reservation_multiplier": 1.15,
+  "CPU_threads_per_worker": 2
+}

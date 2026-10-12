@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "effective_D_updates": 5000,
+  "expected_D_updates": 5000,
+  "G_updates": 0,
+  "frames_per_step": 15,
+  "cycles": 5,
+  "no_gradient_clip": true,
+  "FP32_D": true,
+  "optimizer": {
+    "condition": "raw",
+    "optimizer": "AdamW",
+    "lr": 0.0004,
+    "betas": [
+      0.5,
+      0.9
+    ]
+  },
+  "loss_formula_verified": true,
+  "checkpoints": [
+    "0",
+    "250",
+    "1000",
+    "2500",
+    "5000"
+  ],
+  "main_counts": {
+    "('ulong', 0)": 250,
+    "('uvg', 9)": 250,
+    "('uvg', 4)": 250,
+    "('ulong', 1)": 250,
+    "('ulong', 2)": 250,
+    "('uvg', 3)": 250,
+    "('uvg', 8)": 250,
+    "('uvg', 1)": 250,
+    "('ulong', 6)": 250,
+    "('uvg', 2)": 250,
+    "('uvg', 7)": 250,
+    "('ulong', 8)": 250,
+    "('uvg', 5)": 250,
+    "('ulong', 3)": 250,
+    "('ulong', 7)": 250,
+    "('uvg', 6)": 250,
+    "('ulong', 4)": 250,
+    "('ulong', 5)": 250,
+    "('uvg', 0)": 250,
+    "('ulong', 9)": 250
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "fixed B1, fixed TINY2000 and MAIN5000 budgets; no G updates and no new codec/FID/RD evaluation",
+  "TINY": [
+    {
+      "branch": "A_raw_current",
+      "AUROC": 0.53125,
+      "content_top1": 1.0,
+      "paired_fake_minus_real": 1.1418014764785767e-05
+    },
+    {
+      "branch": "B_rms_current",
+      "AUROC": 0.53125,
+      "content_top1": 1.0,
+      "paired_fake_minus_real": 0.00012002140283584595
+    },
+    {
+      "branch": "C_zero_current",
+      "AUROC": 1.0,
+      "content_top1": 1.0,
+      "paired_fake_minus_real": 0.9063784949066758
+    },
+    {
+      "branch": "D_raw_official_optimizer",
+      "AUROC": 0.484375,
+      "content_top1": 0.032958984375,
+      "paired_fake_minus_real": -4.392117261886597e-06
+    }
+  ],
+  "MAIN_unseen": [
+    {
+      "branch": "A_raw_current",
+      "AUROC": 0.4998111111111111,
+      "content_top1": 0.0024739583333333332,
+      "training_majority": 0.004055989583333333,
+      "content_CE": 6.893667070070903,
+      "training_frequency_CE": 6.842223901941634,
+      "paired_fake_minus_real": -8.922914663950601e-06
+    },
+    {
+      "branch": "B_rms_current",
+      "AUROC": 0.5008722222222223,
+      "content_top1": 0.0024934895833333332,
+      "training_majority": 0.004055989583333333,
+      "content_CE": 6.892139409383138,
+      "training_frequency_CE": 6.842223901941634,
+      "paired_fake_minus_real": 2.3704767227172853e-06
+    },
+    {
+      "branch": "C_zero_current",
+      "AUROC": 0.5072777777777778,
+      "content_top1": 0.0025716145833333333,
+      "training_majority": 0.004055989583333333,
+      "content_CE": 6.894542117118835,
+      "training_frequency_CE": 6.842223901941634,
+      "paired_fake_minus_real": 9.014010429382324e-06
+    },
+    {
+      "branch": "D_raw_official_optimizer",
+      "AUROC": 0.4990222222222222,
+      "content_top1": 0.0024739583333333332,
+      "training_majority": 0.004055989583333333,
+      "content_CE": 6.894913282394409,
+      "training_frequency_CE": 6.842223901941634,
+      "paired_fake_minus_real": -4.046658674875895e-06
+    }
+  ],
+  "interpretation": "C_zero jointly fits TINY labels and real/fake; A/B fit content labels without strong TINY real/fake ranking; no branch establishes reliable unseen local-content supervision under this setting/budget.",
+  "uncertainty": "Fixed panels and correlated frames; no statistical confidence intervals computed. Does not establish MS-ILLM ineffective for video. Does not isolate learning rate from the official optimizer recipe.",
+  "unexecuted_joint_control": "B1-initialized decoder joint training with raw condition versus training-zero condition, matched architecture/data/initialization/optimizer/budget and whole-generator adversarial gradient control rho=.05; only conditional information differs. Not executed and not automatic G unfreezing."
+}
