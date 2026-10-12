@@ -11,7 +11,7 @@ def distribution(values):
 def auc(real,fake):
  x=np.asarray(real+fake);r=rankdata(x);return float((r[len(real):].sum()-len(fake)*(len(fake)+1)/2)/(len(real)*len(fake)))
 def diagnostics():
- allframes=[];allpoints=[];grads=[];classcounts=collections.defaultdict(lambda:dict(GT=np.zeros(1024,dtype=np.int64),predicted_all=np.zeros(1025,dtype=np.int64),predicted_content=np.zeros(1024,dtype=np.int64)))
+ allframes=[];allpoints=[];grads=[];qp_classcounts=collections.defaultdict(lambda:dict(GT=np.zeros(1024,dtype=np.int64),predicted_all=np.zeros(1025,dtype=np.int64),predicted_content=np.zeros(1024,dtype=np.int64)));classcounts=collections.defaultdict(lambda:dict(GT=np.zeros(1024,dtype=np.int64),predicted_all=np.zeros(1025,dtype=np.int64),predicted_content=np.zeros(1024,dtype=np.int64)))
  for row in load(ROOT/'diagnostic_plan.json')['updates']:
   for step in (0,250,500,1000):
    p=ROOT/'diagnostics/points'/f'{row["panel_id"]}_s{step}.json';j=load(p);assert j['status']=='PASS' and j['parameters_buffers_unchanged'] and j['no_training'];assert sha(j['frame_csv'])==j['frame_csv_SHA256'] and sha(j['histogram_path'])==j['histogram_SHA256'];assert j['labeler_hash']==load(ROOT/'audits/illm_source.json')['module_hash'];allpoints.append(j);fr=read(j['frame_csv']);
@@ -24,6 +24,8 @@ def diagnostics():
     if h['condition']=='matched':
      key=(h['panel_type'],h['domain'],step,h['reconstruction_panel'],h['image']);c=classcounts[key]
      for k in c:c[k]+=np.asarray(h[k],np.int64)
+     cq=qp_classcounts[key+(str(h['external_QP']),)]
+     for k in cq:cq[k]+=np.asarray(h[k],np.int64)
  groups=collections.defaultdict(list)
  metrics=['CE_content','CE_fake','p_fake','content_probability_mass','all_class_top1','all_class_top5','content_only_top1','content_only_top5','fake_class_accuracy','all_1025_class_accuracy']
  for row in allframes:
@@ -41,17 +43,22 @@ def diagnostics():
  write(ROOT/'diagnostics/per_frame_metrics.csv',allframes);write(ROOT/'diagnostics/classification_group_summary.csv',summary);write(ROOT/'diagnostics/matched_gradient_windows.csv',grads)
  groups2=collections.defaultdict(list)
  for r in allframes:
-  if r['condition']=='matched' and r['image'] in ('real','reconstruction'):groups2[(r['panel_type'],r['domain'],int(r['checkpoint']),r['reconstruction_panel'])].append(r)
+  if r['condition']=='matched' and r['image'] in ('real','reconstruction'):
+   key=(r['panel_type'],r['domain'],int(r['checkpoint']),r['reconstruction_panel']);groups2[key+('all',)].append(r);groups2[key+(r['external_QP'],)].append(r)
  ability=[]
  for key,rr in groups2.items():
-  real=[r for r in rr if r['image']=='real'];fake=[r for r in rr if r['image']=='reconstruction'];realce=statistics.mean(float(r['CE_content']) for r in real);fakece=statistics.mean(float(r['CE_fake']) for r in fake);gce=statistics.mean(float(r['CE_content']) for r in fake);counts=classcounts[(*key,'real')]['GT'];freq=counts/counts.sum();nonzero=freq[freq>0]
-  ability.append(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],windows=len({r['panel_id'] for r in real}),frames=len(real),CE_real=realce,CE_fake=fakece,CE_G=gce,D_loss=.5*(realce+fakece),uniform_CE_ln1025=math.log(1025),GT_frequency_entropy=-float((nonzero*np.log(nonzero)).sum()),GT_majority_top1=float(freq.max()),GT_majority_top5=float(np.sort(freq)[-5:].sum()),real_content_top1=statistics.mean(float(r['content_only_top1']) for r in real),real_content_top5=statistics.mean(float(r['content_only_top5']) for r in real),fake_content_top1=statistics.mean(float(r['content_only_top1']) for r in fake),fake_content_top5=statistics.mean(float(r['content_only_top5']) for r in fake),real_all_class_top1=statistics.mean(float(r['all_class_top1']) for r in real),fake_all_class_accuracy=statistics.mean(float(r['fake_class_accuracy']) for r in fake),real_p_fake=statistics.mean(float(r['p_fake']) for r in real),fake_p_fake=statistics.mean(float(r['p_fake']) for r in fake),AUROC_fake_from_frame_mean_p_fake=auc([float(r['p_fake']) for r in real],[float(r['p_fake']) for r in fake])))
+  real=[r for r in rr if r['image']=='real'];fake=[r for r in rr if r['image']=='reconstruction'];realce=statistics.mean(float(r['CE_content']) for r in real);fakece=statistics.mean(float(r['CE_fake']) for r in fake);gce=statistics.mean(float(r['CE_content']) for r in fake);counts=(classcounts[key[:4]+('real',)] if key[4]=='all' else qp_classcounts[key[:4]+('real',key[4])])['GT'];freq=counts/counts.sum();nonzero=freq[freq>0]
+  ability.append(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],QP=key[4],windows=len({r['panel_id'] for r in real}),frames=len(real),CE_real=realce,CE_fake=fakece,CE_G=gce,D_loss=.5*(realce+fakece),uniform_CE_ln1025=math.log(1025),GT_frequency_entropy=-float((nonzero*np.log(nonzero)).sum()),GT_majority_top1=float(freq.max()),GT_majority_top5=float(np.sort(freq)[-5:].sum()),real_content_top1=statistics.mean(float(r['content_only_top1']) for r in real),real_content_top5=statistics.mean(float(r['content_only_top5']) for r in real),fake_content_top1=statistics.mean(float(r['content_only_top1']) for r in fake),fake_content_top5=statistics.mean(float(r['content_only_top5']) for r in fake),real_all_class_top1=statistics.mean(float(r['all_class_top1']) for r in real),fake_all_class_accuracy=statistics.mean(float(r['fake_class_accuracy']) for r in fake),real_p_fake=statistics.mean(float(r['p_fake']) for r in real),fake_p_fake=statistics.mean(float(r['p_fake']) for r in fake),AUROC_fake_from_frame_mean_p_fake=auc([float(r['p_fake']) for r in real],[float(r['p_fake']) for r in fake])))
  write(ROOT/'diagnostics/discriminator_ability.csv',ability)
  hist=[]
  for key,cs in classcounts.items():
   for k,a in cs.items():
    for cl,count in enumerate(a):hist.append(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],image=key[4],distribution=k,class_index=cl,count=int(count),fraction=float(count/a.sum())))
  write(ROOT/'diagnostics/class_usage.csv',hist)
+ qp_path=ROOT/'diagnostics/class_usage_by_domain_qp.jsonl'
+ with qp_path.open('w') as stream:
+  for key,cs in qp_classcounts.items():
+   stream.write(json.dumps(dict(panel_type=key[0],domain=key[1],step=key[2],reconstruction_panel=key[3],image=key[4],QP=key[5],counts={k:a.tolist() for k,a in cs.items()},fractions={k:(a/a.sum()).tolist() for k,a in cs.items()}))+'\n')
  refs={(r['panel_id'],r['checkpoint'],r['frame_index'],r['reconstruction_panel'],r['image']):r for r in allframes if r['condition']=='matched'};sensitivity=[]
  for r in allframes:
   if r['reconstruction_panel']=='fixed' and r['condition']!='matched':

@@ -15,7 +15,7 @@ def main():
    fig,ax=plt.subplots()
    for panel in ('seen','unseen'):
     for rp in ('fixed','matched'):
-     rows=sorted([r for r in ability if r['domain']==domain and r['panel_type']==panel and r['reconstruction_panel']==rp],key=lambda r:int(r['step']))
+     rows=sorted([r for r in ability if r['domain']==domain and r['panel_type']==panel and r['reconstruction_panel']==rp and r.get('QP','all')=='all'],key=lambda r:int(r['step']))
      if rows:ax.plot([int(r['step']) for r in rows],[float(r[metric]) for r in rows],marker='o',label=f'{panel}/{rp}')
    ax.set(xlabel='Checkpoint update',ylabel=metric,title=f'{domain} / {metric}');ax.legend();fig.tight_layout();fig.savefig(out/f'diagnostic_{domain}_{metric}.png',dpi=140);plt.close(fig)
  logs=read(ROOT/'diagnostics/training_logs/C_decoder_illm_gradient_summary.csv')
