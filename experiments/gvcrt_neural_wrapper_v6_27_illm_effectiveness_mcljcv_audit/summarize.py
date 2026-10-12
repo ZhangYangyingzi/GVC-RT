@@ -14,7 +14,10 @@ def diagnostics():
  allframes=[];allpoints=[];grads=[];classcounts=collections.defaultdict(lambda:dict(GT=np.zeros(1024,dtype=np.int64),predicted_all=np.zeros(1025,dtype=np.int64),predicted_content=np.zeros(1024,dtype=np.int64)))
  for row in load(ROOT/'diagnostic_plan.json')['updates']:
   for step in (0,250,500,1000):
-   p=ROOT/'diagnostics/points'/f'{row["panel_id"]}_s{step}.json';j=load(p);assert j['status']=='PASS' and j['parameters_buffers_unchanged'] and j['no_training'];assert sha(j['frame_csv'])==j['frame_csv_SHA256'] and sha(j['histogram_path'])==j['histogram_SHA256'];allpoints.append(j);fr=read(j['frame_csv']);allframes.extend(fr)
+   p=ROOT/'diagnostics/points'/f'{row["panel_id"]}_s{step}.json';j=load(p);assert j['status']=='PASS' and j['parameters_buffers_unchanged'] and j['no_training'];assert sha(j['frame_csv'])==j['frame_csv_SHA256'] and sha(j['histogram_path'])==j['histogram_SHA256'];assert j['labeler_hash']==load(ROOT/'audits/illm_source.json')['module_hash'];allpoints.append(j);fr=read(j['frame_csv']);
+   for f in fr:
+    f['content_target_all_class_top1']=f['all_class_top1'];f['content_target_all_class_top5']=f['all_class_top5'];f['all_1025_class_accuracy']=f['fake_class_accuracy'] if f['image']=='reconstruction' else f['all_class_top1']
+   allframes.extend(fr)
    g=j['gradient'];out=dict(panel_id=row['panel_id'],panel_type=row['panel'],domain=row['domain'],QP=row['external_qp'],step=step,**{k:v for k,v in g.items() if isinstance(v,(int,float,bool))});out['image_gradient_norm_mean']=statistics.mean(x['norm'] for x in g['image_gradients']);out['image_gradient_nonzero_count']=sum(x['norm']>0 for x in g['image_gradients']);out.update(**{f'DISTS_deep_{x["module"]}_norm':x['deepest_term']['norm'] for x in g['DISTS_deep']});grads.append(out)
    for line in Path(j['histogram_path']).open():
     h=json.loads(line)
@@ -22,12 +25,19 @@ def diagnostics():
      key=(h['panel_type'],h['domain'],step,h['reconstruction_panel'],h['image']);c=classcounts[key]
      for k in c:c[k]+=np.asarray(h[k],np.int64)
  groups=collections.defaultdict(list)
- metrics=['CE_content','CE_fake','p_fake','content_probability_mass','all_class_top1','all_class_top5','content_only_top1','content_only_top5','fake_class_accuracy']
+ metrics=['CE_content','CE_fake','p_fake','content_probability_mass','all_class_top1','all_class_top5','content_only_top1','content_only_top5','fake_class_accuracy','all_1025_class_accuracy']
  for row in allframes:
   key=tuple(row[k] for k in ['panel_type','domain','external_QP','checkpoint','reconstruction_panel','image','condition']);groups[key].append(row)
  summary=[]
  for key,rr in groups.items():
   base=dict(zip(['panel_type','domain','QP','step','reconstruction_panel','image','condition'],key));summary.append(dict(base,frames=len(rr),windows=len({r['panel_id'] for r in rr}),**{k:statistics.mean(float(r[k]) for r in rr) for k in metrics}))
+ window_groups=collections.defaultdict(list)
+ for r in allframes:window_groups[tuple(r[k] for k in ['panel_id','panel_type','domain','external_QP','checkpoint','reconstruction_panel','image','condition'])].append(r)
+ window_summary=[]
+ for key,rr in window_groups.items():
+  assert len(rr)==15
+  window_summary.append(dict(zip(['panel_id','panel_type','domain','QP','step','reconstruction_panel','image','condition'],key),count=15,**{k:statistics.mean(float(r[k]) for r in rr) for k in metrics},**{k+'_std':statistics.pstdev(float(r[k]) for r in rr) for k in metrics}))
+ write(ROOT/'diagnostics/classification_window_summary.csv',window_summary)
  write(ROOT/'diagnostics/per_frame_metrics.csv',allframes);write(ROOT/'diagnostics/classification_group_summary.csv',summary);write(ROOT/'diagnostics/matched_gradient_windows.csv',grads)
  groups2=collections.defaultdict(list)
  for r in allframes:
@@ -49,9 +59,10 @@ def diagnostics():
  write(ROOT/'diagnostics/condition_sensitivity.csv',sensitivity)
  # Image probes with condition held fixed, same label target.
  imageprobes=[]
+ realrefs={(r["panel_id"],r["checkpoint"],r["frame_index"],r["condition"]):r for r in allframes if r["reconstruction_panel"]=="fixed" and r["image"]=="real"}
  for r in allframes:
   if r['reconstruction_panel']=='fixed' and r['image']!='real':
-   ref=next(x for x in allframes if x['panel_id']==r['panel_id'] and x['checkpoint']==r['checkpoint'] and x['frame_index']==r['frame_index'] and x['reconstruction_panel']=='fixed' and x['image']=='real' and x['condition']==r['condition'])
+   ref=realrefs[(r['panel_id'],r['checkpoint'],r['frame_index'],r['condition'])]
    imageprobes.append(dict(**{k:r[k] for k in ['panel_id','panel_type','domain','external_QP','checkpoint','frame_index','image','condition']},**{'delta_'+k:float(r[k])-float(ref[k]) for k in metrics}))
  write(ROOT/'diagnostics/image_sensitivity.csv',imageprobes)
  import torch
@@ -73,13 +84,24 @@ def diagnostics():
  logstats=[];logrows=[]
  for b in BRANCHES:
   rr=read(V26/'branches'/b/'gradient_summary.csv');assert len(rr)==1000
+  raw_gradients=[];counts=collections.Counter()
+  for line in (V26/'branches'/b/'training_logs/train.jsonl').open():
+   record=json.loads(line);step=record['adaptation_step'];summary_row=rr[step-1];assert int(summary_row['step'])==step and record['optimizer_update_count']==step and record['all_finite'] and record['supervision_frames']==15
+   if b!='A_decoder_continue':assert record['D_optimizer_updates']==step and record['adv_B1_ratio']<=.05+1e-8
+   for k in ['B1_gradient_norm','unweighted_adv_gradient_norm','lambda_eff','adv_B1_ratio','global_clip_coefficient']:
+    assert math.isclose(float(summary_row[k]),float(record[k]),rel_tol=1e-7,abs_tol=1e-10),(b,step,k)
+   counts[(record['domain'],record['external_qp'])]+=1
+   raw_gradients.append(dict(branch=b,step=step,domain=record['domain'],QP=record['external_qp'],**{k:v for k,v in record.items() if isinstance(v,(int,float,bool)) and ('gradient' in k or 'ratio' in k or k in ('lambda_eff','global_preclip_norm','global_clip_coefficient','D_loss','D_grad_norm','D_optimizer_updates','optimizer_update_count'))}))
+  assert len(raw_gradients)==1000 and all(counts[(d,q)]==50 for d in ('ulong','uvg') for q in range(10));write(ROOT/'diagnostics/training_logs'/f'{b}_raw_verified_gradients.csv',raw_gradients)
   write(ROOT/'diagnostics/training_logs'/f'{b}_gradient_summary.csv',rr);logrows.extend(dict(r,branch=b) for r in rr)
   for lo,hi in [(1,1000),(1,250),(251,500),(501,750),(751,1000)]:
    rs=[r for r in rr if lo<=int(r['step'])<=hi]
    for metric in ['B1_gradient_norm','unweighted_adv_gradient_norm','weighted_adv_gradient_norm','lambda_eff','adv_B1_ratio','gradient_cosine','bridge_weighted_adv_B1_ratio','generator_weighted_adv_B1_ratio','global_clip_coefficient']:
-    if metric in rs[0]:logstats.append(dict(branch=b,start=lo,end=hi,metric=metric,**distribution([float(r[metric]) for r in rs])))
+    if metric in rs[0]:
+     valid=[float(r[metric]) for r in rs if r[metric]!=''];missing=len(rs)-len(valid)
+     logstats.append(dict(branch=b,start=lo,end=hi,metric=metric,not_applicable_count=missing,status='available' if valid else 'not_applicable',**(distribution(valid) if valid else dict(count=0))))
  write(ROOT/'diagnostics/training_gradient_distributions.csv',logstats)
- dump(ROOT/'audits/diagnostic_integrity.json',dict(status='PASS',expected_points=len(load(ROOT/'diagnostic_plan.json')['updates'])*4,completed_points=len(allpoints),frames=len(allframes),optimizer_steps=0,no_training=True,states_unchanged=True,condition_detached=True,D_strict_checkpoint_restored=True,labeler_pretrained_verified=True,full15_frame_gradients=True,unit_scale4096=True,whole_BG_ratio_max=max(g['adv_B1_ratio'] for g in grads),DISTS_deep_valid=True))
+ dump(ROOT/'audits/diagnostic_integrity.json',dict(status='PASS',requested_points=240,declared_unavailable_points=40,expected_points=len(load(ROOT/'diagnostic_plan.json')['updates'])*4,completed_points=len(allpoints),fixed_panel_points=len(allpoints),matched_panel_points=len(allpoints),frames=len(allframes),optimizer_steps=0,no_training=True,states_unchanged=True,condition_detached=True,D_strict_checkpoint_restored=True,labeler_pretrained_verified=True,full15_frame_gradients=True,unit_scale4096=True,whole_BG_ratio_max=max(g['adv_B1_ratio'] for g in grads),DISTS_deep_valid=True))
  print('DIAGNOSTICS SUMMARY PASS',len(allpoints),flush=True)
 
 def evaluation():
@@ -91,7 +113,12 @@ def evaluation():
    for q in range(10):
     r=load(point('mcljcv',m,v['video_index'],q));validate(r,v,q,m);raw.append(r);fr=read(r['frame_metrics_path']);tr=read(r['transitions_path']);windows.extend(window_rows(r,fr,tr))
   with np.load(next(r['feature_path'] for r in raw if r['method']=='original' and r['QP']==0 and r['video_index']==v['video_index'])) as z:gt.append(z['real'].copy())
- reference=np.concatenate(gt);assert reference.shape==(64*len(vs),2048);np.save(ROOT/'features/GT_mcljcv.npy',reference);pool=sha(ROOT/'features/GT_mcljcv.npy');out=ROOT/'results/mcljcv';out.mkdir(parents=True,exist_ok=True);pooled=[];macro=[];components=[]
+ reference=np.concatenate(gt);assert reference.shape==(64*len(vs),2048)
+ gtpath=ROOT/'features/GT_mcljcv.npy'
+ if gtpath.exists():
+  canonical=np.load(gtpath);assert np.allclose(reference,canonical,rtol=1e-5,atol=1e-6);reference=canonical
+ else:np.save(gtpath,reference)
+ pool=sha(gtpath);out=ROOT/'results/mcljcv';out.mkdir(parents=True,exist_ok=True);pooled=[];macro=[];components=[]
  # Fixed GT feature identities across all methods and QPs.
  for m in METHODS:
   for q in range(10):

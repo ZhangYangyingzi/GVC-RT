@@ -69,7 +69,14 @@ def main():
   remaining={g:free[g]-sum(max(0,w['required_MiB']-allocated.get(w['PID'],0)) for w in active.values() if w['gpu']==g) for g in free}
   memavailable=float(next(l for l in Path('/proc/meminfo').read_text().splitlines() if l.startswith('MemAvailable:')).split()[1])/1024;maxcpu=max(2,(os.cpu_count() or 8)//3)
   caches_ready=passed(ROOT/'audits/diagnostic_preparation.json') and all(done(j) for j in jobs.values() if j['kind']=='cache')
-  ordered=sorted(jobs.items(),key=lambda kv:(0 if kv[1]['kind']=='diagnostic' and not measured.get('diagnostic') else 1 if kv[1]['kind']=='eval' and not measured.get('eval') else 2 if kv[1]['kind']=='cache' else 3 if kv[1]['kind']=='diagnostic' else 4,kv[0]))
+  pools={kind:iter(sorted([(k,j) for k,j in jobs.items() if j['kind']==kind and k not in active and k not in blocked and not done(j)])) for kind in ('cache','diagnostic','eval')}
+  ordered=[]
+  while True:
+   before=len(ordered)
+   for kind in ('cache','diagnostic','eval'):
+    value=next(pools[kind],None)
+    if value is not None:ordered.append(value)
+   if len(ordered)==before:break
   for k,j in ordered:
    if k in active or k in blocked or done(j):continue
    if j['kind']=='diagnostic' and not caches_ready:continue

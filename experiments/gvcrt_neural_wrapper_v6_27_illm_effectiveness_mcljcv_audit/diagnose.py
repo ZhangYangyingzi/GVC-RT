@@ -53,7 +53,7 @@ def main():
  from illm_runtime import create_illm
  from gradient_tools import stats,dists_details
  fixed=reconstruct('B1',a.panel,device);shuffled=torch.load(ccache('B1',row['shuffle_panel_id']),map_location='cpu',weights_only=True);matched=reconstruct('C'+str(a.step),a.panel,device);frames=replay(row,'C_decoder_illm',device)
- disc=create_illm(device);item=checkpoint(a.step);state=torch.load(item['path'],map_location='cpu',weights_only=True);disc.load_state_dict(state['projected'],strict=True);assert tensor_hash(disc.state_dict())==tensor_hash(state['projected']);del state;disc.g_mode();dh=disc.d_hash();fh=tensor_hash(disc.feature.state_dict());per=[];hist=[]
+ disc=create_illm(device);pretrained_feature_hash=tensor_hash(disc.feature.state_dict());item=checkpoint(a.step);state=torch.load(item['path'],map_location='cpu',weights_only=True);disc.load_state_dict(state['projected'],strict=True);assert tensor_hash(disc.feature.state_dict())==pretrained_feature_hash;assert tensor_hash(disc.state_dict())==tensor_hash(state['projected']);del state;disc.g_mode();dh=disc.d_hash();fh=tensor_hash(disc.feature.state_dict());per=[];hist=[]
  # Independent labels: strict official pretrained weights, no mutable VQ counters.
  gtlabels=[disc.labels(f).clone() for f in frames[49:64]]
  assert all(y.shape==torch.Size([1,32,32]) and y.dtype==torch.long and 0<=y.min()<=y.max()<1024 for y in gtlabels)

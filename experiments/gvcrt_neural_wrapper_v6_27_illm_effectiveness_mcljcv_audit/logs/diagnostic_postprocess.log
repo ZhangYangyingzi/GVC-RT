@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/diagnostic_postprocess.py", line 13, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/diagnostic_postprocess.py", line 11, in main
+    diagnostics();subprocess.run([PYTHON,'-B','-u',str(ROOT/'plots.py')],check=True)
+    ^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/summarize.py", line 19, in diagnostics
+    f['content_target_all_class_top1']=f['all_class_top1'];f['content_target_all_class_top5']=f['all_class_top5'];f['all_1025_class_accuracy']=f['fake_class_accuracy','all_1025_class_accuracy'] if f['image']=='reconstruction' else f['all_class_top1']
+                                                                                                                                               ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: ('fake_class_accuracy', 'all_1025_class_accuracy')
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/diagnostic_postprocess.py", line 13, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/diagnostic_postprocess.py", line 11, in main
+    diagnostics();subprocess.run([PYTHON,'-B','-u',str(ROOT/'plots.py')],check=True)
+    ^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_27_illm_effectiveness_mcljcv_audit/summarize.py", line 93, in diagnostics
+    if metric in rs[0]:logstats.append(dict(branch=b,start=lo,end=hi,metric=metric,**distribution([float(r[metric]) for r in rs])))
+                                                                                                   ^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+DIAGNOSTICS SUMMARY PASS 200

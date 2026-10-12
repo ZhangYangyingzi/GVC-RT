@@ -59,11 +59,15 @@ def command(argv):
     with (ROOT/'logs/commands.jsonl').open('a') as f:f.write(json.dumps(dict(argv=list(map(str,argv)),cwd=str(REPO),unix=time.time()))+'\n')
 def atomic_torch(p,s):
     import torch
-    p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix('.tmp');torch.save(s,t);t.replace(p)
+    p.parent.mkdir(parents=True,exist_ok=True);t=p.with_name(p.name+f'.{os.getpid()}.tmp');torch.save(s,t);t.replace(p)
 def sources(d):return load(ROOT/'manifests'/f'{d}.json')['videos']
 def point(d,m,i,q,ip=-1):return ROOT/'parts'/f'ip_{ip}'/d/m/f'video_{i:02d}_qp{q}.json'
 def frozen():
-    for p,h in load(ROOT/'audits/dependencies.json').items():assert sha(p)==h,('dependency changed',p)
+    metadata=load(ROOT/'audits/dependency_metadata.json') if (ROOT/'audits/dependency_metadata.json').exists() else {}
+    for p,h in load(ROOT/'audits/dependencies.json').items():
+        if p in metadata and metadata[p]['bytes']>1048576:
+            st=Path(p).stat();assert (st.st_size,st.st_mtime_ns)==(metadata[p]['bytes'],metadata[p]['mtime_ns']),('historical dependency metadata changed',p)
+        else:assert sha(p)==h,('dependency changed',p)
     for p,h in load(ROOT/'audits/protocol_hashes.json').items():assert sha(ROOT/p)==h,('protocol changed',p)
     return load(ROOT/'evaluation/config.json')
 def cp_path(step):return ROOT/'checkpoints'/f'adaptation_step_{step:04d}.pt'

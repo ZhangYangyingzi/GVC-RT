@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "matrix": "BT709",
+  "in_range": "limited",
+  "out_range": "full",
+  "channel_order": "RGB",
+  "synthetic_tests": [
+    {
+      "test": "gray",
+      "YUV": [
+        126,
+        128,
+        128
+      ],
+      "expected_RGB": [
+        128,
+        128,
+        128
+      ],
+      "actual_RGB": [
+        128.0,
+        128.0,
+        128.0
+      ],
+      "max_error": 0.0,
+      "status": "PASS"
+    },
+    {
+      "test": "red",
+      "YUV": [
+        63,
+        102,
+        240
+      ],
+      "expected_RGB": [
+        255,
+        0,
+        0
+      ],
+      "actual_RGB": [
+        254.0,
+        0.0,
+        0.0
+      ],
+      "max_error": 1.0,
+      "status": "PASS"
+    },
+    {
+      "test": "green",
+      "YUV": [
+        173,
+        42,
+        26
+      ],
+      "expected_RGB": [
+        0,
+        255,
+        0
+      ],
+      "actual_RGB": [
+        0.0,
+        254.0,
+        0.0
+      ],
+      "max_error": 1.0,
+      "status": "PASS"
+    },
+    {
+      "test": "blue",
+      "YUV": [
+        32,
+        240,
+        118
+      ],
+      "expected_RGB": [
+        0,
+        0,
+        255
+      ],
+      "actual_RGB": [
+        0.0,
+        0.0,
+        254.0
+      ],
+      "max_error": 1.0,
+      "status": "PASS"
+    }
+  ],
+  "raw_source_range_embedded_metadata": false,
+  "convention": "fixed historical pipeline, not inferred intrinsic metadata"
+}
