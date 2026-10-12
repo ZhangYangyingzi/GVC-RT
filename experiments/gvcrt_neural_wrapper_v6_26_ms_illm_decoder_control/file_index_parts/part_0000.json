@@ -61,6 +61,11 @@
       "bytes": 17354
     },
     {
+      "path": "audits/C_gpu_migration.json",
+      "sha256": "fcf2e6714828e8a8cfccfb50298c077a7aa504808c3f7932caf1713ae17b4d5b",
+      "bytes": 562
+    },
+    {
       "path": "audits/actual_DISTS_optimizer_path.json",
       "sha256": "889702cecdbafb974e488f4ed45c7796112906a8ad7c35ad14a79f544c12dd29",
       "bytes": 1859
@@ -79,6 +84,11 @@
       "path": "audits/dependencies.json",
       "sha256": "ac344ab047ee33960ad8a94e9a26071b2ceb85238a72ac50346eabe7bc2f9dee",
       "bytes": 216171
+    },
+    {
+      "path": "audits/discriminator_structure_counts.json",
+      "sha256": "d6ca30bb65a0fc85104802800dd4c590c158ed02f52924644ece466d54973a74",
+      "bytes": 870
     },
     {
       "path": "audits/gradient_control_semantics.json",
@@ -477,6 +487,11 @@
       "bytes": 606
     },
     {
+      "path": "audits/official_implementation_manifest.json",
+      "sha256": "9ed53a41963e9a5b7230664b9bf43404c0db3ec82fe93243573940085828a8ec",
+      "bytes": 55902
+    },
+    {
       "path": "audits/precheck_archive/B_before_metadata_correction.json",
       "sha256": "0f8c02a1b887b6324458e482e3f598228ffb7ea77fd8e6b8bff2d4f8e1071ada",
       "bytes": 17269
@@ -528,13 +543,13 @@
     },
     {
       "path": "branches/A_decoder_continue/checkpoint_index.json",
-      "sha256": "d96957c07c2e83cff1b15fdd49eb55b8d406e50ea86b8703ba31bd569c6102a3",
-      "bytes": 1267
+      "sha256": "5b95b25595e5e96849aed1393e1ecee994e5f696cc789e8f5368e4d74828f26e",
+      "bytes": 5080
     },
     {
       "path": "branches/A_decoder_continue/gradient_summary.csv",
-      "sha256": "c390831526a035f4677d074f4eda0ba3238b000f004287947a5dff8df27433d4",
-      "bytes": 55685
+      "sha256": "3fcff8554abfad5e54a44a67838e8b308634d56a91f21f89ccb46029ac7cc362",
+      "bytes": 250796
     },
     {
       "path": "branches/A_decoder_continue/initialization_audit.json",
@@ -542,9 +557,14 @@
       "bytes": 785
     },
     {
+      "path": "branches/A_decoder_continue/training_integrity.json",
+      "sha256": "05fda0bd151a2dbf4352a449baa32a7b524127d922ff4eeabe2fdb71b40f0d3a",
+      "bytes": 703
+    },
+    {
       "path": "branches/A_decoder_continue/training_logs/train.csv",
-      "sha256": "974230baf475eac7143072fb09fb129893e2f2b0a91c916c1132c233a852e04a",
-      "bytes": 7301928,
+      "sha256": "6193438f6f705059425414c9327d23863f8c9e53cd874d3ea568ce10647dfafc",
+      "bytes": 36508065,
       "shards": [
         {
           "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0000.txt",
@@ -618,16 +638,301 @@
         },
         {
           "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0014.txt",
-          "sha256": "90695febade2026494aeffc4ebbeb03f938300197898e51ffb3d3c2a776b4e5e",
-          "bytes": 145832
+          "sha256": "555c86651db09ca2ebbfea9b9983b68633ce357e4fcbdafea18681dacb9d81af",
+          "bytes": 510911
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0015.txt",
+          "sha256": "3cbfa204269c7a710078b3047aa24845c9da9e81d33933eab6c06b1377d3cfa7",
+          "bytes": 510844
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0016.txt",
+          "sha256": "869ae3fff39bebabc0ee0a08106abeeb42cc302394aa2e49bdca6f9867652712",
+          "bytes": 510440
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0017.txt",
+          "sha256": "d4d4bc68b9d7b06a4add824bbae39b95053503c233c886598db57ad009a868e1",
+          "bytes": 510871
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0018.txt",
+          "sha256": "d5026f19c68922ac91d23fa6cd2420e9e2aa0c7c30e963c338a71a1bb588f22f",
+          "bytes": 511803
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0019.txt",
+          "sha256": "4cc63e43f26092eb368d7011daff506e388e920ee98ba4f52f464458637f9168",
+          "bytes": 512125
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0020.txt",
+          "sha256": "7c4de35f8bbb3af5ec2db41aec637ea28041bc1fb4ee8efb57285840c2633927",
+          "bytes": 511407
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0021.txt",
+          "sha256": "dd4290e333df921a58c5a7c655a7d9fd243b42e65e001c7d467811e4b5dd6f56",
+          "bytes": 510717
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0022.txt",
+          "sha256": "8009652b377202962178d8bc04b0adb27e90288b5f6ba80d5a576a3589b58215",
+          "bytes": 510699
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0023.txt",
+          "sha256": "94a7c8e0c50a8b20c7de411e0e83e725580e32e4f38a4f18cd4088e864633247",
+          "bytes": 511287
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0024.txt",
+          "sha256": "27030c6d8ec03f550afd84d369f9b5451ed0cbd46570943eaf435ad165e6bb79",
+          "bytes": 511256
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0025.txt",
+          "sha256": "b0097ca046c66121eacc53662f456e6ca3ba3b57d44ee2882249bd878adcee2b",
+          "bytes": 511503
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0026.txt",
+          "sha256": "7acb1526b75dc41fbe51423eda407e5aab80ac61f70fe0734e2a62b1707c8f82",
+          "bytes": 511508
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0027.txt",
+          "sha256": "15288821eb2892f65fc82a174b322a15c86d64d0a91ee945197db78aa363c8dc",
+          "bytes": 511556
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0028.txt",
+          "sha256": "47c1015d05419d2bfebdb5168d4e8c67c805badd00eeff39f40e4875f021583c",
+          "bytes": 511123
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0029.txt",
+          "sha256": "ac4e50f3a57d0dc7c0fac54b1ef941a1075eaa84a3be193d7d812f8542fb4101",
+          "bytes": 510392
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0030.txt",
+          "sha256": "8874a8fde636db8c391577cd79a083bec78117bc29e32464e76683845dfc78bb",
+          "bytes": 511761
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0031.txt",
+          "sha256": "345a0ca4422f51f3f8ad216ff90c65288bc5b0e1d7bf1336449cf362f6e9ea9c",
+          "bytes": 511256
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0032.txt",
+          "sha256": "30e6cb46dcbc1cdff3241549cb0cf34c5047c626950335b774ff069e2b1facde",
+          "bytes": 511346
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0033.txt",
+          "sha256": "09d64ce4fe370484e5dc1cc6f2acd1f0b4cb27634d6b25ecc9b5b263e076152b",
+          "bytes": 510762
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0034.txt",
+          "sha256": "29038ca240dea3553e51e6018ea81f166684dcbcfa5db11e9a7833d9137812f6",
+          "bytes": 510680
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0035.txt",
+          "sha256": "28edb7672282af59e0cd69494423711f3c58234a5b886e0096bb30cf2998f77f",
+          "bytes": 510388
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0036.txt",
+          "sha256": "61bf53afa217e949c21b9baca3531540d98da7621e50fae49d9160788ba57b67",
+          "bytes": 511356
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0037.txt",
+          "sha256": "f7b8ef16f2b61a4177561393cca845fcb471a4090b1ffbe0049e91b2f1ba4173",
+          "bytes": 511193
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0038.txt",
+          "sha256": "820045ac30d19cb5adc247b0efae4c03ae75fbdad0bf145fa809f0588388c10a",
+          "bytes": 510710
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0039.txt",
+          "sha256": "a1dd013d4392176ecd1bb1b9b282b74e3300e1c0cadae1a1af1a1fdd66b3ae80",
+          "bytes": 510424
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0040.txt",
+          "sha256": "aa3444a92cffb0439a8c2e6a1d2115835777f0a3f3c86859bb0293775868d0fa",
+          "bytes": 511568
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0041.txt",
+          "sha256": "cf7cdaa301862b4246a239f6fbfb034ab110a9ba33423a98a30a78ab8a1e54c9",
+          "bytes": 511446
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0042.txt",
+          "sha256": "4754246e43612f460564f97faecc06f670379c96d516f6321c0694237530fb1b",
+          "bytes": 511909
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0043.txt",
+          "sha256": "d01eb2d94edb30457545c58259f61deea8d5efb7089649984bc2ab5bef555298",
+          "bytes": 511321
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0044.txt",
+          "sha256": "a4354cce7a4d00fece01ffd89e8ff2b4ce2fb5cbe2b4d93270468217cb5281b0",
+          "bytes": 510892
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0045.txt",
+          "sha256": "8d88056cbb153324dd49f1f52ea342f7eba474305c6f9dc7cba5205848a09328",
+          "bytes": 510944
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0046.txt",
+          "sha256": "91e65c1b826e63422724d90d3b06d301f9f5a8c02bb949e384e7770ce79a22c9",
+          "bytes": 510979
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0047.txt",
+          "sha256": "16a2a0f639f2d9ec3d1ea64987afc5213c291543ad267fbec88651ec3b4e07ca",
+          "bytes": 510959
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0048.txt",
+          "sha256": "96f96f8d5fad43ca78891f3b2a8a7bca5964075579d05916b297687c6f685d96",
+          "bytes": 510877
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0049.txt",
+          "sha256": "8455cc826a7e098c0ce708b9df3317de2036a7854a5562dd6b429ad848eae6f4",
+          "bytes": 511027
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0050.txt",
+          "sha256": "91d95ab7737f66f7dedcb6156d14edc7b0276e1d88a9ba77714c64022ef708ff",
+          "bytes": 510651
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0051.txt",
+          "sha256": "f2c158d355c33843dd681d7cdff33f35fa929ad62903e7fdd6edf8a63c4e622f",
+          "bytes": 511436
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0052.txt",
+          "sha256": "816fff7c1bfcc5a163b38b429acc2230c3660481a3664730064050e85f4c9247",
+          "bytes": 511634
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0053.txt",
+          "sha256": "963136d8cfaaee043e9acfdc9c228bc08cf6e3e2a6198b6eef7d84ef0d6fe311",
+          "bytes": 511254
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0054.txt",
+          "sha256": "7a03e5fd8c5887a8025f0413c8ef00a5c54b9a5a0955652a6a1364fb7a83a096",
+          "bytes": 511254
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0055.txt",
+          "sha256": "1b1907e662a1a27792fc4dc6ad37a0929404df4442ee031f005a4db964b4a8d9",
+          "bytes": 510224
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0056.txt",
+          "sha256": "743a79cbae74cb3bd07c658b7857e06a05ad1d2a83486763b8d6fa9797b41492",
+          "bytes": 511154
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0057.txt",
+          "sha256": "bd2aedc5ae86e1e12fb93a8f025561a62047c825787d58be242b38806a056777",
+          "bytes": 511457
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0058.txt",
+          "sha256": "a9dc5713ae5a8ae9a1064806e1b5e17b1dda0128b43e9fad81d572763a93d23b",
+          "bytes": 510640
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0059.txt",
+          "sha256": "9d96841db2b417bc4f727289524714834a67dc174dc39216c5d7443f89b61232",
+          "bytes": 511464
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0060.txt",
+          "sha256": "58a0b2220a90356a3b66e618b23295692da3d1732f00439e7d1f116e21f88c8a",
+          "bytes": 511118
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0061.txt",
+          "sha256": "c84d025063f467764ff3b91fa5e6ee1da7ea1a7b1a084a63f8b9b22ad0191a2f",
+          "bytes": 510656
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0062.txt",
+          "sha256": "3fd6f14ae0bcd5a8daf8068931f5e3d6e4f25ff2f5b47dd8a96198d659dc6f7a",
+          "bytes": 510947
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0063.txt",
+          "sha256": "95cf75a714b160668f4184cd67d5e2faa9cfd384a9cb038f81c75b159d22f0bf",
+          "bytes": 511345
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0064.txt",
+          "sha256": "f585cbbde6a965ce1c69e2792d350b00f95ccf1502001404e846f4eb9f5a4e47",
+          "bytes": 511020
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0065.txt",
+          "sha256": "19d610e579dcdf3e0589f2b0ee6641b19df993ee9a4a1f4eee130c0837c26a56",
+          "bytes": 510375
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0066.txt",
+          "sha256": "c9a8fb5c25f774b599fb13308486913e2ae0df37062ba057c5fce273017de10e",
+          "bytes": 511116
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0067.txt",
+          "sha256": "e17f87492e0d037fae7164be618d5d961ffdb2f93292dd2da73cf159787faf59",
+          "bytes": 511769
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0068.txt",
+          "sha256": "2d81debc13da80f6e163531085144ad789a6a4d66804f9279ba75c3af4e0bf7f",
+          "bytes": 511471
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0069.txt",
+          "sha256": "c84204cbaca8e9d90341befcd83b3b79df9aacae0476e88c14c458cb13f5962a",
+          "bytes": 510971
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0070.txt",
+          "sha256": "eb8bca9472ef34424b23b4ca2d54820262898c36b10c02ad530bc5d994123b75",
+          "bytes": 510725
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.csv/part_0071.txt",
+          "sha256": "d085fbca851814ba661bd9f0c9cd26075409b65e1e6c8add4d829ee72885393d",
+          "bytes": 219048
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/A_decoder_continue/training_logs/train.jsonl",
-      "sha256": "c87a3c726d8580702fe7415e994bce35a06335494f53ad28091399246c935e38",
-      "bytes": 8067162,
+      "sha256": "49f1487c366c3239c816f389559862981ba4b05adf270759684c1ba73f4ef721",
+      "bytes": 36674400,
       "shards": [
         {
           "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0000.txt",
@@ -706,26 +1011,306 @@
         },
         {
           "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0015.txt",
-          "sha256": "6ac6e446ae0829550fbc5a7d6c2ba10d4bbff9a30665ffeafb8d3f7c95035d2c",
-          "bytes": 366540
+          "sha256": "7421cac76547d9edce33602d4e6c3a556271de21ebcca4a6c5127075f427c570",
+          "bytes": 513196
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0016.txt",
+          "sha256": "9410b8ec4678ca74dc1ee55955164a858e626aa5334ce87e7c58c23fb675a933",
+          "bytes": 512792
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0017.txt",
+          "sha256": "9fcc6a3f98012e12e72cc83d9c85a2de9dae4021c32d2a88d5c3ddda51c0a94e",
+          "bytes": 513223
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0018.txt",
+          "sha256": "aa5b452c49d2a99da056d678338f3b94caa898630acf378799730dc16d0b0213",
+          "bytes": 514155
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0019.txt",
+          "sha256": "2dc5301aeab48fa3cc1fda1adbf6bab6fb04ac3631909cc65f6e870ed2da4601",
+          "bytes": 514477
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0020.txt",
+          "sha256": "400d222e652cdb8126393c56464d9eaa0120164d7f4a86b252c1cbe42b4c08f2",
+          "bytes": 513759
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0021.txt",
+          "sha256": "94526c0a2e16672ac236fb5e01fb2078b096796dcd4a03838ed5f0df12979970",
+          "bytes": 513069
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0022.txt",
+          "sha256": "390be2a925b4d19325633ecb9a9a1774d8371c12a09e122c81ace5398053c273",
+          "bytes": 513051
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0023.txt",
+          "sha256": "287fde38ae765dd0e8190063bd6395a64eba71af709984731107d8ed761b1c23",
+          "bytes": 513639
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0024.txt",
+          "sha256": "69d2e46bec53b7f199abe4b8d3ad84f4c9924d6afca7478721c44e7899ebc0ee",
+          "bytes": 513608
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0025.txt",
+          "sha256": "9fc22dd1ac6b78f16b657a74b5f4dddfaab04e3c249223d041f713924cdfd7fd",
+          "bytes": 513855
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0026.txt",
+          "sha256": "cbbae49f71489f7c81e301b23e5ca0af2423a37fd76668e5ddc51a2a8c03a9e7",
+          "bytes": 513860
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0027.txt",
+          "sha256": "50ec9245976986515db40896cd6ffc6556ee2c84388d835e002f4913a7ef5dbd",
+          "bytes": 513908
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0028.txt",
+          "sha256": "a38e1bf7cfb88208b1f4304fb4df21a421777104ae7d928b2644a42afb6ffaf2",
+          "bytes": 513475
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0029.txt",
+          "sha256": "50d01d628080e68f4665d37b81994494cf2d5c692926f16490a0ee9fec296642",
+          "bytes": 512744
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0030.txt",
+          "sha256": "5f7224327d587860ebf3a638a786671226eaf5d1edac450fb9bce5ee4405fadc",
+          "bytes": 514113
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0031.txt",
+          "sha256": "1804d5eead6720a8a3ba77b07c6dd962127418611387e31241f364630434b230",
+          "bytes": 513608
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0032.txt",
+          "sha256": "073c8c5b262e6e1de7d533bfb3ec2eaee45dac4fc2501aab145b91188c882f6e",
+          "bytes": 513698
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0033.txt",
+          "sha256": "7bc7cfa16ebf654e2aa95ce7ecb35f3332fc0fee34ab61cdad24ab9b3fc2c435",
+          "bytes": 513114
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0034.txt",
+          "sha256": "362c87e50c6bdfd84a775bc8e5e7a50b935f368fddc7e3f4f0ec1ebe6c8d7127",
+          "bytes": 513032
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0035.txt",
+          "sha256": "51b6385c11d392dcc020cf508588c5729e3fba25018963283dbe78e91d744a9d",
+          "bytes": 512740
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0036.txt",
+          "sha256": "86a74efcbd61834ebc39a231c994528ad8d5b921caa0c4cfe4e526fe5839c272",
+          "bytes": 513708
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0037.txt",
+          "sha256": "01c25d7af8fb4afdaff7d31d8741fbae7e6ffd0c98de1eed25c7d6ee1feb86d7",
+          "bytes": 513545
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0038.txt",
+          "sha256": "ad73102a632c81c2d321c2c5f63056d6c4036313a27f1dd20fa4300f51dbd8fc",
+          "bytes": 513062
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0039.txt",
+          "sha256": "ede207101fb7e0af3c162656e33fe6f409ebeaf1e5be874ff0a2aad00c395519",
+          "bytes": 512776
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0040.txt",
+          "sha256": "436e95a713c128e2e63f85848a7429bcc1bfcff19f446bc286af01d786d592e3",
+          "bytes": 513920
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0041.txt",
+          "sha256": "ee7a912e863322ffcf60ffc2fdd6216913b95b48224ab0b253ba5dc451dbb205",
+          "bytes": 513798
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0042.txt",
+          "sha256": "ac4ea2f50181b880ac4a76e1fbf78af5a58787582ef6c9679de858c8b801f7fe",
+          "bytes": 514261
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0043.txt",
+          "sha256": "89036e90894ea7d137988877e64273045609d058394365519f9ee55429e26410",
+          "bytes": 513673
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0044.txt",
+          "sha256": "41010bec1b672901c54c57bc73bf1a1e5104f58700abe7329bd75f429163d1ae",
+          "bytes": 513244
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0045.txt",
+          "sha256": "39e2013fa5e1cff16dea912585b2ca7995d3c07d51d0d0b6a9e254786d2fbc36",
+          "bytes": 513296
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0046.txt",
+          "sha256": "e9326f4e7d439a30d48e9f1f13fa7e2f0ea89dfa8fb47589467a369d9cadc085",
+          "bytes": 513331
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0047.txt",
+          "sha256": "f2d5cd83ea52258b6bac5011bab28beada0731ef5d808a083afa692afafb8d85",
+          "bytes": 513311
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0048.txt",
+          "sha256": "0523f8d2c73ee78b221738a3822a5ac9037e46dc1b9a37524d561d3aea642999",
+          "bytes": 513229
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0049.txt",
+          "sha256": "aab74e68e40b2f4952209aae598a4c66225e9442e01bc70b808fdcd5a23ec285",
+          "bytes": 513379
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0050.txt",
+          "sha256": "5fb792e483f1c33ec6ca622d713daa8b3fb25632bd3191badb9c16b40fa40ed3",
+          "bytes": 513003
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0051.txt",
+          "sha256": "419e5374006ff533427879532cbccda28065aad8e39f2bd3dd095d339071e094",
+          "bytes": 513788
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0052.txt",
+          "sha256": "0eeac4159d0d6f884f0a8ef51d6acf89832b592883c6fc3124d9dabe9b3b96d1",
+          "bytes": 513986
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0053.txt",
+          "sha256": "4f385272416e6e469b064b4741156e58143c75593ebed202cd0d0036aae27fc8",
+          "bytes": 513606
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0054.txt",
+          "sha256": "0111e1999cdb52e63ee3598ea702ee1fc27f2f0dce579e8df2194f51b1edc722",
+          "bytes": 513606
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0055.txt",
+          "sha256": "189d79dbd5e1cf88e4fcb9a9eb08e6aa7998c64e68c3c4be3368583b4564af93",
+          "bytes": 512576
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0056.txt",
+          "sha256": "14e8740d8b1c4ef87a65f348f4a2407c2506557dc660f1aec07ec985ec61c263",
+          "bytes": 513506
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0057.txt",
+          "sha256": "969ce65b068f04a5f0b17d698393a1056da3945c5322a6d389e44f003a9a4244",
+          "bytes": 513809
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0058.txt",
+          "sha256": "2dee9c0b13ceb2b3719b7144ce18bc467b98885e7d8a8ea0465e7859cc96559e",
+          "bytes": 512992
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0059.txt",
+          "sha256": "7f00074aa55d23a76ab30d9cf66a39617d20321ef5d18557678ba7b230f0eef4",
+          "bytes": 513816
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0060.txt",
+          "sha256": "68a78f55967c7d21a82c7ba638dcfd673954e1a64552f6415cdbe0c651ddb19a",
+          "bytes": 513470
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0061.txt",
+          "sha256": "aa1f2ac1957d07fece35a9660f725f5efef4eb250eceefbf91d879b30d996a1d",
+          "bytes": 513008
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0062.txt",
+          "sha256": "5732f32ae2a6c00742a72ba6369733d827347de2de496401e85e50759c527021",
+          "bytes": 513299
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0063.txt",
+          "sha256": "5cf14d4673d4d23c69de621bff9bbbce1c3b025c46aae732011f535284f5d6f5",
+          "bytes": 513697
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0064.txt",
+          "sha256": "5b0212cb32b4257e0c629450b71e9dc3010e15b774a99cae061d9e2d2dbe29fd",
+          "bytes": 513372
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0065.txt",
+          "sha256": "3583634e11535de48cd3d748be8833b95ee146c4d8bae2bfa7bd296c1c9e02f3",
+          "bytes": 512727
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0066.txt",
+          "sha256": "131f18ae74294e10edde873976036e2abfa2672bb588d14c1b064cbc6a64441b",
+          "bytes": 513468
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0067.txt",
+          "sha256": "98189fa8637f7c108a452170e576dab1766f42e17633dcfc9546432e9ba3959e",
+          "bytes": 514121
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0068.txt",
+          "sha256": "43116ed15fdfb177f4dbb947021ec79e758c47517f7dfaa9777ed817531c5afd",
+          "bytes": 513823
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0069.txt",
+          "sha256": "f7fd539504a7c26e7ad8a85c75b26b2cfba9e40cffabfe2412011608d04aca52",
+          "bytes": 513323
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0070.txt",
+          "sha256": "74e08db7c62a31d2ab067e68fe668490820232b507dcb85d9b66c5c2e7af0cb1",
+          "bytes": 513077
+        },
+        {
+          "path": "upload_shards/branches/A_decoder_continue/training_logs/train.jsonl/part_0071.txt",
+          "sha256": "39dbc0ca904be3dc1f1de98c972a64d3908fa45cd311182be9e5298f1cb3cc49",
+          "bytes": 220056
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/A_decoder_continue/training_status.json",
-      "sha256": "587aad519f74dde7329417c5d7597a788c27526c5d9f8e91b135d59cae39ed4d",
-      "bytes": 240
+      "sha256": "24124224ca1be746ac77b6d645b8a8ef21bddc76f2f1669f58e88c62fbbd7872",
+      "bytes": 118
     },
     {
       "path": "branches/B_decoder_conditional_projected/checkpoint_index.json",
-      "sha256": "f2b2cccb20ed1eab606225edc8271b3069d5a4a6619dc14742c52a6da34c4e6e",
-      "bytes": 1293
+      "sha256": "7069e44912fa477caa05cc6af4b769b7f9779acda054c7dba225227da4b0faf0",
+      "bytes": 3885
     },
     {
       "path": "branches/B_decoder_conditional_projected/gradient_summary.csv",
-      "sha256": "b035e38e495c53c04125d49c61e09d2334103a370469c09034df6877532dedba",
-      "bytes": 52935
+      "sha256": "e299fb3dfcb731fd3d9301f84a34921eb9bb451bc36e3682d1c71d282818f0c1",
+      "bytes": 264767
     },
     {
       "path": "branches/B_decoder_conditional_projected/initialization_audit.json",
@@ -734,8 +1319,8 @@
     },
     {
       "path": "branches/B_decoder_conditional_projected/training_logs/train.csv",
-      "sha256": "9c3a80bae183c4c9d809f1a1595c1af17ca64455547bb55445f82adbca910353",
-      "bytes": 4633537,
+      "sha256": "1743a30b4e1ff6f37ee9ea72b8208960b62b0551c1c77f8580a59789309f6723",
+      "bytes": 24090663,
       "shards": [
         {
           "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0000.txt",
@@ -779,16 +1364,206 @@
         },
         {
           "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0008.txt",
-          "sha256": "99905f71f18a8c60a0f246d8488bc40db3e3a79524008412e337644b22f31271",
-          "bytes": 481838
+          "sha256": "a39e8df68487d4cef14b85864651d74f708708fa9cf9484185d9fec176d1bf51",
+          "bytes": 518768
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0009.txt",
+          "sha256": "e9401476816cf72cb7c169122602dc03091c742597972c86488e9a132b4cc0ef",
+          "bytes": 518167
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0010.txt",
+          "sha256": "342821312a6162e1245dc950e6c1f7f1046192a9d4040b87a564b1265118c15c",
+          "bytes": 519116
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0011.txt",
+          "sha256": "f3f681e984a905f36477203b1fcc320aceab75d5e206f63f1d1c365e34eadd93",
+          "bytes": 519393
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0012.txt",
+          "sha256": "982052bfc8cfbb7e48ede9d21c4ee1322053fb1f478a2ec1b1d5e6d1e9ba8bf7",
+          "bytes": 518692
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0013.txt",
+          "sha256": "29173388b29a2119a2a93db6015f742d6e0682c79b4d5fbcc642bde5703b1b95",
+          "bytes": 519140
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0014.txt",
+          "sha256": "8ce6efa3328322c024aefbdd8479c7cf3980a951623751e2bf1bd7edefa87ef7",
+          "bytes": 518686
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0015.txt",
+          "sha256": "266917eacc329f66a0ce22b7d28281d2d8a6df3645f0f99ed942e6d2d4802c22",
+          "bytes": 518697
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0016.txt",
+          "sha256": "520d832efe85c0aa6fe514e75b92bc2c9f373600271b2324b2f503f5cc890ea1",
+          "bytes": 518137
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0017.txt",
+          "sha256": "4fad62e80e6f84fa4422aa2c5e79dc597e1cb4fd1f5e444f2572e498083b20a8",
+          "bytes": 518592
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0018.txt",
+          "sha256": "c2dd30043cd4e6b620e466180c7149ee93e4f1dbe6a23a5ab71f40f78be1d3ed",
+          "bytes": 519639
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0019.txt",
+          "sha256": "3f9a8d0fffa0c73476080482b73a1abb12564ebddf94779b849714ff086d3025",
+          "bytes": 519810
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0020.txt",
+          "sha256": "f369cfc86be79c8447aba445f3908610948f98880d68535ff066ebc16da2c02b",
+          "bytes": 519084
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0021.txt",
+          "sha256": "cd491a1104486323b17887a2a167d812eb558ed740c17f93a9c500557d887400",
+          "bytes": 518423
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0022.txt",
+          "sha256": "3c87a2f862f432f955a79268b3b4a89f8be845965a8cb7976ccd9729ed5c323f",
+          "bytes": 518383
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0023.txt",
+          "sha256": "be63afb31bf3d5dcbec84f92ca2ff37bb4d579b0110caff880a0b36e625b2a70",
+          "bytes": 519097
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0024.txt",
+          "sha256": "1784acb22cbd2471fa477388737c66b507109e710c6d910419f6dfac2252e96e",
+          "bytes": 518913
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0025.txt",
+          "sha256": "cab3da1716208505ebcf072082fa5074ea1818df55a7acdd9067f9d0ad4a3d51",
+          "bytes": 519281
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0026.txt",
+          "sha256": "0522188b25e37d7273808adca48d59223b39a35a4a2c1ed7ef7a3780aff29f02",
+          "bytes": 519074
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0027.txt",
+          "sha256": "b260c0f6d9342a42fcbb8a2c43d79d0bdbc4d3ff1cbdef8b630125e400fceff1",
+          "bytes": 519448
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0028.txt",
+          "sha256": "34eddeb971d6a595d52f85a89b500e6fab221930820ae7a25ea80b67c16667f2",
+          "bytes": 518868
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0029.txt",
+          "sha256": "e292ae9f175b1065815d5dbc1770c2e05bf38e918ff1d6226910701fe9c7bf5e",
+          "bytes": 518140
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0030.txt",
+          "sha256": "ea4d3910ced1132f1e0a1278fed1ddbe555c579a4d53e641d66fe9bdb7d81bbb",
+          "bytes": 519496
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0031.txt",
+          "sha256": "2ffd1ea6e07f91a65f869f6c6da4d82a3755a9d669fcebe1a65eda6cc9d60f28",
+          "bytes": 518919
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0032.txt",
+          "sha256": "eb5922b9aaa0e10f7e95062b02973732df6f4e17740e8d8977aaf4805542f186",
+          "bytes": 519022
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0033.txt",
+          "sha256": "d211acaffd9343a2d20613becfdd18e1036d99a3a147f627352555e1944e383a",
+          "bytes": 518484
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0034.txt",
+          "sha256": "cd07af7bc4451b5dcfc5b508ca330674989fc887a401a3654d592aa766e6e7b9",
+          "bytes": 518383
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0035.txt",
+          "sha256": "a315aff0af68c645044dab28fb80e1ca6cd27fd4a1ce7dcd388008f57a6bfda9",
+          "bytes": 518023
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0036.txt",
+          "sha256": "2e1d77cec051e4828ea393cb6e70de1313004030b5bf262b0f2e95f136a4c8a2",
+          "bytes": 519055
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0037.txt",
+          "sha256": "b6df289f84a9dcb0f40e3fd6f4017c939e078ca503698a4d2ddab3a26f41b1a5",
+          "bytes": 518883
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0038.txt",
+          "sha256": "c39713578fe5ff54253d7b2ba10eeb844fc96465bbff7d4a2985a47eb0175c46",
+          "bytes": 518406
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0039.txt",
+          "sha256": "44b9f6b5688d50f223fd88eeb5ec6a6d222adcd0da67d583cae64351dab92e58",
+          "bytes": 518150
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0040.txt",
+          "sha256": "9641181ab025fe72739385a7df5682f139f13d311fffb7284d6c004875dba6f5",
+          "bytes": 519238
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0041.txt",
+          "sha256": "37916e8d18e4cb631620419fa1de9894eaff810570b02d141dc67c9621c9108c",
+          "bytes": 519110
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0042.txt",
+          "sha256": "ad6e5293e72792ad29ef9cc232647e16be2d48b4d66d7c165ec45b44571f76ef",
+          "bytes": 519632
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0043.txt",
+          "sha256": "d929d6e2a05d2e42b9656fa03a3d4355ca6dbfb8c9a9c035227e885fe86f5872",
+          "bytes": 518934
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0044.txt",
+          "sha256": "bff6aa9d24c198bfa2aad9237502e0f3523c3a331754d41c6b2b5b2618fee422",
+          "bytes": 518664
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0045.txt",
+          "sha256": "4380c9c3294d4edf1b26f9b183932135fa89879fced01412c46a199dca57a661",
+          "bytes": 518628
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.csv/part_0046.txt",
+          "sha256": "40d2c2d27108978db4e07fbc936291f1254890526601b9187dcea2a67910f684",
+          "bytes": 222389
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/B_decoder_conditional_projected/training_logs/train.jsonl",
-      "sha256": "a7b619f1d6cb21d4e9457dd1b2c807d3c17ea7c458e63c6772c9a190fe84ff3b",
-      "bytes": 4961219,
+      "sha256": "487af15b7a75c6d75b8daa21b2304e1ba0e5b693702fd5bb2f3e3414b1f44624",
+      "bytes": 24999118,
       "shards": [
         {
           "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0000.txt",
@@ -837,26 +1612,216 @@
         },
         {
           "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0009.txt",
-          "sha256": "6d2ff99d7e166b745f411f840d69d4a06842c95622e35c181fb08e0ecb6d728f",
-          "bytes": 260606
+          "sha256": "7d4e6edb8c0d2e06b853b9d9a46a3807f6906b696fe83e12d55b2a0dbce5ac0f",
+          "bytes": 521709
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0010.txt",
+          "sha256": "db45f0d55e4ff108bc51fa1d78a314625e1670c9f9add86e03cca46538b8b7f6",
+          "bytes": 522658
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0011.txt",
+          "sha256": "063cc8d538a05d3d8339f06d2b8a134364635583f69dd6a6cd1cec086fbbe5a1",
+          "bytes": 522935
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0012.txt",
+          "sha256": "da30387e45aa5b42c4cba7957c08f90c4038f341c896e1b5f8d3630248ffc672",
+          "bytes": 522234
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0013.txt",
+          "sha256": "9c3522d3c8481c468b5b14ab82abc4c14634883e851d25d6d4af58e613866776",
+          "bytes": 522682
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0014.txt",
+          "sha256": "6087abc938622f4ec307c7e2ff1ad97c502f84f0b336d45f24eb542993e4dc97",
+          "bytes": 522228
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0015.txt",
+          "sha256": "9f4fc10ec734102b422ec1fa1da1cddacf044d1ef1ba6d085886322e95564167",
+          "bytes": 522239
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0016.txt",
+          "sha256": "7e612526b87258ac5f72854ac48194b44c552cf16d92b3f0b71b73ee08449683",
+          "bytes": 521679
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0017.txt",
+          "sha256": "98472d18784b4ca5b72f2e1ca2bffbb3bcddd6edc6185fd83a538d4684626d48",
+          "bytes": 522134
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0018.txt",
+          "sha256": "8074c92f81aeac6132f001525879035c471f541c35f5e12c02694a50030d0989",
+          "bytes": 523181
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0019.txt",
+          "sha256": "fb855ef0b8324f8e41ab6488181dd2c183a23135f86c093b6bcd7c96dff647e9",
+          "bytes": 523352
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0020.txt",
+          "sha256": "0283beb02a5042e1ac33f55c3365487eaccde45e3da30fe9191f5d3421532831",
+          "bytes": 522626
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0021.txt",
+          "sha256": "b4eb468aeec2e0b4e1197a599fd69835cef8637cb69831d9cf97ce595fbf0125",
+          "bytes": 521965
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0022.txt",
+          "sha256": "676118e227ebd46dac2446762b8e11d0c33b507dde435c3fab34a5df4d5dec5c",
+          "bytes": 521925
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0023.txt",
+          "sha256": "a89d4a4502f709950e163bf00112767d852202cb75c512515479ad52238198fa",
+          "bytes": 522639
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0024.txt",
+          "sha256": "70850c6aa926a3d68aaf69a830dee3a9ceb4222147ff3bba39841c0557cd86ab",
+          "bytes": 522455
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0025.txt",
+          "sha256": "c86cf330b0e52e2bac11936bcd1ed28dafacdfa3ce096f3ea895f37ba41e43f0",
+          "bytes": 522823
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0026.txt",
+          "sha256": "7611367a269c261a13199bd938b19b832d4ca4c36b5416aeb3abbf5f99207684",
+          "bytes": 522616
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0027.txt",
+          "sha256": "8e9e191d6867f7179b28ae564cdf8d3aa9455793159bfaf6a9a813265936f611",
+          "bytes": 522990
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0028.txt",
+          "sha256": "4f0f7c268c70935d40d03302bfae7e06bf117002b478dda81c882f27fb4730ab",
+          "bytes": 522410
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0029.txt",
+          "sha256": "52eb172a8cc408ddd89deb392363a964755ec3984f57898272a3b3e754a0437f",
+          "bytes": 521682
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0030.txt",
+          "sha256": "92e65b4e89b4f88498f285ffb6ad1b027933a25967c5192d8715a5942fe821c8",
+          "bytes": 523038
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0031.txt",
+          "sha256": "33dfd8979f1e4661362eae21bce620d69742f0b901bc7c96939effeb63baa904",
+          "bytes": 522461
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0032.txt",
+          "sha256": "9c0d00bdd5f41188c3d78aaa748b881da95005e4c2472318f77bf9ce9a26d725",
+          "bytes": 522564
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0033.txt",
+          "sha256": "98558505c2a24b2e5bb3fc2dadd6068d5f83687191c4de061e497388327813ff",
+          "bytes": 522026
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0034.txt",
+          "sha256": "2d564134c09432bd9be7a8b9565e03961586c9c7d053196b51896c1dc92bdc00",
+          "bytes": 521925
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0035.txt",
+          "sha256": "6e785305101d41191393f75f8adbdf69a1cff63ef24866b0c817690ce53bc367",
+          "bytes": 521565
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0036.txt",
+          "sha256": "1088f28d9b1195cf39a1c73eed61333b38bb1b66fa9068b69aef3636715c559d",
+          "bytes": 522597
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0037.txt",
+          "sha256": "924fc8045ebb85a0c1078b2f2cc4bbf9e71aae1d4b5a2f09d2ca8ea65d3cfe2f",
+          "bytes": 522425
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0038.txt",
+          "sha256": "bce0adf494b750e334b2ba0bb202a94fc21d884abdc0111e35f7ab1a6368c81f",
+          "bytes": 521948
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0039.txt",
+          "sha256": "849c75659c996bc9f5c84d3cbcc2a74deef097651f7ce5ac194c474a99903f9a",
+          "bytes": 521692
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0040.txt",
+          "sha256": "f225e5c94bbc7d5ace0b5943d9b96663f8ed8a1c62420e43b6f0cd4aecb1a08e",
+          "bytes": 522780
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0041.txt",
+          "sha256": "3b29f08a3c7148c438c789db0fe6c93011cd411ddbf2865805dc104cd59f5f58",
+          "bytes": 522652
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0042.txt",
+          "sha256": "69c10890ee7726d48e8a0b7a9b07e8e95a7eaa61953deb345a0adfc2745ab147",
+          "bytes": 523174
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0043.txt",
+          "sha256": "386a3dd9c22b128477fab7d8f8108bf6662f59ba20137d58596a079fafbadb8f",
+          "bytes": 522476
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0044.txt",
+          "sha256": "124f6664e509306bc8333e4135dd9ee36cc86d1cff5848ee9708005bd044615f",
+          "bytes": 522206
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0045.txt",
+          "sha256": "f9fd464ce89a0ef454256422b788b920eac4a70178b4585d95a2853c468b6e67",
+          "bytes": 522170
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0046.txt",
+          "sha256": "76e06703e6b7e67bac01c9be62e7f779216e0c1730d5521d5bae73ee7e5c80da",
+          "bytes": 522158
+        },
+        {
+          "path": "upload_shards/branches/B_decoder_conditional_projected/training_logs/train.jsonl/part_0047.txt",
+          "sha256": "7747df48c5880bfca20b0a00a94887fe81532a2e9bbc05557cd6b1d8fd141b29",
+          "bytes": 447486
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/B_decoder_conditional_projected/training_status.json",
-      "sha256": "45a1fdb817b73204939203b36fbaf79538c52ba6439a028cff0441e9031e1961",
-      "bytes": 240
+      "sha256": "5010f574d9635999ef128bcd4e04b01926496b9b448233990dfe6b77e23a459c",
+      "bytes": 243
     },
     {
       "path": "branches/C_decoder_illm/checkpoint_index.json",
-      "sha256": "f77d8f72ba43f99931eb283d2323f6c70ecfb07f2ee574ea6353fc0f78b49355",
-      "bytes": 1259
+      "sha256": "558cc02735af15046ff726b716ab160552b5903ab49680082c50a0e7041a974c",
+      "bytes": 3783
     },
     {
       "path": "branches/C_decoder_illm/gradient_summary.csv",
-      "sha256": "db09e1cd3f0d967997be9abe5b722d5e4a7986a737cf88f688d26067d4e3c063",
-      "bytes": 53665
+      "sha256": "6a95b021710a94c6dafd27620150baadd33f044f1adddf528029bf87db390bcf",
+      "bytes": 245727
     },
     {
       "path": "branches/C_decoder_illm/initialization_audit.json",
@@ -865,8 +1830,8 @@
     },
     {
       "path": "branches/C_decoder_illm/training_logs/train.csv",
-      "sha256": "c2561c81ffe76e1edc9c54bf4039bfc47962a644e4cafea1330ebd49ffece072",
-      "bytes": 4627316,
+      "sha256": "e87ff8fdfdfc868e2330af05285f4c8d8b1d047f06dac279be94a42e0fe82212",
+      "bytes": 22212204,
       "shards": [
         {
           "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0000.txt",
@@ -910,16 +1875,186 @@
         },
         {
           "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0008.txt",
-          "sha256": "f606839ce5598acbddcdfbe7545e4a54aa152126377342d53e17081685459a57",
-          "bytes": 481106
+          "sha256": "449140d42ecf995cbd04d8d9e73a565496c2aad11f3ca0cdd8af4f141537c4a6",
+          "bytes": 518009
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0009.txt",
+          "sha256": "594c23abbae3a2d70f0304d3cc8a317a40a1786c85fcbc7cb7664adf55822d26",
+          "bytes": 517576
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0010.txt",
+          "sha256": "27149a31ab6295a7cc970ffb107854fd523dc2db808005d09a0e3fadb52b6cf9",
+          "bytes": 518526
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0011.txt",
+          "sha256": "69166c3464f04c94d2f96910d2af01c6837df4a9c3fab748cd3ca0d466b9ed8c",
+          "bytes": 518735
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0012.txt",
+          "sha256": "5ae3d5557844fd8cccc8770c4f3307dfeefbb9bf2e60203407efc06d6d47c5fa",
+          "bytes": 518234
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0013.txt",
+          "sha256": "de2a644ec1dce8de19dfa18bb8d67475260741154f00533b4edffa9171cb89a6",
+          "bytes": 518582
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0014.txt",
+          "sha256": "b35df2dc04b4052b07f69d29c5a1cfd4aa9773dec7318d5f052cbe99087d752a",
+          "bytes": 518031
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0015.txt",
+          "sha256": "b99e16e48b8594314362757bacc1ad545b82f9aa8b8ab9f43bcc953ca8b88168",
+          "bytes": 517996
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0016.txt",
+          "sha256": "4eeeaf4f1c738b7fd0a6215abcb0e052b8b6db19a4cff0b53080ed405889f3f1",
+          "bytes": 517559
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0017.txt",
+          "sha256": "dbd230ace8792e8b26b975c71d21e1884d4df1841711a89805a930fdef177caf",
+          "bytes": 518041
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0018.txt",
+          "sha256": "9701cb5a3d6c70790a547d3b658be87c153ef159df10fe3e0dc24bd8f2f4f276",
+          "bytes": 518991
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0019.txt",
+          "sha256": "8022e0e9925dc0fda8dd82ae118912435c95ebef29a8f27cee7bc961e769344c",
+          "bytes": 519269
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0020.txt",
+          "sha256": "73a9860fdaa1a0e4f5fe90bff8614a3efcb16a80e2d67d54fd9b57272ef60e03",
+          "bytes": 518564
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0021.txt",
+          "sha256": "e3435d69149c15955317d2024577fd72adcbae19b4eaff109e9ae346311e59c1",
+          "bytes": 517871
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0022.txt",
+          "sha256": "0caa949cf7e0cf40f88e062945e3580c347939d3e8dddf4547337d51b057517b",
+          "bytes": 517874
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0023.txt",
+          "sha256": "4016e3f162ff9b6d373c492bd3c5a3ba05085f1372874dccb0293a906bf836ec",
+          "bytes": 518467
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0024.txt",
+          "sha256": "df9ce27c29cbc5362a7e30e8e1f06c03a82fdf02204ec7725529ba416ef7293d",
+          "bytes": 518371
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0025.txt",
+          "sha256": "70b5ad812e84909749aef6dedde0047d79e8064f462f5a7459310c7745e41f76",
+          "bytes": 518660
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0026.txt",
+          "sha256": "5f1371a2f7e1c55f0193a11b62988e2d886a5f2efcb07374c7b7de412a7bfef1",
+          "bytes": 518598
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0027.txt",
+          "sha256": "67b0897d3250c1989c08a68053ce8b1f079e6dab5794af7ad6c4f4c543e1d797",
+          "bytes": 518715
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0028.txt",
+          "sha256": "7d45e237fd94b43226e57a638ace6622939598c01e44c011b0ec1f4409f5d1bf",
+          "bytes": 518283
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0029.txt",
+          "sha256": "ba2a37f74f01f6f7036a87642083da894286dedb2e41101ac76a0f06c0ff7f94",
+          "bytes": 517585
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0030.txt",
+          "sha256": "93d813289af34854c1dd3cccfaf1386c9a3aaab3a3dedbdcba0e53b120e1ddea",
+          "bytes": 518904
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0031.txt",
+          "sha256": "a86d2ba63933d5f4d11e7c4992ec6fb55eb992cdb3fad0197f8414e61aab346e",
+          "bytes": 518420
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0032.txt",
+          "sha256": "d1fc1e4fc51f3cb37e3c8ab035e05d04c4a02af5b614fa284a2f4047b8d58a00",
+          "bytes": 518486
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0033.txt",
+          "sha256": "3a4650551b89423db94d3861c166d2feceab14979a81bcc1ab6d3c050f8e4831",
+          "bytes": 517940
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0034.txt",
+          "sha256": "f9dbdc799d8dbe413ad3e33f099320b00f3f5fd2e3249a3b147a550f1aa5f46c",
+          "bytes": 517853
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0035.txt",
+          "sha256": "ed9a401bf7f84bc0a953e81c9eb5170797dd7a073f7e7627cf50686219c4bae7",
+          "bytes": 517593
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0036.txt",
+          "sha256": "1edc38653ea9926e470503240102cf74a2a4cad4600ca46043f2022b322fb401",
+          "bytes": 518527
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0037.txt",
+          "sha256": "af2db6a93c059d130a098a041ce217a8de57f5f913d3f945435e8da6d1c96890",
+          "bytes": 518354
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0038.txt",
+          "sha256": "138b414476e4e801162df214a60502fc406680ade8e0dc6dd48c2840d60ed142",
+          "bytes": 517920
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0039.txt",
+          "sha256": "3cabfb23c542815cacd330b1be88156f7014cc8fd4f7b5a701c1d5cd700695f3",
+          "bytes": 517571
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0040.txt",
+          "sha256": "f9e092f5e09bd259d17685cd93c8b960e440588d0957714cd729592a8067c615",
+          "bytes": 518735
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0041.txt",
+          "sha256": "7878ef120e794100a486ce0c1171fceac3936ab39b02731eefdb9588937cd942",
+          "bytes": 518528
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.csv/part_0042.txt",
+          "sha256": "9761fc18199f11402d4f968acf984e6abefed5f02b52d173ecb0f50c86c09f9d",
+          "bytes": 444626
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/C_decoder_illm/training_logs/train.jsonl",
-      "sha256": "c9712d7f44e0f1ebea86a554d0e27b0424f39697b0b3e4ce850f9fae934fc010",
-      "bytes": 4992152,
+      "sha256": "4068b47e4750677933fcda7ed48ebdd7d32b6e1a97ce6a9ddd1b77268b4d6f0a",
+      "bytes": 22809745,
       "shards": [
         {
           "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0000.txt",
@@ -968,16 +2103,186 @@
         },
         {
           "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0009.txt",
-          "sha256": "2f8a2e43b2ff6a105551ee90aa25f541e71fc1a0be8488bb53ca568ad10dae88",
-          "bytes": 297787
+          "sha256": "6a532fa20c611b477d1964db16de0d5e69d3fc08c10643ccecfc487cba0359bb",
+          "bytes": 521118
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0010.txt",
+          "sha256": "4bb84a094edc514a0c4d31a50e5a5ec4162bc421ee178d43e2a276f838d30295",
+          "bytes": 522068
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0011.txt",
+          "sha256": "526e9d18340e200c8a51d8241eee0fde205150444e3720621d4f13b354820b0d",
+          "bytes": 522277
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0012.txt",
+          "sha256": "8ed96424e43c9dc4c540adc6be43324cf930bc642ab981675d28cf3cb7b7ba07",
+          "bytes": 521776
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0013.txt",
+          "sha256": "df28e1f053697f41978f74235bb782a71f736dcbc33a124a3f3a04b536605db3",
+          "bytes": 522124
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0014.txt",
+          "sha256": "53e19ab20d793b233f044a3ed398dff2916ef95ecf077c67f08bd890c2d33c57",
+          "bytes": 521573
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0015.txt",
+          "sha256": "6d41776f361e4edde854bfddf3a6ca8cad78fbeafb6d4a33fa4dabb361c3429c",
+          "bytes": 521538
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0016.txt",
+          "sha256": "16f43fb8f9ce60de1afb6126f934d138d60a469af78f9e9b6c4ed08133c489d6",
+          "bytes": 521101
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0017.txt",
+          "sha256": "68b44098a2bb3c50a6c3c2a15715f3624fdb4181d115add76a69085017864589",
+          "bytes": 521583
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0018.txt",
+          "sha256": "fac90ae3537a3dabf34ca03c12e0c485299f1fce0bfe86cb66bc5956699929cc",
+          "bytes": 522533
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0019.txt",
+          "sha256": "7c8c81ef71505282ebbb22f3cc470995d0f82d17eef4bf4569f0d7042b5f956c",
+          "bytes": 522811
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0020.txt",
+          "sha256": "0303119b2de514691b6f61e1a0c5545cb92ddeef804a83ca9ce799fbd4cd0684",
+          "bytes": 522106
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0021.txt",
+          "sha256": "3c5d56f45ef2fb3aeb3df9911a21af4f5d931d2e9b84f4856b70ed6a176e8e67",
+          "bytes": 521413
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0022.txt",
+          "sha256": "8ed1489a41a73bf05846f940a195a80dd0cd544a9a6385d7e5925f91302fbc90",
+          "bytes": 521416
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0023.txt",
+          "sha256": "53756a197d94d7a6b00d438e75b0ce0f9fa22d703a1f988d4e86b2ed329807eb",
+          "bytes": 522009
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0024.txt",
+          "sha256": "c2b70f60d356af222b3a710c5a561243f2364232ef684cf51fa18a4f71e64e5a",
+          "bytes": 521913
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0025.txt",
+          "sha256": "71ecd0f89a32eee45699dbe1f9771ea4a2d90b6ba7309d94565e7e4c685e33fc",
+          "bytes": 522202
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0026.txt",
+          "sha256": "dcd98a2b865e87aa513e9b7f24b9aa7075542fdbfba8dcd5eb1f27b810ab60ac",
+          "bytes": 522140
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0027.txt",
+          "sha256": "6d906b0f6962654f16f7b8d6444cc384eeef91c674e9bf52de83112b5d68182e",
+          "bytes": 522257
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0028.txt",
+          "sha256": "66aa96a31b29e12b0b7d16f01f016da1455ac95ef7e779987c5623c449c8cdc3",
+          "bytes": 521825
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0029.txt",
+          "sha256": "d1148dcb4d61e6ba65c29f8331489997b52869809c001518eb8bec87e2a1ea8b",
+          "bytes": 521127
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0030.txt",
+          "sha256": "95cd352a5725147022156761c0b021d80d049688e131ca236fdce354ff848ceb",
+          "bytes": 522446
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0031.txt",
+          "sha256": "a126daddffa941e7c84136c9b504897421ba47f316cb6c2754fd3c4d618d0b71",
+          "bytes": 521962
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0032.txt",
+          "sha256": "90b070a444b21ea3954df105097471dab5b027d09658ec691110b6cf7c5132f0",
+          "bytes": 522028
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0033.txt",
+          "sha256": "f6612a220847a1de43a0d0b4d3be80931498eb6c1ccaf14c1bcfcee8576a057f",
+          "bytes": 521482
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0034.txt",
+          "sha256": "0fd080ac90261df20efcec059e92c6b1ccf3a7fe7bf2bbac46b8c574e41f8f5e",
+          "bytes": 521395
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0035.txt",
+          "sha256": "98ddb7bcc928e15df1703d2cd3061f879afeec531db2e6875ec8f5d7ec2667b2",
+          "bytes": 521135
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0036.txt",
+          "sha256": "1722930756ed57077157d9ffba5923a2760b5ea80105ea2f5b50ef95fe7b26cd",
+          "bytes": 522069
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0037.txt",
+          "sha256": "38386bd9c3d8394ee682aedf3af2817278544064235e48bbc5b8560ffc27c871",
+          "bytes": 521896
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0038.txt",
+          "sha256": "0970eb76a9c168391abb7a863eec41cebf0de30d8a659493e7fa28cd81afb602",
+          "bytes": 521462
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0039.txt",
+          "sha256": "756bd3a779eaf756b072e998d660e1489ad2ab25d109950ce73bbe01050e5eb6",
+          "bytes": 521113
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0040.txt",
+          "sha256": "b9ad955e16430d910e222b1a9252571d6bca35561e2f3310f39848eb7f086640",
+          "bytes": 522277
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0041.txt",
+          "sha256": "7d60a4f5ec50512a0da26424c3722d7a096422b12f1b6542d937be2b528ce0e4",
+          "bytes": 522070
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0042.txt",
+          "sha256": "f28d0b50e223094ad6959c5a0400ec0c65d7d19a7bd46be25ae785bdee70ded9",
+          "bytes": 522621
+        },
+        {
+          "path": "upload_shards/branches/C_decoder_illm/training_logs/train.jsonl/part_0043.txt",
+          "sha256": "8e9ca00b9801aab3ece32efb75feeb60280fbaad9b27df95a334b21be234ed60",
+          "bytes": 372514
         }
       ],
       "reassembly": "concatenate UTF8 shards in listed order"
     },
     {
       "path": "branches/C_decoder_illm/training_status.json",
-      "sha256": "811c6c65fd0715adc499171dae7ec601ab26353dfadbfc3ca59b6b7d94f1fcee",
-      "bytes": 240
+      "sha256": "5ae6518ee9a9c37757abd0e0d88a8665079faeb9499e03a3ffa59542dbb28799",
+      "bytes": 242
     },
     {
       "path": "config.json",
@@ -1001,8 +2306,8 @@
     },
     {
       "path": "evaluation/config.json",
-      "sha256": "fa02ca2879e779a04372f6259e1af21a5ecc576c0792f30c8aa21ebb038024b7",
-      "bytes": 8107
+      "sha256": "ca06032f394b4495a01fb60f17f3af2791e1604af021751ce0dd2ec9f061a610",
+      "bytes": 8899
     },
     {
       "path": "finish.py",
@@ -1011,8 +2316,8 @@
     },
     {
       "path": "gpu_schedule.jsonl",
-      "sha256": "dff3b57ef550ac89d90d4acb659b71ee16748d4463947d4b278c21a2cec4c4e9",
-      "bytes": 8923
+      "sha256": "836951a4c8ca411795f53cd6dfb2eacf97feecfc0a474a3e84dbffdd9b3845e4",
+      "bytes": 12159
     },
     {
       "path": "gradient_tools.py",
@@ -1254,8 +2559,8 @@
     },
     {
       "path": "logs/commands.jsonl",
-      "sha256": "46d9fbb80c700c6b0232f89da2433f463603a75ee398a4dfae9adc3c33054e49",
-      "bytes": 6809
+      "sha256": "5014625866e6b71e171319b171deb29e19ea0ec5e985306b153dcf8082c79929",
+      "bytes": 7424
     },
     {
       "path": "logs/historical_report.log",
@@ -1279,8 +2584,8 @@
     },
     {
       "path": "logs/pipeline.log",
-      "sha256": "c7c4bfad93287f6d5730c34f539021ae0c79a6685f2536aff96d6d8aeb51ef10",
-      "bytes": 726
+      "sha256": "e5595b979e73864867b8cdc87774955766035c166c5624d08dd7e437b0f6aec3",
+      "bytes": 825
     },
     {
       "path": "logs/precheck_A_decoder_continue.log",
@@ -1304,23 +2609,23 @@
     },
     {
       "path": "logs/publish_protocol_verified.log",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
+      "sha256": "ecd081f62c487a50c15ee767ada5d9e157b8b73fd57f156e357c1740a03e0315",
+      "bytes": 58
     },
     {
       "path": "logs/train_A_decoder_continue.log",
-      "sha256": "fe17bd316ade6b8fecaa36f53ebff826aa913b72b00b95739abb4a5805dcab40",
-      "bytes": 2682
+      "sha256": "58b0a2167b0e2fb48cde0248bb3183d25c7e1b66c67f0feae503b79f84faccbb",
+      "bytes": 5446
     },
     {
       "path": "logs/train_B_decoder_conditional_projected.log",
-      "sha256": "b6efcdbe7fcaa151bbc59505ece68185551f1e5378641f792c2dcdf56d10b8d0",
-      "bytes": 2549
+      "sha256": "b7777fd8c48da92806601db54f992b493203a1c3cbc21b5ad6fba0695fe6dcc3",
+      "bytes": 5141
     },
     {
       "path": "logs/train_C_decoder_illm.log",
-      "sha256": "1c45f8f5b53a0e3cdbbb6ff8e66a5f9bde9f988b9ef1d2ebf66474c42238877f",
-      "bytes": 2311
+      "sha256": "bf0d21f664c31b3855cbbd55fe8b89fe1cd865db797c828a7b0de8b245f81de6",
+      "bytes": 5687
     },
     {
       "path": "manifests/hevc_b.json",
@@ -5374,8 +6679,8 @@
     },
     {
       "path": "pipeline_status.json",
-      "sha256": "c54ef778e913796d87e2b73558e6696ed8a26c2029ca2c46c57ca6ab58bcfcd2",
-      "bytes": 2023
+      "sha256": "9e540a62aa9d8d0af008c929207672e6f77057af0f8ae62f966944db799054bc",
+      "bytes": 1714
     },
     {
       "path": "plans/calibration.json",

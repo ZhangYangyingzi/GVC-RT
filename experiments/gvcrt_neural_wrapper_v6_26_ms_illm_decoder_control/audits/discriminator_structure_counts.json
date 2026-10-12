@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "branches": {
+    "B_decoder_conditional_projected": {
+      "trainable_D_parameters": 10855616,
+      "parameter_state_entries": 48,
+      "architecture": "four-scale conditional Projected with1024-channel adapters",
+      "D_optimizer": "Adam lr2e-4 betas(0,0.9)",
+      "init_checkpoint_sha256": "09e1b413d7ae3ec2174e4ff5cf6a3e9174a928d9306ea400f31b88f6bc5603c0"
+    },
+    "C_decoder_illm": {
+      "trainable_D_parameters": 17992849,
+      "parameter_state_entries": 50,
+      "architecture": "official ConditionalUnetDiscriminator1025/factor8/context1024_to16/norm_identity",
+      "D_optimizer": "Adam lr2e-4 betas(0,0.9)",
+      "init_checkpoint_sha256": "d1bf7680b4ca5cfa0322e53e11d9ce529d7dc69d3b544bf815267702bef16f50"
+    }
+  },
+  "frozen_feature_models_excluded_from_parameter_count": true,
+  "identical_D_hash_not_required": true
+}

@@ -1,25 +1,17 @@
 {
   "status": "RUNNING",
-  "phase": "training_and_evaluation",
+  "phase": "stage_publication",
   "PID": 2439060,
   "training_steps": {
-    "A_decoder_continue": 220,
-    "B_decoder_conditional_projected": 130,
-    "C_decoder_illm": 130
+    "A_decoder_continue": 1000,
+    "B_decoder_conditional_projected": 670,
+    "C_decoder_illm": 610
   },
   "completed_RD": 320,
   "expected_RD": 800,
   "completed_historical": 200,
   "expected_historical": 200,
   "active": {
-    "train_A_decoder_continue": {
-      "PID": 2444740,
-      "identity": "4941963474",
-      "gpu": 7,
-      "required_MiB": 9248,
-      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/logs/train_A_decoder_continue.log",
-      "offset": 0
-    },
     "train_B_decoder_conditional_projected": {
       "PID": 2444858,
       "identity": "4941964556",
@@ -29,12 +21,12 @@
       "offset": 0
     },
     "train_C_decoder_illm": {
-      "PID": 2444859,
-      "identity": "4941964556",
-      "gpu": 6,
+      "PID": 2482042,
+      "identity": "4942192034",
+      "gpu": 4,
       "required_MiB": 9248,
       "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/logs/train_C_decoder_illm.log",
-      "offset": 0
+      "offset": 2342
     }
   },
   "attempts": {
@@ -48,7 +40,7 @@
     "codec_C_decoder_illm": 1,
     "train_A_decoder_continue": 1,
     "train_B_decoder_conditional_projected": 1,
-    "train_C_decoder_illm": 1
+    "train_C_decoder_illm": 2
   },
   "memory": {
     "eval": 9000,
@@ -62,7 +54,7 @@
     "code_protocol_ready",
     "historical_diagnosis_complete"
   ],
-  "updated_unix": 1791774320.1797674,
-  "publication_phase": "protocol_and_labeler_verified",
+  "updated_unix": 1791781791.8664672,
+  "publication_phase": "A_decoder_continue_trained",
   "publication_pending": true
 }
