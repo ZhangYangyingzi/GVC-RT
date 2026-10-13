@@ -1,0 +1,1973 @@
+{
+  "pooled": [
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "A_continue_1000",
+      "QP": 0,
+      "bpp": 0.0025569450472608026,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 61.72507328074608,
+      "D_mu": 3.3023264974975257,
+      "D_cov": 58.422746783248556,
+      "PSD_rounding_tolerance": 1.3077070732827433e-08,
+      "PSD_product_min": -4.8307372686286134e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "B_covstats_1000",
+      "QP": 0,
+      "bpp": 0.0025569450472608026,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 61.48977522180635,
+      "D_mu": 3.277580178356935,
+      "D_cov": 58.21219504344941,
+      "PSD_rounding_tolerance": 1.3057071559166086e-08,
+      "PSD_product_min": -3.5300812371757016e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "A_continue_1000",
+      "QP": 5,
+      "bpp": 0.009134412977430558,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 32.46428250728679,
+      "D_mu": 1.3830618527578697,
+      "D_cov": 31.08122065452892,
+      "PSD_rounding_tolerance": 1.3889182795771603e-08,
+      "PSD_product_min": -4.555168127916019e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "B_covstats_1000",
+      "QP": 5,
+      "bpp": 0.009134412977430558,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 32.31158920609061,
+      "D_mu": 1.369281600294234,
+      "D_cov": 30.942307605796373,
+      "PSD_rounding_tolerance": 1.3904599345704856e-08,
+      "PSD_product_min": -3.7698872389543997e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "A_continue_1000",
+      "QP": 9,
+      "bpp": 0.020448570722415123,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 25.97911038007406,
+      "D_mu": 0.9784801726718642,
+      "D_cov": 25.000630207402196,
+      "PSD_rounding_tolerance": 1.402478866011553e-08,
+      "PSD_product_min": -3.237115281950298e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "dataset": "mcljcv",
+      "method": "B_covstats_1000",
+      "QP": 9,
+      "bpp": 0.020448570722415123,
+      "sequences": 20,
+      "GT_features_sha256": "05069e1df5fe816469988d65c2340d369df2dd3bc7fb75f10f89962350603bba",
+      "aggregation": "pooled features; equal-video mean actual bpp",
+      "FID": 25.91163883937521,
+      "D_mu": 0.9695055847091794,
+      "D_cov": 24.942133254666032,
+      "PSD_rounding_tolerance": 1.4023624859536874e-08,
+      "PSD_product_min": -7.487723276238481e-14,
+      "samples": 1280,
+      "ddof": 1,
+      "arithmetic": "float64",
+      "clamped": false
+    }
+  ],
+  "closure": [],
+  "comparisons": [
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "delta_definition": "method-reference",
+      "diagnostic": "3-QP stability diagnostic; not v6.29 primary ten-QP comparison",
+      "rate_axis": "dataset mean actual bpp",
+      "low_bpp": 0.0025569450472608026,
+      "high_bpp": 0.020448570722415123,
+      "grid_count": 100,
+      "status": "available",
+      "method_mean": 38.47293173176075,
+      "reference_mean": 38.63964864796983,
+      "delta": -0.1667169162090758,
+      "relative_percent": -0.43146592177368387,
+      "better_grid_fraction": 1.0,
+      "dataset": "mcljcv",
+      "sequences": 20,
+      "samples": 1280,
+      "video_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        26,
+        28,
+        29
+      ],
+      "aggregation": "pooled feature FID; dataset mean actual bpp"
+    }
+  ],
+  "grids": [
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 0,
+      "bpp": 0.002556945047260802,
+      "method_value": 61.48977522180635,
+      "reference_value": 61.72507328074608,
+      "delta": -0.23529805893973332,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 1,
+      "bpp": 0.002611211298969954,
+      "method_value": 60.81828460479379,
+      "reference_value": 61.05274876391351,
+      "delta": -0.2344641591197245,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 2,
+      "bpp": 0.0026666292477316965,
+      "method_value": 60.151590398636976,
+      "reference_value": 60.38522571637861,
+      "delta": -0.23363531774163704,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 3,
+      "bpp": 0.002723223336105796,
+      "method_value": 59.48977365106589,
+      "reference_value": 59.72258401976656,
+      "delta": -0.23281036870066885,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 4,
+      "bpp": 0.0027810185253984527,
+      "method_value": 58.83291540981042,
+      "reference_value": 59.06490355570242,
+      "delta": -0.23198814589200367,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 5,
+      "bpp": 0.0028400403066716788,
+      "method_value": 58.18109672260055,
+      "reference_value": 58.412264205811375,
+      "delta": -0.23116748321082525,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 6,
+      "bpp": 0.0029003147119863694,
+      "method_value": 57.53439863716616,
+      "reference_value": 57.76474585171849,
+      "delta": -0.23034721455232443,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 7,
+      "bpp": 0.0029618683258839443,
+      "method_value": 56.89290220123724,
+      "reference_value": 57.12242837504893,
+      "delta": -0.22952617381169205,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 8,
+      "bpp": 0.003024728297111709,
+      "method_value": 56.256688462543664,
+      "reference_value": 56.48539165742779,
+      "delta": -0.22870319488412605,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 9,
+      "bpp": 0.0030889223505970185,
+      "method_value": 55.625838468815424,
+      "reference_value": 55.85371558048022,
+      "delta": -0.22787711166479596,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 10,
+      "bpp": 0.003154478799675618,
+      "method_value": 55.00043326778239,
+      "reference_value": 55.2274800258313,
+      "delta": -0.22704675804890684,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 11,
+      "bpp": 0.0032214265585794565,
+      "method_value": 54.38055390717456,
+      "reference_value": 54.60676487510622,
+      "delta": -0.22621096793166373,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 12,
+      "bpp": 0.0032897951551895794,
+      "method_value": 53.76628143472182,
+      "reference_value": 53.99165000993003,
+      "delta": -0.22536857520820774,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 13,
+      "bpp": 0.003359614744059632,
+      "method_value": 53.157696898154136,
+      "reference_value": 53.3822153119279,
+      "delta": -0.22451841377376525,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 14,
+      "bpp": 0.0034309161197157985,
+      "method_value": 52.55488134520144,
+      "reference_value": 52.77854066272495,
+      "delta": -0.22365931752351287,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 15,
+      "bpp": 0.003503730730238987,
+      "method_value": 51.95791582359361,
+      "reference_value": 52.18070594394626,
+      "delta": -0.22279012035264856,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 16,
+      "bpp": 0.0035780906911352627,
+      "method_value": 51.36688138106065,
+      "reference_value": 51.58879103721701,
+      "delta": -0.22190965615635605,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 17,
+      "bpp": 0.0036540287995006876,
+      "method_value": 50.78185906533245,
+      "reference_value": 51.002875824162274,
+      "delta": -0.2210167588298262,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 18,
+      "bpp": 0.0037315785484867353,
+      "method_value": 50.20292992413898,
+      "reference_value": 50.42304018640722,
+      "delta": -0.2201102622682427,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 19,
+      "bpp": 0.0038107741420727584,
+      "method_value": 49.63017500521011,
+      "reference_value": 49.84936400557692,
+      "delta": -0.21918900036681066,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 20,
+      "bpp": 0.003891650510151917,
+      "method_value": 49.06367535627586,
+      "reference_value": 49.28192716329655,
+      "delta": -0.21825180702069247,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 21,
+      "bpp": 0.003974243323937337,
+      "method_value": 48.503512025066094,
+      "reference_value": 48.72080954119119,
+      "delta": -0.21729751612509318,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 22,
+      "bpp": 0.0040585890116951705,
+      "method_value": 47.94976605931078,
+      "reference_value": 48.166091020885986,
+      "delta": -0.21632496157520364,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 23,
+      "bpp": 0.004144724774811628,
+      "method_value": 47.402518506739824,
+      "reference_value": 47.61785148400604,
+      "delta": -0.2153329772662147,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 24,
+      "bpp": 0.004232688604200936,
+      "method_value": 46.861850415083204,
+      "reference_value": 47.07617081217651,
+      "delta": -0.21432039709330297,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 25,
+      "bpp": 0.004322519297061579,
+      "method_value": 46.32784283207082,
+      "reference_value": 46.54112888702251,
+      "delta": -0.21328605495168773,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 26,
+      "bpp": 0.004414256473988124,
+      "method_value": 45.80057680543259,
+      "reference_value": 46.01280559016912,
+      "delta": -0.2122287847365314,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 27,
+      "bpp": 0.00450794059644622,
+      "method_value": 45.28013338289848,
+      "reference_value": 45.49128080324149,
+      "delta": -0.2111474203430106,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 28,
+      "bpp": 0.004603612984618473,
+      "method_value": 44.76659361219842,
+      "reference_value": 44.97663440786476,
+      "delta": -0.2100407956663375,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 29,
+      "bpp": 0.0047013158356290765,
+      "method_value": 44.26003854106235,
+      "reference_value": 44.46894628566405,
+      "delta": -0.20890774460170292,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 30,
+      "bpp": 0.004801092242155211,
+      "method_value": 43.76054921722016,
+      "reference_value": 43.96829631826445,
+      "delta": -0.20774710104429062,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 31,
+      "bpp": 0.004902986211433416,
+      "method_value": 43.26820668840183,
+      "reference_value": 43.47476438729112,
+      "delta": -0.20655769888928432,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 32,
+      "bpp": 0.005007042684669393,
+      "method_value": 42.78309200233726,
+      "reference_value": 42.988430374369145,
+      "delta": -0.205338372031882,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 33,
+      "bpp": 0.005113307556859671,
+      "method_value": 42.30528620675643,
+      "reference_value": 42.50937416112369,
+      "delta": -0.20408795436726024,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 34,
+      "bpp": 0.005221827697034027,
+      "method_value": 41.83487034938922,
+      "reference_value": 42.03767562917984,
+      "delta": -0.20280527979061702,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 35,
+      "bpp": 0.005332650968927427,
+      "method_value": 41.3719254779656,
+      "reference_value": 41.57341466016275,
+      "delta": -0.20148918219715028,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 36,
+      "bpp": 0.005445826252090783,
+      "method_value": 40.91653264021547,
+      "reference_value": 41.11667113569751,
+      "delta": -0.20013849548203666,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 37,
+      "bpp": 0.005561403463449648,
+      "method_value": 40.46877288386881,
+      "reference_value": 40.667524937409276,
+      "delta": -0.198752053540467,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 38,
+      "bpp": 0.005679433579320549,
+      "method_value": 40.0287272566555,
+      "reference_value": 40.22605594692313,
+      "delta": -0.1973286902676321,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 39,
+      "bpp": 0.005799968657894485,
+      "method_value": 39.59647680630552,
+      "reference_value": 39.79234404586425,
+      "delta": -0.19586723955872998,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 40,
+      "bpp": 0.005923061862197671,
+      "method_value": 39.17210258054879,
+      "reference_value": 39.36646911585772,
+      "delta": -0.1943665353089301,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 41,
+      "bpp": 0.0060487674835395305,
+      "method_value": 38.75568562711522,
+      "reference_value": 38.94851103852866,
+      "delta": -0.19282541141343756,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 42,
+      "bpp": 0.0061771409654583255,
+      "method_value": 38.347306993734776,
+      "reference_value": 38.53854969550221,
+      "delta": -0.19124270176743607,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 43,
+      "bpp": 0.006308238928175042,
+      "method_value": 37.94704772813736,
+      "reference_value": 38.13666496840347,
+      "delta": -0.18961724026610938,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 44,
+      "bpp": 0.006442119193566173,
+      "method_value": 37.55498887805294,
+      "reference_value": 37.74293673885761,
+      "delta": -0.18794786080466963,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 45,
+      "bpp": 0.006578840810666604,
+      "method_value": 37.171211491211416,
+      "reference_value": 37.35744488848969,
+      "delta": -0.18623339727827215,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 46,
+      "bpp": 0.0067184640817136414,
+      "method_value": 36.79579661534275,
+      "reference_value": 36.98026929892488,
+      "delta": -0.1844726835821291,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 47,
+      "bpp": 0.006861050588743878,
+      "method_value": 36.42882529817685,
+      "reference_value": 36.61148985178828,
+      "delta": -0.1826645536114313,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 48,
+      "bpp": 0.007006663220754434,
+      "method_value": 36.07037858744367,
+      "reference_value": 36.251186428705026,
+      "delta": -0.1808078412613554,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 49,
+      "bpp": 0.007155366201440725,
+      "method_value": 35.72053753087313,
+      "reference_value": 35.89943891130022,
+      "delta": -0.17890138042709225,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 50,
+      "bpp": 0.007307225117522832,
+      "method_value": 35.379383176195184,
+      "reference_value": 35.55632718119901,
+      "delta": -0.17694400500382557,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 51,
+      "bpp": 0.007462306947673124,
+      "method_value": 35.04699657113974,
+      "reference_value": 35.22193112002651,
+      "delta": -0.17493454888676752,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 52,
+      "bpp": 0.007620680092057754,
+      "method_value": 34.72345876343674,
+      "reference_value": 34.89633060940783,
+      "delta": -0.17287184597109473,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 53,
+      "bpp": 0.007782414402505124,
+      "method_value": 34.40885080081612,
+      "reference_value": 34.57960553096811,
+      "delta": -0.17075473015199094,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 54,
+      "bpp": 0.007947581213314648,
+      "method_value": 34.10325373100781,
+      "reference_value": 34.271835766332465,
+      "delta": -0.1685820353246541,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 55,
+      "bpp": 0.008116253372719357,
+      "method_value": 33.80674860174176,
+      "reference_value": 33.97310119712602,
+      "delta": -0.16635259538426084,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 56,
+      "bpp": 0.008288505275016237,
+      "method_value": 33.51941646074788,
+      "reference_value": 33.683481704973886,
+      "delta": -0.1640652442260091,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 57,
+      "bpp": 0.008464412893378433,
+      "method_value": 33.24133835575611,
+      "reference_value": 33.4030571715012,
+      "delta": -0.16171881574508973,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 58,
+      "bpp": 0.008644053813363927,
+      "method_value": 32.972595334496376,
+      "reference_value": 33.131907478333076,
+      "delta": -0.15931214383670067,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 59,
+      "bpp": 0.008827507267135246,
+      "method_value": 32.71326844469865,
+      "reference_value": 32.87011250709466,
+      "delta": -0.15684406239601145,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 60,
+      "bpp": 0.009014854168405544,
+      "method_value": 32.46343873409281,
+      "reference_value": 32.61775213941103,
+      "delta": -0.15431340531822002,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 61,
+      "bpp": 0.009206177148126231,
+      "method_value": 32.222601517060006,
+      "reference_value": 32.374328951018185,
+      "delta": -0.1517274339581789,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 62,
+      "bpp": 0.00940156059093211,
+      "method_value": 31.984685473080926,
+      "reference_value": 32.13385897481281,
+      "delta": -0.14917350173188382,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 63,
+      "bpp": 0.00960109067235992,
+      "method_value": 31.74822475034555,
+      "reference_value": 31.89489744948113,
+      "delta": -0.146672699135582,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 64,
+      "bpp": 0.009804855396856776,
+      "method_value": 31.513421667033004,
+      "reference_value": 31.657643782273126,
+      "delta": -0.1442221152401224,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 65,
+      "bpp": 0.010012944636595291,
+      "method_value": 31.28047854132244,
+      "reference_value": 31.42229738043876,
+      "delta": -0.14181883911631843,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 66,
+      "bpp": 0.010225450171112498,
+      "method_value": 31.04959769139299,
+      "reference_value": 31.189057651227973,
+      "delta": -0.1394599598349835,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 67,
+      "bpp": 0.010442465727789969,
+      "method_value": 30.82098143542377,
+      "reference_value": 30.95812400189072,
+      "delta": -0.13714256646694878,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 68,
+      "bpp": 0.010664087023193053,
+      "method_value": 30.594832091593954,
+      "reference_value": 30.729695839676978,
+      "delta": -0.13486374808302415,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 69,
+      "bpp": 0.010890411805287555,
+      "method_value": 30.371351978082647,
+      "reference_value": 30.503972571836684,
+      "delta": -0.13262059375403723,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 70,
+      "bpp": 0.01112153989655223,
+      "method_value": 30.15074341306901,
+      "reference_value": 30.28115360561981,
+      "delta": -0.13041019255080144,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 71,
+      "bpp": 0.011357573238006416,
+      "method_value": 29.93320871473215,
+      "reference_value": 30.0614383482763,
+      "delta": -0.1282296335441515,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 72,
+      "bpp": 0.011598615934171922,
+      "method_value": 29.718950201251236,
+      "reference_value": 29.845026207056126,
+      "delta": -0.1260760058048902,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 73,
+      "bpp": 0.011844774298989287,
+      "method_value": 29.508170190805384,
+      "reference_value": 29.632116589209236,
+      "delta": -0.12394639840385224,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 74,
+      "bpp": 0.012096156902708374,
+      "method_value": 29.301071001573746,
+      "reference_value": 29.422908901985593,
+      "delta": -0.1218379004118475,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 75,
+      "bpp": 0.012352874619774289,
+      "method_value": 29.09785495173544,
+      "reference_value": 29.217602552635142,
+      "delta": -0.1197476008997036,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 76,
+      "bpp": 0.01261504067772942,
+      "method_value": 28.89872435946962,
+      "reference_value": 29.016396948407856,
+      "delta": -0.11767258893823396,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 77,
+      "bpp": 0.012882770707153487,
+      "method_value": 28.703881542955422,
+      "reference_value": 28.81949149655369,
+      "delta": -0.11560995359826975,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 78,
+      "bpp": 0.013156182792663356,
+      "method_value": 28.51352882037197,
+      "reference_value": 28.62708560432259,
+      "delta": -0.11355678395062085,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 79,
+      "bpp": 0.013435397524995259,
+      "method_value": 28.32786850989841,
+      "reference_value": 28.439378678964523,
+      "delta": -0.11151016906611488,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 80,
+      "bpp": 0.01372053805419238,
+      "method_value": 28.14710292971388,
+      "reference_value": 28.256570127729443,
+      "delta": -0.1094671980155617,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 81,
+      "bpp": 0.014011730143921267,
+      "method_value": 27.971434397997516,
+      "reference_value": 28.07885935786732,
+      "delta": -0.10742495986980316,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 82,
+      "bpp": 0.014309102226940937,
+      "method_value": 27.801065232928448,
+      "reference_value": 27.906445776628082,
+      "delta": -0.1053805436996349,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 83,
+      "bpp": 0.014612785461749213,
+      "method_value": 27.636197752685828,
+      "reference_value": 27.73952879126172,
+      "delta": -0.10333103857589165,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 84,
+      "bpp": 0.014922913790431385,
+      "method_value": 27.47703427544877,
+      "reference_value": 27.57830780901816,
+      "delta": -0.1012735335693904,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 85,
+      "bpp": 0.015239623997736406,
+      "method_value": 27.323777119396436,
+      "reference_value": 27.422982237147387,
+      "delta": -0.09920511775095164,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 86,
+      "bpp": 0.01556305577140709,
+      "method_value": 27.176628602707947,
+      "reference_value": 27.273751482899343,
+      "delta": -0.09712288019139592,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 87,
+      "bpp": 0.015893351763790458,
+      "method_value": 27.03579104356244,
+      "reference_value": 27.130814953523988,
+      "delta": -0.0950239099615473,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 88,
+      "bpp": 0.016230657654755884,
+      "method_value": 26.90146676013907,
+      "reference_value": 26.994372056271285,
+      "delta": -0.09290529613221565,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 89,
+      "bpp": 0.01657512221594841,
+      "method_value": 26.773858070616946,
+      "reference_value": 26.86462219839118,
+      "delta": -0.0907641277742357,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 90,
+      "bpp": 0.0169268973764057,
+      "method_value": 26.65316729317522,
+      "reference_value": 26.74176478713364,
+      "delta": -0.08859749395842087,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 91,
+      "bpp": 0.017286138289567696,
+      "method_value": 26.53959674599304,
+      "reference_value": 26.625999229748622,
+      "delta": -0.08640248375558102,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 92,
+      "bpp": 0.017653003401708375,
+      "method_value": 26.43334874724952,
+      "reference_value": 26.51752493348608,
+      "delta": -0.08417618623655798,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 93,
+      "bpp": 0.018027654521819814,
+      "method_value": 26.334625615123816,
+      "reference_value": 26.41654130559597,
+      "delta": -0.08191569047215452,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 94,
+      "bpp": 0.018410256892979385,
+      "method_value": 26.243629667795055,
+      "reference_value": 26.323247753328257,
+      "delta": -0.07961808553320182,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 95,
+      "bpp": 0.01880097926523172,
+      "method_value": 26.16056322344237,
+      "reference_value": 26.237843683932887,
+      "delta": -0.07728046049051684,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 96,
+      "bpp": 0.019199993970017256,
+      "method_value": 26.085628600244913,
+      "reference_value": 26.16052850465983,
+      "delta": -0.07489990441491656,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 97,
+      "bpp": 0.019607476996180588,
+      "method_value": 26.019028116381804,
+      "reference_value": 26.091501622759036,
+      "delta": -0.07247350637723216,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 98,
+      "bpp": 0.020023608067591774,
+      "method_value": 25.960964090032196,
+      "reference_value": 26.030962445480455,
+      "delta": -0.06999835544825928,
+      "dataset": "mcljcv",
+      "sequences": 20
+    },
+    {
+      "pool": "mcljcv_subset_20_25",
+      "metric": "FID",
+      "method": "B_covstats_1000",
+      "reference": "A_continue_1000",
+      "index": 99,
+      "bpp": 0.02044857072241512,
+      "method_value": 25.911638839375208,
+      "reference_value": 25.97911038007406,
+      "delta": -0.06747154069885397,
+      "dataset": "mcljcv",
+      "sequences": 20
+    }
+  ],
+  "input_features": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_00_qp0.npz",
+      "sha256": "258a9f99ce1b3cea1e029943fda85770819ff791bc825101725dbe4e9fbf3488"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_01_qp0.npz",
+      "sha256": "fd5c10fd0fe1228cb9d628dd93e4b36ae30535e718089025f06a1ac34b56a533"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_02_qp0.npz",
+      "sha256": "666fb710a800089ece2709094e2df79c6bd1d78ba3eea559f548fd6789508e4a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_03_qp0.npz",
+      "sha256": "0b058913771e61d43340f4f7ef2ba5206d8012605041f43ee7c24dc535db2424"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_04_qp0.npz",
+      "sha256": "37abe6b0e8dc379262ee8c6e62743ded6b58c4bb64a8cfd1ebc5fd4c9f611ada"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_05_qp0.npz",
+      "sha256": "cdb3f39a8bf3c8aba803bc7589121f07c447fdd87925a1630126dfb17f988462"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_06_qp0.npz",
+      "sha256": "eb11c16dc14b88a23d8b95a4e882adbde527252ade61a092effe97ccc047871b"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_07_qp0.npz",
+      "sha256": "31a07603fcfd831d875162b796ca277b98c5146afdce2d31ac78012f75fd4115"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_08_qp0.npz",
+      "sha256": "c669e9af3318f0554a654cf6cc2596e8c93bd282f507c6c1d66c89a3348eaaf2"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_10_qp0.npz",
+      "sha256": "820b5ef794fca4b0114990bf5348db1f7d8c912663c10a58dc0dd6cc79fbadfe"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_12_qp0.npz",
+      "sha256": "b153f71c9fd67bcf0a12c24f50ab6d86d5a0d1906e0ca1bca030b61b6a1860fa"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_14_qp0.npz",
+      "sha256": "5f4bf9971e9570392bdf79d6a5112ad120cfc6fe19fec9a1db4f63c35303bdc4"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_15_qp0.npz",
+      "sha256": "2b6c7f98c1d5f793219354e4a22c6a13c3c16c1045202fca91f21c63629782ab"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_16_qp0.npz",
+      "sha256": "be0b661a169590bb41fd26c4ecc51179aadd368b72ac6811c275675a60a9ebd8"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_17_qp0.npz",
+      "sha256": "e039b1f0ba18d8a663c62d29608081c6417ecd9d5f9eff47310f036ea2108fbc"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_18_qp0.npz",
+      "sha256": "e7a5b2567e969eb6302729190b32345bde4fc4a10b7671dee60ee2126e3d5356"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_20_qp0.npz",
+      "sha256": "536a974bcf76fb3ff879f85106849d99896bdb7ea085e8dec9b0a1dda9e1303a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_26_qp0.npz",
+      "sha256": "918c769e6ea592a1d3194e5b24a06a6979fd068a3c4af167ed3f29b76dcb49d4"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_28_qp0.npz",
+      "sha256": "a7030b477bc2c8b4199a174fb53b019d3bcfa3dbace2111580e42cc8141365cc"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_29_qp0.npz",
+      "sha256": "c7759d460531e01f0eb48f4efbef62c72f7b32f1783d1070ba115e972a6024f1"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_00_qp0.npz",
+      "sha256": "30c57698fa88c195b838c6629fa3615f86c2f9e500b3ada4d9ae44569681430d"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_01_qp0.npz",
+      "sha256": "ce1e98a31fb319f665bfe69c92f571ee6772edda1bad81593e0ba6ceb8ca7fc1"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_02_qp0.npz",
+      "sha256": "ffbb123d60578cfc3118581e433611a5ed407124a2cf8574e32549b2c9ff1b71"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_03_qp0.npz",
+      "sha256": "905ea910cce129c85d33bbb57e53d9aa5a689594063e6b20e6573c19d502e749"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_04_qp0.npz",
+      "sha256": "d41729f9822d9b723092114c76a6347d493fea2103644a85a971865f7f66d9a8"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_05_qp0.npz",
+      "sha256": "a47e444d19ad5d9421174dbf4d0ac7ca32fdbcd789987d6cae314387ff52dd98"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_06_qp0.npz",
+      "sha256": "efc6cbdf00864c498951702c49a7193eb1b86d7d1f3085cb47c6a00bfa5d150b"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_07_qp0.npz",
+      "sha256": "8a25101ac9a71df71b7dfb4c09910742c76b75877e5410c3dc674f9a43fbe3ae"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_08_qp0.npz",
+      "sha256": "e1ed3e84c94a4b3534da2ef1837ee54695f9d83c44827ef447896f660db6b78d"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_10_qp0.npz",
+      "sha256": "dc484526f4b081d80d4b56cbbdb5ecd39ce4ee6665b253867810eaa64ab15f06"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_12_qp0.npz",
+      "sha256": "da4bfdb4c3bc986fab3d90192cb3a696f99d35bf847e8fe049c69240f6803f62"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_14_qp0.npz",
+      "sha256": "33cc29799cb44740285b9e193c8ef5cccbd73520dbe9c4557c57686e67eafa74"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_15_qp0.npz",
+      "sha256": "4f788a18e01fcf3db7f65f84de4acb03e5a643cc9af4dee4c45872f3c269ec74"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_16_qp0.npz",
+      "sha256": "d116f04f0588cd0546a98718c2f2c381d2f5e4b66768a6980cf2e02098eacb25"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_17_qp0.npz",
+      "sha256": "481674cd5890f2f842b1a3b9fab9106db3f29e7eeb99e70a97395c362a02e6fb"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_18_qp0.npz",
+      "sha256": "35b0ea935c2c9234345ec34e0dbfd616b0cc7741ec89e42cd650be761a2d79e2"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_20_qp0.npz",
+      "sha256": "aad43ef8d19259611038a1479c4521f990aa6225f98627a6586a9cb4e73a8745"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_26_qp0.npz",
+      "sha256": "290ebcd9c1210c0bb764ec6a3a76fd0cd075d8f2cb7ed5316ac1580b15bf0f10"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_28_qp0.npz",
+      "sha256": "53829dfe998456bc98d5044350ab66ab4347ae6337ee493b6a60704fb50a2297"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_29_qp0.npz",
+      "sha256": "23576aea017e13b199e3373464c0364682e64d816084dcd2e1fcc1f434f3854b"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_00_qp5.npz",
+      "sha256": "8c5c337a23c0d1536c8dbffabd6999491835617cc878269209791c805a54b187"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_01_qp5.npz",
+      "sha256": "dbb5620adda6ca3d5dcc4bc9890afb92444e6cf46d078fe60afdd425e50c1193"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_02_qp5.npz",
+      "sha256": "4e4c3019950207bb1e075b308b2aa89edd642b7b7935c088f468e9a5633aa47a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_03_qp5.npz",
+      "sha256": "5c5d38c6164845822c26f78a58048e0c7f924d7aa677b9f11f7ad2cf869702e4"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_04_qp5.npz",
+      "sha256": "1ccb6161ff03a29f469083dead37417801111be54c92052cc5c2ad3215a02ffe"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_05_qp5.npz",
+      "sha256": "1356664cd291d78c49bb87971b6943ff093648399f6b9b89869c51afbf801411"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_06_qp5.npz",
+      "sha256": "17927fbc4285c8b7bb422f0acb4748ccff61c02fe64f6490a2df2f52010def49"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_07_qp5.npz",
+      "sha256": "a59a00fa23b330f4f6fd31e011e2e481cad1e8b01190c509357499a3e06d99dd"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_08_qp5.npz",
+      "sha256": "cc89e076301b90136f06499432e442c344550c52d49f274122f922b8c4aa6c97"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_10_qp5.npz",
+      "sha256": "d04e4664e28ca08767dd8a48a0c997b7c7a978006950ab5ba7e5c9c978d00b4f"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_12_qp5.npz",
+      "sha256": "4b6763fc67ae771e102a89d578b3f4da12bd4b80b55a5f181f006d972f1a563a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_14_qp5.npz",
+      "sha256": "21ae08e016377f4e4bcbfaa20978f70ec56bfff6be74140f6917195173ec7022"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_15_qp5.npz",
+      "sha256": "3887c3e58098a81ca9d0449ceb89860db8b055b529b180e677e03afc2b43d32e"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_16_qp5.npz",
+      "sha256": "2bc1e01903235e92669d24a653607254fb011697252127d327bef0cbf04587a0"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_17_qp5.npz",
+      "sha256": "a0a0af811a86548cb99ab84dac25fbc5b3b5cc1e921f0760660f95ae58bedc78"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_18_qp5.npz",
+      "sha256": "0728f6eb6107625232106beda90c0851d98ffd1177699d10fcf973ef536a082d"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_20_qp5.npz",
+      "sha256": "55f01078fa460a0887fc049c53df29bc61cad77aa454d153b7deecb14ea5425d"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_26_qp5.npz",
+      "sha256": "5e5646c6d6c1a40a0f2d4c7359ab9bcb78cbe2422ddfb60a08a72fce57662cd3"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_28_qp5.npz",
+      "sha256": "9b8a54e9f8012974e75887bdd7cf0247b72f876277ad4b0b1e2e0d3fe4ae660b"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_29_qp5.npz",
+      "sha256": "4ce5e81e1925c6a4c9cada68306205a94845906630e8bf784b625f5812f447ae"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_00_qp5.npz",
+      "sha256": "76e4f9c8768da8ad27e2e7eb9768e7c33686f15a41cf9b60608832dc4c7d38de"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_01_qp5.npz",
+      "sha256": "988c60983158187a38f1e7f6f06e7f102240f3f797aa1f8c497d8f7ce7b58cac"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_02_qp5.npz",
+      "sha256": "15308b37b51bd73840e85de21e65ceb466b42a53459493c2a02a912ab970c20c"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_03_qp5.npz",
+      "sha256": "aafe9432d76d6c4fa95e59582b3eeeb0f9dd62bbafe99c66141af7f44cb21c51"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_04_qp5.npz",
+      "sha256": "160a92cf73e95e06a2b28369980ecffd604e5bb5038d87094be7bbc199c3216c"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_05_qp5.npz",
+      "sha256": "b4a37135435d91030f5b49a9c945074b3e2ffb152b16daad012aa240e9eb1d81"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_06_qp5.npz",
+      "sha256": "dbdafd9d304be48b2d82d7fd63f28c8fda50a8deda52b6247f88530779f842ec"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_07_qp5.npz",
+      "sha256": "35e2adb7e486f40c19b42190751d2b27569c20dda4d9544016eb42403c70b96a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_08_qp5.npz",
+      "sha256": "17451ad37e6f233279b1e9942e385ef3baf5af726f0b4520baeaa0bc2203f9e9"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_10_qp5.npz",
+      "sha256": "846492b588c76ca58c27ecffb549eb192e73775d0701540d0632b46825fed091"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_12_qp5.npz",
+      "sha256": "1ebe893c35a7119de7608cb4025fcd95f49dad88916144803f77cdd3554861aa"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_14_qp5.npz",
+      "sha256": "304eb35759cb6937be592aa5a7eacfb17988355854e35e58ab5a5bda9de45d37"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_15_qp5.npz",
+      "sha256": "e01dfef98fff6ab59963c1118cfe03d0e0cef5ef530a2a9b0317cd6e582bf238"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_16_qp5.npz",
+      "sha256": "b9e989dd2ba37205d532e3208a3e4d402f1db959f278d9980834161ebba1a9ac"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_17_qp5.npz",
+      "sha256": "e407daf43af7447a5229914724caa65e4b8b298dffcfdd2d49d4376d8fb6e5bf"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_18_qp5.npz",
+      "sha256": "08f4c77278a9609ae84798c2ae9b96e2ae6da693983ccfa1af026b8655e508ac"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_20_qp5.npz",
+      "sha256": "147fdc6bcc8752f7b105f4b753adf6c31135be9704716f65c4559aeddf1ae357"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_26_qp5.npz",
+      "sha256": "5e429cb31cbcff8df6c6f912c388b9341716c45c1e797ce18f65d46361a357a1"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_28_qp5.npz",
+      "sha256": "4adf4ecfdb878fb65b1df14f510eaab3eaecade2a8961377551d25b7fee594f6"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_29_qp5.npz",
+      "sha256": "2f9426400e83da5003f93573dc6bff4f27ed9c9ed98b1091a110d0cbf8b3ef35"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_00_qp9.npz",
+      "sha256": "1dff6ce9c1f532222a7429e6411a9b0272e6249c0eec0c6606bb8f39370adfb3"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_01_qp9.npz",
+      "sha256": "bc8d7135422d3340bc3767518d5a0fced621032400a61c3e5602ef137bf5f971"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_02_qp9.npz",
+      "sha256": "d6001fcc815d84196f1204a0bb006ca227827dab83075d88be3febc722bf05aa"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_03_qp9.npz",
+      "sha256": "0b22d7dbbcfb01503cc4325ecca9eaab391302fef8a874a8589e91345cfe051d"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_04_qp9.npz",
+      "sha256": "6397e3b99b84e73884b691edc3621000b6630bbd9d227053b9fb51c56acd4781"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_05_qp9.npz",
+      "sha256": "bc5ae539ce2636895f6376ae24460f0f8215b5921322f94b1ea09a244a03374f"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_06_qp9.npz",
+      "sha256": "397b25ea10866948f0fb39864b4db395989cc8cb52507f9cb5b518a287ea81bf"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_07_qp9.npz",
+      "sha256": "91d22bb3de01496987c63f4c945047247fa0d282d39b90e57ee230786b577846"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_08_qp9.npz",
+      "sha256": "d09cfc30b8738398f9cfe176ecee47d92bf38b06fb1789b6b3dbb340ad9df446"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_10_qp9.npz",
+      "sha256": "82381899864b9ee99b9cc3ffbe4104c5b6bbc610c31039f286c95aa81c7259cd"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_12_qp9.npz",
+      "sha256": "3c01d645335a2377e4ae3b61dfc4b941761e017f279f35e628445fe10e8c0b4b"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_14_qp9.npz",
+      "sha256": "e9f9ccb6ebb7e5e630451476aa4d7413161b35451793c4b925f0302e8b9000c6"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_15_qp9.npz",
+      "sha256": "07455ee7c7051f657310abb05c857558e4c041d6ccbe8111c78000cc48510de2"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_16_qp9.npz",
+      "sha256": "9664d9d43bf8bcc315dd2ae3293cdf89c65bbfe38f3c31b73416c3d079349a36"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_17_qp9.npz",
+      "sha256": "7a5caf09c0a3c176c811702ed017b101ce9f3e57cf8827cdd8c2a114c5de0094"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_18_qp9.npz",
+      "sha256": "57ba764694527baa41b603d1cd951eb1a794e38c3f9fa2da44f9cbd97d3e3913"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_20_qp9.npz",
+      "sha256": "83faa6ff66ce9e3f80710b169d0ac6e73b00af0c55846011886aa0265ee88185"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_26_qp9.npz",
+      "sha256": "4f6d149381ff41238dbb0dbce6a5bb48b1a3f4f3ebdc714696ba9deb2fe6db99"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_28_qp9.npz",
+      "sha256": "2fbe33c8ad663812af310068fd353149e72226eafdb1d842f55b663bf718bbd7"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/A_continue_1000/video_29_qp9.npz",
+      "sha256": "c80f8b0cb0e88a29d83bb8b4df0293e61cf2bc9d1df76a88bd501d25272c592a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_00_qp9.npz",
+      "sha256": "01dc630ce34cab5a3736912f9b98658885ca3b1c2918659c8664874ebad18903"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_01_qp9.npz",
+      "sha256": "cf6d1dee98166425f1f15127778e8c22289dccb923d8dfed14cd73c71d18a204"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_02_qp9.npz",
+      "sha256": "ba82d668a636ae87807cbd38c1ef6f2c7124de9f36b9da9ff72bc05ef06f040a"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_03_qp9.npz",
+      "sha256": "aab58ce1ad00e8e418143c4c2d8e55e33b543d85691426a6700ab1ed782435ab"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_04_qp9.npz",
+      "sha256": "cab021d200f02ef036c63e8c5e03588ef8625e044872c030f600ffe1e41261f1"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_05_qp9.npz",
+      "sha256": "c122583a3c36fd77174eeba797025a535f0a83a889a2298437058ddf68bb39d7"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_06_qp9.npz",
+      "sha256": "0790559e9439ba9a3e59b8126b8543ad749b52d84a2b2fb6277bbaed32791f58"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_07_qp9.npz",
+      "sha256": "5b5f29a5c2ca1b7df9396ba88852f7fb00a9436cfddccb9af116248fc1813677"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_08_qp9.npz",
+      "sha256": "e6349ff92777ca41d0ce808f564ad532b8ebe64e522aa7120ff2b5acf982dcd2"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_10_qp9.npz",
+      "sha256": "ca4ba33bc268da3e4ce44ce87fb6a79226bea371348ae79cf415cf677352c7a0"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_12_qp9.npz",
+      "sha256": "384dc879230026dbc978e23676d8de5b578d8a3ea683fb1a46c3c7f4e2e0408e"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_14_qp9.npz",
+      "sha256": "6aedefc3acd68582f9b76e60162a4b10a083804f1ffd152a996fb3f8ebd94971"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_15_qp9.npz",
+      "sha256": "cc3263bb5da5e00148934e74309805282dab8908a59220bcd9a1b0f5c8a40267"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_16_qp9.npz",
+      "sha256": "b0d998f098c80abed9710bc91196bffa06f6048f9a9bcb95790002589b412de7"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_17_qp9.npz",
+      "sha256": "07af09ba104388e137adc5fbe6ab1db93da85fa4fdaf4437099e3b01a830b65f"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_18_qp9.npz",
+      "sha256": "669db7f981ea25749dc2554d732c2c04f1ea7cc5494f4e333f751c83718cf0e5"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_20_qp9.npz",
+      "sha256": "a4ffa0026b25163ded2d880d4cbcd63f104c4c64b0f37a62b3053fed707e9a2f"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_26_qp9.npz",
+      "sha256": "d2f664747e59291b8f70cc5eb66eb2cb50d04d36dd5906d32fc69d8decb4672e"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_28_qp9.npz",
+      "sha256": "de9f2ba53af3898a00debe6464f2acc8a17ad22b24336aeb8077d902a7dd6750"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/features/closure/mcljcv/B_covstats_1000/video_29_qp9.npz",
+      "sha256": "cd41e57f470003e73fa2e038aca0cb17e1311ad201a1b1657ac240baf0668b12"
+    }
+  ],
+  "videos": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    26,
+    28,
+    29
+  ],
+  "pool": "mcljcv_subset_20_25",
+  "kind": "subset"
+}

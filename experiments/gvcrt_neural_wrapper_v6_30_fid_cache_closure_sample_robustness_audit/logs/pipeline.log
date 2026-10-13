@@ -1,0 +1,25 @@
+Exception in thread Thread-1 (heartbeat):
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/run_all.py", line 11, in heartbeat
+    dump(ROOT/'status.json',s);textfile(ROOT/'heartbeat',s['heartbeat']+'\n')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/audit_io.py", line 25, in dump
+    t.write_text(json.dumps(value, indent=2, allow_nan=False) + '\n'); t.replace(p)
+                                                                       ^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/pathlib.py", line 1376, in replace
+    os.replace(self, target)
+FileNotFoundError: [Errno 2] No such file or directory: '/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/status.json.3756800.tmp' -> '/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/status.json'
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/run_all.py", line 180, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/run_all.py", line 156, in main
+    q.run('new_clips',newtasks)
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/run_all.py", line 95, in run
+    if pending or active:time.sleep(5)
+                         ^^^^^^^^^^^^^
+KeyboardInterrupt

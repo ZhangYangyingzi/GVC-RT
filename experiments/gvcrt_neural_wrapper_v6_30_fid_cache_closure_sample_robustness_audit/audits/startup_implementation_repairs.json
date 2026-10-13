@@ -1,0 +1,24 @@
+{
+  "status": "IMPLEMENTATION_REPAIRED_BEFORE_LAUNCH",
+  "updates": 0,
+  "repairs": [
+    {
+      "issue": "Historical QP audit contains 96 entries, but this protocol uses exactly 64 frames",
+      "action": "Compare the unchanged audit schedule at positions 0 through 63"
+    },
+    {
+      "issue": "Standalone GT extraction must inherit set_torch_env called by historical codec loading",
+      "initial_smoke_max_relative_L2": 0.000727565713843887,
+      "initial_smoke_max_abs": 0.0021593570709228516,
+      "action": "Call the historical src.utils.common.set_torch_env before official feature extraction",
+      "after_repair_smoke_status": "PASS",
+      "tolerances_changed": false,
+      "historical_caches_changed": false
+    },
+    {
+      "issue": "Avoid shadowing the historical gvc_hooks common module",
+      "action": "Name new utility module audit_io.py"
+    }
+  ],
+  "first_real_independent_decode_smoke": "PASS"
+}
