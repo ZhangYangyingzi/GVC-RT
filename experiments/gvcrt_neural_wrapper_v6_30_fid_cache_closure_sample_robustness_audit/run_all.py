@@ -98,7 +98,8 @@ class Queue:
         return not failed
 def publish():
     setstate(phase='publication',status='COMPUTATION_FINISHED')
-    env=dict(os.environ,V630_PUBLICATION_PHASE='final_integrity_verified')
+    phase='final_integrity_verified' if (ROOT/'final_integrity.json').exists() and load(ROOT/'final_integrity.json')['status']=='PASS' else 'execution_failure_findings'
+    env=dict(os.environ,V630_PUBLICATION_PHASE=phase)
     with (ROOT/'logs/publication.log').open('a') as f:
         p=subprocess.run([PYTHON,'-B','-u',str(ROOT/'publish_github.py')],cwd=REPO,env=env,stdout=f,stderr=subprocess.STDOUT)
     if p.returncode!=0:
@@ -174,6 +175,7 @@ def main():
             previous=load(ROOT/'final_integrity.json');previous.update(status='FAIL',terminal_error=error,calculation_complete=False);dump(ROOT/'final_integrity.json',previous)
         textfile(ROOT/'REPORT.md','# V6.30 execution failure\n\nNo updates.\n\n```text\n'+error+'\n```\n')
         if (ROOT/'config.json').exists():publish()
+        setstate(status='FAILED',phase='finished',running=0)
         raise
     finally:
         STOP.set();dump(ROOT/'status.json',dict(STATE,heartbeat=time.strftime('%Y-%m-%d %H:%M:%S %z')));textfile(ROOT/'heartbeat',time.strftime('%Y-%m-%d %H:%M:%S %z')+'\n')

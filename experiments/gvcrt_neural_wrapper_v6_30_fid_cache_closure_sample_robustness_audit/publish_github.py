@@ -69,6 +69,11 @@ def main():
             assert not diff, ('remote experiment was modified by another commit',diff)
         for p in files:
             target=dest/p.relative_to(ROOT);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(SNAPSHOT[str(p.relative_to(ROOT))])
+        # Archive obsolete owned terminal markers locally, and remove only their stale remote copies.
+        # Historical failure evidence is retained in audits/archived_terminal_states/.
+        for name in ('FAILED.json','BLOCKED.json','DONE.json'):
+            if not (ROOT/name).exists() and (dest/name).exists():
+                run(['git','rm','--',str(relative/name)],work)
         for off in range(0,len(paths),100):run(['git','add','-f','--',*paths[off:off+100]],work)
         assert all(p.startswith(str(relative)+'/') for p in run(['git','diff','--cached','--name-only'],work).splitlines())
         run(['git','commit','--allow-empty','-m',MESSAGE+' ('+phase+')'],work);commit=run(['git','rev-parse','HEAD'],work)

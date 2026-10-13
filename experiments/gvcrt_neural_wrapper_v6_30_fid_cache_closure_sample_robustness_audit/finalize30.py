@@ -117,25 +117,9 @@ def finalize(blocked=False):
     report=f'''# V6.30 FID cache closure and sample robustness audit\n\nExecution: {status}. All model/optimizer updates: 0. Calculation completion, cache closure, numerical gain retention, and Git publication are separate fields.\n\n## 1. Fresh decode features versus historical caches\n\nClosure: {audit['status']}; video points {audit['completed']}/420; pooled comparisons {audit['pooled_completed']}/36. Maximum relative L2={audit['max_relative_L2']}; maximum absolute feature error={audit['max_abs']}; failed feature rows={audit['feature_row_failures']}. UID-level errors and UNKNOWN reasons are preserved in `cache_closure_per_frame.csv`, `cache_closure_per_point.csv` and `audits/cache_closure_integrity.json`. Tolerances are fixed, no row reordering or historical cache overwrite.\n\n## 2. Original to B1 gap after fresh extraction\n\n3-QP pooled common-actual-bpp diagnostics:\n\n'''+ '\n'.join(line(r) for r in gap)+f'''\n\n## 3. B minus A on fixed new clips and combined pools\n\n'''+ '\n'.join(line(r) for r in ba)+f'''\n\nComparisons use matching-video old/new/combined pools. Combined is two independently I-initialized 64-frame streams, not a continuous 128-frame GOP. Same-QP values are raw diagnostics unless actual bpp matches. Different pools' absolute FID values are not quality improvements. Skipped clips: see frozen new manifest; no alternate clips were selected.\n\n## 4. Direction under video subset sampling\n\nSubset jobs {subset_count}/26. Fixed PCG64(20261030), 10 HEVC three-video combinations; MCL eight distinct ten-video and eight distinct twenty-video subsets. See `subset_manifest.json`, `sample_sensitivity.csv` and `sample_sensitivity_summary.csv` for ranges, sign counts, native actual bpp and all members.\n\n'''+ '\n'.join('- '+json.dumps(r) for r in summaries)+f'''\n\n## 5. Supported evidence and limits\n\nA PASS supports only the specified feature-cache/decode/pooled-statistics consistency checks. Recorded sign counts describe these frozen temporal clips and video subsets. They are not repeated training runs, confidence intervals, significance proofs, or evidence that sample-size bias has been removed. Video correlation, finite samples and a single training realization remain limitations. New temporal clips are from the same test videos, not new scenes. MCL videoSRC17 matches HEVC Kimono1 across test datasets; this is not by itself training-leakage evidence. No FID-infinity fitting or checkpoint selection was performed.\n\n## 6. Evaluation-chain consistency status\n\n{'The fixed chain passed the specified closed-loop checks. This is not a method-success or significant-gain claim.' if audit['status']=='PASS' else 'The specified closed loop did not pass or is incomplete. Stages 2/3 are blocked; recorded mismatches require correction before relying on the affected cached results.'}\n\nPublication: independently recorded in `publication_status.json`; a computation PASS does not claim remote publication. No next-round training is launched.\n'''
     textfile(ROOT/'REPORT.md',report)
     if pooled:
-        import matplotlib
-        matplotlib.use('Agg')
-        import matplotlib.pyplot as plt
-        for pool in sorted(set(r['pool'] for r in pooled if 'subset' not in r['pool'])):
-            plt.figure(figsize=(7,5))
-            for m in METHODS:
-                rr=sorted([r for r in pooled if r['pool']==pool and r['method']==m],key=lambda r:r['bpp']);plt.plot([r['bpp'] for r in rr],[r['FID'] for r in rr],'-o',label=m)
-            plt.xlabel('Actual bitrate (bpp)');plt.ylabel('FID (lower is better)');plt.title(pool+' — 3-QP diagnostic');plt.legend();plt.tight_layout();p=ROOT/'plots'/pool/'Rate_FID.png';p.parent.mkdir(parents=True,exist_ok=True);plt.savefig(p,dpi=150);plt.close()
-        for d in DATASETS:
-            for metric in ('LPIPS','DISTS','FloLPIPS'):
-                rr=[r for r in newpoints if r['dataset']==d]
-                if not rr:continue
-                plt.figure(figsize=(7,5))
-                for m in METHODS:
-                    xs=[];ys=[]
-                    for q in QPS:
-                        r=[v for v in rr if v['method']==m and v['QP']==q];xs.append(float(np.mean([v['bpp'] for v in r])));ys.append(float(np.mean([v[metric] for v in r])))
-                    plt.plot(xs,ys,'-o',label=m)
-                plt.xlabel('Actual bitrate (dataset mean bpp)');plt.ylabel(metric+' (lower is better)');plt.title(d+' new64 — 3-QP diagnostic');plt.legend();plt.tight_layout();p=ROOT/'plots'/d/'new64'/f'Rate_{metric}.png';p.parent.mkdir(parents=True,exist_ok=True);plt.savefig(p,dpi=150);plt.close()
+        import subprocess
+        dump(ROOT/'audits/plot_payload.json',dict(pooled=pooled,newpoints=newpoints,methods=METHODS,datasets=DATASETS))
+        subprocess.run(['/data1/anaconda3_new/anaconda_program/bin/python','-B',str(ROOT/'plot30.py')],check=True,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',MPLCONFIGDIR=str(ROOT/'cache/matplotlib'),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',MKL_NUM_THREADS='2'))
     integrity.update(report_sha256=sha(ROOT/'REPORT.md'),plot_files={str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'plots').rglob('*.png')})
     dump(ROOT/'final_integrity.json',integrity)
     return integrity
