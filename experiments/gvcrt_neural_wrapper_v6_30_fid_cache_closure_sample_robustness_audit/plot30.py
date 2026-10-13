@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parent
 payload=json.loads((ROOT/"audits/plot_payload.json").read_text())
-pooled=payload["pooled"];newpoints=payload["newpoints"];METHODS=payload["methods"];DATASETS=payload["datasets"]
+pooled=payload["pooled"];newpoints=payload["newpoints"];METHODS=payload["methods"];DATASETS=payload["datasets"];QPS=(0,5,9)
 if pooled:
     import matplotlib
     matplotlib.use('Agg')
