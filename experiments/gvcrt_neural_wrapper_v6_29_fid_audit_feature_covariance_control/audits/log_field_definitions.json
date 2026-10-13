@@ -1,0 +1,12 @@
+{
+  "no_GAN": true,
+  "legacy_fields": {
+    "projected_adv": "unit DISTS spatial covariance loss, not GAN",
+    "weighted_projected_adv": "lambda_stat times covariance loss",
+    "lambda_adv": "alias of fixed lambda_stat",
+    "unweighted_adv_gradient_norm": "unit covariance gradient norm",
+    "adv_B1_ratio": "weighted covariance/B1 gradient norm ratio"
+  },
+  "preferred_summary": "branches/B_covstats/stat_gradient_summary.csv",
+  "ratio_note": ".10 is an initialization calibration target, not a throughout-training cap"
+}

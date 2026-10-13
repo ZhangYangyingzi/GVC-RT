@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "historical_source": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/expericent_generation_input/expericent_perceptual_temporal_refiner_v6/src/fid_metric.py",
+    "sha256": "c9ee133a67ccaa37927e970397271ada47894f54130e91d39b3489a136f5a991"
+  },
+  "official_source": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/vendor/pytorch-fid/src/pytorch_fid/inception.py",
+    "sha256": "c6183fff54dd240fe66d53d207f4bd28c06fde98c21b5525f10ca0cc5cef7780",
+    "commit": "b9c18118d082cbd263c1b8963fc4221dc1cbb659"
+  },
+  "weight": {
+    "path": "/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+    "bytes": 95628359,
+    "sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "numpy": "2.4.4",
+    "scipy": "1.17.0"
+  },
+  "no_environment_stack_change": true,
+  "RGB_range": "[0,1]",
+  "resize": {
+    "size": [
+      299,
+      299
+    ],
+    "mode": "bilinear",
+    "align_corners": false
+  },
+  "normalization": "2*x-1",
+  "precision": "FP32 eval frozen FID-specialized network",
+  "input_policy": "same floating RGB tensor for both extractors"
+}

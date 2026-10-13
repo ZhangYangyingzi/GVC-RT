@@ -1,0 +1,50 @@
+{
+  "indices": [
+    2,
+    3,
+    4
+  ],
+  "names": [
+    "stage2",
+    "stage3",
+    "stage4"
+  ],
+  "channels": [
+    128,
+    256,
+    512
+  ],
+  "source": "<class 'DISTS_pytorch.DISTS_pt.DISTS'>",
+  "shapes": [
+    [
+      1,
+      128,
+      128,
+      128
+    ],
+    [
+      1,
+      256,
+      64,
+      64
+    ],
+    [
+      1,
+      512,
+      32,
+      32
+    ]
+  ],
+  "source_path": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py",
+  "source_sha256": "da9162307ae51bc58ffe259e7e778973e8586286652d36c3e9885e94bc269da8",
+  "class_name": "DISTS",
+  "function": "DISTS.forward_once",
+  "source_excerpt": "    def forward_once(self, x):\n        h = (x-self.mean)/self.std\n        h = self.stage1(h)\n        h_relu1_2 = h\n        h = self.stage2(h)\n        h_relu2_2 = h\n        h = self.stage3(h)\n        h_relu3_3 = h\n        h = self.stage4(h)\n        h_relu4_3 = h\n        h = self.stage5(h)\n        h_relu5_3 = h\n        return [x,h_relu1_2, h_relu2_2, h_relu3_3, h_relu4_3, h_relu5_3]\n",
+  "normalization": "inherited DISTS mean/std, once",
+  "pooling": "inherited L2pooling, unchanged",
+  "module_names": [
+    "stage2",
+    "stage3",
+    "stage4"
+  ]
+}

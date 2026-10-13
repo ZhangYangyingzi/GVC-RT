@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "require_grad": true,
+  "stages": [
+    {
+      "stage": 2,
+      "shape": [
+        1,
+        128,
+        128,
+        128
+      ],
+      "bridge": {
+        "norm": 0.16070578291299403,
+        "finite": true,
+        "total_parameters": 28,
+        "connected_parameters": 28,
+        "effective_parameters": 28,
+        "effective_elements": 801124
+      },
+      "generator": {
+        "norm": 0.0411372649507458,
+        "finite": true,
+        "total_parameters": 212,
+        "connected_parameters": 212,
+        "effective_parameters": 212,
+        "effective_elements": 33776640
+      }
+    },
+    {
+      "stage": 3,
+      "shape": [
+        1,
+        256,
+        64,
+        64
+      ],
+      "bridge": {
+        "norm": 0.25937276152705185,
+        "finite": true,
+        "total_parameters": 28,
+        "connected_parameters": 28,
+        "effective_parameters": 28,
+        "effective_elements": 801124
+      },
+      "generator": {
+        "norm": 0.13697394194955625,
+        "finite": true,
+        "total_parameters": 212,
+        "connected_parameters": 212,
+        "effective_parameters": 212,
+        "effective_elements": 33776640
+      }
+    },
+    {
+      "stage": 4,
+      "shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "bridge": {
+        "norm": 0.6796703844256412,
+        "finite": true,
+        "total_parameters": 28,
+        "connected_parameters": 28,
+        "effective_parameters": 28,
+        "effective_elements": 801124
+      },
+      "generator": {
+        "norm": 0.4621908172788884,
+        "finite": true,
+        "total_parameters": 212,
+        "connected_parameters": 212,
+        "effective_parameters": 212,
+        "effective_elements": 33776640
+      }
+    }
+  ],
+  "freeze_preserves_input_gradients": true,
+  "physical_gpu": 4,
+  "peak_memory_MiB": 1320.0
+}

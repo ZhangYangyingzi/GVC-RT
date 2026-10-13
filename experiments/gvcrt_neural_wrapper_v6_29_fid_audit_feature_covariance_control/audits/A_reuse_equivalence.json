@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "source_config": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/config.json",
+  "source_config_sha256": "48d8df3759d31b489a109a266c7e3cd7868f3c863aa85d63c1068ad6da4c9db3",
+  "seed": 20261024,
+  "optimizer": {
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/branches/A_decoder_continue/checkpoints/adaptation_step_1000.pt",
+    "sha256": "92ba207eeee4db7f736c16b5b2892dfefbea46e2002bee59bbe4ccd436adf05c",
+    "source_step": 1000,
+    "adaptation_step": 1000,
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "9130c2831b949556742191c9f9aa308747fb68c72a7b2030bdc3a286abbcb486",
+      "generator": "074028f87886c4468769e639e43fe85a0ff6f49d883b75e1fdab480b49fe8044"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "inference": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_26_ms_illm_decoder_control/evaluation/checkpoints/A_decoder_continue_1000.pt",
+      "sha256": "d44e7641935f84ee50bf59bcfe7f93c1b057463ba89a6ab0d84f7490cec0001b",
+      "module_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "9130c2831b949556742191c9f9aa308747fb68c72a7b2030bdc3a286abbcb486",
+        "generator": "074028f87886c4468769e639e43fe85a0ff6f49d883b75e1fdab480b49fe8044"
+      }
+    }
+  },
+  "source_code_hashes": {
+    "train.py": "ddba671ae36e2c80fa2724472bd30be890f3e7dbd35837fc643c6feade991a4c",
+    "window_training.py": "bbc8ad23349814f67f1369abfa57edfc5d3e52fc49ff9f7f38b7ddfb233f75e2",
+    "io21.py": "d46daae37e0efa0830663236b13e67e01c5180f8a28a84b82ac2ba15b1ddba91",
+    "gradient_tools.py": "8b37ec96bbfdba2943f93e89bad5bb18f2be96f103007d3cf25967799c3dc699",
+    "projected.py": "7e018db9cda94bf0a1b5c10dee0fe5ff9124b3d8a6729280cbabcf7e26418b63",
+    "illm_runtime.py": "03bf2700fbf852a3f3e94c60a133481faa17d50017b48973807f5c9f0b9663d3"
+  },
+  "shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "valid_updates": 1000,
+  "loss": "complete B1, no adversarial term",
+  "reference_detached": true,
+  "native_I_bypass": true,
+  "reconstruction_unit_scale": 4096,
+  "global_clip_once": 1.0,
+  "metadata_note": "Retains original checkpoint bytes and branch label. No claim of byte equality to a newly serialized V6.29 checkpoint.",
+  "historical_code_unmodified": true
+}

@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "same_features_stat_loss": 0.0,
+  "non_diagonal_correlation_test_loss": 2.0,
+  "lambda0_loss_equal": true,
+  "lambda0_gradient_error": 0.0,
+  "lambda0_gradient_norm": 3.005805367920003,
+  "lambda0_single_update_maxabs": 0.0,
+  "initialization_modules": {
+    "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+    "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+    "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+  },
+  "core_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "DISTS_layers": [
+    {
+      "layer": 0,
+      "kind": "RGB",
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "requires_grad": true,
+      "grad_fn": null,
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 2.470563486554074e-05,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 1,
+      "kind": "deep",
+      "shape": [
+        1,
+        64,
+        256,
+        256
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 5.686282433165282e-05,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 2,
+      "kind": "deep",
+      "shape": [
+        1,
+        128,
+        128,
+        128
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.00019137304676691562,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 3,
+      "kind": "deep",
+      "shape": [
+        1,
+        256,
+        64,
+        64
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.0011412404539415495,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 4,
+      "kind": "deep",
+      "shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.024695159371139256,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    },
+    {
+      "layer": 5,
+      "kind": "deep",
+      "shape": [
+        1,
+        512,
+        16,
+        16
+      ],
+      "requires_grad": true,
+      "grad_fn": "ReluBackward0",
+      "connected_to_output": true,
+      "output_gradient": {
+        "norm": 0.2127087337102232,
+        "finite": true,
+        "total_parameters": 1,
+        "connected_parameters": 1,
+        "effective_parameters": 1,
+        "effective_elements": 196608
+      }
+    }
+  ],
+  "GT_detached": true,
+  "covariance_FP32": true,
+  "unit_scale": 4096.0,
+  "window_denominator": 15,
+  "one_clip_one_optimizer_step": true,
+  "formal_rng_untouched": true,
+  "peak_memory_MiB": 2940.0,
+  "physical_gpu": 5
+}

@@ -1,0 +1,385 @@
+TABLES -1 ulong 320
+TABLES -1 uvg_holdout 80
+TABLES -1 hevc_b 200
+TABLES -1 uvg_validation 40
+TABLES -1 mcljcv 1200
+PLOTS PASS 16
+AGGREGATION PASS
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/result_checks.py", line 46, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/result_checks.py", line 26, in main
+    native=[r['I_refresh_audits'][0] for r in rs.values()]
+            ~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'I_refresh_audits'
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/finalize.py", line 84, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/finalize.py", line 49, in main
+    subprocess.run([PYTHON,'-B',str(ROOT/'result_checks.py')],check=True)
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python', '-B', '/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/result_checks.py']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/run_pipeline.py", line 138, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/run_pipeline.py", line 136, in main
+    subprocess.run([PYTHON,'-B',str(ROOT/'finalize.py')],check=True);return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python', '-B', '/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/finalize.py']' returned non-zero exit status 1.
+TABLES -1 ulong 320
+TABLES -1 uvg_holdout 80
+TABLES -1 hevc_b 200
+TABLES -1 uvg_validation 40
+TABLES -1 mcljcv 1200
+PLOTS PASS 20
+AGGREGATION PASS
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+cannot import cuda implementation for inference, fallback to pytorch.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+DIAGNOSTIC PLOTS PASS

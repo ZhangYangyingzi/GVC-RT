@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-13",
+  "issue": "The optional three-QP leave-one-video-out diagnostic called the main comparison validator that requires ten QPs, so valid diagnostic curves would be marked unavailable.",
+  "repair": "Use a separate explicitly labelled three-QP PCHIP diagnostic validator, leaving the primary ten-QP comparison unchanged.",
+  "file": "new_lovo.py",
+  "training_code_changed": false,
+  "training_config_changed": false,
+  "calibration_changed": false,
+  "historical_files_changed": false,
+  "legacy_I_evidence_repair": {
+    "observed_error": "KeyError: I_refresh_audits in result_checks.py for legacy original baseline records",
+    "repair": "Parse every verified bitstream I0 payload; use validated legacy/current I evidence and independently decode native I0 when legacy reconstruction hashes are absent; keep original records unchanged.",
+    "audit": "audits/native_I_payload_reconstruction.json",
+    "validated_logical_points": 1840,
+    "legacy_I_frames_independently_decoded": 156,
+    "training_or_encoding_repeated": false
+  },
+  "scheduling_improvement": {
+    "description": "Run unchanged CPU diagnostics for completed datasets concurrently with remaining GPU evaluation.",
+    "maximum_early_CPU_workers": 4,
+    "threads_per_worker": 2,
+    "cache_validation": "Frozen video identities, feature hashes, actual bpp, method list, diagnostic source hashes and output hashes; per-job process lock prevents duplicate calculation.",
+    "finalize_uses_same_validated_cache": true,
+    "metric_protocol_changed": false
+  }
+}
