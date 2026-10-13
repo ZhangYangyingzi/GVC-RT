@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "identity_covariance_loss": 0.0,
+  "constant_feature_channel_shift_loss": 8.643978002993713e-15,
+  "constant_feature_shift_tolerance": 1e-10,
+  "annotation": "centered covariance feature-space property; not RGB color invariance",
+  "temporary_updates": 0,
+  "formal_updates": 0,
+  "D_updates": 0,
+  "canaries_count_as_formal_UIDs": true,
+  "optimizer_betas": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/train.py",
+    "constructor": "    params=[p for m in models.values() for p in m.parameters() if p.requires_grad];oc=cfg['optimizer'];opt=torch.optim.AdamW([dict(name=k,params=list(m.parameters()),lr=oc[k+'_lr']) for k,m in models.items() if k!='wrapper'],weight_decay=oc['weight_decay']);assert not opt.state",
+    "installed_signature": "(params: Union[Iterable[torch.Tensor], Iterable[Dict[str, Any]], Iterable[Tuple[str, torch.Tensor]]], lr: Union[float, torch.Tensor] = 0.001, betas: Tuple[Union[float, torch.Tensor], Union[float, torch.Tensor]] = (0.9, 0.999), eps: float = 1e-08, weight_decay: float = 0.01, amsgrad: bool = False, *, maximize: bool = False, foreach: Optional[bool] = None, capturable: bool = False, differentiable: bool = False, fused: Optional[bool] = None)",
+    "torch_version": "2.6.0+cu124",
+    "declaration": "omitted in historical constructor; installed default is effective"
+  }
+}

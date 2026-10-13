@@ -1,0 +1,167 @@
+{
+  "schema": "v629",
+  "frames": 64,
+  "crop": 256,
+  "IP": -1,
+  "methods": [
+    "original",
+    "B1_initial",
+    "A_continue_1000",
+    "B_covstats_1000"
+  ],
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b",
+    "uvg_validation",
+    "mcljcv"
+  ],
+  "expected_points": 1840,
+  "source_checkpoint_SHA256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+  "shared_plan_SHA256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "native_I_bypass": true,
+  "supervised_positions": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "warmup_positions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
+  ],
+  "detach_references": true,
+  "BPTT": false,
+  "trainable": [
+    "bridge",
+    "generator"
+  ],
+  "frozen": [
+    "wrapper",
+    "compression_core",
+    "I_codec",
+    "quality"
+  ],
+  "full_B1_loss": "LPIPS+.5*DISTS+beta(q)*rate_bpp+.01*proxy_L1+.1383589248954108*reconstruction_L1",
+  "stat_loss": "mean_layers mean((Cov_rec-Cov_GT)^2)/(mean(Cov_GT^2)+1e-6); spatial ddof0, centered, includes off diagonal",
+  "stat_layers": [
+    "stage2:forward_once[2]",
+    "stage3:forward_once[3]",
+    "stage4:forward_once[4]"
+  ],
+  "averaging": "each supervised frame/15 exactly once, FP32 covariance and restored gradients",
+  "scales": {
+    "reconstruction": 4096.0,
+    "stat": 4096.0
+  },
+  "fixed_lambda_rule": "median40(.10*norm(g0)/(norm(unit_gstat)+1e-12))",
+  "no_GAN": true,
+  "AdamW": {
+    "bridge_lr": 3e-06,
+    "generator_lr": 5e-07,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "seed": 20261024,
+  "test_checkpoint": 1000,
+  "equal_rate": {
+    "grid": 100,
+    "space": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolate": false
+  },
+  "feature_tolerance": {
+    "relative_L2": 0.0001,
+    "max_abs": "1e-4+1e-4*max(abs(feature))"
+  },
+  "FID_tolerance": "1e-4+1e-4*max(1,abs(new),abs(old))",
+  "PSD_roundoff_rule": "64*float64_epsilon*matrix_dimension*max(1,max_abs_eigenvalue); reject lower eigenvalues",
+  "GT_self_tolerance": "1e-4+1e-6*(trace(Creal)+trace(Crec))",
+  "FID": {
+    "features": 2048,
+    "precision": "float64",
+    "ddof": 1,
+    "no_jitter": true,
+    "no_final_clamp": true
+  },
+  "diagnostic_groups": {
+    "I0": [
+      0,
+      1
+    ],
+    "P1_16": [
+      1,
+      17
+    ],
+    "P17_32": [
+      17,
+      33
+    ],
+    "P33_48": [
+      33,
+      49
+    ],
+    "P49_63": [
+      49,
+      64
+    ]
+  },
+  "MCL_overlap": "videoSRC17_1920x1080_24 duplicates historical HEVC-B Kimono1; cross-test overlap, not training leakage"
+}

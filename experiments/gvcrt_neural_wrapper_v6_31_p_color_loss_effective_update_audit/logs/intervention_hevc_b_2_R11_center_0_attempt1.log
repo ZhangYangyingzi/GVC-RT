@@ -1,0 +1,75 @@
+cannot import cuda implementation for inference, fallback to pytorch.
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_31_p_color_loss_effective_update_audit/intervention_worker.py", line 42, in <module>
+    try:main(json.loads(a.task),a.gpu)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_31_p_color_loss_effective_update_audit/intervention_worker.py", line 21, in main
+    r,fr=rt.run(frames,t['qp'],b,f)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_31_p_color_loss_effective_update_audit/adapter31.py", line 56, in run
+    sys.path.insert(0,str(REPO));sys.path.insert(0,str(ROOT.parent/'gvcrt_neural_wrapper_v6_1_large_diverse_qp09/runtime_dependencies'))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_31_p_color_loss_effective_update_audit/adapter.py", line 62, in run
+    def validate(r,v,q,m,ip=-1):
+                    ^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py", line 100, in frame_metrics
+    "DISTS": float(quality[1](output, target)),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py", line 102, in forward
+    x_var = ((feats0[k]-x_mean)**2).mean([2,3], keepdim=True)
+             ~~~~~~~~~~~~~~~~~~^^~
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/_tensor.py", line 39, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 508.00 MiB. GPU 0 has a total capacity of 39.50 GiB of which 354.00 MiB is free. Process 1305636 has 2.19 GiB memory in use. Process 3846134 has 11.25 GiB memory in use. Process 4026951 has 5.47 GiB memory in use. Process 4027056 has 5.43 GiB memory in use. Process 4027075 has 5.46 GiB memory in use. Process 4027114 has 5.46 GiB memory in use. Including non-PyTorch memory, this process has 3.83 GiB memory in use. Of the allocated memory 3.00 GiB is allocated by PyTorch, and 296.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

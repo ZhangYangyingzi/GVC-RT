@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "task_counts": {
+    "color": 210,
+    "intervention": 135,
+    "reused": 54,
+    "new": 81,
+    "probe": 72
+  },
+  "optimizer": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/train.py",
+    "constructor": "    params=[p for m in models.values() for p in m.parameters() if p.requires_grad];oc=cfg['optimizer'];opt=torch.optim.AdamW([dict(name=k,params=list(m.parameters()),lr=oc[k+'_lr']) for k,m in models.items() if k!='wrapper'],weight_decay=oc['weight_decay']);assert not opt.state",
+    "installed_signature": "(params: Union[Iterable[torch.Tensor], Iterable[Dict[str, Any]], Iterable[Tuple[str, torch.Tensor]]], lr: Union[float, torch.Tensor] = 0.001, betas: Tuple[Union[float, torch.Tensor], Union[float, torch.Tensor]] = (0.9, 0.999), eps: float = 1e-08, weight_decay: float = 0.01, amsgrad: bool = False, *, maximize: bool = False, foreach: Optional[bool] = None, capturable: bool = False, differentiable: bool = False, fused: Optional[bool] = None)",
+    "torch_version": "2.6.0+cu124",
+    "declaration": "omitted in historical constructor; installed default is effective"
+  },
+  "formal_updates": 0,
+  "D_updates": 0
+}
