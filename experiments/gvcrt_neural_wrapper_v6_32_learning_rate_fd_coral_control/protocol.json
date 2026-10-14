@@ -1,0 +1,75 @@
+{
+  "schema": "v630",
+  "updates": 0,
+  "IP": -1,
+  "frames": 64,
+  "padding": [
+    1920,
+    1088
+  ],
+  "crop": [
+    1920,
+    1080
+  ],
+  "force_zero_thres": 0.12,
+  "precision": "FP16 codec FP32 wrapper and official features; float64 FID ddof1",
+  "FID": {
+    "commit": "b9c18118d082cbd263c1b8963fc4221dc1cbb659",
+    "weight_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "resize": "bilinear299 align_corners=False",
+    "normalize": "2*x-1",
+    "dims": 2048,
+    "relative_L2": 0.0001,
+    "max_abs": "1e-4+1e-4*maxabs(cached)",
+    "pooled_tolerance": "1e-4+1e-4*max(1,abs(fresh),abs(cached))"
+  },
+  "new_start": "max(old_source_frame_indices)+65",
+  "new_frames": 64,
+  "rate": "all bitstream bytes*8/(64*W*H)",
+  "diagnostic": {
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "grid": 100,
+    "spacing": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolate": false,
+    "label": "3-QP stability diagnostic, not primary 10-QP comparison"
+  },
+  "resource": {
+    "GPUs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "reserve_multiplier": 1.25,
+    "extra_MiB": 2048,
+    "CPU_workers": 4,
+    "threads": 2,
+    "OOM_retries": 1
+  },
+  "experiment": "v632",
+  "source_pool": "v629 actual official frozen manifests; v630 old_sources",
+  "trainable": [
+    "bridge",
+    "generator"
+  ],
+  "P_frozen": true,
+  "global_view": [
+    1920,
+    1080
+  ],
+  "canvas": [
+    1920,
+    1088
+  ],
+  "EMA_beta": 0.95,
+  "training_ddof": 0,
+  "eval_ddof": 1,
+  "new_encodes": 2392,
+  "baseline_points": 920,
+  "logical_points": 3312
+}

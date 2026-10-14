@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "identity": {
+    "FD": -1.0658141036401503e-14,
+    "mean": 2.407412430484045e-34,
+    "CORAL": 8.209652546142856e-35,
+    "D_mu": 1.925929944387236e-33,
+    "D_cov_regularized": -1.0658141036401503e-14
+  },
+  "directional_checks": [
+    {
+      "loss": "FD",
+      "value": 0.002136301220999777,
+      "directional_finite_difference": -6.517941542397154e-05,
+      "autograd": -6.517913448533414e-05,
+      "relative_error": 4.310254188191837e-06
+    },
+    {
+      "loss": "mean",
+      "value": 0.00011391321287950533,
+      "directional_finite_difference": 4.988287516746346e-06,
+      "autograd": 4.9882875084016e-06,
+      "relative_error": 1.672868025281706e-09
+    },
+    {
+      "loss": "CORAL",
+      "value": 1.969755684386488e-05,
+      "directional_finite_difference": 9.871751490932905e-07,
+      "autograd": 9.871751485358694e-07,
+      "relative_error": 5.646628769253806e-10
+    }
+  ],
+  "two_pass_toy": [
+    {
+      "loss": "FD",
+      "parameter_relative_L2": 0.0
+    },
+    {
+      "loss": "mean",
+      "parameter_relative_L2": 0.0
+    },
+    {
+      "loss": "CORAL",
+      "parameter_relative_L2": 0.0
+    }
+  ],
+  "optimizer_updates": 0,
+  "EMA_commit_once": true
+}

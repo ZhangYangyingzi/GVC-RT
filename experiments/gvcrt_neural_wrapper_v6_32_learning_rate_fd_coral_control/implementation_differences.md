@@ -1,0 +1,1 @@
+Independent v6.32 ROOT and output. Historical fused C1 preserved; real stat fields and single loss accumulation. P frozen; B/G trainable. Full-frame distribution view, independent RNG/buffers, float64 EMA moments; fixed gradient-calibrated coefficients. No D or extra landed optimizer probes.

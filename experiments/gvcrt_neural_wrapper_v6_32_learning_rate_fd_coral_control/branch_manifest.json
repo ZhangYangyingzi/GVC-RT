@@ -1,0 +1,44 @@
+{
+  "branches": [
+    {
+      "name": "A_C1_lr1",
+      "lrs": [
+        3e-06,
+        5e-07
+      ],
+      "source_step": 1000,
+      "additional_updates": 1000,
+      "loss": "C1"
+    },
+    {
+      "name": "B_C1_lr2",
+      "lrs": [
+        6e-06,
+        1e-06
+      ],
+      "source_step": 1000,
+      "additional_updates": 1000,
+      "loss": "C1"
+    },
+    {
+      "name": "C_C1_lr2_FD",
+      "lrs": [
+        6e-06,
+        1e-06
+      ],
+      "source_step": 1000,
+      "additional_updates": 1000,
+      "loss": "C1 + FD"
+    },
+    {
+      "name": "D_C1_lr2_mean_CORAL",
+      "lrs": [
+        6e-06,
+        1e-06
+      ],
+      "source_step": 1000,
+      "additional_updates": 1000,
+      "loss": "C1 + mean/CORAL"
+    }
+  ]
+}

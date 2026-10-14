@@ -1,0 +1,171 @@
+{
+  "common_C1": "PASS",
+  "math_toy": "PASS",
+  "C_D_full_chain": "BLOCKED_REFERENCE_INCOMPLETE",
+  "details": {
+    "status": "PASS",
+    "historical_C1_fused_gradient_relative_L2": 8.346873849795225e-08,
+    "analytic_learning_rate_checks": [
+      {
+        "lr": 3e-06,
+        "twice_lr_delta_error": 0.0
+      },
+      {
+        "lr": 5e-07,
+        "twice_lr_delta_error": 0.0
+      }
+    ],
+    "source_and_frozen_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+      "quality": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ]
+    },
+    "deep_DISTS": [
+      {
+        "layer": 0,
+        "kind": "RGB",
+        "shape": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "requires_grad": true,
+        "grad_fn": "SliceBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.0004457993662516228,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196607
+        }
+      },
+      {
+        "layer": 1,
+        "kind": "deep",
+        "shape": [
+          1,
+          64,
+          256,
+          256
+        ],
+        "requires_grad": true,
+        "grad_fn": "ReluBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.0008976672163790881,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196608
+        }
+      },
+      {
+        "layer": 2,
+        "kind": "deep",
+        "shape": [
+          1,
+          128,
+          128,
+          128
+        ],
+        "requires_grad": true,
+        "grad_fn": "ReluBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.0021974381655331266,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196608
+        }
+      },
+      {
+        "layer": 3,
+        "kind": "deep",
+        "shape": [
+          1,
+          256,
+          64,
+          64
+        ],
+        "requires_grad": true,
+        "grad_fn": "ReluBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.014061570707926224,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196608
+        }
+      },
+      {
+        "layer": 4,
+        "kind": "deep",
+        "shape": [
+          1,
+          512,
+          32,
+          32
+        ],
+        "requires_grad": true,
+        "grad_fn": "ReluBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.08532331683253704,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196608
+        }
+      },
+      {
+        "layer": 5,
+        "kind": "deep",
+        "shape": [
+          1,
+          512,
+          16,
+          16
+        ],
+        "requires_grad": true,
+        "grad_fn": "ReluBackward0",
+        "connected_to_output": true,
+        "output_gradient": {
+          "norm": 0.41070808526620667,
+          "finite": true,
+          "total_parameters": 1,
+          "connected_parameters": 1,
+          "effective_parameters": 1,
+          "effective_elements": 196608
+        }
+      }
+    ],
+    "Inception_input_gradient_norm": 0.2297251671552658,
+    "Inception_grad_forward_identical": true,
+    "optimizer_updates": 0,
+    "D_updates": 0,
+    "backend": {
+      "setup_sha256": "c6f46e58de1a1145794c13226a7914bb1a5ef775ad9ad3fcd695d872d6f3ee8f",
+      "deterministic": true,
+      "cudnn_benchmark": false,
+      "matmul_tf32": false,
+      "cudnn_tf32": true
+    },
+    "peak_memory_MiB": 3468.0,
+    "peak_RSS_MiB": 3229.4375,
+    "full_resolution_conflicts": 4,
+    "A_B_crop_training_gate": "PASS",
+    "C_D_gate": "BLOCKED"
+  }
+}
