@@ -1,0 +1,212 @@
+{
+  "schema": "v6.31a-preregistered",
+  "no_training": true,
+  "no_checkpoint_updates": true,
+  "hypothesis": "At matched actual bitrate, better tokenizer latent fidelity is not necessarily better generative reconstruction.",
+  "source_commit": "fdd9d3136a28e7dd3fd9593ca3b236b3b439ca04",
+  "branch": "main",
+  "methods": [
+    "Original",
+    "B1",
+    "B_covstats"
+  ],
+  "qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "frames": 64,
+  "IP": -1,
+  "populations": {
+    "ulong": 8,
+    "uvg_holdout": 2,
+    "uvg_validation": 1,
+    "hevc_b": 5,
+    "mcljcv": 30
+  },
+  "unique_expected_points": 1380,
+  "sampling": "exact dataset_manifest.json source_frame_indices; no 20-fps resampling",
+  "primary_frames": "P (frames 1..63)",
+  "secondary_frames": [
+    "I0",
+    "all"
+  ],
+  "coding": {
+    "real_RANS": true,
+    "persist_bitstream": true,
+    "fresh_independent_decode": true,
+    "causal_DPB_required": true,
+    "qp_phase": "INDEX_MAP[i%8] with official shift_qp",
+    "iframe_bypass_wrapper": true,
+    "rate": "8*actual_file_bytes/(64*H*W)",
+    "kbps_20fps": "actual_bpp*H*W*20/1000",
+    "headers_included": true
+  },
+  "target": {
+    "source": "original GT x through fixed pretrained Open-MAGVIT2 2^18 / 18-channel EMA encoder",
+    "exact_official_training_preprocessing_required": false,
+    "versions": [
+      "continuous_pre_LFQ",
+      "quantized_codeword",
+      "normalized_only_if_officially_defined"
+    ],
+    "primary_version": "continuous_pre_LFQ",
+    "dimensions_do_not_prove_same_space": true,
+    "latent_interpolation": false,
+    "preprocessing": "FP32 RGB [0,1] -> replicate bottom 8 pixels to 1088x1920 -> 2*x-1; no resize; shared by all methods",
+    "normalized_version": "derived diagnostic F.normalize(dim=1); NOT asserted to be original training target"
+  },
+  "fidelity": {
+    "primary": "proxy channelwise cosine distance: mean(1-cos(z_gen_actual,l_t),dim=channel,eps=1e-8)",
+    "diagnostics": [
+      "L1",
+      "RMSE",
+      "normalized_L2",
+      "cosine_distance",
+      "per_channel_normalized_RMSE",
+      "per_channel_Pearson",
+      "mean_difference",
+      "covariance_difference"
+    ],
+    "discrete_metrics": "only after verifying discrete semantics; no hard-signing actual continuous inputs as if transmitted tokens",
+    "normalized_L2": "||z-t||_2 / ||t||_2; zero denominator reported undefined",
+    "channel_NRMSE": "mean_c(RMSE_c/std(target_c)); zero-variance channels separately reported",
+    "distances_lower_is_better": true,
+    "correlation_higher_is_better": true,
+    "paper_distribution_loss": "0.2 L_cos + 0.02 L_margin (user-provided paper description)",
+    "unreproduced": "L_margin exact formula unavailable; neither guessed nor labeled reproduced; image-domain L1+LPIPS is supervision, not a latent metric",
+    "official_primary_metric": false,
+    "continuous_and_quantized_reported_separately": true
+  },
+  "utility": {
+    "primary": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS"
+    ],
+    "secondary": [
+      "PSNR",
+      "MS_SSIM",
+      "FID"
+    ],
+    "FID": "dataset/method/QP pooled distribution; no framewise pairing",
+    "metric_reference": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_29_fid_audit_feature_covariance_control/evaluation/config.json"
+  },
+  "matching": {
+    "unit": "dataset/video/method vs Original; all 10x10 actual-rate QP pairs",
+    "relative_gap": "abs(Rm-Ro)/((Rm+Ro)/2)",
+    "primary_max_gap": 0.01,
+    "secondary_max_gap": 0.02,
+    "keep_all": true,
+    "primary_selection": [
+      "smallest_rate_gap",
+      "lowest_mean_rate",
+      "lowest_original_QP",
+      "lowest_method_QP"
+    ],
+    "quality_blind": true,
+    "primary_excludes_2pct": true,
+    "rate_interpolation_core_evidence": false
+  },
+  "inversion": {
+    "delta_latent": "method-original; >noise_floor = worse",
+    "delta_quality": "method-original; <0 = better",
+    "latent_metrics": [
+      "cosine",
+      "L1",
+      "normalized_L2"
+    ],
+    "quality_metrics": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS"
+    ],
+    "same_latent": "abs(delta)<=deterministic_repeat_noise_floor",
+    "tolerance": "max observed absolute metric difference over >=10 points independently decoded twice; no posthoc enlarged tolerance",
+    "summaries": [
+      "dataset",
+      "external_QP_pair",
+      "pooled_actual_rate_tertiles"
+    ],
+    "primary_population": "one primary <=1% pair per video/method; all eligible pairs secondary",
+    "noise_floor_selection": "10 points selected by SHA256(seed=20261014,dataset,video,method,QP) before quality; two fresh repeats per point"
+  },
+  "correlation": {
+    "analyses": [
+      "within-video Spearman",
+      "<=2% matched neighborhood delta correlation",
+      "latent and quality residual correlations after separate linear fits against log(actual_bpp) with video/method fixed effects"
+    ],
+    "statistics": [
+      "Pearson",
+      "Spearman",
+      "n",
+      "bootstrap_95pct_CI"
+    ],
+    "bootstrap": "2000 video-cluster resamples; seed=20261014; preserve all points from sampled video",
+    "strata": "dataset, method, target_version, frame_scope"
+  },
+  "figures": {
+    "A": "latent vs quality, marker=method, size=actual_bpp",
+    "B": "matched delta latent vs delta quality with quadrants",
+    "C": "inversion fraction by dataset",
+    "D": "up to4 strict P cosine/LPIPS primary inversions, ascending gap then descending delta_cosine*(-delta_LPIPS); lexical final ties; fixed frame32",
+    "quality_metrics": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS"
+    ]
+  },
+  "wrapper_diagnostics": [
+    "RGB residual",
+    "frequency energy",
+    "existing entropy estimates if available",
+    "actual generator-input fidelity"
+  ],
+  "sensitivity_probe": "optional supporting evidence only, after primary completion",
+  "decision": "Strong / Partial / Not supported based on reliable repeated matched-rate evidence; missing data is NOT CASE 3",
+  "gpu_assignment": {
+    "4": [
+      "ulong"
+    ],
+    "5": [
+      "uvg_holdout",
+      "uvg_validation"
+    ],
+    "6": [
+      "hevc_b"
+    ],
+    "7": [
+      "mcljcv"
+    ]
+  },
+  "writes": "per-worker parts only, single aggregation process",
+  "launch_gate": [
+    "proxy teacher semantics/config/weights verified",
+    "full 4-frame sanity PASS"
+  ],
+  "publish_gate": "complete evaluation, report and integrity PASS before add/commit/push; only this experiment",
+  "commit_message": "Add v6.31a latent fidelity vs generative utility audit",
+  "audit_scope": "paper-faithful proxy audit",
+  "exact_original_teacher_verified": false,
+  "scope_authorization": "User explicitly authorized paper_compatible_teacher_proxy after exact original training source was found unavailable.",
+  "claim_limit": "All fidelity claims are relative to this fixed proxy; no exact original alignment-loss reproduction.",
+  "full_tensor_samples": "fixed random seed 20261014; 4 points; frames 1,32; no quality-based selection",
+  "decision_rule": {
+    "primary_method": "B1",
+    "secondary_method": "B_covstats",
+    "reliable_counterexample": "P proxy cosine worse beyond repeat tolerance OR same within tolerance, and >=2 of LPIPS/DISTS/FloLPIPS improved",
+    "Strong": ">=4 reliable B1 primary pairs across >=2 datasets, >=4 videos and >=2 distinct QP pairs",
+    "Partial": "at least one reliable B1 primary counterexample below Strong coverage",
+    "Not_supported": "primary B1 matched pairs exist but no reliable counterexample",
+    "Not_assessable": "no primary B1 matched pair",
+    "quantized_and_other_latent_metrics": "separate diagnostic inversion counts; do not replace the primary cosine criterion"
+  }
+}
