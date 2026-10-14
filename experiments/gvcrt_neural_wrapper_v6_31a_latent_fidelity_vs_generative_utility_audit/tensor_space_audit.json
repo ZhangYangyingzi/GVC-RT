@@ -1,0 +1,49 @@
+{
+  "status": "PASS_PAPER_COMPATIBLE_PROXY_ONLY",
+  "exact_original_teacher_checkpoint": false,
+  "teacher_checkpoint": {
+    "url": "https://huggingface.co/TencentARC/Open-MAGVIT2-Tokenizer-262144-Pretrain/resolve/a39791fc8f874dfbd6a74f38ff0ffdb405597fff/pretrain256_262144.ckpt",
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/teacher_weights/pretrain256_262144.ckpt",
+    "sha256": "8bd75e7f57c91be0cbf0a9a266e41bcf0105a2fc259d5117f8e721df69856078",
+    "bytes": 921243718
+  },
+  "EMA": true,
+  "target_cont": "official Open-MAGVIT2 Encoder.forward output immediately before LFQ.forward",
+  "target_quant": "torch.where(l_t>0,+1,-1), matching official LFQ.forward codebook_value=1.0",
+  "target_normalized": "derived unit-channel-norm version, diagnostic only",
+  "no_projection": true,
+  "no_extra_normalization_in_official_LFQ": true,
+  "codebook_size": 262144,
+  "channels": 18,
+  "expected_shape": [
+    1,
+    18,
+    68,
+    120
+  ],
+  "generator_input": "P DMC.decompress -> entropy decoded y_hat -> dec(y_hat,causal_ctx,q_decoder) -> pixel_unshuffle(feature,2) -> GroupNorm/DepthConv/GroupNorm/SiLU/DepthConv -> codeword -> decoder",
+  "actual_generator_input_is_continuous": true,
+  "LFQ_quantization_not_in_receiver": true,
+  "quant_step": "separate decoder argument q_scale_recon[actual_qp]; not a scalar normalization of codeword",
+  "dtype": {
+    "generator_input": "float16",
+    "teacher": "float32",
+    "metrics": "float64"
+  },
+  "coordinate_evidence": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/audits/teacher_gate.json",
+  "coordinate_limit": "historical unchanged-axis compatibility is empirical evidence; it does not identify original teacher weights or original training target",
+  "training_target_in_released_codec": "not present; user-authorized continuous pre-quantization paper proxy",
+  "forbidden_spaces": [
+    "128-channel compression y_hat",
+    "128-channel hyper z_hat",
+    "256-channel bridge input feature",
+    "18-channel quantized LFQ codeword confused with continuous output"
+  ],
+  "primary_metric": "explicit proxy cosine distance, not official primary metric",
+  "inference_source_locations": [
+    "src/models/video_model_gvcrt.py:69",
+    "src/models/video_model_gvcrt.py:300",
+    "src/models/video_model_gvcrt.py:395",
+    "src/models/improved_model_gvcrt.py:214"
+  ]
+}
