@@ -1,8 +1,0 @@
-{
-  "status": "BLOCKED",
-  "stage": "gradient_and_causal_probe",
-  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/gpu_probe.py\", line 43, in <module>\n    a=argparse.ArgumentParser();a.add_argument('--gpu',type=int,choices=[4,5,6,7],required=True);args=a.parse_args()\n        ^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/gpu_probe.py\", line 32, in main\n    e,out,dpb,pad=step(im,pm,source(i),dpb,0,i,mode='compress',coder=c);encoded.append(e['bit_stream']);traces.append(state_hash({k:v for k,v in dpb.items() if k in ('ref_frame','ref_latent','ref_y') and v is not None}))\n                                                                                                                      ^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/preflight.py\", line 21, in state_hash\n    h.update(k.encode());h.update(str(t.dtype).encode());h.update(str(tuple(t.shape)).encode());h.update(t.detach().cpu().contiguous().numpy().tobytes())\n                                      ^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'dtype'\n",
-  "B_updates": 0,
-  "C_updates": 0,
-  "evaluation_completed": 0
-}

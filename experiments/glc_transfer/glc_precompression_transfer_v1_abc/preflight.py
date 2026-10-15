@@ -4,7 +4,7 @@ from pathlib import Path
 os.environ['PYTHONDONTWRITEBYTECODE']='1'
 os.environ['PYTHONNOUSERSITE']='1'
 R=Path(__file__).resolve().parent
-GLC=R.parents[1]
+GLC=Path(os.environ.get('GLC_PROJECT','/Huang_group/zyyz/Projects/GLC'))
 GVC=Path('/Huang_group/zyyz/Projects/GVC-RT')
 sys.path.insert(0,str(GLC))
 def sha(p):
@@ -14,7 +14,7 @@ def sha(p):
  return h.hexdigest()
 def save(name,x):
  p=R/name;p.parent.mkdir(parents=True,exist_ok=True)
- p.write_text(json.dumps(x,indent=2,allow_nan=False)+'\n')
+ temporary=p.with_suffix(p.suffix+'.tmp');temporary.write_text(json.dumps(x,indent=2,allow_nan=False)+'\n');temporary.replace(p)
 def state_hash(s):
  h=hashlib.sha256()
  for k,t in sorted(s.items()):

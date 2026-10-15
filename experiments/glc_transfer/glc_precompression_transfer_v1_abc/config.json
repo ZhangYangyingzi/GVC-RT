@@ -1,0 +1,18 @@
+{
+ "seed":20261015,
+ "GLC_project":"/Huang_group/zyyz/Projects/GLC",
+ "python":"/Huang_group/zyyz/home_dir/.conda/envs/glc/bin/python",
+ "trainable":"new sender P only",
+ "initialization":"identity; output convolution zeros; no GVC P weights",
+ "precision":"FP32",
+ "B":{"channels":3,"hidden":64,"blocks":5,"parameters":372803,"clamp":[0,1]},
+ "C":{"channels":256,"hidden":44,"blocks":5,"parameters":377732,"clamp":null},
+ "optimizer":{"name":"AdamW","lr":0.00005,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0.0001,"grad_clip":1.0,"fresh":true},
+ "train":{"updates":1000,"frames":64,"crop":256,"batch":1,"domains":{"ulong":500,"uvg":500},"supervised_frames":15,"detach_reference":true},
+ "objective":{"LPIPS":1,"DISTS":0.5,"require_grad_DISTS":true,"reconstruction_L1":0.1383589248954108,"proxy_regularizer":0,"beta_source":"calibration/final.json","beta_rule":"training-data gradient calibration, common per-q coefficients"},
+ "checkpoint_steps":[0,250,500,1000],
+ "GPU_physical_allowed":[4,5,6,7],
+ "resource_wait_limit_seconds":3600,
+ "evaluation_limit_seconds":172800,
+ "expected_evaluation_points":{"independent":1350,"diagnostic_validation":30,"total":1380}
+}

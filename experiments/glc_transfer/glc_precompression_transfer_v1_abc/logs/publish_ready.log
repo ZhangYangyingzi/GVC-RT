@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/publish.py", line 44, in <module>
+    try:main(args.phase)
+        ^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/publish.py", line 30, in main
+    git('add','--',*files,cwd=c)
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/publish.py", line 8, in git
+    if p.returncode:raise RuntimeError(f'git {args[0]} failed: '+p.stderr[-2500:])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: git add failed: The following paths are ignored by one of your .gitignore files:
+experiments/glc_transfer/glc_precompression_transfer_v1_abc/logs/calibration.log
+experiments/glc_transfer/glc_precompression_transfer_v1_abc/logs/driver.log
+experiments/glc_transfer/glc_precompression_transfer_v1_abc/logs/publish_ready.log
+experiments/glc_transfer/glc_precompression_transfer_v1_abc/pipeline.lock
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config set advice.addIgnoredFile false"
+
+

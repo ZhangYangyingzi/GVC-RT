@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "branch": "B_rgb_P",
+      "input_shape": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "parameters": 372803,
+      "FLOPs_conv_only": 48771366912,
+      "median_ms": 1.5615999698638916,
+      "samples": 10,
+      "warmup": 3,
+      "precision": "FP32",
+      "peak_gpu_MiB": 92.0
+    },
+    {
+      "branch": "C_latent_P",
+      "input_shape": [
+        1,
+        256,
+        16,
+        16
+      ],
+      "parameters": 377732,
+      "FLOPs_conv_only": 193019904,
+      "median_ms": 0.32921600341796875,
+      "samples": 10,
+      "warmup": 3,
+      "precision": "FP32",
+      "peak_gpu_MiB": 24.0
+    },
+    {
+      "branch": "B_rgb_P",
+      "input_shape": [
+        1,
+        3,
+        1080,
+        1920
+      ],
+      "parameters": 372803,
+      "FLOPs_conv_only": 1543156531200,
+      "median_ms": 98.43148803710938,
+      "samples": 10,
+      "warmup": 3,
+      "precision": "FP32",
+      "peak_gpu_MiB": 3108.0
+    },
+    {
+      "branch": "C_latent_P",
+      "input_shape": [
+        1,
+        256,
+        68,
+        120
+      ],
+      "parameters": 377732,
+      "FLOPs_conv_only": 6152509440,
+      "median_ms": 0.5708799958229065,
+      "samples": 10,
+      "warmup": 3,
+      "precision": "FP32",
+      "peak_gpu_MiB": 42.0
+    }
+  ],
+  "FLOPs_convention": "2 per convolution MAC; excludes bias, residual adds, ReLU/clamp; standalone module only; timings do not imply equal whole-system cost",
+  "gpu": 6,
+  "optimizer_updates": 0
+}

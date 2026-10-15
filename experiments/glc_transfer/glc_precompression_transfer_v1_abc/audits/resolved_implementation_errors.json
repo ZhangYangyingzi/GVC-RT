@@ -1,0 +1,8 @@
+{
+ "status":"RESOLVED",
+ "events":[
+  {"stage":"gpu_probe","error":"AttributeError: NoneType has no attribute dtype while hashing a null ref_y field","fix":"Hash only defined ref_frame/ref_latent/ref_y tensors; exclude observation-only latent_ori","verification":"audits/gradient.json and audits/causal64.json PASS; optimizer updates zero"},
+  {"stage":"data_preparation","error":"FileNotFoundError: BasketballDrive/frame_000000.png","fix":"Respect existing im00001.png naming for HEVC cache; validate the same frozen RGB hashes","verification":"audits/plan_integrity.json PASS; 1000 samples verified; no source substitution"},
+  {"stage":"publication_preparation_verified","error":"git add rejected compact *.log files and pipeline.lock under repository ignore rules","fix":"Local scoped log whitelist; exclude all lock files; preserve partially staged experiment files; bounded normal publication recovery","verification":"See publication_status.json for actual remote push verification; no optimizer update was performed before this recovery"}
+ ]
+}
