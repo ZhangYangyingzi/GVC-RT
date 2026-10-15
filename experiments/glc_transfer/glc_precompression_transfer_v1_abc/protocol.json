@@ -1,0 +1,21 @@
+{
+  "experiment": "glc_precompression_transfer_v1_abc",
+  "branches": ["A_original", "B_rgb_P", "C_latent_P"],
+  "seed": 20261015,
+  "updates": 1000,
+  "clip_frames": 64,
+  "crop": 256,
+  "supervised_positions": [49,50,51,52,53,54,55,56,57,58,59,60,61,62,63],
+  "q_grid": [0,7,14,21,28,35,42,49,56,63],
+  "fa_index_map": [0,1,0,2,0,2,0,2],
+  "reset_ref_y_interval": 32,
+  "I_bypasses_P": true,
+  "GLC_frozen": true,
+  "precision": "FP32",
+  "lambda_rec": 0.1383589248954108,
+  "loss": "LPIPS + 0.5*DISTS(require_grad=True) + lambda_rec*L1 + beta(q)*official_estimated_bpp",
+  "rate_evaluation": "local_nonofficial_real_rans_if_verified; otherwise explicitly estimated_official_glc",
+  "test_frames": 64,
+  "main_checkpoint": 1000,
+  "original_author_pretraining_data": "unknown"
+}
