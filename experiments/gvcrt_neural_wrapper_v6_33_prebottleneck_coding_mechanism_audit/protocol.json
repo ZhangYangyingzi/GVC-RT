@@ -1,0 +1,85 @@
+{
+  "schema": "v633-fixed-mechanism",
+  "evaluation_only": true,
+  "optimizer_steps": 0,
+  "source_commit": "7589f4438b342a84283fed581d677eb5f1f1974c",
+  "branch": "main",
+  "methods": [
+    "Original",
+    "B1_alpha0",
+    "B1_alpha025",
+    "B1_alpha050",
+    "B1_alpha075",
+    "B1_alpha100",
+    "B1_alpha125"
+  ],
+  "alphas": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.25
+  ],
+  "frames": 64,
+  "qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "expected_points": 3220,
+  "populations": {
+    "ulong": 8,
+    "uvg_holdout": 2,
+    "uvg_validation": 1,
+    "hevc_b": 5,
+    "mcljcv": 30
+  },
+  "IP": -1,
+  "native_I_bypass": true,
+  "force_zero_thres": 0.12,
+  "rate_denominator": "64*1920*1080",
+  "P_rate_denominator": "63*1920*1080",
+  "teacher": "paper_compatible_teacher_proxy",
+  "teacher_preprocessing": "same v631a full frame FP32 RGB, replicate bottom8, 2*x-1, fixed EMA Open-MAGVIT2 encoder continuous pre-LFQ",
+  "teacher_not_exact_original": true,
+  "source_sampling": "exact v631a dataset_manifest; 20fps display only",
+  "frequency_bands": {
+    "low": "r<.125",
+    "mid": ".125<=r<.25",
+    "high": "r>=.25"
+  },
+  "bootstrap": {
+    "seed": 20261015,
+    "resamples": 2000,
+    "unit": "dataset/video clusters; retain QPs and alphas",
+    "interval": "percentile 2.5/97.5"
+  },
+  "near_boundary_threshold": 0.05,
+  "quant_boundary": "normalized, conditional-mean-centered active nonsaturated residual at k+0.5; separately record scale skip boundary at .12 and saturation",
+  "entropy": "actual integer CDF bin mass used by RANS for y; escape event counted, bypass escape bits unavailable; not full stream likelihood or per-channel real allocation",
+  "prediction": "unavailable: context feature is not an explicit prediction of source RGB or analysis latent",
+  "quality_limit": "alpha !=1 fixed B1 receiver is unadapted intervention; B1_alpha0 != Original or fair No-P",
+  "matched_rate": "B1_alpha100 vs Original; per video common actual-bpp interval,100 uniform log-rate points,PCHIP,no extrapolation; video-weighted summary",
+  "rate_band": "tertiles of alpha0 actual_bpp within dataset; fixed from control, shared across alpha",
+  "decision": {
+    "A": "stable coding change across datasets + consistent quantization changes + matched-rate >=2/3 perceptual improvements with bootstrap95 upper<0 + teacher worse/rate better in >=50% video/QP pairs",
+    "B": "actual rates change but A not met, including heterogeneous domains",
+    "C": "no measured systematic rate or coding-tensor change",
+    "missing": "Not_assessable; never classify incomplete data as C"
+  },
+  "gpu_preference": {
+    "ulong": 4,
+    "uvg_holdout": 5,
+    "uvg_validation": 5,
+    "hevc_b": 6,
+    "mcljcv": 7
+  }
+}

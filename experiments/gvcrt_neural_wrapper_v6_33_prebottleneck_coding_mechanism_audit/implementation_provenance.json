@@ -1,0 +1,18 @@
+{
+  "reused_runtime": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_31a_latent_fidelity_vs_generative_utility_audit/proxy_runtime.py",
+    "sha256": "7ca6c97f1246436bff34f54ad97f5484a4bc490e57e0113c55403c06e059489c",
+    "changes": [
+      "output-only P strength forward endpoint without changing state_dict",
+      "read-only historical teacher cache reuse",
+      "source residual maximum diagnostic"
+    ]
+  },
+  "reused_evaluator": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_parallel_v5a3_v60/engine.py",
+    "sha256": "809d5cf2172754f07a8397d08bcec5a8e0504447b6661bc6a296bda65ebdb2c7",
+    "native_I_adapter": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_30_fid_cache_closure_sample_robustness_audit/adapter.py"
+  },
+  "new_codec_instrumentation": "pass-through instance methods; numerical returns untouched; exact alpha1 stream matches historical sanity",
+  "first_sanity_attempt": "exited before receipt because preflight checkpoint inventory not yet present; rerun passed; optimizer_steps=0; no formal evaluation point committed"
+}

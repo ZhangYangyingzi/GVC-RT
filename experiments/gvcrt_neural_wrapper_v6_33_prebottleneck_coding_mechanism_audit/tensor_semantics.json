@@ -1,0 +1,14 @@
+{
+  "analysis_y": "P.compress -> self.enc(x,ctx,q_encoder) -> compress_prior_2x first argument, before in-place reciprocal scaling",
+  "y_hat": "compress_prior_2x returned last tensor: sums of centered integer symbols + per-group means, times clamped q_dec; input to actual latent decoder",
+  "symbols": "process_with_mask returned second tensor, actual centered rounded/clipped/skip-forced y_q; nonoverlapping masks merged; exactly packed for RANS",
+  "boundaries": "half-integers in y/q_dec - actual conditional mean for active non-saturated entries; force_zero_thres scale boundary separate; no fixed half-integer boundary in raw y",
+  "entropy": "packed int16 at native entropy_coder.encode_y: signed high8 symbol,low8 actual CDF index; use installed quantized CDF. Tail/escape bypass bits unavailable, so CDF entry bits are partial diagnostic.",
+  "prediction": "unavailable: feature_extractor produces conditional context, not a defined RGB or analysis-y prediction",
+  "codec_sources": {
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/common_model.py": "b8671f241847223dab55ffb7051ec0343fce5b61870b8576e8ed5f74e1c13ccf",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/models/entropy_models.py": "7c8574b1e3e97b15897c2ee69575e37ba2fe0ba4ef0182b5bb6ff83bce93eba4",
+    "/Huang_group/zyyz/Projects/GVC-RT/src/layers/cuda_inference.py": "ed75bd62f96520f6d0b7209f07caf373bccb645139675849fbf4a0c3d00ff8e0"
+  }
+}
