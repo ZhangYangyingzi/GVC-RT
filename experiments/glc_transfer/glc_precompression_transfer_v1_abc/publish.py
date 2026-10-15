@@ -3,10 +3,11 @@ from preflight import *
 import shutil,argparse
 DEST=Path('experiments/glc_transfer/glc_precompression_transfer_v1_abc')
 REMOTE='git@github-zyyz:ZhangYangyingzi/GVC-RT.git'
+SSH_TRANSPORT='ssh -o Hostname=ssh.github.com -o Port=443 -o HostKeyAlias=github.com -o StrictHostKeyChecking=yes -o CheckHostIP=no -o UpdateHostKeys=no -o ConnectTimeout=20 -o ServerAliveInterval=30 -o ServerAliveCountMax=3'
 def git(*args,cwd=None):
  # Source/result bundles can exceed a few MiB on the existing slow SSH link.
  # Keep bounded transfers, with a larger push-only deadline and no auth changes.
- p=subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,timeout=1800 if args[0]=='push' else 240)
+ p=subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,env=dict(os.environ,GIT_SSH_COMMAND=SSH_TRANSPORT),timeout=1800 if args[0]=='push' else 240)
  if p.returncode:raise RuntimeError(f'git {args[0]} failed: '+p.stderr[-2500:])
  return p.stdout.strip()
 def main(phase):
