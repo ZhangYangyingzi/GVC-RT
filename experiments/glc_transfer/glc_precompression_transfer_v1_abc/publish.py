@@ -27,7 +27,9 @@ def main(phase):
   if p.suffix=='.pt' and not (rel.parts[0]=='final_P' and phase!='preparation'):continue
   if p.stat().st_size>90*1024*1024:raise RuntimeError(f'Unsplit large publication artifact: {rel}')
   target=c/DEST/rel;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,target);files.append(str(DEST/rel))
- (c/'experiments/glc_transfer/README.md').write_text('# GLC transfer experiments\n\n- [GLC precompression transfer v1 A/B/C](glc_precompression_transfer_v1_abc/README.md)\n')
+ index=c/'experiments/glc_transfer/README.md';entry='- [GLC precompression transfer v1 A/B/C](glc_precompression_transfer_v1_abc/README.md)'
+ body=index.read_text() if index.exists() else '# GLC transfer experiments\n\n'
+ if entry not in body:index.write_text(body.rstrip()+'\n\n'+entry+'\n')
  files.append('experiments/glc_transfer/README.md')
  if not (R/'BLOCKED.json').exists():git('rm','--ignore-unmatch','--',str(DEST/'BLOCKED.json'),cwd=c)
  git('add','--',*files,cwd=c)
@@ -38,7 +40,12 @@ def main(phase):
    if attempt==2:raise
    git('fetch','origin','main','--deepen','32',cwd=c);git('rebase','origin/main',cwd=c)
  head=git('rev-parse','HEAD',cwd=c);remote=git('ls-remote','origin','refs/heads/main',cwd=c).split()[0]
- assert head==remote
+ if head!=remote:
+  git('fetch','origin','main','--deepen','32',cwd=c)
+  git('merge-base','--is-ancestor',head,'origin/main',cwd=c)
+  for p in files:
+   if p=='experiments/glc_transfer/README.md':assert entry in git('show',f'origin/main:{p}',cwd=c)
+   else:assert git('rev-parse',f'origin/main:{p}',cwd=c)==git('hash-object',p,cwd=c),'Concurrent remote change to experiment artifact: '+p
  for p in files:assert git('rev-parse',f'HEAD:{p}',cwd=c)==git('hash-object',p,cwd=c)
  save('publication_status.json',dict(status='PUBLISHED',phase=phase,commit=head,remote_commit=remote,files=files,github=f'https://github.com/ZhangYangyingzi/GVC-RT/tree/{head}/{DEST}'))
  print('PUBLISHED',phase,head,flush=True)

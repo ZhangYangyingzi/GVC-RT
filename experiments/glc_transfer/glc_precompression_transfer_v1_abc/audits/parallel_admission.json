@@ -1,0 +1,17 @@
+{
+  "status": "MEASURED_MEMORY_ADMISSION",
+  "physical_GPUs": [4, 5, 6, 7],
+  "measured_peak_MiB": {"B_crop_training_through_step150": 4040, "C_crop_training_through_step150": 3060, "A_native64_q0_q56_q63": 9376},
+  "per_GPU_reserve": "max(2048 MiB, total_memory*0.10)",
+  "A_process_admission": "max(measured A peaks)*1.05+512 MiB",
+  "pending_peak_reservation": "deduct max(0, full admitted peak - current nvidia-smi process memory) for each owned A worker",
+  "early_A_worker_cap": 6,
+  "early_A_per_GPU_cap": 2,
+  "OOM_policy": "one retry per task, increase memory admission and reduce experiment concurrency; preserve other users' jobs",
+  "resource_wait_limit_seconds": 3600,
+  "point_deadline_seconds": 900,
+  "drain_rule": "stop dispatch before either B/C reaches step850; drain original tasks before main evaluation",
+  "scheduler_transition": "old dispatcher paused; active formal points q21/q14 completed normally with PASS receipts; only old dispatcher then stopped; new dispatcher skips all validated existing points",
+  "training_restarted": false,
+  "completed_points_reencoded": false
+}

@@ -1,0 +1,16 @@
+{
+ "status":"RECOVERED_WITH_STRICT_RETRY",
+ "task":{"dataset":"ulong","video":1,"method":"A_original","q":63},
+ "failed_GPU":6,
+ "failed_error":"AssertionError at independent decoder reference-state byte hash comparison",
+ "failed_bitstream_path":"cache/failed_ulong_1_A_original_63.glc",
+ "failed_bitstream_SHA256":"67ef08f5d81b2d8ef221a582de2640c33bff7e473d8c793df4c4bb4178d0e30c",
+ "interleaved_diagnostic":{"GPU":4,"frames":64,"all_reference_tensors_byte_exact":true,"optimizer_steps":0,"audit":"audits/codec_first_difference.json"},
+ "strict_formal_retry":{"GPU":4,"status":"PASS","receipt":"results/points/ulong_1_A_original_63.json","frames":64,"transitions":63,"bytes":254466,"peak_MiB":9458,"bitstream_SHA256":"63c6796235861b8f53efa5952f1feee1c827aeb684384745d849b704804bd874"},
+ "evaluation_code_changed":false,
+ "runtime_training_precision_or_protocol_changed":false,
+ "state_tolerance_relaxed":false,
+ "failed_attempt_counted_as_complete":false,
+ "root_cause":"Not established; failure not reproduced in isolated interleaved probe or strict formal retry; failed and retried bitstreams differ and both hashes are retained",
+ "policy":"At most one reference-state retry per task, different allowed GPU, reduced owned concurrency, strict checks retained; repeated failure blocks"
+}
