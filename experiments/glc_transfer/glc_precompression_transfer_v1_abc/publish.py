@@ -4,7 +4,9 @@ import shutil,argparse
 DEST=Path('experiments/glc_transfer/glc_precompression_transfer_v1_abc')
 REMOTE='git@github-zyyz:ZhangYangyingzi/GVC-RT.git'
 def git(*args,cwd=None):
- p=subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,timeout=240)
+ # Source/result bundles can exceed a few MiB on the existing slow SSH link.
+ # Keep bounded transfers, with a larger push-only deadline and no auth changes.
+ p=subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,timeout=1800 if args[0]=='push' else 240)
  if p.returncode:raise RuntimeError(f'git {args[0]} failed: '+p.stderr[-2500:])
  return p.stdout.strip()
 def main(phase):
@@ -36,7 +38,7 @@ def main(phase):
  if git('diff','--cached','--name-only',cwd=c):git('commit','-m',f'Add GLC precompression transfer v1 ABC {phase}',cwd=c)
  for attempt in range(3):
   try:git('push','origin','HEAD:main',cwd=c);break
-  except RuntimeError:
+  except (RuntimeError,subprocess.TimeoutExpired):
    if attempt==2:raise
    git('fetch','origin','main','--deepen','32',cwd=c);git('rebase','origin/main',cwd=c)
  head=git('rev-parse','HEAD',cwd=c);remote=git('ls-remote','origin','refs/heads/main',cwd=c).split()[0]
