@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "branch": "A_original",
+      "frames": 64,
+      "estimated_total_bits": 117992.12017822266,
+      "reference_trajectory_sha256": "f0b3922563889b4f9cec6343d3e87cb621c53a5f71fd738c52e1c42560e0d820",
+      "identity_exact": true,
+      "parameters": 0,
+      "crop_sender_conv_FLOPs": 0
+    },
+    {
+      "branch": "B_rgb_P",
+      "frames": 64,
+      "estimated_total_bits": 117992.12017822266,
+      "reference_trajectory_sha256": "f0b3922563889b4f9cec6343d3e87cb621c53a5f71fd738c52e1c42560e0d820",
+      "identity_exact": true,
+      "parameters": 372803,
+      "crop_sender_conv_FLOPs": 48771366912
+    },
+    {
+      "branch": "C_latent_P",
+      "frames": 64,
+      "estimated_total_bits": 117992.12017822266,
+      "reference_trajectory_sha256": "f0b3922563889b4f9cec6343d3e87cb621c53a5f71fd738c52e1c42560e0d820",
+      "identity_exact": true,
+      "parameters": 377732,
+      "crop_sender_conv_FLOPs": 193019904
+    }
+  ],
+  "tolerance": "exact same FP32 output/rate/reference state hashes",
+  "optimizer_updates": 0,
+  "frozen_unchanged": true,
+  "plan_step": 1
+}

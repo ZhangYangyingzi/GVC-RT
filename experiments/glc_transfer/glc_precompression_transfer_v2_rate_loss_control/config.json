@@ -1,0 +1,91 @@
+{
+  "seed": 20261016,
+  "GLC_project": "/Huang_group/zyyz/Projects/GLC",
+  "python": "/Huang_group/zyyz/home_dir/.conda/envs/glc/bin/python",
+  "trainable": "latent sender P only; GLC and generator frozen/eval",
+  "initialization": {
+    "path": "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/final_P/C_latent_P_1000.pt",
+    "sha256": "328452a25222cd0870bd24d51c1cc13b6e0dc574745b4c568fa50667bd6587ff",
+    "source_step": 1000,
+    "new_adaptation_step": 0,
+    "zero_initialization_forbidden": true
+  },
+  "precision": "FP32",
+  "C": {
+    "channels": 256,
+    "hidden": 44,
+    "blocks": 5,
+    "parameters": 377732,
+    "clamp": null
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 5e-05,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0,
+    "fresh": true
+  },
+  "train": {
+    "updates": 1000,
+    "frames": 64,
+    "crop": 256,
+    "batch": 1,
+    "domains": {
+      "ulong": 500,
+      "uvg": 500
+    },
+    "supervised_frames": 15,
+    "detach_reference": true
+  },
+  "objective": {
+    "LPIPS": 1,
+    "DISTS": 0.5,
+    "require_grad_DISTS": true,
+    "reconstruction_L1": 0.1383589248954108,
+    "proxy_regularizer": 0,
+    "beta_source": "calibration/final.json",
+    "beta_rule": "training-data gradient calibration, common per-q coefficients"
+  },
+  "checkpoint_steps": [
+    0,
+    250,
+    500,
+    1000
+  ],
+  "GPU_physical_allowed": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "resource_wait_limit_seconds": 3600,
+  "evaluation_limit_seconds": 172800,
+  "expected_evaluation_points": {
+    "new": 1840,
+    "reused": 920,
+    "total": 2760
+  },
+  "branches": {
+    "H00_continue": {
+      "dists": 0.5,
+      "rate_multiplier": 1.0
+    },
+    "H10_rate2": {
+      "dists": 0.5,
+      "rate_multiplier": 2.0
+    },
+    "H01_dists025": {
+      "dists": 0.25,
+      "rate_multiplier": 1.0
+    },
+    "H11_rate2_dists025": {
+      "dists": 0.25,
+      "rate_multiplier": 2.0
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "experiment": "glc_precompression_transfer_v2_rate_loss_control",
+  "branches": [
+    "H00_continue",
+    "H10_rate2",
+    "H01_dists025",
+    "H11_rate2_dists025"
+  ],
+  "seed": 20261016,
+  "updates": 1000,
+  "clip_frames": 64,
+  "crop": 256,
+  "supervised_positions": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "q_grid": [
+    0,
+    7,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    56,
+    63
+  ],
+  "fa_index_map": [
+    0,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    2
+  ],
+  "reset_ref_y_interval": 32,
+  "I_bypasses_P": true,
+  "GLC_frozen": true,
+  "precision": "FP32",
+  "lambda_rec": 0.1383589248954108,
+  "loss": "LPIPS + branch.dists*DISTS(require_grad=True) + lambda_rec*L1 + branch.rate_multiplier*beta_base(q)*R",
+  "rate_evaluation": "real_local_nonofficial_rans",
+  "test_frames": 64,
+  "main_checkpoint": 1000,
+  "original_author_pretraining_data": "unknown",
+  "source_step": 1000,
+  "rate_backend": "pending paired training-data audit",
+  "evaluation_models": [
+    "A_original",
+    "v1_C_latent_P",
+    "H00_continue",
+    "H10_rate2",
+    "H01_dists025",
+    "H11_rate2_dists025"
+  ]
+}
