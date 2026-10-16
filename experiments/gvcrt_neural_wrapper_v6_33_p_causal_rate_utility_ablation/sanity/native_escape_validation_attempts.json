@@ -1,0 +1,18 @@
+{
+  "scope": "Auxiliary synthetic native-coder validation only; excluded from all RD and utility data",
+  "initial_attempts": [
+    {
+      "result": "logging TypeError",
+      "reason": "duplicate symbols keyword in validation receipt",
+      "corrected": true
+    },
+    {
+      "result": "native output buffer overflow on dense synthetic escape stream",
+      "reason": "Native encoder allocates one output byte per input symbol; the deliberately dense synthetic tail exceeded this allocation. No real codec or real RD stream was modified.",
+      "corrected": true
+    }
+  ],
+  "final_case": "8192 symbols, one escape per 16 symbols; predicted output safely below native allocation; actual encode/decode exact",
+  "final_receipt": "sanity/native_escape_bypass.json",
+  "codec_modified": false
+}

@@ -1,0 +1,188 @@
+# v6.33 numerical report
+
+Training: B/C/D each 1000 updates, A 0. Fixed B1 loss, original receiver initialization and identity-initialized existing P architecture. Historical B1 is a verified reference only.
+
+Branches: A = identity sender + frozen original receiver; B = identity sender + trained receiver; C = trained P + frozen original receiver; D = trained P + trained receiver. Receiver denotes the existing B/G modules.
+
+Effective backend seed: Torch/NumPy0 after the canonical codec setup override; configured Python/plan seed20261024. All three saved step0 RNG states and initialization hashes were audited. No loss or trajectory change was made. See seed_runtime_audit.json and PROTOCOL_IMPLEMENTATION_NOTES.md.
+
+Formal evaluation: 1840 actual-RANS points, 460 verified historical original points and 1380 new points; 46 videos ×10 QPs ×4 branches.
+
+## Common actual-rate comparisons
+
+|Dataset|Comparison|Metric|Method mean|Reference mean|Delta|Relative %|
+|---|---|---|---:|---:|---:|---:|
+|hevc_b|B vs A|DISTS|0.0876780699|0.0960171212|-0.00833905126|-8.684963|
+|hevc_b|C vs A|DISTS|0.0956216405|0.0960171212|-0.0003954807|-0.4118856|
+|hevc_b|D vs B|DISTS|0.0890401922|0.0876780699|0.00136212228|1.55355|
+|hevc_b|D vs C|DISTS|0.0890401922|0.0956216405|-0.00658144829|-6.882802|
+|hevc_b|B vs A|FID|36.267112|37.5881128|-1.32100074|-3.514411|
+|hevc_b|C vs A|FID|37.5972643|37.5881128|0.00915150057|0.02434679|
+|hevc_b|D vs B|FID|36.980059|36.267112|0.712946961|1.965822|
+|hevc_b|D vs C|FID|36.980059|37.5972643|-0.617205278|-1.641623|
+|hevc_b|B vs A|FloLPIPS|0.183676944|0.201661562|-0.0179846176|-8.918218|
+|hevc_b|C vs A|FloLPIPS|0.196920489|0.201661562|-0.00474107333|-2.351005|
+|hevc_b|D vs B|FloLPIPS|0.183604082|0.183676944|-7.28629409e-05|-0.03966907|
+|hevc_b|D vs C|FloLPIPS|0.183604082|0.196920489|-0.0133164072|-6.762327|
+|hevc_b|B vs A|LPIPS|0.189204369|0.20033202|-0.0111276512|-5.554604|
+|hevc_b|C vs A|LPIPS|0.197318512|0.20033202|-0.0030135078|-1.504257|
+|hevc_b|D vs B|LPIPS|0.190078392|0.189204369|0.000874023126|0.4619466|
+|hevc_b|D vs C|LPIPS|0.190078392|0.197318512|-0.00724012032|-3.669255|
+|mcljcv|B vs A|DISTS|0.0964166301|0.101908032|-0.00549140226|-5.388586|
+|mcljcv|C vs A|DISTS|0.101097752|0.101908032|-0.000810279987|-0.795109|
+|mcljcv|D vs B|DISTS|0.0972148335|0.0964166301|0.0007982034|0.827869|
+|mcljcv|D vs C|DISTS|0.0972148335|0.101097752|-0.00388291888|-3.840757|
+|mcljcv|B vs A|FID|29.3142884|31.9455476|-2.63125923|-8.236701|
+|mcljcv|C vs A|FID|31.8921536|31.9455476|-0.0533939678|-0.1671406|
+|mcljcv|D vs B|FID|29.6019953|29.3142884|0.287706886|0.9814561|
+|mcljcv|D vs C|FID|29.6019953|31.8921536|-2.29015838|-7.180946|
+|mcljcv|B vs A|FloLPIPS|0.152303949|0.161685116|-0.00938116719|-5.802122|
+|mcljcv|C vs A|FloLPIPS|0.157827138|0.161685116|-0.00385797794|-2.386106|
+|mcljcv|D vs B|FloLPIPS|0.152738878|0.152303949|0.000434929758|0.285567|
+|mcljcv|D vs C|FloLPIPS|0.152738878|0.157827138|-0.00508825949|-3.223945|
+|mcljcv|B vs A|LPIPS|0.15524468|0.162331289|-0.00708660805|-4.365522|
+|mcljcv|C vs A|LPIPS|0.159673707|0.162331289|-0.00265758104|-1.637134|
+|mcljcv|D vs B|LPIPS|0.155553872|0.15524468|0.000309191482|0.199164|
+|mcljcv|D vs C|LPIPS|0.155553872|0.159673707|-0.00411983553|-2.580159|
+|mcljcv29|B vs A|FID|29.8552246|32.4922442|-2.63701961|-8.115843|
+|mcljcv29|C vs A|FID|32.4646655|32.4922442|-0.0275786546|-0.08487765|
+|mcljcv29|D vs B|FID|30.1582392|29.8552246|0.303014665|1.014947|
+|mcljcv29|D vs C|FID|30.1582392|32.4646655|-2.30642629|-7.10442|
+|ulong|B vs A|DISTS|0.080644465|0.0881470623|-0.00750259729|-8.511455|
+|ulong|C vs A|DISTS|0.0891761415|0.0881470623|0.00102907923|1.167457|
+|ulong|D vs B|DISTS|0.0809996353|0.080644465|0.000355170255|0.4404149|
+|ulong|D vs C|DISTS|0.0809996353|0.0891761415|-0.00817650626|-9.168939|
+|ulong|B vs A|FID|21.7878254|23.1843541|-1.39652872|-6.023583|
+|ulong|C vs A|FID|23.1378809|23.1843541|-0.0464732452|-0.2004509|
+|ulong|D vs B|FID|21.926785|21.7878254|0.138959611|0.6377856|
+|ulong|D vs C|FID|21.926785|23.1378809|-1.21109586|-5.234256|
+|ulong|B vs A|FloLPIPS|0.1091486|0.115348242|-0.00619964155|-5.374717|
+|ulong|C vs A|FloLPIPS|0.116791635|0.115348242|0.00144339354|1.251336|
+|ulong|D vs B|FloLPIPS|0.110001632|0.1091486|0.000853031603|0.7815323|
+|ulong|D vs C|FloLPIPS|0.110001632|0.116791635|-0.00679000348|-5.813775|
+|ulong|B vs A|LPIPS|0.115324053|0.122165824|-0.00684177079|-5.600397|
+|ulong|C vs A|LPIPS|0.122807813|0.122165824|0.000641988965|0.5255062|
+|ulong|D vs B|LPIPS|0.115421339|0.115324053|9.72853687e-05|0.08435826|
+|ulong|D vs C|LPIPS|0.115421339|0.122807813|-0.00738647438|-6.014662|
+|uvg_holdout|B vs A|DISTS|0.0910559974|0.101546071|-0.0104900735|-10.33036|
+|uvg_holdout|C vs A|DISTS|0.101603278|0.101546071|5.72074407e-05|0.05633644|
+|uvg_holdout|D vs B|DISTS|0.0906496642|0.0910559974|-0.000406333224|-0.4462454|
+|uvg_holdout|D vs C|DISTS|0.0906496642|0.101603278|-0.0109536141|-10.78077|
+|uvg_holdout|B vs A|FID|27.358805|30.3714597|-3.01265467|-9.919361|
+|uvg_holdout|C vs A|FID|31.321355|30.3714597|0.949895316|3.127592|
+|uvg_holdout|D vs B|FID|27.4872713|27.358805|0.12846622|0.4695608|
+|uvg_holdout|D vs C|FID|27.4872713|31.321355|-3.83408377|-12.24112|
+|uvg_holdout|B vs A|FloLPIPS|0.154801333|0.160241601|-0.00544026812|-3.395041|
+|uvg_holdout|C vs A|FloLPIPS|0.159461918|0.160241601|-0.00077968305|-0.4865672|
+|uvg_holdout|D vs B|FloLPIPS|0.151556261|0.154801333|-0.00324507181|-2.096282|
+|uvg_holdout|D vs C|FloLPIPS|0.151556261|0.159461918|-0.00790565688|-4.957708|
+|uvg_holdout|B vs A|LPIPS|0.150090384|0.156258814|-0.00616843001|-3.947573|
+|uvg_holdout|C vs A|LPIPS|0.155600426|0.156258814|-0.00065838795|-0.4213445|
+|uvg_holdout|D vs B|LPIPS|0.147993554|0.150090384|-0.00209683079|-1.397045|
+|uvg_holdout|D vs C|LPIPS|0.147993554|0.155600426|-0.00760687284|-4.888722|
+|uvg_validation|B vs A|DISTS|0.0733873293|0.0774383344|-0.00405100508|-5.231266|
+|uvg_validation|C vs A|DISTS|0.0788473604|0.0774383344|0.00140902604|1.819546|
+|uvg_validation|D vs B|DISTS|0.0748311391|0.0733873293|0.0014438098|1.967383|
+|uvg_validation|D vs C|DISTS|0.0748311391|0.0788473604|-0.00401622132|-5.093666|
+|uvg_validation|B vs A|FID|23.3847621|24.1825047|-0.797742568|-3.298842|
+|uvg_validation|C vs A|FID|23.8463316|24.1825047|-0.336173076|-1.39015|
+|uvg_validation|D vs B|FID|23.4486761|23.3847621|0.0639140158|0.2733148|
+|uvg_validation|D vs C|FID|23.4486761|23.8463316|-0.397655477|-1.667575|
+|uvg_validation|B vs A|FloLPIPS|0.104946964|0.11220917|-0.00726220635|-6.472026|
+|uvg_validation|C vs A|FloLPIPS|0.111546285|0.11220917|-0.000662885708|-0.5907589|
+|uvg_validation|D vs B|FloLPIPS|0.10490953|0.104946964|-3.74339423e-05|-0.03566939|
+|uvg_validation|D vs C|FloLPIPS|0.10490953|0.111546285|-0.00663675458|-5.949776|
+|uvg_validation|B vs A|LPIPS|0.115218245|0.119041964|-0.00382371877|-3.212076|
+|uvg_validation|C vs A|LPIPS|0.120057127|0.119041964|0.00101516311|0.8527775|
+|uvg_validation|D vs B|LPIPS|0.115078236|0.115218245|-0.000140009039|-0.1215164|
+|uvg_validation|D vs C|LPIPS|0.115078236|0.120057127|-0.00497889092|-4.147101|
+
+## Requested numerical comparisons
+
+LOWER/HIGHER describe common actual-rate metric means only; statistical significance is not asserted.
+
+|Dataset|Comparison|LPIPS|DISTS|FloLPIPS|FID|
+|---|---|---|---|---|---|
+|ulong|D vs B|HIGHER|HIGHER|HIGHER|HIGHER|
+|ulong|C vs A|HIGHER|HIGHER|HIGHER|LOWER|
+|uvg_holdout|D vs B|LOWER|LOWER|LOWER|HIGHER|
+|uvg_holdout|C vs A|LOWER|HIGHER|LOWER|HIGHER|
+|uvg_validation|D vs B|LOWER|HIGHER|LOWER|HIGHER|
+|uvg_validation|C vs A|HIGHER|HIGHER|LOWER|LOWER|
+|hevc_b|D vs B|HIGHER|HIGHER|LOWER|HIGHER|
+|hevc_b|C vs A|LOWER|LOWER|LOWER|HIGHER|
+|mcljcv|D vs B|HIGHER|HIGHER|HIGHER|HIGHER|
+|mcljcv|C vs A|LOWER|LOWER|LOWER|LOWER|
+
+Same-QP actual-byte diagnostics across the complete fixed46-video ×10-QP matrix. These counts do not establish a bitrate reduction at equal quality.
+
+|Comparison|Points|Fewer actual bytes|Equal actual bytes|More actual bytes|
+|---|---:|---:|---:|---:|
+|B vs A|460|0|460|0|
+|C vs A|460|261|0|199|
+|D vs B|460|311|0|149|
+|D vs C|460|259|2|199|
+
+The factorial experiment starts fresh from the original receiver. Direct numerical partition of the historical jointly adapted B1 gain is NOT ESTABLISHED by these fresh-initialization contrasts.
+
+## Matched actual-rate channel results
+
+Spatial-mean intervention; one rate-selected pair per dataset/comparison; frame32. Primary1% and secondary2% are separate tiers. Gini uses positive sensitivity mass. Higher Gini means more concentrated positive channel sensitivity.
+
+|Dataset|NoP/P|Tier|Metric|Delta sensitivity mean|Delta Gini|Original I vs Delta estimated rate (Spearman)|NoP mean eta|P mean eta|
+|---|---|---|---|---:|---:|---:|---:|---:|
+|ulong|A/C|primary_1pct|LPIPS|1.941411755979061e-05|-0.021985931749951226|-0.11614026361783934|-12188.213820685458|-6208.318184737881|
+|ulong|A/C|primary_1pct|DISTS|4.911096766591072e-05|0.006712909989232685|-0.003916473889907026|-7243.835536866716|-6254.294738118522|
+|ulong|A/C|primary_1pct|FloLPIPS|-0.00016759976278990507|0.13908793215481885|-0.024309234856479005|32445.591408063803|-78876.49792929378|
+|uvg_holdout|A/C|primary_1pct|LPIPS|-4.2888917960226536e-05|0.23251998384731387|0.05452829255326945|25451.999089361998|-7762.109105810583|
+|uvg_holdout|A/C|primary_1pct|DISTS|-4.294794052839279e-05|0.3819761779975447|0.0994732358010473|43676.23557454887|-3801.1940824873695|
+|uvg_holdout|A/C|primary_1pct|FloLPIPS|-3.481924068182707e-05|0.18448576147779283|-0.046541982959979106|15596.976674347308|-15268.919581054653|
+|uvg_validation|A/C|primary_1pct|LPIPS|2.678041346371174e-05|-0.012271056572125683|0.0019650228958301152|-14096.269895432382|7300.172915116174|
+|uvg_validation|A/C|primary_1pct|DISTS|6.828969344496727e-05|-0.013096185990371545|0.09170221665724505|22727.538983031696|32666.607147295003|
+|uvg_validation|A/C|primary_1pct|FloLPIPS|-7.264548912644386e-06|-0.1185253504389544|0.16637948468449132|22502.498628937694|106749.94580942417|
+|hevc_b|A/C|primary_1pct|LPIPS|-6.393296644091606e-06|-0.008008058001040652|0.04432901767330986|-30397.670343056918|-8026.137947693361|
+|hevc_b|A/C|primary_1pct|DISTS|-2.886168658733368e-06|0.11877414763045546|-0.010623874519540612|17215.963453073084|-1035.6307028486503|
+|hevc_b|A/C|primary_1pct|FloLPIPS|-6.936350837349892e-05|-0.1574465781242449|0.22719405488685454|-19132.858141885554|23593.893274869006|
+|mcljcv|A/C|primary_1pct|LPIPS|-6.349757313728333e-05|0.020919339900581146|-0.08836549803322497|18671.854156768986|99.29288324924346|
+|mcljcv|A/C|primary_1pct|DISTS|2.655899152159691e-05|-0.03505556488591233|0.0055826886818591236|-6220.769348866655|9817.066326318956|
+|mcljcv|A/C|primary_1pct|FloLPIPS|-3.9035570807754993e-05|0.17977075760939432|-0.020193431342344945|55199.49170709966|-40665.5733411358|
+|ulong|B/D|primary_1pct|LPIPS|4.067321424372494e-05|-0.059342861840825156|0.03477187660547336|-29905.38503829988|7992.2933890380455|
+|ulong|B/D|primary_1pct|DISTS|5.344673991203308e-05|-0.13251444911345744|-0.31236745487536977|-30337.848740743593|9089.251082299113|
+|ulong|B/D|primary_1pct|FloLPIPS|2.4955777917057276e-05|-0.06626379416779049|0.05491661094706804|18669.063020790374|27985.843444817758|
+|uvg_holdout|B/D|primary_1pct|LPIPS|-2.2306921891868114e-05|0.03280739302989|0.19846846055877243|-7866.183825321342|-17669.04844993302|
+|uvg_holdout|B/D|primary_1pct|DISTS|-1.637497916817665e-05|-0.04845840063463702|0.15645281126021518|-34168.830446942695|-11818.47946216249|
+|uvg_holdout|B/D|primary_1pct|FloLPIPS|2.4520966690033674e-05|-0.157173138913699|0.01986078179490519|-10196.410775122933|13900.280374154769|
+|uvg_validation|B/D|primary_1pct|LPIPS|1.9712839275598526e-05|-0.003562592514137597|-0.0008738497178287426|-17686.748137814335|-15055.304760356268|
+|uvg_validation|B/D|primary_1pct|DISTS|-8.317036554217339e-05|0.03418972962558586|0.00259439026408864|-9908.805534328521|-20520.301079761433|
+|uvg_validation|B/D|primary_1pct|FloLPIPS|0.0003438802668824792|-0.05608710589251309|0.1293931463010871|-240822.80671928418|-32448.797935620554|
+|hevc_b|B/D|primary_1pct|LPIPS|0.00012203643564134836|-0.0921068562655335|-0.019268397118663568|-80749.93782147576|9686.339804859363|
+|hevc_b|B/D|primary_1pct|DISTS|0.00012281956151127815|-0.15670851392398555|-0.024820434295381617|-44507.43969824296|36885.98414071038|
+|hevc_b|B/D|primary_1pct|FloLPIPS|3.1861651223152876e-05|0.019436813562831|0.092248660597078|-7354.478133421497|-7526.137162086521|
+|mcljcv|B/D|primary_1pct|LPIPS|4.417856689542532e-05|-0.014300472435202938|-0.14697997254120362|-15089.158667774336|30824.571611380234|
+|mcljcv|B/D|primary_1pct|DISTS|-8.828379213809967e-05|0.021656834074475717|-0.13273895792657783|34742.99453663439|14437.36619583761|
+|mcljcv|B/D|primary_1pct|FloLPIPS|-7.62866111472249e-05|-0.19101085593364864|0.049269940411816995|30002.30783584465|83881.47625410893|
+
+## Synchronized measured latency
+
+|Mode|Component|Mean ms|Std ms|Median ms|p95 ms|FPS|Peak allocated MiB|
+|---|---|---:|---:|---:|---:|---:|---:|
+|No-P|P_standalone|0.009649768471717834|0.0003909845134643486|0.00957399606704712|0.010536238551139832|103629.42934132199|1109.06396484375|
+|No-P|encode|52.624784260988235|3.5709577948194706|52.50769853591919|55.91594018042087|19.00245319848882|1109.06396484375|
+|No-P|decode|108.29810753464699|6.466209963795137|107.57657140493393|115.02701118588448|9.233771695226324|1109.06396484375|
+|No-P|end_to_end|160.92289179563522|8.852849756514571|160.2420210838318|170.17758786678314|6.214156288403981|1109.06396484375|
+|With-P|P_standalone|123.82569715380669|17.91883406803858|116.77204817533493|167.42707714438438|8.075868119344221|3243.02490234375|
+|With-P|encode|180.46852439641953|24.4676005500868|170.01032456755638|239.88238498568535|5.541132468082838|3243.02490234375|
+|With-P|decode|115.11985696852207|17.4435316588484|107.62478411197662|161.2278439104557|8.686598700982023|3243.02490234375|
+|With-P|end_to_end|295.5883813649416|38.367651819829675|280.4146148264408|384.633382409811|3.383082905296512|3243.02490234375|
+
+A/B/C: Separate factorial contrasts are recorded above; no universal superiority is asserted across datasets/metrics. Negative metric delta means a lower metric value. These are fixed-budget observations with one fixed seed.
+
+D: Actual total bitrate reduction is NOT ESTABLISHED by matched/common-rate quality comparisons. See all raw QP/byte records.
+
+E/H: Channel sensitivity distributions and their Gini/CV/entropy/top-k statistics are recorded per metric/intervention in utility/distribution_summary.csv; paired changes are in utility/distribution_changes.csv. Negative utilities are retained; Gini/entropy/top-k use positive sensitivity mass only. Mathematical marginal bit utility and statistical significance of a population-level effect are NOT ESTABLISHED.
+
+F/G: Estimated rate correlations, original importance versus Delta R, and utility-per-estimated-y-rate changes are recorded separately in utility/distribution_summary.csv, utility/distribution_changes.csv and utility/paired_channel_changes.csv. These are associations and finite-difference proxies, not proof of bit-level marginal utility or optimality. Rates use installed 16-bit CDF probabilities plus native escape bypass lengths. Actual total RANS bytes remain separate. Hyperlatent z, headers, I frame and RANS state/rounding overhead are excluded from main-y channel attribution. Zero-rate channels and the denominator epsilon1e-9 are retained and identified; eta is not a marginal-bit claim.
+
+I: latency/latency_summary.csv records synchronized mean/std/median/p95 for both paths. It measures final factorial D step1000 P with the same final D receiver in both paths, GPU6,1080p,batch1,QP5,20 warmup and100 measurements. Native-I reference reset is outside timing. P is sender-only.
+
+Limits: The inherited historical pretraining exposure caveat, including MCL source17, remains in DATA_SPLIT_AUDIT.md. No test-based selection was used. Utility pairs are chosen using actual rate only and frame32 is fixed. Sensitivity holds baseline decoder context fixed and does not propagate interventions to future references.

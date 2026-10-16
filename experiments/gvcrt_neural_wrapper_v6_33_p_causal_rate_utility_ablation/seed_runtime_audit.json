@@ -1,0 +1,53 @@
+{
+  "status": "PASS_SHARED_EFFECTIVE_SEED",
+  "configured_protocol_and_Python_seed": 20261024,
+  "effective_Torch_and_NumPy_backend_seed": 0,
+  "source": "/Huang_group/zyyz/Projects/GVC-RT/src/utils/common.py",
+  "source_sha256": "c6f46e58de1a1145794c13226a7914bb1a5ef775ad9ad3fcd695d872d6f3ee8f",
+  "source_lines": "set_torch_env: torch.manual_seed(0), np.random.seed(0), torch.set_num_threads(1)",
+  "saved_step0_state_checks": [
+    {
+      "branch": "B_noP_trainReceiver",
+      "saved_CPU_generator_initial_seed": 0,
+      "initial_module_hashes": {
+        "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+        "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+      },
+      "quality_hashes": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ]
+    },
+    {
+      "branch": "C_P_train_frozenReceiver",
+      "saved_CPU_generator_initial_seed": 0,
+      "initial_module_hashes": {
+        "wrapper": "19acd85a31ab1a7fd64d28f1cff0259b1db960e8ab4277177b86bb6407c079fb",
+        "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+        "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+      },
+      "quality_hashes": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ]
+    },
+    {
+      "branch": "D_P_train_trainReceiver",
+      "saved_CPU_generator_initial_seed": 0,
+      "initial_module_hashes": {
+        "wrapper": "19acd85a31ab1a7fd64d28f1cff0259b1db960e8ab4277177b86bb6407c079fb",
+        "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+        "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+      },
+      "quality_hashes": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ]
+    }
+  ],
+  "P_initialization_after_codec_constructors": "C and D have identical full P state hashes",
+  "training_stochasticity": "fixed crop/sample/QP plan; deterministic quantization; no nonzero dropout in receiver; no RNG-dependent augmentation",
+  "loss_optimizer_samples_QP_budget_unchanged": true,
+  "protocol_file_not_rewritten": true
+}

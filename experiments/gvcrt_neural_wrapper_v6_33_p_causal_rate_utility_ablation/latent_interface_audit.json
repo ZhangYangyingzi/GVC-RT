@@ -1,0 +1,469 @@
+{
+  "status": "PASS_REAL_HOOK",
+  "primary": {
+    "tensor_name": "DMC.decompress.y_hat -> DMC.dec first argument",
+    "shape": [
+      1,
+      128,
+      16,
+      16
+    ],
+    "dtype": "torch.float16",
+    "channel_axis": 1,
+    "quantization_position": "centered rounded/clipped symbols + conditional means, multiplied by q_dec",
+    "entropy_position": "after decompress_prior_2x_part2; y groups decoded from RANS",
+    "decoder_consumption": "self.dec(y_hat, ctx, q_decoder)"
+  },
+  "hyperlatent": {
+    "tensor_name": "z_hat -> hyper_dec first argument",
+    "shape": [
+      1,
+      128,
+      4,
+      4
+    ],
+    "dtype": "torch.float16",
+    "entropy_position": "after bit_estimator_z.get_z; consumed by conditional prior, not direct synthesis"
+  },
+  "source": "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py",
+  "source_sha256": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0",
+  "native_resolution_probe": {
+    "y_hat_shape": [
+      1,
+      128,
+      68,
+      120
+    ],
+    "z_hat_shape": [
+      1,
+      128,
+      17,
+      30
+    ],
+    "dtype": "torch.float16",
+    "decoder_replay_maxabs": 0.0,
+    "probe_only": true
+  },
+  "formal_native_observations": [
+    {
+      "method": "D_P_train_trainReceiver",
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "QP": 4,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "A_noP_frozenReceiver",
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "QP": 2,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "C_P_train_frozenReceiver",
+      "dataset": "uvg_validation",
+      "video": 1,
+      "QP": 0,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "D_P_train_trainReceiver",
+      "dataset": "hevc_b",
+      "video": 0,
+      "QP": 9,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "D_P_train_trainReceiver",
+      "dataset": "uvg_validation",
+      "video": 1,
+      "QP": 1,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "C_P_train_frozenReceiver",
+      "dataset": "hevc_b",
+      "video": 2,
+      "QP": 0,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "B_noP_trainReceiver",
+      "dataset": "uvg_validation",
+      "video": 1,
+      "QP": 1,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "D_P_train_trainReceiver",
+      "dataset": "mcljcv",
+      "video": 9,
+      "QP": 2,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "B_noP_trainReceiver",
+      "dataset": "mcljcv",
+      "video": 9,
+      "QP": 2,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "C_P_train_frozenReceiver",
+      "dataset": "mcljcv",
+      "video": 24,
+      "QP": 8,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "A_noP_frozenReceiver",
+      "dataset": "mcljcv",
+      "video": 24,
+      "QP": 8,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "A_noP_frozenReceiver",
+      "dataset": "hevc_b",
+      "video": 2,
+      "QP": 0,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "D_P_train_trainReceiver",
+      "dataset": "ulong",
+      "video": 1,
+      "QP": 8,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "B_noP_trainReceiver",
+      "dataset": "hevc_b",
+      "video": 0,
+      "QP": 9,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "A_noP_frozenReceiver",
+      "dataset": "ulong",
+      "video": 3,
+      "QP": 4,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "B_noP_trainReceiver",
+      "dataset": "ulong",
+      "video": 1,
+      "QP": 8,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "B_noP_trainReceiver",
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "QP": 4,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "C_P_train_frozenReceiver",
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "QP": 2,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "A_noP_frozenReceiver",
+      "dataset": "uvg_validation",
+      "video": 1,
+      "QP": 0,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    },
+    {
+      "method": "C_P_train_frozenReceiver",
+      "dataset": "ulong",
+      "video": 3,
+      "QP": 4,
+      "frame": 32,
+      "y_hat_shape": [
+        1,
+        128,
+        68,
+        120
+      ],
+      "y_hat_dtype": "torch.float16",
+      "z_hat_shape": [
+        1,
+        128,
+        17,
+        30
+      ],
+      "z_hat_dtype": "torch.float16"
+    }
+  ]
+}

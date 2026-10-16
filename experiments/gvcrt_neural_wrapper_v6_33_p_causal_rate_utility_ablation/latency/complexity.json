@@ -1,0 +1,25 @@
+{
+  "P_parameters": 372803,
+  "conv_MACs": 771578265600,
+  "conv_FLOPs_multiply_add_2": 1543156531200,
+  "FLOPs_scope": "Conv2d multiply-add only; excludes ReLU, residual addition, clamp",
+  "resolution": [
+    1080,
+    1920
+  ],
+  "batch": 1,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_33_p_causal_rate_utility_ablation/branches/D_P_train_trainReceiver/checkpoints/adaptation_step_1000.pt",
+    "sha256": "34a9f292760ef65bafd16ea7537448d2621e5b61e276fb40879e4734ad664133"
+  },
+  "receiver_same_for_NoP_and_WithP": true,
+  "P_sender_only": true,
+  "decode_does_not_execute_P": true,
+  "protocol": "single P frame with reset native-I reference outside timed segment; includes real RANS, no I0 cost amortization",
+  "weights": "new factorial D step1000; same D receiver in both paths",
+  "gpu": 6,
+  "quality_models_excluded_from_memory": true,
+  "P_parameters_on_CPU_for_NoP_memory_measurement": true,
+  "memory_scope": "single-process independent encoder+decoder plus active sender P; peak allocated bytes, not reserved cache",
+  "decode_P_forward_calls": 0
+}

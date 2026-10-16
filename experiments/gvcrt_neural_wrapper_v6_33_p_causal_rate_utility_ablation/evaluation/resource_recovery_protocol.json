@@ -1,0 +1,11 @@
+{
+  "reason": "Other processes increased GPU memory while evaluation was running",
+  "max_evaluation_workers_per_gpu": 2,
+  "min_free_MiB_to_launch": 8000,
+  "oom_retry_limit": 5,
+  "gpu_cooldown_seconds": 300,
+  "checkpoints_unchanged": true,
+  "completed_point_receipts_reused": true,
+  "threshold_rationale": "After >30 minutes of real evaluation: observed worker allocation approximately5.6GiB. One worker per GPU, >=8000MiB initially free, bounded OOM retries, 300-second GPU cooldown. No concurrent writer for any point. A second worker is allowed only with >=18000MiB free (approximately12GiB remaining after its observed peak); never three workers per GPU.",
+  "additional_worker_min_free_MiB": 18000
+}
