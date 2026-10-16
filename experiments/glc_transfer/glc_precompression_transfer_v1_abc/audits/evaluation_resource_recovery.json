@@ -1,0 +1,20 @@
+{
+  "status":"PASS_CPU_SCHEDULER_CHECKS",
+  "smoke_audit":"audits/evaluation_scheduler_smoke.json",
+  "completed_points_preserved":166,
+  "B_updates":1000,
+  "C_updates":1000,
+  "reason":"Required free-memory reserve was lost during concurrent evaluation; no codec/reference/metric checks failed in this event.",
+  "initial_worker_cap":4,
+  "per_GPU_cap":2,
+  "admission_rule":"max(13000 MiB, measured_torch_peak*1.30+1024 MiB, sampled_process_device_peak*1.15+512 MiB)",
+  "reserve":"max(2048 MiB, total_memory*0.10)",
+  "resource_guard":"release only newest owned worker on affected GPU; preserve valid receipts; five-minute GPU cooldown; reduce experiment concurrency",
+  "bounded_resource_requeues_per_task":3,
+  "OOM_or_reference_mismatch_retries_per_task":1,
+  "resource_wait_timeout_seconds":3600,
+  "evaluation_deadline_seconds":172800,
+  "source_revalidation":"all frozen RGB frames still verified; four CPU workers; per-video progress written",
+  "training_evaluation_runtime_protocol_or_tolerances_changed":false,
+  "unrelated_processes_stopped":false
+}

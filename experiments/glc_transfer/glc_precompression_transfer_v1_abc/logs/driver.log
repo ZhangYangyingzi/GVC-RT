@@ -22,3 +22,15 @@ Traceback (most recent call last):
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 RuntimeError: publish_training failed with exit 1; see logs/publish_training.log
 
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/run_pipeline.py", line 64, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/run_pipeline.py", line 59, in main
+    done,expected=evaluate_all(command,state,PY)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/evaluation_stage.py", line 86, in run
+    else:raise RuntimeError(f'{name}: GPU reserve lost after bounded retry; partial results preserved')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ulong_0_B_rgb_P_28: GPU reserve lost after bounded retry; partial results preserved
+

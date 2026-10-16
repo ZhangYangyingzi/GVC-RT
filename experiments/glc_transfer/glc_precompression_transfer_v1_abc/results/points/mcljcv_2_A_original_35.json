@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "signature": {
+    "manifest": "4213c9fccc10772e9b5075d75c0119ca4cac5c41d5bbf506e5c69a3e81cc4e05",
+    "protocol": "b32718bdd40236b780ca0e5c9aaf110965a2ce3611e593b37e19f45ed1c93aaa",
+    "runtime": "af7e78b2f2dff834af8de431fa64559d490cf823767bcd4903e656274d1ecd0d",
+    "evaluation": "979bc96778881cca2c9853b6df42c99cf467441595a2ff01158854bfccad2737",
+    "models": [
+      {
+        "name": "I",
+        "path": "/Huang_group/zyyz/Projects/GLC/ckpts/GLC_image.pth.tar",
+        "size": 667371692,
+        "sha256": "139c1d49a56b5c14b0fbd7e0c43b53a4f0b093d35aa11c79ed9d0b9bfede4c94",
+        "missing": [],
+        "unexpected": [],
+        "shape_mismatch": [],
+        "critical_missing": [],
+        "checkpoint_only_training_keys": [],
+        "load_missing": [],
+        "load_unexpected": [],
+        "module_hash": "004b72bbb2887fa98d06307cf40b487436d4a5cc9fd367cfbd5e2529451c06d2",
+        "VQGAN_encoder_hash": "c7d254219b5aa0892ce8a3422dd9883bf8b3cd8a4a1816c263be3fbe43e2d87a",
+        "VQGAN_generator_hash": "4f324b2c5becfaf8aa8b7212019c7fb43b4e7f331b871961c5b311ec6b0231c3",
+        "parameters": 163988099
+      },
+      {
+        "name": "P",
+        "path": "/Huang_group/zyyz/Projects/GLC/ckpts/GLC_Video.pth.tar",
+        "size": 502245134,
+        "sha256": "c55a46f33b92945dcdc24bbbc023909368de78fce7830d3137e4d2ef7249ee62",
+        "missing": [],
+        "unexpected": [
+          "bit_estimator_z.f1.a",
+          "bit_estimator_z.f1.b",
+          "bit_estimator_z.f1.h",
+          "bit_estimator_z.f2.a",
+          "bit_estimator_z.f2.b",
+          "bit_estimator_z.f2.h",
+          "bit_estimator_z.f3.a",
+          "bit_estimator_z.f3.b",
+          "bit_estimator_z.f3.h",
+          "bit_estimator_z.f4.b",
+          "bit_estimator_z.f4.h"
+        ],
+        "shape_mismatch": [],
+        "critical_missing": [],
+        "checkpoint_only_training_keys": [
+          "bit_estimator_z.f1.a",
+          "bit_estimator_z.f1.b",
+          "bit_estimator_z.f1.h",
+          "bit_estimator_z.f2.a",
+          "bit_estimator_z.f2.b",
+          "bit_estimator_z.f2.h",
+          "bit_estimator_z.f3.a",
+          "bit_estimator_z.f3.b",
+          "bit_estimator_z.f3.h",
+          "bit_estimator_z.f4.b",
+          "bit_estimator_z.f4.h"
+        ],
+        "load_missing": [],
+        "load_unexpected": [],
+        "module_hash": "92272a065d7dfbf08be0e65b10bf584aacaf59d3b1bf2272a22004223ac7bcb2",
+        "VQGAN_encoder_hash": "cd40dca2b628770a35be0c804974b10519d39dceb5db1e9ea2ed2759432c122d",
+        "VQGAN_generator_hash": "bdb36bc5b810be0f4c2230f462757300e25cc8722d9ea52b758b830d63795f9c",
+        "parameters": 125313283
+      }
+    ]
+  },
+  "result": {
+    "dataset": "mcljcv",
+    "video": 2,
+    "name": "videoSRC03_1920x1080_30",
+    "method": "A_original",
+    "q": 35,
+    "frames": 64,
+    "transitions": 63,
+    "bytes": 124284,
+    "bpp": 0.007492042824074074,
+    "rate_type": "real_local_nonofficial_rans",
+    "rate_accounting_fps": 30,
+    "kbps": 466.065,
+    "LPIPS": 0.08050152659416199,
+    "DISTS": 0.09409606456756592,
+    "LPIPS_P_only": 0.08010140901047086,
+    "DISTS_P_only": 0.09440253840552436,
+    "FloLPIPS": 0.06418444890351523,
+    "feature": "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/features/mcljcv_2_A_original_35.npz",
+    "per_frame": "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/results/raw/mcljcv_2_A_original_35.frames.csv",
+    "per_transitions": "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/results/raw/mcljcv_2_A_original_35.frames.transitions.csv",
+    "seconds": 289.25039315223694,
+    "peak_MiB": 9376.0,
+    "RSS_MiB": 3716.15234375
+  },
+  "independent_decode": true,
+  "frozen_unchanged": true,
+  "artifacts": {
+    "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/features/mcljcv_2_A_original_35.npz": "e7d4bbbee01a6b3c639d47844a38d5432fd6389e00b4472e488aa81d504df7ee",
+    "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/bitstreams/mcljcv_2_A_original_35.glc": "9cabb871c6af5779962ff56e4cffcdbc6b72153425432d986c1c7f0bbc42a104",
+    "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/results/raw/mcljcv_2_A_original_35.frames.csv": "e5e609dee2903ffbc0c7a312e038c2651f2b3826931624f83cd3eba0e619330f",
+    "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v1_abc/results/raw/mcljcv_2_A_original_35.frames.transitions.csv": "18b0e0cdc1685cead3983c1026c1f29a0bbf98f96a9de6c334559c64da74a442"
+  }
+}

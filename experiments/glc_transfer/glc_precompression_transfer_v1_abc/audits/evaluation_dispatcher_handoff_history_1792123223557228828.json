@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "old_driver": 2952036,
+  "training_restarted": false,
+  "point_work_interrupted": false,
+  "numerical_changes": false,
+  "started": 1792084331.250594,
+  "draining_children": {
+    "2986227": {
+      "dataset": "ulong",
+      "video": 4,
+      "branch": "B_rgb_P",
+      "q": 14
+    },
+    "2986658": {
+      "dataset": "ulong",
+      "video": 4,
+      "branch": "B_rgb_P",
+      "q": 21
+    }
+  },
+  "previous_scheduler": {
+    "status": "RUNNING",
+    "completed": 239,
+    "expected": 1380,
+    "reused": 224,
+    "new_completed": 15,
+    "peak_MiB": {
+      "A_original": 9458.0,
+      "B_rgb_P": 9460.0,
+      "C_latent_P": 9484.0
+    },
+    "device_peak_MiB": {
+      "A_original": 0,
+      "B_rgb_P": 9988.0,
+      "C_latent_P": 10012.0
+    },
+    "admission_MiB": {
+      "A_original": 13319.4,
+      "B_rgb_P": 14654.2,
+      "C_latent_P": 13353.2
+    },
+    "max_workers": 2,
+    "per_GPU_cap": 2,
+    "reserve": "max(2048 MiB, total*0.10)",
+    "resource_preemptions": {
+      "ulong_0_B_rgb_P_63": 1,
+      "ulong_0_B_rgb_P_56": 1,
+      "ulong_3_B_rgb_P_63": 1,
+      "ulong_3_C_latent_P_0": 1,
+      "ulong_4_B_rgb_P_0": 1
+    },
+    "OOM_or_reference_retries": {},
+    "excluded_gpu": {
+      "ulong_3_B_rgb_P_63": 7,
+      "ulong_3_C_latent_P_0": 5,
+      "ulong_4_B_rgb_P_0": 4
+    },
+    "GPU_cooldown_until": {
+      "4": 1792084290.4632106,
+      "5": 1792083011.531096,
+      "7": 1792082828.6522
+    },
+    "last_scale_event": 1792083990.4632123,
+    "running": [
+      {
+        "task": {
+          "dataset": "ulong",
+          "video": 4,
+          "branch": "B_rgb_P",
+          "q": 14
+        },
+        "gpu": 7,
+        "PID": 2986227,
+        "admission_MiB": 14654.2
+      },
+      {
+        "task": {
+          "dataset": "ulong",
+          "video": 4,
+          "branch": "B_rgb_P",
+          "q": 21
+        },
+        "gpu": 6,
+        "PID": 2986658,
+        "admission_MiB": 14654.2
+      }
+    ],
+    "time": 1792084295.0153456
+  },
+  "drained_points_all_passed": true,
+  "completed_point_count": 241,
+  "new_driver": 2989463,
+  "completed": 1792084498.3770957,
+  "scheduler_sha256": "f6be10254a6e7e11406287611c146ff94f0d846a836feeb4f9f80d5d7f6fc1a7"
+}

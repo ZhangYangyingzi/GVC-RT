@@ -1,0 +1,15 @@
+{
+  "status":"PASS_CPU_SCHEDULER_CHECKS",
+  "smoke_audit":"audits/evaluation_scheduler_smoke.json",
+  "resource_only_change":true,
+  "issue":"A successful point previously lowered the model admission budget after a resource preemption.",
+  "correction":"Never lower elevated admission after a successful point. Add separate per-GPU volatility margins from measured reserve shortfalls, rather than repeatedly increasing all models for all cards.",
+  "GPU_volatility_margin":"add max(2048 MiB, shortfall+512 MiB) per recorded guard event, capped at 8192 MiB; subtract only from new-task admission; retain across resumes",
+  "resource_only_worker_cap_floor":2,
+  "OOM_or_reference_worker_cap_floor":1,
+  "forced_worker_allocation":false,
+  "mandatory_free_reserve_unchanged":"max(2048 MiB,total*0.10)",
+  "encoder_decoder_training_data_precision_metrics_or_tolerances_changed":false,
+  "existing_valid_receipts_preserved":true,
+  "handoff":"Current owned points must finish normally and pass strict receipts before dispatcher replacement."
+}
