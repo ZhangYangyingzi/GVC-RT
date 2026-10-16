@@ -1,0 +1,33 @@
+{
+  "time": 1792126235.8482442,
+  "stage": "report_audit_repair",
+  "original_failure": {
+    "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/completion_report32b.py\", line 131, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/completion_report32b.py\", line 88, in main\n    r=load(bp/'receipts'/f'{i:04d}.json');assert r['total_EMA_commits']==i and r['gradient_formula_error']<=1e-6 and r['finite'] and r['global_postclip_norm']<=1.00001;assert all(v['finite'] and v['norm']>0 for v in r['additional_gradient_modules'].values())\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+    "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/logs/report.log",
+    "returncode": 1,
+    "task": {
+      "id": "report",
+      "category": "cpu",
+      "argv": [
+        "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+        "-B",
+        "-u",
+        "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/completion_report32b.py"
+      ],
+      "PID": 3755144,
+      "start_ticks": "4977287735",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/completion_report32b.py ",
+      "gpu": null,
+      "physical_GPU": null,
+      "process_device": null,
+      "reserved_MiB": 0.0,
+      "started": 1792125384.2703507,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/logs/report.log",
+      "attempt": 0
+    }
+  },
+  "correction": "Preserve immutable train source and all raw receipts; audit actual preclip composition and clip operation separately. Independent no-update real network replays passed for both branches.",
+  "audit": "audits/gradient_recording_integrity.json",
+  "report_source_sha256": "3f9b4538147ab8412b36dd2778e0a74087c210773d391a307ebb0ece41e43d71",
+  "no_extra_optimizer_or_EMA_updates": true
+}

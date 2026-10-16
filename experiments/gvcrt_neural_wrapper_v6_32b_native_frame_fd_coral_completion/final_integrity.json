@@ -1,0 +1,122 @@
+{
+  "status": "PENDING_PUBLICATION",
+  "calculation": "COMPLETE",
+  "publication": "PENDING",
+  "training": {
+    "A_C1_lr1": 1000,
+    "B_C1_lr2": 1000,
+    "C_C1_lr2_FD": 1000,
+    "D_C1_lr2_mean_CORAL": 1000
+  },
+  "optimizer_call_accounting": {
+    "A_C1_lr1": {
+      "physical_optimizer_calls": 1000,
+      "committed_updates": 1000,
+      "discarded_or_replayed_calls": 0,
+      "execution_origin": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32_learning_rate_fd_coral_control/branches/A_C1_lr1"
+    },
+    "B_C1_lr2": {
+      "physical_optimizer_calls": 1000,
+      "committed_updates": 1000,
+      "discarded_or_replayed_calls": 0,
+      "execution_origin": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32_learning_rate_fd_coral_control/branches/B_C1_lr2"
+    },
+    "C_C1_lr2_FD": {
+      "physical_optimizer_calls": 1000,
+      "committed_updates": 1000,
+      "discarded_or_replayed_calls": 0,
+      "execution_origin": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/C_C1_lr2_FD"
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "physical_optimizer_calls": 1000,
+      "committed_updates": 1000,
+      "discarded_or_replayed_calls": 0,
+      "execution_origin": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/D_C1_lr2_mean_CORAL"
+    }
+  },
+  "prefill": {
+    "completed": 1000,
+    "expected": 1000,
+    "strata": 20
+  },
+  "calibration": {
+    "completed": 40,
+    "expected": 40
+  },
+  "evaluation": {
+    "completed": 3312,
+    "expected": 3312,
+    "historical_reused": 2116,
+    "newly_encoded": 1196,
+    "C_D_adaptation_encodes": 1196,
+    "all_adaptation_logical_points": 2392
+  },
+  "geometry": "PASS",
+  "gradients": "PASS",
+  "EMA": {
+    "C_C1_lr2_FD": {
+      "status": "PASS",
+      "commits": 1000,
+      "counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      }
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "status": "PASS",
+      "commits": 1000,
+      "counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      }
+    }
+  },
+  "frozen": "PASS",
+  "real_RANS": true,
+  "independent_decode": true,
+  "all_headers_and_I_bytes_included": true,
+  "formal_evaluation_ddof": 1,
+  "training_statistics_ddof": 0,
+  "common_rate": "six models100 ln(bpp) PCHIP no extrapolation; explicit pairwise fallback when unavailable",
+  "known_historical_AB_auxiliary_missing_per_branch": 4,
+  "known_historical_AB_EMA_commits": 0,
+  "known_auxiliary_missing_does_not_block_main_experiment": true,
+  "discriminator_optimizer_updates": 0,
+  "unresolved": []
+}

@@ -1,0 +1,18 @@
+# Authorized v6.32b recovery specification
+
+Source task: user instruction dated2026-10-15.
+
+- Old v6.32 is read-only. New output only in this experiment. Do not reset user modifications or terminate unrelated jobs. No LLM/API calls. Physical GPU4/5/6/7 only, memory-reserved independent concurrency.
+- Retain exact1000-step shared and40-window calibration plans, source identities/indices/crops/RGB hashes. Revise only auxiliary full-frame geometry to native H×W; no resizing, substitutions or dropped windows. Formal testing remains1080p.
+- Verify and read-only reuse historical A/B1000-step runs and2116 evaluations; their four missing auxiliary windows per branch and zero EMA diagnostic commits remain explicitly incomplete. Do not retrain A/B.
+- C/D initialize the same v6.22 B1 SHA dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7, fresh AdamW bridge6e-6/generator1e-6, betas(.9,.999),eps1e-8,wd1e-4,one globalclip1. Only bridge/generator train. No discriminator.
+- Preserve exact C1 crop objective, fused baseline backward, DISTS deep gradients,4096-unit reconstruction/spatial-covariance restoration, weights and15-frame average once. NativeI0,causalP1–48 no_grad,supervisedP49–63 with detached real reconstructed references.
+- B1 prefill all1000 windows;20 domain/QP strata each50×15features. Official Inception2048. FP64/ddof0 moments; fixed training-only GT and B1 seeds. Each branch independently maintains beta.95 EMA, committing one candidate per successful checkpointed update.
+- Fixed epsilon1e-4×max(trace(SigmaGT)/2048,1e-6). C adds exact regularizedFD; D adds mean/CORAL.40 fixed training windows calibrate lambdaFD=.10median(||gC1||/||gFD||),wmu/wcov from median norm ratios,k=.10median(||gC1||/||wmu*gmu+wcov*gcov||),alphas=k*w. No test calibration or dynamic cap.
+- Full-chain two-pass replay: forward64no_grad→feature-leaf derivative→same-state64-frame replay→streamed parameterVJP4096→FP32restore, no duplicate/15. Single combined clip and AdamW step. Persist model/optimizer/RNG/buffers/EMA/cursor/signatures transactionally. Save0/1/250/500/1000 and latest at least every25; implementation saves each committed update.
+- Validate normal1080 and four native geometries, hashes, padding/unpad, gradients, frozen states, replay thresholds. Toy direct/VJPrelativeL2<=1e-6; true featuresrelativeL2<=1e-4,maxabs<=1e-4+1e-4maxabs(reference). Toy alone cannot establish real network validity.
+- Evaluate fixed46videos,64frames,QP0–9,IP=-1,nativeI,trueRANS,fullheader/SPS/Ibytes,independentdecode,FP16deployment. C/D250:QP0/5/9;1000:all10QP. Total3312logical,2116historical+1196new. MCL29 is derived only.
+- FormalFID fixedpooledFP64/ddof1, separate from trainingEMA/regularization. Six-model100lnbppPCHIP,noextrapolation,videoequalweights; explicitly labelled pairwise fallback if common interval missing. No model/checkpoint selection.
+- Keep errors, recovery and physical/committed/replay counts. Separate computation/report/publication states. Only final verified completion isPASS. Background pipeline must finish or record actual blocked/failed terminal; startup is not delivery.
+- Upload only this experiment light code/config/plans/audits/numeric tables/reports/plots and complete-line <=512KiB text shards with reconstruction hash checks. Leave big binaries server-side with path/size/SHA256. Isolated latest-main worktree, ordinary commit/push to ZhangYangyingzi/GVC-RT, noforce, no unrelated changes. Verify remote commit/key files; final SHA receipt server-only.
+- Final response concise: C/D committed steps and replay counts, prefill/calibration, evaluation reused/new, gradient/EMAstatus, reportpath, GitHubcommit/link; distinguish publication failure from calculation failure.

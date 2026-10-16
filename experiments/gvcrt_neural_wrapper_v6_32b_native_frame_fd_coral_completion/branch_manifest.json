@@ -1,0 +1,97 @@
+{
+  "branches": {
+    "A_C1_lr1": {
+      "source_checkpoint": {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+        "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+        "module_hashes": {
+          "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+          "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+          "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+        },
+        "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+      },
+      "learning_rates": [
+        3e-06,
+        5e-07
+      ],
+      "execution": "verified_read_only_v632",
+      "trainable": [
+        "bridge",
+        "generator"
+      ],
+      "discriminator_optimizer_updates": 0
+    },
+    "B_C1_lr2": {
+      "source_checkpoint": {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+        "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+        "module_hashes": {
+          "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+          "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+          "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+        },
+        "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+      },
+      "learning_rates": [
+        6e-06,
+        1e-06
+      ],
+      "execution": "verified_read_only_v632",
+      "trainable": [
+        "bridge",
+        "generator"
+      ],
+      "discriminator_optimizer_updates": 0
+    },
+    "C_C1_lr2_FD": {
+      "source_checkpoint": {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+        "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+        "module_hashes": {
+          "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+          "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+          "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+        },
+        "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+      },
+      "learning_rates": [
+        6e-06,
+        1e-06
+      ],
+      "execution": "new_v632b_1000_updates",
+      "trainable": [
+        "bridge",
+        "generator"
+      ],
+      "discriminator_optimizer_updates": 0
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "source_checkpoint": {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+        "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+        "module_hashes": {
+          "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+          "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+          "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+        },
+        "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+      },
+      "learning_rates": [
+        6e-06,
+        1e-06
+      ],
+      "execution": "new_v632b_1000_updates",
+      "trainable": [
+        "bridge",
+        "generator"
+      ],
+      "discriminator_optimizer_updates": 0
+    }
+  },
+  "fixed_new_objectives": {
+    "C": "C1+lambda_FD*regularized_FD",
+    "D": "C1+alpha_mu*mean+alpha_cov*CORAL"
+  },
+  "calibration_final": "calibration/final.json"
+}

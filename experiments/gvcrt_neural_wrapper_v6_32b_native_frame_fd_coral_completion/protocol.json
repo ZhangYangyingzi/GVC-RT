@@ -1,0 +1,114 @@
+{
+  "schema": "v632b",
+  "updates": 1000,
+  "IP": -1,
+  "frames": 64,
+  "padding": [
+    1920,
+    1088
+  ],
+  "crop": [
+    1920,
+    1080
+  ],
+  "force_zero_thres": 0.12,
+  "precision": "FP16 codec FP32 wrapper and official features; float64 FID ddof1",
+  "FID": {
+    "commit": "b9c18118d082cbd263c1b8963fc4221dc1cbb659",
+    "weight_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "resize": "bilinear299 align_corners=False",
+    "normalize": "2*x-1",
+    "dims": 2048,
+    "relative_L2": 0.0001,
+    "max_abs": "1e-4+1e-4*maxabs(cached)",
+    "pooled_tolerance": "1e-4+1e-4*max(1,abs(fresh),abs(cached))"
+  },
+  "new_start": "max(old_source_frame_indices)+65",
+  "new_frames": 64,
+  "rate": "all bitstream bytes*8/(64*W*H)",
+  "diagnostic": {
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "grid": 100,
+    "spacing": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolate": false,
+    "label": "3-QP stability diagnostic, not primary 10-QP comparison"
+  },
+  "resource": {
+    "GPUs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "reserve_multiplier": 1.25,
+    "extra_MiB": 2048,
+    "CPU_workers": 4,
+    "threads": 2,
+    "OOM_retries": 1
+  },
+  "experiment": "gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion",
+  "source_pool": "v629 actual official frozen manifests; v630 old_sources",
+  "trainable": [
+    "bridge",
+    "generator"
+  ],
+  "P_frozen": true,
+  "global_view": [
+    1920,
+    1080
+  ],
+  "canvas": [
+    1920,
+    1088
+  ],
+  "EMA_beta": 0.95,
+  "training_ddof": 0,
+  "eval_ddof": 1,
+  "new_encodes": 2392,
+  "baseline_points": 920,
+  "logical_points": 3312,
+  "new_branches": [
+    "C_C1_lr2_FD",
+    "D_C1_lr2_mean_CORAL"
+  ],
+  "historical_branches": [
+    "A_C1_lr1",
+    "B_C1_lr2"
+  ],
+  "methods": [
+    "original",
+    "B1_initial",
+    "A_C1_lr1_1000",
+    "B_C1_lr2_1000",
+    "C_C1_lr2_FD_1000",
+    "D_C1_lr2_mean_CORAL_1000"
+  ],
+  "expected_points": 3312,
+  "auxiliary_view": "native valid RGB HxW, official codec alignment padding, unpad before Inception; crop unchanged",
+  "full_frame_restriction_1920x1080": false,
+  "formal_evaluation_view": "unchanged 1920x1080 RGB / 1920x1088 canvas",
+  "new_optimizer_updates": 2000,
+  "discriminator_optimizer_updates": 0,
+  "seed_model": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "statistics_ddof": 0,
+  "evaluation_ddof": 1,
+  "EMA_commit": "exactly once with atomic successful model+optimizer checkpoint",
+  "calibration": "40 fixed training windows; no optimizer step; shared detached seed per window",
+  "latest_every": 1,
+  "latest_reason": "save every successful step for atomic optimizer/EMA transaction, stronger than required 25-step recovery interval",
+  "no_training_or_test_selection": true
+}

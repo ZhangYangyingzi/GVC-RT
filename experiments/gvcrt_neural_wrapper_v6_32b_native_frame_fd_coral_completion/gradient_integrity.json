@@ -1,0 +1,826 @@
+{
+  "status": "PASS",
+  "gradient_recording_audit": {
+    "status": "PASS",
+    "training_receipts_unchanged": true,
+    "train_source_sha256": "8d7a4bba3b93c5bb54799e3a55c5cbd44a580600863bf8b60ddaed9f0dbfba28",
+    "steps_checked": 2000,
+    "tolerance": 1e-06,
+    "maximum_errors": {
+      "preclip_norm_composition_relative_error": 1.965531110786253e-09,
+      "clip_scaling_relative_error": 8.109717526393879e-08,
+      "legacy_alias_formula_residual": 1.6056021179267077e-07
+    },
+    "diagnosis": "gr tensors were assigned to p.grad, then clip_grad_norm_ modified them in place. Legacy diagnostic compares clipped gr to unscaled base+extra; it equals abs(1-clip)/clip, not preclip vector merge error.",
+    "actual_training_merge": "gr=[base+extra]; assign p.grad; one global clip; one AdamW step; unchanged",
+    "raw_field_is_not_preclip_merge_error": true,
+    "probes": [
+      {
+        "status": "PASS",
+        "branch": "C_C1_lr2_FD",
+        "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/C_C1_lr2_FD/checkpoints/adaptation_step_0000.pt",
+        "checkpoint_sha256": "0fe03cb4d7ef0697d605cff5d1b671dd47a6a073fc2db808fa2383cff0e594b1",
+        "physical_GPU": 4,
+        "optimizer_updates": 0,
+        "EMA_commits": 0,
+        "parameters_and_buffers_unchanged": true,
+        "preclip_vector_merge_relative_error": 2.5370872283889758e-08,
+        "postclip_vector_scaling_relative_error": 0.0,
+        "first_step_norm_repeat_relative_errors": {
+          "C1_full_gradient_norm": 0.0,
+          "additional_gradient_norm": 0.0,
+          "global_preclip_norm": 0.0
+        },
+        "legacy_alias_diagnostic_reproduced": 2.739694154836718,
+        "legacy_recorded_value": 2.739694154836718,
+        "global_preclip_norm": 3.7396931517206236,
+        "global_postclip_norm": 0.9999997312697934,
+        "clip_coefficient": 0.2674015456680206,
+        "replay": [
+          {
+            "position": 49,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030639677047729493,
+            "status": "PASS"
+          },
+          {
+            "position": 49,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7497504949569702,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 50,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00033118886947631836,
+            "status": "PASS"
+          },
+          {
+            "position": 50,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8105835914611816,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 51,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00031817502975463866,
+            "status": "PASS"
+          },
+          {
+            "position": 51,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8881640434265137,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 52,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003099910259246826,
+            "status": "PASS"
+          },
+          {
+            "position": 52,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7351314425468445,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 53,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0002924223899841309,
+            "status": "PASS"
+          },
+          {
+            "position": 53,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7850448489189148,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 54,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0002787402868270874,
+            "status": "PASS"
+          },
+          {
+            "position": 54,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8120216727256775,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 55,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00026744806766510013,
+            "status": "PASS"
+          },
+          {
+            "position": 55,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7675829529762268,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 56,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00027574677467346193,
+            "status": "PASS"
+          },
+          {
+            "position": 56,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7540398240089417,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 57,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00028010663986206054,
+            "status": "PASS"
+          },
+          {
+            "position": 57,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.6839261054992676,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 58,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003029232263565064,
+            "status": "PASS"
+          },
+          {
+            "position": 58,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7242794632911682,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 59,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030730581283569335,
+            "status": "PASS"
+          },
+          {
+            "position": 59,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7258148193359375,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 60,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030777435302734377,
+            "status": "PASS"
+          },
+          {
+            "position": 60,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.7980670928955078,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 61,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003058560371398926,
+            "status": "PASS"
+          },
+          {
+            "position": 61,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8353000283241272,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 62,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003022475004196167,
+            "status": "PASS"
+          },
+          {
+            "position": 62,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8985714316368103,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 63,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003453655958175659,
+            "status": "PASS"
+          },
+          {
+            "position": 63,
+            "objective": "FD",
+            "RGB_gradient_norm": 0.8702692985534668,
+            "RGB_gradient_finite": true
+          }
+        ],
+        "additional_modules": {
+          "bridge": {
+            "norm": 0.1355757031454985,
+            "nonzero": 28,
+            "finite": true,
+            "dtype": "FP32"
+          },
+          "generator": {
+            "norm": 0.11473803362634347,
+            "nonzero": 212,
+            "finite": true,
+            "dtype": "FP32"
+          }
+        }
+      },
+      {
+        "status": "PASS",
+        "branch": "D_C1_lr2_mean_CORAL",
+        "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/D_C1_lr2_mean_CORAL/checkpoints/adaptation_step_0000.pt",
+        "checkpoint_sha256": "fc4cf0a46ed6ad6996534ddf9135ddf4c775bfa337d12baf58e813b95123de2a",
+        "physical_GPU": 4,
+        "optimizer_updates": 0,
+        "EMA_commits": 0,
+        "parameters_and_buffers_unchanged": true,
+        "preclip_vector_merge_relative_error": 2.5816316017460925e-08,
+        "postclip_vector_scaling_relative_error": 0.0,
+        "first_step_norm_repeat_relative_errors": {
+          "C1_full_gradient_norm": 0.0,
+          "additional_gradient_norm": 0.0,
+          "global_preclip_norm": 0.0
+        },
+        "legacy_alias_diagnostic_reproduced": 2.733873105423822,
+        "legacy_recorded_value": 2.733873105423822,
+        "global_preclip_norm": 3.733872300157054,
+        "global_postclip_norm": 0.9999997830518706,
+        "clip_coefficient": 0.26781841617905794,
+        "replay": [
+          {
+            "position": 49,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030639677047729493,
+            "status": "PASS"
+          },
+          {
+            "position": 49,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.339535608887672e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 49,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 7.342311505453836e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 50,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00033118886947631836,
+            "status": "PASS"
+          },
+          {
+            "position": 50,
+            "objective": "mean",
+            "RGB_gradient_norm": 8.8514294475317e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 50,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.406227607338224e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 51,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00031817502975463866,
+            "status": "PASS"
+          },
+          {
+            "position": 51,
+            "objective": "mean",
+            "RGB_gradient_norm": 8.812519808998331e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 51,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 9.50851188008528e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 52,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003099910259246826,
+            "status": "PASS"
+          },
+          {
+            "position": 52,
+            "objective": "mean",
+            "RGB_gradient_norm": 8.357028127647936e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 52,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 7.712677643212373e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 53,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0002924223899841309,
+            "status": "PASS"
+          },
+          {
+            "position": 53,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.335964568890631e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 53,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.608442385593662e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 54,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0002787402868270874,
+            "status": "PASS"
+          },
+          {
+            "position": 54,
+            "objective": "mean",
+            "RGB_gradient_norm": 0.00010103685781359673,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 54,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 9.101294722313469e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 55,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00026744806766510013,
+            "status": "PASS"
+          },
+          {
+            "position": 55,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.734932245919481e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 55,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.266408144663728e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 56,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00027574677467346193,
+            "status": "PASS"
+          },
+          {
+            "position": 56,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.682713425718248e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 56,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.331639378411637e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 57,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00028010663986206054,
+            "status": "PASS"
+          },
+          {
+            "position": 57,
+            "objective": "mean",
+            "RGB_gradient_norm": 0.00010011926497099921,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 57,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 7.225715989989112e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 58,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003029232263565064,
+            "status": "PASS"
+          },
+          {
+            "position": 58,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.257413330487907e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 58,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 7.877673624534509e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 59,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030730581283569335,
+            "status": "PASS"
+          },
+          {
+            "position": 59,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.005656465888023e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 59,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 7.926383887024713e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 60,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.00030777435302734377,
+            "status": "PASS"
+          },
+          {
+            "position": 60,
+            "objective": "mean",
+            "RGB_gradient_norm": 0.0001021248463075608,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 60,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.870356396073475e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 61,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003058560371398926,
+            "status": "PASS"
+          },
+          {
+            "position": 61,
+            "objective": "mean",
+            "RGB_gradient_norm": 0.00010256650421069935,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 61,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.751868563194876e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 62,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003022475004196167,
+            "status": "PASS"
+          },
+          {
+            "position": 62,
+            "objective": "mean",
+            "RGB_gradient_norm": 0.00010377173020970076,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 62,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 9.065890367310203e-07,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 63,
+            "feature_relative_L2": 0.0,
+            "feature_maxabs": 0.0,
+            "maxabs_tolerance": 0.0003453655958175659,
+            "status": "PASS"
+          },
+          {
+            "position": 63,
+            "objective": "mean",
+            "RGB_gradient_norm": 9.942163887899369e-05,
+            "RGB_gradient_finite": true
+          },
+          {
+            "position": 63,
+            "objective": "CORAL",
+            "RGB_gradient_norm": 8.576973868912319e-07,
+            "RGB_gradient_finite": true
+          }
+        ],
+        "additional_modules": {
+          "bridge": {
+            "norm": 0.11164771104049319,
+            "nonzero": 28,
+            "finite": true,
+            "dtype": "FP32"
+          },
+          "generator": {
+            "norm": 0.11003561594364572,
+            "nonzero": 212,
+            "finite": true,
+            "dtype": "FP32"
+          }
+        }
+      }
+    ]
+  },
+  "calibration_real_network_windows": 40,
+  "calibration_no_optimizer_updates": true,
+  "C_D_first_committed_steps": [
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/audits/first_committed_step_C_C1_lr2_FD.json",
+    "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/audits/first_committed_step_D_C1_lr2_mean_CORAL.json"
+  ],
+  "RGB_bridge_generator_gradients_finite_nonzero": true,
+  "distribution_weights_fixed": {
+    "status": "PASS",
+    "completed_windows": 40,
+    "expected_windows": 40,
+    "lambda_FD": 0.004456022804189918,
+    "w_mu": 546.9357331055469,
+    "w_cov": 26569.745655794737,
+    "k": 0.053198279256962216,
+    "alpha_mu": 29.09603986536024,
+    "alpha_cov": 1413.464749183427,
+    "rho_cal": 0.1,
+    "epsilon": 1e-12,
+    "calibration_signature": "7e3217a4dfce8389a9e16cd6bb970e4be9c0d6cb594d5601fe6cb3bdfcc7c7db",
+    "plan_sha256": "b1092f573ceb7af6e3a3d4b7f4bd8d067757396bbea715f2992040d09d3b4ce6",
+    "shared_seed_sha256": "859412cd4c987504844d8e4a404f30c286602470560512847f1a4ff8aaabc561",
+    "receipts": [
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/00.json",
+        "sha256": "471f9a6b17c3714b0620830744fdec6133d57dbebc3c29a94ab6d569879a6dbd"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/01.json",
+        "sha256": "5cffa49885704ba78bb5133a7b0abefe248a650aa3abd4caacd9e264997ee953"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/02.json",
+        "sha256": "aba7d37f98ad9a60ad16c9b427934fd956459e917b90679343f1ade17c918955"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/03.json",
+        "sha256": "42368b06e83de31ef126f81f36b7b88f3a1a583f058664690bd309fc680179f2"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/04.json",
+        "sha256": "caadac810acbf07d90546982799946fcfb5b61f24a2538c463bdc5c3e21cb770"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/05.json",
+        "sha256": "a9010da8dd6fa2d322a036fd45cee97ac301afbda145ece9c11fdd203ac2d57b"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/06.json",
+        "sha256": "e330e96fa6ab1fae7a44731cd0eaed5853eed96ede292d0e79ee88b82c2c413e"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/07.json",
+        "sha256": "169e93a82b62f07bb5af4fe7b8dd930fe4ee8e529753b1fd74670eda6591f731"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/08.json",
+        "sha256": "2ef9af5e5fa89b2701c38cace356ff3c4fc2d58c4a6bb2b83c6350835847ffe2"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/09.json",
+        "sha256": "9f6962b917647a9f0eef4926db6799de50d390105c9b5cc46198aaf3dc7e23af"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/10.json",
+        "sha256": "28c7da83a833be156da28409cd261cec03eed36440a741a93db6cea2e70c8867"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/11.json",
+        "sha256": "f6a442873759b5837eb4a3284741945ae8a983eaa65240d1ee827ff5954d0b64"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/12.json",
+        "sha256": "445dcec8ad63b68a859ae294e8e122835dcbe1983f8fadab0106318888d285e7"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/13.json",
+        "sha256": "e2863bd90c7742b93c5a0bd8646e334c59832c52fb0a0890ab309d2ec6d7abcc"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/14.json",
+        "sha256": "8c6e25921a8c35e63e2f58a8379945f20214d2035c311ad11f389e92dc2c4511"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/15.json",
+        "sha256": "8fa1f62de835437c71e82b9ae6e298c83e5ace759611aa1785bc03fdd51aa1a4"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/16.json",
+        "sha256": "4b040468ff9f40237dda0b42cf4decf80640f4bdf67be36bb007c87ae429e29d"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/17.json",
+        "sha256": "c865956ea721156aa74653ea66baad62fcd6c38994f210b41283884f5fd3e44c"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/18.json",
+        "sha256": "30d02a62b3a42d5d623199ff8dfa51f04fb8a73cf295684c9a8c1570b1186e1d"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/19.json",
+        "sha256": "3769fb709c5dffc7ba5fc086d10053d7b6c98ee91614b5454f4a1b591fc9a2a7"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/20.json",
+        "sha256": "14b85d8250af6189c1c2c8f113df86162d2cc6b4c446c4ed67a5e923c0472d97"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/21.json",
+        "sha256": "ee0dd4c58e597ea9059dac2e0aa4f8477c208633d566ecab85d7c4fa2a63d7a6"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/22.json",
+        "sha256": "d637b31b49bca6027a1af3608d7045cf4c72b8ef6c662c29bc272b7a8c2142c4"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/23.json",
+        "sha256": "95474ff51bda8f8b613fbd6c3e2fb5a043db4b8ef4ce3a21d8561a8c6a1b44ab"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/24.json",
+        "sha256": "448085d62d4e4b34972ee8ac8e38f4ab3d11f7c9b5110c7554c2d0db77c20e3f"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/25.json",
+        "sha256": "97874edbafa37207573bf6ff646c849a7a42edcbb6f3d72ca35e16d063ff11ba"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/26.json",
+        "sha256": "b120e847433592a76be4464c8cf9e7af9872d7a5eb1e36f3920fa3ec038183c3"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/27.json",
+        "sha256": "bd1f6d2fd3b36ebfcb925ab8707fc7a0881d0448b4d0aeccba749ff03b848c9d"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/28.json",
+        "sha256": "3e7cf4a28c78f8c2618610953ee8f5f848db48caee6182fe1152066ddbf33c3d"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/29.json",
+        "sha256": "0ec36507c054ab538657472f68f87facaac5cb721816e9aff6741964a0cf78f7"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/30.json",
+        "sha256": "6be2733a1ea68f5668b8c5ab0f38c726ad8797358700516c335997303ca4dc1d"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/31.json",
+        "sha256": "8b36e27fb3c0a487b5fdd93ae01063b02bb67ebf347e8bbb34dbbdedc6e4de37"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/32.json",
+        "sha256": "0e97f84894c28bdf0c93d6ab2b3d94184309edbb8d9cb2eaa7c0eab4e032e2ea"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/33.json",
+        "sha256": "ad1c727af44cb092c180ffc614225fa6988e6c7575af6848b1b9353a18aabae9"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/34.json",
+        "sha256": "7cd988f7af765c43976da1b9328915a37556b9e4e8bb9c09c7db2245c2f5a0cd"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/35.json",
+        "sha256": "1520f7c1229cd5b78e966101922a669bf396e146d2ef5bd84f08da0f27f6a747"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/36.json",
+        "sha256": "cf2a8169e4d99e6f24fb889363f025a09e27e8aaff629a15f738b985314add5e"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/37.json",
+        "sha256": "e87db14b3602064ea3b0be1a7c4f768b9fdd8d10728d04d52c2255712c0298a2"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/38.json",
+        "sha256": "b912d3f21441c18556157bfd919f456dc3786107dcebf2b976cd50d95b03e0bd"
+      },
+      {
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/receipts/39.json",
+        "sha256": "cebc2f6ff69aa723b143d8cfac895bdccf173337d84de5734d16106c45b6d7cd"
+      }
+    ],
+    "optimizer_updates": 0,
+    "EMA_commits": 0,
+    "training_only": true,
+    "frozen_after_calibration": true
+  },
+  "normalization": "moments contain15 mean; feature VJP4096 once; restoreFP32 once; weighted sum then single clip and AdamW",
+  "EMA": {
+    "C_C1_lr2_FD": {
+      "status": "PASS",
+      "commits": 1000,
+      "counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      }
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "status": "PASS",
+      "commits": 1000,
+      "counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      }
+    }
+  },
+  "full_chain_replay_tolerance": {
+    "relative_L2": 0.0001,
+    "maxabs": "1e-4+1e-4*maxabs(reference)"
+  },
+  "historical_C1_crop_AST_identical": true,
+  "frozen_verified": true
+}
