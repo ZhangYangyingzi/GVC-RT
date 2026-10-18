@@ -1,0 +1,37 @@
+{
+  "title": "v6.35 fixed full-pipeline gain attribution",
+  "training": "No new N/P training. Reuse only validated v6.34b step-500 checkpoints. A is omitted from execution because reference objective feasibility is blocked.",
+  "methods": [
+    "original",
+    "N_oursLoss_noP_500",
+    "P_oursLoss_withP_500"
+  ],
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b"
+  ],
+  "videos": 13,
+  "qps": [
+    0,
+    5,
+    9
+  ],
+  "frames": 64,
+  "IP": -1,
+  "real_RANS": true,
+  "independent_decode": true,
+  "rate": "all persistent bitstream bytes*8/(64*W*H)",
+  "metrics": [
+    "LPIPS",
+    "DISTS",
+    "FloLPIPS",
+    "FID"
+  ],
+  "FID": "pooled per dataset/method/QP, Inception2048, float64 ddof=1",
+  "training_objective": "Reuse v6.34b effective complete objective including FD and legacy terms; no new loss branches.",
+  "source_manifest_hashes": {
+    "ulong": "af98af6cc8f3f95be3e9fb499ac81e8c32546830d812567baf43c4d06f92ecba",
+    "uvg_holdout_hevc_b": "4213c9fccc10772e9b5075d75c0119ca4cac5c41d5bbf506e5c69a3e81cc4e05"
+  }
+}

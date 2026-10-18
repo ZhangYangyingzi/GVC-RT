@@ -1,0 +1,43 @@
+{
+  "status": "BLOCKED_MISSING_REFERENCE_OBJECTIVE",
+  "branch": "A_refLoss_noP_500",
+  "additional_updates": 0,
+  "training_started": false,
+  "official_paper": "https://arxiv.org/html/2608.04891v1",
+  "official_repository": "https://github.com/semcomm/GVC-RT",
+  "checked_repository_snapshot": "local source code available as of 2026-10-19",
+  "missing_requirements": [
+    {
+      "item": "Official training implementation",
+      "status": "missing",
+      "evidence": "The official semcomm/GVC-RT README still lists training code release as TODO; no official training code is present in the repository snapshot."
+    },
+    {
+      "item": "Exact Stage-II/III lambda(q) table and normalization",
+      "status": "missing",
+      "evidence": "Paper gives a range/interpolation description but not a reproducible per-QP table and complete receiver-specific normalization."
+    },
+    {
+      "item": "Exact original latent teacher checkpoint/config/preprocessing",
+      "status": "missing",
+      "evidence": "No verifiable exact GVC-RT original LFQ teacher checkpoint and preprocessing package found; Open-MAGVIT2 proxy is not proven equivalent."
+    },
+    {
+      "item": "Exact margin loss definition/interface",
+      "status": "missing",
+      "evidence": "The paper names a margin term but the exact margin construction and tensor interface needed for implementation are unavailable in published training code."
+    },
+    {
+      "item": "Stage-III discriminator implementation/initialization/update rule",
+      "status": "missing",
+      "evidence": "No official implementation/config for discriminator and its training schedule is available."
+    },
+    {
+      "item": "Compatibility with this receiver-only frozen-compression adaptation",
+      "status": "unverified",
+      "evidence": "Published training objective may require codec/core optimization and modules not present in the fixed receiver-only comparison."
+    }
+  ],
+  "proxy_teacher_used": false,
+  "substitute_objective_created": false
+}

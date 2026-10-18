@@ -1,0 +1,33 @@
+{
+  "official_paper_url": "https://arxiv.org/html/2608.04891v1",
+  "official_repository_url": "https://github.com/semcomm/GVC-RT",
+  "checked_utc": "2026-10-19",
+  "local_reference_copies": [
+    {
+      "label": "paper_cache",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/teacher_sources/gvcrt_paper_v1.html",
+      "bytes": 215258,
+      "sha256": "3867d4df646a18a4195e5883aa005fc57523aff2a543c7f2bef5bc26da9d9bd5"
+    },
+    {
+      "label": "repo_readme_snapshot",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_13_gt_lfq_staged_adaptation/teacher_sources/gvcrt_official_README.md",
+      "bytes": 8843,
+      "sha256": "eb611fae249e85e5f1939c2a7da2c1a73195c00e4db00ca1d6c3a4538792a6f8"
+    }
+  ],
+  "paper_describes": {
+    "stage_II": "rate plus a weighted reconstruction and latent-distribution objective using continuous pre-quantization LFQ teacher features",
+    "stage_III": "rate plus weighted reconstruction, adversarial supervision and latent-distribution terms",
+    "distribution_terms": "cosine and margin terms; paper gives scalar settings and an overall lambda range/interpolation description"
+  },
+  "not_reproducible_from_published_material": [
+    "complete per-QP lambda(q) values and receiver-specific normalization",
+    "exact margin definition and exact latent interface",
+    "verifiable original teacher checkpoint, config and preprocessing",
+    "official Stage-III discriminator implementation, initialization and update rule",
+    "whether the official target is compatible with the fixed frozen-compression receiver-only comparison"
+  ],
+  "repository_snapshot_observation": "Training code release item was unchecked in the checked official README snapshot.",
+  "decision": "Do not train A_refLoss_noP_500; do not substitute a proxy or omit unknown terms."
+}

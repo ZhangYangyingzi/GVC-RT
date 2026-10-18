@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "calculation_status": "PASS",
+  "training_status": "REUSED_NO_NEW_UPDATES",
+  "A_branch_status": "BLOCKED_MISSING_REFERENCE_OBJECTIVE",
+  "checks": {
+    "source_checkpoint_and_inference_hashes_verified": true,
+    "N_cumulative_step_500_reused": true,
+    "P_cumulative_step_500_reused": true,
+    "training_updates_in_v635": 0,
+    "A_reference_objective_gate": "BLOCKED_MISSING_REFERENCE_OBJECTIVE",
+    "fixed_manifest_videos": 13,
+    "fixed_qps": [
+      0,
+      5,
+      9
+    ],
+    "logical_points_expected": 117,
+    "logical_points_complete": 117,
+    "verified_historical_points": 75,
+    "new_real_RANS_encodes": 42,
+    "all_points_have_64_frames_and_63_transitions": true,
+    "all_points_real_RANS_independent_decode_state_sync": true,
+    "source_RGB_frame_indices_actual_QP_and_actual_bpp_formula_verified": true,
+    "LPIPS_DISTS_FloLPIPS_finite": true,
+    "pooled_fid_points_expected": 27,
+    "pooled_fid_points_complete": 27,
+    "pooled_gt_pool_hashes_consistent_per_dataset": true,
+    "same_rate_dataset_bounds": [
+      {
+        "dataset": "ulong",
+        "status": "available",
+        "videos": "6",
+        "methods": "original|N_oursLoss_noP_500|P_oursLoss_withP_500",
+        "qps": "0,5,9",
+        "bpp_min": "0.003202100212191358",
+        "bpp_max": "0.008819866415895062",
+        "log_bpp_min": "-5.743948368148016",
+        "log_bpp_max": "-4.730748554668262",
+        "grid_points": "20",
+        "interpolation": "piecewise linear in ln(actual_bpp)",
+        "extrapolation": "False"
+      },
+      {
+        "dataset": "uvg_holdout",
+        "status": "available",
+        "videos": "2",
+        "methods": "original|N_oursLoss_noP_500|P_oursLoss_withP_500",
+        "qps": "0,5,9",
+        "bpp_min": "0.006764081790123457",
+        "bpp_max": "0.00996045524691358",
+        "log_bpp_min": "-4.996128756043237",
+        "log_bpp_max": "-4.609132500908744",
+        "grid_points": "20",
+        "interpolation": "piecewise linear in ln(actual_bpp)",
+        "extrapolation": "False"
+      },
+      {
+        "dataset": "hevc_b",
+        "status": "available",
+        "videos": "5",
+        "methods": "original|N_oursLoss_noP_500|P_oursLoss_withP_500",
+        "qps": "0,5,9",
+        "bpp_min": "0.004238703221450617",
+        "bpp_max": "0.014373191550925925",
+        "log_bpp_min": "-5.463497900515581",
+        "log_bpp_max": "-4.242390505365834",
+        "grid_points": "20",
+        "interpolation": "piecewise linear in ln(actual_bpp)",
+        "extrapolation": "False"
+      }
+    ],
+    "pooled_fid_same_rate_bounds": [
+      {
+        "dataset": "ulong",
+        "status": "available",
+        "mean_bpp_min": "0.002052810731738683",
+        "mean_bpp_max": "0.01722558794688786",
+        "method_count": "3",
+        "anchors_per_method": "3",
+        "interpolation": "linear in ln(mean actual bpp)",
+        "extrapolation": "False"
+      },
+      {
+        "dataset": "uvg_holdout",
+        "status": "available",
+        "mean_bpp_min": "0.004222366898148148",
+        "mean_bpp_max": "0.027741126543209878",
+        "method_count": "3",
+        "anchors_per_method": "3",
+        "interpolation": "linear in ln(mean actual bpp)",
+        "extrapolation": "False"
+      },
+      {
+        "dataset": "hevc_b",
+        "status": "available",
+        "mean_bpp_min": "0.002624144000771605",
+        "mean_bpp_max": "0.020723066165123455",
+        "method_count": "3",
+        "anchors_per_method": "3",
+        "interpolation": "linear in ln(mean actual bpp)",
+        "extrapolation": "False"
+      }
+    ],
+    "data_identity_source_sha_intersection_empty": true,
+    "content_near_duplicate_audit": "not exhaustive",
+    "GT_reference_1000_receipts_verified": 1000,
+    "GT_reference_vs_eval_identity_intersections": {
+      "source_path": [],
+      "source_sha256": [],
+      "domain_name": [],
+      "frame_rgb_sha256_count": 0
+    },
+    "historical_metric_implementation_reuse_verified_points": 21,
+    "fixed_preselected_frame_example_panels": 3,
+    "reporting_scope": "fixed 13-video 3-QP evaluation; no model selection or training"
+  },
+  "completed_unix": 1792341811.5448153
+}

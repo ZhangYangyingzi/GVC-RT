@@ -1,0 +1,9 @@
+{
+  "experiment": "v6.35 full pipeline gain attribution fixed 500 step reuse",
+  "A_refLoss_noP_500": {"status": "BLOCKED_MISSING_REFERENCE_OBJECTIVE", "updates": 0},
+  "N_oursLoss_noP_500": {"source": "v6.34b N_noP_BG_FD", "cumulative_step": 500, "new_updates": 0},
+  "P_oursLoss_withP_500": {"source": "v6.34b P_PBG_FD", "cumulative_step": 500, "new_updates": 0},
+  "evaluation": {"datasets": ["ulong", "uvg_holdout", "hevc_b"], "videos": 13, "qps": [0, 5, 9], "frames": 64, "IP": -1, "logical_points": 117, "historical_reuse": 75, "new_encodes": 42},
+  "allowed_physical_gpus": [4, 5, 6, 7],
+  "metrics": ["LPIPS", "DISTS", "FloLPIPS", "pooled FID"]
+}

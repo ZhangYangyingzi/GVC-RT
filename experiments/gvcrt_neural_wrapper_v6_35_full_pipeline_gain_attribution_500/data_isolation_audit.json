@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "audited_plan_prefix_updates": 500,
+  "training_domains": {
+    "ulong": 250,
+    "uvg": 250
+  },
+  "evaluation_videos": 13,
+  "identity_path_sha_intersections": {
+    "source_path": [],
+    "source_sha256": [],
+    "name_domain": []
+  },
+  "near_duplicate_scope": "source identity/path/SHA only; exhaustive frame-level near-duplicate search not performed",
+  "historical_exclusion_lists": {
+    "U-Long_test": 8,
+    "UVG_holdout": 2,
+    "UVG_validation": 1,
+    "HEVC-B": 5,
+    "MCL-JCV": 30
+  },
+  "not_claimed": "Exhaustive content-level near-duplicate search and unknown official pretrained exposure.",
+  "evaluation_source_file_hashes_verified": true,
+  "GT_reference_audit": {
+    "status": "PASS",
+    "source_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+    "plan_prefix_equal_to_v634b": true,
+    "GT_reference_receipts_verified": 1000,
+    "GT_reference_optimizer_updates": 0,
+    "eval_video_count": 13,
+    "eval_vs_full_1000_reference_intersections": {
+      "source_path": [],
+      "source_sha256": [],
+      "domain_name": [],
+      "frame_rgb_sha256_count": 0
+    },
+    "receipt_index_hash": "de045c694f2f5caf9493c69b2a3dc6f34c11bfce4bb21e1fea5989298e0d95f0",
+    "near_duplicate_scope": "Exact source path/SHA, domain-name and decoded RGB-frame hash intersection; does not claim exhaustive perceptual near-duplicate or official pretraining exposure."
+  },
+  "reference_stats_scope": "v6.32b fixed GT reference receipts 0..999, optimizer_updates=0; exact first-1000 source-row mapping verified through v6.34b source_row wrappers."
+}

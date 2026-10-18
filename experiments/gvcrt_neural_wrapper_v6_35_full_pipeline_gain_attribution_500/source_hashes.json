@@ -1,0 +1,133 @@
+{
+  "repository_HEAD": "d4e55e9d3b7de3e37245de0d81d05dae6eab10d1",
+  "v634b_commit": "a0e063a34f708453032df10acffecc9bf2f965e9",
+  "v634b_final_integrity_sha256": "7ac986f6b0e351ad1b63909ce3d4e97b6745003ac1a66c053c8c6720b1c9cc4f",
+  "v634b_eval_manifest_sha256": "af98af6cc8f3f95be3e9fb499ac81e8c32546830d812567baf43c4d06f92ecba",
+  "v633_eval_manifest_sha256": "4213c9fccc10772e9b5075d75c0119ca4cac5c41d5bbf506e5c69a3e81cc4e05",
+  "v634b_protocol_sha256": "ab33c126742b4c13a9f065942d39a33b69cca541f25138e2871eac4fe1d775ca",
+  "v634b_config_sha256": "bafd82cccb64757cbcdd9cab2e29752499b3fd82807d8dc06fa1ce1f3ee1ef43",
+  "v634b_plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "expected_training_plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "calibration_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/calibration/final.json",
+  "calibration_sha256": "c4af94f15e07e757cbd4322887576d6d9d0c30a91a431a6bea14f8c87f98d5b8",
+  "official_model_files": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "bytes": 334225106
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "bytes": 206881943
+    }
+  ],
+  "checkpoints": {
+    "N_oursLoss_noP_500": {
+      "source_branch": "N_noP_BG_FD",
+      "step": 500,
+      "train_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/branches/N_noP_BG_FD/checkpoints/adaptation_step_500.pt",
+      "train_checkpoint_sha256": "b29a1236a5158aa07f2b685f945723064c376404f5564d1f79cb5b35beb839d9",
+      "inference_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluation/checkpoints/N_noP_BG_FD_500.pt",
+      "inference_sha256": "ca2c66aa1d68877779c8646b66d02e4ba06e82fc4f3b3c92c11271fc7ffc19dc",
+      "module_hashes": {
+        "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bridge": "d9024ac23263b4e5c2ac199b01f6595486410342324f207af86d5be6561a7c3e",
+        "generator": "3c26457bfea200e010184fcc9954d00a7e39b1297b0f868ed4ab9eafe04cb39e"
+      },
+      "deployment_receiver_hashes": {
+        "bridge": "003cb4334027e8fca42e2e1496e34fb1636438110dc4fc154897e95ceceef4f1",
+        "generator": "f1c4d2c3e2aa424f1989a9cfe5abce381330435e05fd04a8e1367bbcf512ef8c"
+      },
+      "optimizer_steps": 500,
+      "EMA_counters": {
+        "ulong:0": 26,
+        "ulong:1": 22,
+        "ulong:2": 29,
+        "ulong:3": 21,
+        "ulong:4": 25,
+        "ulong:5": 15,
+        "ulong:6": 28,
+        "ulong:7": 27,
+        "ulong:8": 29,
+        "ulong:9": 28,
+        "uvg:0": 21,
+        "uvg:1": 23,
+        "uvg:2": 32,
+        "uvg:3": 23,
+        "uvg:4": 22,
+        "uvg:5": 26,
+        "uvg:6": 27,
+        "uvg:7": 18,
+        "uvg:8": 29,
+        "uvg:9": 29
+      }
+    },
+    "P_oursLoss_withP_500": {
+      "source_branch": "P_PBG_FD",
+      "step": 500,
+      "train_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/branches/P_PBG_FD/checkpoints/adaptation_step_500.pt",
+      "train_checkpoint_sha256": "b1900596608030b64da8b59372418a6c13335ad260b565f08b3987f8905e0104",
+      "inference_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluation/checkpoints/P_PBG_FD_500.pt",
+      "inference_sha256": "eea01e8111799038521f357d970b21b1a9774db3a641a94ed6708477771c816e",
+      "module_hashes": {
+        "wrapper": "2fea1fb6442050008ba9cebff77e199bb06b2a95d439f31c828e25ba10f7a10d",
+        "bridge": "459bb636c76c1f97e050258bace6f8c967649d73a0045d1943844934eedb79be",
+        "generator": "ef9947205c6d3c70eb5fbee21764b1099b67bbfe0bca523710bcbba378aa6b62"
+      },
+      "deployment_receiver_hashes": {
+        "bridge": "d1b671d4474d560bc339a31c23ccdd201b3e3f7f44534ae07e9210be45fea23d",
+        "generator": "fc9e9bc134b4264388bb8b074a613018c30371615ddb3d34a382ff422195c290"
+      },
+      "optimizer_steps": 500,
+      "EMA_counters": {
+        "ulong:0": 26,
+        "ulong:1": 22,
+        "ulong:2": 29,
+        "ulong:3": 21,
+        "ulong:4": 25,
+        "ulong:5": 15,
+        "ulong:6": 28,
+        "ulong:7": 27,
+        "ulong:8": 29,
+        "ulong:9": 28,
+        "uvg:0": 21,
+        "uvg:1": 23,
+        "uvg:2": 32,
+        "uvg:3": 23,
+        "uvg:4": 22,
+        "uvg:5": 26,
+        "uvg:6": 27,
+        "uvg:7": 18,
+        "uvg:8": 29,
+        "uvg:9": 29
+      }
+    }
+  },
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "original_receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "metric_module_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow_perceptual_inception": [
+      "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+    ]
+  },
+  "source_code": {
+    "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/training32.py": "60480526386a8e41932d1319181405a7f27341106aabd24ddcd6146ca231890f",
+    "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/distribution32.py": "4a5f877bf67fae95e3d87127d9043e10f077a27a1e19cb8837e430dbd756630f",
+    "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/frames32.py": "044d148095e707e0e3d9832f0ccf0e614bd6297c7fcd7db1d1bd55e87ae3bed0",
+    "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluate32.py": "d0e784c2b0d38b8e9b6d6af1974efa96533f1922795357e58f5b4ec6093a2954",
+    "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/adapter32.py": "e71dffb56373f4dbc408621bb7246ee383123402cb3dc91de9495750fd824020",
+    "experiments/gvcrt_neural_wrapper_v6_33_p_causal_rate_utility_ablation/train.py": "97302607c52ef4bd98e4bb0b2e4d1dc0f241973a1cafd3c66cfebf601df971a2",
+    "experiments/gvcrt_neural_wrapper_v6_33_p_causal_rate_utility_ablation/evaluate.py": "5d84136036cc95abb9a0dfad5678d8a1b7dc5213edfc552d8f3a1c2110d21da9"
+  }
+}
