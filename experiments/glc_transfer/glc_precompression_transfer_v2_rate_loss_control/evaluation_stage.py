@@ -10,6 +10,24 @@ def admission_budget(torch_peak,device_peak=0):
  return max(13000,torch_peak*1.3+1024,device_peak*1.15+512)
 def volatility_margin(previous,shortfall):
  return min(8192,previous+max(2048,shortfall+512))
+def stable_margin_recovery(free,margins,observations,owned,now,cooldown,eligible):
+ """Drop only extra volatility margin after five stable, idle-GPU minutes.
+
+ `free` already subtracts the unchanged 10%/2GiB reserve. Full per-task
+ measured-peak admission remains mandatory; no active worker is preempted.
+ """
+ recovered=[]
+ for g,available in free.items():
+  if g in owned or margins.get(g,0)<=0 or not eligible.get(g) or available<min(eligible[g]):
+   observations.pop(g,None);continue
+  old=observations.get(g)
+  if old is None or max(old['max'],available)-min(old['min'],available)>512:
+   observations[g]=dict(since=now,min=available,max=available);continue
+  old.update(min=min(old['min'],available),max=max(old['max'],available))
+  if now-old['since']>=300 and now>=cooldown.get(g,0):
+   recovered.append(dict(GPU=g,old_extra_margin_MiB=margins[g],stable_seconds=now-old['since'],headroom_after_standard_reserve_MiB=available,observed_range_MiB=old['max']-old['min'],full_task_admission_unchanged=True))
+   margins[g]=0;observations.pop(g,None)
+ return recovered
 def expected_signatures():
  common=dict(manifest=sha(R/'eval_manifest.json'),protocol=sha(R/'protocol.json'),runtime=sha(R/'runtime.py'),evaluation=sha(R/'evaluate.py'),models=load(R/'audits/checkpoint_audit.json')['models'])
  out={'A_original':common}
@@ -69,7 +87,7 @@ def run(command,state,PY):
  prior=prior if prior.get('expected')==expected and prior.get('completed',0)<=len(cached) else {}
  need={m:max(need[m],prior.get('admission_MiB',{}).get(m,0)) for m in METHODS}
  device_peak={m:prior.get('device_peak_MiB',{}).get(m,0) for m in METHODS}
- running=[];done=len(cached);fresh=0;retry=prior.get('OOM_or_reference_retries',{});resource_preemptions=prior.get('resource_preemptions',{});cooldown={int(g):v for g,v in prior.get('GPU_cooldown_until',{}).items()};excluded_gpu=prior.get('excluded_gpu',{});max_workers=min(MAX_WORKERS,max(1,prior.get('max_workers',4)));deadline=time.time()+172800;resource_deadline=time.time()+3600
+ running=[];done=len(cached);fresh=0;retry=prior.get('OOM_or_reference_retries',{});resource_preemptions=prior.get('resource_preemptions',{});cooldown={int(g):v for g,v in prior.get('GPU_cooldown_until',{}).items()};excluded_gpu=prior.get('excluded_gpu',{});max_workers=min(MAX_WORKERS,max(1,prior.get('max_workers',4)));deadline=time.time()+172800;resource_deadline=prior.get('resource_wait_deadline',prior.get('time',time.time())+3600);stable_observations={}
  gpu_margin={int(g):v for g,v in prior.get('GPU_volatility_margin_MiB',{}).items()}
  if not gpu_margin:
   for p in (R/'audits').glob('resource_guard_*.json'):
@@ -77,7 +95,7 @@ def run(command,state,PY):
  if not retry:max_workers=max(2,max_workers)
  last_scale_event=max(prior.get('last_scale_event',0),max(cooldown.values(),default=0)-300)
  def journal():
-  save('evaluation_scheduler.json',dict(status='RUNNING',completed=done,expected=expected,reused=len(cached),new_completed=fresh,peak_MiB=peak,device_peak_MiB=device_peak,admission_MiB=need,max_workers=max_workers,per_GPU_cap=2,reserve='max(2048 MiB, total*0.10)',resource_preemptions=resource_preemptions,OOM_or_reference_retries=retry,excluded_gpu=excluded_gpu,GPU_cooldown_until=cooldown,GPU_volatility_margin_MiB=gpu_margin,last_scale_event=last_scale_event,running=[dict(task=w['task'],gpu=w['gpu'],PID=w['process'].pid,admission_MiB=w['need']) for w in running],time=time.time()))
+  save('evaluation_scheduler.json',dict(status='RUNNING',completed=done,expected=expected,reused=len(cached),new_completed=fresh,peak_MiB=peak,device_peak_MiB=device_peak,admission_MiB=need,max_workers=max_workers,per_GPU_cap=2,reserve='max(2048 MiB, total*0.10)',resource_preemptions=resource_preemptions,OOM_or_reference_retries=retry,excluded_gpu=excluded_gpu,GPU_cooldown_until=cooldown,GPU_volatility_margin_MiB=gpu_margin,last_scale_event=last_scale_event,resource_wait_deadline=resource_deadline,running=[dict(task=w['task'],gpu=w['gpu'],PID=w['process'].pid,admission_MiB=w['need']) for w in running],time=time.time()))
   state('evaluation',completed=done,expected=expected,reused=len(cached),new_completed=fresh)
  journal()
  try:
@@ -118,7 +136,11 @@ def run(command,state,PY):
     max_workers+=1;last_scale_event=time.time()
     save(f'audits/concurrency_recovery_{time.time_ns()}.json',dict(status='MEMORY_ADMITTED_RECOVERY',max_workers=max_workers,stable_interval_seconds=600,per_GPU_cap=2,measured_peak_and_reserve_admission_unchanged=True,time=time.time()))
     journal()
-   free,_=snapshot_memory(running);free={g:f-gpu_margin.get(g,0) for g,f in free.items()};host=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))/1024
+   free,_=snapshot_memory(running)
+   eligible={g:[need[t['branch']] for t in tasks if excluded_gpu.get(task_name(t))!=g] for g in free}
+   for event in stable_margin_recovery(free,gpu_margin,stable_observations,{w['gpu'] for w in running},time.time(),cooldown,eligible):
+    save(f"audits/stable_margin_recovery_{event['GPU']}_{time.time_ns()}.json",dict(status='PASS',**event,standard_reserve_unchanged=True,numerical_protocol_unchanged=True))
+   free={g:f-gpu_margin.get(g,0) for g,f in free.items()};host=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))/1024
    for g in sorted(free,key=free.get,reverse=True)*2:
     if not tasks or len(running)>=max_workers or sum(w['gpu']==g for w in running)>=2 or host<12000 or time.time()<cooldown.get(g,0):continue
     idx=next((i for i,t in enumerate(tasks) if need[t['branch']]<=free[g] and excluded_gpu.get(task_name(t))!=g),None)

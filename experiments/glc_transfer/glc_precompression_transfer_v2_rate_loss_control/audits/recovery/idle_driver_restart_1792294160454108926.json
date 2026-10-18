@@ -1,0 +1,95 @@
+{
+  "status": "PLANNED",
+  "PID": 1279202,
+  "previous_status": {
+    "status": "RUNNING",
+    "phase": "evaluation",
+    "PID": 1279202,
+    "time": 1792293856.770992,
+    "completed": 1147,
+    "expected": 2760,
+    "reused": 920,
+    "new_completed": 227
+  },
+  "previous_scheduler": {
+    "status": "RUNNING",
+    "completed": 1147,
+    "expected": 2760,
+    "reused": 920,
+    "new_completed": 227,
+    "peak_MiB": {
+      "A_original": 9458.0,
+      "v1_C_latent_P": 9484.0,
+      "H00_continue": 9484.0,
+      "H10_rate2": 9484.0,
+      "H01_dists025": 9484.0,
+      "H11_rate2_dists025": 9484.0
+    },
+    "device_peak_MiB": {
+      "A_original": 0,
+      "v1_C_latent_P": 0,
+      "H00_continue": 10012.0,
+      "H10_rate2": 10012.0,
+      "H01_dists025": 10012.0,
+      "H11_rate2_dists025": 10012.0
+    },
+    "admission_MiB": {
+      "A_original": 13319.4,
+      "v1_C_latent_P": 13353.2,
+      "H00_continue": 14000,
+      "H10_rate2": 14000,
+      "H01_dists025": 20160.0,
+      "H11_rate2_dists025": 14000
+    },
+    "max_workers": 2,
+    "per_GPU_cap": 2,
+    "reserve": "max(2048 MiB, total*0.10)",
+    "resource_preemptions": {
+      "ulong_4_H01_dists025_49": 1,
+      "ulong_5_H10_rate2_7": 1,
+      "ulong_5_H01_dists025_63": 1,
+      "ulong_5_H11_rate2_dists025_0": 1,
+      "ulong_5_H01_dists025_42": 1
+    },
+    "OOM_or_reference_retries": {
+      "ulong_5_H01_dists025_56": 1,
+      "ulong_5_H01_dists025_42": 1
+    },
+    "excluded_gpu": {
+      "ulong_4_H01_dists025_49": 7,
+      "ulong_5_H10_rate2_7": 7,
+      "ulong_5_H01_dists025_56": 5,
+      "ulong_5_H01_dists025_63": 4,
+      "ulong_5_H11_rate2_dists025_0": 5,
+      "ulong_5_H01_dists025_42": 6
+    },
+    "GPU_cooldown_until": {
+      "7": 1792294065.4665859,
+      "4": 1792294064.7310393,
+      "5": 1792294065.0988014
+    },
+    "GPU_volatility_margin_MiB": {
+      "5": 8192,
+      "6": 2048,
+      "7": 8192,
+      "4": 4437.0
+    },
+    "last_scale_event": 1792293795.8935075,
+    "running": [],
+    "time": 1792293856.7693532
+  },
+  "reason": "bounded recovery of extra GPU volatility margin; standard reserve and full measured-peak admission unchanged",
+  "policy_checks": {
+    "status": "PASS",
+    "CPU_only": true,
+    "stable_window_seconds": 300,
+    "maximum_range_MiB": 512,
+    "standard_reserve_and_task_peak_admission_unchanged": true,
+    "active_GPU_not_relaxed": true,
+    "cooldown_retained": true,
+    "unstable_and_insufficient_headroom_rejected": true,
+    "source_sha256": "ad21ccd62d3640e0beef17ab55b39b129d1e2ee3e0a0035edb308e7d0df547fe"
+  },
+  "training_repeated": false,
+  "other_processes_untouched": true
+}
