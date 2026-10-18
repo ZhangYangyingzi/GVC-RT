@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "checked": 1792304197.6355293,
+  "all_experiment_processes_exited": true,
+  "recorded_pids": [
+    "1591902",
+    "1581859",
+    "1579651",
+    "1582862",
+    "1586825",
+    "1594490",
+    "1586826",
+    "1588007",
+    "1595410",
+    "1590937",
+    "1589603",
+    "1585599",
+    "1593182",
+    "1578275",
+    "1590938",
+    "1584869",
+    "1588008",
+    "1596021",
+    "1581860",
+    "1595409",
+    "1578276",
+    "1589601",
+    "1587626",
+    "1579650",
+    "1591903",
+    "1586011",
+    "1586012",
+    "1589604",
+    "1593183",
+    "1594489",
+    "1585598",
+    "1584868",
+    "1579649",
+    "1593184",
+    "1587627",
+    "1582863",
+    "1581861",
+    "1589602",
+    "1593181",
+    "1578271",
+    "1578270"
+  ],
+  "process_check": {
+    "command": [
+      "ps",
+      "-p",
+      "1591902,1581859,1579651,1582862,1586825,1594490,1586826,1588007,1595410,1590937,1589603,1585599,1593182,1578275,1590938,1584869,1588008,1596021,1581860,1595409,1578276,1589601,1587626,1579650,1591903,1586011,1586012,1589604,1593183,1594489,1585598,1584868,1579649,1593184,1587627,1582863,1581861,1589602,1593181,1578271,1578270",
+      "-o",
+      "pid=,etime=,args="
+    ],
+    "exit_code": 1,
+    "output": ""
+  },
+  "GPU_resource_check": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,memory.free,memory.used,utilization.gpu",
+      "--format=csv,noheader,nounits"
+    ],
+    "exit_code": 0,
+    "output": "0, 40445, 1, 0\n1, 40445, 1, 0\n2, 40445, 1, 0\n3, 40445, 1, 0\n4, 19304, 21141, 100\n5, 9488, 30957, 100\n6, 28154, 12291, 100\n7, 18682, 21763, 0\n"
+  },
+  "completed_GPU_jobs": 39,
+  "all_final_worker_exit_codes_zero": true,
+  "independent_postflight": "manifests/independent_postflight_verification.json",
+  "real_local_rate_control": true,
+  "exact_experimental_test_pairs": 0,
+  "approximate_under_budget_test_pairs": 0,
+  "fair_test_comparison_available": false,
+  "independent_stable_benefit": "NOT_ESTABLISHED_NO_ELIGIBLE_RATE_MATCHED_TEST_PAIRS",
+  "stopped_as_registered": true,
+  "publication_before_postflight_update": {
+    "status": "PASS",
+    "push_success": true,
+    "commit": "2c5dc039007a3c2b5c23d8e1522b922f51f2455f",
+    "data_commit": "4dd5c8a2d83a733137b5cb1f398ce66e795c645d",
+    "remote_main": "2c5dc039007a3c2b5c23d8e1522b922f51f2455f",
+    "worktree": "/Huang_group/zyyz/home_dir/tmp/gvcrt-oracle-v2-publish-xahay6wf",
+    "repository": "ZhangYangyingzi/GVC-RT",
+    "time": 1792304133.624274,
+    "experiment_state": {
+      "status": "PASS",
+      "stage": "ALL_BOUNDED_TASKS_FINISHED",
+      "GPU_tasks_running": 0,
+      "completed_GPU_jobs": 39,
+      "failed_GPU_jobs": 0,
+      "stopping": {
+        "reason": "Fixed bounded validation schedule exhausted; no further search or tolerance relaxation",
+        "stage": "DONE"
+      },
+      "finished": 1792304111.4802942,
+      "publication": "see publication_status.json; final push performed after this report"
+    },
+    "original_dirty_worktree_untouched": true,
+    "excluded": "datasets, weights, caches, raw large binary artifacts; all server artifacts are indexed at completion",
+    "receipt_commit": "2c5dc039007a3c2b5c23d8e1522b922f51f2455f"
+  }
+}
