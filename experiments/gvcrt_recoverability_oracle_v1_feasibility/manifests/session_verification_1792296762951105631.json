@@ -1,0 +1,491 @@
+{
+  "verified_unix": 1792296759.3110182,
+  "state": "RUNNING_EXISTING_DRIVER_PRESERVED",
+  "driver": {
+    "pid": 1418490,
+    "launcher_pid": 1418489,
+    "command": [
+      "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+      "-B",
+      "-u",
+      "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/driver.py"
+    ]
+  },
+  "GPU": {
+    "command": [
+      "nvidia-smi"
+    ],
+    "exit_code": 0,
+    "output": "Sun Oct 18 12:12:39 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |\n|-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA A100-PCIE-40GB          Off |   00000000:0C:00.0 Off |                    0 |\n| N/A   45C    P0            168W /  250W |    2671MiB /  40960MiB |     66%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   1  NVIDIA A100-PCIE-40GB          Off |   00000000:0D:00.0 Off |                    0 |\n| N/A   30C    P0             39W /  250W |       4MiB /  40960MiB |      0%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   2  NVIDIA A100-PCIE-40GB          Off |   00000000:10:00.0 Off |                    0 |\n| N/A   30C    P0             36W /  250W |       4MiB /  40960MiB |      0%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   3  NVIDIA A100-PCIE-40GB          Off |   00000000:15:00.0 Off |                    0 |\n| N/A   28C    P0             34W /  250W |       4MiB /  40960MiB |      0%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   4  NVIDIA A100-PCIE-40GB          Off |   00000000:16:00.0 Off |                    0 |\n| N/A   73C    P0            245W /  250W |   39765MiB /  40960MiB |    100%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   5  NVIDIA A100-PCIE-40GB          Off |   00000000:19:00.0 Off |                    0 |\n| N/A   75C    P0            255W /  250W |   33706MiB /  40960MiB |    100%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   6  NVIDIA A100-PCIE-40GB          Off |   00000000:1D:00.0 Off |                    0 |\n| N/A   74C    P0            243W /  250W |   29959MiB /  40960MiB |    100%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n|   7  NVIDIA A100-PCIE-40GB          Off |   00000000:25:00.0 Off |                    0 |\n| N/A   74C    P0            261W /  250W |   30859MiB /  40960MiB |    100%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n                                                                                         \n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A   1460826      C   ...ing/miniconda3/envs/ship/bin/python       2662MiB |\n|    4   N/A  N/A   1367797      C   ...n/anaconda3/envs/pytorch/bin/python      14862MiB |\n|    4   N/A  N/A   1367799      C   ...n/anaconda3/envs/pytorch/bin/python       6264MiB |\n|    4   N/A  N/A   1395519      C   ...n/anaconda3/envs/pytorch/bin/python      18618MiB |\n|    5   N/A  N/A   1305636      C   ..._dir/.conda/envs/encodec/bin/python       2242MiB |\n|    5   N/A  N/A   1367801      C   ...n/anaconda3/envs/pytorch/bin/python      10092MiB |\n|    5   N/A  N/A   1367803      C   ...n/anaconda3/envs/pytorch/bin/python      20850MiB |\n|    5   N/A  N/A   1460865      C   ...e_dir/.conda/envs/gvc-rt/bin/python        496MiB |\n|    6   N/A  N/A   1369176      C   ...n/anaconda3/envs/pytorch/bin/python      20848MiB |\n|    6   N/A  N/A   1369178      C   ...n/anaconda3/envs/pytorch/bin/python       8556MiB |\n|    6   N/A  N/A   1460866      C   ...e_dir/.conda/envs/gvc-rt/bin/python        534MiB |\n|    7   N/A  N/A   1367805      C   ...n/anaconda3/envs/pytorch/bin/python       6262MiB |\n|    7   N/A  N/A   1367807      C   ...n/anaconda3/envs/pytorch/bin/python      24080MiB |\n|    7   N/A  N/A   1460867      C   ...e_dir/.conda/envs/gvc-rt/bin/python        496MiB |\n+-----------------------------------------------------------------------------------------+\n"
+  },
+  "processes": {
+    "command": [
+      "ps",
+      "-p",
+      "1418489,1418490,1457317,1457318,1457319",
+      "-o",
+      "pid,etime,args"
+    ],
+    "exit_code": 0,
+    "output": "    PID     ELAPSED COMMAND\n1418489       26:49 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/launch.py\n1418490       26:49 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/driver.py\n"
+  },
+  "receipt_counts": [
+    {
+      "kind": "baseline",
+      "status": "PASS",
+      "count": 8
+    },
+    {
+      "kind": "local",
+      "status": "PASS",
+      "count": 26
+    },
+    {
+      "kind": "noop",
+      "status": "PASS",
+      "count": 1
+    },
+    {
+      "kind": "repeat",
+      "status": "PASS",
+      "count": 8
+    }
+  ],
+  "artifact_validation": {
+    "status": "PASS",
+    "validated_receipts": 40,
+    "records": [
+      {
+        "id": "hevc_b_0_q2_baseline",
+        "status": "PASS",
+        "actual_bits": 241400,
+        "native_bits": 241320,
+        "effective_step_changes": []
+      },
+      {
+        "id": "hevc_b_0_q2_block0_f0.5",
+        "status": "PASS",
+        "actual_bits": 242584,
+        "native_bits": 242416,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1356201171875
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block0_f2",
+        "status": "PASS",
+        "actual_bits": 241904,
+        "native_bits": 241736,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block1_f0.5",
+        "status": "PASS",
+        "actual_bits": 241456,
+        "native_bits": 241288,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1331787109375
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block1_f2",
+        "status": "PASS",
+        "actual_bits": 242072,
+        "native_bits": 241904,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block2_f0.5",
+        "status": "PASS",
+        "actual_bits": 241832,
+        "native_bits": 241664,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.13330078125
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block2_f2",
+        "status": "PASS",
+        "actual_bits": 241440,
+        "native_bits": 241272,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_block3_f0.5",
+        "status": "PASS",
+        "actual_bits": 242264,
+        "native_bits": 242096,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1329345703125
+          }
+        ]
+      },
+      {
+        "id": "hevc_b_0_q2_repeat",
+        "status": "PASS",
+        "actual_bits": 241400,
+        "native_bits": 241320,
+        "effective_step_changes": []
+      },
+      {
+        "id": "hevc_b_0_q7_baseline",
+        "status": "PASS",
+        "actual_bits": 658464,
+        "native_bits": 658384,
+        "effective_step_changes": []
+      },
+      {
+        "id": "hevc_b_0_q7_repeat",
+        "status": "PASS",
+        "actual_bits": 658464,
+        "native_bits": 658384,
+        "effective_step_changes": []
+      },
+      {
+        "id": "mcljcv_0_q2_baseline",
+        "status": "PASS",
+        "actual_bits": 74928,
+        "native_bits": 74848,
+        "effective_step_changes": []
+      },
+      {
+        "id": "mcljcv_0_q2_repeat",
+        "status": "PASS",
+        "actual_bits": 74928,
+        "native_bits": 74848,
+        "effective_step_changes": []
+      },
+      {
+        "id": "mcljcv_0_q7_baseline",
+        "status": "PASS",
+        "actual_bits": 283560,
+        "native_bits": 283480,
+        "effective_step_changes": []
+      },
+      {
+        "id": "mcljcv_0_q7_repeat",
+        "status": "PASS",
+        "actual_bits": 283560,
+        "native_bits": 283480,
+        "effective_step_changes": []
+      },
+      {
+        "id": "ulong_0_q2_baseline",
+        "status": "PASS",
+        "actual_bits": 244912,
+        "native_bits": 244832,
+        "effective_step_changes": []
+      },
+      {
+        "id": "ulong_0_q2_repeat",
+        "status": "PASS",
+        "actual_bits": 244912,
+        "native_bits": 244832,
+        "effective_step_changes": []
+      },
+      {
+        "id": "ulong_0_q7_baseline",
+        "status": "PASS",
+        "actual_bits": 645584,
+        "native_bits": 645504,
+        "effective_step_changes": []
+      },
+      {
+        "id": "ulong_0_q7_repeat",
+        "status": "PASS",
+        "actual_bits": 645584,
+        "native_bits": 645504,
+        "effective_step_changes": []
+      },
+      {
+        "id": "uvg_holdout_2_q2_baseline",
+        "status": "PASS",
+        "actual_bits": 148432,
+        "native_bits": 148352,
+        "effective_step_changes": []
+      },
+      {
+        "id": "uvg_holdout_2_q2_block0_f0.5",
+        "status": "PASS",
+        "actual_bits": 148856,
+        "native_bits": 148688,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1337890625
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block0_f2",
+        "status": "PASS",
+        "actual_bits": 149040,
+        "native_bits": 148872,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block1_f0.5",
+        "status": "PASS",
+        "actual_bits": 148888,
+        "native_bits": 148720,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.133544921875
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block1_f2",
+        "status": "PASS",
+        "actual_bits": 149376,
+        "native_bits": 149208,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block2_f0.5",
+        "status": "PASS",
+        "actual_bits": 148744,
+        "native_bits": 148576,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1328125
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block2_f2",
+        "status": "PASS",
+        "actual_bits": 149296,
+        "native_bits": 149128,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block3_f0.5",
+        "status": "PASS",
+        "actual_bits": 148616,
+        "native_bits": 148448,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1328125
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_block3_f2",
+        "status": "PASS",
+        "actual_bits": 149280,
+        "native_bits": 149112,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_noop",
+        "status": "PASS",
+        "actual_bits": 148520,
+        "native_bits": 148352,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 1.0,
+            "effective_step_changed_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q2_repeat",
+        "status": "PASS",
+        "actual_bits": 148432,
+        "native_bits": 148352,
+        "effective_step_changes": []
+      },
+      {
+        "id": "uvg_holdout_2_q7_baseline",
+        "status": "PASS",
+        "actual_bits": 358840,
+        "native_bits": 358760,
+        "effective_step_changes": []
+      },
+      {
+        "id": "uvg_holdout_2_q7_block0_f0.5",
+        "status": "PASS",
+        "actual_bits": 359080,
+        "native_bits": 358912,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1337890625
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block0_f2",
+        "status": "PASS",
+        "actual_bits": 359816,
+        "native_bits": 359648,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block1_f0.5",
+        "status": "PASS",
+        "actual_bits": 360000,
+        "native_bits": 359832,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.133544921875
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block1_f2",
+        "status": "PASS",
+        "actual_bits": 359680,
+        "native_bits": 359512,
+        "effective_step_changes": [
+          {
+            "frame": 2,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block2_f0.5",
+        "status": "PASS",
+        "actual_bits": 359024,
+        "native_bits": 358856,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1328125
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block2_f2",
+        "status": "PASS",
+        "actual_bits": 360320,
+        "native_bits": 360152,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block3_f0.5",
+        "status": "PASS",
+        "actual_bits": 359288,
+        "native_bits": 359120,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 0.5,
+            "effective_step_changed_fraction": 0.1328125
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_block3_f2",
+        "status": "PASS",
+        "actual_bits": 360600,
+        "native_bits": 360432,
+        "effective_step_changes": [
+          {
+            "frame": 8,
+            "factor": 2.0,
+            "effective_step_changed_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "id": "uvg_holdout_2_q7_repeat",
+        "status": "PASS",
+        "actual_bits": 358840,
+        "native_bits": 358760,
+        "effective_step_changes": []
+      }
+    ],
+    "errors": [],
+    "dependency_source_changes": [],
+    "metric_weight_changes": [],
+    "scope": "Actual persisted stream bytes, source and tensor checksums, tensor domains, full causal independent decode receipts, temporal metric aggregation"
+  },
+  "duplicate_launcher_started": false,
+  "finalization": "Existing driver invokes finalize.py then publish.py after all stages; launcher preserves actual exit code in logs/driver_exit.json",
+  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES"
+}
