@@ -1,0 +1,358 @@
+{
+  "status": "PASS",
+  "job": {
+    "id": "5f0935179cfa80c22b9a",
+    "phase": "calibration",
+    "dataset": "mcljcv",
+    "qp": 8,
+    "plan": [
+      {
+        "frame": 8,
+        "y": 30,
+        "x": 56,
+        "h": 8,
+        "w": 8,
+        "factor": 0.5
+      }
+    ],
+    "kind": "candidate"
+  },
+  "job_sha256": "7e74ba1e1721712888ac5c55e5f8b54096172b58b39170b81448218a7537b198",
+  "attempt": 1,
+  "pid": 1586826,
+  "gpu": 7,
+  "start": 1792303606.9440362,
+  "result": {
+    "real_bytes": 49386,
+    "real_RANS_bytes": 49386,
+    "bits_per_frame": 24693.0,
+    "bpp": 0.011908275462962963,
+    "kbps": 740.79,
+    "rate_accounting_fps": 30.0,
+    "frames": 16,
+    "num_frames": 16,
+    "num_transitions": 15,
+    "LPIPS": 0.11372248595580459,
+    "DISTS": 0.08682125806808472,
+    "PSNR": 33.15342253363893,
+    "SSIM": 0.9898685328662395,
+    "MS_SSIM": 0.9465533830225468,
+    "FloLPIPS": 0.1216820240020752,
+    "PSNR_from_aggregate_MSE": 33.15342253363893,
+    "processing_canvas": [
+      1920,
+      1088
+    ],
+    "metric_crop": [
+      1920,
+      1080
+    ],
+    "ec_part": 1,
+    "identity_P": true,
+    "identity_P_exact": true,
+    "proxy_max_abs": 0.0,
+    "compression_hash_before": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "compression_hash_after": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "reconstruction_sha256": "7669ec1b6ca2c4d1c00121d84b70e5d27365aabad7c5daef21d19a96f51bec35",
+    "independent_decode_pass": true,
+    "state_sync_pass": true,
+    "real_RANS": true,
+    "bytes_consumed": 49386,
+    "bitstream_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v2_final_validation/artifacts/runs/5f0935179cfa80c22b9a/1/stream.gro",
+    "bitstream_sha256": "5b37a5e112740457b493ad9a7f29de79f5c6826959445b5d26d57bbd5680b206",
+    "feature_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v2_final_validation/artifacts/runs/5f0935179cfa80c22b9a/1/features.npz",
+    "feature_sha256": "205857e077c2e06ad9db9f1a98a85701f05cc9c18b450673754ce2b8da95a887",
+    "loaded_receiver_module_hashes": {
+      "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+      "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+    },
+    "native_bitstream_sha256": "b0f2e4c0596d34ce4763a72d5b39a487f0fbdf79cf7d1d1b5092a0d166d65106",
+    "actual_qps": [
+      8,
+      10,
+      8,
+      9,
+      8,
+      9,
+      8,
+      9,
+      8,
+      10,
+      8,
+      9,
+      8,
+      9,
+      8,
+      9
+    ],
+    "FID": null,
+    "FID_status": "NOT_COMPUTED_INSUFFICIENT_SAMPLES"
+  },
+  "rate": {
+    "actual_total_bits": 395088,
+    "native_codec_stream_bits": 394920,
+    "RANS_payload_bits": 394360,
+    "native_SPS_IP_header_bits": 560,
+    "control_header_bits": 168,
+    "actual_total_bpp": 0.011908275462962963,
+    "actual_total_kbps": 740.79
+  },
+  "timings": {
+    "encode_ms": 1125.656083226204,
+    "decode_ms": 807.5522556900978,
+    "paired_decode_ms": 1240.1422262191772,
+    "scope": "synchronized codec calls with read-only symbol observers; full wall time separate"
+  },
+  "wall_seconds": 23.57204829901457,
+  "tensor_artifacts": {
+    "2": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v2_final_validation/artifacts/runs/5f0935179cfa80c22b9a/1/frame02_encoder_symbols.npz",
+      "sha256": "89d92d1c54c2773c8e2a098338985105aef26f53ca8a4e70e647dd6a0fba1eb5",
+      "shapes": {
+        "y": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "original_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "effective_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "symbols": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "packed_0": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "packed_1": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "y_hat": [
+          1,
+          128,
+          68,
+          120
+        ]
+      }
+    },
+    "8": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v2_final_validation/artifacts/runs/5f0935179cfa80c22b9a/1/frame08_encoder_symbols.npz",
+      "sha256": "ab8c9220b511ff049a54ea9758d2deb426f9edc9fae54a6ee2b91c838ccfc974",
+      "shapes": {
+        "y": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "original_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "effective_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "symbols": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "packed_0": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "packed_1": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "y_hat": [
+          1,
+          128,
+          68,
+          120
+        ]
+      }
+    }
+  },
+  "decoder_symbol_checks": [
+    {
+      "role": 1,
+      "frame": 2,
+      "groups": [
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "22276bbeb82ccfd3744b6f056a3879812eb2a4f740edccc8f7ab4ad57bff089c",
+          "exact": true
+        },
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "f088adad98ec18dc70bc019afc67a8693eb1eb8dc3526e0abe581b3b90623e20",
+          "exact": true
+        }
+      ]
+    },
+    {
+      "role": 1,
+      "frame": 8,
+      "groups": [
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "7aa4a7bd98befadae5a64dc80870208161745bab054f18ec781a95334cd92afb",
+          "exact": true
+        },
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "4b140da9a78c422ff0d2e59306b02bfc0eef260641c9ead959f9baec8d91bdec",
+          "exact": true
+        }
+      ]
+    },
+    {
+      "role": 2,
+      "frame": 2,
+      "groups": [
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "22276bbeb82ccfd3744b6f056a3879812eb2a4f740edccc8f7ab4ad57bff089c",
+          "exact": true
+        },
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "f088adad98ec18dc70bc019afc67a8693eb1eb8dc3526e0abe581b3b90623e20",
+          "exact": true
+        }
+      ]
+    },
+    {
+      "role": 2,
+      "frame": 8,
+      "groups": [
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "7aa4a7bd98befadae5a64dc80870208161745bab054f18ec781a95334cd92afb",
+          "exact": true
+        },
+        {
+          "shape": [
+            1,
+            64,
+            68,
+            120
+          ],
+          "sha256": "4b140da9a78c422ff0d2e59306b02bfc0eef260641c9ead959f9baec8d91bdec",
+          "exact": true
+        }
+      ]
+    }
+  ],
+  "frozen_weight_checks": [
+    {
+      "role": 0,
+      "full_module_hashes": [
+        "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+        "cf4cd3255e1598aa14183dc21d0c211518ce7042f72bd6fc60329c63431d410f"
+      ],
+      "unchanged": true
+    },
+    {
+      "role": 1,
+      "full_module_hashes": [
+        "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+        "cf4cd3255e1598aa14183dc21d0c211518ce7042f72bd6fc60329c63431d410f"
+      ],
+      "unchanged": true
+    },
+    {
+      "role": 2,
+      "full_module_hashes": [
+        "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+        "cf4cd3255e1598aa14183dc21d0c211518ce7042f72bd6fc60329c63431d410f"
+      ],
+      "unchanged": true
+    }
+  ],
+  "reproducibility": null,
+  "standalone": null,
+  "reference_state_exact_all_P_frames": true,
+  "independent_decode": true,
+  "causal_suffix_reencoded": true,
+  "effective_torch_seed": 0,
+  "CUDA_peak_reserved_MiB": 5038.0,
+  "code_sha256": {
+    "src/verify_final.py": "9fd9250ef4417de38b0b342abe45f82f5d983e317c94d5303854749c0bfb1e40",
+    "src/worker.py": "9164e960264c0190599721c9024788b0f2bdfdf9f3d41ba6e52f29b6f413cb4a",
+    "src/base.py": "c40730ad5f340cb799d4bce5fec799cf1ba01926d7fcbbd3e320276409a8cf0c",
+    "src/launch.py": "b9136a70560ad28d262da55134885e28cf7430869f112df9a9cde8a147ff285a",
+    "src/decode_stream.py": "7c1b80f455f6b4fdae4dab497b19ac8c593d1cd1cb806d1e3b135621bd263c87",
+    "src/summarize.py": "40931745f3e7825fd30e9b3e9fecde69449ab7ccb2e4e4c4d71f662e6777d635",
+    "src/prepare.py": "a879dfe19ce0e67119f252bba95daea107090d30c5f36e979d64296fcf082d81",
+    "src/codec_control.py": "355e3a8e2ead5506bd9c353354726a54fb3528da55e58235990daa0d30c64743",
+    "src/publish.py": "b2e4e3aa094242074db514a2021d09324080684fc71cff8bd03417cabff43db7",
+    "src/driver.py": "87eb8fd30797bc7fe97ee3934491b8edb0c5e7004d22a16a100a057f3445842a",
+    "src/protocol.py": "43f97fc1e2aebae39ba172d325bf48d1f1b971da464b7bedfe399a3b282fbd8a"
+  },
+  "config_sha256": "200e18bcffa393a3578619440ce055cf65fcad8857df8c0ddbf0ea3aa263b9df"
+}

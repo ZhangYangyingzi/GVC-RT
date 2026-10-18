@@ -1,0 +1,92 @@
+{
+  "name": "gvcrt_recoverability_oracle_v2_final_validation",
+  "frames": 16,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "QPs": [
+    2,
+    7
+  ],
+  "blocks": [
+    {
+      "frame": 2,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 2,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    }
+  ],
+  "levels": [
+    1.0,
+    0.5,
+    2.0
+  ],
+  "q_floor": 0.5,
+  "force_zero_thres": 0.12,
+  "seed": 20261018,
+  "random_seeds": [
+    20261018,
+    20261019,
+    20261020
+  ],
+  "rate_tolerance_fraction": 0.005,
+  "rate_band": "[0.995*target,target], all control bytes charged; no over-budget comparison",
+  "exact_priority": true,
+  "maximum_base_q_new_plans_per_point": 3,
+  "global_q_offsets": [
+    -1,
+    0,
+    1
+  ],
+  "maximum_new_neighbor_q_plans_per_point": 2,
+  "maximum_new_GPU_jobs": 100,
+  "minimum_free_MiB": 7000,
+  "resource_wait_limit_seconds": 1800,
+  "GPU_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_workers_per_GPU": 1,
+  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
+  "training": false,
+  "weights_modified": false,
+  "objective": "calibration sequence LPIPS only",
+  "stability_gate": {
+    "minimum_independent_datasets": 2,
+    "LPIPS": 0.0001,
+    "DISTS": 0.0001,
+    "FloLPIPS": 0.0001
+  },
+  "approximate_comparison_claim": "under-budget paired measurements only; Oracle superiority over any other method additionally requires no more actual bits than that method",
+  "selection": "bounded joint search plus measured single candidates; no empty fallback; identical actual feasibility pool for B/C/D",
+  "stops": [
+    "no validated calibration candidate at a point: skip its independent strategies",
+    "no independent matched candidate after fixed QP trials: report invalid, do not relax tolerance",
+    "after fixed independent tests: stop regardless of quality; no further search",
+    "100 new GPU jobs or 1800 seconds no available authorized GPU: explicit failure"
+  ]
+}

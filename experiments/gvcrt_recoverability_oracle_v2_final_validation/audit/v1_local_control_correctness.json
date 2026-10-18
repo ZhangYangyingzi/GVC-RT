@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "real_local_rate_control": true,
+  "native_arbitrary_block_QP": false,
+  "experimental_stream_extension": true,
+  "pilot_jobs": [
+    "uvg_holdout_2_q2_noop",
+    "uvg_holdout_2_q2_block0_f0.5",
+    "uvg_holdout_2_q2_block0_f2"
+  ],
+  "checks": "native noop equivalence; all RANS-decoded symbols exact; all causal DPB features exact; independent persisted-stream decode; whole-model weight hashes unchanged; side info included in actual rate",
+  "standalone_decoder_without_source_video": true,
+  "standalone_decoder_without_encoder_captures": true,
+  "standalone_decoder_without_external_plan": true,
+  "standalone_reports": "manifests/standalone_decode/",
+  "standalone_process_exits": "logs/standalone_exits/",
+  "all_pilot_reconstructions_exact": true
+}

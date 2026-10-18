@@ -1,0 +1,24 @@
+{
+  "native_block_QP": false,
+  "local_control": "unchanged v1 dual-end prior-step override",
+  "native_global_control": "integer frame QP with inherited P shifts; no continuous external rate knob",
+  "fixed_control_bits": 80,
+  "per_decision_bits": 88,
+  "fixed_cost_constraint": "v1 cost+80 is physically correct, not removed",
+  "delta_formula": "native_target_bits + 80 + sum(single_delta_vs_empty_envelope); each single delta already contains its own 88 decision bits",
+  "joint_costs_not_assumed_additive": true,
+  "q_floor": 0.5,
+  "legal_levels": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "no_bitstream_edits": true,
+  "no_padding": true,
+  "tolerance": "[0.995*target,target], all control bytes charged; no over-budget comparison",
+  "tolerance_fraction": 0.005,
+  "tolerance_basis": "predeclared tight 0.5% maximum shortfall in actual bytes; no over-budget quality advantage is admitted, discrete RANS bytes and integer QPs prevent arbitrary exact tuning",
+  "exact_results_separate": true,
+  "transfer_to_neighbor_q": "additive rate surrogate only; each actual candidate re-encoded and must pass actual budget",
+  "all_fields_charged": true
+}

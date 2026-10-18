@@ -1,0 +1,725 @@
+{
+  "registered_config_sha256": "200e18bcffa393a3578619440ce055cf65fcad8857df8c0ddbf0ea3aa263b9df",
+  "frozen_before_test_encoding": true,
+  "time": 1792303759.912956,
+  "policies": [
+    {
+      "point": "uvg_holdout_q2",
+      "dataset": "uvg_holdout",
+      "base_qp": 2,
+      "target_bits": 148352,
+      "importance": [
+        0.011486497707664967,
+        0.012160595506429672,
+        0.011995681561529636,
+        0.01509291771799326
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "uvg_holdout_q7",
+      "dataset": "uvg_holdout",
+      "base_qp": 7,
+      "target_bits": 358760,
+      "importance": [
+        0.011486497707664967,
+        0.012160595506429672,
+        0.011995681561529636,
+        0.01509291771799326
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "hevc_b_q2",
+      "dataset": "hevc_b",
+      "base_qp": 2,
+      "target_bits": 241320,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "hevc_b_q7",
+      "dataset": "hevc_b",
+      "base_qp": 7,
+      "target_bits": 658384,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 3,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "D_oracle",
+      "seed": null,
+      "calibration_choice": {
+        "encoding_key": "64d3566bff768df5fb0b",
+        "point": "hevc_b_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 657408,
+        "target_bits": 658384,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.12681594723835588,
+        "DISTS": 0.08919985219836235,
+        "FloLPIPS": 0.14397448350985845,
+        "delta_lpips": -0.00027454132214188576,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/hevc_b_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.09241648763418198
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "minimum measured joint calibration LPIPS in the bounded verified candidate pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "hevc_b_q7",
+      "dataset": "hevc_b",
+      "base_qp": 7,
+      "target_bits": 658384,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 3,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "C_temporal_or_content_heuristic",
+      "seed": null,
+      "calibration_choice": {
+        "encoding_key": "64d3566bff768df5fb0b",
+        "point": "hevc_b_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 657408,
+        "target_bits": 658384,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.12681594723835588,
+        "DISTS": 0.08919985219836235,
+        "FloLPIPS": 0.14397448350985845,
+        "delta_lpips": -0.00027454132214188576,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/hevc_b_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.09241648763418198
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "fixed temporal RGB importance score",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "hevc_b_q7",
+      "dataset": "hevc_b",
+      "base_qp": 7,
+      "target_bits": 658384,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 3,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261018,
+      "calibration_choice": {
+        "encoding_key": "64d3566bff768df5fb0b",
+        "point": "hevc_b_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 657408,
+        "target_bits": 658384,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.12681594723835588,
+        "DISTS": 0.08919985219836235,
+        "FloLPIPS": 0.14397448350985845,
+        "delta_lpips": -0.00027454132214188576,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/hevc_b_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.09241648763418198
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "hevc_b_q7",
+      "dataset": "hevc_b",
+      "base_qp": 7,
+      "target_bits": 658384,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 3,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261019,
+      "calibration_choice": {
+        "encoding_key": "64d3566bff768df5fb0b",
+        "point": "hevc_b_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 657408,
+        "target_bits": 658384,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.12681594723835588,
+        "DISTS": 0.08919985219836235,
+        "FloLPIPS": 0.14397448350985845,
+        "delta_lpips": -0.00027454132214188576,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/hevc_b_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.09241648763418198
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "hevc_b_q7",
+      "dataset": "hevc_b",
+      "base_qp": 7,
+      "target_bits": 658384,
+      "importance": [
+        0.09241648763418198,
+        0.08386222273111343,
+        0.10123386979103088,
+        0.15318308770656586
+      ],
+      "pool_size": 3,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261020,
+      "calibration_choice": {
+        "encoding_key": "1deafa7398425e9384dc",
+        "point": "hevc_b_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 8,
+            "y": 30,
+            "x": 56,
+            "h": 8,
+            "w": 8,
+            "factor": 2.0
+          }
+        ],
+        "bits": 658368,
+        "target_bits": 658384,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.12699433416128159,
+        "DISTS": 0.08942408487200737,
+        "FloLPIPS": 0.14377753883600236,
+        "delta_lpips": -9.615439921617508e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/hevc_b_0_q7_block3_f2.json",
+        "rejection": null,
+        "heuristic_score": -0.15318308770656586
+      },
+      "frozen_plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "mcljcv_q2",
+      "dataset": "mcljcv",
+      "base_qp": 2,
+      "target_bits": 74848,
+      "importance": [
+        0.01302099134773016,
+        0.012941446155309677,
+        0.013139073736965656,
+        0.01302290614694357
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "mcljcv_q7",
+      "dataset": "mcljcv",
+      "base_qp": 7,
+      "target_bits": 283480,
+      "importance": [
+        0.01302099134773016,
+        0.012941446155309677,
+        0.013139073736965656,
+        0.01302290614694357
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "ulong_q2",
+      "dataset": "ulong",
+      "base_qp": 2,
+      "target_bits": 244832,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 0,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "no_feasible_candidate",
+      "strategy": null,
+      "reason": "No measured nonempty calibration plan matched the predeclared actual-rate band after bounded joint/global-QP search"
+    },
+    {
+      "point": "ulong_q7",
+      "dataset": "ulong",
+      "base_qp": 7,
+      "target_bits": 645504,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 2,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "D_oracle",
+      "seed": null,
+      "calibration_choice": {
+        "encoding_key": "d485aa66feb2e470b37d",
+        "point": "ulong_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 645040,
+        "target_bits": 645504,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.11372045008465648,
+        "DISTS": 0.04464989900588989,
+        "FloLPIPS": 0.10125524948040644,
+        "delta_lpips": -7.529929280281067e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/ulong_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.012694194912910461
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "minimum measured joint calibration LPIPS in the bounded verified candidate pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "ulong_q7",
+      "dataset": "ulong",
+      "base_qp": 7,
+      "target_bits": 645504,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 2,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "C_temporal_or_content_heuristic",
+      "seed": null,
+      "calibration_choice": {
+        "encoding_key": "d485aa66feb2e470b37d",
+        "point": "ulong_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 645040,
+        "target_bits": 645504,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.11372045008465648,
+        "DISTS": 0.04464989900588989,
+        "FloLPIPS": 0.10125524948040644,
+        "delta_lpips": -7.529929280281067e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/ulong_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.012694194912910461
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "fixed temporal RGB importance score",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "ulong_q7",
+      "dataset": "ulong",
+      "base_qp": 7,
+      "target_bits": 645504,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 2,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261018,
+      "calibration_choice": {
+        "encoding_key": "d485aa66feb2e470b37d",
+        "point": "ulong_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 645040,
+        "target_bits": 645504,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.11372045008465648,
+        "DISTS": 0.04464989900588989,
+        "FloLPIPS": 0.10125524948040644,
+        "delta_lpips": -7.529929280281067e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/ulong_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.012694194912910461
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "ulong_q7",
+      "dataset": "ulong",
+      "base_qp": 7,
+      "target_bits": 645504,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 2,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261019,
+      "calibration_choice": {
+        "encoding_key": "d485aa66feb2e470b37d",
+        "point": "ulong_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 645040,
+        "target_bits": 645504,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.11372045008465648,
+        "DISTS": 0.04464989900588989,
+        "FloLPIPS": 0.10125524948040644,
+        "delta_lpips": -7.529929280281067e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/ulong_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.012694194912910461
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    },
+    {
+      "point": "ulong_q7",
+      "dataset": "ulong",
+      "base_qp": 7,
+      "target_bits": 645504,
+      "importance": [
+        0.012694194912910461,
+        0.005631351377815008,
+        0.049333080649375916,
+        0.021585220471024513
+      ],
+      "pool_size": 2,
+      "calibration_only": true,
+      "independent_test_metrics_used": false,
+      "status": "FROZEN",
+      "strategy": "B_random",
+      "seed": 20261020,
+      "calibration_choice": {
+        "encoding_key": "d485aa66feb2e470b37d",
+        "point": "ulong_q7",
+        "qp": 7,
+        "plan": [
+          {
+            "frame": 2,
+            "y": 8,
+            "x": 8,
+            "h": 8,
+            "w": 8,
+            "factor": 0.5
+          }
+        ],
+        "bits": 645040,
+        "target_bits": 645504,
+        "actual_rate_matched": true,
+        "exact_rate": false,
+        "LPIPS": 0.11372045008465648,
+        "DISTS": 0.04464989900588989,
+        "FloLPIPS": 0.10125524948040644,
+        "delta_lpips": -7.529929280281067e-05,
+        "receipt_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/ulong_0_q7_block0_f0.5.json",
+        "rejection": null,
+        "heuristic_score": 0.012694194912910461
+      },
+      "frozen_plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ],
+      "test_global_qps": [
+        6,
+        7,
+        8
+      ],
+      "algorithm": "uniform fixed-seed sample from the identical actual-feasible calibration pool",
+      "global_optimal_codec_allocation": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "gvcrt_recoverability_oracle_v2_final_validation",
+  "status": "PASS",
+  "config": "configs/experiment.json",
+  "config_sha256": "200e18bcffa393a3578619440ce055cf65fcad8857df8c0ddbf0ea3aa263b9df",
+  "videos": "manifests/videos.json",
+  "videos_sha256": "9f3c09a926adb31f4964eeb71913c6b45f39eadfdec8bf146a389bde324f2a46",
+  "calibration": "v1 first16 frames of first inherited video in each dataset",
+  "test": "first16 frames of second inherited video in each dataset",
+  "QP": [
+    2,
+    7
+  ],
+  "frozen_before_new_GPU_jobs": true,
+  "independent_test": true,
+  "training_steps": 0,
+  "v1_read_only": true,
+  "maximum_new_GPU_jobs": 100,
+  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
+  "new_GPU_jobs": 39,
+  "new_successful_jobs": 39,
+  "final_failed_or_missing_jobs": 0,
+  "rate_matching": "oracle/rate_allocation/rate_matching_status.json",
+  "independent_stability": "metrics/independent_stability_status.json",
+  "real_local_rate_control": true,
+  "exact_experimental_test_pairs": 0,
+  "approximate_under_budget_test_pairs": 0,
+  "stable_on_all_preregistered_points": false
+}

@@ -1,0 +1,13 @@
+$ git fetch origin main
+From github-zyyz:ZhangYangyingzi/GVC-RT
+ * branch                main       -> FETCH_HEAD
+
+$ git worktree add --no-checkout --detach /Huang_group/zyyz/home_dir/tmp/gvcrt-oracle-v2-publish-xahay6wf origin/main
+Preparing worktree (detached HEAD e1e6cb208)
+
+$ git read-tree HEAD
+
+$ git sparse-checkout init --cone
+
+$ git sparse-checkout set experiments/gvcrt_recoverability_oracle_v2_final_validation
+
