@@ -1,7 +1,6 @@
 {
-  "checkpoint_only": true,
-  "failed_tasks": [],
-  "previous_failed_attempts": [
+  "final_failed_tasks": [],
+  "recovered_attempts": [
     {
       "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/failed_attempts/smoke_external_OOM.json",
       "record": {
@@ -25,6 +24,24 @@
         "push_success": false,
         "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/publish.py\", line 75, in <module>\n    try:main(args.checkpoint)\n        ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/publish.py\", line 44, in main\n    assert changed and all(p.startswith(relative+'/') for p in changed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
         "time": 1792295848.194421
+      }
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/failed_attempts/uvg_holdout_2_q2_C_temporal_RGB_1494300.json",
+      "record": {
+        "status": "FAILED",
+        "job": {
+          "id": "uvg_holdout_2_q2_C_temporal_RGB",
+          "kind": "allocation",
+          "dataset": "uvg_holdout",
+          "qp": 2,
+          "plan": [],
+          "strategy": "C_temporal_RGB",
+          "baseline_id": "uvg_holdout_2_q2_baseline"
+        },
+        "gpu": 5,
+        "pid": 1494300,
+        "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/worker.py\", line 87, in <module>\n    try:run(job,a.gpu)\n        ^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/worker.py\", line 22, in run\n    result,fr=rt.run(Frames(),job['qp'],stream,features,recon_dir=recdir)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/codec_control.py\", line 52, in run\n    return out\n               \n  File \"/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py\", line 100, in frame_metrics\n    \"DISTS\": float(quality[1](output, target)),\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py\", line 87, in forward\n    feats0 = self.forward_once(x)\n             ^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py\", line 71, in forward_once\n    h = self.stage2(h)\n        ^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/container.py\", line 250, in forward\n    input = module(input)\n            ^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py\", line 24, in forward\n    out = F.conv2d(input, self.filter, stride=self.stride, padding=self.padding, groups=input.shape[1])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 128.00 MiB. GPU 0 has a total capacity of 39.50 GiB of which 87.56 MiB is free. Process 1367803 has 20.36 GiB memory in use. Process 1367801 has 9.86 GiB memory in use. Process 1493933 has 2.23 GiB memory in use. Process 1493937 has 2.46 GiB memory in use. Process 1493929 has 2.23 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 89.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
       }
     }
   ]

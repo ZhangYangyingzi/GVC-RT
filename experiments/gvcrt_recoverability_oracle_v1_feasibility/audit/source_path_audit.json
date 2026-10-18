@@ -1,5 +1,5 @@
 {
-  "status": "STATIC_AUDIT_COMPLETE_DYNAMIC_TEST_PENDING",
+  "status": "PASS_REAL_LOCAL_CONTROL",
   "git_HEAD": "29ef0643b7de391e9e756a4802a3018185bb5bed",
   "source_files": {
     "/Huang_group/zyyz/Projects/GVC-RT/src/models/video_model_gvcrt.py": {
@@ -261,5 +261,108 @@
     },
     "input_preprocessing": "Inherited canonical full-range RGB frames /255 in float32; cast float16, replicate bottom padding to1088, map 2*x-1; metrics float32 native1920x1080 crop before PNG export; 16 frames/15 adjacent transitions",
     "export_support": "Encoder y, original/effective quant_step, y_hat and full/packed int8 symbols captured read-only at frames2 and8; original and modified ROI symbols stored as JSON; no official latent-export API is assumed."
-  }
+  },
+  "real_local_control_validated": true,
+  "stock_block_QP_API": false,
+  "stock_decoder_compatible": false,
+  "full_causal_RANS_validation": true,
+  "actual_observed_tensors": {
+    "2": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/artifacts/runs/ulong_0_q2_baseline/frame02_encoder_symbols.npz",
+      "sha256": "4f99be73faac0af14a578e1843c4c854f617ed805bf9c23ec869d2b78e08e56d",
+      "shapes": {
+        "y": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "original_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "effective_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "symbols": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "packed_0": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "packed_1": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "y_hat": [
+          1,
+          128,
+          68,
+          120
+        ]
+      }
+    },
+    "8": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/artifacts/runs/ulong_0_q2_baseline/frame08_encoder_symbols.npz",
+      "sha256": "1431e85bb2de7a4e28517c5182c01f9fad9f3e63c79f1659de70cbd46f089cea",
+      "shapes": {
+        "y": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "original_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "effective_q": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "symbols": [
+          1,
+          128,
+          68,
+          120
+        ],
+        "packed_0": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "packed_1": [
+          1,
+          64,
+          68,
+          120
+        ],
+        "y_hat": [
+          1,
+          128,
+          68,
+          120
+        ]
+      }
+    }
+  },
+  "source_changes_observed": []
 }
