@@ -3238,3 +3238,39 @@ $ git sparse-checkout set experiments/gvcrt_recoverability_oracle_v1_feasibility
 
 $ git merge-base --is-ancestor ceb9316343063a98bd6fc98ae764e8e3d3a14d28 origin/main
 
+$ git add -- experiments/gvcrt_recoverability_oracle_v1_feasibility
+
+$ git diff --cached --name-only --no-renames
+experiments/gvcrt_recoverability_oracle_v1_feasibility/README.md
+experiments/gvcrt_recoverability_oracle_v1_feasibility/experiment_manifest.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/GPU_task_exit_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/completion_publication_20261018.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/driver_exit.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/driver_resumed.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/publication.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/completion_verification.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/publication_inventory.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/rate_allocation/rate_matching_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/publication_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/run_status.json
+
+$ git commit -m Add GVC-RT recoverability oracle feasibility experiment
+[detached HEAD 77d4483fe] Add GVC-RT recoverability oracle feasibility experiment
+ 12 files changed, 1292 insertions(+), 23 deletions(-)
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/completion_publication_20261018.log
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/driver_exit.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/completion_verification.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/rate_allocation/rate_matching_status.json
+
+$ git push origin HEAD:refs/heads/main
+To github-zyyz:ZhangYangyingzi/GVC-RT.git
+   ceb931634..77d4483fe  HEAD -> main
+
+$ git rev-parse HEAD
+77d4483fe4d2ee3bdf35129a12aa0108862d2dff
+
+$ git ls-remote --heads origin main
+77d4483fe4d2ee3bdf35129a12aa0108862d2dff	refs/heads/main
+
+$ git merge-base --is-ancestor 77d4483fe4d2ee3bdf35129a12aa0108862d2dff 77d4483fe4d2ee3bdf35129a12aa0108862d2dff
+
