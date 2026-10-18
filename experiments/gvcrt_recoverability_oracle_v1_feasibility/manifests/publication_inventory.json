@@ -2,14 +2,21 @@
   "checkpoint_only": false,
   "experiment_state": {
     "status": "PASS",
-    "stage": "EXPERIMENT_COMPLETE_PUBLICATION_PENDING",
+    "stage": "COMPLETE_PUSHED",
     "completed_jobs": 161,
     "failed_jobs": 0,
     "GPU_tasks_running": 0,
     "real_local_rate_intervention": true,
     "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
     "integrity": "manifests/integrity.json",
-    "finished": 1792301439.7290323
+    "finished": 1792301439.7290323,
+    "publication_status": "PASS",
+    "verified_data_commit": "e11bd4f75a33a4fd8eb4344a3c6f7aa2039d9c43",
+    "verified_push_commit": "ceb9316343063a98bd6fc98ae764e8e3d3a14d28",
+    "completion_verification": "manifests/completion_verification.json",
+    "all_final_worker_exit_codes_zero": true,
+    "fair_equal_rate_experimental_comparison_available": false,
+    "rate_matching_status": "oracle/rate_allocation/rate_matching_status.json"
   },
   "files": [
     {
@@ -19,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4945,
-      "sha256": "edda10b0fa4f51a4300a266b7b19e4405eb4915743854f220893ed0a126d5e89"
+      "bytes": 5484,
+      "sha256": "6c4f2465ca0ce4bff9a4f9303280b8b1db4d260bd43f1092bce6507c52b5997c"
     },
     {
       "path": "audit/decoder_causality_audit.md",
@@ -154,8 +161,8 @@
     },
     {
       "path": "experiment_manifest.json",
-      "bytes": 1394,
-      "sha256": "56b42e8ed78082ad41dc40e2bd66d5e0d481df5ec71dd5228d7370dc772b2543"
+      "bytes": 1675,
+      "sha256": "3a189547fe03dec28f316699c9afd820a6dc353b2d5954fc0ee42f1532a7c70e"
     },
     {
       "path": "logs/GPU_resources.jsonl",
@@ -164,8 +171,8 @@
     },
     {
       "path": "logs/GPU_task_exit_status.json",
-      "bytes": 31931,
-      "sha256": "191201fa7b11903082a30066c9d293998fa797a2eda9aa4b6fcbcfc1b1e9ac2f"
+      "bytes": 54374,
+      "sha256": "f4f240c179b888c87db0d9285528f942a35d521804381018fdf5ffe579731bc9"
     },
     {
       "path": "logs/artifact_validation_checkpoint.log",
@@ -198,6 +205,11 @@
       "sha256": "917c86fd22a1e304337c5261a35533c10b27193e9bc3da5d20be7f7d3661e861"
     },
     {
+      "path": "logs/completion_publication_20261018.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "path": "logs/control_symbol_validation_checkpoint.log",
       "bytes": 96,
       "sha256": "e4686711cd8246dee17f951f46897e0c3004f3abd40ce7d8115cb6d5419cca7f"
@@ -218,9 +230,14 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "logs/driver_exit.json",
+      "bytes": 285,
+      "sha256": "db39e1187ada3f31bf11bd56abe585699f842c1b50df6b64bdf558e5379a5334"
+    },
+    {
       "path": "logs/driver_resumed.log",
-      "bytes": 35,
-      "sha256": "a79eaf3db78abebcf7f86d90d87c4fa6a08476d1baf787c7b04d07e1868983a5"
+      "bytes": 100,
+      "sha256": "399c0961eb20296a9489e67863711bcba7525fef7d0fe432380bd7169dfd56ba"
     },
     {
       "path": "logs/failed_attempts/publication_sparse_index.log.gz",
@@ -664,8 +681,8 @@
     },
     {
       "path": "logs/publication.log",
-      "bytes": 156131,
-      "sha256": "244a110ce5fa3e6dc7a6af164679074f9d9fe0d5a8ec1336d5a7ebe3974c3ff3"
+      "bytes": 346481,
+      "sha256": "ad902d1e3f71239beae07f074861071d7a7684fbe99565044322105555c20d96"
     },
     {
       "path": "logs/publication_failure.json",
@@ -1986,6 +2003,11 @@
       "path": "manifests/commands/uvg_holdout_2_q7_repeat.json",
       "bytes": 965,
       "sha256": "62d75900c069321dd04eef35047da2b24cc09970c5dc4562593f6b17fecdc0ea"
+    },
+    {
+      "path": "manifests/completion_verification.json",
+      "bytes": 876,
+      "sha256": "5f50c8ac0ad61750937bd345753a87a6a2c6e6e60cc41a28e1ad1215fe7fa22b"
     },
     {
       "path": "manifests/control_symbol_validation.json",
@@ -7628,6 +7650,11 @@
       "sha256": "a12fbdd60022a6897fe02b1ea864260a76d27fab34228395b7d68d06509c9240"
     },
     {
+      "path": "oracle/rate_allocation/rate_matching_status.json",
+      "bytes": 586,
+      "sha256": "9ca6fcf654595d75345ec4e4de18afc37094e0b628f511f52fddd98b795d8b7e"
+    },
+    {
       "path": "oracle/rate_allocation/selection_manifest.json",
       "bytes": 22007,
       "sha256": "a446104e738dd05b4d8f8bc5a9743321c81c7116d2bb10745d392165f25671c2"
@@ -7824,13 +7851,13 @@
     },
     {
       "path": "publication_status.json",
-      "bytes": 1631,
-      "sha256": "f8550347a830219f6e4b7bf076fdcc1fd0014e083a3290ca817e7dd93934d5d3"
+      "bytes": 957,
+      "sha256": "9fde238584901f59e3e7ffd0b45caed82dc03486f00b7ecfcd6fe69896c0891a"
     },
     {
       "path": "run_status.json",
-      "bytes": 311,
-      "sha256": "c74d9d54680b977f7bad3e2c0d745a510075f60098f006e430ff5f28dd61c7bd"
+      "bytes": 714,
+      "sha256": "d707fb1ba65511df6c6a261d9b0a409e82095ea953452c111ead1b4a51842c15"
     },
     {
       "path": "src/audit_paths.py",
