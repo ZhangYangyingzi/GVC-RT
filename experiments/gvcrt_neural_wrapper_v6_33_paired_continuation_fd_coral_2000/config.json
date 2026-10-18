@@ -1,0 +1,519 @@
+{
+  "schema": "v633",
+  "branch": null,
+  "source_step": 1000,
+  "source_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "seed": 20261024,
+  "updates": 1000,
+  "checkpoint_steps": [
+    1000,
+    1001,
+    1250,
+    1500,
+    1750,
+    2000
+  ],
+  "train_fit_steps": [],
+  "lambda_proxy": 0.01,
+  "force_zero_thres": 0.12,
+  "objective": "B:C1; C:C1+fixed lambda_FD*FD; D:C1+fixed alpha_mu*mean+alpha_cov*CORAL",
+  "optimizer": {
+    "bridge_lr": 6e-06,
+    "generator_lr": 1e-06,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "grad_clip": 1.0
+  },
+  "fresh_optimizer": false,
+  "restore_source_optimizer": true,
+  "clip_length": 64,
+  "crop": 256,
+  "batch": 1,
+  "external_qps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "primary_checkpoint": 2000,
+  "domain_seed": 20261024,
+  "fixed_report_steps": [
+    2000
+  ],
+  "lambda_dists": 0.5,
+  "branches": [
+    "B_C1_lr2",
+    "C_C1_lr2_FD",
+    "D_C1_lr2_mean_CORAL"
+  ],
+  "P_targets_per_update": 15,
+  "source_experiment": "v632 B and v632b C/D respective training step1000",
+  "cleaned_original_ULong_count": 1020,
+  "exclude_historical_test_identities": true,
+  "methods": [
+    "original",
+    "B1_initial",
+    "B_C1_lr2_1000",
+    "C_C1_lr2_FD_1000",
+    "D_C1_lr2_mean_CORAL_1000",
+    "B_C1_lr2_2000",
+    "C_C1_lr2_FD_2000",
+    "D_C1_lr2_mean_CORAL_2000"
+  ],
+  "expected_points": 4094,
+  "training_plan_reused": true,
+  "training_plan": "plans/continuation.json",
+  "target_positions": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "IPs": [
+    -1
+  ],
+  "calibration_seed": 20261029,
+  "lambda_rec": 0.1383589248954108,
+  "gradient_eps": 1e-12,
+  "conditional_channels": 1024,
+  "conditional_capture": "recon_generation_net.mlp[0] forward-pre-hook: pixel_unshuffle(decoded P feature,2)",
+  "source_shared_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "historical_expected_new_points": 0,
+  "reconstruction_unit_scale": 4096.0,
+  "adversarial_unit_scale": 4096.0,
+  "text_shard_limit_bytes": 524288,
+  "frozen_wrapper": true,
+  "trainable_modules": [
+    "bridge",
+    "generator"
+  ],
+  "gradient_zero_threshold": 1e-12,
+  "lambda_stat": 0.038636700918173825,
+  "no_discriminator": true,
+  "stat_feature_indices": [
+    2,
+    3,
+    4
+  ],
+  "stat_feature_channels": [
+    128,
+    256,
+    512
+  ],
+  "stat_ddof": 0,
+  "stat_denominator_epsilon": 1e-06,
+  "stat_unit_scale": 4096.0,
+  "rho_cal": 0.1,
+  "calibration_eps": 1e-12,
+  "calibration_windows": 40,
+  "seed_global": 20261032,
+  "latest_every": 1,
+  "expected": {
+    "committed_updates": 4000,
+    "new_committed_updates": 2000,
+    "prefill": 1000,
+    "calibration": 40,
+    "logical_points": 3312,
+    "new_encodes": 1196,
+    "historical_encodes": 2116,
+    "baseline": 920
+  },
+  "D_updates": 0,
+  "optimizer_effective": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_max_norm": 1.0
+  },
+  "beta_ema": 0.95,
+  "feature_dimension": 2048,
+  "training_ddof": 0,
+  "evaluation_ddof": 1,
+  "training_epsilon_multiplier": 0.0001,
+  "distribution_backward_scale": 4096,
+  "reference_commit": "6bd337cff6b15a20891636003cfbcef65456b935",
+  "actual_HEAD": "7589f4438b342a84283fed581d677eb5f1f1974c",
+  "branch_lrs": {
+    "B_C1_lr2": [
+      6e-06,
+      1e-06
+    ],
+    "C_C1_lr2_FD": [
+      6e-06,
+      1e-06
+    ],
+    "D_C1_lr2_mean_CORAL": [
+      6e-06,
+      1e-06
+    ]
+  },
+  "experiment": "gvcrt_neural_wrapper_v6_33_paired_continuation_fd_coral_2000",
+  "native_auxiliary_geometry": true,
+  "historical_source": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32_learning_rate_fd_coral_control",
+  "distribution_backend": "float64_cholesky_cross_svd",
+  "branch_sources": {
+    "B_C1_lr2": {
+      "branch": "B_C1_lr2",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32_learning_rate_fd_coral_control/branches/B_C1_lr2/checkpoints/adaptation_step_1000.pt",
+      "sha256": "88a1443cb7c239c568b2303420b2d7700e570f6f24b5836a97d7a073067be007",
+      "old_signature": "b3a259b54439163d0d9f38bc8ab796add7d35c4804379233924b30642d4ebad2",
+      "keys": [
+        "schema",
+        "branch",
+        "source_step",
+        "adaptation_step",
+        "committed_optimizer_updates",
+        "replay_cursor",
+        "signature",
+        "config_sha256",
+        "protocol_sha256",
+        "plan_sha256",
+        "source_checkpoint_sha256",
+        "wrapper",
+        "bridge",
+        "generator",
+        "optimizer",
+        "crop_rng",
+        "global_rng",
+        "visits",
+        "observed",
+        "EMA_status",
+        "EMA_reason",
+        "frozen_hashes",
+        "last_receipt"
+      ],
+      "adaptation_step": 1000,
+      "optimizer_steps": [
+        1000.0
+      ],
+      "param_groups": [
+        {
+          "name": "bridge",
+          "lr": 6e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        },
+        {
+          "name": "generator",
+          "lr": 1e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        }
+      ],
+      "EMA_counters": {},
+      "frozen_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+        "quality": [
+          "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+          "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+        ]
+      },
+      "model_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "5971374a062daff1955eec203644eafa1a480841af0f72543d56f1329e4b0b82",
+        "generator": "5ce9adbcf597961cae784877afa53962fc000c6590add82e1f23f57774a971ce"
+      },
+      "buffers_stored_explicitly": false
+    },
+    "C_C1_lr2_FD": {
+      "branch": "C_C1_lr2_FD",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/C_C1_lr2_FD/checkpoints/adaptation_step_1000.pt",
+      "sha256": "1688c00d79404332d31b35ab45a503b64b0a0c9907bcb198ab34a5798af5fa5c",
+      "old_signature": "0bd770dc8c99171fda32f52b65cddcfc495d631c6f4bdf543e70e3dd68e1a81a",
+      "keys": [
+        "schema",
+        "branch",
+        "source_step",
+        "adaptation_step",
+        "committed_optimizer_updates",
+        "replay_cursor",
+        "signature",
+        "config_sha256",
+        "protocol_sha256",
+        "plan_sha256",
+        "source_checkpoint_sha256",
+        "calibration_sha256",
+        "seed_index_sha256",
+        "wrapper",
+        "bridge",
+        "generator",
+        "optimizer",
+        "crop_rng",
+        "global_rng",
+        "buffers",
+        "visits",
+        "EMA",
+        "frozen_hashes",
+        "last_receipt"
+      ],
+      "adaptation_step": 1000,
+      "optimizer_steps": [
+        1000.0
+      ],
+      "param_groups": [
+        {
+          "name": "bridge",
+          "lr": 6e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        },
+        {
+          "name": "generator",
+          "lr": 1e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        }
+      ],
+      "EMA_counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      },
+      "frozen_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+        "quality": [
+          "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+          "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+        ]
+      },
+      "model_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "5c1734281960f4198d60493fbf9dc954e597232081d7bedddc76404caedc2471",
+        "generator": "05a5d52451508fa8b3bc7be5430fab37f37419c3da2fc622f11714ba6acd2c8a"
+      },
+      "buffers_stored_explicitly": true
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "branch": "D_C1_lr2_mean_CORAL",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/D_C1_lr2_mean_CORAL/checkpoints/adaptation_step_1000.pt",
+      "sha256": "637d1e90ccd56954daf4d9cc47dba0bcb32b3ff6c857063120a9ecc39ad4bd4b",
+      "old_signature": "0bd770dc8c99171fda32f52b65cddcfc495d631c6f4bdf543e70e3dd68e1a81a",
+      "keys": [
+        "schema",
+        "branch",
+        "source_step",
+        "adaptation_step",
+        "committed_optimizer_updates",
+        "replay_cursor",
+        "signature",
+        "config_sha256",
+        "protocol_sha256",
+        "plan_sha256",
+        "source_checkpoint_sha256",
+        "calibration_sha256",
+        "seed_index_sha256",
+        "wrapper",
+        "bridge",
+        "generator",
+        "optimizer",
+        "crop_rng",
+        "global_rng",
+        "buffers",
+        "visits",
+        "EMA",
+        "frozen_hashes",
+        "last_receipt"
+      ],
+      "adaptation_step": 1000,
+      "optimizer_steps": [
+        1000.0
+      ],
+      "param_groups": [
+        {
+          "name": "bridge",
+          "lr": 6e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        },
+        {
+          "name": "generator",
+          "lr": 1e-06,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "foreach": null,
+          "maximize": false,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null
+        }
+      ],
+      "EMA_counters": {
+        "ulong:0": 50,
+        "ulong:1": 50,
+        "ulong:2": 50,
+        "ulong:3": 50,
+        "ulong:4": 50,
+        "ulong:5": 50,
+        "ulong:6": 50,
+        "ulong:7": 50,
+        "ulong:8": 50,
+        "ulong:9": 50,
+        "uvg:0": 50,
+        "uvg:1": 50,
+        "uvg:2": 50,
+        "uvg:3": 50,
+        "uvg:4": 50,
+        "uvg:5": 50,
+        "uvg:6": 50,
+        "uvg:7": 50,
+        "uvg:8": 50,
+        "uvg:9": 50
+      },
+      "frozen_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+        "quality": [
+          "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+          "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+        ]
+      },
+      "model_hashes": {
+        "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+        "bridge": "ce8ab665693aa96526ab1e7b1f17c1943c41505fa4c59276d7d1a4443ac84358",
+        "generator": "4073a206989ced7b8dfad34a2502ba352af66a519bb7dd2721b3c8053c7410a6"
+      },
+      "buffers_stored_explicitly": true
+    }
+  },
+  "initial_adaptation_step": 1000,
+  "final_adaptation_step": 2000,
+  "historical_points": 2300,
+  "new_encodes": 1794,
+  "discriminator_optimizer_updates": 0,
+  "new_prefill_windows": 0,
+  "new_calibration_windows": 0,
+  "reference_stats_index_sha256": "859412cd4c987504844d8e4a404f30c286602470560512847f1a4ff8aaabc561",
+  "calibration_sha256": "c4af94f15e07e757cbd4322887576d6d9d0c30a91a431a6bea14f8c87f98d5b8",
+  "original_training_plan_sha256": "e83011570849e027883fc9e34e7bf04907e79dabbcfb89382a50571f774902db",
+  "source_plan_repeat": 2,
+  "fixed_distribution_coefficients": {
+    "lambda_FD": 0.004456022804189918,
+    "alpha_mu": 29.09603986536024,
+    "alpha_cov": 1413.464749183427
+  },
+  "max_evaluation_workers": 12,
+  "loader_baseline_only": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_22_long_reference_reconstruction_loss_control/branches/B1_reconstruction/checkpoints/adaptation_step_1000.pt",
+    "sha256": "dc76f0e221dc7aaa5e5f45f648722584ce226e65828ce24151f9961985f3f6f7",
+    "module_hashes": {
+      "wrapper": "08cfe75a5292c9ad874c6ab593a418fbc425c5ac9182ba4edaf4f779a441d0a9",
+      "bridge": "3af207756b6289c56a5c9ac4a4744b519e5469d467968cd5834b03dec22f6c1e",
+      "generator": "cc93348fce3e49d9adf5f0afcce38f9c9d571a4ecb4b7fbb171ed7b8cbfacd37"
+    },
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf"
+  },
+  "source_checkpoint_scope": "Only used to construct frozen architecture; actual training state is restored from each branch_sources full step1000 checkpoint."
+}

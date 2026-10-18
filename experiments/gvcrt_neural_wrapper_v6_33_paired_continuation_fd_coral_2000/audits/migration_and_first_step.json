@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "optimizer_updates_by_this_audit": 0,
+  "EMA_commits_by_this_audit": 0,
+  "checks": [
+    {
+      "branch": "B_C1_lr2",
+      "status": "PASS",
+      "source_sha256": "88a1443cb7c239c568b2303420b2d7700e570f6f24b5836a97d7a073067be007",
+      "new_snapshot_sha256": "66e9ad6b689fec16147e3cfdaae4bcc495c1d1f0964c7d884168065fd8e3bf2e",
+      "exact_state_fields": {
+        "wrapper": true,
+        "bridge": true,
+        "generator": true,
+        "optimizer": true,
+        "crop_rng": true,
+        "global_rng": true,
+        "visits": true,
+        "frozen_hashes": true
+      },
+      "buffers_exact": true,
+      "EMA_exact": "N/A",
+      "first_new_step": 1001,
+      "first_new_optimizer_internal_step": 1001,
+      "first_preclip_merge_error": 0.0,
+      "first_postclip_scaling_error": 0.0,
+      "first_parameter_delta": {
+        "bridge": {
+          "norm": 0.0012099753021454845,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32"
+        },
+        "generator": {
+          "norm": 0.0013535617104680788,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32"
+        }
+      }
+    },
+    {
+      "branch": "C_C1_lr2_FD",
+      "status": "PASS",
+      "source_sha256": "1688c00d79404332d31b35ab45a503b64b0a0c9907bcb198ab34a5798af5fa5c",
+      "new_snapshot_sha256": "a5cf3cd01b5e6deda7426908a94ffb53a859475585de6336e2e1c1b11c733494",
+      "exact_state_fields": {
+        "wrapper": true,
+        "bridge": true,
+        "generator": true,
+        "optimizer": true,
+        "crop_rng": true,
+        "global_rng": true,
+        "visits": true,
+        "frozen_hashes": true
+      },
+      "buffers_exact": true,
+      "EMA_exact": true,
+      "first_new_step": 1001,
+      "first_new_optimizer_internal_step": 1001,
+      "first_preclip_merge_error": 2.558009357222822e-08,
+      "first_postclip_scaling_error": 0.0,
+      "first_parameter_delta": {
+        "bridge": {
+          "norm": 0.0011906193827315057,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32"
+        },
+        "generator": {
+          "norm": 0.001349479548923977,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32"
+        }
+      }
+    },
+    {
+      "branch": "D_C1_lr2_mean_CORAL",
+      "status": "PASS",
+      "source_sha256": "637d1e90ccd56954daf4d9cc47dba0bcb32b3ff6c857063120a9ecc39ad4bd4b",
+      "new_snapshot_sha256": "29bffecb7a0729f74bc9b75aaade715e21db7f210af24fa8d562ff7181ac5ef1",
+      "exact_state_fields": {
+        "wrapper": true,
+        "bridge": true,
+        "generator": true,
+        "optimizer": true,
+        "crop_rng": true,
+        "global_rng": true,
+        "visits": true,
+        "frozen_hashes": true
+      },
+      "buffers_exact": true,
+      "EMA_exact": true,
+      "first_new_step": 1001,
+      "first_new_optimizer_internal_step": 1001,
+      "first_preclip_merge_error": 2.5759129204700924e-08,
+      "first_postclip_scaling_error": 0.0,
+      "first_parameter_delta": {
+        "bridge": {
+          "norm": 0.0011989456997594614,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32"
+        },
+        "generator": {
+          "norm": 0.0013555245844793199,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32"
+        }
+      }
+    }
+  ]
+}

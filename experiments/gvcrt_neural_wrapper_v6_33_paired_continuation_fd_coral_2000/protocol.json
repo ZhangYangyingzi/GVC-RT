@@ -1,0 +1,150 @@
+{
+  "schema": "v633",
+  "updates": 1000,
+  "IP": -1,
+  "frames": 64,
+  "padding": [
+    1920,
+    1088
+  ],
+  "crop": [
+    1920,
+    1080
+  ],
+  "force_zero_thres": 0.12,
+  "precision": {
+    "training": "historical mixed FP16 codec with FP32 trainable bridge/generator and frozen wrapper/quality/official features; FP64 distribution moments",
+    "deployment": "unchanged FP16 codec/receiver, FP32 wrapper/official features; formalFIDFP64/ddof1"
+  },
+  "FID": {
+    "commit": "b9c18118d082cbd263c1b8963fc4221dc1cbb659",
+    "weight_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "resize": "bilinear299 align_corners=False",
+    "normalize": "2*x-1",
+    "dims": 2048,
+    "relative_L2": 0.0001,
+    "max_abs": "1e-4+1e-4*maxabs(cached)",
+    "pooled_tolerance": "1e-4+1e-4*max(1,abs(fresh),abs(cached))"
+  },
+  "new_start": "not used; exact frozen eval_manifest source indices",
+  "new_frames": 64,
+  "rate": "all bitstream bytes*8/(64*W*H)",
+  "diagnostic": {
+    "step": 1500,
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "new_points": 414,
+    "label": "fixed 3-QP diagnostic only"
+  },
+  "resource": {
+    "GPUs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "reserve_multiplier": 1.2,
+    "extra_MiB": 2048,
+    "threads": 2,
+    "OOM_retries": 3,
+    "no_fixed_worker_limit": true,
+    "loading_workers_immediately_reserved": true
+  },
+  "experiment": "gvcrt_neural_wrapper_v6_33_paired_continuation_fd_coral_2000",
+  "source_pool": "v629 actual official frozen manifests; v630 old_sources",
+  "trainable": [
+    "bridge",
+    "generator"
+  ],
+  "P_frozen": true,
+  "global_view": "training auxiliary: source native valid HxW; formal tests1920x1080",
+  "canvas": "training auxiliary: official align16 per native view; formal tests1920x1088",
+  "EMA_beta": 0.95,
+  "training_ddof": 0,
+  "eval_ddof": 1,
+  "new_encodes": 1794,
+  "baseline_points": 2300,
+  "logical_points": 4094,
+  "new_branches": [
+    "B_C1_lr2",
+    "C_C1_lr2_FD",
+    "D_C1_lr2_mean_CORAL"
+  ],
+  "historical_branches": [],
+  "methods": [
+    "original",
+    "B1_initial",
+    "B_C1_lr2_1000",
+    "C_C1_lr2_FD_1000",
+    "D_C1_lr2_mean_CORAL_1000",
+    "B_C1_lr2_2000",
+    "C_C1_lr2_FD_2000",
+    "D_C1_lr2_mean_CORAL_2000"
+  ],
+  "expected_points": 4094,
+  "auxiliary_view": "native valid RGB HxW, official codec alignment padding, unpad before Inception; crop unchanged",
+  "full_frame_restriction_1920x1080": false,
+  "formal_evaluation_view": "unchanged 1920x1080 RGB / 1920x1088 canvas",
+  "new_optimizer_updates": 3000,
+  "discriminator_optimizer_updates": 0,
+  "statistics_ddof": 0,
+  "evaluation_ddof": 1,
+  "EMA_commit": "exactly once with atomic successful model+optimizer checkpoint",
+  "calibration": "read-only v632b completed40; zero new calibration",
+  "latest_every": 1,
+  "latest_reason": "save every successful step for atomic optimizer/EMA transaction, stronger than required 25-step recovery interval",
+  "no_training_or_test_selection": true,
+  "historical_reused_encodes": 2300,
+  "initial_adaptation_step": 1000,
+  "final_adaptation_step": 2000,
+  "fresh_optimizer": false,
+  "restore_source_optimizer": true,
+  "calibration_sha256": "c4af94f15e07e757cbd4322887576d6d9d0c30a91a431a6bea14f8c87f98d5b8",
+  "reference_stats_index_sha256": "859412cd4c987504844d8e4a404f30c286602470560512847f1a4ff8aaabc561",
+  "source_plan_repeat": 2,
+  "checkpoint_steps": [
+    1000,
+    1001,
+    1250,
+    1500,
+    1750,
+    2000
+  ],
+  "main": {
+    "step": 2000,
+    "qps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "new_points": 1380
+  },
+  "common_rate": {
+    "methods": [
+      "original",
+      "B1_initial",
+      "B_C1_lr2_1000",
+      "C_C1_lr2_FD_1000",
+      "D_C1_lr2_mean_CORAL_1000",
+      "B_C1_lr2_2000",
+      "C_C1_lr2_FD_2000",
+      "D_C1_lr2_mean_CORAL_2000"
+    ],
+    "points": 100,
+    "spacing": "ln(bpp)",
+    "interpolation": "PCHIP",
+    "extrapolate": false
+  },
+  "B_EMA": "N/A; auxiliary pre-update full views are diagnostics only; no retroactive filling of historical gaps",
+  "gradient_recording": "preclip merge error measured before assigning/clip; separate postclip scaling error"
+}

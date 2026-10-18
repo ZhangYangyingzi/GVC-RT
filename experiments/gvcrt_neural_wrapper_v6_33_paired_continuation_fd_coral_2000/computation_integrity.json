@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "calculation": "COMPLETE",
+  "publication": "PENDING",
+  "training": {
+    "B_C1_lr2": {
+      "additional": 1000,
+      "cumulative": 2000
+    },
+    "C_C1_lr2_FD": {
+      "additional": 1000,
+      "cumulative": 2000
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "additional": 1000,
+      "cumulative": 2000
+    }
+  },
+  "optimizer_call_accounting": {
+    "B_C1_lr2": {
+      "physical_optimizer_calls": 1000,
+      "committed_additional_updates": 1000,
+      "cumulative_adaptation_updates": 2000,
+      "discarded_or_replayed_calls": 0,
+      "parent_training_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32_learning_rate_fd_coral_control/branches/B_C1_lr2/checkpoints/adaptation_step_1000.pt"
+    },
+    "C_C1_lr2_FD": {
+      "physical_optimizer_calls": 1000,
+      "committed_additional_updates": 1000,
+      "cumulative_adaptation_updates": 2000,
+      "discarded_or_replayed_calls": 0,
+      "parent_training_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/C_C1_lr2_FD/checkpoints/adaptation_step_1000.pt"
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "physical_optimizer_calls": 1000,
+      "committed_additional_updates": 1000,
+      "cumulative_adaptation_updates": 2000,
+      "discarded_or_replayed_calls": 0,
+      "parent_training_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/branches/D_C1_lr2_mean_CORAL/checkpoints/adaptation_step_1000.pt"
+    }
+  },
+  "historical_reference_prefill": {
+    "completed": 1000,
+    "expected": 1000,
+    "reused_read_only": true
+  },
+  "historical_calibration": {
+    "completed": 40,
+    "expected": 40,
+    "reused_read_only": true
+  },
+  "new_prefill": 0,
+  "new_calibration": 0,
+  "evaluation": {
+    "completed": 4094,
+    "expected": 4094,
+    "historical_reused": 2300,
+    "planned_new_encodes": 1794,
+    "historical_extra_reencoded": 0,
+    "diagnostic1500": 414,
+    "main2000": 1380
+  },
+  "restore": "PASS",
+  "gradients": "PASS",
+  "frozen": "PASS",
+  "EMA": {
+    "B_C1_lr2": {
+      "status": "N/A",
+      "additional_commits": 0,
+      "total_commits": null
+    },
+    "C_C1_lr2_FD": {
+      "status": "PASS",
+      "additional_commits": 1000,
+      "total_commits": 2000,
+      "counters": {
+        "ulong:0": 100,
+        "ulong:1": 100,
+        "ulong:2": 100,
+        "ulong:3": 100,
+        "ulong:4": 100,
+        "ulong:5": 100,
+        "ulong:6": 100,
+        "ulong:7": 100,
+        "ulong:8": 100,
+        "ulong:9": 100,
+        "uvg:0": 100,
+        "uvg:1": 100,
+        "uvg:2": 100,
+        "uvg:3": 100,
+        "uvg:4": 100,
+        "uvg:5": 100,
+        "uvg:6": 100,
+        "uvg:7": 100,
+        "uvg:8": 100,
+        "uvg:9": 100
+      }
+    },
+    "D_C1_lr2_mean_CORAL": {
+      "status": "PASS",
+      "additional_commits": 1000,
+      "total_commits": 2000,
+      "counters": {
+        "ulong:0": 100,
+        "ulong:1": 100,
+        "ulong:2": 100,
+        "ulong:3": 100,
+        "ulong:4": 100,
+        "ulong:5": 100,
+        "ulong:6": 100,
+        "ulong:7": 100,
+        "ulong:8": 100,
+        "ulong:9": 100,
+        "uvg:0": 100,
+        "uvg:1": 100,
+        "uvg:2": 100,
+        "uvg:3": 100,
+        "uvg:4": 100,
+        "uvg:5": 100,
+        "uvg:6": 100,
+        "uvg:7": 100,
+        "uvg:8": 100,
+        "uvg:9": 100
+      }
+    }
+  },
+  "historical_files_unchanged": true,
+  "real_RANS": true,
+  "independent_decode": true,
+  "all_headers_and_I_bytes_included": true,
+  "formal_FID": "fixed dataset pooled official Inception2048,float64,ddof1",
+  "no_test_selection": true,
+  "discriminator_optimizer_updates": 0,
+  "unresolved": []
+}
