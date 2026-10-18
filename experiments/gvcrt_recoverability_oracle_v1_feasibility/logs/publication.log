@@ -959,3 +959,36 @@ ea9c26eafe9eba2f722413ecf56e51622b928c67	refs/heads/main
 
 $ git merge-base --is-ancestor ea9c26eafe9eba2f722413ecf56e51622b928c67 ea9c26eafe9eba2f722413ecf56e51622b928c67
 
+$ git add -- experiments/gvcrt_recoverability_oracle_v1_feasibility/publication_status.json experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/publication.log
+
+$ git commit -m Record recoverability oracle checkpoint publication
+[detached HEAD 1c38bafd6] Record recoverability oracle checkpoint publication
+ 2 files changed, 387 insertions(+), 22 deletions(-)
+
+$ git push origin HEAD:refs/heads/main
+To github-zyyz:ZhangYangyingzi/GVC-RT.git
+   ea9c26eaf..1c38bafd6  HEAD -> main
+
+$ git rev-parse HEAD
+1c38bafd6b31a643aaf4a9fd4aaf3a9520ad7dca
+
+$ git ls-remote --heads origin main
+1c38bafd6b31a643aaf4a9fd4aaf3a9520ad7dca	refs/heads/main
+
+$ git merge-base --is-ancestor 1c38bafd6b31a643aaf4a9fd4aaf3a9520ad7dca 1c38bafd6b31a643aaf4a9fd4aaf3a9520ad7dca
+
+$ git fetch origin main
+From github-zyyz:ZhangYangyingzi/GVC-RT
+ * branch                main       -> FETCH_HEAD
+
+$ git worktree add --no-checkout --detach /Huang_group/zyyz/home_dir/tmp/gvcrt-oracle-publish-i7dhrocc origin/main
+Preparing worktree (detached HEAD 1c38bafd6)
+
+$ git read-tree HEAD
+
+$ git sparse-checkout init --cone
+
+$ git sparse-checkout set experiments/gvcrt_recoverability_oracle_v1_feasibility
+
+$ git merge-base --is-ancestor 1c38bafd6b31a643aaf4a9fd4aaf3a9520ad7dca origin/main
+

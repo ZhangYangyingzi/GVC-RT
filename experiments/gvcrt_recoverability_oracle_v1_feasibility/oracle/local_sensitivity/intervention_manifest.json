@@ -3,25 +3,25 @@
   "run_status": {
     "status": "RUNNING",
     "stage": "local_interventions",
-    "pending": 35,
+    "pending": 8,
     "active": [
       {
-        "id": "hevc_b_0_q7_block1_f0.5",
-        "pid": 1460865,
+        "id": "ulong_0_q2_block2_f2",
+        "pid": 1480587,
         "gpu": 5
       },
       {
-        "id": "hevc_b_0_q7_block1_f2",
-        "pid": 1460866,
+        "id": "ulong_0_q2_block3_f0.5",
+        "pid": 1480588,
         "gpu": 6
       },
       {
-        "id": "hevc_b_0_q7_block2_f0.5",
-        "pid": 1460867,
+        "id": "ulong_0_q2_block3_f2",
+        "pid": 1480589,
         "gpu": 7
       }
     ],
-    "finished": 26,
+    "finished": 53,
     "planned": 64,
     "GPU_snapshot": {
       "0": [
@@ -50,22 +50,22 @@
         100
       ],
       "5": [
-        7241,
-        33205,
+        1639,
+        38806,
         100
       ],
       "6": [
-        11026,
-        29419,
+        5425,
+        35021,
         100
       ],
       "7": [
-        10088,
-        30357,
+        4487,
+        35959,
         100
       ]
     },
-    "updated": 1792296750.6518886
+    "updated": 1792297926.3605318
   },
   "valid_real_rate_control": true,
   "planned_single_interventions": 64,
@@ -279,6 +279,546 @@
           "frame": 2,
           "y": 8,
           "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block1_f0.5",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block1_f2",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block2_f0.5",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block2_f2",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block3_f0.5",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "hevc_b_0_q7_block3_f2",
+      "kind": "local",
+      "dataset": "hevc_b",
+      "qp": 7,
+      "baseline_id": "hevc_b_0_q7_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block0_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block0_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block1_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block1_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block2_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block2_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block3_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q2_block3_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 2,
+      "baseline_id": "mcljcv_0_q2_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block0_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block0_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block1_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block1_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block2_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block2_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block3_f0.5",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mcljcv_0_q7_block3_f2",
+      "kind": "local",
+      "dataset": "mcljcv",
+      "qp": 7,
+      "baseline_id": "mcljcv_0_q7_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block0_f0.5",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block0_f2",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block1_f0.5",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block1_f2",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block2_f0.5",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block2_f2",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block3_f0.5",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "ulong_0_q2_block3_f2",
+      "kind": "local",
+      "dataset": "ulong",
+      "qp": 2,
+      "baseline_id": "ulong_0_q2_baseline",
+      "block_index": 3,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 30,
+          "x": 56,
           "h": 8,
           "w": 8,
           "factor": 2.0

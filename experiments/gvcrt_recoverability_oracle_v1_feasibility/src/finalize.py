@@ -2,6 +2,8 @@ from base import *
 def main():
  from validate_artifacts import validate
  validation=validate()
+ from verify_saved_controls import verify
+ verify()
  jobs=[load(p) for p in sorted((ROOT/'manifests/jobs').glob('*.json'))]
  receipts={p.stem:load(p) for p in (ROOT/'manifests/receipts').glob('*.json')}
  good=[r for r in receipts.values() if r['status']=='PASS'];bad=[dict(job=j,receipt=receipts.get(j['id'],dict(status='MISSING'))) for j in jobs if receipts.get(j['id'],{}).get('status')!='PASS']
