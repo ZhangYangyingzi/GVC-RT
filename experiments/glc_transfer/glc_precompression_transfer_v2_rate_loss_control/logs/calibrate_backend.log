@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/calibrate_backend.py", line 25, in <module>
+    a=argparse.ArgumentParser();a.add_argument('--index',type=int);a.add_argument('--gpu',type=int,choices=[4,5,6,7]);x=a.parse_args();main() if x.index is None else worker(x.index,x.gpu)
+                                                                                                                                       ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/calibrate_backend.py", line 6, in main
+    parallel([(f'calibrate_{i:02d}',['calibrate_backend.py','--index',str(i)]) for i in range(40) if not (R/f'calibration/rows/{i:02d}.json').exists()],need=7000,max_workers=4,per_gpu=2)
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 34, in parallel
+    else:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log: {tail[-1000:]}')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: calibrate_07 exit -11; logs/calibrate_07.log: nvs/glc/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  weights = torch.load(os.path.join(sys.prefix,'weights.pt'))
+
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/calibrate_backend.py", line 25, in <module>
+    a=argparse.ArgumentParser();a.add_argument('--index',type=int);a.add_argument('--gpu',type=int,choices=[4,5,6,7]);x=a.parse_args();main() if x.index is None else worker(x.index,x.gpu)
+                                                                                                                                       ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/calibrate_backend.py", line 6, in main
+    parallel([(f'calibrate_{i:02d}',['calibrate_backend.py','--index',str(i)]) for i in range(40) if not (R/f'calibration/rows/{i:02d}.json').exists()],need=7000,max_workers=4,per_gpu=2)
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 23, in parallel
+    try:return _parallel(jobs,need,max_workers,per_gpu)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 46, in _parallel
+    else:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log: {tail[-1000:]}')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: calibrate_14 exit -11; logs/calibrate_14.log: nvs/glc/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  weights = torch.load(os.path.join(sys.prefix,'weights.pt'))
+

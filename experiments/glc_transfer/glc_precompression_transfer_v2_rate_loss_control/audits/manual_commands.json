@@ -1,0 +1,11 @@
+{
+  "commands_executed": [
+    "python -B bootstrap.py",
+    "python -B publish.py --phase preparation",
+    "python -B launch.py",
+    "python -B cpu_checks.py",
+    "python -B -u rate_audit.py --index 0 --method C_latent_P --gpu 7",
+    "python -B -u diagnose_reference.py"
+  ],
+  "note": "The first paired canary stopped on strict test/compress reconstruction inequality at frame4; it did not produce a completed audit receipt and performed zero optimizer updates. First-difference details are in reference_first_difference.json. Subsequent automated commands are in logs/commands.jsonl."
+}

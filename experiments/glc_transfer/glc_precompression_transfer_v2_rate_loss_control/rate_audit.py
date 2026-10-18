@@ -11,6 +11,7 @@ def run(index,method,gpu):
  from src.entropy_coder import GaussianRansCodec,make_gop_stream,parse_gop_stream
  from src.entropy_coder.bitstream import parse_frame_packet,_FRAME_HEADER,_GOP_HEADER,_FRAME_SIZE
  from train import norm
+ from rate_backend import table_bits
  row=load(R/'plans/rate_audit.json')['rows'][index];outpath=f'audits/rate_pairs/{index:02d}_{method}.json'
  signature=dict(plan=sha(R/'plans/rate_audit.json'),worker=sha(__file__),runtime=sha(R/'runtime.py'),source=sha(V1/'final_P/C_latent_P_1000.pt'))
  if (R/outpath).exists() and load(R/outpath).get('signature')==signature and load(R/outpath)['status']=='PASS':return
@@ -18,23 +19,33 @@ def run(index,method,gpu):
  if method!='A_original':
   p=Sender(method).cuda().eval();p.load_state_dict(torch.load(V1/'final_P'/f'{method}_1000.pt',map_location='cpu',weights_only=False)['P'],strict=True)
  fixed=[state_hash(m.state_dict()) for m in (im,pm)];p_before=state_hash(p.state_dict()) if p else None
- f=Frames(row,True);coder=GaussianRansCodec();packets=[];hashes=[];records=[];dpb=None;tic=time.time();quant=[]
+ f=Frames(row,True);coder=GaussianRansCodec();packets=[];hashes=[];records=[];dpb=None;tic=time.time();quant=[];zquant=[]
+ encoded_tables=[]
+ original_encode=coder.encode
+ def tracked_encode(symbols,scales):
+  bits,stats=table_bits(symbols,scales,coder);encoded_tables.append(dict(bits=float(bits.sum()),**stats));return original_encode(symbols,scales)
+ coder.encode=tracked_encode
  for model in (im,pm):
   original=model.quant
   def capture(x,original=original):
    y=original(x);quant.append(state_hash({'quantized':y}));return y
   model.quant=capture
+  original_z=model.z_vq.get_quan_feat
+  def capture_z(indices,shape,original_z=original_z):
+   zquant.append(state_hash({'categorical_indices':indices}));return original_z(indices,shape)
+  model.z_vq.get_quan_feat=capture_z
  with torch.inference_mode():
   for pos in range(64):
-   x=f.tensor(pos,'cuda:0');quant.clear();estimated,re,rd,pad=step(im,pm,x,dpb,row['q'],pos,p);estimated_symbols=list(quant)
-   quant.clear();encoded,rec,dpb,_=step(im,pm,x,dpb,row['q'],pos,p,mode='compress',coder=coder)
+   x=f.tensor(pos,'cuda:0');quant.clear();zquant.clear();estimated,re,rd,pad=step(im,pm,x,dpb,row['q'],pos,p);estimated_symbols=list(quant);estimated_z=list(zquant)
+   quant.clear();zquant.clear();encoded_tables.clear();encoded,rec,dpb,_=step(im,pm,x,dpb,row['q'],pos,p,mode='compress',coder=coder)
    assert estimated_symbols==quant,('quantization symbols mismatch',index,method,pos)
+   assert estimated_z==zquant and len(zquant)==1,('categorical symbols mismatch',index,method,pos)
    err=float((re-rec).abs().max());assert torch.equal(re,rec),('official/compress reconstruction mismatch',index,method,pos,err)
    assert refhash(rd)==refhash(dpb),('reference mismatch',index,method,pos)
    packet=encoded['bit_stream'];parsed=parse_frame_packet(packet);packets.append(packet);hashes.append(refhash(dpb));hyper_bytes=(parsed['z_height']*parsed['z_width']*14+7)//8
    actual=len(packet);payload=len(parsed['y_payload']);assert actual==_FRAME_HEADER.size+hyper_bytes+payload
    recrow=dict(frame=pos,official_bits=float(estimated['bit']),official_y_bits=float(estimated['bit_y']),official_hyper_bits=float(estimated['bit_z']),payload_bits=payload*8,hyper_bits=hyper_bytes*8,frame_header_bits=_FRAME_HEADER.size*8,frame_bytes=actual,alignment_and_rans_flush='combined in y payload; cannot isolate from opaque coder',padding=list(pad),symbol_hashes=estimated_symbols,reconstruction_sha256=state_hash({'rec':rec}),reference_sha256=hashes[-1],max_reconstruction_difference=err)
-   records.append(recrow)
+   recrow.update(categorical_symbol_hashes=estimated_z,coder_table_y_bits=sum(t['bits'] for t in encoded_tables),escape_symbols=sum(t['escape_symbols'] for t in encoded_tables),bypass_bits=sum(t['bypass_bits'] for t in encoded_tables));records.append(recrow)
  data=make_gop_stream(256,256,packets);hh,ww,packets=parse_gop_stream(data);assert (hh,ww)==(256,256)
  frozen_ok=fixed==[state_hash(m.state_dict()) for m in (im,pm)];del im,pm;torch.cuda.empty_cache();im,pm=models('cuda:0');dpb=None
  with torch.inference_mode():

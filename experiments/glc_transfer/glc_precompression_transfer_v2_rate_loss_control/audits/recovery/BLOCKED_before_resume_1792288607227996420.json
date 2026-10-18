@@ -1,0 +1,5 @@
+{
+  "status": "BLOCKED",
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py\", line 89, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py\", line 81, in main\n    stage('publish_training',['publish.py','--phase','training'])\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py\", line 18, in stage\n    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)\n                                                              ^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py\", line 16, in wait\n    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: publish_training exit 1; logs/publish_training.log\n",
+  "time": 1792184117.93058
+}

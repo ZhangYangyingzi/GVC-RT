@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/finalize_rate.py", line 55, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/finalize_rate.py", line 50, in main
+    if changed:stage('calibrate_backend',['calibrate_backend.py'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 18, in stage
+    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)
+                                                              ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 16, in wait
+    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: calibrate_backend exit 1; logs/calibrate_backend.log
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/finalize_rate.py", line 55, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/finalize_rate.py", line 50, in main
+    if changed:stage('calibrate_backend',['calibrate_backend.py'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 18, in stage
+    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)
+                                                              ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 16, in wait
+    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: calibrate_backend exit 1; logs/calibrate_backend.log
+RATE FROZEN coder_cdf_forward_continuous_backward changed True
+RATE FROZEN coder_cdf_forward_continuous_backward changed True
+RATE FROZEN coder_cdf_forward_continuous_backward changed True

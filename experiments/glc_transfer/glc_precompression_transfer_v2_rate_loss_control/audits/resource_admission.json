@@ -1,0 +1,17 @@
+{
+  "status": "CONFIGURED_FROM_MEASURED_PEAKS",
+  "allowed_physical_GPUs": [4,5,6,7],
+  "reserve": "max(2048 MiB, physical total * 0.10), includes other jobs",
+  "paired_audit_canary_peak_MiB": 2526,
+  "paired_audit_admission_MiB": 5000,
+  "component_gradient_admission_MiB": 8000,
+  "component_gradient_reference": "v1 audits/gradient.json peak 5598 MiB; remeasured in v2 receipts",
+  "training_admission_MiB": 6000,
+  "training_reference": "v1 C_latent_P receipts/1000.json peak 3060 MiB; same architecture, precision, crop and frame supervision",
+  "audit_and_training_max_processes": 4,
+  "per_physical_GPU_max_processes": 2,
+  "formal_evaluation_max_processes": 8,
+  "formal_evaluation_budget": "at least 13–14 GiB initially, measured native CUDA overhead included; adaptive",
+  "OOM_policy": "only owned worker released, bounded retries with reduced concurrency and increased budget; no sample/loss/budget change",
+  "reserve_shortfall_policy": "only owned newest worker released, bounded requeue, checkpoints and valid receipts preserved"
+}

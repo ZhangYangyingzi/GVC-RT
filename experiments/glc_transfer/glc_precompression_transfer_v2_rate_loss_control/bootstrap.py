@@ -23,7 +23,7 @@ def main():
  for key in ('checkpoint_audit','gradient','identity','source_inventory','leakage'):
   save(f'audits/v1_{key}.json',load(V1/f'audits/{key}.json'))
  save('audits/checkpoint_audit.json',load(V1/'audits/checkpoint_audit.json'))
- config=load(V1/'config.json');config.update(seed=20261016,initialization=dict(path=str(source),sha256=SOURCE_SHA,source_step=1000,new_adaptation_step=0,zero_initialization_forbidden=True),branches=BRANCHES,trainable='latent sender P only; GLC and generator frozen/eval',expected_evaluation_points=dict(new=1840,reused=920,total=2760));config.pop('B',None);save('config.json',config)
+ config=load(V1/'config.json');config.update(seed=20261016,initialization=dict(path=str(source),sha256=SOURCE_SHA,source_step=1000,new_adaptation_step=0,zero_initialization_forbidden=True),branches=BRANCHES,trainable='latent sender P only; GLC and generator frozen/eval',expected_evaluation_points=dict(new=1840,reused=920,total=2760));config.pop('B',None);config['objective']['DISTS']='per-branch: 0.5 for H00/H10; 0.25 for H01/H11';save('config.json',config)
  protocol=load(V1/'protocol.json');protocol.update(experiment=R.name,branches=list(BRANCHES),seed=20261016,source_step=1000,rate_evaluation='real_local_nonofficial_rans',loss='LPIPS + branch.dists*DISTS(require_grad=True) + lambda_rec*L1 + branch.rate_multiplier*beta_base(q)*R',rate_backend='pending paired training-data audit',evaluation_models=['A_original','v1_C_latent_P',*BRANCHES]);save('protocol.json',protocol)
  save('eval_manifest.json',load(V1/'eval_manifest.json'))
  save('status.json',dict(status='RUNNING',phase='preparation',updates={b:0 for b in BRANCHES},evaluation_completed=0))

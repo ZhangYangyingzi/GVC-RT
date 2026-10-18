@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "beta": {
+    "0": 0.7144661855801774,
+    "7": 1.2999084718548823,
+    "14": 0.9972813799440259,
+    "21": 0.595722804853364,
+    "28": 0.467960138320473,
+    "35": 0.6759705948529837,
+    "42": 0.3561536758620847,
+    "49": 0.7282184265168551,
+    "56": 0.4583088449834676,
+    "63": 0.6529645927265812
+  },
+  "optimizer_updates": 0,
+  "training_windows": 40,
+  "measurements": 40,
+  "rule": ".1 * median(||g_LPIPS+.5DISTS+lambda_recL1|| / ||g_common_rate||), same source C sender, training only",
+  "frozen_unchanged": true,
+  "common_to_all_four_branches": true
+}

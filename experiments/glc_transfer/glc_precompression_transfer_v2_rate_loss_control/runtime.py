@@ -8,6 +8,15 @@ from src.models.video_model import GLC_Video
 from src.utils.test_utils import get_state_dict,set_torch_env
 assert str(GLC) in __import__('inspect').getfile(GLC_Video)
 FA=[0,1,0,2,0,2,0,2]
+class ExactCategoricalSTE(torch.autograd.Function):
+ @staticmethod
+ def forward(ctx,z,hard):return hard
+ @staticmethod
+ def backward(ctx,gradient):return gradient,None
+def categorical_codec_forward(m,args,result):
+ z=args[0];indices=result[2]['min_encoding_indices']
+ hard=m.get_quan_feat(indices,(z.shape[0],z.shape[2],z.shape[3],z.shape[1]))
+ return ExactCategoricalSTE.apply(z,hard),result[1],result[2]
 class Block(nn.Module):
  def __init__(self,h):
   super().__init__();self.conv1=nn.Conv2d(h,h,3,padding=1);self.conv2=nn.Conv2d(h,h,3,padding=1)
@@ -27,6 +36,7 @@ def models(device):
   m=cls();s=get_state_dict(str(p));keys=m.state_dict();assert not set(keys)-set(s)
   m.load_state_dict({k:s[k] for k in keys},strict=True)
   if cls is GLC_Image:m.interpolate_q()
+  if cls is GLC_Video:m.z_vq.register_forward_hook(categorical_codec_forward)
   m.to(device).float().eval().requires_grad_(False);out.append(m)
  return out
 def quality(device):
@@ -54,6 +64,8 @@ def step(im,pm,x,dpb,q,pos,sender=None,mode='test',coder=None):
    if pos%32==1:dpb['ref_y']=None
    e=pm.test(inp,dpb,q,fa_idx=FA[pos%8]) if mode=='test' else pm.compress(inp,dpb,q,coder,fa_idx=FA[pos%8],reset_ref_y=pos%32==1)
    d=e['dpb']
+  if mode=='test' and pos and hasattr(pm,'_v2_known_rate_header_bits'):
+   pixels=inp.shape[-2]*inp.shape[-1];e['bpp']=e['bpp']+pm._v2_known_rate_header_bits/pixels;e['bit']=e['bpp'].sum()*pixels
   out=(d['ref_frame'].clamp(-1,1)+1)/2;out=out[:,:,:h,:w]
   return e,out,detach(d),pad
  finally:

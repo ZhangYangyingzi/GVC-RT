@@ -1,0 +1,78 @@
+{
+  "status": "DIAGNOSTIC_COMPLETE",
+  "inherited_flags": {
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "forward_recomputed": false,
+  "backward_precision_restored": true,
+  "training_precision_unchanged": true,
+  "optimizer_updates": 0,
+  "parameters_unchanged": true,
+  "rows": [
+    {
+      "mode": "inherited_backward",
+      "branch": "H00_continue",
+      "difference_norm": 0.0006672116416359472,
+      "expected_norm": 0.7859766781222143,
+      "relative_error": 0.0008488949611456538,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "inherited_backward",
+      "branch": "H10_rate2",
+      "difference_norm": 0.0006736028402282458,
+      "expected_norm": 0.7937647072943074,
+      "relative_error": 0.0008486177755677053,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "inherited_backward",
+      "branch": "H01_dists025",
+      "difference_norm": 0.00044244260044599916,
+      "expected_norm": 0.5503812967111271,
+      "relative_error": 0.0008038837858224303,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "inherited_backward",
+      "branch": "H11_rate2_dists025",
+      "difference_norm": 0.000479276396099685,
+      "expected_norm": 0.5584920728628352,
+      "relative_error": 0.0008581615019939496,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "full_fp32_backward_audit_only",
+      "branch": "H00_continue",
+      "difference_norm": 1.1902210326722599e-06,
+      "expected_norm": 0.7860654765978088,
+      "relative_error": 1.5141499889089236e-06,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "full_fp32_backward_audit_only",
+      "branch": "H10_rate2",
+      "difference_norm": 1.2084457309679692e-06,
+      "expected_norm": 0.7938539886751766,
+      "relative_error": 1.522251885368346e-06,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "full_fp32_backward_audit_only",
+      "branch": "H01_dists025",
+      "difference_norm": 7.199223524962386e-07,
+      "expected_norm": 0.5504344571815677,
+      "relative_error": 1.3079165795370313e-06,
+      "loss_boundary_coefficients_verified": true
+    },
+    {
+      "mode": "full_fp32_backward_audit_only",
+      "branch": "H11_rate2_dists025",
+      "difference_norm": 7.432744680192214e-07,
+      "expected_norm": 0.5585440630166323,
+      "relative_error": 1.330735598557581e-06,
+      "loss_boundary_coefficients_verified": true
+    }
+  ]
+}

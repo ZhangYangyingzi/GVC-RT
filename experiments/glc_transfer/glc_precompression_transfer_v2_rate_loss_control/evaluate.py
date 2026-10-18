@@ -20,7 +20,7 @@ def run(dataset,video,branch,q,gpu):
  v=load(R/'eval_manifest.json')[dataset][video];sig=dict(manifest=sha(R/'eval_manifest.json'),protocol=sha(R/'protocol.json'),runtime=sha(R/'runtime.py'),evaluation=sha(R/'evaluate.py'),models=load(R/'audits/checkpoint_audit.json')['models'])
  p=None
  if branch!='A_original':
-  path=R/'final_P'/f'{branch}_1000.pt';sig['P_sha256']=sha(path);p=Sender(branch).cuda().eval();p.load_state_dict(torch.load(path,map_location='cpu',weights_only=False)['P'],strict=True)
+  path=R/'final_P'/f'{branch}_1000.pt';sig['P_sha256']=sha(path);p=Sender('C_latent_P').cuda().eval();p.load_state_dict(torch.load(path,map_location='cpu',weights_only=False)['P'],strict=True)
  if receipt.exists():
   old=load(receipt)
   if old.get('signature')==sig and old['status']=='PASS' and all(Path(k).exists() and sha(k)==h for k,h in old['artifacts'].items()):return

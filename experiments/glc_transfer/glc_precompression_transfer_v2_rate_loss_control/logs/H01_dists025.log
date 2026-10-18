@@ -1,0 +1,82 @@
+/Huang_group/zyyz/Projects/GLC/src/utils/test_utils.py:54: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/lpips/lpips.py:107: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.load_state_dict(torch.load(model_path, map_location='cpu'), strict=False)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  weights = torch.load(os.path.join(sys.prefix,'weights.pt'))
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/train.py", line 105, in <module>
+    try:train(args.branch,args.gpu)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/train.py", line 73, in train
+    opt=torch.optim.AdamW(p.parameters(),lr=5e-5,betas=(.9,.999),eps=1e-8,weight_decay=1e-4);params=list(p.parameters());sig=signature();sig.update(beta=sha(R/'calibration/final.json'),rate_backend=sha(R/'rate_backend.py'),branch_config=sha(R/'config.json'),source_P=SOURCE_SHA);start=0
+                                                                                                                             ^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/train.py", line 19, in signature
+    return {str(p.relative_to(R)):sha(p) for p in [R/x for x in ('runtime.py','train.py','data.py','preflight.py','protocol.json','plans/shared.json')]}|{'GLC':sha(R/'audits/source_inventory.json')}
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/preflight.py", line 12, in sha
+    with Path(p).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/audits/source_inventory.json'
+
+/Huang_group/zyyz/Projects/GLC/src/utils/test_utils.py:54: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/lpips/lpips.py:107: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.load_state_dict(torch.load(model_path, map_location='cpu'), strict=False)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  weights = torch.load(os.path.join(sys.prefix,'weights.pt'))
+TRAIN H01_dists025 25
+TRAIN H01_dists025 50
+TRAIN H01_dists025 75
+TRAIN H01_dists025 100
+TRAIN H01_dists025 125
+TRAIN H01_dists025 150
+TRAIN H01_dists025 175
+TRAIN H01_dists025 200
+TRAIN H01_dists025 225
+TRAIN H01_dists025 250
+TRAIN H01_dists025 275
+TRAIN H01_dists025 300
+TRAIN H01_dists025 325
+TRAIN H01_dists025 350
+TRAIN H01_dists025 375
+TRAIN H01_dists025 400
+TRAIN H01_dists025 425
+TRAIN H01_dists025 450
+TRAIN H01_dists025 475
+TRAIN H01_dists025 500
+TRAIN H01_dists025 525
+TRAIN H01_dists025 550
+TRAIN H01_dists025 575
+TRAIN H01_dists025 600
+TRAIN H01_dists025 625
+TRAIN H01_dists025 650
+TRAIN H01_dists025 675
+TRAIN H01_dists025 700
+TRAIN H01_dists025 725
+TRAIN H01_dists025 750
+TRAIN H01_dists025 775
+TRAIN H01_dists025 800
+TRAIN H01_dists025 825
+TRAIN H01_dists025 850
+TRAIN H01_dists025 875
+TRAIN H01_dists025 900
+TRAIN H01_dists025 925
+TRAIN H01_dists025 950
+TRAIN H01_dists025 975
+TRAIN H01_dists025 1000

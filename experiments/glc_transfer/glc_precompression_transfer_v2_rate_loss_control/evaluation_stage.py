@@ -3,7 +3,8 @@ from preflight import *
 from data import load,Frames
 import math
 
-METHODS=('A_original','B_rgb_P','C_latent_P')
+from bootstrap import BRANCHES,V1
+METHODS=('A_original','v1_C_latent_P',*BRANCHES)
 MAX_WORKERS=8  # GPU4–7, at most two memory-admitted workers per physical GPU.
 def admission_budget(torch_peak,device_peak=0):
  return max(13000,torch_peak*1.3+1024,device_peak*1.15+512)
@@ -12,7 +13,7 @@ def volatility_margin(previous,shortfall):
 def expected_signatures():
  common=dict(manifest=sha(R/'eval_manifest.json'),protocol=sha(R/'protocol.json'),runtime=sha(R/'runtime.py'),evaluation=sha(R/'evaluate.py'),models=load(R/'audits/checkpoint_audit.json')['models'])
  out={'A_original':common}
- for m in METHODS[1:]:out[m]=dict(common,P_sha256=sha(R/'final_P'/f'{m}_1000.pt'))
+ for m in METHODS[1:]:out[m]=dict(common,P_sha256=sha(V1/'final_P/C_latent_P_1000.pt' if m=='v1_C_latent_P' else R/'final_P'/f'{m}_1000.pt'))
  return out
 def task_name(t):return f"{t['dataset']}_{t['video']}_{t['branch']}_{t['q']}"
 def receipt_valid(t,signatures):
@@ -42,7 +43,6 @@ def snapshot_memory(running):
   w['need']=max(w['need'],w['device_peak']*1.15+512)
  return memory_available(gpus,allocations,running),{g:f-max(2048,t*.1) for g,t,f in gpus if g in (4,5,6,7)}
 def run(command,state,PY):
- assert not load(R/'early_original_status.json').get('running'), 'Early A workers must drain before final evaluation'
  signatures=expected_signatures();manifest=load(R/'eval_manifest.json')
  for x in load(R/'audits/checkpoint_audit.json')['models']:assert sha(x['path'])==x['sha256']
  from concurrent.futures import ThreadPoolExecutor,as_completed
@@ -62,7 +62,7 @@ def run(command,state,PY):
  tasks=[dict(dataset=d,video=v,branch=m,q=q) for d,vs in manifest.items() for v in range(len(vs)) for m in METHODS for q in load(R/'protocol.json')['q_grid']]
  expected=len(tasks);cached=[t for t in tasks if receipt_valid(t,signatures)];cached_keys={task_name(t) for t in cached};tasks=[t for t in tasks if task_name(t) not in cached_keys]
  peak={m:max([load(p)['result']['peak_MiB'] for p in (R/'results/points').glob('*.json') if load(p)['result']['method']==m] or [0]) for m in METHODS}
- defaults={'A_original':10356.8,'B_rgb_P':12000.,'C_latent_P':11000.}
+ defaults={m:12000. for m in METHODS}
  need={m:admission_budget(peak[m]) if peak[m] else max(14000,defaults[m]) for m in METHODS}
  device_peak={m:0 for m in METHODS}
  prior=load(R/'evaluation_scheduler.json') if (R/'evaluation_scheduler.json').exists() else {}

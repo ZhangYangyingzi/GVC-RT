@@ -1,0 +1,91 @@
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 76, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 65, in main
+    state('rate_finalize');stage('rate_finalize',['finalize_rate.py'])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 18, in stage
+    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)
+                                                              ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 16, in wait
+    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: rate_finalize exit 1; logs/rate_finalize.log
+
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 88, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 77, in main
+    state('rate_finalize');stage('rate_finalize',['finalize_rate.py'])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 18, in stage
+    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)
+                                                              ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 16, in wait
+    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: rate_finalize exit 1; logs/rate_finalize.log
+
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 88, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 78, in main
+    state('pretraining_checks');parallel([('pretraining_checks',['training_checks.py'])],need=8000,max_workers=1)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 23, in parallel
+    try:return _parallel(jobs,need,max_workers,per_gpu)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 46, in _parallel
+    else:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log: {tail[-1000:]}')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: pretraining_checks exit 1; logs/pretraining_checks.log: odule>
+    a=argparse.ArgumentParser();a.add_argument('--gpu',type=int,choices=[4,5,6,7],required=True);run(a.parse_args().gpu)
+                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/training_checks.py", line 38, in run
+    expected=[sum(weights[k]*grad[k][j] for k in terms) for j in range(len(params))];actual=[g if g is not None else torch.zeros_like(t) for g,t in zip(actual,params)];err=norm([a-b for a,b in zip(actual,expected)]);assert err<=1e-4*max(1,norm(expected)),(branch,err,norm(expected))
+                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('H00_continue', 0.0006672116416359472, 0.7859766781222143)
+
+
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 88, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 79, in main
+    state('training');parallel([(b,['train.py','--branch',b]) for b in BRANCHES if not (R/f'branches/{b}/integrity.json').exists()],need=6000,max_workers=4,per_gpu=2)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 23, in parallel
+    try:return _parallel(jobs,need,max_workers,per_gpu)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 46, in _parallel
+    else:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log: {tail[-1000:]}')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: H01_dists025 exit 1; logs/H01_dists025.log: turn {str(p.relative_to(R)):sha(p) for p in [R/x for x in ('runtime.py','train.py','data.py','preflight.py','protocol.json','plans/shared.json')]}|{'GLC':sha(R/'audits/source_inventory.json')}
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/preflight.py", line 12, in sha
+    with Path(p).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/glc/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/audits/source_inventory.json'
+
+
+
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 89, in <module>
+    try:main()
+        ^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 81, in main
+    stage('publish_training',['publish.py','--phase','training'])
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 18, in stage
+    p,l=command(name,[PY,'-B','-u',str(R/args[0]),*args[1:]]);wait(p,l,name)
+                                                              ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/run_pipeline.py", line 16, in wait
+    if p.returncode:raise RuntimeError(f'{name} exit {p.returncode}; logs/{name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: publish_training exit 1; logs/publish_training.log
+

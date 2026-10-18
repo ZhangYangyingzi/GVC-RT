@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "initial_failure": {
+    "method": "C_latent_P",
+    "index": 0,
+    "frame": 4,
+    "max_reconstruction_difference": 0.002806246280670166,
+    "categorical_indices_equal": true,
+    "categorical_value_max_difference": 5.960464477539063e-08
+  },
+  "fix": "v2-only exact hard categorical codebook forward through autograd Function; identity gradient to original z; no original model/rANS source changes",
+  "canary": {
+    "frames": 64,
+    "independent_decode": true,
+    "symbols_and_reference_history_identical": true,
+    "stream_sha256": "5bbf4ae44c5f4c65a697b26a8b92ab762630ca5dd2ff8589dabcb9d7c1dddd88",
+    "complete_bytes": 6416,
+    "peak_MiB": 2526
+  },
+  "hashes": [
+    "e506522a769248cc56ee8909a0ce09dc1ee94ba6bda277a38a9e5de25211dd8c  /Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/runtime.py",
+    "6b60d7224b37d5eb85ba05cfdd5d4224bcb0fa7fc7cadc18956e557f8db1615a  /Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/audits/rate_pairs/00_C_latent_P.json",
+    "3e21bcd3ef464e86344acc4f8508e2b1e64368e3b623363dda40b0d4b1aada0b  /Huang_group/zyyz/Projects/GLC/experiments/glc_precompression_transfer_v2_rate_loss_control/audits/reference_first_difference.json"
+  ],
+  "optimizer_updates": 0,
+  "numerical_tolerance_relaxed": false,
+  "source_weights_unchanged": true,
+  "training_checks_pending": false,
+  "full_paired_audits_completed": 120,
+  "full_paired_audits_expected": 120,
+  "pretraining_checks_sha256": "c029bf7c06e0301d64cc322d351fcf1c212a78dc96b4112157c7194015ee116d",
+  "identity_STE_backward_verified": true
+}

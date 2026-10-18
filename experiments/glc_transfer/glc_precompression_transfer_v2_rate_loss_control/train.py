@@ -2,6 +2,7 @@
 from preflight import *
 import argparse,fcntl,random,csv,resource
 from data import load,Frames
+from bootstrap import BRANCHES,V1,SOURCE_SHA
 def atomic_torch(path,x):
  import torch
  path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);tmp=path.with_suffix('.tmp');torch.save(x,tmp);tmp.replace(path)
@@ -19,7 +20,7 @@ def signature():
 def norm(gr):
  import torch
  return float(sum(g.double().square().sum() for g in gr if g is not None).sqrt())
-def gradients(im,pm,p,ql,row,beta=None):
+def gradients(im,pm,p,ql,row,beta=None,dists_weight=.5):
  import torch
  from runtime import step,losses
  f=Frames(row,True);dpb=None;params=list(p.parameters());total={};gref=[torch.zeros_like(t) for t in params];grate=[torch.zeros_like(t) for t in params];trace=[]
@@ -28,7 +29,7 @@ def gradients(im,pm,p,ql,row,beta=None):
   with torch.set_grad_enabled(pos>=49):
    e,out,dpb,pad=step(im,pm,x,dpb,row['q'],pos,p)
    if pos<49:continue
-   values=losses(out,x,ql);values['rate']=e['bpp'].mean();ref=values['LPIPS']+.5*values['DISTS']+.1383589248954108*values['L1']
+   values=losses(out,x,ql);values['rate']=e['bpp'].mean();ref=values['LPIPS']+dists_weight*values['DISTS']+.1383589248954108*values['L1']
    if beta is None:
     a=torch.autograd.grad(ref/15,params,retain_graph=True,allow_unused=True);b=torch.autograd.grad(values['rate']/15,params,allow_unused=True)
     for i,(u,v) in enumerate(zip(a,b)):
@@ -48,7 +49,7 @@ def calibrate(gpu):
  save('plans/calibration.json',dict(rows=selected,optimizer_updates=0,rule='first two training-plan windows per domain/q; both adapter parameter spaces',gradient_scale_target=.1))
  records=[]
  for i,r in enumerate(selected):
-  for b in ('B_rgb_P','C_latent_P'):
+  for b in ('C_latent_P',):
    path=R/'calibration'/f'{i:02d}_{b}.json'
    if path.exists():records.append(load(path));continue
    seed(20261015);p=Sender(b).cuda();values,trace,a,c=gradients(im,pm,p,ql,r);na,nc=norm(a),norm(c)
@@ -62,36 +63,45 @@ def train(branch,gpu):
  os.environ['CUDA_DEVICE_ORDER']='PCI_BUS_ID';os.environ['CUDA_VISIBLE_DEVICES']=str(gpu)
  import torch
  from runtime import models,quality,Sender
- assert load(R/'publication_status.json')['status']=='PUBLISHED';assert load(R/'audits/gradient.json')['status']=='PASS'
+ assert load(R/'publication_status.json')['status']=='PUBLISHED';assert load(R/'audits/pretraining_checks.json')['status']=='PASS'
  assert load(R/'calibration/final.json')['status']=='PASS'
  root=R/'branches'/branch;root.mkdir(parents=True,exist_ok=True);lock=(root/'train.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
- im,pm=models('cuda:0');ql=quality('cuda:0');fixed=[state_hash(m.state_dict()) for m in (im,pm,*ql)];seed(20261015);p=Sender(branch).cuda().train();opt=torch.optim.AdamW(p.parameters(),lr=5e-5,betas=(.9,.999),eps=1e-8,weight_decay=1e-4);params=list(p.parameters());sig=signature();sig['beta']=sha(R/'calibration/final.json');start=0
+ from rate_backend import install
+ from src.entropy_coder import GaussianRansCodec
+ backend=load(R/'audits/rate_backend_decision.json')['backend'];im,pm=models('cuda:0');install(pm,backend,GaussianRansCodec());ql=quality('cuda:0');fixed=[state_hash(m.state_dict()) for m in (im,pm,*ql)];seed(20261016);p=Sender('C_latent_P').cuda().train()
+ source=V1/'final_P/C_latent_P_1000.pt';assert sha(source)==SOURCE_SHA;p.load_state_dict(torch.load(source,map_location='cpu',weights_only=False)['P'],strict=True)
+ opt=torch.optim.AdamW(p.parameters(),lr=5e-5,betas=(.9,.999),eps=1e-8,weight_decay=1e-4);params=list(p.parameters());sig=signature();sig.update(beta=sha(R/'calibration/final.json'),rate_backend=sha(R/'rate_backend.py'),branch_config=sha(R/'config.json'),source_P=SOURCE_SHA);start=0
+ assert load(R/'config.json')['branches']==BRANCHES
+ sig.update(branch_implementation=sha(R/'bootstrap.py'),metric_dependencies=sha(R/'audits/metric_dependencies.json'),rate_audits=sha(R/'audits/rate_audit_index.json'))
+ branch_cfg=BRANCHES[branch]
  latest=R/'checkpoints/resume'/branch/'latest.pt';index=load(root/'checkpoint_index.json') if (root/'checkpoint_index.json').exists() else {}
  if latest.exists():
   s=torch.load(latest,map_location='cpu',weights_only=False);assert s['signature']==sig and s['branch']==branch;p.load_state_dict(s['P'],strict=True);opt.load_state_dict(s['optimizer']);restore(s['rng']);start=s['step']
  def checkpoint(step,row=None):
   assert fixed==[state_hash(m.state_dict()) for m in (im,pm,*ql)]
-  s=dict(branch=branch,step=step,P=p.state_dict(),optimizer=opt.state_dict(),rng=rng(),signature=sig,last_receipt=row,frozen_hashes=fixed);atomic_torch(latest,s)
+  s=dict(branch=branch,step=step,source_step=1000,adaptation_step=step,P=p.state_dict(),optimizer=opt.state_dict(),rng=rng(),signature=sig,last_receipt=row,frozen_hashes=fixed);atomic_torch(latest,s)
   if step in (0,1,250,500,1000):
    path=R/'checkpoints/resume'/branch/f'step_{step}.pt';atomic_torch(path,s)
-   deploy=R/('final_P' if step==1000 else 'checkpoints/P')/f'{branch}_{step}.pt';atomic_torch(deploy,dict(P=p.state_dict(),branch=branch,step=step,signature=sig));index[str(step)]=dict(path=str(path),sha256=sha(path),P_path=str(deploy),P_sha256=sha(deploy),module_sha256=state_hash(p.state_dict()));save(str((root/'checkpoint_index.json').relative_to(R)),index)
+   deploy=R/('final_P' if step==1000 else 'checkpoints/P')/f'{branch}_{step}.pt';atomic_torch(deploy,dict(P=p.state_dict(),branch=branch,kind='C_latent_P',step=step,source_step=1000,adaptation_step=step,signature=sig));index[str(step)]=dict(path=str(path),sha256=sha(path),P_path=str(deploy),P_sha256=sha(deploy),module_sha256=state_hash(p.state_dict()),source_step=1000,adaptation_step=step);save(str((root/'checkpoint_index.json').relative_to(R)),index)
  if not start:checkpoint(0)
  elif s.get('last_receipt'):save(f'branches/{branch}/receipts/{start:04d}.json',s['last_receipt'])
  beta=load(R/'calibration/final.json')['beta'];torch.cuda.reset_peak_memory_stats()
  for step_no in range(start+1,1001):
   r=load(R/'plans/shared.json')['updates'][step_no-1];tic=time.time();opt.zero_grad(set_to_none=True);before=[t.detach().clone() for t in params]
-  values,trace,_,_=gradients(im,pm,p,ql,r,beta[str(r['q'])]);gr=[t.grad for t in params];assert all(g is None or torch.isfinite(g).all() for g in gr) and norm(gr)>0
+  branch_beta=beta[str(r['q'])]*branch_cfg['rate_multiplier'];values,trace,_,_=gradients(im,pm,p,ql,r,branch_beta,branch_cfg['dists']);gr=[t.grad for t in params];assert all(g is None or torch.isfinite(g).all() for g in gr) and norm(gr)>0
   nonzero=sum(g is not None and bool(g.count_nonzero()) for g in gr)
   if step_no>=2:assert nonzero>2,'upstream sender gradients persistently absent after output-layer update'
   pre=norm(gr);torch.nn.utils.clip_grad_norm_(params,1.)
   with (root/'optimizer_calls.jsonl').open('a') as j:j.write(json.dumps(dict(event='STARTED',step=step_no,time=time.time()))+'\n')
   opt.step();delta=norm([t.detach()-u for t,u in zip(params,before)]);assert delta>0 and all(torch.isfinite(t).all() for t in params)
-  row=dict(r,branch=branch,loss=values,beta=beta[str(r['q'])],weighted_rate=beta[str(r['q'])]*values['rate'],total_loss=values['LPIPS']+.5*values['DISTS']+.1383589248954108*values['L1']+beta[str(r['q'])]*values['rate'],frame_trace=trace,gradient_preclip=pre,gradient_nonzero_parameter_count=nonzero,clip_coefficient=min(1,1/(pre+1e-6)),parameter_delta=delta,lr=5e-5,effective_updates=step_no,seconds=time.time()-tic,peak_MiB=torch.cuda.max_memory_reserved()/2**20,RSS_MiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
+  row=dict(r,branch=branch,source_step=1000,adaptation_step=step_no,loss=values,beta_base=beta[str(r['q'])],beta=branch_beta,dists_weight=branch_cfg['dists'],weighted_DISTS=branch_cfg['dists']*values['DISTS'],weighted_rate=branch_beta*values['rate'],total_loss=values['LPIPS']+branch_cfg['dists']*values['DISTS']+.1383589248954108*values['L1']+branch_beta*values['rate'],rate_backend=backend,frame_trace=trace,gradient_preclip=pre,gradient_nonzero_parameter_count=nonzero,clip_coefficient=min(1,1/(pre+1e-6)),parameter_delta=delta,lr=5e-5,effective_updates=step_no,seconds=time.time()-tic,peak_MiB=torch.cuda.max_memory_reserved()/2**20,RSS_MiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
+  row.update(gpu=gpu,precision='FP32',supervised_frames=15,loss_normalization_denominator=15)
   checkpoint(step_no,row);save(f'branches/{branch}/receipts/{step_no:04d}.json',row);save(f'branches/{branch}/status.json',dict(status='COMPLETE' if step_no==1000 else 'RUNNING',updates=step_no,PID=os.getpid(),gpu=gpu,time=time.time()))
   if step_no%25==0:print('TRAIN',branch,step_no,flush=True)
  save(f'branches/{branch}/integrity.json',dict(status='PASS',updates=1000,supervised_frames=15000,frozen_unchanged=True,fresh_optimizer=True))
+ if all((R/f'branches/{b}/integrity.json').exists() for b in BRANCHES):(R/'README.md').write_text('# GLC precompression transfer v2 rate/loss control\n\nTraining complete: four branches, 1000 added updates each, same v1 C source checkpoint. Final evaluation and publication pending. See status.json, audits/, protocol.json and final_P/. Original codec and v1 remain read-only.\n')
 if __name__=='__main__':
- a=argparse.ArgumentParser();a.add_argument('--calibrate',action='store_true');a.add_argument('--branch',choices=['B_rgb_P','C_latent_P']);a.add_argument('--gpu',type=int,choices=[4,5,6,7],required=True);args=a.parse_args()
- try:calibrate(args.gpu) if args.calibrate else train(args.branch,args.gpu)
+ a=argparse.ArgumentParser();a.add_argument('--branch',choices=list(BRANCHES),required=True);a.add_argument('--gpu',type=int,choices=[4,5,6,7],required=True);args=a.parse_args()
+ try:train(args.branch,args.gpu)
  except Exception:
-  e=traceback.format_exc();save('BLOCKED.json',dict(status='BLOCKED',stage='calibration' if args.calibrate else 'training',branch=args.branch,error=e));print(e);sys.exit(1)
+  e=traceback.format_exc();save('BLOCKED.json',dict(status='BLOCKED',stage='training',branch=args.branch,error=e));print(e);sys.exit(1)
