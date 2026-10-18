@@ -54,3 +54,7 @@ Execution status: **PASS**.
 - P_PBG_FD_250 QP9: FID=13.227971, D_mu=1.3141673, samples=384, mean_actual_bpp=0.017277541.
 
 This is a six-video, three-QP, single-seed short trend screen. It does not claim convergence or broad generalization. No result-based checkpoint selection or budget extension was performed.
+
+## Publication status
+
+Local commit `6a0a25cfd078e3252f85c90bcebebc078bb1b878` contains the completed results. Push to the configured `origin` was not confirmed: `git push` timed out after 30 seconds and `git ls-remote` timed out after 20 seconds; the configured SSH alias resolves to `github.com`, for which host DNS lookup returned no address. No force push was attempted. See `publication_status.json`.

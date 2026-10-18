@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED_NETWORK",
+  "remote": "git@github-zyyz:ZhangYangyingzi/GVC-RT.git",
+  "branch": "main",
+  "local_content_commit": "6a0a25cfd078e3252f85c90bcebebc078bb1b878",
+  "push_attempts": [
+    {
+      "command": "git push origin HEAD:main",
+      "result": "timeout after 30 seconds; exit 124"
+    },
+    {
+      "command": "git ls-remote origin refs/heads/main",
+      "result": "timeout after 20 seconds; exit 124"
+    }
+  ],
+  "diagnostic": "SSH alias github-zyyz resolves to github.com; getent hosts github.com returned no address in the execution environment. No remote update was confirmed.",
+  "force_push": false
+}
