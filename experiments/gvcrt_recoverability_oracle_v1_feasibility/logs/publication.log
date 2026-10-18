@@ -506,3 +506,57 @@ $ git sparse-checkout set experiments/gvcrt_recoverability_oracle_v1_feasibility
 
 $ git merge-base --is-ancestor f82bcc968e0cab62c87d2d47626df9507b2dae17 origin/main
 
+$ git add -- experiments/gvcrt_recoverability_oracle_v1_feasibility
+
+$ git diff --cached --name-only --no-renames
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/GPU_resources.jsonl
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/GPU_task_exit_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/checkpoint_results_latest.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/latest_checkpoint_publication.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/pilot_checkpoint_publication_recovery.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/publication.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/publication_failure.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/uvg_holdout_2_q2_block2_f2.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/uvg_holdout_2_q2_block3_f0.5.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/uvg_holdout_2_q2_block3_f2.log
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/binary_artifacts_index.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/checkpoint_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/publication_inventory.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/uvg_holdout_2_q2_block3_f2.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/metrics/checkpoint_raw_results.csv
+experiments/gvcrt_recoverability_oracle_v1_feasibility/metrics/per_frame/uvg_holdout_2_q2_block3_f2.csv
+experiments/gvcrt_recoverability_oracle_v1_feasibility/metrics/timing/uvg_holdout_2_q2_block3_f2.csv
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/actual_rate_accounting.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/block_intervention_results.csv
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/failed_interventions.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/intervention_manifest.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/symbols/uvg_holdout_2_q2_block3_f2.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/uvg_holdout_2_q2_block3_f2.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/publication_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/run_status.json
+experiments/gvcrt_recoverability_oracle_v1_feasibility/src/checkpoint_results.py
+experiments/gvcrt_recoverability_oracle_v1_feasibility/src/finalize.py
+
+$ git commit -m Add GVC-RT recoverability oracle feasibility experiment (checkpoint; running)
+[detached HEAD f5edd824e] Add GVC-RT recoverability oracle feasibility experiment (checkpoint; running)
+ 27 files changed, 17763 insertions(+), 90 deletions(-)
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/checkpoint_results_latest.log
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/logs/latest_checkpoint_publication.log
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/manifests/receipts/uvg_holdout_2_q2_block3_f2.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/metrics/per_frame/uvg_holdout_2_q2_block3_f2.csv
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/metrics/timing/uvg_holdout_2_q2_block3_f2.csv
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/symbols/uvg_holdout_2_q2_block3_f2.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v1_feasibility/oracle/local_sensitivity/uvg_holdout_2_q2_block3_f2.json
+
+$ git push origin HEAD:refs/heads/main
+To github-zyyz:ZhangYangyingzi/GVC-RT.git
+   f82bcc968..f5edd824e  HEAD -> main
+
+$ git rev-parse HEAD
+f5edd824e4e5a06c4d562884fdf895fa1323760d
+
+$ git ls-remote --heads origin main
+f5edd824e4e5a06c4d562884fdf895fa1323760d	refs/heads/main
+
+$ git merge-base --is-ancestor f5edd824e4e5a06c4d562884fdf895fa1323760d f5edd824e4e5a06c4d562884fdf895fa1323760d
+
