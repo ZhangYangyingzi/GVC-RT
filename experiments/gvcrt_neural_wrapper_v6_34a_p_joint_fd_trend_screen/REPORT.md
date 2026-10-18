@@ -57,4 +57,4 @@ This is a six-video, three-QP, single-seed short trend screen. It does not claim
 
 ## Publication status
 
-Local commit `6a0a25cfd078e3252f85c90bcebebc078bb1b878` contains the completed results. Push to the configured `origin` was not confirmed: `git push` timed out after 30 seconds and `git ls-remote` timed out after 20 seconds; the configured SSH alias resolves to `github.com`, for which host DNS lookup returned no address. No force push was attempted. See `publication_status.json`.
+Published to the configured GitHub `main` branch with a normal fast-forward push. The remote tip was verified and the key config, point table, report, integrity file, and file index were readable. The initial attempt encountered an unreachable remote while `main` had advanced; publication was completed from a sparse worktree based on the latest remote commit. No force push was used. See `publication_status.json`.

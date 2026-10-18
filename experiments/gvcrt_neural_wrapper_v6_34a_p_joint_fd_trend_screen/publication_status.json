@@ -1,18 +1,18 @@
 {
-  "status": "BLOCKED_NETWORK",
+  "status": "PUBLISHED",
   "remote": "git@github-zyyz:ZhangYangyingzi/GVC-RT.git",
   "branch": "main",
-  "local_content_commit": "6a0a25cfd078e3252f85c90bcebebc078bb1b878",
-  "push_attempts": [
-    {
-      "command": "git push origin HEAD:main",
-      "result": "timeout after 30 seconds; exit 124"
-    },
-    {
-      "command": "git ls-remote origin refs/heads/main",
-      "result": "timeout after 20 seconds; exit 124"
-    }
+  "verified_content_commit": "2fa44855ed819b46fdffc92ecddde341a1b0a9a1",
+  "remote_ref_verified": true,
+  "key_files_readable": [
+    "config.json",
+    "results/all_rd_points.csv",
+    "REPORT.md",
+    "final_integrity.json",
+    "file_index.json"
   ],
-  "diagnostic": "SSH alias github-zyyz resolves to github.com; getent hosts github.com returned no address in the execution environment. No remote update was confirmed.",
-  "force_push": false
+  "normal_fast_forward_push": true,
+  "force_push": false,
+  "history_preserved": true,
+  "prior_failures_resolved": "The initial local push timed out while origin/main had advanced. A sparse publishing worktree was created at the latest remote main, the experiment directory was added in a new commit, and the fast-forward push succeeded."
 }
