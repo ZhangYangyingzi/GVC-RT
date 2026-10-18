@@ -1,0 +1,3 @@
+# Decoder causality
+
+I0 seeds the P reference. Each P frame updates its decoded feature DPB; following encoding and decoding use that updated feature. Each intervention is re-encoded from I0 through all16 frames, including every affected suffix frame. Stock synchronized encoder/decoder features are checked exactly for every P frame, followed by a fresh independent decode from the persisted stream and exact per-frame reconstruction checks. Captured encoder packed symbols must equal both paired and independent entropy-decoded symbols at frames2 and8. No frozen-context single-frame proxy is substituted.

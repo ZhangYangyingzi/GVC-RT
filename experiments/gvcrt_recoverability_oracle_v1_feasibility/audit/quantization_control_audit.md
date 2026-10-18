@@ -1,0 +1,3 @@
+# Quantization control
+
+Native API accepts one scalar QP per frame. Learned q_scale tensors are channelwise; the decoded prior produces a spatial/channel quant_step, clamped at0.5. There is no native independent block QP API. The experiment multiplies this decoded step within explicitly signalled latent-grid rectangles by0.5 or2, clamps at0.5, and passes the modified common_params into unchanged stock two-pass coding at both endpoints. The second checkerboard prior consumes the same modified common_params and first-group symbols at both endpoints. This is a custom codec-control extension, not a stock-decoder-compatible stream or arbitrary replacement of decoded symbols. Factor1 must preserve native bytes. QP shifts and all weights remain unchanged.

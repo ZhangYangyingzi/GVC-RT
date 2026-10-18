@@ -1,0 +1,91 @@
+cannot import cuda implementation for inference, fallback to pytorch.
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+Traceback (most recent call last):
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/worker.py", line 71, in <module>
+    try:run(job,a.gpu)
+        ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/worker.py", line 21, in run
+    result,fr=rt.run(Frames(),job['qp'],stream,features,recon_dir=recdir)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/src/codec_control.py", line 52, in run
+    return out
+               
+  File "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py", line 100, in frame_metrics
+    "DISTS": float(quality[1](output, target)),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py", line 87, in forward
+    feats0 = self.forward_once(x)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py", line 71, in forward_once
+    h = self.stage2(h)
+        ^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/lib/python3.12/site-packages/DISTS_pytorch/DISTS_pt.py", line 24, in forward
+    out = F.conv2d(input, self.filter, stride=self.stride, padding=self.padding, groups=input.shape[1])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 128.00 MiB. GPU 0 has a total capacity of 39.50 GiB of which 100.69 MiB is free. Process 1367797 has 14.51 GiB memory in use. Process 1367799 has 6.12 GiB memory in use. Process 1395519 has 16.51 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 89.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+

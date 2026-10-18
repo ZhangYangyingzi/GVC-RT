@@ -1,0 +1,3 @@
+# Entropy coding
+
+Unchanged BitEstimator and GaussianEncoder use installed16-bit CDFs and native RANS. Native SPS/IP records and complete RANS payloads are retained. A versioned experiment envelope signals block frame/y/x/h/w and a discrete factor code using11 bytes per decision plus10 fixed bytes; the independent decoder reads this envelope, never an external oracle plan. Actual total bytes include native codec headers, all RANS payloads and control side information. These components are reported separately. No bit flips, post-hoc stream edits, estimated bits or decoder-only deletion enter real-rate comparisons.

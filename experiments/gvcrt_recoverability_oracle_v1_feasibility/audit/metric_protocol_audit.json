@@ -1,0 +1,35 @@
+{
+  "LPIPS": {
+    "implementation": "lpips.LPIPS(net=alex)",
+    "input": "float32 RGB [0,1], normalize=True",
+    "aggregation": "mean over16 frames"
+  },
+  "DISTS": {
+    "implementation": "DISTS_pytorch.DISTS default fixed weights",
+    "input": "float32 RGB [0,1]",
+    "aggregation": "mean over16 frames"
+  },
+  "FloLPIPS": {
+    "implementation": "official FloLPIPS and PWCNet via inherited flolpips_compat.py",
+    "implementation_commit": "66dd39937e961c56cf162651074eacbfb5f9aab1",
+    "input": "full RGB [0,1], normalize=True; PWC internal resize to multiples of64",
+    "flow_difference": "flow(reference_t,reference_t1) - flow(reconstruction_t,reconstruction_t1)",
+    "image_pair": "reference_t,reconstruction_t",
+    "aggregation": "mean over15 adjacent transitions per sequence; never across sequence boundaries",
+    "zero_flow": "explicit failure; no fallback fabricated value"
+  },
+  "FID": {
+    "status": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
+    "features": "official pytorch-fid InceptionV3 pool3 2048D, resize299 normalize2x-1; saved for reproducibility only",
+    "formal_FID_comparison": false
+  },
+  "historical_metric_protocol": "experiments/gvcrt_neural_wrapper_v4_1_high_convergence_metrics/metric_implementation_audit.json",
+  "current_Inception_source": "experiments/gvcrt_neural_wrapper_v6_32b_native_frame_fd_coral_completion/training32.py:official_model",
+  "metric_weight_hashes": "manifests/metric_weights.json",
+  "actual_rate": {
+    "definition": "exact persisted bytes*8 / (16*1920*1080); kbps=bits*30/(16*1000)",
+    "stock_original": "native.bin",
+    "experimental": "stream.gro, includes entire control header",
+    "components": "RANS payload + native SPS/IP headers + experimental control header"
+  }
+}

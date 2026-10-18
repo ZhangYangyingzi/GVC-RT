@@ -1,0 +1,69 @@
+{
+  "name": "gvcrt_recoverability_oracle_v1_feasibility",
+  "seed": 20261018,
+  "frames": 16,
+  "width": 1920,
+  "height": 1080,
+  "canvas": [
+    1920,
+    1088
+  ],
+  "QPs": [
+    2,
+    7
+  ],
+  "fps": 30,
+  "force_zero_thres": 0.12,
+  "IP": -1,
+  "training": false,
+  "weights_modified": false,
+  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
+  "primary_oracle_objective": "sequence mean LPIPS",
+  "local_levels": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "q_floor": 0.5,
+  "control": "experimental symmetric prior quant-step override; not native independent block QP",
+  "rate_match": "EXACT actual total bytes only; nonzero deviations are not fair equal-rate comparisons",
+  "calibration": "try adjacent legal global QPs, select by actual rate only; no padding",
+  "blocks": [
+    {
+      "frame": 2,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 2,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    }
+  ],
+  "GPU_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "workers_per_GPU": 1,
+  "minimum_free_MiB": 7000
+}
