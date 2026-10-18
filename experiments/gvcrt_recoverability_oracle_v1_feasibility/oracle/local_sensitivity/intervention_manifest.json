@@ -3,25 +3,25 @@
   "run_status": {
     "status": "RUNNING",
     "stage": "local_interventions",
-    "pending": 59,
+    "pending": 56,
     "active": [
       {
-        "id": "uvg_holdout_2_q2_block1_f0.5",
-        "pid": 1435657,
+        "id": "uvg_holdout_2_q2_block2_f2",
+        "pid": 1438161,
         "gpu": 5
       },
       {
-        "id": "uvg_holdout_2_q2_block1_f2",
-        "pid": 1435658,
+        "id": "uvg_holdout_2_q2_block3_f0.5",
+        "pid": 1438162,
         "gpu": 6
       },
       {
-        "id": "uvg_holdout_2_q2_block2_f0.5",
-        "pid": 1435659,
+        "id": "uvg_holdout_2_q2_block3_f2",
+        "pid": 1438163,
         "gpu": 7
       }
     ],
-    "finished": 2,
+    "finished": 5,
     "planned": 64,
     "GPU_snapshot": {
       "0": [
@@ -50,22 +50,22 @@
         100
       ],
       "5": [
-        7241,
-        33205,
+        5091,
+        35354,
         100
       ],
       "6": [
-        11026,
-        29419,
+        8877,
+        31569,
         100
       ],
       "7": [
-        10088,
-        30357,
+        7939,
+        32507,
         100
       ]
     },
-    "updated": 1792295786.1873806
+    "updated": 1792295966.944591
   },
   "valid_real_rate_control": true,
   "planned_single_interventions": 64,
@@ -138,6 +138,60 @@
           "h": 8,
           "w": 8,
           "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "uvg_holdout_2_q2_block1_f0.5",
+      "kind": "local",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "baseline_id": "uvg_holdout_2_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "uvg_holdout_2_q2_block1_f2",
+      "kind": "local",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "baseline_id": "uvg_holdout_2_q2_baseline",
+      "block_index": 1,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 30,
+          "x": 56,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "uvg_holdout_2_q2_block2_f0.5",
+      "kind": "local",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "baseline_id": "uvg_holdout_2_q2_baseline",
+      "block_index": 2,
+      "plan": [
+        {
+          "frame": 8,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
         }
       ]
     },

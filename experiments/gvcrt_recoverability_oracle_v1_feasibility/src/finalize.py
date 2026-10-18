@@ -61,7 +61,7 @@ def main():
  dump('manifests/integrity.json',dict(status='PASS' if passed else 'PARTIAL',checks=checks,final_failures=bad))
  exits=[]
  for p in (ROOT/'logs/stage_exits').glob('*.json'):exits.extend(load(p))
- dump('logs/GPU_task_exit_status.json',dict(stage_worker_exits=exits,standalone_decoder_exits=[load(p) for p in (ROOT/'logs/standalone_exits').glob('*.json')],final_receipt_statuses={j['id']:receipts.get(j['id'],{}).get('status','MISSING') for j in jobs},failed_attempts='logs/failed_attempts/',all_final_tasks_finished=checks['all_planned_jobs_accounted']))
+ dump('logs/GPU_task_exit_status.json',dict(preflight_launch_exits=load(ROOT/'manifests/smoke_launches.json'),stage_worker_exits=exits,standalone_decoder_exits=[load(p) for p in (ROOT/'logs/standalone_exits').glob('*.json')],final_receipt_statuses={j['id']:receipts.get(j['id'],{}).get('status','MISSING') for j in jobs},failed_attempts='logs/failed_attempts/',all_final_tasks_finished=checks['all_planned_jobs_accounted']))
  dump('manifests/implementation_hashes.json',{str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'src').glob('*.py')})
  manifest=load(ROOT/'experiment_manifest.json');manifest.update(status='PASS' if passed else 'PARTIAL',completed_successful_jobs=len(good),failed_final_jobs=len(bad),real_local_precision_control=control,experimental_control_header=True,allocation_comparisons_exact_rate_only=True,allocation_budget='stock original native bytes, without experiment envelope',all_fixed_weights_unchanged=True)
  dump('experiment_manifest.json',manifest)

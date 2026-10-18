@@ -23,7 +23,7 @@ def main():
  dump('manifests/binary_artifacts_index.json',[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in sorted((ROOT/'artifacts').rglob('*')) if p.is_file() and p.suffix!='.tmp'])
  exits=[]
  for p in (ROOT/'logs/stage_exits').glob('*.json'):exits.extend(load(p))
- dump('logs/GPU_task_exit_status.json',dict(checkpoint_only=True,all_final_tasks_finished=False,stage_worker_exits=exits,standalone_decoder_exits=[load(p) for p in (ROOT/'logs/standalone_exits').glob('*.json')],live_status='run_status.json'))
+ dump('logs/GPU_task_exit_status.json',dict(checkpoint_only=True,all_final_tasks_finished=False,preflight_launch_exits=load(ROOT/'manifests/smoke_launches.json'),stage_worker_exits=exits,standalone_decoder_exits=[load(p) for p in (ROOT/'logs/standalone_exits').glob('*.json')],live_status='run_status.json'))
  dump('manifests/checkpoint_status.json',dict(checkpoint_only=True,successful_receipts=len(passed),failed_receipts=len(receipts)-len(passed),state=load(ROOT/'run_status.json'),time=time.time()))
  print('Checkpoint:',len(passed),'successful receipts; experiment remains',load(ROOT/'run_status.json')['status'])
 
