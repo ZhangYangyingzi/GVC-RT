@@ -1,0 +1,164 @@
+{
+  "checkpoint_only": true,
+  "run_status": {
+    "status": "RUNNING",
+    "stage": "local_interventions",
+    "pending": 59,
+    "active": [
+      {
+        "id": "uvg_holdout_2_q2_block1_f0.5",
+        "pid": 1435657,
+        "gpu": 5
+      },
+      {
+        "id": "uvg_holdout_2_q2_block1_f2",
+        "pid": 1435658,
+        "gpu": 6
+      },
+      {
+        "id": "uvg_holdout_2_q2_block2_f0.5",
+        "pid": 1435659,
+        "gpu": 7
+      }
+    ],
+    "finished": 2,
+    "planned": 64,
+    "GPU_snapshot": {
+      "0": [
+        40445,
+        1,
+        0
+      ],
+      "1": [
+        40445,
+        1,
+        0
+      ],
+      "2": [
+        40445,
+        1,
+        0
+      ],
+      "3": [
+        40445,
+        1,
+        0
+      ],
+      "4": [
+        845,
+        39601,
+        100
+      ],
+      "5": [
+        7241,
+        33205,
+        100
+      ],
+      "6": [
+        11026,
+        29419,
+        100
+      ],
+      "7": [
+        10088,
+        30357,
+        100
+      ]
+    },
+    "updated": 1792295786.1873806
+  },
+  "valid_real_rate_control": true,
+  "planned_single_interventions": 64,
+  "blocks": [
+    {
+      "frame": 2,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 2,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 8,
+      "x": 8,
+      "h": 8,
+      "w": 8
+    },
+    {
+      "frame": 8,
+      "y": 30,
+      "x": 56,
+      "h": 8,
+      "w": 8
+    }
+  ],
+  "levels": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "completed": [
+    {
+      "id": "uvg_holdout_2_q2_block0_f0.5",
+      "kind": "local",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "baseline_id": "uvg_holdout_2_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 0.5
+        }
+      ]
+    },
+    {
+      "id": "uvg_holdout_2_q2_block0_f2",
+      "kind": "local",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "baseline_id": "uvg_holdout_2_q2_baseline",
+      "block_index": 0,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 2.0
+        }
+      ]
+    },
+    {
+      "id": "uvg_holdout_2_q2_noop",
+      "kind": "noop",
+      "dataset": "uvg_holdout",
+      "qp": 2,
+      "plan": [
+        {
+          "frame": 2,
+          "y": 8,
+          "x": 8,
+          "h": 8,
+          "w": 8,
+          "factor": 1.0
+        }
+      ],
+      "baseline_id": "uvg_holdout_2_q2_baseline"
+    }
+  ],
+  "raw_symbols": "oracle/local_sensitivity/symbols/",
+  "full_tensors": "artifacts/runs/; paths and SHA256 in each worker receipt"
+}

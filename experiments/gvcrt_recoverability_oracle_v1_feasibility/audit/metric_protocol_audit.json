@@ -31,5 +31,11 @@
     "stock_original": "native.bin",
     "experimental": "stream.gro, includes entire control header",
     "components": "RANS payload + native SPS/IP headers + experimental control header"
+  },
+  "legacy_field_caveat": {
+    "result.real_RANS_bytes": "inherited field name; contains whole native stream including SPS/IP headers, not RANS payload alone",
+    "canonical_RANS_only_bytes": "result.RANS_payload_bytes or rate.RANS_payload_bits/8",
+    "canonical_native_stream_bits": "rate.native_codec_stream_bits",
+    "canonical_complete_experiment_bits": "rate.actual_total_bits"
   }
 }

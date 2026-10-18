@@ -1,5 +1,7 @@
 from base import *
 def main():
+ from validate_artifacts import validate
+ validation=validate()
  jobs=[load(p) for p in sorted((ROOT/'manifests/jobs').glob('*.json'))]
  receipts={p.stem:load(p) for p in (ROOT/'manifests/receipts').glob('*.json')}
  good=[r for r in receipts.values() if r['status']=='PASS'];bad=[dict(job=j,receipt=receipts.get(j['id'],dict(status='MISSING'))) for j in jobs if receipts.get(j['id'],{}).get('status')!='PASS']
@@ -13,6 +15,13 @@ def main():
  write('baseline/baseline_summary.csv',[dict(next(x for x in rows if x['id']==r['job']['id']),original_native_bpp=r['rate']['native_codec_stream_bits']/(16*1920*1080),original_native_kbps=r['rate']['native_codec_stream_bits']*30/(16*1000),native_prefix_exact=r['result']['historical_native_prefix_exact']) for r in base])
  write('baseline/reproducibility.csv',[dict(id=r['job']['id'],**r['reproducibility']) for r in repeat])
  write('oracle/local_sensitivity/block_intervention_results.csv',[r for r in rows if r['kind'] in ('local','noop','joint')])
+ bykind={}
+ for j in jobs:
+  d=bykind.setdefault(j['kind'],dict(planned=0,successful=0,failed_or_missing=0));d['planned']+=1
+  if receipts.get(j['id'],{}).get('status')=='PASS':d['successful']+=1
+  else:d['failed_or_missing']+=1
+ for d in bykind.values():d['success_rate']=d['successful']/d['planned']
+ dump('metrics/task_success_rates.json',bykind)
  dump('oracle/local_sensitivity/intervention_manifest.json',dict(valid_real_rate_control=load(ROOT/'audit/local_control_correctness.json')['real_local_rate_control'],coordinate_system='all128 y channels; y/x/h/w in stride16 latent grid, nominal input footprint is grid times16, CNN receptive field larger',levels=[.5,1.,2.],positions=[2,8],independent_decode_reads_signalled_controls=True,no_weight_changes=True,no_training=True,tasks=[j for j in jobs if j['kind'] in ('local','noop','joint')],raw_symbols='oracle/local_sensitivity/symbols/',full_tensor_paths={r['job']['id']:r['tensor_artifacts'] for r in good}))
  dump('oracle/local_sensitivity/failed_interventions.json',dict(final_failed_tasks=bad,recovered_attempts=[dict(path=str(p),record=load(p)) for p in (ROOT/'logs/failed_attempts').glob('*.json')]))
  dump('oracle/local_sensitivity/actual_rate_accounting.json',dict(actual_total_definition='native full codec stream plus complete signalled experiment envelope; no estimated rates',base_header_bytes=10,additional_bytes_per_local_decision=11,records={r['job']['id']:r['rate'] for r in good},components_sum_exact=all(r['rate']['actual_total_bits']==r['rate']['RANS_payload_bits']+r['rate']['native_SPS_IP_header_bits']+r['rate']['control_header_bits'] for r in good)))
@@ -52,7 +61,7 @@ def main():
  dump('manifests/integrity.json',dict(status='PASS' if passed else 'PARTIAL',checks=checks,final_failures=bad))
  exits=[]
  for p in (ROOT/'logs/stage_exits').glob('*.json'):exits.extend(load(p))
- dump('logs/GPU_task_exit_status.json',dict(stage_worker_exits=exits,final_receipt_statuses={j['id']:receipts.get(j['id'],{}).get('status','MISSING') for j in jobs},failed_attempts='logs/failed_attempts/',all_final_tasks_finished=checks['all_planned_jobs_accounted']))
+ dump('logs/GPU_task_exit_status.json',dict(stage_worker_exits=exits,standalone_decoder_exits=[load(p) for p in (ROOT/'logs/standalone_exits').glob('*.json')],final_receipt_statuses={j['id']:receipts.get(j['id'],{}).get('status','MISSING') for j in jobs},failed_attempts='logs/failed_attempts/',all_final_tasks_finished=checks['all_planned_jobs_accounted']))
  dump('manifests/implementation_hashes.json',{str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'src').glob('*.py')})
  manifest=load(ROOT/'experiment_manifest.json');manifest.update(status='PASS' if passed else 'PARTIAL',completed_successful_jobs=len(good),failed_final_jobs=len(bad),real_local_precision_control=control,experimental_control_header=True,allocation_comparisons_exact_rate_only=True,allocation_budget='stock original native bytes, without experiment envelope',all_fixed_weights_unchanged=True)
  dump('experiment_manifest.json',manifest)

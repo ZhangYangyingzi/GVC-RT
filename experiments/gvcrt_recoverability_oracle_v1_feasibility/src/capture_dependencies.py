@@ -17,6 +17,8 @@ def main():
  sources.update((training32.V29/'vendor/pytorch-fid').rglob('LICENSE*'))
  sources.update((compat/'third_party/flolpips').glob('LICENSE*'))
  sources.update([V32/'evaluation_config.json',V32/'qp_semantics_audit.json',ENGINE])
+ sources.update(p for p in (REPO/'src/cpp').rglob('*') if p.is_file() and p.suffix in ('.py','.cpp','.h'))
+ sources.add(REPO/'THIRD_PARTY_NOTICES.md')
  records=[]
  for p in sorted(sources):
   if p.is_relative_to(ROOT):continue
@@ -28,7 +30,9 @@ def main():
   records.append(dict(original_path=str(p),snapshot=str(target.relative_to(ROOT)),sha256=sha(p),bytes=p.stat().st_size))
  dump('manifests/dependency_sources.json',dict(records=records,restoration='Snapshots preserve original project-relative paths. They are evidence and recovery copies; no original dependency was overwritten. Runtime reuses the audited server paths.'))
  distributions=sorted((dict(name=d.metadata['Name'],version=d.version) for d in importlib.metadata.distributions()),key=lambda x:x['name'].lower())
- dump('manifests/environment.json',dict(python=sys.version,executable=sys.executable,torch=torch.__version__,CUDA_runtime=torch.version.cuda,packages=distributions))
+ spec=importlib.util.find_spec('MLCodec_extensions_cpp')
+ extension=Path(spec.origin) if spec and spec.origin else None
+ dump('manifests/environment.json',dict(python=sys.version,executable=sys.executable,torch=torch.__version__,CUDA_runtime=torch.version.cuda,packages=distributions,native_entropy_extension=dict(path=str(extension),sha256=sha(extension),bytes=extension.stat().st_size) if extension else None))
  weights={}
  paths=[Path('/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints')/n for n in ('pwc-network-default.pytorch','weights-inception-2015-12-05-6726825d.pth','alexnet-owt-7be5be79.pth','vgg16-397923af.pth')]
  paths+=list((Path(lpips.__file__).parent/'weights').rglob('*.pth'))

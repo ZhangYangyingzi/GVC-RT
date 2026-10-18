@@ -60,8 +60,23 @@ def run(job,gpu):
   else:record['original_symbols']=record['modified_symbols']
   roi.append(record)
  dump('oracle/local_sensitivity/symbols/'+job['id']+'.json',roi)
+ standalone=None
+ if job['kind']=='noop' or (job['kind']=='local' and job['dataset']=='uvg_holdout' and job['qp']==2 and job.get('block_index')==0):
+  # The pilot must also decode in a new interpreter with no source frames,
+  # encoder tensors, or externally supplied control plan.
+  torch.cuda.empty_cache()
+  report='manifests/standalone_decode/'+job['id']+'.json'
+  command=[PYTHON,'-B','-u',str(ROOT/'src/decode_stream.py'),'--stream',str(stream),'--gpu',str(gpu),'--output',report]
+  with (ROOT/'logs'/('standalone_'+job['id']+'.log')).open('a') as log:
+   trial=subprocess.run(command,cwd=REPO,stdout=log,stderr=subprocess.STDOUT)
+  dump('logs/standalone_exits/'+job['id']+'.json',dict(command=command,exit_code=trial.returncode,gpu=gpu,time=time.time()))
+  trial.check_returncode();standalone=load(ROOT/report)
+  assert standalone['frames']==cfg['frames'] and standalone['reconstruction_sha256']==result['reconstruction_sha256']
+  standalone['reconstruction_exact_against_encoded_run']=True
+  dump(report,standalone)
  source_hashes=START_SOURCE_SHA
  receipt=dict(status='PASS',job=job,job_sha256=sha(ROOT/'manifests/jobs'/f'{job["id"]}.json'),gpu=gpu,pid=os.getpid(),result=result,rate=accounting,delta=delta,reproducibility=repeat,timings=times,wall_seconds=time.perf_counter()-start,tensor_artifacts=capfiles,decoder_symbol_checks=[dict(role=k[0],frame=k[1],groups=g) for k,g in rt.decoded_groups.items()],frozen_weight_checks=rt.weight_checks,reference_state_exact_all_P_frames=True,independent_decode=True,causal_suffix_reencoded=True,CUDAsynchronize=True,CUDA_peak_allocated_MiB=torch.cuda.max_memory_allocated()/2**20,CUDA_peak_reserved_MiB=torch.cuda.max_memory_reserved()/2**20,effective_torch_seed=torch.initial_seed(),code_sha256=source_hashes,FID_status=cfg['FID'])
+ if standalone is not None:receipt['standalone_decoder_check']=standalone
  dump('manifests/receipts/'+job['id']+'.json',receipt)
  if job['kind'] in ('baseline','repeat'):dump('baseline/'+job['id']+'.json',receipt)
  else:dump('oracle/'+('local_sensitivity' if job['kind'] in ('local','noop','joint') else 'rate_allocation')+'/'+job['id']+'.json',receipt)

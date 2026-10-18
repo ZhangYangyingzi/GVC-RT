@@ -17,7 +17,12 @@ def main(checkpoint=False):
         return p
     git(['fetch','origin','main'])
     folder=Path(tempfile.mkdtemp(prefix='gvcrt-oracle-publish-'))
-    git(['worktree','add','--detach',str(folder),'origin/main'])
+    git(['worktree','add','--no-checkout','--detach',str(folder),'origin/main'])
+    # --no-checkout does not initialize an index. Seed it from HEAD before
+    # applying sparse patterns, so absent unrelated files remain tracked.
+    git(['read-tree','HEAD'],folder)
+    git(['sparse-checkout','init','--cone'],folder)
+    git(['sparse-checkout','set','experiments/'+ROOT.name],folder)
     target=folder/'experiments'/ROOT.name
     prior=ROOT/'publication_status.json'
     if target.exists():
@@ -38,7 +43,7 @@ def main(checkpoint=False):
     (target/'manifests/publication_inventory.json').write_text(json.dumps(dict(checkpoint_only=checkpoint,experiment_state=state,files=published),indent=2)+'\n')
     relative=str(target.relative_to(folder))
     git(['add','--',relative],folder)
-    changed=git(['diff','--cached','--name-only'],folder).stdout.splitlines()
+    changed=git(['diff','--cached','--name-only','--no-renames'],folder).stdout.splitlines()
     assert changed and all(p.startswith(relative+'/') for p in changed)
     git(['commit','-m','Add GVC-RT recoverability oracle feasibility experiment'+(' (checkpoint; running)' if checkpoint else '')],folder)
     def push():

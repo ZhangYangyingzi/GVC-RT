@@ -1,6 +1,6 @@
 {
   "name": "gvcrt_recoverability_oracle_v1_feasibility",
-  "status": "PREPARED",
+  "status": "RUNNING",
   "config": "configs/experiment.json",
   "videos": "manifests/videos.json",
   "code_version": "29ef0643b7de391e9e756a4802a3018185bb5bed",
@@ -12,5 +12,13 @@
   "planned_noop_correctness": 1,
   "planned_joint_validation": 8,
   "planned_strategies": "A baseline,B seeded random,C temporal RGB difference,D exhaustive additive-surrogate oracle; each re-encoded and calibrated if needed",
-  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES"
+  "FID": "NOT_COMPUTED_INSUFFICIENT_SAMPLES",
+  "rate_budget": "stock original native codec bytes; all intervention signalling counted",
+  "maximum_calibration_runs": 48,
+  "total_unique_jobs_without_calibration": 113,
+  "source_dependencies": "manifests/dependency_sources.json",
+  "metric_protocol": "audit/metric_protocol_audit.json",
+  "requested_torch_seed": 20261018,
+  "effective_torch_seed": 0,
+  "standalone_pilot_decoder": "src/decode_stream.py"
 }

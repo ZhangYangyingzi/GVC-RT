@@ -1,0 +1,14 @@
+cannot import cuda implementation for inference, fallback to pytorch.
+[DMCI] Loading pretrained Encoder from /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt...
+==> [DMCI] Attempting full model load from: /Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt
+    ⚠️ [WARNING] No 'ema' or 'student' key. Using default state_dict...
+-------------------------------------------------------
+Sub-Module                | Parameters Loaded
+-------------------------------------------------------
+enc (Encoder)             | 74         ✅
+dec (Latent Dec)          | 120        ✅
+recon (Recon Head)        | 212        ✅
+entropy (Prior/Hyper)     | 190        ✅
+-------------------------------------------------------
+==> [DMCI] Full Load Finished.
+{"status": "PASS", "stream_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_recoverability_oracle_v1_feasibility/artifacts/runs/uvg_holdout_2_q2_block0_f2/stream.gro", "stream_sha256": "162dad0aedace123bf8f6bb1846d2f9326ff24c6901e48d1440c7585e5fcf8ae", "actual_bits": 149040, "bytes_consumed": 18630, "frames": 16, "actual_qps": [2, 4, 2, 3, 2, 3, 2, 3, 2, 4, 2, 3, 2, 3, 2, 3], "plan_read_only_from_stream": [{"frame": 2, "y": 8, "x": 8, "h": 8, "w": 8, "factor": 2.0}], "source_video_used": false, "encoder_used": false, "encoder_captures_used": false, "external_oracle_plan_used": false, "frame_reconstruction_hashes": ["c30cabfa666cf4a12d34912637d968cf7df226da57c7bbe74e3cded69b9d1903", "a7e1ab5cc6a29b4ea31131cfe22b317803cbb06384f56a6c671fd8ecf05cf39f", "34132d85c4db1d05174358f41f69c783a5ffa59874e9dbac23f70ae29810b7c1", "e0e85728a7ca314e8108965ec1136b62f4c0f19299ddfcce323f0560435bc458", "fd8afaf6c02aca42fa4a3555f113bad1853aa40425b661eef3ae5f8a715e9849", "5d4d0732583198490b1358769f7b261552f093f17a9e0d1e9cd238ffc89931c3", "be8556ffc420ad158d75b7ae243d4b86172b0055dd63be7b23c1837b41a3e39e", "a85ed5cef1de9f5deb55aa368879892581b90777fce03bd6effb4fba3215cd9c", "8b81bc7b1fd83ad14e0627ddcde6bcc6dd825ed39f44f13acb21515ff43e68fa", "08cc8b9457bce9a68ea2dccdeffff55c670696199556e8a1febdf236e0e696ae", "bbbf68d072f9cddb80e1776b5458dde67fb56fd7bf14746f0ddb81d206654b97", "fb51d6f08a3e1128e9c098d0b6d025e7ec10fb0c9c9589127747deec978f12db", "51cba1944406fe960d484ed5d99d26f91d1254f616eef5581c943ea5b7f0ee54", "41c778f3b75c6ce242f81a250e92a06eb5bce07904fbf58bb5b408841c03b7e0", "4c2cbb71a010bceae75227f87a0b424f66e31dbc34ae40bad4a2194252356114", "ea5ebf898dfd09d6bfa119a615efe9917014c65f55116085d7c8b89961c45f5e"], "reconstruction_sha256": "6af7c0bbd56d7f5c9794dd5fd6cc57cc2c3805c50cdee53664cea7e549251c1c", "decode_wall_seconds": 3.9021497443318367, "gpu": 7, "pid": 1434611}
