@@ -1,0 +1,15 @@
+{
+  "experiment": "gvcrt_neural_wrapper_v6_34a_p_joint_fd_trend_screen",
+  "mode": "A_reuse",
+  "training_updates_added": {"N_noP_BG_FD": 0, "P_PBG_FD": 0},
+  "fixed_steps": [0, 100, 250],
+  "fixed_endpoint": 250,
+  "evaluation_videos": 6,
+  "external_qps": [0, 5, 9],
+  "methods": ["original", "N_noP_BG_FD", "P_PBG_FD"],
+  "expected_logical_points": 90,
+  "physical_gpu_pool": [4, 5, 6, 7],
+  "trend_interpolation": {"coordinate": "ln(actual_bpp)", "kind": "linear", "points": 20, "extrapolation": false},
+  "rate_definition": "complete persisted bitstream bytes*8/(64*1920*1080)",
+  "training_loss_source": "v6.34 fixed C_C1_lr2_FD implementation, no training executed in this run"
+}

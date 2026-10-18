@@ -1,0 +1,72 @@
+{
+  "name": "v6.34a_p_joint_fd_trend_screen",
+  "mode": "A_reuse",
+  "mode_decision_rule": "reuse matching old branch step100/250 only when full checkpoint state, plan, initialization, objective and gradient-path audits pass; otherwise mode B is required",
+  "training_updates_new": {
+    "N_noP_BG_FD": 0,
+    "P_PBG_FD": 0
+  },
+  "reused_adaptation_steps": [
+    0,
+    100,
+    250
+  ],
+  "fixed_endpoint": 250,
+  "source_experiment": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000",
+  "source_shared_plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "loss_source": "v6.34 validated C_C1_lr2_FD implementation unchanged",
+  "branch_definitions": {
+    "N_noP_BG_FD": "Identity P; bridge+generator from original model; historical branch full-state snapshots reused",
+    "P_PBG_FD": "zero-residual identity NeuralWrapper; wrapper+bridge+generator historical full-state snapshots reused"
+  },
+  "evaluation": {
+    "dataset": "U-Long training-pool holdout screen",
+    "videos": 6,
+    "video_selection": "first six unique source videos from v6.34 plans/diagnostic.json",
+    "source_frames_per_video": 64,
+    "external_qp": [
+      0,
+      5,
+      9
+    ],
+    "IP": -1,
+    "native_I_frame": true,
+    "real_RANS": true,
+    "independent_decode": true,
+    "expected_physical_encodes": 90,
+    "logical_points": 90,
+    "step0_aliases": 36,
+    "rate": "persisted bitstream bytes*8/(64*1920*1080)",
+    "metrics": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "FID"
+    ],
+    "FID": "pooled 384-frame Inception2048 features, not mean per-video FID"
+  },
+  "rate_comparison": {
+    "paired_metrics": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS"
+    ],
+    "per_video": true,
+    "coordinate": "ln(actual_bpp)",
+    "interpolation": "piecewise linear",
+    "points": 20,
+    "no_extrapolation": true
+  },
+  "gpu_pool": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "scheduler_pool": [
+    6,
+    7
+  ],
+  "training_data_isolation_audit": "audits/data_isolation.json",
+  "source_checkpoint_state_audit": "audits/budget_override.json"
+}
