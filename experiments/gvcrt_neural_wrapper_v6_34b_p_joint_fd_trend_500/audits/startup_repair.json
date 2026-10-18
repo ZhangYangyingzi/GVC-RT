@@ -1,0 +1,9 @@
+{
+  "status": "RESOLVED",
+  "observed_failure": "The first worker startup lacked local copies of the parent train_manifest_ulong.json and train_manifest_uvg.json, which PlanFrames requires for metadata lookup.",
+  "repair": "Copied both manifests byte-for-byte into the new experiment directory and restarted/resumed from the intact parent transactions; no parent file was modified.",
+  "training_integrity": "Workers resumed from N=475 and P=368 complete checkpoints; the failed startup did not commit an optimizer update or advance the checkpoint cursor.",
+  "evaluation_integrity": "Early attempted endpoint tasks failed before encoding because step-500 checkpoint exports did not exist yet. The task driver queues the same fixed tasks after each branch reaches step 500; these failed attempts are retained in errors.jsonl and logs.",
+  "no_external_processes_terminated": true,
+  "retry_reason": "missing local source metadata files / endpoint checkpoint not yet available"
+}

@@ -1,0 +1,32 @@
+{
+  "base_training_protocol": "../gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/protocol.json",
+  "base_training_protocol_sha256": "e6f8ea3a59b3dd330c08bfb5db5e9fa4671bb33218bdd09b2b1cf891b6c270d5",
+  "continuation_mode": "resume each branch's latest complete parent transaction",
+  "cumulative_endpoint": 500,
+  "branch_start_steps": {
+    "N_noP_BG_FD": 475,
+    "P_PBG_FD": 368
+  },
+  "additional_updates": {
+    "N_noP_BG_FD": 25,
+    "P_PBG_FD": 132
+  },
+  "training_plan": "parent shared plan, unchanged; each branch resumes its own saved cursor",
+  "evaluation": {
+    "manifest_source": "v6.34a eval_manifest.json",
+    "videos": 6,
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "methods_new": [
+      "N_noP_BG_FD_500",
+      "P_PBG_FD_500"
+    ],
+    "new_encodes_expected": 36,
+    "verified_historical_points_expected": 90,
+    "logical_points_including_reused": 126
+  },
+  "no_budget_extension": true
+}

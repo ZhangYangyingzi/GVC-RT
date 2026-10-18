@@ -1,0 +1,66 @@
+{
+  "schema": "v634",
+  "branches": [
+    "N_noP_BG_FD",
+    "P_PBG_FD"
+  ],
+  "seed": 20261034,
+  "updates": 5000,
+  "checkpoint_steps": [
+    0,
+    1,
+    100,
+    250,
+    1000,
+    2000,
+    3500,
+    5000
+  ],
+  "optimizer": {
+    "class_name": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "bridge_lr": 6e-06,
+    "generator_lr": 1e-06,
+    "wrapper_lr": 5e-05,
+    "global_clip": 1.0
+  },
+  "fresh_optimizer": true,
+  "restore_source_optimizer": false,
+  "lambda_FD": 0.004456022804189918,
+  "lambda_rec": 0.1383589248954108,
+  "lambda_stat": 0.038636700918173825,
+  "beta_ema": 0.95,
+  "training_ddof": 0,
+  "evaluation_ddof": 1,
+  "backward_unit_scale": 4096,
+  "force_zero_thres": 0.12,
+  "no_discriminator": true,
+  "max_evaluation_workers": 12,
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "reference_commit": "15cf948c375d95b9a02f86fafae61bed108c5599",
+  "initialization": "original public GVC-RT loader; no adapted P/B/G",
+  "official_model_files": [
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt"
+  ],
+  "expected": {
+    "training_updates": 10000,
+    "prefill": 1000,
+    "holdout_windows": 40,
+    "holdout_points": 400,
+    "new_encodes": 1472,
+    "baseline_reused": 460,
+    "logical_points": 1932
+  },
+  "actual_HEAD": "29ef0643b7de391e9e756a4802a3018185bb5bed"
+}
