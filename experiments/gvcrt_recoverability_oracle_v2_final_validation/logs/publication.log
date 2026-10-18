@@ -951,3 +951,42 @@ $ git sparse-checkout set experiments/gvcrt_recoverability_oracle_v2_final_valid
 
 $ git merge-base --is-ancestor 2c5dc039007a3c2b5c23d8e1522b922f51f2455f origin/main
 
+$ git add -- experiments/gvcrt_recoverability_oracle_v2_final_validation
+
+$ git diff --cached --name-only --no-renames
+experiments/gvcrt_recoverability_oracle_v2_final_validation/README.md
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/final_publication.log
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/independent_postflight.log
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/launcher_exit.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/postflight_publication.log
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/publication.log
+experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/publication_exit.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/completion_verification.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/independent_postflight_verification.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/publication_inventory.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/run_status.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/publication_status.json
+experiments/gvcrt_recoverability_oracle_v2_final_validation/run_status.json
+
+$ git commit -m Add final GVC-RT recoverability oracle validation
+[detached HEAD daffcce8f] Add final GVC-RT recoverability oracle validation
+ 13 files changed, 825 insertions(+), 19 deletions(-)
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/independent_postflight.log
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/launcher_exit.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/postflight_publication.log
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/logs/publication_exit.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/completion_verification.json
+ create mode 100644 experiments/gvcrt_recoverability_oracle_v2_final_validation/manifests/independent_postflight_verification.json
+
+$ git push origin HEAD:refs/heads/main
+To github-zyyz:ZhangYangyingzi/GVC-RT.git
+   2c5dc0390..daffcce8f  HEAD -> main
+
+$ git rev-parse HEAD
+daffcce8f9caa46bde8bdd67367c62bea5f0c9fb
+
+$ git ls-remote --heads origin main
+daffcce8f9caa46bde8bdd67367c62bea5f0c9fb	refs/heads/main
+
+$ git merge-base --is-ancestor daffcce8f9caa46bde8bdd67367c62bea5f0c9fb daffcce8f9caa46bde8bdd67367c62bea5f0c9fb
+
