@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "computation_status": "PASS",
+  "publication_status": "PENDING",
+  "checks": {
+    "new_B_updates": 500,
+    "B_optimizer_internal_step": 500,
+    "F_updates_new": 0,
+    "B_plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+    "B_plan_rows": 500,
+    "B_domain_counts": {
+      "ulong": 250,
+      "uvg": 250
+    },
+    "initial_source_step0_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+    "F_checkpoint_sha256": "b29a1236a5158aa07f2b685f945723064c376404f5564d1f79cb5b35beb839d9",
+    "F_inference_sha256": "ca2c66aa1d68877779c8646b66d02e4ba06e82fc4f3b3c92c11271fc7ffc19dc",
+    "verified_reused_O_F_points": 78,
+    "new_B_points": 39,
+    "logical_RD_points": 117,
+    "expected_logical_RD_points": 117,
+    "pooled_FID_points": 27,
+    "expected_pooled_FID_points": 27,
+    "evaluation_retry_task_count": 6,
+    "evaluation_failed_attempts": 7,
+    "evaluation_retry_records": [
+      {
+        "attempts": 1,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "hevc_b",
+          "video": 1,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 9
+        }
+      },
+      {
+        "attempts": 1,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "hevc_b",
+          "video": 2,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 9
+        }
+      },
+      {
+        "attempts": 1,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "hevc_b",
+          "video": 4,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 5
+        }
+      },
+      {
+        "attempts": 1,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "ulong",
+          "video": 4,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 5
+        }
+      },
+      {
+        "attempts": 1,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "ulong",
+          "video": 5,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 0
+        }
+      },
+      {
+        "attempts": 2,
+        "last_exit_code": 1,
+        "task": {
+          "stage": "adapt",
+          "dataset": "uvg_holdout",
+          "video": 2,
+          "method": "B_basicLoss_noP_500",
+          "branch": "B_basicLoss_noP_500",
+          "step": 500,
+          "qp": 0
+        }
+      }
+    ],
+    "all_full_points_64_frames_63_transitions_and_independent_decode": true,
+    "all_bpp_formulas_verified": true,
+    "FID_closure_max_abs": 0.0,
+    "same_QP_bitstream_equal_pairs": 117,
+    "same_QP_pairs": 117,
+    "method_point_counts": {
+      "O_original": 39,
+      "B_basicLoss_noP_500": 39,
+      "F_fullLoss_noP_500": 39
+    },
+    "new_disabled_losses_not_computed": true,
+    "one_new_B_branch_only": true
+  },
+  "known_scope": "nested basic objective vs existing full-loss package; DISTS + legacy spatial statistic + native FD are bundled; this is not an official training objective reproduction",
+  "completed_unix": 1792383018.7921014
+}

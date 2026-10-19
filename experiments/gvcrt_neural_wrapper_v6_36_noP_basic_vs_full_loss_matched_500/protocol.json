@@ -1,0 +1,43 @@
+{
+  "experiment": "v6.36 no-P basic-vs-full-loss matched 500",
+  "scope": "single new no-P basic objective branch; reuse original and no-P full-loss endpoints",
+  "new_branch": "B_basicLoss_noP_500",
+  "reused_full": "v6.35 N_oursLoss_noP_500 (v6.34b N_noP_BG_FD cumulative step 500)",
+  "reused_original": "original published I/P model",
+  "objective_basic": "LPIPS + 0.1383589248954108*reconstruction_L1 + beta(q)*rate_bpp + 0.01*proxy_L1",
+  "objective_full": "LPIPS + 0.1383589248954108*reconstruction_L1 + beta(q)*rate_bpp + 0.01*proxy_L1 + 0.5*DISTS + 0.038636700918173825*legacy_DISTS_spatial_stat + 0.0044560228041899182*FD",
+  "comparison_scope": "combined extra-supervision package DISTS + legacy statistic + native-resolution FD; no individual attribution and not an official full-objective reproduction",
+  "plan_prefix": 500,
+  "plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "training_semantics": {
+    "batch_size": 1,
+    "window_frames": 64,
+    "crop": 256,
+    "I0": "native RGB bypass",
+    "warmup_positions": "P1-P48",
+    "supervised_positions": "P49-P63",
+    "frame_mean_denominator": 15,
+    "reference_detach": true,
+    "BPTT": false,
+    "force_zero_thres": 0.12
+  },
+  "evaluation": {
+    "datasets": [
+      "ulong",
+      "uvg_holdout",
+      "hevc_b"
+    ],
+    "videos": 13,
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "new_B_points": 39,
+    "reused_O_F_points": 78,
+    "total_points": 117,
+    "pooled_fid_points": 27
+  },
+  "rate": "actual persistent RANS bitstream bytes including I/SPS/headers; bpp denominator 64*1920*1080",
+  "reuse_policy": "only source-hash, RGB, actual bitstream, feature and metric-protocol verified results"
+}

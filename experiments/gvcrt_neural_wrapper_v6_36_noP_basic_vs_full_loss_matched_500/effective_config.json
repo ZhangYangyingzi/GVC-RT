@@ -1,0 +1,59 @@
+{
+  "schema": "v636",
+  "branch": "B_basicLoss_noP_500",
+  "updates": 500,
+  "training_updates_new": 500,
+  "full_loss_updates_new": 0,
+  "original_updates_new": 0,
+  "seed": 20261034,
+  "plan_source": "experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/plans/shared.json",
+  "plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "objective": "LPIPS + 0.1383589248954108*reconstruction_L1 + beta(q)*rate_bpp + 0.01*proxy_L1",
+  "optimizer": {
+    "class": "AdamW",
+    "bridge_lr": 6e-06,
+    "generator_lr": 1e-06,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_clip": 1.0,
+    "fresh": true
+  },
+  "training": {
+    "batch_size": 1,
+    "window_frames": 64,
+    "crop": 256,
+    "I0": "native RGB bypass",
+    "warmup_positions": "P1-P48",
+    "supervised_positions": "P49-P63",
+    "frame_mean_denominator": 15,
+    "reference_detach": true,
+    "BPTT": false,
+    "force_zero_thres": 0.12
+  },
+  "disabled_terms": {
+    "0.5*DISTS": "not computed in training",
+    "0.038636700918173825*legacy_DISTS_spatial_stat": "not computed",
+    "0.0044560228041899182*FD": "not computed; no prefill/VJP/EMA"
+  },
+  "evaluation": {
+    "datasets": [
+      "ulong",
+      "uvg_holdout",
+      "hevc_b"
+    ],
+    "videos": 13,
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "new_B_points": 39,
+    "reused_O_F_points": 78,
+    "total_points": 117,
+    "pooled_fid_points": 27
+  }
+}

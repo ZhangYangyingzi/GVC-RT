@@ -1,0 +1,54 @@
+{
+  "experiment": "v6.35 full pipeline gain attribution, 500-step reuse-only plus fixed eval",
+  "repository_head": "d4e55e9d3b7de3e37245de0d81d05dae6eab10d1",
+  "training": {
+    "N": {
+      "steps": 0,
+      "reuse_step": 500
+    },
+    "P": {
+      "steps": 0,
+      "reuse_step": 500
+    },
+    "A": {
+      "steps": 0,
+      "status": "BLOCKED_MISSING_REFERENCE_OBJECTIVE"
+    }
+  },
+  "evaluation": {
+    "datasets": {
+      "ulong": 6,
+      "uvg_holdout": 2,
+      "hevc_b": 5
+    },
+    "qps": [
+      0,
+      5,
+      9
+    ],
+    "frames_per_video": 64,
+    "expected_logic_points": 117,
+    "historical_reuse_points": 75,
+    "new_real_encodes": 42
+  },
+  "gpu_policy": {
+    "allowed_physical": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "parallel": true,
+    "observed_free_mib": {
+      "4": 7851,
+      "5": 6561,
+      "6": 34848,
+      "7": 34848
+    },
+    "evaluation_reservation_mib": 9000
+  },
+  "source_checkpoint_sha256": {
+    "N_oursLoss_noP_500": "ca2c66aa1d68877779c8646b66d02e4ba06e82fc4f3b3c92c11271fc7ffc19dc",
+    "P_oursLoss_withP_500": "eea01e8111799038521f357d970b21b1a9774db3a641a94ed6708477771c816e"
+  }
+}

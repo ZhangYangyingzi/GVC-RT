@@ -1,0 +1,25 @@
+{
+  "schema": "v6.36_objective_definition",
+  "new_branch": "B_basicLoss_noP_500",
+  "basic_objective": {
+    "LPIPS": 1.0,
+    "reconstruction_L1": 0.1383589248954108,
+    "rate_bpp": "beta(q) * rate / 65536 using inherited v6.34b implementation",
+    "proxy_L1": 0.01,
+    "proxy_definition": "Identity P output; equals GT input; numerically zero"
+  },
+  "full_objective_read_only_F": {
+    "basic_objective": "same common terms and weights",
+    "DISTS": 0.5,
+    "legacy_DISTS_spatial_stat": 0.038636700918173825,
+    "native_resolution_FD": 0.0044560228041899182
+  },
+  "per_frame_mean": 15,
+  "reconstruction_gradient_unit_scale": 4096,
+  "disabled_in_B": {
+    "DISTS": "not computed in training",
+    "legacy_DISTS_spatial_stat": "not computed in training",
+    "FD": "not computed; no prefill, VJP, or EMA"
+  },
+  "interpretation_scope": "F minus B compares the bundled additional supervision scheme; this does not attribute separate effects to DISTS, legacy statistic, or FD, and does not reproduce an official unpublished objective."
+}
