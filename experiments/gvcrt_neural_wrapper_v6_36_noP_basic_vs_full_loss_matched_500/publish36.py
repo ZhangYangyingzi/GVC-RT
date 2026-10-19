@@ -17,7 +17,7 @@ def light_files():
  for p in sorted(R.rglob('*')):
   if not p.is_file() or any(x in excluded for x in p.parts):continue
   rel=p.relative_to(R).as_posix()
-  if p.suffix in ('.pt','.pth','.ckpt','.bin','.npz','.npy','.mp4','.png') and '/plots/' not in rel:continue
+  if p.suffix in ('.pt','.pth','.ckpt','.bin','.npz','.npy','.mp4') or (p.suffix=='.png' and not (rel.startswith('plots/') or rel.startswith('figures/'))):continue
   if rel.endswith('.lock') or rel.startswith('logs/') and rel.endswith('.log'):continue
   if p.name in ('file_index.json','publication_status.json'):continue
   out.append({'path':rel,'bytes':p.stat().st_size,'sha256':sha(p)})
