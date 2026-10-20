@@ -38,6 +38,11 @@ def start(key,script,args,estimate,forced=None):
 
 def main():
  lock=(ROOT/'runner.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+ if (ROOT/'final_integrity.json').exists() and (ROOT/'publication_status.json').exists():
+  final=load(ROOT/'final_integrity.json');published=load(ROOT/'publication_status.json')
+  if final.get('status')=='PASS' and published.get('push_success'):
+   dump(ROOT/'run_status.json',dict(status='COMPLETE',integrity=final,publication=published,finished=time.time(),resume_action='already complete; no task or optimizer update repeated'))
+   print('ALREADY_COMPLETE D500 RD273 FID63',flush=True);return
  assert load(ROOT/'audits/step0_gradient.json')['status']=='PASS'
  ts=load(ROOT/'evaluation/task_manifest.json')['source_tasks'];blocked=[]
  while True:

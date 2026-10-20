@@ -30,8 +30,9 @@ def main():
  data=push()
  status=dict(status='PUBLISHED',push_success=True,data_commit_SHA=data,verified_remote_main=data,repository='ZhangYangyingzi/GVC-RT',GitHub_directory='https://github.com/ZhangYangyingzi/GVC-RT/tree/main/experiments/'+ROOT.name,verification_time=time.time(),audit_note='This audit records the preceding data commit, not its own not-yet-created SHA.',isolated_worktree=str(folder),original_dirty_worktree_untouched=True)
  dump(ROOT/'publication_status.json',status);final['publication_status']='PUBLISHED_DATA_COMMIT_VERIFIED';dump(ROOT/'final_integrity.json',final)
- for n in ('publication_status.json','final_integrity.json'):shutil.copyfile(ROOT/n,target/n)
- git(['add','--',rel+'/publication_status.json',rel+'/final_integrity.json'],folder);git(['commit','-m','Record v6.37 publication verification'],folder);audit=push()
+ dump(ROOT/'run_status.json',dict(status='COMPLETE',computation_status='PASS',integrity=final,data_commit_SHA=data,publication=status,note='The experiment data commit is already pushed and verified; this audit does not reference its own future SHA.'))
+ for n in ('publication_status.json','final_integrity.json','run_status.json'):shutil.copyfile(ROOT/n,target/n)
+ git(['add','--',rel+'/publication_status.json',rel+'/final_integrity.json',rel+'/run_status.json'],folder);git(['commit','-m','Record v6.37 publication verification'],folder);audit=push()
  dump(ROOT/'publication_status.json',dict(status,audit_commit_SHA=audit,final_remote_main=audit,final_remote_verified_time=time.time(),GitHub_directory_at_commit=f'https://github.com/ZhangYangyingzi/GVC-RT/tree/{audit}/experiments/{ROOT.name}'))
  print('PUSH PASS',data,audit,flush=True)
 if __name__=='__main__':

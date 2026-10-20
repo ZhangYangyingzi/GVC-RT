@@ -1,12 +1,87 @@
 {
-  "status": "RUNNING",
-  "D_committed_updates": 500,
-  "D500": true,
-  "replay_complete": 39,
-  "replay_planned": 39,
-  "D_evaluation_complete": 39,
-  "D_evaluation_planned": 39,
-  "active": [],
-  "failed_or_blocked": [],
-  "updated": 1792469246.75443
+  "status": "COMPLETE",
+  "integrity": {
+    "status": "PASS",
+    "computation_status": "PASS",
+    "publication_status": "PUBLISHED_DATA_COMMIT_VERIFIED",
+    "new_effective_updates": {
+      "O_original": 0,
+      "B_basicLoss_noP_500": 0,
+      "D_basicDISTS_noP_500": 500,
+      "F_fullLoss_noP_500": 0,
+      "X_fullBridge_originalG": 0,
+      "Y_originalBridge_fullG": 0,
+      "I_halfLatent_fullG": 0
+    },
+    "optimizer_committed_updates": 500,
+    "plan_rows": 500,
+    "training_domains": {
+      "ulong": 250,
+      "uvg": 250
+    },
+    "RD": {
+      "complete": 273,
+      "planned": 273
+    },
+    "FID": {
+      "complete": 63,
+      "planned": 63,
+      "samples": {
+        "ulong": 384,
+        "uvg_holdout": 128,
+        "hevc_b": 320
+      }
+    },
+    "D_unique_real_encode_points": 39,
+    "replay_verification_tasks": 39,
+    "intervention_hook_verification_tasks": 39,
+    "failed_attempts": 1,
+    "failed_final_tasks": [],
+    "blocked": [],
+    "frozen_checks": "PASS",
+    "all_actual_RANS_streams_equal": true,
+    "required_files_sha256": {
+      "README.md": "c71f2eedab48fc18d183c7706a164a3f74cda263945517c55346264b3309c0b3",
+      "REPORT.md": "94f5dd72b66404f2f6e075302f6069d2ea516779a4afa81a826d5c383f04502a",
+      "RESULTS_SUMMARY.md": "ea6eefa778eae5169b86293a2beb42dedc09bf3343fa96d5b0f2fb6d9d5c90bb",
+      "OBJECTIVE_COMPARISON.md": "665098499ab03b5c906a422c76662e81fd2dd19f7f83ec763101150f81ee8b6d",
+      "MECHANISM_PROTOCOL.md": "10f99ed40e2e9ace8873d0924bd184a5bf55f35352861cc58543baf02bd9424c",
+      "effective_config.json": "6df2c2a2e56a34214a762cc025f528c2ef4bb1bbc4f205de378076e6db1228e4",
+      "protocol.json": "6df2c2a2e56a34214a762cc025f528c2ef4bb1bbc4f205de378076e6db1228e4",
+      "source_manifest.json": "d36a30f5be687fbc4050c6f8776815c61aa2ca2332ac7721005390f24a137d61",
+      "checkpoint_reuse_manifest.json": "fd260cf77964767d0e51988f0c091dbdfeaec7b702f352bc1d468cdb0c74c77e",
+      "evaluation/task_manifest.json": "31fea458cd13b3038f1d36646014d2b137401c7310e486a796ca8e62cb2061e9",
+      "errors.jsonl": "77471fa0ac493772237218e4b486f2201bc8f8f253475e8d2cbf275192e02856",
+      "figures/FIGURE_INDEX.md": "ce682c77fa4c2e0258e467a1433b43b223beab2cd7bb3821110fb77fc780015a",
+      "results/all_rd_points.csv": "f07eeeb72efc7bd7fdb7db0505a203a14abcbe74426dbca1f688d67973035173",
+      "results/pooled_fid.csv": "dccda9e284b0a97be004b82289504a4c031de2ddf854ece4945cc905889729d1",
+      "results/equal_rate_summary.csv": "3a051275b5a198b97b8ea05aab04df71c2a38be42acbb28b63d85801bdc7abdc",
+      "results/equal_rate_per_video.csv": "0a1cde537af11a630f2f50a029ca50330f5fac04bcf1da2df39dbb5a7b158f3a",
+      "results/same_stream_pairs.csv": "7150dcad17c877750828d3794a60e186ace7bfb6f3d8b0313029cbc0845a4a10",
+      "results/loss_attribution.csv": "2bb95e0634bd861b14fcb8e0939504655d5495da2d3e2289ee57c9ebafb79d7f",
+      "results/module_swap_summary.csv": "5e6dd910e1815e52a093277bbe6d6877d451407958499fe3fcfcb9c8161bdef6",
+      "results/latent_interpolation.csv": "26689eeead544340d0d02c73d286cdae5dba71fd42a09a84dd5b302ecacc42d9",
+      "results/latent_statistics.csv": "fc53c11fdc5ad8c7edf9070f3e61bb2067f9218087028d9fb49a443f46786e25",
+      "results/latent_pair_changes.csv": "7c0258fcf55bb5cb51de82a416d97db82542aa356dc40aefe6b7af70b102836b"
+    },
+    "finished": 1792469747.6714482
+  },
+  "publication": {
+    "status": "PUBLISHED",
+    "push_success": true,
+    "data_commit_SHA": "bec07c9e547beaa74de4bc026576bea0ade7dbb0",
+    "verified_remote_main": "bec07c9e547beaa74de4bc026576bea0ade7dbb0",
+    "repository": "ZhangYangyingzi/GVC-RT",
+    "GitHub_directory": "https://github.com/ZhangYangyingzi/GVC-RT/tree/main/experiments/gvcrt_neural_wrapper_v6_37_loss_bridge_generator_mechanism_500",
+    "verification_time": 1792469867.7773273,
+    "audit_note": "This audit records the preceding data commit, not its own not-yet-created SHA.",
+    "isolated_worktree": "/Huang_group/zyyz/home_dir/tmp/gvcrt637-publish-sik0zs7e",
+    "original_dirty_worktree_untouched": true,
+    "audit_commit_SHA": "d36eb785b49d00e7bb0416becf12e2d9ef7a9598",
+    "final_remote_main": "d36eb785b49d00e7bb0416becf12e2d9ef7a9598",
+    "final_remote_verified_time": 1792469879.0079172,
+    "GitHub_directory_at_commit": "https://github.com/ZhangYangyingzi/GVC-RT/tree/d36eb785b49d00e7bb0416becf12e2d9ef7a9598/experiments/gvcrt_neural_wrapper_v6_37_loss_bridge_generator_mechanism_500"
+  },
+  "finished": 1792469998.5286431,
+  "resume_action": "already complete; no task or optimizer update repeated"
 }
