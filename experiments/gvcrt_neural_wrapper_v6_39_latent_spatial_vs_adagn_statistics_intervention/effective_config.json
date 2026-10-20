@@ -1,0 +1,61 @@
+{
+  "experiment": "v6.39",
+  "mode": "read_only_cross_inference",
+  "git_head_at_start": "d4e55e9d3b7de3e37245de0d81d05dae6eab10d1",
+  "worktree_porcelain_sha256": "79f3fc0720930079072d63adb373acc41f977d24adbcf8ace6cf1060169bdc4d",
+  "methods": {
+    "M00": {
+      "full": "Y_originalBridge_fullG",
+      "spatial": "z0",
+      "stats": "z0",
+      "origin": "v6.37 endpoint"
+    },
+    "M10": {
+      "full": "C_zF_spatial_z0_stats",
+      "spatial": "zF",
+      "stats": "z0",
+      "origin": "new inference"
+    },
+    "M01": {
+      "full": "S_z0_spatial_zF_stats",
+      "spatial": "z0",
+      "stats": "zF",
+      "origin": "new inference"
+    },
+    "M11": {
+      "full": "F_fullLoss_noP_500",
+      "spatial": "zF",
+      "stats": "zF",
+      "origin": "v6.37 endpoint"
+    }
+  },
+  "physical_gpu_allowed": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "QP": [
+    0,
+    5,
+    9
+  ],
+  "datasets": {
+    "ulong": 6,
+    "uvg_holdout": 2,
+    "hevc_b": 5
+  },
+  "videos": 13,
+  "frames": 64,
+  "P_frames": 63,
+  "training_updates": 0,
+  "new_real_encodes": 0,
+  "streams_reused": 39,
+  "RD_planned": 156,
+  "FID_planned": 36,
+  "endpoint_raw_rgb_maxabs": 1e-05,
+  "endpoint_relative_L2": 1e-06,
+  "endpoint_spatial_metric_abs": 1e-05,
+  "endpoint_pooled_FID_abs": 0.001,
+  "description": "Frozen G_F; swap only z_spatial and AdaGN second input."
+}

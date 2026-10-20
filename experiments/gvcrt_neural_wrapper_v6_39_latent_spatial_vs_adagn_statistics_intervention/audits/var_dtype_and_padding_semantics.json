@@ -1,0 +1,11 @@
+{
+  "source": "/Huang_group/zyyz/Projects/GVC-RT/src/models/improved_model_gvcrt.py",
+  "source_sha256": "88a8caa6589c885e746472dcb5962cf1d2a501020e0d7b8745afde111469212c",
+  "code": "rearrange(z,'b c h w -> b c (h w)'); sqrt(var(dim=-1)+eps); mean(dim=-1)",
+  "torch_var_default_correction": 1,
+  "empirical_float32_var_of_1_and_2": 0.5,
+  "empirical_torch_version": "2.6.0+cu124",
+  "configured_eps": 1e-06,
+  "actual_stats_scope": "full 68x120 padded 18-channel generator latent; no crop or mask",
+  "dtype": "source archive FP16; decoder deployment FP16"
+}
