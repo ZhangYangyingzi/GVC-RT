@@ -1,0 +1,460 @@
+{
+  "status": "PASS",
+  "new_optimizer_updates": 0,
+  "scope": "separate read-only process; formal training restores step0 again",
+  "source_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+  "modules": {
+    "LPIPS": {
+      "wrapper": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 0
+      },
+      "bridge": {
+        "norm": 4.42910025552875,
+        "nonzero": 28,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 28
+      },
+      "generator": {
+        "norm": 1.7131874610708635,
+        "nonzero": 212,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 212
+      }
+    },
+    "weighted_reconstruction": {
+      "wrapper": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 0
+      },
+      "bridge": {
+        "norm": 0.07665111450822651,
+        "nonzero": 28,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 28
+      },
+      "generator": {
+        "norm": 0.01867796899985575,
+        "nonzero": 212,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 212
+      }
+    },
+    "weighted_DISTS": {
+      "wrapper": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 0
+      },
+      "bridge": {
+        "norm": 2.780793305266804,
+        "nonzero": 28,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 28
+      },
+      "generator": {
+        "norm": 1.022800477529589,
+        "nonzero": 212,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 212
+      }
+    },
+    "rate_proxy": {
+      "wrapper": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 0
+      },
+      "bridge": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 28
+      },
+      "generator": {
+        "norm": 0.0,
+        "nonzero": 0,
+        "finite": true,
+        "dtype": "FP32",
+        "trainable_parameters": 212
+      }
+    }
+  },
+  "combined_modules": {
+    "wrapper": {
+      "norm": 0.0,
+      "nonzero": 0,
+      "finite": true,
+      "dtype": "FP32",
+      "trainable_parameters": 0
+    },
+    "bridge": {
+      "norm": 6.55257337098045,
+      "nonzero": 28,
+      "finite": true,
+      "dtype": "FP32",
+      "trainable_parameters": 28
+    },
+    "generator": {
+      "norm": 2.398125348881141,
+      "nonzero": 212,
+      "finite": true,
+      "dtype": "FP32",
+      "trainable_parameters": 212
+    }
+  },
+  "combined_norm": 6.977623017262282,
+  "DISTS_deep_RGB": [
+    {
+      "position": 49,
+      "RGB_gradient_norm": 0.007734930142760277,
+      "DISTS_feature4_gradient_norm": 0.0009165625087916851,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 50,
+      "RGB_gradient_norm": 0.008054401725530624,
+      "DISTS_feature4_gradient_norm": 0.0010281160939484835,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 51,
+      "RGB_gradient_norm": 0.016540002077817917,
+      "DISTS_feature4_gradient_norm": 0.0010664572473615408,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 52,
+      "RGB_gradient_norm": 0.00998839084059,
+      "DISTS_feature4_gradient_norm": 0.0010825790232047439,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 53,
+      "RGB_gradient_norm": 0.007777097634971142,
+      "DISTS_feature4_gradient_norm": 0.000902162108104676,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 54,
+      "RGB_gradient_norm": 0.009052095003426075,
+      "DISTS_feature4_gradient_norm": 0.0008335187449119985,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 55,
+      "RGB_gradient_norm": 0.009124647825956345,
+      "DISTS_feature4_gradient_norm": 0.0008083176799118519,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 56,
+      "RGB_gradient_norm": 0.008382737636566162,
+      "DISTS_feature4_gradient_norm": 0.0010547703132033348,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 57,
+      "RGB_gradient_norm": 0.00900067575275898,
+      "DISTS_feature4_gradient_norm": 0.0010594738414511085,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 58,
+      "RGB_gradient_norm": 0.007314503658562899,
+      "DISTS_feature4_gradient_norm": 0.0009161217603832483,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 59,
+      "RGB_gradient_norm": 0.0137045718729496,
+      "DISTS_feature4_gradient_norm": 0.0010075500467792153,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 60,
+      "RGB_gradient_norm": 0.011090313084423542,
+      "DISTS_feature4_gradient_norm": 0.001144914305768907,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 61,
+      "RGB_gradient_norm": 0.008841942995786667,
+      "DISTS_feature4_gradient_norm": 0.001004952471703291,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 62,
+      "RGB_gradient_norm": 0.007679860107600689,
+      "DISTS_feature4_gradient_norm": 0.0009922953322529793,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "position": 63,
+      "RGB_gradient_norm": 0.00908846128731966,
+      "DISTS_feature4_gradient_norm": 0.0011150186182931066,
+      "feature_shape": [
+        1,
+        512,
+        32,
+        32
+      ],
+      "finite": true
+    }
+  ],
+  "common_B_abs_error": {
+    "LPIPS": 0.0,
+    "rate_bpp": 0.0,
+    "beta_rate": 0.0,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.0,
+    "weighted_reconstruction_L1": 0.0
+  },
+  "DISTS_F_and_common_abs_error": {
+    "LPIPS": 0.0,
+    "rate_bpp": 0.0,
+    "beta_rate": 1.4867206597768412e-10,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.0,
+    "weighted_reconstruction_L1": 2.2417992202178327e-10,
+    "DISTS": 0.0,
+    "weighted_DISTS": 0.0
+  },
+  "D_loss": {
+    "LPIPS": 0.2918585201104482,
+    "DISTS": 0.24716912110646566,
+    "weighted_DISTS": 0.12358456055323283,
+    "rate_bpp": 0.0009644499916854935,
+    "beta_rate": 0.012055625044740736,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.049252406259377796,
+    "weighted_reconstruction_L1": 0.006814509754379591,
+    "total_loss": 0.4343132154628014
+  },
+  "B_loss": {
+    "LPIPS": 0.2918585201104482,
+    "rate_bpp": 0.0009644499916854935,
+    "beta_rate": 0.012055625044740736,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.049252406259377796,
+    "weighted_reconstruction_L1": 0.006814509754379591,
+    "total_loss": 0.3107286549095685
+  },
+  "F_C1_loss": {
+    "LPIPS": 0.2918585201104482,
+    "DISTS": 0.24716912110646566,
+    "weighted_DISTS": 0.12358456055323283,
+    "rate_bpp": 0.0009644499916854935,
+    "beta_rate": 0.01205562489606867,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.049252406259377796,
+    "weighted_reconstruction_L1": 0.006814509978559513,
+    "stat_loss": 0.447444474697113,
+    "weighted_stat_loss": 0.017287778346361752,
+    "total_loss": 0.45160099053312236,
+    "beta_q": 12.5,
+    "base_gradient_norm": 6.959302092485928,
+    "reconstruction_gradient_norm": 0.07889397873927279,
+    "stat_gradient_norm": 0.9494338709006941,
+    "C1_gradient_norm": 7.61857743596392,
+    "stat_base_cosine": 0.6380634192835125,
+    "DISTS_deep_gradient_checks": [],
+    "DISTS_dedicated_gradient_modules": null,
+    "component_gradient_modules": {
+      "fused": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 6.533842025339134,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 2.3959954095096316,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "reconstruction": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.07665111450822651,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 0.01867796899985575,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "legacy_stat": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.8934042812881126,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 0.32133077255306075,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      }
+    },
+    "proxy_gradient_status": "identity has no wrapper parameters",
+    "rate_gradient_status": "receiver-only may have no rate gradient; original formula"
+  },
+  "quality_frozen": true,
+  "frozen_hashes": {
+    "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "I": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "all_frozen_codec_parameters_and_buffers": "f599cf40e1c05dc5b2759cc72cde8db9f9e01576c1abae046405b63eefafd6f5",
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ]
+  },
+  "initial_module_hashes": {
+    "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+    "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+  },
+  "rate_gradient_note": "receiver-only rate/proxy have zero BG gradient; original formula retained",
+  "physical_GPU": 6
+}

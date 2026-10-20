@@ -1,0 +1,45 @@
+# Figure index
+
+- [ulong_four_metric_RD.png](ulong_four_metric_RD.png): Seven full method names; actual total RANS bpp,64 native frames; lower metric distance is favorable.
+- [uvg_holdout_four_metric_RD.png](uvg_holdout_four_metric_RD.png): Seven full method names; actual total RANS bpp,64 native frames; lower metric distance is favorable.
+- [hevc_b_four_metric_RD.png](hevc_b_four_metric_RD.png): Seven full method names; actual total RANS bpp,64 native frames; lower metric distance is favorable.
+- [loss_comparisons.png](loss_comparisons.png): Fixed loss/module comparisons. Full method names shown in mapping; shared actual-rate bounds in results/common_rate_bounds.csv; negative is lower distance, not bitrate savings.
+- [module_swaps.png](module_swaps.png): Fixed loss/module comparisons. Full method names shown in mapping; shared actual-rate bounds in results/common_rate_bounds.csv; negative is lower distance, not bitrate savings.
+- [three_point_latent_interpolation.png](three_point_latent_interpolation.png): Y_originalBridge_fullG / I_halfLatent_fullG / F_fullLoss_noP_500; actual equal streams at each anchor.
+- [latent_statistics_changes.png](latent_statistics_changes.png): Space/time samples pooled by exact cross-moments; all datasets/QPs and P1–P63. Per-video/QP/frame data in results/.
+- [fixed_ulong_0_q0_frame16.png](fixed_ulong_0_q0_frame16.png): Fixed manifest-first video ulong, QP0, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q0_frame32.png](fixed_ulong_0_q0_frame32.png): Fixed manifest-first video ulong, QP0, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q0_frame48.png](fixed_ulong_0_q0_frame48.png): Fixed manifest-first video ulong, QP0, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q0_frame63.png](fixed_ulong_0_q0_frame63.png): Fixed manifest-first video ulong, QP0, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q5_frame16.png](fixed_ulong_0_q5_frame16.png): Fixed manifest-first video ulong, QP5, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q5_frame32.png](fixed_ulong_0_q5_frame32.png): Fixed manifest-first video ulong, QP5, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q5_frame48.png](fixed_ulong_0_q5_frame48.png): Fixed manifest-first video ulong, QP5, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q5_frame63.png](fixed_ulong_0_q5_frame63.png): Fixed manifest-first video ulong, QP5, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q9_frame16.png](fixed_ulong_0_q9_frame16.png): Fixed manifest-first video ulong, QP9, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q9_frame32.png](fixed_ulong_0_q9_frame32.png): Fixed manifest-first video ulong, QP9, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q9_frame48.png](fixed_ulong_0_q9_frame48.png): Fixed manifest-first video ulong, QP9, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_ulong_0_q9_frame63.png](fixed_ulong_0_q9_frame63.png): Fixed manifest-first video ulong, QP9, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q0_frame16.png](fixed_uvg_holdout_2_q0_frame16.png): Fixed manifest-first video uvg_holdout, QP0, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q0_frame32.png](fixed_uvg_holdout_2_q0_frame32.png): Fixed manifest-first video uvg_holdout, QP0, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q0_frame48.png](fixed_uvg_holdout_2_q0_frame48.png): Fixed manifest-first video uvg_holdout, QP0, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q0_frame63.png](fixed_uvg_holdout_2_q0_frame63.png): Fixed manifest-first video uvg_holdout, QP0, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q5_frame16.png](fixed_uvg_holdout_2_q5_frame16.png): Fixed manifest-first video uvg_holdout, QP5, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q5_frame32.png](fixed_uvg_holdout_2_q5_frame32.png): Fixed manifest-first video uvg_holdout, QP5, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q5_frame48.png](fixed_uvg_holdout_2_q5_frame48.png): Fixed manifest-first video uvg_holdout, QP5, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q5_frame63.png](fixed_uvg_holdout_2_q5_frame63.png): Fixed manifest-first video uvg_holdout, QP5, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q9_frame16.png](fixed_uvg_holdout_2_q9_frame16.png): Fixed manifest-first video uvg_holdout, QP9, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q9_frame32.png](fixed_uvg_holdout_2_q9_frame32.png): Fixed manifest-first video uvg_holdout, QP9, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q9_frame48.png](fixed_uvg_holdout_2_q9_frame48.png): Fixed manifest-first video uvg_holdout, QP9, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_uvg_holdout_2_q9_frame63.png](fixed_uvg_holdout_2_q9_frame63.png): Fixed manifest-first video uvg_holdout, QP9, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q0_frame16.png](fixed_hevc_b_0_q0_frame16.png): Fixed manifest-first video hevc_b, QP0, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q0_frame32.png](fixed_hevc_b_0_q0_frame32.png): Fixed manifest-first video hevc_b, QP0, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q0_frame48.png](fixed_hevc_b_0_q0_frame48.png): Fixed manifest-first video hevc_b, QP0, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q0_frame63.png](fixed_hevc_b_0_q0_frame63.png): Fixed manifest-first video hevc_b, QP0, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q5_frame16.png](fixed_hevc_b_0_q5_frame16.png): Fixed manifest-first video hevc_b, QP5, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q5_frame32.png](fixed_hevc_b_0_q5_frame32.png): Fixed manifest-first video hevc_b, QP5, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q5_frame48.png](fixed_hevc_b_0_q5_frame48.png): Fixed manifest-first video hevc_b, QP5, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q5_frame63.png](fixed_hevc_b_0_q5_frame63.png): Fixed manifest-first video hevc_b, QP5, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q9_frame16.png](fixed_hevc_b_0_q9_frame16.png): Fixed manifest-first video hevc_b, QP9, frame16; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q9_frame32.png](fixed_hevc_b_0_q9_frame32.png): Fixed manifest-first video hevc_b, QP9, frame32; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q9_frame48.png](fixed_hevc_b_0_q9_frame48.png): Fixed manifest-first video hevc_b, QP9, frame48; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.
+- [fixed_hevc_b_0_q9_frame63.png](fixed_hevc_b_0_q9_frame63.png): Fixed manifest-first video hevc_b, QP9, frame63; crop=(720, 300, 1200, 660); all8 panels GT/O/B/D/F/X/Y/I.

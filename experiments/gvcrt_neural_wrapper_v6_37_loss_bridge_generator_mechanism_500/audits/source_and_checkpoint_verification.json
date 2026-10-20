@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "checkpoints": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/branches/N_noP_BG_FD/checkpoints/adaptation_step_0.pt",
+      "sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+      "bytes": 810133473
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_36_noP_basic_vs_full_loss_matched_500/branches/B_basicLoss_noP_500/checkpoints/adaptation_step_500.pt",
+      "sha256": "6b1e74b0f5dc524bb28fdbfc6ffe5352ec19f967de5adcc788e3c216a6dfffbd",
+      "bytes": 415319649
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_36_noP_basic_vs_full_loss_matched_500/evaluation/checkpoints/B_basicLoss_noP_500_500.pt",
+      "sha256": "e76fb5688b7bb54c54f6ec4dc9a2c76fc285d2fb050ae59d2f7a209df5198d95",
+      "bytes": 138408734
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/branches/N_noP_BG_FD/checkpoints/adaptation_step_500.pt",
+      "sha256": "b29a1236a5158aa07f2b685f945723064c376404f5564d1f79cb5b35beb839d9",
+      "bytes": 1087024854
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluation/checkpoints/N_noP_BG_FD_500.pt",
+      "sha256": "ca2c66aa1d68877779c8646b66d02e4ba06e82fc4f3b3c92c11271fc7ffc19dc",
+      "bytes": 138406590
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "bytes": 206881943
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "bytes": 334225106
+    }
+  ],
+  "source_manifest_sha256": "d36a30f5be687fbc4050c6f8776815c61aa2ca2332ac7721005390f24a137d61",
+  "module_precision_verification": [
+    {
+      "method": "B_basicLoss_noP_500",
+      "train_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_36_noP_basic_vs_full_loss_matched_500/branches/B_basicLoss_noP_500/checkpoints/adaptation_step_500.pt",
+      "inference_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_36_noP_basic_vs_full_loss_matched_500/evaluation/checkpoints/B_basicLoss_noP_500_500.pt",
+      "FP32_training_module_hashes": {
+        "bridge": "6da419fe828008667158a98d42e75040fd257aafbdc9977cb76ed65e70a11b5a",
+        "generator": "adced3aac48cdd80ff70d7fc5988789f200425c6f80dd06684f309d6346f46c6"
+      },
+      "FP16_deployment_module_hashes": {
+        "bridge": "890c885a796228ce6491fa67f128fb80afda31ed9ff41142371e2b3cfb6d3a39",
+        "generator": "c5415ca23f8fce394defbba006486130375720d3188252f60c220505adb5577b"
+      },
+      "full_state_dict_including_buffers": true,
+      "source_optimizer_not_loaded": true
+    },
+    {
+      "method": "F_fullLoss_noP_500",
+      "train_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/branches/N_noP_BG_FD/checkpoints/adaptation_step_500.pt",
+      "inference_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluation/checkpoints/N_noP_BG_FD_500.pt",
+      "FP32_training_module_hashes": {
+        "bridge": "d9024ac23263b4e5c2ac199b01f6595486410342324f207af86d5be6561a7c3e",
+        "generator": "3c26457bfea200e010184fcc9954d00a7e39b1297b0f868ed4ab9eafe04cb39e"
+      },
+      "FP16_deployment_module_hashes": {
+        "bridge": "003cb4334027e8fca42e2e1496e34fb1636438110dc4fc154897e95ceceef4f1",
+        "generator": "f1c4d2c3e2aa424f1989a9cfe5abce381330435e05fd04a8e1367bbcf512ef8c"
+      },
+      "full_state_dict_including_buffers": true,
+      "source_optimizer_not_loaded": true
+    }
+  ],
+  "original_deployment_module_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "shared_initial_FP32_hashes": {
+    "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+    "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+  },
+  "shared_initial_crop_RNG_restored": true
+}

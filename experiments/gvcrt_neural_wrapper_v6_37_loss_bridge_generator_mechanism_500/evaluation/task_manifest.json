@@ -1,0 +1,233 @@
+{
+  "planned_RD": 273,
+  "planned_FID": 63,
+  "source_tasks": [
+    {
+      "dataset": "ulong",
+      "video": 0,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 0,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 0,
+      "qp": 9
+    },
+    {
+      "dataset": "ulong",
+      "video": 1,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 1,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 1,
+      "qp": 9
+    },
+    {
+      "dataset": "ulong",
+      "video": 2,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 2,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 2,
+      "qp": 9
+    },
+    {
+      "dataset": "ulong",
+      "video": 3,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 3,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 3,
+      "qp": 9
+    },
+    {
+      "dataset": "ulong",
+      "video": 4,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 4,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 4,
+      "qp": 9
+    },
+    {
+      "dataset": "ulong",
+      "video": 5,
+      "qp": 0
+    },
+    {
+      "dataset": "ulong",
+      "video": 5,
+      "qp": 5
+    },
+    {
+      "dataset": "ulong",
+      "video": 5,
+      "qp": 9
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "qp": 0
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "qp": 5
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 2,
+      "qp": 9
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 3,
+      "qp": 0
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 3,
+      "qp": 5
+    },
+    {
+      "dataset": "uvg_holdout",
+      "video": 3,
+      "qp": 9
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 0,
+      "qp": 0
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 0,
+      "qp": 5
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 0,
+      "qp": 9
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 1,
+      "qp": 0
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 1,
+      "qp": 5
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 1,
+      "qp": 9
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 2,
+      "qp": 0
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 2,
+      "qp": 5
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 2,
+      "qp": 9
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 3,
+      "qp": 0
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 3,
+      "qp": 5
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 3,
+      "qp": 9
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 4,
+      "qp": 0
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 4,
+      "qp": 5
+    },
+    {
+      "dataset": "hevc_b",
+      "video": 4,
+      "qp": 9
+    }
+  ],
+  "dependency_graph": {
+    "gradient_audit": [],
+    "D500": [
+      "gradient_audit"
+    ],
+    "module_swap": [
+      "source_audit"
+    ],
+    "D_real_encode": [
+      "D500"
+    ],
+    "replay_all": [
+      "D500",
+      "D_real_encode"
+    ],
+    "aggregate": [
+      "replay_all"
+    ],
+    "publish": [
+      "aggregate",
+      "integrity"
+    ]
+  },
+  "methods": [
+    "O_original",
+    "B_basicLoss_noP_500",
+    "D_basicDISTS_noP_500",
+    "F_fullLoss_noP_500",
+    "X_fullBridge_originalG",
+    "Y_originalBridge_fullG",
+    "I_halfLatent_fullG"
+  ]
+}

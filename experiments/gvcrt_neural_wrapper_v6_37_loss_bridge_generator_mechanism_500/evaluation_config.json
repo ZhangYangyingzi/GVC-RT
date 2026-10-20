@@ -1,0 +1,121 @@
+{
+  "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+  "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+  "metric_module_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow_perceptual_inception": [
+      "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+    ]
+  },
+  "original_receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+  },
+  "force_zero_thres": 0.12,
+  "schema": "v637_evaluation_with_validated_v634_adapter",
+  "experiment": "v637_loss_bridge_generator_mechanism_500",
+  "IP": -1,
+  "methods": {
+    "original": [
+      null,
+      null
+    ],
+    "N_oursLoss_noP_500": [
+      null,
+      "N_oursLoss_noP_500"
+    ],
+    "B_basicLoss_noP_500": [
+      null,
+      "B_basicLoss_noP_500"
+    ],
+    "F_fullLoss_noP_500": [
+      null,
+      "N_oursLoss_noP_500"
+    ],
+    "D_basicDISTS_noP_500": [
+      null,
+      "D_basicDISTS_noP_500"
+    ]
+  },
+  "checkpoints": {
+    "N_oursLoss_noP_500": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34b_p_joint_fd_trend_500/evaluation/checkpoints/N_noP_BG_FD_500.pt",
+      "sha256": "ca2c66aa1d68877779c8646b66d02e4ba06e82fc4f3b3c92c11271fc7ffc19dc",
+      "module_hashes": {
+        "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bridge": "d9024ac23263b4e5c2ac199b01f6595486410342324f207af86d5be6561a7c3e",
+        "generator": "3c26457bfea200e010184fcc9954d00a7e39b1297b0f868ed4ab9eafe04cb39e"
+      }
+    },
+    "B_basicLoss_noP_500": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_36_noP_basic_vs_full_loss_matched_500/evaluation/checkpoints/B_basicLoss_noP_500_500.pt",
+      "sha256": "e76fb5688b7bb54c54f6ec4dc9a2c76fc285d2fb050ae59d2f7a209df5198d95",
+      "module_hashes": {
+        "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bridge": "6da419fe828008667158a98d42e75040fd257aafbdc9977cb76ed65e70a11b5a",
+        "generator": "adced3aac48cdd80ff70d7fc5988789f200425c6f80dd06684f309d6346f46c6"
+      }
+    },
+    "D_basicDISTS_noP_500": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_37_loss_bridge_generator_mechanism_500/evaluation/checkpoints/D_basicDISTS_noP_500_500.pt",
+      "sha256": "7b3dbfa037cc403e83aca1911ff254bf9fd2363d31a76b524e7a35f9c457347f",
+      "module_hashes": {
+        "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bridge": "a753534b2b58a9aa071f21479f23190c63531ca6ab028ff43b8d0efa645e0941",
+        "generator": "d1533ec669c0eb46f566d3fe3d768c4d6f90bb14784230b9decddf3800d4b9fa"
+      }
+    }
+  },
+  "deployment_receiver_hashes": {
+    "N_oursLoss_noP_500": {
+      "bridge": "003cb4334027e8fca42e2e1496e34fb1636438110dc4fc154897e95ceceef4f1",
+      "generator": "f1c4d2c3e2aa424f1989a9cfe5abce381330435e05fd04a8e1367bbcf512ef8c"
+    },
+    "B_basicLoss_noP_500": {
+      "bridge": "890c885a796228ce6491fa67f128fb80afda31ed9ff41142371e2b3cfb6d3a39",
+      "generator": "c5415ca23f8fce394defbba006486130375720d3188252f60c220505adb5577b"
+    },
+    "D_basicDISTS_noP_500": {
+      "bridge": "a228854c18f48989e4d605d88c965d67e5aa002b475262f1edd3cef22e4459db",
+      "generator": "cac7c50653bfeb6000ec0cf0306c41fa11dbeaad62f2faf66a0030d22ed85538"
+    }
+  },
+  "external_qps": [
+    0,
+    5,
+    9
+  ],
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "expected_points": 273,
+  "I_frame_mode": "native_RGB_bypass",
+  "source_model_files": [
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+    "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt"
+  ],
+  "datasets": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b"
+  ],
+  "expected_pooled_FID_points": 63,
+  "protocol_methods": [
+    "O_original",
+    "B_basicLoss_noP_500",
+    "D_basicDISTS_noP_500",
+    "F_fullLoss_noP_500",
+    "X_fullBridge_originalG",
+    "Y_originalBridge_fullG",
+    "I_halfLatent_fullG"
+  ],
+  "rate_accounting_fps": 20
+}
