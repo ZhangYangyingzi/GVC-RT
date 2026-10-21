@@ -1,0 +1,7 @@
+RUN summarize.py
+FINAL_INTEGRITY_PASS
+RUN plot_results.py
+PLOTS_PASS
+RUN index_artifacts.py
+ARTIFACT_INDEX_PASS 380 10
+RUN publish.py

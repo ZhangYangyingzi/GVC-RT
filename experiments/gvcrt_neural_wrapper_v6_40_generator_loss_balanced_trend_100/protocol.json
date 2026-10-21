@@ -1,0 +1,97 @@
+{
+  "methods": {
+    "O_original": [],
+    "G_basic": [
+      "generator"
+    ],
+    "G_dists": [
+      "generator"
+    ]
+  },
+  "updates": 100,
+  "checkpoints": [
+    0,
+    50,
+    100
+  ],
+  "seed": 20261034,
+  "objective": "basic loss versus basic loss + 0.5 DISTS; not the unpublished full official training objective",
+  "training": {
+    "batch": 1,
+    "crop": 256,
+    "frames": 64,
+    "warmup_P": [
+      1,
+      48
+    ],
+    "supervised_P": [
+      49,
+      63
+    ],
+    "reference_detach": true,
+    "precision": "FP32 trainable parameters/gradients, historical mixed codec precision",
+    "reconstruction_backward_scale": 4096,
+    "global_clip": 1,
+    "AdamW": {
+      "generator_lr": 1e-06,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001
+    }
+  },
+  "selection": {
+    "counts": {
+      "uvg": 50,
+      "ulong": 50
+    },
+    "video_qp_each": 5,
+    "unique_spatial_crops_per_video": 50,
+    "fixed_windows": "first encountered row of each identity in v6.38 first100 plan",
+    "ordering": "50 paired units; same external QP, deterministic randomized video order"
+  },
+  "evaluation": {
+    "dataset": "hevc_b",
+    "videos": [
+      "BasketballDrive",
+      "BQTerrace"
+    ],
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "frames": 64,
+    "IP": -1,
+    "native_I": true,
+    "fps_accounting": 20,
+    "metrics": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "PSNR",
+      "L1"
+    ],
+    "paired_same_real_RANS": true,
+    "methods": [
+      "O_original",
+      "G_basic",
+      "G_dists"
+    ],
+    "points": 18
+  },
+  "limits": "Single seed; 100 updates; two fixed training windows; two heldout videos. Descriptive trend only. No official undertraining, mechanism, significance or generalization conclusion.",
+  "experiment": "gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100",
+  "dists_weights": {
+    "G_basic": 0.0,
+    "G_dists": 0.5
+  },
+  "FID": "not computed",
+  "wrapper": "Identity",
+  "smoke_updates": [
+    1,
+    2
+  ]
+}
