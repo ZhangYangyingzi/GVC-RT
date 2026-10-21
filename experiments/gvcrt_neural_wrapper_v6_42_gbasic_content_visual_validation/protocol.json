@@ -1,0 +1,49 @@
+{
+  "experiment": "gvcrt_neural_wrapper_v6_42_gbasic_content_visual_validation",
+  "methods": [
+    "O_original",
+    "G_basic"
+  ],
+  "updates": 0,
+  "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/evaluation/checkpoints/G_basic_100.pt",
+  "checkpoint_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "datasets": {
+    "hevc_b": [
+      "Kimono1",
+      "ParkScene"
+    ],
+    "uvg_holdout": [
+      "HoneyBee",
+      "Jockey"
+    ]
+  },
+  "QPs": [
+    0,
+    5,
+    9
+  ],
+  "frames": 64,
+  "IP": -1,
+  "native_I": true,
+  "padding": [
+    1920,
+    1088
+  ],
+  "output": [
+    1920,
+    1080
+  ],
+  "force_zero_thres": 0.12,
+  "metric_source": "v6.40 float output",
+  "PSNR": "-10log10(global RGB MSE)",
+  "actual_bpp": "full bytes*8/(64*1920*1080)",
+  "FID": false,
+  "BD_rate": false,
+  "FPS_performance": false,
+  "allowed_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ]
+}
