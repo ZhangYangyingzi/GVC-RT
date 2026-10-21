@@ -1,0 +1,77 @@
+{
+  "experiment": "gvcrt_neural_wrapper_v6_43_frame_qp_budget_utility",
+  "request_sha256": "5d7579946a12519def1f2ad87f528581665aeaeb9e43567d560ee461c4b105b4",
+  "optimizer_updates": 0,
+  "model": "G_basic_100",
+  "checkpoint_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "datasets": {
+    "hevc_b": [
+      "ParkScene"
+    ],
+    "uvg_holdout": [
+      "Jockey"
+    ]
+  },
+  "frames": 64,
+  "external_qp": 5,
+  "targets": [
+    8,
+    16,
+    24,
+    32,
+    40,
+    48
+  ],
+  "delta_qp": [
+    2,
+    -2
+  ],
+  "future_frames": 15,
+  "primary_metric": "LPIPS",
+  "seed_count": 0,
+  "IP": -1,
+  "canvas": [
+    1088,
+    1920
+  ],
+  "crop": [
+    1080,
+    1920
+  ],
+  "force_zero_thres": 0.12,
+  "codec_precision": "float16",
+  "metric_input": "float32",
+  "allowed_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "transfer_grid": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "transfer_min_separation": 16,
+  "transfer_selection": "max A(r)-C(d), tie lexicographic (r,d)",
+  "display_selection": "min whole LPIPS within [0.99 B0,B0], tie bytes,(a,b)",
+  "max_streams": 42,
+  "oracle": true,
+  "baseline_tolerance": "exact bitstream/reconstruction hashes and exact numeric metrics",
+  "ranking_cost": "same delta_bits_16 for U_now and U_16; positive total and window cost only",
+  "state_sync_tolerance": "exact tensor SHA256",
+  "no_clamp": true
+}
