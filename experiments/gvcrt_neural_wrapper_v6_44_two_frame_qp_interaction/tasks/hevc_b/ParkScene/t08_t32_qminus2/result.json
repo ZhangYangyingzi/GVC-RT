@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "signature": "a09c88a90fe45626ae85cb3ee7e01a7d1955781068564c45a18a6b82603ea8d8",
+  "task": {
+    "dataset": "hevc_b",
+    "sequence": "ParkScene",
+    "variant": "t08_t32_qminus2",
+    "kind": "paired_intervention",
+    "changes": {
+      "8": -2,
+      "32": -2
+    },
+    "actual_qps": [
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      3,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      3,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6,
+      5,
+      7,
+      5,
+      6,
+      5,
+      6,
+      5,
+      6
+    ]
+  },
+  "result": {
+    "dataset": "hevc_b",
+    "sequence": "ParkScene",
+    "variant": "t08_t32_qminus2",
+    "kind": "paired_intervention",
+    "LPIPS": 0.21475909324362874,
+    "DISTS": 0.09734976571053267,
+    "L1": 0.038130137254484,
+    "PSNR": 24.70308323038931,
+    "FloLPIPS": 0.19725372464883895,
+    "total_bytes": 121498,
+    "total_bits": 971984,
+    "actual_bpp": 0.007324098186728395,
+    "reconstruction_sha256": "5a47dd0b43bbb2708eaf4185fa02e4dc1e91efc6e4609d07667e960b2f51b2a5",
+    "stream_sha256": "9b5d6ddac149d1ada86fb7870895ab5ee13a643c60940e3d98aaa7099dfa9997",
+    "bytes_consumed": 121498
+  },
+  "audits": {
+    "freeze": "PASS",
+    "bit_accounting": "PASS",
+    "encoder_decoder_state_sync": "PASS",
+    "qp_in_stream": "PASS",
+    "no_extra_reference_reset": true,
+    "optimizer_updates": 0,
+    "prefix_equality": "PASS",
+    "prefix_frames": 8,
+    "variant_references_evolve_through_63": true,
+    "source_baseline_result_sha256": "0a53ccd8536e7686a6ae2ebcbb00275694f4e8a71e95a997e5febad841b45aa3"
+  },
+  "artifacts": [
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_44_two_frame_qp_interaction/bitstreams/hevc_b/ParkScene/t08_t32_qminus2.bin",
+      "bytes": 121498,
+      "sha256": "9b5d6ddac149d1ada86fb7870895ab5ee13a643c60940e3d98aaa7099dfa9997"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_44_two_frame_qp_interaction/tasks/hevc_b/ParkScene/t08_t32_qminus2/proofs.json",
+      "bytes": 94136,
+      "sha256": "773a88abccadceeb499c64bf6d29163656394630f935626e7e401610a5109540"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_44_two_frame_qp_interaction/tasks/hevc_b/ParkScene/t08_t32_qminus2/audits.json",
+      "bytes": 381,
+      "sha256": "73ae97627da80e5ed4411480e3a362328cc136c7fcbf28072a75cfc168c4e076"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_44_two_frame_qp_interaction/tasks/hevc_b/ParkScene/t08_t32_qminus2/frames.csv",
+      "bytes": 22101,
+      "sha256": "1008ae67c46058af632f989d7b09b31f3cd252d1f9fc69c06c4a0808a171f2b2"
+    },
+    {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_44_two_frame_qp_interaction/tasks/hevc_b/ParkScene/t08_t32_qminus2/transitions.csv",
+      "bytes": 1697,
+      "sha256": "320df0c838811dc0ee2f126a52ce24538e19ef7b68515bb75b448bf0384b9e95"
+    }
+  ],
+  "physical_gpu": 6,
+  "started": 1792635472.7333224,
+  "finished": 1792635520.668465,
+  "model_hashes": [
+    "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "9d18da2d2771be57664c41a502d7f1393bcae08e2669ca5219f772485903a701"
+  ],
+  "metric_hashes": [
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6",
+    "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+    "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+    "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+  ]
+}

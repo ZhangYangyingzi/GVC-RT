@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "dataset": "hevc_b",
+  "sequence": "ParkScene",
+  "changed_frames": [
+    8,
+    32
+  ],
+  "baseline_actual_qps": [
+    5,
+    5
+  ],
+  "variant_actual_qps": [
+    3,
+    3
+  ],
+  "baseline": {
+    "dataset": "hevc_b",
+    "sequence": "ParkScene",
+    "variant": "baseline",
+    "kind": "baseline",
+    "LPIPS": 0.2153701321221888,
+    "DISTS": 0.09702735207974911,
+    "L1": 0.03803156269714236,
+    "PSNR": 24.727310422346843,
+    "FloLPIPS": 0.19696640731796386,
+    "total_bytes": 122158,
+    "total_bits": 977264,
+    "actual_bpp": 0.007363884066358024,
+    "reconstruction_sha256": "5535c20bb7b562b7c74f44c0708ca5f1af9ed2b06f321fe4480e475964c958bf",
+    "stream_sha256": "62b8e8ebf77fdc60f1c8f574976ec804afa504f8cc8faedf651c0b3e5b536b9f",
+    "bytes_consumed": 122158
+  },
+  "variant": {
+    "dataset": "hevc_b",
+    "sequence": "ParkScene",
+    "variant": "t08_t32_qminus2",
+    "kind": "paired_intervention",
+    "LPIPS": 0.21475909324362874,
+    "DISTS": 0.09734976571053267,
+    "L1": 0.038130137254484,
+    "PSNR": 24.70308323038931,
+    "FloLPIPS": 0.19725372464883895,
+    "total_bytes": 121498,
+    "total_bits": 971984,
+    "actual_bpp": 0.007324098186728395,
+    "reconstruction_sha256": "5a47dd0b43bbb2708eaf4185fa02e4dc1e91efc6e4609d07667e960b2f51b2a5",
+    "stream_sha256": "9b5d6ddac149d1ada86fb7870895ab5ee13a643c60940e3d98aaa7099dfa9997",
+    "bytes_consumed": 121498
+  },
+  "predicted_additive_delta": {
+    "total_bits": -4760,
+    "LPIPS": -0.0012240477371960878
+  },
+  "measured_delta": {
+    "total_bits": -5280,
+    "actual_bpp": -3.97858796296292e-05,
+    "LPIPS": -0.0006110388785600662,
+    "DISTS": 0.0003224136307835579,
+    "L1": 9.857455734163523e-05,
+    "PSNR": -0.024227191957532312,
+    "FloLPIPS": 0.0002873173308750865
+  },
+  "measured_minus_prediction": {
+    "total_bits": -520,
+    "LPIPS": 0.0006130088586360216
+  },
+  "success_criterion_met": true,
+  "offline_oracle_selection": true,
+  "optimizer_updates": 0,
+  "new_variants_encoded": 1
+}

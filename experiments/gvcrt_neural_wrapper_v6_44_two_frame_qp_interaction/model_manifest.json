@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/evaluation/checkpoints/G_basic_100.pt",
+  "sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "bytes": 138405614,
+  "step100_record_sha256": "ab188c0dae9597646f4a40e4da9e54512b97cc6640d454e15d51581e550b1969",
+  "final_integrity_sha256": "9ce45816ce10437f5f533fb842e8bd1db399d0066574ab70cc30875ebef1a6b2",
+  "training_hashes": {
+    "status": "PASS",
+    "committed_updates": 100,
+    "optimizer_internal_step": 100,
+    "initial_module_hashes": {
+      "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+      "generator": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+    },
+    "final_module_hashes": {
+      "wrapper": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3",
+      "generator": "3e26a1ca18f221c824bac02bde20fee3c93680c006936d7349e69af83b524e85"
+    },
+    "frozen_BG": {
+      "bridge": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3"
+    },
+    "active_modules": [
+      "generator"
+    ],
+    "frozen_hashes": {
+      "compression": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+      "I": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+      "all_frozen_codec_parameters_and_buffers": "b4d4803bbe0d01195d74bdfdfe00a7cc043a15fcc67d00c8ba9fe1a3b45b3cad",
+      "quality": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ]
+    },
+    "plan_sha256": "3f3f54e2b1388a87b25010ee097db0bba03787652ba13d58bfcd9b8871406dd3",
+    "inference_checkpoint_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4"
+  },
+  "original_deployment": {
+    "compression_hash": "0f0c0e2358ceec024230154da4777ed5c444a8382af1ec9d7165f3d7886141cf",
+    "I_hash": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "metric_module_hashes": {
+      "quality": [
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      ],
+      "flow_perceptual_inception": [
+        "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+        "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+        "d69c1226e4de7b5c82aace40e3a19c7185ced56cad048d250648a8b580fbb69f"
+      ]
+    },
+    "original_receiver_hashes": {
+      "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+      "generator": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+    },
+    "force_zero_thres": 0.12,
+    "schema": "v640_original_receiver_shared_stream",
+    "experiment": "gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100",
+    "IP": -1,
+    "methods": {
+      "original": [
+        null,
+        null
+      ]
+    },
+    "checkpoints": {},
+    "deployment_receiver_hashes": {},
+    "external_qps": [
+      0,
+      5,
+      9
+    ],
+    "allowed_gpus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "expected_points": 18,
+    "I_frame_mode": "native_RGB_bypass",
+    "source_model_files": [
+      "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt"
+    ],
+    "datasets": [
+      "ulong",
+      "uvg_holdout",
+      "hevc_b"
+    ],
+    "expected_pooled_FID_points": 63,
+    "protocol_methods": [
+      "O_original",
+      "G_basic",
+      "G_dists"
+    ],
+    "rate_accounting_fps": 20
+  },
+  "only_generator_differs": true,
+  "optimizer_updates": 0
+}
