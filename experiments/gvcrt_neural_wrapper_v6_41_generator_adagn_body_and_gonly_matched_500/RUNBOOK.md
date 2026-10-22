@@ -1,0 +1,3 @@
+# Execution and recovery
+
+`check_once.py` prints status without Torch. `train41.py --gpu 4` resumes from its own atomic latest; its source step0 is immutable and G-only optimizer is created fresh only when no latest exists. `run41.py` resumes verified A tasks on GPUs 6/7. After step500, `run_gonly41.py` evaluates G-only on existing streams. Then run `aggregate41a.py`, `aggregate41.py`, and `figures41.py`. Failed tasks have traceback in `errors.jsonl` and worker logs; do not count them complete. Never run a second training writer. Large checkpoint, feature, and raw files remain server-side; only small source, audit, summary, CSV and figures are published.

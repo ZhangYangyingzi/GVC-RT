@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "source_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/branches/N_noP_BG_FD/checkpoints/adaptation_step_0.pt",
+  "source_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+  "plan_row_sha256": "1f4d0890fa4af91c94b6e1f4fd9827a63af9044728543001e4f71640b1320819",
+  "crop_generator": {
+    "relative_L2": 0.0,
+    "maxabs": 0.0,
+    "reference_norm": 2.613500901494353,
+    "candidate_norm": 2.613500901494353
+  },
+  "FD_generator": {
+    "relative_L2": 0.0,
+    "maxabs": 0.0,
+    "reference_norm": 38.45617003424672,
+    "candidate_norm": 38.45617003424672
+  },
+  "combined_generator": {
+    "relative_L2": 0.0,
+    "maxabs": 0.0,
+    "reference_norm": 2.6320172882405,
+    "candidate_norm": 2.6320172882405
+  },
+  "loss_values_bg": {
+    "LPIPS": 0.2918585201104482,
+    "DISTS": 0.24716912110646566,
+    "weighted_DISTS": 0.12358456055323283,
+    "rate_bpp": 0.0009644499916854935,
+    "beta_rate": 0.01205562489606867,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.049252406259377796,
+    "weighted_reconstruction_L1": 0.006814509978559513,
+    "stat_loss": 0.447444474697113,
+    "weighted_stat_loss": 0.017287778346361752,
+    "total_loss": 0.45160099053312236,
+    "beta_q": 12.5,
+    "base_gradient_norm": 6.959302092485928,
+    "reconstruction_gradient_norm": 0.07889397873927279,
+    "stat_gradient_norm": 0.9494338709006941,
+    "C1_gradient_norm": 7.61857743596392,
+    "stat_base_cosine": 0.6380634192835125,
+    "DISTS_deep_gradient_checks": [],
+    "DISTS_dedicated_gradient_modules": null,
+    "component_gradient_modules": {
+      "fused": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 6.533842025339134,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 2.3959954095096316,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "reconstruction": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.07665111450822651,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 0.01867796899985575,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "legacy_stat": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.8934042812881126,
+          "nonzero": 28,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 28
+        },
+        "generator": {
+          "norm": 0.32133077255306075,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      }
+    },
+    "proxy_gradient_status": "identity has no wrapper parameters",
+    "rate_gradient_status": "receiver-only may have no rate gradient; original formula"
+  },
+  "loss_values_gonly": {
+    "LPIPS": 0.2918585201104482,
+    "DISTS": 0.24716912110646566,
+    "weighted_DISTS": 0.12358456055323283,
+    "rate_bpp": 0.0009644499916854935,
+    "beta_rate": 0.01205562489606867,
+    "proxy_L1": 0.0,
+    "weighted_proxy_L1": 0.0,
+    "reconstruction_L1": 0.049252406259377796,
+    "weighted_reconstruction_L1": 0.006814509978559513,
+    "stat_loss": 0.447444474697113,
+    "weighted_stat_loss": 0.017287778346361752,
+    "total_loss": 0.45160099053312236,
+    "beta_q": 12.5,
+    "base_gradient_norm": 2.3959954095096316,
+    "reconstruction_gradient_norm": 0.01867796899985575,
+    "stat_gradient_norm": 0.32133077255306075,
+    "C1_gradient_norm": 2.613500901494353,
+    "stat_base_cosine": 0.6333630374073109,
+    "DISTS_deep_gradient_checks": [],
+    "DISTS_dedicated_gradient_modules": null,
+    "component_gradient_modules": {
+      "fused": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "generator": {
+          "norm": 2.3959954095096316,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "reconstruction": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "generator": {
+          "norm": 0.01867796899985575,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      },
+      "legacy_stat": {
+        "wrapper": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "bridge": {
+          "norm": 0.0,
+          "nonzero": 0,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 0
+        },
+        "generator": {
+          "norm": 0.32133077255306075,
+          "nonzero": 212,
+          "finite": true,
+          "dtype": "FP32",
+          "trainable_parameters": 212
+        }
+      }
+    },
+    "proxy_gradient_status": "identity has no wrapper parameters",
+    "rate_gradient_status": "receiver-only may have no rate gradient; original formula"
+  },
+  "FD_bg": 59.19158648511067,
+  "FD_gonly": 59.19158648511067,
+  "source_bridge_C1_norm": 7.1562794233922125,
+  "frozen_bridge_C1_norm": 0,
+  "full_replay_checks": [
+    30,
+    30
+  ],
+  "optimizer_updates": 0
+}

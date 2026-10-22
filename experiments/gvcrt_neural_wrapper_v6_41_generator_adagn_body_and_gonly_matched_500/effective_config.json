@@ -1,0 +1,42 @@
+{
+  "experiment": "v6.41",
+  "git_head_at_start": "d4e55e9d3b7de3e37245de0d81d05dae6eab10d1",
+  "new_training_branches": [
+    "G_fullLoss_Gonly_500"
+  ],
+  "G_only_updates": 500,
+  "task_A_updates": 0,
+  "new_encode": 0,
+  "training_start_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+  "plan_sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42",
+  "lambda_FD": 0.004456022804189918,
+  "generator_lr": 1e-06,
+  "optimizer": {
+    "name": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_global_norm": 1.0
+  },
+  "frames": 64,
+  "warmup_P": 48,
+  "supervised_P": 15,
+  "crop": [
+    256,
+    256
+  ],
+  "seed": 20261034,
+  "allowed_physical_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "evaluation_video_qp": 39,
+  "unique_receivers": 6,
+  "unique_RD_points": 234,
+  "pooled_FID_points": 54
+}

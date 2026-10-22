@@ -1,0 +1,1 @@
+A00=G0 body+G0 AdaGN at z0; A01=G0 body+GF AdaGN at z0; A10=GF body+G0 AdaGN at z0; A11=GF body+GF AdaGN at z0. All use original bridge z0 and unchanged q_recon. Zero optimizer updates and zero new encoding.

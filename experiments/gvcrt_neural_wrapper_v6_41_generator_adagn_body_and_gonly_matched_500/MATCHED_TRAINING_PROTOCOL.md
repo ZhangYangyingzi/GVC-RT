@@ -1,0 +1,1 @@
+G-only from original v6.34 step0, fixed first 500 rows, frozen original bridge, full historical C1+native FD loss, fresh AdamW generator-only at 1e-6, one global clip and optimizer step per 15-frame window; 500 committed updates. No new encoding.
