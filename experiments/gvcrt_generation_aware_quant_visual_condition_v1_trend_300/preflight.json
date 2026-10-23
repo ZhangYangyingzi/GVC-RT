@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "physical_gpu": 4,
+  "initialization_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "numeric_tolerances": {
+    "identity_reconstruction_feature_qmap": 1e-05,
+    "independent_decode_main_latent": 0.01,
+    "independent_decode_qmap": 0.0001,
+    "estimated_rate_identity_abs": 0.001
+  },
+  "checks": {
+    "identity_A_B": {
+      "reconstruction_maxabs": 0.0,
+      "feature_maxabs": 0.0,
+      "estimated_rate_abs": 0.0
+    },
+    "identity_A_C": {
+      "reconstruction_maxabs": 0.0,
+      "feature_maxabs": 0.0,
+      "estimated_rate_abs": 0.0
+    },
+    "identity_B_D": {
+      "reconstruction_maxabs": 0.0,
+      "feature_maxabs": 0.0,
+      "estimated_rate_abs": 0.0
+    },
+    "bitstream_A_B": "identical_for_two_causal_P_frames",
+    "bitstream_A_C": "identical_for_two_causal_P_frames",
+    "bitstream_B_D": "identical_for_two_causal_P_frames",
+    "nonidentity_stream": "changed_vs_A_and_identical_B_D",
+    "independent_decode_B": "two_frames_y_and_qmap_synchronized",
+    "independent_decode_D": "two_frames_y_and_qmap_synchronized",
+    "quant_gradient_B": {
+      "reconstruction": 0.001338447444140911,
+      "rate": 1005.2163543701172
+    },
+    "condition_gradient_C": {
+      "gradient_norm": 0.20384944416582584,
+      "parameter_delta": 0.037920198655356785,
+      "response_maxabs": 0.0013447403907775879,
+      "upstream_gradient_after_update": 0.017076019939850084
+    },
+    "quant_gradient_D": {
+      "reconstruction": 0.001338447444140911,
+      "rate": 1005.2163543701172
+    },
+    "condition_gradient_D": {
+      "gradient_norm": 0.24143092334270477,
+      "parameter_delta": 0.03795409614437517,
+      "response_maxabs": 0.0016727447509765625,
+      "upstream_gradient_after_update": 0.022887047627591528
+    }
+  },
+  "time_unix": 1792743138.7743952
+}

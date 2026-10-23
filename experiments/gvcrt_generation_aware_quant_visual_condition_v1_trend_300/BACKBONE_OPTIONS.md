@@ -1,0 +1,5 @@
+# Read-only one-step backbone check
+
+SDXL-Turbo is an available published one-step *image* generator: [official model and weights](https://huggingface.co/stabilityai/sdxl-turbo), [official code](https://github.com/Stability-AI/generative-models), and [official demo configuration](https://github.com/Stability-AI/generative-models/blob/main/scripts/demo/turbo.py). Its demo specifies a 512×512 image, 4 latent channels and spatial downsampling factor 8. The intended call is a conditioned denoiser on a `[B,4,H/8,W/8]` diffusion latent followed by its first-stage decoder. The current GVC-RT bridge supplies `[B,18,H/16,W/16]`, so the interfaces are not directly compatible.
+
+Local read-only filename search under `/Huang_group/zyyz/Projects` and `/Huang_group/zyyz/home_dir/.cache` found SDXL-Turbo documentation in the local Turbo-VAED checkout but no SDXL-Turbo checkpoint. No local timing or peak-memory benchmark for this exact backbone was found; the official model card describes one network evaluation per image but does not supply a server-specific cost for this codec. No weights were downloaded and no additional training was started.

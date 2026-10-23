@@ -1,0 +1,13 @@
+# Fixed protocol
+
+Four groups share the verified v6.40 `G_basic_100` compression, bridge and generator starting weights. A trains G; B trains G and block quantizer H; C trains G and spatial condition V; D trains G, H and V. The original I codec, compression encoder, hyperprior, entropy models, feature decoder, bridge and temporal reference are frozen. Receiver generator output does not replace the feature reference.
+
+Only cleaned U-Long source identities in `data_manifest.json` are used for this continuation. Eight distinct source content hashes supply two consecutive 16-frame windows each; two further hashes are validation sources. The 300-row deterministic plan is defined by `train.frame_plan()`, seed 20261023. All groups replay the same frame indices, 256×256 crop coordinates and QP order. Frame 0 uses native I; P1–11 warm the reference without gradient; P12–15 contribute one quarter of the objective each. Every next-frame reference is detached. No P wrapper, DISTS, FD, CORAL or adversarial loss enters training.
+
+The objective is `LPIPS + 0.1383589248954108 * reconstruction_L1 + beta_q(schedule_s1p0, external_QP) * estimated_bpp`, with continuous Gaussian CDF rate for the two main-latent checkerboard passes and decoded hyperlatent. External QPs 2 and 7 are sampled equally. The historical `INDEX_MAP` frame offset schedule applies. AdamW uses G 1e-6, H/V 1e-4, betas (0.9,0.999), eps 1e-8, decay 1e-4 and global clip 1.0. Trainable parameters and accumulated gradients remain FP32.
+
+Checkpoints are saved at 0, 100 and 300 effective optimizer updates. `latest.pt` also persists optimizer, RNG and plan cursor after each update. The training CSV records optimizer internal step and nonzero parameter delta. GPU assignments are 4:A, 5:B, 6:C, 7:D.
+
+At steps 0, 100 and 300, each branch is evaluated on both 64-frame validation sources at external QPs 2 and 7. Step 300 adds ParkScene and Jockey as descriptive checks. The actual file byte count includes native I, all P, SPS and packet headers; bpp divides by original pixel count and 20-fps kbps uses the same bytes. Source FPS and exact input indices are retained. Evaluation encodes a file, releases its encoder models, instantiates fresh decoder models, and decodes from file bytes and packet metadata. FID is `not_computed`. Equal-QP points are observations; matched-rate claims require an overlapping actual-bpp interval and interpolation only within it.
+
+The current RANS payload interleaves hyperlatent and main-latent symbols in a single opaque coder stream. Total payload bytes and packet overhead are exact. No exact attribution of its bytes to each latent component is available without changing the codec container; any y/z analytical rate estimates must be labeled proxy estimates.
