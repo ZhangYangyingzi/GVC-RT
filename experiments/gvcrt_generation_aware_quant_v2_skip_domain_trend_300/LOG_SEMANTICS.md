@@ -1,0 +1,9 @@
+# Measurement semantics
+
+Training metrics and multiplier/rho/clamp/skip/saturation statistics are computed on supervised P12–15, then averaged across those four frames in each update. Quantile columns are the mean of four per-frame quantiles, not a quantile over concatenated frames. Standard deviations are population standard deviations per frame. Multiplier summaries cover its block-map cells; rho summaries cover the actual broadcast channel map after clamp and dtype conversion. Saturation fractions count active symbols at either inclusive limit −128 or127 over the masked pass's symbol count.
+
+G/H gradient norms are Euclidean norms before the common global clip; grad_norm is the total preclip norm. G/H_parameter_delta and parameter_delta are Euclidean differences across the actual optimizer update, including AdamW weight decay. estimated_y_bits and estimated_z_bits are mean analytical CDF bits per supervised frame, with estimated_bpp their sum divided by256². Baseline fields unavailable in v1 remain empty; A/H00 rows are labeled reused training records.
+
+Evaluation uses all64 frames including native I in actual_total_bytes and total bpp. actual_P_payload_bits includes only P1–63 and excludes I and packet/container headers. estimated_P_main_latent_bits and estimated_P_hyper_latent_bits cover exactly P1–63. Estimated/actual ratios compare those same ranges; they are not y/z actual-byte decompositions.
+
+FloLPIPS uses the inherited PWC-Net compatibility implementation and inherited frame/transition averaging. PSNR summaries aggregate pixel SSE, rather than averaging per-frame dB. Per-segment FloLPIPS assigns each transition to the segment containing its destination frame. First15 means frame indices0–14; later49 means15–63. The fixed preview frame index15 is separate from that segment boundary definition.

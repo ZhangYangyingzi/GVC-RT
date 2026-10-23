@@ -1,0 +1,37 @@
+{
+  "seed": 20261023,
+  "INDEX_MAP": [
+    0,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    2
+  ],
+  "qp_shift": [
+    0,
+    2,
+    1
+  ],
+  "effective_frame_offsets_mod8": [
+    0,
+    2,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1
+  ],
+  "inherited_config_QP_frame_offsets": [
+    0,
+    2,
+    0,
+    1
+  ],
+  "note": "effective_config.json retains the v1 four-entry descriptive offset field byte-for-value. Actual execution follows the unchanged v1 INDEX_MAP and codec qp_shift; the full effective eight-frame sequence is recorded here. No scheduling change is applied.",
+  "train_parameter_precision": "FP32 G/H; frozen codec FP16",
+  "source": "dependency_sources/gvc_hooks.py and src/models/video_model_gvcrt.py"
+}

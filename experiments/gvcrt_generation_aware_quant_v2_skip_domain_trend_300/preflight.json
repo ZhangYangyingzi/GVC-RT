@@ -1,0 +1,518 @@
+{
+  "status": "PASS",
+  "physical_gpu": 7,
+  "tolerances": {
+    "identity": 1e-05,
+    "symbols": 0,
+    "q": 0,
+    "hard_latent": 0.01,
+    "hard_feature": 0.01,
+    "decode_reference": 0,
+    "cpu_gradient": 1e-09
+  },
+  "checks": {
+    "cpu_skip": {
+      "original": {
+        "symbol": 0.0,
+        "reconstruction": 0.5,
+        "dy_hat_dq_autograd": -1.5,
+        "local_finite_difference": 0.5000000000005,
+        "epsilon": 1e-05
+      },
+      "fixed": {
+        "symbol": 0.0,
+        "reconstruction": 0.5,
+        "dy_hat_dq_autograd": 0.5,
+        "local_finite_difference": 0.5000000000005,
+        "epsilon": 1e-05
+      }
+    },
+    "branch_jacobians": "PASS",
+    "protocol": {
+      "sources": 8,
+      "updates": 300,
+      "plan_sha256": "7778c7cae7ba281c7e310bd2d3cb299a3e92e44bc68ab29fd1b651c0904c2319",
+      "manifest_sha256": "0d0ab744a589bb42226eceecbe9bbdbed6c66b570b44afc867d269963382d6eb",
+      "source_hashes_verified": true
+    },
+    "H00_synthetic_actual_rho": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_synthetic_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_synthetic_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_synthetic_yhat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H00_synthetic_coverage_pass0": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H00_synthetic_coverage_pass1": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H00_synthetic_independent_path": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_identity_rec": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H00_identity_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H00_identity_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H00_identity_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H00_p1_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p1_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p1_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p1_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H00_p1_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H00_p2_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H00_p2_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H00_p1_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p1_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p1_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H00_p2_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_synthetic_actual_rho": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_synthetic_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_synthetic_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_synthetic_yhat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H10_synthetic_coverage_pass0": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H10_synthetic_coverage_pass1": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H10_synthetic_independent_path": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_identity_rec": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H10_identity_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H10_identity_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H10_identity_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H10_identity_cross": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H10_p1_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H10_p1_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H10_p2_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H10_p2_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H10_nonidentity_v1_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_nonidentity_v1_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_nonidentity_v1_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_nonidentity_v1_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p1_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H10_p2_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_synthetic_actual_rho": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_synthetic_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_synthetic_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_synthetic_yhat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H01_synthetic_coverage_pass0": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H01_synthetic_coverage_pass1": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H01_synthetic_independent_path": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_identity_rec": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H01_identity_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H01_identity_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H01_identity_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H01_identity_cross": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H01_p1_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p1_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p1_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p1_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H01_p1_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H01_p2_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H01_p2_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H01_p1_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p1_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p1_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H01_p2_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_synthetic_actual_rho": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_synthetic_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_synthetic_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_synthetic_yhat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H11_synthetic_coverage_pass0": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H11_synthetic_coverage_pass1": {
+      "skip": 512,
+      "active": 512,
+      "saturated": 8
+    },
+    "H11_synthetic_independent_path": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_identity_rec": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H11_identity_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H11_identity_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H11_identity_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H11_identity_cross": {
+      "max_abs_error": 0.0,
+      "tolerance": 1e-05
+    },
+    "H11_p1_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p1_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p1_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p1_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H11_p1_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H11_p2_hard_q0": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_hard_q1": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_hard_qmap": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_hard_y_hat": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H11_p2_hard_feature": {
+      "max_abs_error": 0.0,
+      "tolerance": 0.01
+    },
+    "H11_p1_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p1_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p1_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_decode_y": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_decode_q": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "H11_p2_decode_reference": {
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    "import_path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/runtime.py"
+  },
+  "code_sha256": {
+    "preflight.py": "2247e4112473f7cef0394475b2cc8b3e3ce5dde9c9ca0b94971f0230cc3918e3",
+    "train.py": "dc1b3379d3953edee4d3d966c2d4036d7a69cd79d741a734f0d2d6b1ad716d84",
+    "runtime.py": "a7173b4d96a0fc94d1443489e419c53ec3067dfdaebf7283beaefffb0d35401a",
+    "run.py": "5177180fad7132b73b146c8f73affde2cb3139bf4e7bdf5647abd4c9f972e3bb",
+    "evaluate.py": "bf724c8208891a633dfb84e5d37f8bab782c0e57142683ee0c3e067d9db867ee"
+  },
+  "config_sha256": "4e7c8bd554618f124d16041a1e09618b8563fdf701dc3573c3f9759d3126849a",
+  "initialization_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "time_unix": 1792747008.8545237
+}
