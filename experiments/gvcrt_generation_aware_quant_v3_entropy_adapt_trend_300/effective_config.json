@@ -1,0 +1,157 @@
+{
+  "experiment": "gvcrt_generation_aware_quant_v3_entropy_adapt_trend_300",
+  "seed": 20261023,
+  "groups": {
+    "N0": {
+      "H": false,
+      "Phi": false,
+      "G": true,
+      "training": "reused_v1_A"
+    },
+    "N1": {
+      "H": false,
+      "Phi": true,
+      "G": true,
+      "training": "new"
+    },
+    "Q0": {
+      "H": true,
+      "Phi": false,
+      "G": true,
+      "training": "reused_v2_H11"
+    },
+    "Q1": {
+      "H": true,
+      "Phi": true,
+      "G": true,
+      "training": "new"
+    }
+  },
+  "training": {
+    "effective_updates": 300,
+    "batch": 1,
+    "crop": [
+      256,
+      256
+    ],
+    "window_frames": 16,
+    "native_I_index": 0,
+    "warm_P_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "supervised_P_indices": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "cross_frame_reference_detach": true,
+    "external_QP": [
+      2,
+      7
+    ],
+    "QP_frame_offsets": [
+      0,
+      2,
+      0,
+      1
+    ],
+    "loss": "LPIPS + 0.1383589248954108 * reconstruction_L1 + beta_q(schedule_s1p0) * estimated_bpp",
+    "optimizer": "AdamW",
+    "learning_rates": {
+      "G": 1e-06,
+      "H": 0.0001,
+      "Phi": 1e-06
+    },
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_gradient_clip": 1.0,
+    "checkpoints": [
+      0,
+      100,
+      300
+    ],
+    "executed_QP_offsets_mod8": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  "evaluation": {
+    "frames": 64,
+    "external_QP": [
+      2,
+      7
+    ],
+    "IP": -1,
+    "rate_fps": 20,
+    "quality": [
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "PSNR"
+    ],
+    "FID": "not_computed",
+    "validation": [
+      "UVal0",
+      "UVal1"
+    ],
+    "descriptive_step300": [
+      "ParkScene",
+      "Jockey"
+    ]
+  },
+  "allowed_physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "initial_checkpoint_sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4",
+  "gpu_assignment": {
+    "N1": 4,
+    "Q1": 5,
+    "preflight_auxiliary": 6,
+    "evaluation": 7
+  },
+  "comparisons": [
+    [
+      "N1",
+      "N0"
+    ],
+    [
+      "Q1",
+      "Q0"
+    ],
+    [
+      "Q1",
+      "N1"
+    ]
+  ],
+  "precision": {
+    "G": "inherited v2 FP32 forward and parameters",
+    "H": "FP32 as v2",
+    "Phi": "FP32 original master parameters; differentiable casts execute native FP16 y branches and native mixed FP16-parameter/FP32-input z CDF; same wrappers used in training/compress/decompress",
+    "frozen_codec": "FP16"
+  },
+  "preflight_smoke": "first two shared-plan optimizer updates accepted into 300 only after post-update CDF and independent-decoding checks; no extra effective training"
+}

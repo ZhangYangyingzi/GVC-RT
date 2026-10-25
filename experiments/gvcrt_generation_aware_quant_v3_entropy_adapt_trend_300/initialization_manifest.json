@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "G_bridge": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/evaluation/checkpoints/G_basic_100.pt",
+    "sha256": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4"
+  },
+  "H": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/server_artifacts/H11/step_0.pt",
+    "sha256": "7b7110b9631af8ffded425dba9c3863c0d9cb076d92b83b26afbc45c1449b7a4",
+    "source_step": 0,
+    "identity_multiplier": 1
+  },
+  "Phi": {
+    "source": "original codec probability network state",
+    "weight_manifest_sha256": "b3dce964a802070974e77404fdbf8128feeac38f56be04956f6825f647640682"
+  },
+  "common_start": true,
+  "no_step300_initialization": true,
+  "original_Phi_master_tensor_equality": true,
+  "all_G_step0_equal": true,
+  "Q1_H_equals_v2_step0": true,
+  "G_rounding": "v2 load into native FP16 followed by G FP32 forward retained",
+  "checkpoint_audit": "audits/checkpoint_integrity.json"
+}
