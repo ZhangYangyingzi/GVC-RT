@@ -23,7 +23,12 @@ Completed outputs include 36 new protocol full evaluations, 16 reused QP2/7
 anchors, and 5 reused QP9 supplements. All 8 spatial rate matches use alpha=1;
 no extra rate-search encodes or selected-alpha full evaluations were needed.
 Preflight separately used 3 full metric runs and 2 nonunit-alpha rate-only
-encodes (39 full metric runs including preflight, below the limit of 44).
+encodes. Final review added 6 synchronization-only rate encodes to cover the
+remaining fixed nonunit alphas (8 synchronization encodes total, none used for
+rate selection). A ninth historical MEAN/UVal0 alpha=0.8 smoke encode is also
+retained and audited. There were 39 full metric runs including preflight, below
+the limit of 44. `alpha_synchronization_audit.json` records the initial and
+supplementary coverage separately.
 
 `map_driver.py` only decodes persisted streams. It saves hashes for all 64
 references, P latents/qmaps and RGB tensors, verifies original v2 receiver

@@ -27,6 +27,7 @@ if [[ ! -f "$root/preflight.json" ]]; then
   "$py" "$root/preflight.py"
 fi
 
+"$py" "$root/alpha_sync_audit.py" --ensure
 "$py" "$root/driver.py"
 "$py" "$root/finalize.py"
 "$py" "$root/map_driver.py"

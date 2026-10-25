@@ -147,7 +147,7 @@ def main():
     run_queue(additions)
     (P/'completion.json').write_text(json.dumps({'status':'EVALUATIONS_COMPLETE',
         'reused_native_anchors':16,'phase1_full':24,'phase2_alpha1_full':12,
-        'reused_existing_supplements':5,'preflight_full_metric_runs':3,'preflight_rate_only_encodes':2,
+        'reused_existing_supplements':5,'preflight_full_metric_runs':3,'preflight_rate_only_encodes':9,
         'additional_selected_full':len(additions),'rate_only_candidates':sum(r['rate_only'] for r in search)},indent=2)+'\n')
     print('ALL_EVALUATIONS_COMPLETE',flush=True)
 

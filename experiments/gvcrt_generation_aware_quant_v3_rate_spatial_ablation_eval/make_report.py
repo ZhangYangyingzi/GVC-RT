@@ -39,8 +39,13 @@ def main():
            '- Encoder/decoder consistency for newly encoded tasks checks every frame reference and every P-frame latent and qmap. '
            'All 21 reused streams also pass fresh v2/v3 decoder comparisons with exact RGB, reference, latent and qmap hashes on all 64 frames. '
            'A and IDENTITY match native streams and all codec states at all four stage-2 source/QP combinations.',
-           '- Two additional alpha=0.8 rate-only encodes were performed for the preflight synchronization checks, '
-           'not for candidate selection. They are separately audited in `delivery_audit.json`.',
+           '- Eight rate-only encodes check MEAN/ROLL synchronization at every nonunit fixed alpha '
+           '(0.8, 0.9, 1.1, 1.25); none is used for candidate selection. The original preflight covered alpha=0.8. '
+           'The other six synchronization checks were added at final review after protocol evaluations, '
+           'with unchanged inference code. `alpha_synchronization_audit.json` records this coverage and timing distinction.',
+           '- One additional historical MEAN/UVal0/QP2/alpha=0.8 rate-only smoke check is retained and listed '
+           'in `preflight_tasks.csv`, bringing all recorded synchronization/smoke encodes to nine. '
+           'Initial alpha=0.8 records retain their earlier runner SHA; the ablation and native runtime SHAs match the final gate.',
            '- Preflight also contains three full metric runs (A/MAP/IDENTITY on UVal0 QP2). '
            'The whole round therefore used 39 full metric runs including preflight, within the cap of 44. '
            'The final receiver audits only decode existing streams and do not recompute quality metrics.',

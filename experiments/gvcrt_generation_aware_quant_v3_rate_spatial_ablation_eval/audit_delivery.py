@@ -129,25 +129,30 @@ def main():
             assert winner['alpha_index']=='2' and float(winner['relative_rate_error'])<=.02
         else:assert {int(x['alpha_index']) for x in candidates}=={0,1,2,3,4}
     preflight_rate_only=[];preflight_tasks=[]
-    preflight_specs=[('A','evaluation',2),('MAP','evaluation',2),('IDENTITY','evaluation',2),
-                     ('MEAN','rate_only',0),('ROLL','rate_only',0)]
+    alpha_sync=json.loads((P/'alpha_synchronization_audit.json').read_text())
+    assert alpha_sync['status']=='PASS' and len(alpha_sync['nonunit_alpha_stream_checks'])==8
+    preflight_specs=[('A','evaluation',2),('MAP','evaluation',2),('IDENTITY','evaluation',2)]
+    preflight_specs += [(mode,'rate_only',alpha) for mode in ('MEAN','ROLL') for alpha in (0,1,3,4)]
+    preflight_specs += [('MEAN','historical_UVal0_rate_only',0)]
     for mode,group,alpha in preflight_specs:
         source='UVal1' if group=='rate_only' else 'UVal0'
+        group='rate_only' if group=='historical_UVal0_rate_only' else group
         key=task.key(mode,source,2,alpha)
         path=P/f'server_artifacts/{group}/{key}.json'
         record=json.loads(path.read_text())
         assert record['status']=='PASS' and task.sha(record['stream_path'])==record['stream_sha256']
+        assert record['checkpoint_sha256']==weights['A' if mode=='A' else 'H11']
+        assert record['source_sha256']==sources[source]['source_sha256']
+        assert record['source_frame_indices']==sources[source]['indices']
+        assert record['all_64_reference_states_synchronized'] is True
+        assert record['all_P_latents_qmaps_exact'] is True
         preflight_tasks.append({'storage_alias':key,'source':source,'mode':mode,'QP':2,'alpha':record['alpha'],
             'rate_only':group=='rate_only','real_total_bytes':record['real_total_bytes'],
             'stream_sha256':record['stream_sha256'],'checkpoint_sha256':record['checkpoint_sha256'],
             'source_sha256':record['source_sha256'],'result_sha256':task.sha(path),'status':'PASS'})
         (P/'configs'/f'preflight_{key}.json').write_text(json.dumps({'preflight':True,'result':record},indent=2)+'\n')
-    for mode in ('MEAN','ROLL'):
-        record=json.loads((P/'server_artifacts/rate_only'/f'{task.key(mode,"UVal1",2,0)}.json').read_text())
-        assert task.sha(record['stream_path'])==record['stream_sha256']
-        assert record['all_64_reference_states_synchronized'] and record['all_P_latents_qmaps_exact']
-        preflight_rate_only.append({'mode':mode,'alpha':.8,'source':'UVal1','QP':2,'status':'PASS',
-                                   'stream_sha256':record['stream_sha256'],'used_in_rate_selection':False})
+    preflight_rate_only=alpha_sync['nonunit_alpha_stream_checks']
+    preflight_rate_only += [x for x in preflight_tasks if x['storage_alias']=='MEAN_s300_UVal0_q2_a0']
     task.write_csv(P/'task_manifest.csv',manifest)
     task.write_csv(P/'quant_diagnostics.csv',diagnostics)
     task.write_csv(P/'quant_summary.csv',summaries)
@@ -183,7 +188,7 @@ def main():
     (P/'delivery_audit.json').write_text(json.dumps(result,indent=2)+'\n')
     completion=json.loads((P/'completion.json').read_text())
     completion.update({'delivery_status':'PASS','reused_existing_supplements':5,
-        'preflight_full_metric_runs':3,'preflight_rate_only_encodes':2,
+        'preflight_full_metric_runs':3,'preflight_rate_only_encodes':9,
         'receiver_only_audits':len(evaluations),'total_full_metric_runs_including_preflight':39})
     (P/'completion.json').write_text(json.dumps(completion,indent=2)+'\n')
     # Keep exported text tables compatible with Git whitespace checks.
