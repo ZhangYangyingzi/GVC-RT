@@ -1,0 +1,43 @@
+{
+  "status": "DESCRIPTIVE",
+  "FRAME_CHANNEL_exact": true,
+  "stable_SPATIAL_by_metric": {
+    "LPIPS": false,
+    "DISTS": false,
+    "FloLPIPS": false,
+    "PSNR": false
+  },
+  "stable_SPATIAL_all_metrics": false,
+  "midpoint_best_counts": [
+    {
+      "metric": "LPIPS",
+      "sequence_interpolation_cases": 8,
+      "SPATIAL_best": 4,
+      "FRAME_CHANNEL_best": 4
+    },
+    {
+      "metric": "DISTS",
+      "sequence_interpolation_cases": 8,
+      "SPATIAL_best": 6,
+      "FRAME_CHANNEL_best": 2
+    },
+    {
+      "metric": "FloLPIPS",
+      "sequence_interpolation_cases": 8,
+      "SPATIAL_best": 2,
+      "FRAME_CHANNEL_best": 6
+    },
+    {
+      "metric": "PSNR",
+      "sequence_interpolation_cases": 8,
+      "SPATIAL_best": 4,
+      "FRAME_CHANNEL_best": 4
+    }
+  ],
+  "additional_spatial_magnitude_smaller_cases": 30,
+  "allocation_comparison_cases": 32,
+  "FRAME_over_IDENTITY_favorable_cases": 9,
+  "identity_majority_cases": 4,
+  "identity_positive_total_cases": 10,
+  "causal_claim": "not established by this fixed-checkpoint intervention alone"
+}
