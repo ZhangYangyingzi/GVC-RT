@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "tolerances": {
+    "native_stream_sha": 0,
+    "identity_native_stream_sha": 0,
+    "reused_frame_LPIPS": 1e-07,
+    "reused_frame_DISTS": 1e-07,
+    "reused_frame_PSNR": 1e-06,
+    "constant_multiplier": 0,
+    "mean_definition": 1e-07,
+    "rho_post_clamp": 1e-07
+  },
+  "checks": {
+    "A_v2_parity": {
+      "native_sha_equal": true,
+      "frame_max_abs_error": {
+        "LPIPS": 0.0,
+        "DISTS": 0.0,
+        "pixel_SSE": 0.0
+      }
+    },
+    "MAP_v2_parity": {
+      "native_sha_equal": true,
+      "frame_max_abs_error": {
+        "LPIPS": 0.0,
+        "DISTS": 0.0,
+        "pixel_SSE": 0.0
+      }
+    },
+    "identity_A_native_stream": {
+      "sha_equal": true,
+      "checkpoint_sha_distinct": true,
+      "encoder_decoder_64_references": true,
+      "all_P_latents_qmaps_exact": true
+    },
+    "identity_A_decoded_state": {
+      "status": "PASS",
+      "frames": 64,
+      "mismatched_frames": [],
+      "reference_sha_equal_all": true,
+      "P_latent_sha_equal_all": true,
+      "P_qmap_sha_equal_all": true
+    },
+    "constant_multiplier_modes": {
+      "max_error": 0.0
+    },
+    "roll_and_mean": {
+      "roll_multiset_exact": true,
+      "mean_error": 0.0,
+      "roll_blocks": [
+        1,
+        2
+      ]
+    },
+    "actual_rho_after_clamp_dtype": {
+      "q": [
+        0.5,
+        0.875,
+        2.0
+      ],
+      "rho": [
+        1.0,
+        1.25,
+        2.0
+      ],
+      "first_differs_from_raw_multiplier": true
+    },
+    "MEAN_nonunit_alpha": {
+      "alpha": 0.8,
+      "all_64_references": true,
+      "all_P_latents_qmaps_exact": true,
+      "stream_sha256": "24f8da7b16f59c36b1b388c86e70e99e1ea13d96d9adf6818c641394c48da3dc"
+    },
+    "ROLL_nonunit_alpha": {
+      "alpha": 0.8,
+      "all_64_references": true,
+      "all_P_latents_qmaps_exact": true,
+      "stream_sha256": "b3a34057d8fbe8183ac2d89a4bac37b30ec846359fb7ea656a6f241fc97752f1"
+    },
+    "task.py_sha256": "1c151a10b89d8fd8298b129c8a38e51e3960b6ee8afef90cf807225a76a89406",
+    "ablation.py_sha256": "e3a327b19ee9af4217e20e4c643e1e08c7f8390b17d04f6afbc3ca4286c215dc",
+    "v2_runtime_sha256": "a7173b4d96a0fc94d1443489e419c53ec3067dfdaebf7283beaefffb0d35401a",
+    "v2_sources_sha256": "6d0f04c1dafcbc01e37447c2b7faf4a2d62ed5460de55c68729939de1f4e07de",
+    "weights_sha256": {
+      "A": "17a7635ae6e4f74922b5bfe368a790bf2f48b3a7bff2b2f516c4dea24148404f",
+      "H11": "e4522ff04aeecf8e5249611904869666b36f6e196876257671732ddb1a521902"
+    }
+  }
+}

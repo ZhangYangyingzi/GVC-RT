@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "protocol_tasks": 57,
+  "new_full_tasks": 36,
+  "reused_native_anchor_tasks": 16,
+  "reused_existing_supplement_tasks": 5,
+  "all_stream_SHA_verified": true,
+  "all_byte_accounts_exact": true,
+  "all_64_frame_files_present": true,
+  "all_63_transition_files_present": true,
+  "all_64_receiver_state_hashes_saved": true,
+  "reused_all_64_RGB_and_codec_state_exact": 21,
+  "new_encode_independent_decode_records_verified": 36,
+  "identity_A_exact_state_checks": [
+    {
+      "source": "UVal1",
+      "QP": 2,
+      "native_stream_exact": true,
+      "all_64_references_exact": true,
+      "all_P_latents_qmaps_exact": true,
+      "tolerance": 0
+    },
+    {
+      "source": "UVal1",
+      "QP": 7,
+      "native_stream_exact": true,
+      "all_64_references_exact": true,
+      "all_P_latents_qmaps_exact": true,
+      "tolerance": 0
+    },
+    {
+      "source": "Jockey",
+      "QP": 2,
+      "native_stream_exact": true,
+      "all_64_references_exact": true,
+      "all_P_latents_qmaps_exact": true,
+      "tolerance": 0
+    },
+    {
+      "source": "Jockey",
+      "QP": 7,
+      "native_stream_exact": true,
+      "all_64_references_exact": true,
+      "all_P_latents_qmaps_exact": true,
+      "tolerance": 0
+    }
+  ],
+  "preflight_full_metric_runs": 3,
+  "total_full_metric_runs_including_preflight": 39,
+  "rho_post_dtype_max_abs_error": 0.0,
+  "mean_definition_tolerance": 1e-07,
+  "tensor_and_native_stream_tolerance": 0,
+  "preflight_status": "PASS",
+  "data_sources": [
+    {
+      "source": "UVal0",
+      "status": "PASS",
+      "files_verified": 1,
+      "source_sha256": "c02226a6dde0eefa74fe75f87aac30a6e4d654cf322aef8f53092cbe0fdbfccd",
+      "frames": 64
+    },
+    {
+      "source": "UVal1",
+      "status": "PASS",
+      "files_verified": 1,
+      "source_sha256": "a09ebd9a67d7b9bd9abc511f2a192530900f6e3cfc74b2eca6ea9735a12008cd",
+      "frames": 64
+    },
+    {
+      "source": "ParkScene",
+      "status": "PASS",
+      "files_verified": 64,
+      "source_sha256": "14de30cf0e9473bec2559149b05a0f9e6e3d1bebc837ac6d01cd80dc1bab5b79",
+      "frames": 64
+    },
+    {
+      "source": "Jockey",
+      "status": "PASS",
+      "files_verified": 64,
+      "source_sha256": "4a8b31553559114d1376e10fd15b324e172b659f960fcb009eac8da3007a4c7d",
+      "frames": 64
+    }
+  ],
+  "preflight_rate_only_tasks": [
+    {
+      "mode": "MEAN",
+      "alpha": 0.8,
+      "source": "UVal1",
+      "QP": 2,
+      "status": "PASS",
+      "stream_sha256": "24f8da7b16f59c36b1b388c86e70e99e1ea13d96d9adf6818c641394c48da3dc",
+      "used_in_rate_selection": false
+    },
+    {
+      "mode": "ROLL",
+      "alpha": 0.8,
+      "source": "UVal1",
+      "QP": 2,
+      "status": "PASS",
+      "stream_sha256": "b3a34057d8fbe8183ac2d89a4bac37b30ec846359fb7ea656a6f241fc97752f1",
+      "used_in_rate_selection": false
+    }
+  ],
+  "additional_rate_search_encodes": 0,
+  "selected_extra_full_evaluations": 0,
+  "code_sha256": {
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/make_report.py": "9c04be5f3d106916e819da95082a2c0657f3d52af2963f532ab04875c68e9946",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/task.py": "1c151a10b89d8fd8298b129c8a38e51e3960b6ee8afef90cf807225a76a89406",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/reuse_anchors.py": "96279c4b2bae95d1b2dd435124255d8cffab8a8fa5b7c7164edeb590999b7091",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/preflight.py": "c24f5462357cd161486d7c191ba7096524a4601132f3f9ea17f8193ffb06775f",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/finalize.py": "5614cde925ddfba3a314d4a3717c64bc3bbebb308222fe4a36f3651335d1527f",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/map_driver.py": "fe441df2b79b931786db7756a134b17c350f4b83853f4645e06771fe67f1092b",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/make_previews.py": "8b67c8f64ecde352f0f14a20286af66adcbb1a802dfa4644bec60d67bcc3789b",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/maps.py": "33fc9cdc09e00d1a75f1b312d5e384f1b8ed6a5a4b5eb1c08129480b8a3b4a9b",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/reference_identity_audit.py": "48bcb7fddc348c10b5cfb28ece44470897ba2ef4ddc0b63a0146a94ecec93bad",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/driver.py": "48058b85a4fb22186deec6070c057af4f1221a2d1517db5b01a2ed61ff6387df",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/audit_delivery.py": "27cfd52fe53ba21746f9814ce767b4a226e3545bf7776570bc0e0de362fcd3b7",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/ablation.py": "e3a327b19ee9af4217e20e4c643e1e08c7f8390b17d04f6afbc3ca4286c215dc",
+    "experiments/gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval/run.sh": "55854ef2fb699c428a95b51be67160ec409268e935fb3a797a77c561c4315643",
+    "experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/runtime.py": "a7173b4d96a0fc94d1443489e419c53ec3067dfdaebf7283beaefffb0d35401a",
+    "experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/evaluate.py": "bf724c8208891a633dfb84e5d37f8bab782c0e57142683ee0c3e067d9db867ee",
+    "experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/train.py": "dc1b3379d3953edee4d3d966c2d4036d7a69cd79d741a734f0d2d6b1ad716d84"
+  },
+  "frozen_codec_and_bridge_weights_sha256": {
+    "checkpoints/GVC-RT_I.pt": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+    "checkpoints/GVC-RT_P.pt": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/evaluation/checkpoints/G_basic_100.pt": "89c1a5baa195c8ffc9695af495d43389e00021b926eae13a0337d3b2eb117fd4"
+  },
+  "canonical_task_key": "mode_step_source_QP_alpha_sourceSHA_weightSHA_runtimeSHA_configSHA",
+  "quant_summary_definition": "Per-frame spatial statistics, averaged over the declared segment; not pooled spatial quantiles.",
+  "uncompleted_items": []
+}

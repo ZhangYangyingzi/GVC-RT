@@ -1,0 +1,65 @@
+{
+  "experiment": "gvcrt_generation_aware_quant_v3_rate_spatial_ablation_eval",
+  "inference_only": true,
+  "weight_update_count": 0,
+  "checkpoints": {
+    "A": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_generation_aware_quant_visual_condition_v1_trend_300/server_artifacts/A/step_300.pt",
+      "sha256": "17a7635ae6e4f74922b5bfe368a790bf2f48b3a7bff2b2f516c4dea24148404f"
+    },
+    "H11": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_generation_aware_quant_v2_skip_domain_trend_300/server_artifacts/H11/step_300.pt",
+      "sha256": "e4522ff04aeecf8e5249611904869666b36f6e196876257671732ddb1a521902"
+    }
+  },
+  "evaluation_sources_sha256": "6d0f04c1dafcbc01e37447c2b7faf4a2d62ed5460de55c68729939de1f4e07de",
+  "modes": [
+    "A",
+    "MAP",
+    "MEAN",
+    "ROLL",
+    "IDENTITY"
+  ],
+  "alpha_candidates": [
+    0.8,
+    0.9,
+    1,
+    1.1,
+    1.25
+  ],
+  "experiment_header_bytes": 16,
+  "sources": [
+    "UVal0",
+    "UVal1",
+    "ParkScene",
+    "Jockey"
+  ],
+  "frames": 64,
+  "QP_anchors": [
+    2,
+    7
+  ],
+  "phase1_A_QP": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "phase1_MAP_QP": [
+    4,
+    6
+  ],
+  "stage2_sources": [
+    "UVal1",
+    "Jockey"
+  ],
+  "rate_match_tolerance": 0.02,
+  "max_new_full_tasks": 44,
+  "max_rate_only_candidates": 32,
+  "physical_gpus": [
+    4,
+    5,
+    6,
+    7
+  ]
+}
