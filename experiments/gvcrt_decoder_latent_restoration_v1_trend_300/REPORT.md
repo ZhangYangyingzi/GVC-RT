@@ -46,3 +46,7 @@ Run `run_pipeline.py` with the existing environment after GPU execution access i
 Results root: `/Huang_group/zyyz/home_dir/tmp/gvcrt-decoder-latent-restoration-v1/experiments/gvcrt_decoder_latent_restoration_v1_trend_300`.
 
 Large/local artifacts: `local_artifacts/`, currently containing only the 8 reused evaluation streams. Their absolute paths, sizes and SHA256 are in `large_file_manifest.json`; they are ignored by Git. No research mechanism or bitrate-saving claim is made.
+
+## Requested continuation recheck
+
+At 2026-10-27T05:31:11.035089+00:00, the requested external GPU/process query again failed before execution because automatic approval review returned HTTP 502 Bad Gateway. The existing gvc-rt environment still reported CUDA unavailable in the sandbox, and the remote branch query still failed on github.com DNS resolution. No checkpoint files or training cache were found. The latest external waiter receipt is preserved in `continuation_recheck.json`; it continues to report WAITING. No new GPU pipeline was launched and no optimizer update was performed. GPU access and publication remain blocked; COMPLETE.json remains absent.
