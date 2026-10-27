@@ -9,7 +9,7 @@ def run():
     timing=load(HERE/'output_branch_timing.json')
     with (HERE/'results_summary.csv').open(newline='') as f: results=list(csv.DictReader(f))
     lines=['# Decoder latent restoration v1: factual execution report','',
-      'Status: all local training, evaluation and delivery checks passed. GitHub publication and remote SHA verification remain pending; see `publication_status.json`. No COMPLETE.json is written before publication succeeds.','',
+      'Status: COMPLETE. All local training, evaluation and delivery checks passed. The results commit 921485cc0c3e5199eee5216c4e5fb5ec75d72b2c was pushed to the authorized experiment branch on ZhangYangyingzi/GVC-RT and its remote SHA verified. See publication_status.json and COMPLETE.json.','',
       '## Protocol and actual execution','',
       '- Fixed native I/P codec, quantization, entropy and A reference trajectory. No extra tokens, adaptive quantizer, history restoration, temporal loss, rate search, FID or BD-rate.',
       '- A uses the original I/P weights, bridge from G_basic_100, and G from visual-condition-v1 A/step_300.pt. The specified generator file SHA256 is `17a7635ae6e4f74922b5bfe368a790bf2f48b3a7bff2b2f516c4dea24148404f`. Effective loaded component hashes are in `weight_manifest_effective.json`.',
@@ -56,7 +56,7 @@ def run():
       '- Public Python dependencies are tracked in the repository or the minimal dependency snapshot; `repository_dependency_manifest.json` and `metric_dependency_manifest.json` register remaining dependencies and external source/weight requirements. Original input data and pretrained weights must be provisioned at the registered paths or the entrypoints explicitly adapted. Hardcoded local paths are intentional execution provenance, not a portable standalone data package.',
       '- Worktree source differs from the original checkout at src/utils/video_writer.py; that module is not used by this experiment’s custom cv2 quality writer. Repository source hashes are registered. This report makes no research mechanism, bitrate-saving or convergence claim.',
       '- Operational history: GPU waiting, sandbox GPU invisibility, GitHub DNS failures and repeated approval-service HTTP 502 failures occurred before execution. The user launched the pipeline from the server terminal. GPU utilization scheduling was corrected following authorization for 0 and 4. Earlier blocker receipts are historical, superseded for local execution by pipeline_status.json and delivery_audit.json.',
-      '- GitHub publication is currently blocked by automatic approval review: explicit destination/payload confirmation is requested before exporting experiment code, local-path manifests, CSVs and figures to ZhangYangyingzi/GVC-RT. No force-push or merge is used.', '',
+      '- GitHub publication: after the initial automatic approval rejection, the user explicitly confirmed ZhangYangyingzi/GVC-RT, the experiment branch and the payload including local-path manifests, CSVs and fixed figures. Push succeeded and the remote results SHA was verified as 921485cc0c3e5199eee5216c4e5fb5ec75d72b2c. No force-push or merge was used.', '',
       'Results root: `/Huang_group/zyyz/home_dir/tmp/gvcrt-decoder-latent-restoration-v1/experiments/gvcrt_decoder_latent_restoration_v1_trend_300`. Publication status is separate from completed local computation.']
     (HERE/'REPORT.md').write_text('\n'.join(lines)+'\n')
     print('FACTUAL_REPORT_WRITTEN')
