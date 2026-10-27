@@ -54,3 +54,7 @@ At 2026-10-27T05:31:11.035089+00:00, the requested external GPU/process query ag
 ## GPU 1 and 4 authorization and execution check
 
 The user explicitly authorized physical GPUs 1 and 4. The common setup guard, GPU queue, pipeline scheduler, effective configuration and protocol now restrict new launches to those two devices. Syntax checks and the CPU audit passed. With CUDA_VISIBLE_DEVICES=1,4, the existing gvc-rt environment still reported CUDA unavailable and zero visible CUDA devices; nvidia-smi could not connect to the driver. The requested external GPU/process query was again not executed because automatic approval review returned HTTP 502 Bad Gateway. Changing device selection therefore did not restore GPU access. No training step was performed and no pipeline was launched; all GPU checks, training, evaluation and remote publication remain pending. See gpu_1_4_check.json.
+
+## Scheduling correction for GPUs 0 and 4
+
+The user clarified that physical GPUs 0 and 4 are available. Updated setup, queue and scheduler to these devices. Removed the unnecessarily strict utilization <10% launch condition; the scheduler retains the 24,000 MiB free-memory check. The earlier WAITING state was caused by this utilization gate. The running launcher must restart to load the updated policy. restart_waiting_pipeline.py identifies only this experiment launcher by its exact script path and refuses to stop it when active tasks are recorded. This correction changes resource scheduling only, not the experimental training budget or model configuration.

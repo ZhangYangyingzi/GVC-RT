@@ -1,4 +1,4 @@
-"""Nonintrusive queue for physical GPUs 1 and 4; never touches other processes."""
+"""Nonintrusive queue for physical GPUs 0 and 4; never touches other processes."""
 import argparse
 import csv
 import subprocess
@@ -28,7 +28,7 @@ def wait():
             failures += 1
         else:
             for index, used, total, utilization in rows:
-                if index in (1, 4) and total-used >= 24000 and utilization < 10:
+                if index in (0, 4) and total-used >= 24000:
                     result = dict(physical_gpu=index, utc=datetime.now(timezone.utc).isoformat(),
                                   waited_seconds=time.time()-begun, polls=attempts,
                                   nvidia_smi_failures=failures, final_snapshot=rows)

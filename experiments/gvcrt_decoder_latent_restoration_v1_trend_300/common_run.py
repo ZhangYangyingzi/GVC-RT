@@ -59,7 +59,7 @@ def module(name, path):
 
 
 def setup(gpu):
-    assert gpu in (1, 4)
+    assert gpu in (0, 4)
     os.environ.update(CUDA_DEVICE_ORDER='PCI_BUS_ID', CUDA_VISIBLE_DEVICES=str(gpu),
                       OMP_NUM_THREADS='2', MKL_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2')
     sys.path[:0] = [str(SNAP), str(REPO), str(REPO / 'experiments/gvcrt_neural_wrapper_v2_joint'),

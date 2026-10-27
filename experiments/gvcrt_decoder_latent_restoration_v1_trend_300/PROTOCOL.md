@@ -11,10 +11,12 @@
 
 ## Entrypoints
 
-Use `/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python`. Per the latest user authorization, the current launcher is restricted to physical GPUs 1 and 4. Run `cache_training.py` once before `preflight.py`, then `train_branch.py --stop 2` for G, R and RQ, then `train_branch.py --stop 300` to resume. Run `prepare_streams.py` once. For each stream, run `decode_stream.py` in a separate process for A, G, R and RQ. Then run `evaluate_quality.py` and `finalize.py`. Every training step and cache row is atomic and resumable.
+Use `/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python`. Per the latest user authorization, the current launcher is restricted to physical GPUs 0 and 4. Run `cache_training.py` once before `preflight.py`, then `train_branch.py --stop 2` for G, R and RQ, then `train_branch.py --stop 300` to resume. Run `prepare_streams.py` once. For each stream, run `decode_stream.py` in a separate process for A, G, R and RQ. Then run `evaluate_quality.py` and `finalize.py`. Every training step and cache row is atomic and resumable.
 
 ## Continuation and offline checks
 
 `offline_audit.py` performs CPU provenance, native header parsing and synthetic Adapter connectivity checks. It never replaces `preflight.py` and performs no training optimizer updates. `repository_dependency_manifest.json` registers tracked repository Python dependencies and their relationship to the original checkout.
 
-Run `run_pipeline.py` with the existing Python environment to schedule cache generation, GPU preflight, paired smoke/continuation training, independent decoding, quality evaluation, timing and final checks. It uses only idle physical GPUs 1 and 4, waits when these devices are occupied, and reports driver/query failures. Logs remain under ignored `local_artifacts/logs/`. A second simultaneous pipeline instance is rejected by a local file lock. Completed training checkpoints are loaded with their optimizer, RNG, cursor and log rows; no additional updates beyond 300 are performed.
+Run `run_pipeline.py` with the existing Python environment to schedule cache generation, GPU preflight, paired smoke/continuation training, independent decoding, quality evaluation, timing and final checks. It uses only authorized physical GPUs 0 and 4, waits when these devices are occupied, and reports driver/query failures. Logs remain under ignored `local_artifacts/logs/`. A second simultaneous pipeline instance is rejected by a local file lock. Completed training checkpoints are loaded with their optimizer, RNG, cursor and log rows; no additional updates beyond 300 are performed.
+
+Latest GPU authorization: physical 0 and 4. Launch requires at least 24,000 MiB free memory; GPU utilization is recorded but does not block launch. This replaces the previous utilization <10% queue rule.

@@ -68,8 +68,12 @@
     "Adapter": "FP32"
   },
   "allowed_physical_gpus": [
-    1,
+    0,
     4
   ],
-  "gpu_authorization": "User explicitly authorized GPU 1 and 4 in continuation; current launcher restricted to these devices."
+  "gpu_authorization": "Latest user authorization: physical GPUs 0 and 4 are available for this experiment.",
+  "gpu_scheduling": {
+    "min_free_memory_MiB": 24000,
+    "utilization_limit": null
+  }
 }
