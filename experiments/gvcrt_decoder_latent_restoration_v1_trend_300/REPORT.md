@@ -50,3 +50,7 @@ Large/local artifacts: `local_artifacts/`, currently containing only the 8 reuse
 ## Requested continuation recheck
 
 At 2026-10-27T05:31:11.035089+00:00, the requested external GPU/process query again failed before execution because automatic approval review returned HTTP 502 Bad Gateway. The existing gvc-rt environment still reported CUDA unavailable in the sandbox, and the remote branch query still failed on github.com DNS resolution. No checkpoint files or training cache were found. The latest external waiter receipt is preserved in `continuation_recheck.json`; it continues to report WAITING. No new GPU pipeline was launched and no optimizer update was performed. GPU access and publication remain blocked; COMPLETE.json remains absent.
+
+## GPU 1 and 4 authorization and execution check
+
+The user explicitly authorized physical GPUs 1 and 4. The common setup guard, GPU queue, pipeline scheduler, effective configuration and protocol now restrict new launches to those two devices. Syntax checks and the CPU audit passed. With CUDA_VISIBLE_DEVICES=1,4, the existing gvc-rt environment still reported CUDA unavailable and zero visible CUDA devices; nvidia-smi could not connect to the driver. The requested external GPU/process query was again not executed because automatic approval review returned HTTP 502 Bad Gateway. Changing device selection therefore did not restore GPU access. No training step was performed and no pipeline was launched; all GPU checks, training, evaluation and remote publication remain pending. See gpu_1_4_check.json.

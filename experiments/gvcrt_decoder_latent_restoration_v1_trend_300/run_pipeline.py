@@ -1,4 +1,4 @@
-"""Resume the fixed experiment using only currently idle physical GPUs 4–7."""
+"""Resume the fixed experiment using only currently idle physical GPUs 1 and 4."""
 import fcntl
 import subprocess
 import time
@@ -29,7 +29,7 @@ def stage(name, tasks):
                 if error:
                     raise RuntimeError(f'GPU query failed: {error}')
                 for gpu, used, total, utilization in rows:
-                    if gpu not in (4, 5, 6, 7) or gpu in running:
+                    if gpu not in (1, 4) or gpu in running:
                         continue
                     if total - used < 24000 or utilization >= 10 or not pending:
                         continue
