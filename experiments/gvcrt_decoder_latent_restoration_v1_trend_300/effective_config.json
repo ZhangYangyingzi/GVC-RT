@@ -1,0 +1,70 @@
+{
+  "name": "gvcrt_decoder_latent_restoration_v1_trend_300",
+  "seed": 20261027,
+  "branches": [
+    "A",
+    "G",
+    "R",
+    "RQ"
+  ],
+  "training_updates": 300,
+  "smoke_updates_in_budget": [
+    1,
+    2
+  ],
+  "batch": 1,
+  "crop": [
+    256,
+    256
+  ],
+  "window": 16,
+  "warmup_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "supervised_frames": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "loss": {
+    "LPIPS_alex": 1,
+    "RGB_L1": 0.1383589248954108
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr_G": 1e-06,
+    "lr_Adapter": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip": 1
+  },
+  "plan_sha256": "b9f7c050449be8fcf4751b6559a280875cd4378fe59ad7386a36e3a0639ee2b9",
+  "evaluation_sources_sha256": "6d0f04c1dafcbc01e37447c2b7faf4a2d62ed5460de55c68729939de1f4e07de",
+  "external_QP": [
+    2,
+    7
+  ],
+  "IP": -1,
+  "frames_per_video": 64,
+  "precision": {
+    "codec": "FP16",
+    "bridge": "FP32",
+    "G": "FP32",
+    "Adapter": "FP32"
+  }
+}
