@@ -26,7 +26,7 @@ The v5 train plan SHA256 is `b9f7c050449be8fcf4751b6559a280875cd4378fe59ad7386a3
 - Saved training CSV rows inside each atomic checkpoint, allowing recovery after interruption between checkpoint and CSV writes.
 - Isolated LPIPS initialization from the saved torch training RNG on resume.
 - Tightened training cache reuse to require matching code, plan and weight provenance.
-- Added reference RGB, reference POC and unchanged I-frame output checks to independent decoding/finalization.
+- Added reference RGB, reference POC and unchanged I-frame output checks to independent decoding/finalization. Expanded the GPU preflight entrypoint to independently decode all 16 native frames, compare zero-residual branch outputs and disabled restoration, verify unchanged reference feature/RGB/POC and y_hat, and match P12–P15 inputs and quantization maps back to the shared cache. This entrypoint passed syntax checks but has not run on GPU.
 - Added a resumable pipeline entrypoint that schedules subprocesses only on idle physical GPUs 4–7, runs the required preflight, uses smoke updates within the 300-update budget, and keeps decoding separate from GT-based quality evaluation. It does not publish or write COMPLETE.json.
 
 ## Execution blockers
@@ -35,7 +35,7 @@ The existing `gvc-rt` environment reports torch `2.6.0+cu124`, but `torch.cuda.i
 
 A requested sandbox-external GPU/process query was not executed because automatic approval review failed with HTTP `502 Bad Gateway`. This was an approval-service failure, not a finding that the action was unsafe. No permission bypass was attempted and no other job was terminated. User guidance on restoring execution access was requested.
 
-The initial GitHub remote query failed inside the sandbox with `Could not resolve hostname github.com`. Publication state is recorded separately in `publication_status.json`; remote publication must be verified before completion.
+The initial GitHub remote query failed inside the sandbox with `Could not resolve hostname github.com`. The subsequent sandbox-external `git push -u origin experiment/gvcrt-decoder-latent-restoration-v1-trend-300` was also not executed because automatic approval review returned HTTP 502. The experiment has local commits, but push and remote SHA verification remain uncompleted. Publication state is recorded separately in `publication_status.json`; remote publication must be verified before completion.
 
 ## Remaining work and local outputs
 
