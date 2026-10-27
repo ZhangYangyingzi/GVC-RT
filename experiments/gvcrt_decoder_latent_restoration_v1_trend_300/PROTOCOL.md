@@ -20,3 +20,7 @@ Use `/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python`. Per the latest u
 Run `run_pipeline.py` with the existing Python environment to schedule cache generation, GPU preflight, paired smoke/continuation training, independent decoding, quality evaluation, timing and final checks. It uses only authorized physical GPUs 0 and 4, waits when these devices are occupied, and reports driver/query failures. Logs remain under ignored `local_artifacts/logs/`. A second simultaneous pipeline instance is rejected by a local file lock. Completed training checkpoints are loaded with their optimizer, RNG, cursor and log rows; no additional updates beyond 300 are performed.
 
 Latest GPU authorization: physical 0 and 4. Launch requires at least 24,000 MiB free memory; GPU utilization is recorded but does not block launch. This replaces the previous utilization <10% queue rule.
+
+## Final local delivery checks
+
+After finalize.py, run build_overviews.py and verify_delivery.py, then write_report.py. The pipeline includes the first two. verify_delivery.py checks step0/100/300 effective updates, cursor, optimizer state, R/RQ initial RNG, matching training streams, raw metric/transition counts and aggregates, native decoder reference equality, inventory sizes and checkpoint SHA. Publication is separate; a local PASS does not authorize COMPLETE.json before remote verification. See metric_dependency_manifest.json for external FloLPIPS/DISTS/LPIPS source and weight requirements.

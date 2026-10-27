@@ -78,6 +78,8 @@ def run():
         stage('quality', quality)
         stage('timing', [('output_branch', 'benchmark.py', [])])
         subprocess.run([PYTHON, str(HERE / 'finalize.py')], check=True)
+        subprocess.run([PYTHON, str(HERE / 'build_overviews.py')], check=True)
+        subprocess.run([PYTHON, str(HERE / 'verify_delivery.py')], check=True)
         dump(HERE / 'pipeline_status.json', dict(status='LOCAL_CHECKS_FINISHED',
              remaining=['Update factual REPORT.md', 'Commit and push results',
                         'Verify remote SHA', 'Write COMPLETE.json only after all deliverables pass']))
