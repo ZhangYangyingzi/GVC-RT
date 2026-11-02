@@ -1,0 +1,107 @@
+{
+  "run_status.json": {
+    "status": "PASS",
+    "exit_code": 0,
+    "committed_updates": 100,
+    "plan_cursor": 100,
+    "last_checkpoint": "experiments/gvcrt_tcg_stage1_pilot/checkpoints/latest.pt"
+  },
+  "final_integrity.json": {
+    "status": "PASS",
+    "committed_updates": 100,
+    "plan_cursor": 100,
+    "checkpoint_steps": [
+      0,
+      2,
+      10,
+      50,
+      100
+    ],
+    "frozen_check": "PASS",
+    "resume_checkpoint_integrity": "PASS",
+    "plan_sha256": "3f3f54e2b1388a87b25010ee097db0bba03787652ba13d58bfcd9b8871406dd3"
+  },
+  "protocol.json": {
+    "physical_GPU": 5,
+    "minimum_free_memory_bytes": null,
+    "updates": 100,
+    "checkpoints": [
+      0,
+      2,
+      10,
+      50,
+      100
+    ],
+    "trainable_prefixes": [
+      "tcg_low.",
+      "tcg_mid.",
+      "tcg_out."
+    ],
+    "no_routing_gate": true,
+    "frame_objective": "v6.40 G_dists (DISTS weight 0.5)",
+    "reconstruction_weight": 0.1383589248954108,
+    "reconstruction_backward_scale": 4096,
+    "motion_weight": 0.01,
+    "motion": "L1(RAFT(original[t-1],original[t]),RAFT(rec[t-1].detach(),rec[t]))",
+    "raft_weights": "Raft_Large_Weights.C_T_SKHT_V2",
+    "raft_cache": "raft_large_C_T_SKHT_V2-ff5fadd5.pth",
+    "raft_sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322",
+    "raft_transform": "OpticalFlow()",
+    "raft_num_flow_updates": 12,
+    "raft_frozen": true,
+    "source_checkpoint": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/branches/N_noP_BG_FD/checkpoints/adaptation_step_0.pt",
+    "source_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+    "plan": "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/plans/first100.json",
+    "plan_sha256": "3f3f54e2b1388a87b25010ee097db0bba03787652ba13d58bfcd9b8871406dd3",
+    "crop": [
+      256,
+      256
+    ],
+    "sequence_frames": 64,
+    "warmup_P": [
+      1,
+      48
+    ],
+    "supervised_P": [
+      49,
+      63
+    ],
+    "reference_detach": true,
+    "previous_reconstruction_detach": true,
+    "tcg_previous_feature_detach": true,
+    "AdamW": {
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001
+    },
+    "global_gradient_clip": 1.0,
+    "loss_source_sha256": "acd3b31a992972e77d2878e0bc8577223e0028f7057fa9974550cfa349733ef5",
+    "pilot_loss_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515"
+  },
+  "source_manifest.json": {
+    "experiments/gvcrt_tcg_stage1_pilot/train.py": "7eddd54b1b144972564596d66376b5067d2950eaf65cb4355c1ed9890c6dc817",
+    "experiments/gvcrt_tcg_stage1_pilot/loss.py": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "experiments/gvcrt_tcg_stage1_pilot/preflight.py": "336437e80373e3d52049e2aa782ffd67f7214ecf23df7e4b901dbaa208ef067d",
+    "src/models/improved_model_gvcrt.py": "5037c9e380e05b0e2fb5f3b94972c21791abfdf61aa3bd9bb813cabbb1fd7ea1",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/train.py": "acd3b31a992972e77d2878e0bc8577223e0028f7057fa9974550cfa349733ef5",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/training32.py": "60480526386a8e41932d1319181405a7f27341106aabd24ddcd6146ca231890f",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/frames32.py": "044d148095e707e0e3d9832f0ccf0e614bd6297c7fcd7db1d1bd55e87ae3bed0"
+  },
+  "checkpoint_files_verified": [
+    {
+      "filename": "adaptation_step_0.pt",
+      "size_bytes": 139014208,
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744"
+    },
+    {
+      "filename": "adaptation_step_100.pt",
+      "size_bytes": 140146700,
+      "sha256": "4a41e9cbbab868442240c75b011a67fd47e2e031f7caee12dbbdadaab96d8f17"
+    }
+  ],
+  "source_manifest_hash_checks": "PASS"
+}

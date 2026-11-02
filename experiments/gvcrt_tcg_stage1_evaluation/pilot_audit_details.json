@@ -1,0 +1,68 @@
+{
+  "step0_audit.json": {
+    "sha256": "ccabec4c863f07f29d7e8e10fcbc496c7d7a013ef202ff38dfd083e0a05c5356",
+    "content": {
+      "status": "PASS",
+      "source_sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+      "zero_initialized_residual_heads": true,
+      "missing_TCG_preserved": true,
+      "decoder_comparisons": 63,
+      "decoder_max_abs_difference": 0.0,
+      "reference_detach": true,
+      "previous_reconstruction_detach": true,
+      "tcg_previous_feature_detach": true,
+      "trainable_parameters": 137760,
+      "trainable_names": [
+        "tcg_low.previous_adapter.weight",
+        "tcg_low.previous_adapter.bias",
+        "tcg_low.current_adapter.weight",
+        "tcg_low.current_adapter.bias",
+        "tcg_low.fusion.0.weight",
+        "tcg_low.fusion.0.bias",
+        "tcg_low.fusion.2.weight",
+        "tcg_low.fusion.2.bias",
+        "tcg_low.fusion.4.weight",
+        "tcg_low.fusion.4.bias",
+        "tcg_mid.previous_adapter.weight",
+        "tcg_mid.previous_adapter.bias",
+        "tcg_mid.current_adapter.weight",
+        "tcg_mid.current_adapter.bias",
+        "tcg_mid.fusion.0.weight",
+        "tcg_mid.fusion.0.bias",
+        "tcg_mid.fusion.2.weight",
+        "tcg_mid.fusion.2.bias",
+        "tcg_mid.fusion.4.weight",
+        "tcg_mid.fusion.4.bias",
+        "tcg_out.previous_adapter.weight",
+        "tcg_out.previous_adapter.bias",
+        "tcg_out.current_adapter.weight",
+        "tcg_out.current_adapter.bias",
+        "tcg_out.fusion.0.weight",
+        "tcg_out.fusion.0.bias",
+        "tcg_out.fusion.2.weight",
+        "tcg_out.fusion.2.bias",
+        "tcg_out.fusion.4.weight",
+        "tcg_out.fusion.4.bias"
+      ],
+      "initial_frozen_hash": "97ae83a10ea310cc5f0b792591a37d378caf7af641fb9cb664635ec2e79b4710"
+    }
+  },
+  "smoke_updates_1_2.json": {
+    "sha256": "e21101bacad63e330ad3ca49e0c12f1949a56f3b91f1277e05fc939271bb185a",
+    "content": {
+      "status": "PASS",
+      "committed_updates": 2,
+      "included_in_total_100": true,
+      "finite_losses": true,
+      "finite_nonzero_gradients": true,
+      "only_TCG_changed": true,
+      "memory_checks": true,
+      "reference_detach": true,
+      "previous_reconstruction_detach": true,
+      "receipts": [
+        "experiments/gvcrt_tcg_stage1_pilot/receipts/step_1.json",
+        "experiments/gvcrt_tcg_stage1_pilot/receipts/step_2.json"
+      ]
+    }
+  }
+}

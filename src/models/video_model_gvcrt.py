@@ -67,14 +67,17 @@ class PretrainedReconWrapper(nn.Module):
         if len(missing) > 0:
             print(f"Sample missing: {missing[:5]}")
 
-    def forward(self, x, quant_step=None):
+    def forward(self, x, quant_step=None, use_tcg=True, update_buffer=True):
         out = F.pixel_unshuffle(x, 2)
         out = self.mlp[0](out)
         out = self.mlp[1](out)
         out = self.mlp[2](out)
         out = out * torch.sigmoid(out)
         codeword = self.mlp[3](out)
-        return self.decoder(codeword, quant_step)
+        return self.decoder(codeword, quant_step, use_tcg, update_buffer)
+
+    def reset_generator_buffer(self):
+        self.decoder.reset_temporal_buffer()
 
 class FeatureExtractor(nn.Module):
     def __init__(self):
@@ -279,6 +282,7 @@ class DMC(CompressionModel):
 
     def clear_dpb(self):
         self.dpb.clear()
+        self.recon_generation_net.reset_generator_buffer()
 
     def set_curr_poc(self, poc):
         self.curr_poc = poc
@@ -305,7 +309,12 @@ class DMC(CompressionModel):
     def prepare_feature_adaptor_i(self, last_qp):
         if self.dpb[0].frame is None:
             q_recon = self.q_scale_recon[last_qp:last_qp+1, :, :, :]
-            self.dpb[0].frame = self.recon_generation_net(self.dpb[0].feature, q_recon).clamp_(-1, 1)
+            self.dpb[0].frame = self.recon_generation_net(
+                self.dpb[0].feature,
+                q_recon,
+                use_tcg=False,
+                update_buffer=False,
+            ).clamp_(-1, 1)
             self.reset_ref_feature()
 
     def forward(self, x, qp):

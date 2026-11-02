@@ -136,6 +136,60 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
+def _load_legacy_tcg_state(module, state_dict, prefix, local_metadata, strict,
+                           missing_keys, unexpected_keys, error_msgs):
+    current_state = module.state_dict()
+    tcg_keys = [key for key in current_state if key.startswith("tcg_")]
+    if tcg_keys and all(prefix + key not in state_dict for key in tcg_keys):
+        for key in tcg_keys:
+            state_dict[prefix + key] = current_state[key]
+
+
+class TemporalConsistencyGuidance(nn.Module):
+    def __init__(self, channels):
+        super().__init__()
+        hidden = max(32, channels // 16)
+        self.previous_adapter = nn.Conv2d(channels, hidden, kernel_size=1)
+        self.current_adapter = nn.Conv2d(channels, hidden, kernel_size=1)
+        self.fusion = nn.Sequential(
+            nn.Conv2d(hidden * 2, hidden, kernel_size=1),
+            nn.SiLU(inplace=True),
+            nn.Conv2d(hidden, hidden, kernel_size=3, padding=1, groups=hidden),
+            nn.SiLU(inplace=True),
+            nn.Conv2d(hidden, channels, kernel_size=1),
+        )
+        nn.init.zeros_(self.fusion[-1].weight)
+        nn.init.zeros_(self.fusion[-1].bias)
+        self._previous = None
+
+    def reset_buffer(self):
+        self._previous = None
+
+    def _store(self, feature, propagate_grad):
+        self._previous = feature if propagate_grad else feature.detach()
+
+    def forward(self, current, use_tcg=True, update_buffer=True,
+                propagate_grad=False):
+        previous = self._previous
+        compatible = (
+            previous is not None
+            and previous.shape == current.shape
+            and previous.device == current.device
+            and previous.dtype == current.dtype
+        )
+
+        output = current
+        if use_tcg and compatible:
+            previous = self.previous_adapter(previous)
+            current_projected = self.current_adapter(current)
+            delta = self.fusion(torch.cat((previous, current_projected), dim=1))
+            output = current + delta
+
+        if update_buffer:
+            self._store(current, propagate_grad)
+        return output
+
 class StageBlock(nn.Module):
     def __init__(self, in_ch, out_ch, num_blocks):
         super().__init__()
@@ -186,7 +240,7 @@ class StageBlock(nn.Module):
 
 class Decoder(nn.Module):
     def __init__(self, *, ch, out_ch, in_channels, num_res_blocks, z_channels, ch_mult=(1, 2, 2, 4),
-                 resolution, double_z=False) -> None:
+                 resolution, double_z=False, enable_tcg=True) -> None:
         super().__init__()
         self.num_blocks = len(ch_mult)
         block_in = ch * ch_mult[self.num_blocks - 1]
@@ -208,15 +262,40 @@ class Decoder(nn.Module):
         self.ada4 = AdaptiveGroupNorm(z_channels, g_ch_recon)
         self.stage4 = StageBlock(g_ch_recon, g_ch_recon, num_blocks=4)
 
+        self.tcg_low = TemporalConsistencyGuidance(block_in) if enable_tcg else None
+        self.tcg_mid = TemporalConsistencyGuidance(block_in) if enable_tcg else None
+        self.tcg_out = TemporalConsistencyGuidance(g_ch_recon) if enable_tcg else None
+        self.propagate_temporal_grad = False
+        if enable_tcg:
+            self.register_load_state_dict_pre_hook(_load_legacy_tcg_state)
+
         self.ada_final = AdaptiveGroupNorm(z_channels, g_ch_recon)
         self.head = nn.Conv2d(g_ch_recon, g_ch_src_d, kernel_size=3, padding=1)
 
-    def forward(self, x, quant_step=None):
-        if not CUSTOMIZED_CUDA_INFERENCE or not x.is_cuda:
-            return self.forward_torch(x, quant_step)
-        return self.forward_cuda(x, quant_step)
+    def reset_temporal_buffer(self):
+        for module in (self.tcg_low, self.tcg_mid, self.tcg_out):
+            if module is not None:
+                module.reset_buffer()
 
-    def forward_torch(self, x, quant_step):
+    def set_temporal_cascade_grad(self, enabled):
+        self.propagate_temporal_grad = bool(enabled)
+
+    def _apply_tcg(self, module, feature, use_tcg, update_buffer):
+        if module is None:
+            return feature
+        return module(
+            feature,
+            use_tcg=use_tcg,
+            update_buffer=update_buffer,
+            propagate_grad=self.propagate_temporal_grad,
+        )
+
+    def forward(self, x, quant_step=None, use_tcg=True, update_buffer=True):
+        if not CUSTOMIZED_CUDA_INFERENCE or not x.is_cuda:
+            return self.forward_torch(x, quant_step, use_tcg, update_buffer)
+        return self.forward_cuda(x, quant_step, use_tcg, update_buffer)
+
+    def forward_torch(self, x, quant_step, use_tcg=True, update_buffer=True):
         out = self.conv_in(x)
 
         out = self.ada1(out, x)
@@ -224,13 +303,16 @@ class Decoder(nn.Module):
 
         out = self.ada2(out, x)
         out = self.stage2(out)
+        out = self._apply_tcg(self.tcg_low, out, use_tcg, update_buffer)
 
         out = self.ada3(out, x)
         out = self.upsample(out)
+        out = self._apply_tcg(self.tcg_mid, out, use_tcg, update_buffer)
         out = self.stage3(out)
 
         out = self.ada4(out, x)
         out = self.stage4(out, quant_step)
+        out = self._apply_tcg(self.tcg_out, out, use_tcg, update_buffer)
 
         out = self.ada_final(out, x)
         out = self.head(out)
@@ -239,7 +321,7 @@ class Decoder(nn.Module):
         out = torch.clamp(out, -1., 1.)
         return out
 
-    def forward_cuda(self, x, quant_step):
+    def forward_cuda(self, x, quant_step, use_tcg=True, update_buffer=True):
         out = self.conv_in(x)
 
         out = self.ada1(out, x)
@@ -247,13 +329,16 @@ class Decoder(nn.Module):
 
         out = self.ada2(out, x)
         out = self.stage2(out)
+        out = self._apply_tcg(self.tcg_low, out, use_tcg, update_buffer)
 
         out = self.ada3(out, x)
         out = self.upsample(out)
+        out = self._apply_tcg(self.tcg_mid, out, use_tcg, update_buffer)
         out = self.stage3(out)
 
         out = self.ada4(out, x)
         out = self.stage4(out, quant_step)
+        out = self._apply_tcg(self.tcg_out, out, use_tcg, update_buffer)
 
         out = self.ada_final(out, x)
 

@@ -31,7 +31,8 @@ class PretrainedReconWrapper(nn.Module):
             num_res_blocks=2,
             z_channels=18,
             ch_mult=(1, 1, 2, 2, 4),
-            resolution=256
+            resolution=256,
+            enable_tcg=False,
         )
 
     def load_from_checkpoint(self, ckpt_path=None):
