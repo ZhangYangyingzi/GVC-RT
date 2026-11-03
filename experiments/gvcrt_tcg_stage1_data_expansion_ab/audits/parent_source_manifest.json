@@ -1,0 +1,77 @@
+{
+  "training_sources": {
+    "experiments/gvcrt_tcg_stage1_expanded_5000/runner.py": "40ec1ef8caf879319551799eddf20ea55082acd3ed32f79e4581fe047430f9fe",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/preflight.py": "9599cf05962b0f40794a8a1644ceae849642a57e3a25922f2052f21b86e1680a",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/train.py": "4fd5d687dccb1a9735465ee95abd09ec3e35789bb478cd557d5456ae3787db57",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/common_expanded.py": "610d4b18635875cf45b59e7de980941a08f890b207678575236e99600b9a03a6",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/loss.py": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/prepare.py": "77bc3e83c30644db9ef88d53288321c53a1699bc7d30cac86b7bc3206028ca1d",
+    "src/models/image_model_gvcrt.py": "36b5af37ee3c356e7029c6cb3ca53bbc9fd22af0feb3bddd0bc4dd195ec69952",
+    "src/models/video_model_gvcrt.py": "6779edfc5c651a6c9e64059dc3c4676a9978cf397206e26efd0b7e0d890775ee",
+    "src/models/improved_model_gvcrt.py": "5037c9e380e05b0e2fb5f3b94972c21791abfdf61aa3bd9bb813cabbb1fd7ea1",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/training32.py": "60480526386a8e41932d1319181405a7f27341106aabd24ddcd6146ca231890f",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/frames32.py": "044d148095e707e0e3d9832f0ccf0e614bd6297c7fcd7db1d1bd55e87ae3bed0"
+  },
+  "baseline_commit": "fbb55c444fde49052403c0fb975aa2c66750c87e",
+  "evaluation_sources": {
+    "experiments/gvcrt_tcg_stage1_expanded_5000/evaluate.py": "306cfe928ef12907c35e9aecc5c513a081ef4cdfe34c3caa91c8ef6c0dac66de"
+  },
+  "runtime_acceleration": {
+    "runtime_acceleration.py": "573537f20477946d93919c5fbb3c2ff50250e253cc53e7089635228a041073d5",
+    "train_accelerated.py": "84ed9af9aecd7bfbb74dad6de5494a3623b84e0c225c07670089c09a5e02ae92",
+    "runner_accelerated.py": "475f2852469714e26cd41817e2fb5b75b96206c1b28daf4d9d8f2c1eaf2e95df",
+    "parallel_flow_runtime.py": "0704761f85995e62efd6e172f955eeaa5225975ae5fd6783c2527e250e240543",
+    "parallel_runtime_adapter.py": "c845d6cfedb7ec77083c991e0d64ce982327801678664d4c7cfe61eb65fd6b2a",
+    "train_parallel.py": "c68d0ae4103f239b80a9bf79472cb6b0c52083266558b163a2b3310f99c1674c",
+    "runner_parallel.py": "e75f9131b66802eb80a4d48c90ae4049539ec84dc2c5046b9c5996e5a027c1c9"
+  },
+  "engineering_sources": {
+    "experiments/gvcrt_tcg_stage1_expanded_5000/profile_acceleration.py": "b878e50b639c8fbec61e510c9cadb800c05871588f199a6718d12ced32a6a539",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/switch_runtime.py": "5d43fa514737ca70f3167a98b8ca8fcd771812850e0323ee7b4998b31349273b",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/switch_parallel_runtime.py": "66cfb7b66cfb0b47c14c94d3ed66e14486c608a95a08cd67582bb2fef8d05fd9",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/profile_parallel_flow.py": "030744170c3606be05f4223ff82f338b1bb7f7fc3b20ce4f222ea7bc7aff1e68"
+  },
+  "model_file_sources": [
+    {
+      "filename": "GVC-RT_I.pt",
+      "size_bytes": 334225106,
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+    },
+    {
+      "filename": "GVC-RT_P.pt",
+      "size_bytes": 206881943,
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    }
+  ],
+  "data_input_manifests": [
+    {
+      "file": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/plans/shared.json",
+      "size_bytes": 66154243,
+      "sha256": "b61c3552277b9c45f1d9f5a615afa2ddf2d9aa9ed48bd55b0eb63385e5290b42"
+    },
+    {
+      "file": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/train_manifest_uvg.json",
+      "size_bytes": 62989,
+      "sha256": "4d6cb25c980874741d14c070adbe137e288394cf97a508bd24ef8c4cc2014b39"
+    },
+    {
+      "file": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/train_manifest_ulong.json",
+      "size_bytes": 1155283,
+      "sha256": "11e50e4d877a163f8292bc6ce777b42cbe256690c983bed4cddc94f56133c021"
+    },
+    {
+      "file": "experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/source_hashes.json",
+      "size_bytes": 224871,
+      "sha256": "ae4c4663e7b502f1c5177e8bb74f00c094692ceb70e27ac00c754f3ab9425ad3"
+    },
+    {
+      "file": "experiments/gvcrt_neural_wrapper_v6_37_loss_bridge_generator_mechanism_500/eval_manifest.json",
+      "size_bytes": 261603,
+      "sha256": "eaa9930b612ef145b064252a35f23347f8ac5141035af2caa2650ec1d4c89753"
+    }
+  ],
+  "publication_sources": {
+    "experiments/gvcrt_tcg_stage1_expanded_5000/finalize.py": "3c18ecb20d73c98de6c9fd757cead2f6fd9db7b6ade42b7dd24dc75409d69de0",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/publish_repair.py": "b1b0130bba240ea93c6095c815c22b3cb7af7a7679a463baa6bd02999da2bab6"
+  }
+}

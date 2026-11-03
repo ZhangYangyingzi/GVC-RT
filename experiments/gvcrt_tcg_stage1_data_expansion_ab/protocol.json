@@ -1,0 +1,29 @@
+{
+  "task": "tcg-stage1-data-expansion-ab-20261103",
+  "status": "NOT_FROZEN_BLOCKED_SOURCE_GROUP_SPLIT_ISOLATION",
+  "baseline_commit": "60526a0f7ea69954c91b4e328de77ea50bedb55e",
+  "parent_checkpoint_filename": "step_5000.pt",
+  "parent_checkpoint_sha256": "d398c3760ef1351ce21dc1663cc20337b0ce98dfaf5b06bf8b1d550511210264",
+  "parent_absolute_optimizer_step": 5000,
+  "N_A": 936,
+  "N_B": null,
+  "S": null,
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "A_B_formal_additional_updates": 0,
+  "reason": "Parent-required training identity and protected historical validation identity share depicted source/camera/interview content. Original-upload linkage is unresolved; a source-disjoint continuation cannot be certified. Protocol forbids silently removing the required old936 or releasing reserved data.",
+  "fixed_intended_protocol": "EXECUTION_PROTOCOL.md",
+  "no_budget_assigned": true,
+  "no_train_dev_test_split_assigned": true,
+  "immutable_A_B_plans_created": false,
+  "parent_GTFlow_complete": true,
+  "parent_GTFlow_points": 156,
+  "old_WarpingError_alias": "WarpingError_ReconFlow_PWC",
+  "GTFlow_definition": "PWC(GT_t,GT_t-1); existing_backwarp(recon_t-1,flow); full native RGB L1 mean then mean63",
+  "PWC_sampler_and_weight_sources": "audits/GTFlow_sources.json",
+  "never_claim_exact_S2VC_reproduction": true
+}

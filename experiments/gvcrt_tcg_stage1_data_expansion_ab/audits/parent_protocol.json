@@ -1,0 +1,98 @@
+{
+  "seed": 20261103,
+  "global_updates": 5000,
+  "world_size": 4,
+  "physical_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "effective_batch_size": 4,
+  "trainable_prefixes": [
+    "tcg_low.",
+    "tcg_mid.",
+    "tcg_out."
+  ],
+  "stage": 1,
+  "no_router": true,
+  "no_gates": true,
+  "source_checkpoint": {
+    "filename": "adaptation_step_0.pt",
+    "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+    "size_bytes": 139014208
+  },
+  "initialization": "pilot step 0 zero-residual baseline; pilot step 100 is not a formal result or initialization",
+  "data_plan_sha256": "0e6ec81a40871dc66f0c58ae316b28cff5d65ad0368fe9316180e2ef38cf095f",
+  "schedule_sha256": "d7e83822a79b4eb0d8870bf6115adbd772710febf1e157a64ebfaa74a74ce354",
+  "train_video_count": 940,
+  "unique_exact_samples": 20000,
+  "controlled_exact_repeats": 0,
+  "frames": 64,
+  "crop": [
+    256,
+    256
+  ],
+  "warmup_P": [
+    1,
+    48
+  ],
+  "supervised_P": [
+    49,
+    63
+  ],
+  "previous_reconstruction_detach": true,
+  "codec_reference_detach": true,
+  "TCG_feature_detach": true,
+  "no_BPTT": true,
+  "codec_precision": "FP16 excluding bridge/generator; bridge/generator FP32 exactly as pilot; trainable TCG FP32",
+  "frame_loss": "v6.40 LPIPS + 0.5 DISTS + beta(q)*rate_bpp + 0.01 proxy_L1 + 0.1383589248954108 reconstruction_L1",
+  "reconstruction_backward_scale": 4096,
+  "motion_weight": 0.01,
+  "raft": "torchvision raft_large C_T_SKHT_V2 local cache only",
+  "raft_sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322",
+  "raft_transform": "C_T_SKHT_V2.transforms()",
+  "AdamW": {
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001
+  },
+  "global_clip": 1.0,
+  "gradient_reduction": "NCCL SUM over packed FP32 gradients divided by world_size, then clipping, one logical optimizer update",
+  "checkpoint_steps": [
+    0,
+    2,
+    500,
+    1000,
+    2500,
+    5000
+  ],
+  "evaluation_steps": [
+    0,
+    1000,
+    2500,
+    5000
+  ],
+  "primary_checkpoint": 5000,
+  "evaluation_domains": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b"
+  ],
+  "evaluation_QP": [
+    0,
+    5,
+    9
+  ],
+  "evaluation_frames": 64,
+  "evaluation_encode": "fresh RANS stream per checkpoint/sequence/QP; lockstep and fresh independent decode",
+  "warping_error": "mean L1(original[t+1], backward_grid_sample(rec[t], flow(rec[t+1],rec[t])))",
+  "warping_direction": "PWC next-to-previous flow; backward sampler evaluates previous reconstruction on next-frame coordinates",
+  "no_hyperparameter_search": true,
+  "no_validation_selection": true,
+  "no_OOM_fallback": true
+}

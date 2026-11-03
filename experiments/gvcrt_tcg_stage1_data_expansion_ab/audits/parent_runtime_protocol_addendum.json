@@ -1,0 +1,47 @@
+{
+  "status": "ACTIVE",
+  "user_requested_runtime_parallelism": true,
+  "training_ranks": 4,
+  "auxiliary_GPU_processes": 4,
+  "physical_GPU_mapping": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "one_training_and_one_auxiliary_process_per_GPU": true,
+  "effective_batch_size": 4,
+  "global_update_budget": 5000,
+  "runtime_transfer_cursors": [
+    2456,
+    2624
+  ],
+  "auxiliary_role": "Prepare the fixed next sample’s 15 frozen RAFT GT target flows; no optimizer and no trainable model state",
+  "target_flow_provenance": "same local C_T_SKHT_V2 checkpoint and official transforms; exact sample identity and checked message bytes",
+  "unchanged": [
+    "source initialization",
+    "model architecture and TCG semantics",
+    "data plan / window / crop / QP",
+    "64 frames / 48 warmup P / 15 supervised P",
+    "all losses and weights",
+    "precision",
+    "AdamW hyperparameters and preserved state",
+    "NCCL mean gradient all-reduce and global clipping",
+    "detached histories / no BPTT",
+    "primary checkpoint 5000",
+    "heldout validation protocol"
+  ],
+  "frozen_check": "Exact GPU state-byte equality every update and full SHA-256 at fixed checkpoints and completion",
+  "numerical_audits": [
+    "audits/acceleration_equivalence_uvg.json",
+    "audits/acceleration_equivalence_ulong.json",
+    "audits/parallel_flow_equivalence_uvg.json",
+    "audits/parallel_flow_equivalence_ulong.json"
+  ],
+  "gradient_replay_tolerance": "unchanged v6.40 relative L2 < 1e-3; original-repeat variations recorded; inputs/flows/losses bit exact in audited samples",
+  "resource_observation": {
+    "GPU4_other_task_detected": true,
+    "other_task_modified_or_stopped": false,
+    "no_exclusive_resource_claim": true
+  }
+}
