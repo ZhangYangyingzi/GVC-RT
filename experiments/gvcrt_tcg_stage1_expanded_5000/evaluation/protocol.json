@@ -1,0 +1,30 @@
+{
+  "training_protocol_sha256": "3fb9c06afc52616f456288996dcfd1ef1773f0f8514a7a97986d3120ea865730",
+  "checkpoint_steps": [
+    0,
+    1000,
+    2500,
+    5000
+  ],
+  "primary_checkpoint": 5000,
+  "QP": [
+    0,
+    5,
+    9
+  ],
+  "frames": 64,
+  "video_count": 13,
+  "domains": [
+    "ulong",
+    "uvg_holdout",
+    "hevc_b"
+  ],
+  "no_validation_selection": true,
+  "fresh_encode_per_checkpoint": true,
+  "cross_checkpoint_stream_reuse": false,
+  "independent_decode": true,
+  "TCG_sequence_GOP_resets": true,
+  "warping_error": "mean L1(original[t+1], backward_grid_sample(rec[t], flow(rec[t+1],rec[t])))",
+  "warping_direction": "PWC next-to-previous flow; backward sampler evaluates previous reconstruction on next-frame coordinates",
+  "warping_sampler": "existing official-compatible pwcnet.backwarp, bilinear/zero padding/align_corners=False and existing binary sampling mask"
+}

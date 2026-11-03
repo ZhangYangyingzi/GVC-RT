@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "reason": "User requested training throughput improvement",
+  "committed_global_updates": 2624,
+  "rank_sample_cursor": 10496,
+  "old_checkpoint_filename": "runtime_transition_step_2624_prefetch_v1.pt",
+  "old_checkpoint_sha256": "7a704da02fe17a03a1bed050bc731a8fe2460fb0a5a4e06cf1d10185db3a09f8",
+  "protocol_sha256": "3fb9c06afc52616f456288996dcfd1ef1773f0f8514a7a97986d3120ea865730",
+  "original_source_hashes": {
+    "experiments/gvcrt_tcg_stage1_expanded_5000/runner.py": "40ec1ef8caf879319551799eddf20ea55082acd3ed32f79e4581fe047430f9fe",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/preflight.py": "9599cf05962b0f40794a8a1644ceae849642a57e3a25922f2052f21b86e1680a",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/train.py": "4fd5d687dccb1a9735465ee95abd09ec3e35789bb478cd557d5456ae3787db57",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/common_expanded.py": "610d4b18635875cf45b59e7de980941a08f890b207678575236e99600b9a03a6",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/loss.py": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/prepare.py": "77bc3e83c30644db9ef88d53288321c53a1699bc7d30cac86b7bc3206028ca1d",
+    "src/models/image_model_gvcrt.py": "36b5af37ee3c356e7029c6cb3ca53bbc9fd22af0feb3bddd0bc4dd195ec69952",
+    "src/models/video_model_gvcrt.py": "6779edfc5c651a6c9e64059dc3c4676a9978cf397206e26efd0b7e0d890775ee",
+    "src/models/improved_model_gvcrt.py": "5037c9e380e05b0e2fb5f3b94972c21791abfdf61aa3bd9bb813cabbb1fd7ea1",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/training32.py": "60480526386a8e41932d1319181405a7f27341106aabd24ddcd6146ca231890f",
+    "experiments/gvcrt_neural_wrapper_v6_40_generator_loss_balanced_trend_100/frames32.py": "044d148095e707e0e3d9832f0ccf0e614bd6297c7fcd7db1d1bd55e87ae3bed0",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/runtime_acceleration.py": "573537f20477946d93919c5fbb3c2ff50250e253cc53e7089635228a041073d5",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/train_accelerated.py": "84ed9af9aecd7bfbb74dad6de5494a3623b84e0c225c07670089c09a5e02ae92",
+    "experiments/gvcrt_tcg_stage1_expanded_5000/runner_accelerated.py": "475f2852469714e26cd41817e2fb5b75b96206c1b28daf4d9d8f2c1eaf2e95df"
+  },
+  "all_rank_RNG_states_preserved": true,
+  "optimizer_state_preserved": true,
+  "no_committed_optimizer_replay": true,
+  "original_processes": {
+    "runner": 12837,
+    "torchrun": 12838,
+    "ranks": [
+      13023,
+      13025,
+      13027,
+      13028
+    ],
+    "finalizer": 3752636
+  },
+  "finalizer_paused_until_resumed_smoke": false,
+  "runtime_hashes": {
+    "runtime_acceleration.py": "573537f20477946d93919c5fbb3c2ff50250e253cc53e7089635228a041073d5",
+    "train_accelerated.py": "84ed9af9aecd7bfbb74dad6de5494a3623b84e0c225c07670089c09a5e02ae92",
+    "runner_accelerated.py": "475f2852469714e26cd41817e2fb5b75b96206c1b28daf4d9d8f2c1eaf2e95df",
+    "parallel_flow_runtime.py": "0704761f85995e62efd6e172f955eeaa5225975ae5fd6783c2527e250e240543",
+    "parallel_runtime_adapter.py": "c845d6cfedb7ec77083c991e0d64ce982327801678664d4c7cfe61eb65fd6b2a",
+    "train_parallel.py": "c68d0ae4103f239b80a9bf79472cb6b0c52083266558b163a2b3310f99c1674c",
+    "runner_parallel.py": "e75f9131b66802eb80a4d48c90ae4049539ec84dc2c5046b9c5996e5a027c1c9"
+  },
+  "equivalence_audits": {
+    "uvg": "222e608192b6bc5d0f113b58bf5ac8fc43f4718085e0d1bd760f577da9f108ea",
+    "ulong": "dfcc6f3ffa1fd15236f062ead8670135f5d4aa1419b8dac320bd7f2aaa649621"
+  },
+  "unchanged": [
+    "5000 global updates",
+    "four ranks / effective batch 4",
+    "data plan and cursor",
+    "64 frames / 48 warmup P / 15 supervised P",
+    "losses and weights",
+    "precision",
+    "AdamW state and hyperparameters",
+    "global clipping",
+    "per-step frozen-byte checks",
+    "no BPTT",
+    "RANS coding path"
+  ],
+  "new_runner_pid": 37557,
+  "resumed_global_updates_checked": [
+    2625,
+    2626
+  ],
+  "rank_sync_after_resume": true,
+  "auxiliary_processes": 4,
+  "training_ranks": 4,
+  "finalizer_resumed_time": 1793675107.9499614
+}

@@ -1,0 +1,38 @@
+{
+  "documents": [
+    {
+      "file": "Xue \u7b49 - 2026 - Single-step diffusion-based video coding with semantic-temporal guidance.pdf",
+      "sha256": "6e7406c10748b82ff893ea82858db0a41f104227cb99af153139e15a7a7ce09a"
+    },
+    {
+      "file": "gemini-code-1793611318837.md",
+      "sha256": "3a797451404cd79e2415a6aa5da3ee8e9f309c42f5f801ed8fd9940d942ab65d"
+    },
+    {
+      "file": "protocol.json",
+      "sha256": "e6f8ea3a59b3dd330c08bfb5db5e9fa4671bb33218bdd09b2b1cf891b6c270d5"
+    },
+    {
+      "file": "MECHANISM_PROTOCOL.md",
+      "sha256": "10f99ed40e2e9ace8873d0924bd184a5bf55f35352861cc58543baf02bd9424c"
+    },
+    {
+      "file": "protocol.json",
+      "sha256": "bfdd88d141fe64f92feacf2d33703da6208441b469354c0af6d0e262bd52e7b7"
+    },
+    {
+      "file": "protocol.json",
+      "sha256": "b013f5086f5f4b0e2ca9b5e39a14870c1f99ac2522d6e1aac16bc77d74ee70d7"
+    }
+  ],
+  "constraints": [
+    "Paper section 3.3: previous generator features, multiscale residual fusion, zero residual projection.",
+    "Paper motion objective compares adjacent original/reconstructed RAFT flows; retain pilot motion weight 0.01 rather than paper weight 0.25.",
+    "Paper temporal gradient cascade is intentionally excluded: user requires detached histories and no BPTT.",
+    "Paper appendix warping uses next original frame against warped previous reconstruction; record repository backward sampling direction.",
+    "Local blueprint Stage 2 router and all gates are excluded.",
+    "v6.34 supplies audited identities/windows/crops; its FD/stat objectives are excluded.",
+    "v6.37 supplies heldout ULong6/UVG2/HEVC-B5; use native-I IP=-1 FP16 deployment.",
+    "Pilot preserves frame-loss VJP ordering/scaling, FP16 non-reconstruction codec, FP32 bridge/generator, frozen quality and RAFT."
+  ]
+}
