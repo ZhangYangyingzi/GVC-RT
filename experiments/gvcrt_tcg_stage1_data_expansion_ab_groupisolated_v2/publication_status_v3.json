@@ -1,0 +1,14 @@
+{
+  "branch": "codex/tcg-stage1-data-expansion-ab-20261103",
+  "protocol_revision": "online-development-earlystop-v3",
+  "code_commit_remote_verified": true,
+  "results_remote_verified": false,
+  "core_blobs_verified": false,
+  "status": "CODE_PROTOCOL_PUBLISHED_RESULTS_PENDING",
+  "last_phase": "code",
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 74, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 24, in main\n    current=remote_head();git_run(['fetch','origin','refs/heads/'+BRANCH]);git_run(['merge-base','--is-ancestor',BASELINE,current])\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 7, in git_run\n    if r.returncode:raise RuntimeError(json.dumps(dict(command=['git',*args],returncode=r.returncode,stdout=r.stdout[-4000:],stderr=r.stderr[-8000:])))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"command\": [\"git\", \"fetch\", \"origin\", \"refs/heads/codex/tcg-stage1-data-expansion-ab-20261103\"], \"returncode\": 128, \"stdout\": \"\", \"stderr\": \"fatal: Could not read from remote repository.\\n\\nPlease make sure you have the correct access rights\\nand the repository exists.\\n\"}\n",
+  "recorded_unix": 1793765202.6916134,
+  "code_commit": "1f9eac6b633e3959a5cb500602a3cd6a01734486",
+  "code_core_blobs_verified": true,
+  "code_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/1f9eac6b633e3959a5cb500602a3cd6a01734486"
+}
