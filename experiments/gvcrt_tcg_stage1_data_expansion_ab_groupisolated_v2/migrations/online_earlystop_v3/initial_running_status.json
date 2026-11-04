@@ -1,0 +1,67 @@
+{
+  "status": "RUNNING",
+  "delivery_phase": "INITIAL_STATUS_AFTER_MIGRATION",
+  "snapshot_unix": 1793765454.512333,
+  "current_stage": "parent5000_development_baseline",
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2",
+  "protocol_revision": "online-development-earlystop-v3",
+  "controller_PID": 2069119,
+  "evaluation_PID": 2086608,
+  "evaluation_worker_PIDs": [
+    2086610,
+    2086611,
+    2086612,
+    2086613
+  ],
+  "formal_training_currently_running": false,
+  "arms": {
+    "A_clean_old_pool": {
+      "committed_additional_updates": 595,
+      "absolute_optimizer_step": 5595,
+      "restore_checkpoint": "A_clean_old_pool/checkpoints_v3/latest.pt",
+      "restore_checkpoint_sha256": "6885dd2dab6da95d634f5561491c584aa18b46b5021678f1e94e5af71e186d9f",
+      "scheduled_physical_GPUs": [
+        4,
+        5
+      ],
+      "scheduled_training_processes": 2,
+      "effective_batch_size": 4,
+      "logical_RNG_streams": 4,
+      "next_validation_step": "500 retrospective, then1000"
+    },
+    "B_expanded_ulong": {
+      "committed_additional_updates": 0,
+      "absolute_optimizer_step": 5000,
+      "restore_checkpoint": "B_expanded_ulong/checkpoints_v3/latest.pt",
+      "restore_checkpoint_sha256": "c07eec8ef31065e45c3896fb142f87a3a1139a4a3896cc769bf29e5f157b565f",
+      "scheduled_physical_GPUs": [
+        6,
+        7
+      ],
+      "scheduled_training_processes": 2,
+      "effective_batch_size": 4,
+      "logical_RNG_streams": 4,
+      "next_validation_step": 500
+    }
+  },
+  "engineering_check": "PASS",
+  "max_probe_relative_L2": 0.00023958244943238233,
+  "probe_tolerance": 0.001,
+  "new_formal_optimizer_updates": 0,
+  "parent_development_points": 12,
+  "parent_development_expected_points": 96,
+  "final_test_points": 0,
+  "code_commit": "67bb279287d8071c2aa3652948502129ef287dc1",
+  "code_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/67bb279287d8071c2aa3652948502129ef287dc1",
+  "remote_HEAD_independently_verified": true,
+  "core_blobs_independently_verified": true,
+  "results_publication_complete": false,
+  "first_network_failure_preserved": "migrations/online_earlystop_v3/publication_attempt1_failed.json",
+  "network_retry_recovered": true,
+  "report_path": "REPORT.md",
+  "status_path": "logs/live_status_v3.json",
+  "engineering_audit": "migrations/online_earlystop_v3/gradient_equivalence.json",
+  "launcher_log": "logs/launcher_v3.log",
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/launch_v3.py --resume",
+  "resume_precondition": "Only if the existing controller has exited; current controller is active; user terminal action not required"
+}

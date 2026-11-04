@@ -1,0 +1,115 @@
+{
+  "status": "RUNNING",
+  "stage": "parallel_training",
+  "protocol_revision": "online-development-earlystop-v3",
+  "updated": 1793775846.7972615,
+  "arms": {
+    "A_clean_old_pool": {
+      "committed_additional_updates": 1026,
+      "absolute_optimizer_step": 6026,
+      "status": "RUNNING",
+      "best_dev_step": 500,
+      "bad_check_count": 2,
+      "next_validation_step": 1500
+    },
+    "B_expanded_ulong": {
+      "committed_additional_updates": 526,
+      "absolute_optimizer_step": 5526,
+      "status": "RUNNING",
+      "best_dev_step": 0,
+      "bad_check_count": 1,
+      "next_validation_step": 1000
+    }
+  },
+  "active_processes": [
+    {
+      "command": [
+        "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+        "-m",
+        "torch.distributed.run",
+        "--nnodes=1",
+        "--nproc_per_node=2",
+        "--master_addr=127.0.0.1",
+        "--master_port=52653",
+        "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_train.py",
+        "--arm",
+        "A_clean_old_pool",
+        "--source",
+        "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/A_clean_old_pool/checkpoints_v3/latest.pt",
+        "--target",
+        "1500",
+        "--cards",
+        "4,5"
+      ],
+      "pid": 2270529,
+      "port": 52653,
+      "physical_GPUs": [
+        4,
+        5
+      ],
+      "physical_world_size": 2,
+      "logical_world_size": 4,
+      "effective_batch_size": 4,
+      "started_unix": 1793775469.8722022,
+      "log": "logs/v3_A_clean_old_pool_to1500.log",
+      "arm": "A_clean_old_pool",
+      "start_additional_step": 1000,
+      "target_additional_step": 1500
+    },
+    {
+      "command": [
+        "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+        "-m",
+        "torch.distributed.run",
+        "--nnodes=1",
+        "--nproc_per_node=2",
+        "--master_addr=127.0.0.1",
+        "--master_port=35463",
+        "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_train.py",
+        "--arm",
+        "B_expanded_ulong",
+        "--source",
+        "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/latest.pt",
+        "--target",
+        "1000",
+        "--cards",
+        "6,7"
+      ],
+      "pid": 2270530,
+      "port": 35463,
+      "physical_GPUs": [
+        6,
+        7
+      ],
+      "physical_world_size": 2,
+      "logical_world_size": 4,
+      "effective_batch_size": 4,
+      "started_unix": 1793775469.91653,
+      "log": "logs/v3_B_expanded_ulong_to1000.log",
+      "arm": "B_expanded_ulong",
+      "start_additional_step": 500,
+      "target_additional_step": 1000
+    }
+  ],
+  "runtime_selection": {
+    "mode": "two_gpu_parallel_arms",
+    "reason": null,
+    "engineering_audit_sha256": "6ce71f4135ae0b2fb565310821625b133ee0905cb2ab32009a8914e40153e20a",
+    "physical_GPUs": {
+      "A_clean_old_pool": [
+        4,
+        5
+      ],
+      "B_expanded_ulong": [
+        6,
+        7
+      ]
+    },
+    "logical_batch_per_update": 4,
+    "learning_rate": 0.0001
+  },
+  "segment_targets": {
+    "A_clean_old_pool": 1500,
+    "B_expanded_ulong": 1000
+  }
+}

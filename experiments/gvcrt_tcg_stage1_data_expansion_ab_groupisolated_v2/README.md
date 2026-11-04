@@ -1,7 +1,8 @@
 # TCG source-group isolation A/B continuation
 
 Active protocol: `protocol_v3.json`, `PROTOCOL_REVISION_V3.md`, `ACTIVE_PROTOCOL.json`.
-Active launcher: `launch_v3.py`; read-only status: `v3_status.py`.
+Active launcher after benchmark acceptance: `launch_eval_parallel.py --resume`; read-only training status: `v3_status.py` (its historical launch_v3 resume command is superseded by ACTIVE_PROTOCOL.json).
+Evaluation scheduling addendum and adoption benchmark: `EVALUATION_PARALLELISM.md`, `migrations/eval_parallel_v1/benchmark.json`.
 Live execution state: `run_status.json`, `logs/live_status_v3.json`, `REPORT.md` (dated snapshot until final integrity).
 
 This is an in-progress mid-training revision, not a completed result. A retained its committed595-step four-GPU prefix; B resumed the common parent5000 state. The unchanged frozen A/B plans and native_geometry_v1 provenance remain protected. Original v2 protocol files remain historical and do not define v3 scheduling or stopping.

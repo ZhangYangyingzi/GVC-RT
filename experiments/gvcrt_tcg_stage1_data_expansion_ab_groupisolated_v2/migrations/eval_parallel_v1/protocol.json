@@ -1,0 +1,57 @@
+{
+  "addendum": "evaluation-parallelism-v1",
+  "scope": "Evaluation scheduling and process count only",
+  "user_authorization": "\u53ef\u4ee5\uff0c\u90a3\u6211\u89c9\u5f97\u53ef\u4ee5\u4fee\u6539\uff0c\u8bf7\u4f60\u4fee\u6539",
+  "parent_protocol_sha256": "3702ff0d7f6d5aa63f6eb88b3bd47b7325f23caa98206a932e336c7383a24e48",
+  "parent_source_manifest_sha256": "59996ba3699a6e64896dbc804acfd14f5d8b749646b3a5c55582045c6fadc284",
+  "requested_workers_per_GPU": 2,
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "training_implementation_changed": false,
+  "training_effective_batch": 4,
+  "model_loss_precision_frames_QP_splits_and_stopping_unchanged": true,
+  "input_decode_worker_cap": 4,
+  "worker_partition": "Video index modulo total workers; all checkpoint/QP points for a video stay in one worker",
+  "worker_to_GPU": "4 + floor(worker/workers_per_GPU)",
+  "GTFlow_setup_audit": "Each worker uses its own output directory to avoid fixed audit-name collisions; fixed PWC source and weights unchanged",
+  "engineering_workload": {
+    "split": "development",
+    "checkpoint": "parent5000",
+    "sequences": [
+      "0aa91dd0-0594-4082-9154-d8d2bc94692e",
+      "0fa4df7a-d55f-4a20-b952-8fea3cbd4aae",
+      "16603c8c-868c-4b49-a277-b9609b056bdc",
+      "24747b35-04ca-416c-b1d0-0bc670fbac99",
+      "28a7c428-1a8d-4bd1-afbc-fed596ec6153",
+      "3d78c0a8-4bb8-44c2-a016-84519719c805",
+      "43be05fb-f1df-4b75-b646-da0920f35361",
+      "44882d39-8808-493a-9a73-fdf6ae03354e"
+    ],
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "frames": 64,
+    "points": 24
+  },
+  "engineering_order": [
+    "4 workers reference",
+    "8 workers candidate",
+    "4 workers warmed reference"
+  ],
+  "metric_max_absolute_tolerance": 1e-06,
+  "bitstream_reconstruction_source_and_per_frame_CSV_require_exact": true,
+  "minimum_speedup_to_adopt": 1.05,
+  "throughput_comparison": "Candidate must be at least1.05x faster than the fastest of both four-worker references; otherwise retain four workers",
+  "failed_correctness": "Do not adopt; retain error; existing checkpoint and decisions untouched",
+  "disk_free_reserve_GiB": 100,
+  "large_artifact_cap_GiB": 20,
+  "private_media_cache_cap_GiB": 80,
+  "early_stop_check_counts_unchanged": true,
+  "probe_does_not_generate_model_selection_decisions": true
+}
