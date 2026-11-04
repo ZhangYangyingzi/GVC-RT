@@ -1,0 +1,28 @@
+{
+  "protocol_revision": "source-group-isolation-v2",
+  "supersedes_for_this_new_experiment_only": "E1 source_group_split_isolation block",
+  "P_and_E1_read_only": true,
+  "changes": [
+    "Build the complete local inventory/reserved/historical-exposure/source-alias graph before excluding any reserved nodes.",
+    "Conservatively quarantine every connected component touching a reserved source, including indirect candidate chains, without requiring an original upload ID.",
+    "A_clean_old_pool is the actual old936 minus quarantined/failed/proven-byte-duplicate identities; never refill its identity count with new videos.",
+    "Replace quarantined A ULong slots with valid old-pool slots at the identical external QP, ordered by parent base-row then original slot, using independent per-QP cursors.",
+    "Perform fixed dispersed native-content screening across all available candidate, reserved and historical sources before freezing dev/test; retain all grouping evidence and limitations.",
+    "Preserve parent optimizer step5000 and all four rank RNG states; zero-initialization assertions do not apply to this trained continuation.",
+    "Reuse hash-verified parent156 GT-flow points with explicit E1 provenance; never describe them as evaluations of the new A/B states.",
+    "Keep named PWC sampler conventions: a dx=1 flow at width11 corresponds to1.1 sample pixels under the inherited normalization; compatibility is not a strict one-pixel translation test.",
+    "All new task files and publication worktrees live in the long-term project directory, not tmp."
+  ],
+  "unchanged": [
+    "TCG-only137760 parameters, no routers/gates/new alignment/QP branches",
+    "Parent complete frozen-model reconstruction and trained TCG overlay",
+    "64 causal frames, warmup48 P, supervised15 P,256x256 crops, detached history/no BPTT",
+    "Inherited loss/VJP order and4096 reconstruction scaling, AdamW1e-4 constant, SUM/4 then clip1",
+    "Physical GPUs4/5/6/7, four synchronized ranks, effective batch4, serial A then B",
+    "Two UVG and two ULong slots per update; UVG samples and external QPs paired slotwise",
+    "Three B identity coverage passes and S=10*ceil(3*N_B/20), explicit padding",
+    "Fixed checkpoint/development/final-test schedule without quality-based selection",
+    "Fresh real-RANS encode plus independent decode for all new model evaluations",
+    "No scientific interpretation, no FVD/FID/BD-rate, explicit allowlist publication"
+  ]
+}

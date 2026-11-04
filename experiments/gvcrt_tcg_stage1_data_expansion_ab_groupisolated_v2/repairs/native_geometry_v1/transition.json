@@ -1,0 +1,88 @@
+{
+  "revision": "native-geometry-metadata-errata-v1",
+  "recorded_unix": 1793756135.6585922,
+  "reason": "Strict geometry assertion used erroneous appended metadata for trusted parent rows; no change to pixels, windows, crops, QPs, loss, optimizer, RNG or budget",
+  "protocol_sha256": "7405c77ad6a32799f95eebaee9d81481938fe46a2b5b833e64d4fa51beb15c5e",
+  "predecessor_source_manifest_file": "repairs/native_geometry_v1/before/source_manifest.json",
+  "predecessor_source_manifest_sha256": "2c9906afc5e5b44a9d55019c93da918ab2530175a86c49ab4db7f0091250d84e",
+  "allowed_changed_original_sources": [
+    "ab_data_reader.py",
+    "equivalence.py",
+    "train.py"
+  ],
+  "resume_authority": {
+    "arm": "A_clean_old_pool",
+    "checkpoint_filename": "latest.pt",
+    "checkpoint_sha256": "9b1fcc25f0e9bfb3c0c196026b1e6258445bf833df618fe5f7ba027b6824ccaa",
+    "additional_step": 10,
+    "absolute_optimizer_step": 5010,
+    "next_plan_cursor": 10,
+    "next_rank_sample_cursor": 40,
+    "last_committed_receipt_sha256": "4b0d13a5ffdd7587a7b4c637f899dcddd0e8650d39a5ab15f490a1e737133b03"
+  },
+  "geometry_errata_file": "repairs/native_geometry_v1/geometry_errata.json",
+  "geometry_errata_sha256": "08ad3f8416354b1141583fdb54e652392a1af5562efb249d2d255e6df83fa18f",
+  "affected_slots_file": "repairs/native_geometry_v1/affected_slots.json.gz",
+  "affected_slots_sha256": "db7e55e2face12c000f943615d535e9f13205bff4d3a303d05f908c8327c9af7",
+  "affected_unique_windows_file": "repairs/native_geometry_v1/affected_unique_windows.json.gz",
+  "affected_unique_windows_sha256": "f61dc6287981aa5add6e9bf75cc57e44e8891ef4f267676361f96ce622a80a9c",
+  "affected_sources": 15,
+  "affected_rank_samples": 313,
+  "affected_unique_windows": 31,
+  "plan_index_sha256_unchanged": {
+    "A_clean_old_pool": "7f9c8b8376efed8b18aa3f1186cb67914076d81882037c934c627f2ab5cadb1a",
+    "B_expanded_ulong": "01d66c77e3c2ec72d15b80844b09b3ad8064334e29c21bc62c221611f148d739"
+  },
+  "archives": [
+    {
+      "file": "source_manifest.json",
+      "archive": "repairs/native_geometry_v1/before/source_manifest.json",
+      "sha256": "2c9906afc5e5b44a9d55019c93da918ab2530175a86c49ab4db7f0091250d84e",
+      "size_bytes": 9812
+    },
+    {
+      "file": "ab_data_reader.py",
+      "archive": "repairs/native_geometry_v1/before/ab_data_reader.py",
+      "sha256": "c94e3ce99b35853b7fa9fecdb4c0236d5f3fd011c652aece966a835545dc6534",
+      "size_bytes": 3362
+    },
+    {
+      "file": "equivalence.py",
+      "archive": "repairs/native_geometry_v1/before/equivalence.py",
+      "sha256": "84e6b80399c71235bd2ade0ec3da6cce71782611cd470124cd069b8ea955185e",
+      "size_bytes": 5012
+    },
+    {
+      "file": "train.py",
+      "archive": "repairs/native_geometry_v1/before/train.py",
+      "sha256": "eedabb4f96a90366350a125667dd4dbdd16d2697983771650a50f034f0e9c2b8",
+      "size_bytes": 12695
+    },
+    {
+      "file": "audits/runtime_equivalence.json",
+      "archive": "repairs/native_geometry_v1/before/audits/runtime_equivalence.json",
+      "sha256": "d76c38d533599466d7a81380e57c14c5fbfdacbd3edb4e6de7fbca801fd10daa",
+      "size_bytes": 16499
+    },
+    {
+      "file": "audits/stage_runtime_equivalence.json",
+      "archive": "repairs/native_geometry_v1/before/audits/stage_runtime_equivalence.json",
+      "sha256": "353f2c4dbfd51b826b212520c2ba422cf48339388771b563e6008df3114498ca",
+      "size_bytes": 263
+    },
+    {
+      "file": "audits/rans_engineering.json",
+      "archive": "repairs/native_geometry_v1/before/audits/rans_engineering.json",
+      "sha256": "f75669cb2218a5b30cbbb79a1db91a42c309b5f35be26252861c71d2681a51ea",
+      "size_bytes": 2475
+    },
+    {
+      "file": "A_clean_old_pool/checkpoints/latest.pt",
+      "archive": "repairs/native_geometry_v1/before/A_clean_old_pool/checkpoints/latest.pt",
+      "sha256": "9b1fcc25f0e9bfb3c0c196026b1e6258445bf833df618fe5f7ba027b6824ccaa",
+      "size_bytes": 1777450
+    }
+  ],
+  "all_committed_checkpoint_tensors_and_receipts_preserved": true,
+  "no_optimizer_update_replayed": true
+}

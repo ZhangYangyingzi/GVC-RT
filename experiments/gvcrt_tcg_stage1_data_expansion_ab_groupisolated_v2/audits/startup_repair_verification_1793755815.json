@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "scope": "Frozen-input and engineering repair provenance audit only; not final experiment acceptance",
+  "checked_unix": 1793755815.4711523,
+  "frozen_original_source_count": 20,
+  "original_frozen_sources_unchanged": true,
+  "protocol_and_source_manifest_unchanged": true,
+  "native_windows_not_redecoded": true,
+  "plan_shards_hash_checked": 1018,
+  "files": {
+    "manifests/A_clean_old_pool.json": "6727844d15e3b633e56329fafac2efc98fe10bed9f34b2cde99a681f0cb7e886",
+    "manifests/B_expanded_ulong.json": "0526eace3882402792105fae5cff7817b624f0e5b0ff49ddd6cce03829d1de63",
+    "manifests/development.json": "48f8c4094f65742bb719518768bee8c6c25ec61b137ec1bf8c3907116b7a0b3b",
+    "manifests/new_holdout_test.json": "fe61160ae10e89880d26ce201cd62fc202dc0067f63d37298878cbca60632868",
+    "protocol.json": "7405c77ad6a32799f95eebaee9d81481938fe46a2b5b833e64d4fa51beb15c5e",
+    "source_manifest.json": "2c9906afc5e5b44a9d55019c93da918ab2530175a86c49ab4db7f0091250d84e",
+    "split_audit.json": "d0067f6931f9c52bad569128805b3ff8b0677e2d1441457af5c3d446c5f581ac",
+    "manifests/evaluation_rows.json": "b83708f0833ba1d21e79d0c1c532df1f11ca48239d69f31c437fbe9aa3a05e30",
+    "audits/plans_frozen.json": "bdad7074105dab73cbdf592c2948ece0a45b786732d7e25bbcbf992accf7a11a"
+  },
+  "arms": {
+    "A_clean_old_pool": {
+      "identities": 923,
+      "plan_index_sha256": "7f9c8b8376efed8b18aa3f1186cb67914076d81882037c934c627f2ab5cadb1a",
+      "rank_samples": 50840,
+      "domains": {
+        "uvg": 25420,
+        "ulong": 25420
+      }
+    },
+    "B_expanded_ulong": {
+      "identities": 8470,
+      "plan_index_sha256": "01d66c77e3c2ec72d15b80844b09b3ad8064334e29c21bc62c221611f148d739",
+      "rank_samples": 50840,
+      "domains": {
+        "uvg": 25420,
+        "ulong": 25420
+      }
+    }
+  },
+  "split_membership_and_sources_match_frozen_plan_backed_statistics_and_evaluation_rows": true,
+  "split_manifest_byte_hash_scope": "Current manifest bytes captured; semantic membership/group/source checks against immutable plan-backed records",
+  "parent_checkpoint_sha256": "d398c3760ef1351ce21dc1663cc20337b0ce98dfaf5b06bf8b1d550511210264",
+  "previous_passed_stage_code_and_receipt_hashes": [
+    {
+      "stage": "plans",
+      "receipt_sha256": "df4598848bbeefd76818d23dc55ebab69659138c143224f2248ca46dc7656074",
+      "script_sha256": "babb10c63b7381065cbefc9fa75c71381e59224c965a2a034a6c3f1c7b4d0363"
+    },
+    {
+      "stage": "preflight",
+      "receipt_sha256": "0f004c8952b8f297ef0c6e1b1f972a7e6080a5dce80ba77cf768c37af318a442",
+      "script_sha256": "0a0022e04813cb838ba722ab5270aebaa8584d1a36f3d405d9055aaa92963a05"
+    },
+    {
+      "stage": "reuse",
+      "receipt_sha256": "bd009cf7613ac984f66894670fe66f83dd54a9b546e2c67e10df7decd0c89a00",
+      "script_sha256": "8560d6b4be7248bd49dfff450de76b48ebc243139f7fe9994b2a0ea0c2510b13"
+    },
+    {
+      "stage": "runtime_equivalence",
+      "receipt_sha256": "353f2c4dbfd51b826b212520c2ba422cf48339388771b563e6008df3114498ca",
+      "script_sha256": "84e6b80399c71235bd2ade0ec3da6cce71782611cd470124cd069b8ea955185e"
+    },
+    {
+      "stage": "source_groups",
+      "receipt_sha256": "1eb286972f0be4786b010dcafb6a8852d51b4afb627eff280e8252cda007f5d6",
+      "script_sha256": "88fac957aba15b95bcc081d5af9918ef940175a6b83fcafd51e89c1ece672252"
+    }
+  ],
+  "new_unfrozen_startup_helper": {
+    "filename": "launch_repaired.py",
+    "sha256": "6ef00664c5f69184ec0ca9a7389162e349fcc4669a64ea1f9b1926da046dae5a",
+    "content": "\"\"\"Create task-local output parents, then delegate to the frozen runner unchanged.\"\"\"\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport sys\nimport time\n\nROOT = Path(__file__).resolve().parent\nOUTPUT_DIRECTORIES = (\n    'audits/rans_roundtrip_probe',\n    'audits/rans_roundtrip_probe/logs',\n    'large_artifacts/engineering_rans_probe',\n    'large_artifacts/engineering_rans_probe/bitstreams',\n    'evaluation/development',\n    'evaluation/development/logs',\n    'evaluation/final',\n    'evaluation/final/logs',\n    'large_artifacts/development/bitstreams',\n    'large_artifacts/final/bitstreams',\n    'large_artifacts/viewing_previews',\n)\n\ndef main():\n    args = sys.argv[1:]\n    prepare_only = args == ['--prepare-only']\n    if '--prepare-only' in args and not prepare_only:\n        raise ValueError('--prepare-only must be used alone; other arguments are forwarded to runner.py')\n    created = []\n    for relative in OUTPUT_DIRECTORIES:\n        destination = ROOT / relative\n        if not destination.resolve().is_relative_to(ROOT):\n            raise RuntimeError('Output path escapes this experiment: ' + relative)\n        existed = destination.exists()\n        destination.mkdir(parents=True, exist_ok=True)\n        if not destination.resolve().is_relative_to(ROOT):\n            raise RuntimeError('Resolved output path escapes this experiment: ' + relative)\n        if not existed:\n            created.append(relative)\n    source = Path(__file__).read_bytes()\n    record = dict(\n        status='DIRECTORIES_READY',\n        scope='Directory initialization only; no numerical, training, or evaluation acceptance',\n        recorded_unix=time.time(),\n        reason='Historical evaluate.event uses logs.mkdir(exist_ok=True) without parents=True',\n        launcher_filename=Path(__file__).name,\n        launcher_sha256=hashlib.sha256(source).hexdigest(),\n        launcher_content=source.decode(),\n        output_directories=list(OUTPUT_DIRECTORIES),\n        created=created,\n        frozen_source_or_protocol_changed=False,\n        invocation=[sys.executable, *sys.argv],\n        mode='prepare_only_track_existing_runner' if prepare_only else 'exec_existing_frozen_runner',\n        forwarded_arguments=[] if prepare_only else args,\n    )\n    audit = ROOT / 'audits' / ('launcher_initialization_' + str(time.time_ns()) + '.json')\n    audit.write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\\n')\n    print(json.dumps(dict(status=record['status'],repair_audit=str(audit),mode=record['mode'],created=created)), flush=True)\n    if not prepare_only:\n        os.execv(sys.executable, [sys.executable, '-B', '-u', str(ROOT / 'runner.py'), *args])\n\nif __name__ == '__main__':\n    main()\n",
+    "actual_invocation": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/launch_repaired.py --prepare-only",
+    "reason": "Idempotently initialize task-local output parents without modifying frozen source or plans"
+  },
+  "running_instance_preserved": true,
+  "prior_directory_repair_records": [
+    "audits/repair_directories_1793755348.json"
+  ]
+}

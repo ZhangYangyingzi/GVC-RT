@@ -1,0 +1,13 @@
+# Native geometry engineering repair v1
+
+The initial directory failure was fixed by idempotent task-local directory initialization in launch_repaired.py. Its exact contents, hash and invocation are in audits/launcher_initialization_*.json and audits/startup_repair_verification_*.json. No frozen code was changed for that repair.
+
+A then committed additional updates1–10 and stopped before update11 when a native1920x804 source met an erroneously appended1920x1080 plan dimension. The source file, frame indices, crop and full RGB/crop hashes remain unchanged.15 clean-old-pool sources have non1080 native heights, affecting313 A rank slots and31 unique frozen windows. No B slot requires this metadata exception. The geometry table is derived from the already hash-audited inventory and source profiles.
+
+The immutable protocol, A/B plans, splits and original plans_frozen receipt are retained byte-for-byte. Source revision is explicit: the original source_manifest.json and the three old files are archived under repairs/native_geometry_v1/before, with original hashes in transition.json. The current source manifest pins the three revised sources and this transition. The original frozen receipt refers to the retained predecessor manifest, not silently to the revised one.
+
+ab_data_reader.py still checks exact native geometry, full RGB SHA and crop SHA on every frame. For only the registered trusted-parent metadata errata, expected dimensions come from the hash-pinned native geometry table. No resizing, padding, new crop/window, color/rate change or assertion/tolerance removal is introduced. equivalence.py retains UVG/old/new cases and adds the exact failing trusted-parent window, using independent original parent source metadata for its legacy reader. All losses, GT flows, outputs and gradients must pass the existing checks.
+
+train.py retains strict source/plan/protocol validation. One explicit predecessor transition is permitted only for the exact original A/latest checkpoint SHA at additional10/absolute5010, its original source dictionary and receipt10. All other old-source resumes fail. The checkpoint itself is not edited; optimizer, TCG, four-rank RNG, cursor and receipts1–10 remain unchanged. The next optimizer update is11. New checkpoints naturally record the new source hashes after the next real update.
+
+Focused31-window pixel-hash revalidation and the full affected runtime/RANS engineering checks are required again. They do not count as optimizer updates or formal development/test points. Training budget remains12710 per arm, final absolute step17710, same LR/loss/ranks/precision/splits/TCG-only model. This document records engineering facts only.
