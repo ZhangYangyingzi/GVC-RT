@@ -1,6 +1,6 @@
 {
-  "revision": "router_only_code_freeze_v4_checkpoint_and_manifest_integrity",
-  "time": 1793868836.608731,
+  "revision": "router_only_code_freeze_v5_validation_event_logging",
+  "time": 1793880042.2743974,
   "code": {
     "audits/code_versions/v1/finalize.py": "267c9f643b7ee1231a9f51102d013e39ce6b53fcad679bbb73ca239aa0821199",
     "audits/code_versions/v1/freeze.py": "e4cc21090dc1a8150cbf3397e122148653937690da3067c4636e1d85a58bdc0e",
@@ -10,6 +10,7 @@
     "audits/code_versions/v3_immutable_step0/finalize.py": "267c9f643b7ee1231a9f51102d013e39ce6b53fcad679bbb73ca239aa0821199",
     "audits/code_versions/v3_immutable_step0/freeze.py": "29eb14fd4e993e9b74ed0511e489775b923405a3d26c12682925f12a1a59a107",
     "audits/code_versions/v3_immutable_step0/publish.py": "5251fd0269c937823947dfe2ae033f4c4897e1ab6692f59891bb6267cf91aecf",
+    "audits/code_versions/v4_before_event_time_fix/runner.py": "b91e76645ae3ea077ccd3c3a194a9fcf8961c8498346eaa34746ffcc4f4ba9a4",
     "checkpoint_state.py": "692ac9bf01eaed32a73ee0a27c44503a8206a54c7f6a1705a0dc2f095155ec8d",
     "common_s2.py": "83b1a0cdc7d07644a210512c7fe92e29ed172170de3ed957486a4f66355f59ab",
     "data_reader.py": "a789f7765df5ea8d2b103398e81b714ecc9c310c3fa407737ed21b5e11e9df6e",
@@ -49,8 +50,9 @@
     "reference_tree/src/utils/transforms.py": "8d07100e2e531357f4a315db33e3ae137076b2378d1835888fc6055dfb46fe55",
     "reference_tree/src/utils/video_reader.py": "5381bee1c5ceca6a85949529d489a50c055f0c6bcb2de1f1818bc283f320354d",
     "reference_tree/src/utils/video_writer.py": "06101f3d3c5e8fb1e33d44c775d8ebe6a17986319ba4015c47c1849c7443b8a0",
+    "repair_event_time.py": "691174cd8f4cbd1908707652e72cfdcbbfe12addc0a87cad4d67c26ae68bc974",
     "reuse.py": "8cbba51512d0c96c7e64386d83c58d670e8495d49cd965ed0c44bd2e88415459",
-    "runner.py": "b91e76645ae3ea077ccd3c3a194a9fcf8961c8498346eaa34746ffcc4f4ba9a4",
+    "runner.py": "ef0d66d40fb9a9bcc4ce066ede759226fb7c622daddec99c42c31ac407604f5a",
     "runtime_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/common.py": "aa72ae3fcf2d3f6df4e244599c62a064552da8db3c9892bd1360dd565a3c5c66",
     "runtime_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766",
     "runtime_tree/experiments/gvcrt_neural_wrapper_v2_joint/core.py": "0d9c1c511029d80890aa3caf78705a564a896f5565641528c91b31b39be13875",
@@ -118,5 +120,7 @@
     "vendor/sealed/repairs/native_geometry_v1/geometry_errata.json": "08ad3f8416354b1141583fdb54e652392a1af5562efb249d2d255e6df83fa18f",
     "vendor/sealed/split_audit.json": "d0067f6931f9c52bad569128805b3ff8b0677e2d1441457af5c3d446c5f581ac"
   },
-  "final_videos_sha256": "df506647c81f42d745bf8cc4f01fff8510bd600ad358f22c70989f9e3926ee2a"
+  "final_videos_sha256": "df506647c81f42d745bf8cc4f01fff8510bd600ad358f22c70989f9e3926ee2a",
+  "previous_manifest_sha256": "c55e8d961c70c8507b713aff1ed2a7ba947d9011110a36a30ec313fd87d1d497",
+  "logging_only_migration": "audits/event_time_repair.json"
 }

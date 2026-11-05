@@ -109,7 +109,7 @@ def run(lease):
         if state['bad_check_count']>=4:state['status']='EARLY_STOPPED_PATIENCE'
         elif target==3000:state['status']='MAX_BUDGET_REACHED'
         dump(ROOT/'stopping_state.json',state);synchronize_validation_metadata(state)
-        snapshot('development_validation_complete');event('VALIDATION_COMPLETE',**state['checks'][-1])
+        snapshot('development_validation_complete');event('VALIDATION_COMPLETE',validation_check=state['checks'][-1])
     state=load(ROOT/'stopping_state.json')
     if not (ROOT/'selection.json').exists():
         best=state['best_trained'];assert best is not None

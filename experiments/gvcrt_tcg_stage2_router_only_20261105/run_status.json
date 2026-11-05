@@ -1,9 +1,11 @@
 {
-  "status": "RUNNING",
-  "current_stage": "waiting_for_existing_development_workers",
-  "time": 1793868915.109366,
+  "status": "FAILED",
+  "current_stage": "development_validation_complete",
+  "time": 1793873379.7610912,
   "PID": 3534921,
-  "committed_router_updates": 0,
-  "reason": "Controlled coordinator-only metadata repair; existing step0 evaluation is retained",
-  "time_of_snapshot": 1793868915.1093118
+  "committed_router_updates": 250,
+  "baseline_cumulative_tcg_step": 6500,
+  "failure_stage": "development_validation_complete",
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 129, in main\n    try:run(lease)\n        ^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 112, in run\n    snapshot('development_validation_complete');event('VALIDATION_COMPLETE',**state['checks'][-1])\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/common_s2.py\", line 74, in event\n    row=dict(event=name,time=time.time(),**fields)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: dict() got multiple values for keyword argument 'time'\n",
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py"
 }
