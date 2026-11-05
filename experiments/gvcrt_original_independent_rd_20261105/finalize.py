@@ -64,6 +64,17 @@ def finalize():
     write_csv(ROOT/'original_vs_parent0.csv',comparisons)
     write_csv(ROOT/'metrics_with_original.csv',previous+original)
     plot(previous+original)
+    expected_plots=[ROOT/'plots'/f'{group}_rate_quality.png' for group in GROUP_BY_DOMAIN.values()]
+    expected_plots.extend(ROOT/'plots/per_video'/GROUP_BY_DOMAIN[v['domain']]/f'{v["sequence"]}.png' for v in videos)
+    assert len(expected_plots)==49 and len(set(expected_plots))==49
+    assert all(path.is_file() and path.stat().st_size>0 for path in expected_plots)
+    assert load(ROOT/'execution_sources.json')=={p.name:sha(p) for p in sorted(ROOT.glob('*.py'))},'Execution source changed during evaluation'
+    metric_reference=load(ROOT/'metric_preflight.json')
+    for rank in range(4):
+        assert load(ROOT/f'worker{rank}_status.json')['status']=='PASS'
+        runtime=load(ROOT/f'metric_runtime_rank{rank}.json')['hashes']
+        assert runtime['quality']==metric_reference['quality']
+        assert runtime['flow']==metric_reference['PWC_module_hash'] and runtime['FloLPIPS']==metric_reference['FloLPIPS_module_hash']
     summary=dict(status='PASS',expected_points=135,completed_points=135,previous_points=675,combined_points=810,
                  original_commit=COMMIT,original_codec_no_TCG=True,fresh_encode=True,independent_decode=True,
                  identical_streams_to_parent0=sum(c['identical_bitstream'] for c in comparisons),
@@ -71,7 +82,9 @@ def finalize():
                  max_absolute_metric_differences={m:max(abs(c[m+'_difference']) for c in comparisons) for m in METRICS},
                  source_frames_matched=True,GT_flow_hashes_matched=True,rate_and_metric_aggregation_verified=True,
                  protocol_sha256=sha(ROOT/'protocol.json'),metrics_original_sha256=sha(ROOT/'metrics_original.csv'),
-                 previous_metrics_unchanged=sha(TCG/'metrics_v3.csv')==protocol['previous_metrics_sha256'])
+                 previous_metrics_unchanged=sha(TCG/'metrics_v3.csv')==protocol['previous_metrics_sha256'],
+                 metric_runtime_hashes_matched=True,execution_sources_unchanged=True,dataset_plot_count=4,per_video_plot_count=45,
+                 plot_files=[dict(file=str(p.relative_to(ROOT)),sha256=sha(p),size_bytes=p.stat().st_size) for p in expected_plots])
     dump(ROOT/'final_integrity.json',summary)
     report=['# GVC-RT 原版独立评测', '',
             f'已完成 45 个视频 × 3 个 QP = 135 个原版实测点。原版代码固定于 `{COMMIT}`，直接加载项目 checkpoints 中的原版 I/P 权重，不包含 TCG，不加载 v6 实验检查点。', '',

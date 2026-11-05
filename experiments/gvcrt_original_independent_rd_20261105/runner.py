@@ -23,9 +23,12 @@ def cpu_preflight():
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--cpu-preflight',action='store_true');ap.add_argument('--skip-publish',action='store_true')
     args=ap.parse_args()
-    for d in ('logs','cache/mpl','cache/cuda','tmp','points','progress'):(ROOT/d).mkdir(parents=True,exist_ok=True)
+    for d in ('logs','cache/mpl','cache/cuda','cache/cupy','cache/triton','cache/torch_extensions','cache/numba','tmp','points','progress'):(ROOT/d).mkdir(parents=True,exist_ok=True)
     os.environ.update(PYTHONDONTWRITEBYTECODE='1',CUDA_DEVICE_ORDER='PCI_BUS_ID',MPLCONFIGDIR=str(ROOT/'cache/mpl'),
-                      CUDA_CACHE_PATH=str(ROOT/'cache/cuda'),TMPDIR=str(ROOT/'tmp'),OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+                      CUDA_CACHE_PATH=str(ROOT/'cache/cuda'),CUPY_CACHE_DIR=str(ROOT/'cache/cupy'),TRITON_CACHE_DIR=str(ROOT/'cache/triton'),
+                      TORCH_EXTENSIONS_DIR=str(ROOT/'cache/torch_extensions'),NUMBA_CACHE_DIR=str(ROOT/'cache/numba'),
+                      TMPDIR=str(ROOT/'tmp'),OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+    os.environ.setdefault('GIT_SSH_COMMAND','ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=3')
     with (ROOT/'runner.lock').open('a') as lease:
         fcntl.flock(lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
         verify_protocol()
@@ -44,6 +47,8 @@ def main():
             raise RuntimeError('GPU execution access is required; no original metric points were fabricated')
         for gpu in range(4):
             torch.empty(1,device=f'cuda:{gpu}')
+        dump(ROOT/'gpu_preflight.json',dict(status='PASS',physical_GPUs=[4,5,6,7],devices=[dict(logical_index=i,physical_index=4+i,name=torch.cuda.get_device_name(i),free_bytes=torch.cuda.mem_get_info(i)[0],total_bytes=torch.cuda.mem_get_info(i)[1]) for i in range(4)],time=time.time()))
+        (ROOT/'BLOCKED.md').write_text('# 历史阻塞记录\n\n此前审批服务故障记录保存在 audits/startup_recovery_20261105/before/。本次 GPU 权限检查已通过；实际进度以 run_status.json 为准，发布状态以 publication.json 为准。\n')
         started=time.time();processes=[]
         for rank in range(4):
             log=(ROOT/f'logs/worker{rank}.log').open('a')
