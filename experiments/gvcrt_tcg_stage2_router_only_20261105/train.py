@@ -21,7 +21,7 @@ def run(until,smoke):
     verify_sources();c=build(rank,train=True,losses=True);seed(SEED+rank)
     cpdir=ROOT/('large_artifacts/disposable_DDP/checkpoints' if smoke else 'checkpoints')
     rcdir=ROOT/('audits/disposable_DDP_receipts' if smoke else 'receipts');cpdir.mkdir(parents=True,exist_ok=True);rcdir.mkdir(parents=True,exist_ok=True)
-    latest=cpdir/'latest.pt';rows=plan_rows();cursor=0
+    latest=cpdir/'latest.pt';rows=plan_rows();cursor=0;fresh_initialization=not latest.exists()
     frozen=FrozenGuard(frozen_items(c));protocol_sha=sha(ROOT/'protocol.json');source_sha=sha(ROOT/'source_manifest.json') if (ROOT/'source_manifest.json').exists() else None
     if latest.exists():
         saved=torch.load(latest,map_location='cpu',weights_only=True)
@@ -54,7 +54,7 @@ def run(until,smoke):
             if step:dump(rcdir/f'update_{step:05d}.json.gz',receipt)
             if not smoke:dump(ROOT/'training_status.json',dict(status='RUNNING',committed_router_updates=step,next_cursor=1500+step,latest_sha256=sha(latest),last_receipt=None if receipt is None else digest(receipt),time=time.time(),process_group='four ranks SUM/4',physical_GPUs=[4,5,6,7]))
         dist.barrier()
-    if cursor==0:commit(0,None,True)
+    if cursor==0 and fresh_initialization:commit(0,None,True)
     if rank==0:
         dump(ROOT/('audits/disposable_DDP_provenance.json' if smoke else 'baseline_provenance.json'),c['provenance'])
         dump(ROOT/'trainable_parameters.json',dict(modules=['recon_generation_net.router'],count=33889,parameters=[dict(name=n,shape=list(p.shape),dtype=str(p.dtype)) for n,p in c['named']],only_Router_requires_grad=True))

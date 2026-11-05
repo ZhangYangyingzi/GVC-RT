@@ -88,6 +88,8 @@ def run(lease):
             baseline_F_q=b,raw_best=dict(kind='baseline_bypass',step=None,score=1.),best_trained=None,last_validation_step=0)
         if s<1:state['raw_best']=dict(kind='enabled0_ablation',step=0,score=s)
         dump(ROOT/'stopping_state.json',state)
+    from checkpoint_state import synchronize_validation_metadata
+    synchronize_validation_metadata(load(ROOT/'stopping_state.json'))
     while True:
         state=load(ROOT/'stopping_state.json')
         if state['status']!='RUNNING':break
@@ -106,7 +108,8 @@ def run(lease):
         state['last_validation_step']=target
         if state['bad_check_count']>=4:state['status']='EARLY_STOPPED_PATIENCE'
         elif target==3000:state['status']='MAX_BUDGET_REACHED'
-        dump(ROOT/'stopping_state.json',state);snapshot('development_validation_complete');event('VALIDATION_COMPLETE',**state['checks'][-1])
+        dump(ROOT/'stopping_state.json',state);synchronize_validation_metadata(state)
+        snapshot('development_validation_complete');event('VALIDATION_COMPLETE',**state['checks'][-1])
     state=load(ROOT/'stopping_state.json')
     if not (ROOT/'selection.json').exists():
         best=state['best_trained'];assert best is not None
