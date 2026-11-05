@@ -4,7 +4,7 @@
 
 每点均重新编码为实际 RANS 码流，并用新建解码器独立解码。视频、64 帧窗口、QP 调度、精度、预处理和指标计算与已有 TCG 实验对齐。这里是同协议下的原版编解码实现评测，不声称复现论文全部默认测试设置。
 
-与 parent0 比较：135/135 点码流完全相同，135/135 点重建哈希完全相同。若两条曲线重合，仍保留独立结果和图例，不复制 parent0 数值代替原版测试。
+与 parent0 比较：135/135 点码流完全相同，135/135 点重建哈希完全相同，逐点各项指标差值均为0。因此本次图中的原版与 parent0 实测曲线重合；两者图例和独立实测数据均保留，未复制 parent0 数值代替原版测试。
 
 每张图有六条线：GVC-RT original、parent0（零残差实验基线）、TCG parent5000、A+1500、A 最优+500、B 最优+1500。
 
@@ -66,3 +66,9 @@
 - ulong_new: [eef96391-f11c-4c66-bcf6-5652277f2496](plots/per_video/ulong_new_test/eef96391-f11c-4c66-bcf6-5652277f2496.png)
 - ulong_new: [f41c938b-7aac-42c0-8f51-ab58888e8bb6](plots/per_video/ulong_new_test/f41c938b-7aac-42c0-8f51-ab58888e8bb6.png)
 - ulong_new: [f652f610-78f0-45f4-969c-47a3482b3f9d](plots/per_video/ulong_new_test/f652f610-78f0-45f4-969c-47a3482b3f9d.png)
+
+## 工程修复与批次状态
+
+正式结果采用 `matched_rgb_fp32_v2`：直接复用固定评分源码中的 `core.unit()`，先把原始解码张量转FP32，再执行RGB范围转换和原生裁剪。所有135点重新执行了fresh RANS编码及新实例独立解码；验收新增了相同原始重建条件下评分RGB张量逐帧哈希一致检查。
+
+首批FP16范围转换评分及其49张图已失效，不能用于当前对比；原始现场保留在本地 `invalidated_v1/`，未上传该媒体/码流归档。失效声明的远端提交为 `fda4c105299a588100a39c75c003c1725959ccdf`，修复来源及前后协议哈希见 [修复审计](audits/precision_alignment_v2/repair.json)。原版固定源码、I/P权重和既有TCG指标未修改。
