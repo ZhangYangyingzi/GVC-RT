@@ -1,6 +1,280 @@
 {
-  "status": "PENDING_CORRECTED_REMEASUREMENT",
-  "previous_acceptance_invalidated": true,
-  "reason": "Initial prepared evaluator converted decoded FP16 x_hat to RGB before casting to FP32; pinned TCG core.unit casts x_hat to FP32 first.",
-  "expected_points": 135
+  "status": "PASS",
+  "expected_points": 135,
+  "completed_points": 135,
+  "previous_points": 675,
+  "combined_points": 810,
+  "original_commit": "b2a0895c0cf31cf2be3ab1c2571ca07c05866c03",
+  "original_codec_no_TCG": true,
+  "fresh_encode": true,
+  "independent_decode": true,
+  "identical_streams_to_parent0": 135,
+  "identical_reconstructions_to_parent0": 135,
+  "max_absolute_metric_differences": {
+    "PSNR": 0.0,
+    "MS_SSIM": 0.0,
+    "LPIPS": 0.0,
+    "DISTS": 0.0,
+    "FloLPIPS": 0.0,
+    "WarpingError_ReconFlow_PWC": 0.0,
+    "WarpingError_GTFlow_PWC": 0.0
+  },
+  "source_frames_matched": true,
+  "GT_flow_hashes_matched": true,
+  "rate_and_metric_aggregation_verified": true,
+  "protocol_sha256": "c2f4b77be7362bdcd207ea64fac70d5628d057ed869424bbe444492854f42742",
+  "metrics_original_sha256": "2aa2bd1b2dcb2c5a6e07355cfd8064aed93c064c9c326a48f3f445398ce207b4",
+  "previous_metrics_unchanged": true,
+  "metric_runtime_hashes_matched": true,
+  "execution_sources_unchanged": true,
+  "scoring_RGB_conversion_matched": true,
+  "dataset_plot_count": 4,
+  "per_video_plot_count": 45,
+  "plot_files": [
+    {
+      "file": "plots/ulong_new_test_rate_quality.png",
+      "sha256": "4f6481f9c14e45874b714f75fb2d1b4233d8590c67add91093141d4665667f9d",
+      "size_bytes": 329285
+    },
+    {
+      "file": "plots/ulong_historical_rate_quality.png",
+      "sha256": "2eb2dac4f351c4931cd3440a2595cd1f6a50f282042990d562ee354240f8b426",
+      "size_bytes": 333093
+    },
+    {
+      "file": "plots/hevc_b_rate_quality.png",
+      "sha256": "e31f65e1bb4fea8d7929a1a6bce1ee99c6e4ae40ca66d9a2376a59d1602cc31d",
+      "size_bytes": 362447
+    },
+    {
+      "file": "plots/uvg_holdout_rate_quality.png",
+      "sha256": "def4485f5c3e486a744ee402d996c6ab295b9094d5d443b234744acb3da5e747",
+      "size_bytes": 343278
+    },
+    {
+      "file": "plots/per_video/hevc_b/BQTerrace.png",
+      "sha256": "2b01fc878206f0794a1406e00c39e0772f0c7b9bc659fc998183a3516799d60f",
+      "size_bytes": 348302
+    },
+    {
+      "file": "plots/per_video/hevc_b/BasketballDrive.png",
+      "sha256": "91d7ab4bfbeec0e20bc5bd51386762d5b0c05d2f52453b2251504a6c7dd1699c",
+      "size_bytes": 352831
+    },
+    {
+      "file": "plots/per_video/hevc_b/Cactus.png",
+      "sha256": "1a80faf4efdcc871ffc867601aa682d427621e7d615a7758968270c9eae80a68",
+      "size_bytes": 341876
+    },
+    {
+      "file": "plots/per_video/hevc_b/Kimono1.png",
+      "sha256": "9d51716255b1f89e7e944245fa82838040ca3078b552ce122b646d90167399a8",
+      "size_bytes": 354812
+    },
+    {
+      "file": "plots/per_video/hevc_b/ParkScene.png",
+      "sha256": "ef8b8ecfc119f59a1e8d0a2affdf040923156d7717a80280f6bdc1a671ad1bde",
+      "size_bytes": 340078
+    },
+    {
+      "file": "plots/per_video/ulong_historical/1fe6bebe-c876-4b4d-ad2c-e0caf03ad404.png",
+      "sha256": "2fca944dc6942d28ae0c23a3abb616accd80221d11ce8c5f840fa521fb98ad1e",
+      "size_bytes": 326891
+    },
+    {
+      "file": "plots/per_video/ulong_historical/268543d9-eb03-48c4-9e91-fa8455277f71.png",
+      "sha256": "9bbf148f3528e631bd522461f935bd77b51c588203c6b154d4d2cd3232c595b8",
+      "size_bytes": 357453
+    },
+    {
+      "file": "plots/per_video/ulong_historical/641202b1-6955-422a-b45f-af8c1d2b1777.png",
+      "sha256": "659f39f7b84672aef3632632ff991ae4e45f1e559beea9b76208c7bf6120ada6",
+      "size_bytes": 327334
+    },
+    {
+      "file": "plots/per_video/ulong_historical/a6f9b7f7-d805-474b-a664-924f1e39d7d1.png",
+      "sha256": "1308dffe9d5c0bc9b6846ebc767931ce6db2258a216ce41bc6bd7df4dc44321d",
+      "size_bytes": 312435
+    },
+    {
+      "file": "plots/per_video/ulong_historical/cfa79e7c-cce2-4db3-a692-55e5d4b27493.png",
+      "sha256": "47ac6a5ff77632ed9797b0dbe76b3b03fc514c857e8760c3644652ae507f55b2",
+      "size_bytes": 337806
+    },
+    {
+      "file": "plots/per_video/ulong_historical/df773e20-1706-4d5b-93d9-3b534d989214.png",
+      "sha256": "24e262b5fdd9ce99ca823271481d551459ba1a1d44c3c4302e665b9ae90ad494",
+      "size_bytes": 339134
+    },
+    {
+      "file": "plots/per_video/uvg_holdout/HoneyBee.png",
+      "sha256": "2a27d93434e47fecc2af39118a9750b91228bd4792c50c9f7828b5ff2b6c36fa",
+      "size_bytes": 304088
+    },
+    {
+      "file": "plots/per_video/uvg_holdout/Jockey.png",
+      "sha256": "c67f75031231f4296ffa54934f8b057e569a65c7e1179027c32b0bfe4d229e15",
+      "size_bytes": 341097
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/081343d7-3c56-46bf-93a2-28718f33e6a7.png",
+      "sha256": "efca32ab9d855ff6790356134ca908ac54e6300d2a4f3c6e32679cd8923fba50",
+      "size_bytes": 340859
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/0effaece-e02d-41d0-8f23-b301a8dc84cb.png",
+      "sha256": "69092639773822d203e64210447e95e1df8a8e38f833e8f4615e8ebc7d9b42a0",
+      "size_bytes": 340687
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/0f709ea5-ad91-4391-9d36-ade3948025e2.png",
+      "sha256": "a39b164e72a5e0e8a9a3bbb7bfb6d04ccbeb2a66d516fe5805cecfb575e1b7bf",
+      "size_bytes": 305808
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/12c581b7-3c2c-4701-8889-808a30c68a0f.png",
+      "sha256": "5f099503f97131ac0b37f2e390ed5aef01a84ee1942c0ba6fe3d2b89fd521d16",
+      "size_bytes": 335141
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/1a271afc-ba22-4e96-9085-ed993ce85272.png",
+      "sha256": "fc9bc154d3cb7fa71300cd90170cc5c52a8ea8b46476160179a7dd9c64da8152",
+      "size_bytes": 327518
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/1f88524d-47c4-4ee7-8fd5-e3831f1dace1.png",
+      "sha256": "69242d0300c38f0d8da54289c55b670aad159a006d0b6c24c689f2d330f08fcb",
+      "size_bytes": 337512
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/25057ac0-fd2e-4adf-800b-8483f2fb49e3.png",
+      "sha256": "9de79a8b6f8c81e9044954e72f66fd0bcf3fb788813b282df222b4dfb141814c",
+      "size_bytes": 347997
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/3a70e370-36df-4de9-ba84-52dd56dd43b8.png",
+      "sha256": "db4aeb55c9a961e755d6d379b020a77269b6c91652ee6b7258b7f3e11ebf3db7",
+      "size_bytes": 352718
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/3ba2cd19-6c74-4935-8725-5359c0453845.png",
+      "sha256": "3386fa9cde7fd96fad48b4f464f10e5a466b738d694f37404ca09b652262e738",
+      "size_bytes": 347783
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/4155fb19-b81e-4b1a-b845-65d716a6c21f.png",
+      "sha256": "a4f8c59b3367630a7399fcab9948f9f39ad34ecc82551ce65858a10b75c0eba0",
+      "size_bytes": 326433
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/5415f5ae-5cae-449e-a37f-fa24c26d2b7d.png",
+      "sha256": "96abaebde9f9c4e17c74a301be16f57bd101d0d9603aa13124bcd72ab14a214d",
+      "size_bytes": 343501
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/62af4da7-8b12-4015-b184-c035884571a9.png",
+      "sha256": "82476fb170ab87a933d05a682ad3126e82077c92ad3f284ccdf12cf38b0a87e2",
+      "size_bytes": 339002
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/6e327f54-9f3a-416d-aadb-109adf734c52.png",
+      "sha256": "c72220bdaf94e0401e81b4ee3d937b947604228df0f6f42f50068840c6ad1f6e",
+      "size_bytes": 333643
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/756c549f-6ac1-4cc4-96b0-5eab759cb799.png",
+      "sha256": "08e8eb9b1b6944ac44953bf8d42c31c7f2fee08b77c23025a20b33b18fe388a1",
+      "size_bytes": 327615
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/76cc3375-2b9f-444c-9376-b83851d6b7d2.png",
+      "sha256": "d778239f7d85ae5dfac34e95420e80d4b06acb629dbae453cb839af5e7a28411",
+      "size_bytes": 351975
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/7789166a-ef52-4f9f-8249-3d0623c0f69f.png",
+      "sha256": "7afe67266c24109051b3bed36e037f953aba34273b16ca23a3e6aa724c02a8ae",
+      "size_bytes": 332198
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/778c7f22-4da2-4570-a032-a9a4a87b6b61.png",
+      "sha256": "6c0bca4e15bac52d83590da80383c8633ec5c89cadf101563bd37a6d9d73e5ee",
+      "size_bytes": 345983
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/7e566226-fcda-494f-b843-bf4cc5183f6e.png",
+      "sha256": "f6fd677178b62d8a4dc45ce0fa56b740234df4054eb7234f06bba7837187b143",
+      "size_bytes": 332005
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/7fce67d2-cda8-42d8-a1c8-7eb5831b603e.png",
+      "sha256": "2edbc1e177a781f4835e74ce02ceadba97d6c270ed125a409b34e9b2e9f77237",
+      "size_bytes": 317682
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/8423fe52-7e1a-4195-b13b-9c3deea06043.png",
+      "sha256": "58a963d4e6ea13bf157d9008a5080c84b756cf62f7eb41d1035f1b06b9d4210f",
+      "size_bytes": 334202
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/8730e5b1-3d66-4baa-9f80-af4395576a99.png",
+      "sha256": "b2fbfafb97d84fc598e6699e1d7518da18f4d1b27920c8e302a39dfa6977417e",
+      "size_bytes": 331665
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/8dbd8b63-2824-467b-b624-1ba80e5d54bb.png",
+      "sha256": "003ef898240c35c74518d7f4387b61d0b55a0fc1bd39b6018936eb304124895c",
+      "size_bytes": 360871
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/9e38df87-db86-42c5-8613-4e61d1cc2133.png",
+      "sha256": "2b5380a9bd3c6b9b6f22fb45ecdb68750b5978d35491248ac2355791957395e0",
+      "size_bytes": 339032
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/a0792649-6ecf-48ee-9ce1-8807987542f4.png",
+      "sha256": "27a0809340a1ac8429969770bef12f36e509365e840a6c2ceaf44a3c1391f88b",
+      "size_bytes": 358398
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/a4bc7de3-0cb6-45ab-b32d-93ff3560c662.png",
+      "sha256": "4c325c4bae2fc23840aeedb0523047c178092016c0dcb73fbee3c59b3de7a0db",
+      "size_bytes": 333127
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/b0bfea85-7212-4284-94b1-6f83d8df949c.png",
+      "sha256": "a1b4b08128438ce5e253e28d154ee669ee5cf24a504c6c4477c477c0ac6c13ba",
+      "size_bytes": 337679
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/cd1d962e-5b8a-4a14-bbdc-388c84804aaf.png",
+      "sha256": "69a23b42f482e4aab43a9499d6141d910f07949df12de93d81061c325b9fda31",
+      "size_bytes": 343232
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/dce599d3-d196-4d87-b2b1-698acdbbb3d4.png",
+      "sha256": "96c027f668f450092010d1c932f8a26472e7a8cc6bea2f6cdc04e2a678f47bb3",
+      "size_bytes": 342693
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/e0a079c6-e4a7-484e-bfcd-cce68304a27d.png",
+      "sha256": "a0db9982a04d0f8cd249aff7d5a3b70e2a55f9125e02bf8e01cc8502c3998cb8",
+      "size_bytes": 316116
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/eef96391-f11c-4c66-bcf6-5652277f2496.png",
+      "sha256": "1ee4835d43e01c7fc4c5a934e4493d0a5aa8a5dfc4e99c0605f69d890e962b08",
+      "size_bytes": 311202
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/f41c938b-7aac-42c0-8f51-ab58888e8bb6.png",
+      "sha256": "dbd1221a9fc38b0f883847efa00dfb693417df47183c2da1b50a76887c3c37fb",
+      "size_bytes": 337732
+    },
+    {
+      "file": "plots/per_video/ulong_new_test/f652f610-78f0-45f4-969c-47a3482b3f9d.png",
+      "sha256": "312a7d84a01b5dc52c9f28f5da4cb5c8adfa2b5de09219ee68c6b1e1e6801fb8",
+      "size_bytes": 341014
+    }
+  ]
 }
