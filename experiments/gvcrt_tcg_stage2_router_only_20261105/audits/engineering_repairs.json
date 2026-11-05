@@ -1,0 +1,25 @@
+{
+  "status": "APPLIED_AND_REVALIDATED",
+  "formal_updates": 0,
+  "repairs": [
+    {
+      "file": "engineering.py",
+      "reason": "Disable-TCG reference harness must replace positional argument, not pass duplicate keyword",
+      "checks": "off forward probe and comparison PASS"
+    },
+    {
+      "file": "engineering.py",
+      "reason": "Internal-reference state probe runs deployed FP16 context and matches its input dtype; gradient probe separately retains FP32 receiver",
+      "checks": "state and gradient checks PASS"
+    },
+    {
+      "file": "reuse.py",
+      "reason": "Use actual original protocol_revision field; no metric or identity rule changed",
+      "checks": "366 reused points independently audited"
+    }
+  ],
+  "current_sources": {
+    "engineering.py": "f4e1a87102d5a9726c2d782afa3c2a37e6edca17fae5a6833ae4bba7dce9e3ba",
+    "reuse.py": "8cbba51512d0c96c7e64386d83c58d670e8495d49cd965ed0c44bd2e88415459"
+  }
+}

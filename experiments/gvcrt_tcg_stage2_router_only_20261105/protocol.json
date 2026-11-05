@@ -1,0 +1,250 @@
+{
+  "task": "tcg_stage2_router_only_20261105",
+  "revision": "router_only_spatial_gating_v1",
+  "seed": 20261105,
+  "baseline_checkpoint": "B_expanded_ulong/checkpoints_v3/step_1500.pt",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "baseline_cumulative_tcg_step": 6500,
+  "receiver_initialization": "pilot/adaptation_step_0.pt, strict full bridge/generator buffers, then exact B+1500 TCG overlay; original I/P codec weights",
+  "baseline_optimizer_loaded": false,
+  "trainable_modules": [
+    "recon_generation_net.router"
+  ],
+  "trainable_parameters": 33889,
+  "frozen": [
+    "I_model",
+    "P_codec",
+    "Bridge",
+    "generator",
+    "TCG_low_mid_out",
+    "LPIPS",
+    "DISTS",
+    "RAFT"
+  ],
+  "router": {
+    "input": "Concat(pm.dec decoded current feature, detached previous decoded feature, absolute difference)",
+    "decoded_channels": 256,
+    "input_channels": 768,
+    "architecture": "Conv1x1(768,32),SiLU,Conv3x3(32,32,pad1),SiLU,Conv1x1(32,1),Sigmoid",
+    "last_weight": 0,
+    "last_bias": "log(0.01/0.99)",
+    "initial_M": 0.01,
+    "M_definition": "historical residual suppression weight; not a supervised motion mask",
+    "missing_history": "zeros_like(current); first P has no compatible TCG history",
+    "shared_mask": true,
+    "resize": "bilinear align_corners=False",
+    "TCG_output": "current + (1-resize(M))*delta_tcg",
+    "TCG_cache": "pre-residual current, detached",
+    "true_bypass": "direct original current+delta, no mask arithmetic",
+    "new_inputs": [],
+    "extra_losses": []
+  },
+  "state": {
+    "codec_DPB": "unaltered decoded codec features; never Router/generator features",
+    "Router_history": "detached cloned decoded feature; commit only after using previous; no BPTT",
+    "TCG_history": "retained detached pre-residual current",
+    "reset": "sequence/I/clear_dpb and compatible dimension boundary",
+    "update_buffer_false": "no Router history or TCG cache changes",
+    "internal_reference": "use_tcg=False,update_buffer=False bypasses Router and TCG, histories unchanged"
+  },
+  "physical_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "world_size": 4,
+  "effective_batch": 4,
+  "domain_samples_per_update": {
+    "uvg": 2,
+    "ulong": 2
+  },
+  "plan": {
+    "source": "sealed B expanded plan",
+    "source_cursor_at_start": 1500,
+    "source_cursor_at_cap": 4500,
+    "rank_samples_at_cap": 12000,
+    "order": "original B rows[6000:18000], no shuffle",
+    "plan_index_sha256": "580af0a41f82c58be4ab894d101f034a2ec0f7b901700d9ba80a28c0a63c24d4",
+    "new_independent_samples_claim": false,
+    "B_pool": 8470,
+    "quarantined_source_groups": 236
+  },
+  "AdamW": {
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "new_optimizer": true
+  },
+  "clip_norm": 1.0,
+  "gradient_reduction": "sum four rank sample gradients /4, then one clip, then identical optimizer.step on synchronized replicas",
+  "training": {
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "I0": "original I codec",
+    "warmup_P": [
+      1,
+      48
+    ],
+    "supervised_P": [
+      49,
+      63
+    ],
+    "supervision_mean": 15,
+    "QP": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "internal_QP": "existing INDEX_MAP and pm.shift_qp",
+    "previous_reconstruction_detach": true,
+    "codec_reference_detach": true,
+    "TCG_feature_detach": true,
+    "Router_history_detach": true,
+    "loss": "historical LPIPS +0.5 DISTS +0.1383589248954108 RGB_L1 +0.01 RAFT_motion +beta(q)*Rate +0.01 proxy",
+    "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "paper_identical_loss_claim": false,
+    "beta": "1/(0.08+q*(0.9-0.08)/9)",
+    "reconstruction_VJP": "multiply reconstruction term by4096/15 before VJP, divide gradient by4096 exactly once, multiply0.1383589248954108, combine with fused VJP; same historical order",
+    "proxy": "Identity, proxy_L1 exactly0",
+    "rate": "recorded but no Router gradient",
+    "motion": "frozen local torchvision RAFT C_T_SKHT_V2 transforms; GT flow no_grad; prediction flow differentiable with respect to current reconstruction",
+    "codec_precision": "FP16",
+    "bridge_generator_precision": "FP32",
+    "Router_precision": "FP32",
+    "quality_precision": "FP32",
+    "new_AMP": false,
+    "formal_smoke_updates": "First2 formal updates included in budget; all engineering smoke updates use disposable state and are discarded"
+  },
+  "stopping": {
+    "max_updates": 3000,
+    "cap_not_required_budget": true,
+    "validation_interval": 250,
+    "patience": 4,
+    "min_delta": 0.001,
+    "metric": "FloLPIPS",
+    "mode": "min",
+    "baseline_score": 1.0,
+    "normalization": "per-QP equal32-video means divided by B+1500 per-QP means, then equal3-QP mean",
+    "patience_anchor_initial": 1.0,
+    "baseline_and_enabled0_count_for_patience": false,
+    "meaningful_improvement": "S < anchor -0.001",
+    "invalid_checks": "exception, never count as patience",
+    "raw_best": "all valid scored candidates including bypass and enabled0; ties earlier with bypass priority",
+    "best_trained_router": "only periodic validation checkpoints with >=250 committed Router updates; enabled0 is an ablation, never mislabeled trained",
+    "final_choice": "best trained Router if strictly below baseline score1; else baseline_bypass. Enabled0 remains an ablation only.",
+    "final_selection_frozen_before_test": true
+  },
+  "evaluation": {
+    "protocol": "matched_rgb_fp32_v2",
+    "RGB": "(x.float().clamp(-1,1)+1)/2 then native crop",
+    "codec_bridge_generator_precision": "historical deployment FP16",
+    "Router_precision": "FP32",
+    "development_videos": 32,
+    "development_QP": [
+      0,
+      5,
+      9
+    ],
+    "development_points": 96,
+    "final_videos": 45,
+    "final_QP": [
+      0,
+      5,
+      9
+    ],
+    "final_points_per_new_candidate": 135,
+    "final_frames": 64,
+    "fresh_router_RANS": true,
+    "independent_decoder": true,
+    "stream_identity": "measure hashes/bytes/codec features; not inferred from freezing",
+    "datasets": {
+      "ulong_new_holdout": 32,
+      "ulong_historical": 6,
+      "hevc_b": 5,
+      "uvg_historical_HoneyBee_Jockey": 2
+    },
+    "metrics": [
+      "bpp",
+      "kbps",
+      "PSNR",
+      "MS_SSIM",
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "WarpingError_GTFlow_PWC",
+      "WarpingError_ReconFlow_PWC"
+    ],
+    "warpGT": "PWC(GT_t,GT_previous); existing_backwarp(reconstruction_previous, flow); all-native-RGB L1 mean then mean63",
+    "warpRecon": "PWC(recon_t,recon_previous); same warp/error denominator",
+    "PWC_sampler": "pixel-center grid, align_cornersFalse, W-1/H-1 flow normalization, invalid zero, full-image denominator; width11 dx1 samples1.1px",
+    "original_results_reuse": "independent original matched_rgb_fp32_v2 only",
+    "B_results_reuse": "only verify checkpoint/source/window/QP/precision/stream/metric identities before reuse",
+    "main_plot": [
+      "GVC-RT original",
+      "TCG B+1500",
+      "TCG B+1500 + Router best trained"
+    ],
+    "BD_rate": false
+  },
+  "diagnostics": {
+    "development_sequences": [
+      "0aa91dd0-0594-4082-9154-d8d2bc94692e",
+      "0fa4df7a-d55f-4a20-b952-8fea3cbd4aae"
+    ],
+    "final_sequences": [
+      "Kimono1",
+      "081343d7-3c56-46bf-93a2-28718f33e6a7"
+    ],
+    "QP": 5,
+    "P_frames": [
+      1,
+      16,
+      49,
+      63
+    ],
+    "M_color_limits": [
+      0,
+      1
+    ],
+    "statistics": [
+      "mean",
+      "std",
+      "q01",
+      "q05",
+      "q50",
+      "q95",
+      "q99",
+      "M_lt_0.1",
+      "M_gt_0.9"
+    ],
+    "selection": "Fixed lexicographic development two, historical Kimono1 plus lexicographic new-test first; chosen before any new Router quality scoring"
+  },
+  "resource_limits": {
+    "disk_reserve_GiB": 100,
+    "private_media_cache_GiB": 80,
+    "extra_large_artifacts_GiB": 20,
+    "max_CPU_preparation_workers": 4
+  },
+  "publication": {
+    "branch": "codex/tcg-stage2-router-only-20261105",
+    "repo": "ZhangYangyingzi/GVC-RT",
+    "allowlist_only": true,
+    "no_weights_video_streams_cache_PDF_credentials": true,
+    "force_push": false
+  }
+}

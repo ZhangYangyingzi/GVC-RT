@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "B1500_receiver_hashes_match_sealed_real_RANS_point": true,
+  "receiver_hashes": {
+    "bridge": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4",
+    "generator": "35fcfbdbedf5b1fd944ecac3ef4a9ec6bb320a208c85b2b5b43590221be316f3"
+  },
+  "provenance": {
+    "baseline_cumulative_tcg_step": 6500,
+    "baseline_checkpoint": {
+      "filename": "step_1500.pt",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260"
+    },
+    "receiver_initialization": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+      "keys_loaded_strictly": [
+        "wrapper",
+        "bridge",
+        "generator"
+      ]
+    },
+    "codec_files": [
+      {
+        "filename": "GVC-RT_I.pt",
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+        "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+      },
+      {
+        "filename": "GVC-RT_P.pt",
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+        "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+      }
+    ],
+    "TCG_partial_keys_verified": [
+      "tcg_low.current_adapter.bias",
+      "tcg_low.current_adapter.weight",
+      "tcg_low.fusion.0.bias",
+      "tcg_low.fusion.0.weight",
+      "tcg_low.fusion.2.bias",
+      "tcg_low.fusion.2.weight",
+      "tcg_low.fusion.4.bias",
+      "tcg_low.fusion.4.weight",
+      "tcg_low.previous_adapter.bias",
+      "tcg_low.previous_adapter.weight",
+      "tcg_mid.current_adapter.bias",
+      "tcg_mid.current_adapter.weight",
+      "tcg_mid.fusion.0.bias",
+      "tcg_mid.fusion.0.weight",
+      "tcg_mid.fusion.2.bias",
+      "tcg_mid.fusion.2.weight",
+      "tcg_mid.fusion.4.bias",
+      "tcg_mid.fusion.4.weight",
+      "tcg_mid.previous_adapter.bias",
+      "tcg_mid.previous_adapter.weight",
+      "tcg_out.current_adapter.bias",
+      "tcg_out.current_adapter.weight",
+      "tcg_out.fusion.0.bias",
+      "tcg_out.fusion.0.weight",
+      "tcg_out.fusion.2.bias",
+      "tcg_out.fusion.2.weight",
+      "tcg_out.fusion.4.bias",
+      "tcg_out.fusion.4.weight",
+      "tcg_out.previous_adapter.bias",
+      "tcg_out.previous_adapter.weight"
+    ],
+    "TCG_partial_parameter_count": 137760,
+    "generator_full_keys_verified": 242,
+    "baseline_optimizer_loaded": false,
+    "new_router_optimizer_state_entries": 0,
+    "precision": {
+      "codec": "FP16",
+      "bridge_generator": "FP16",
+      "router": "FP32",
+      "quality": "FP32",
+      "RAFT": "FP32"
+    },
+    "components": {
+      "I_model": {
+        "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+      },
+      "P_codec": {
+        "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+      },
+      "Bridge": {
+        "sha256": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4"
+      },
+      "generator_non_TCG": {
+        "sha256": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+      },
+      "TCG": {
+        "sha256": "b66ab1e6bf77e6848c8a0b24238a3870e116deba3ad38cb02174a877e0981106"
+      }
+    },
+    "backend": {
+      "customized_cuda": false,
+      "deterministic": true,
+      "matmul_TF32": false,
+      "cudnn_TF32": true
+    },
+    "model_source_root": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runtime_tree",
+    "router_new_initialization": {
+      "seed": 20261105,
+      "conv_input_channels": 768,
+      "decoded_feature_channels": 256,
+      "trainable_parameters": 33889,
+      "last_weight_zero": true,
+      "last_bias": -4.59511985013459,
+      "M_mean_at_zero_weight": 0.01,
+      "mode": "bypass"
+    }
+  }
+}

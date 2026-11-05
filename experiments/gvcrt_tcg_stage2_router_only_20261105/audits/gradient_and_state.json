@@ -1,0 +1,269 @@
+{
+  "status": "PASS",
+  "formal_updates": 0,
+  "disposable_updates": 3,
+  "gradient_relative_L2": 4.316440691790994e-05,
+  "reference_repeat_relative_L2": 3.235624999139458e-05,
+  "tolerance": 0.001,
+  "maximum_loss_component_absolute_difference": 0.0,
+  "reconstruction_scale": 4096,
+  "unscale_count": 1,
+  "original_loss_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+  "reference_seconds": 6.445916175842285,
+  "state_checks": {
+    "status": "PASS",
+    "missing_history": true,
+    "history_detached": true,
+    "update_buffer_false_unchanged": true,
+    "internal_reference_bypasses_and_preserves_history": true,
+    "size_change_reset": true,
+    "sequence_I_reset": true
+  },
+  "smoke": [
+    {
+      "step": 1,
+      "gradient_norm": 0.0002773582773569994,
+      "parameter_gradient_norms": {
+        "router.net.0.weight": 0.0,
+        "router.net.0.bias": 0.0,
+        "router.net.2.weight": 0.0,
+        "router.net.2.bias": 0.0,
+        "router.net.4.weight": 0.00012336313375271857,
+        "router.net.4.bias": 0.0002484132710378617
+      },
+      "losses": {
+        "motion_loss": 1.5812236368656158,
+        "weighted_motion_loss": 0.015812236368656158,
+        "LPIPS": 0.0938424160083135,
+        "DISTS": 0.1244746208190918,
+        "weighted_DISTS": 0.0622373104095459,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023860580349961916,
+        "weighted_reconstruction_L1": 0.003301324152077238,
+        "total_loss": 0.19918704796892903
+      },
+      "frozen_unchanged": true,
+      "peak_reserved_bytes": 2950692864
+    },
+    {
+      "step": 2,
+      "gradient_norm": 0.00027814486172995445,
+      "parameter_gradient_norms": {
+        "router.net.0.weight": 1.107966113522707e-06,
+        "router.net.0.bias": 2.6329097124744294e-08,
+        "router.net.2.weight": 4.3637189151013445e-07,
+        "router.net.2.bias": 7.055768236341464e-08,
+        "router.net.4.weight": 0.0001236629905179143,
+        "router.net.4.bias": 0.00024913973174989223
+      },
+      "losses": {
+        "motion_loss": 1.5805094063282012,
+        "weighted_motion_loss": 0.015805094063282014,
+        "LPIPS": 0.09384175191322962,
+        "DISTS": 0.12447377443313598,
+        "weighted_DISTS": 0.06223688721656799,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023860531176129976,
+        "weighted_reconstruction_L1": 0.0033013173223783573,
+        "total_loss": 0.19917881154579423
+      },
+      "frozen_unchanged": true,
+      "peak_reserved_bytes": 2950692864
+    },
+    {
+      "step": 3,
+      "gradient_norm": 0.0002819628750142924,
+      "parameter_gradient_norms": {
+        "router.net.0.weight": 2.2717576939612627e-06,
+        "router.net.0.bias": 5.398887736873803e-08,
+        "router.net.2.weight": 9.035939569912443e-07,
+        "router.net.2.bias": 1.4180035634581145e-07,
+        "router.net.4.weight": 0.00013116534682922065,
+        "router.net.4.bias": 0.0002495850785635412
+      },
+      "losses": {
+        "motion_loss": 1.579904446999232,
+        "weighted_motion_loss": 0.01579904446999232,
+        "LPIPS": 0.09384206483761469,
+        "DISTS": 0.12447755734125773,
+        "weighted_DISTS": 0.062238778670628866,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.02386062927544117,
+        "weighted_reconstruction_L1": 0.0033013309196879468,
+        "total_loss": 0.19917497992826005
+      },
+      "frozen_unchanged": true,
+      "peak_reserved_bytes": 2952790016
+    }
+  ],
+  "motion_reconstruction_gradient_norm": 9.337361335754395,
+  "RAFT_parameters_frozen": true,
+  "baseline_provenance": {
+    "baseline_cumulative_tcg_step": 6500,
+    "baseline_checkpoint": {
+      "filename": "step_1500.pt",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260"
+    },
+    "receiver_initialization": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+      "keys_loaded_strictly": [
+        "wrapper",
+        "bridge",
+        "generator"
+      ]
+    },
+    "codec_files": [
+      {
+        "filename": "GVC-RT_I.pt",
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+        "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+      },
+      {
+        "filename": "GVC-RT_P.pt",
+        "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+        "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+      }
+    ],
+    "TCG_partial_keys_verified": [
+      "tcg_low.current_adapter.bias",
+      "tcg_low.current_adapter.weight",
+      "tcg_low.fusion.0.bias",
+      "tcg_low.fusion.0.weight",
+      "tcg_low.fusion.2.bias",
+      "tcg_low.fusion.2.weight",
+      "tcg_low.fusion.4.bias",
+      "tcg_low.fusion.4.weight",
+      "tcg_low.previous_adapter.bias",
+      "tcg_low.previous_adapter.weight",
+      "tcg_mid.current_adapter.bias",
+      "tcg_mid.current_adapter.weight",
+      "tcg_mid.fusion.0.bias",
+      "tcg_mid.fusion.0.weight",
+      "tcg_mid.fusion.2.bias",
+      "tcg_mid.fusion.2.weight",
+      "tcg_mid.fusion.4.bias",
+      "tcg_mid.fusion.4.weight",
+      "tcg_mid.previous_adapter.bias",
+      "tcg_mid.previous_adapter.weight",
+      "tcg_out.current_adapter.bias",
+      "tcg_out.current_adapter.weight",
+      "tcg_out.fusion.0.bias",
+      "tcg_out.fusion.0.weight",
+      "tcg_out.fusion.2.bias",
+      "tcg_out.fusion.2.weight",
+      "tcg_out.fusion.4.bias",
+      "tcg_out.fusion.4.weight",
+      "tcg_out.previous_adapter.bias",
+      "tcg_out.previous_adapter.weight"
+    ],
+    "TCG_partial_parameter_count": 137760,
+    "generator_full_keys_verified": 242,
+    "original_codec_key_audit": {
+      "I": {
+        "verified_loaded_keys": 596,
+        "explicit_legacy_TCG_missing_keys": [],
+        "unexpected_keys": []
+      },
+      "P": {
+        "verified_loaded_keys": 537,
+        "explicit_legacy_TCG_missing_keys": [
+          "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.weight"
+        ],
+        "unexpected_keys": []
+      }
+    },
+    "baseline_optimizer_loaded": false,
+    "new_router_optimizer_state_entries": 0,
+    "precision": {
+      "codec": "FP16",
+      "bridge_generator": "FP32",
+      "router": "FP32",
+      "quality": "FP32",
+      "RAFT": "FP32"
+    },
+    "components": {
+      "I_model": {
+        "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+      },
+      "P_codec": {
+        "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+      },
+      "Bridge": {
+        "sha256": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3"
+      },
+      "generator_non_TCG": {
+        "sha256": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+      },
+      "TCG": {
+        "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+      },
+      "LPIPS": {
+        "sha256": "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f"
+      },
+      "DISTS": {
+        "sha256": "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      },
+      "RAFT": {
+        "sha256": "2821b880314230802e969b92a3da0bf072c975468f8b7ac2214d44cced88d7c1"
+      }
+    },
+    "backend": {
+      "customized_cuda": false,
+      "deterministic": true,
+      "matmul_TF32": false,
+      "cudnn_TF32": true
+    },
+    "model_source_root": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runtime_tree",
+    "router_new_initialization": {
+      "seed": 20261105,
+      "conv_input_channels": 768,
+      "decoded_feature_channels": 256,
+      "trainable_parameters": 33889,
+      "last_weight_zero": true,
+      "last_bias": -4.59511985013459,
+      "M_mean_at_zero_weight": 0.01,
+      "mode": "enabled"
+    }
+  },
+  "frozen_sha256": "e5285d5b129405baa0cadf8e33733985e20759980611679271cd50ff3bd20387"
+}

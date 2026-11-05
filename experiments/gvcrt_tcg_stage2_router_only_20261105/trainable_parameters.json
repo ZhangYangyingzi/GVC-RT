@@ -1,0 +1,60 @@
+{
+  "modules": [
+    "recon_generation_net.router"
+  ],
+  "count": 33889,
+  "parameters": [
+    {
+      "name": "router.net.0.weight",
+      "shape": [
+        32,
+        768,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.0.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.2.weight",
+      "shape": [
+        32,
+        32,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.2.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.4.weight",
+      "shape": [
+        1,
+        32,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.4.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    }
+  ],
+  "only_Router_requires_grad": true
+}
