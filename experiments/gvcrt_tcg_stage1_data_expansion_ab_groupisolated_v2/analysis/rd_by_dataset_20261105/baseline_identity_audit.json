@@ -1,0 +1,254 @@
+{
+  "status": "PASS",
+  "user_confirmed_original_checkpoint_directory": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints",
+  "files": {
+    "original_P": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "bytes": 206881943
+    },
+    "original_I": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "bytes": 334225106
+    },
+    "v634_step0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_neural_wrapper_v6_34_p_joint_fd_matched_5000/branches/N_noP_BG_FD/checkpoints/adaptation_step_0.pt",
+      "sha256": "18394bc0145e4bfc9eb18fb009fdb9dcc7f626536fe2367fb19b95e471f09074",
+      "bytes": 810133473
+    },
+    "pilot_step0": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+      "bytes": 139014208
+    },
+    "expanded_step0": {
+      "path": "/Huang_group/zyyz/home_dir/tmp/gvcrt_tcg_stage1_expanded_20261103_worktree/experiments/gvcrt_tcg_stage1_expanded_5000/checkpoints/step_0.pt",
+      "sha256": "eb2412f5c61665b128ef80f5e40a3f0cfc8cdce0e328461a22ebf486cae84a13",
+      "bytes": 622424
+    }
+  },
+  "comparisons": {
+    "bridge": {
+      "tensors": 28,
+      "elements": 801124,
+      "equal_raw": 0,
+      "equal_after_loader_FP16_to_FP32": 28,
+      "equal_pilot": 28,
+      "max_raw_abs_difference": 0.00024402141571044922,
+      "max_after_cast_abs_difference": 0.0
+    },
+    "generator": {
+      "tensors": 212,
+      "elements": 33776640,
+      "equal_raw": 0,
+      "equal_after_loader_FP16_to_FP32": 212,
+      "equal_pilot": 212,
+      "max_raw_abs_difference": 0.0004221200942993164,
+      "max_after_cast_abs_difference": 0.0
+    }
+  },
+  "parent0_metric_checkpoint_hash_matches": true,
+  "v634_adaptation_step": 0,
+  "v634_optimizer_state_entries": 0,
+  "pilot_to_expanded_TCG_state_exact": true,
+  "terminal_TCG_nonzero_counts": {
+    "tcg_low.fusion.4.weight": 0,
+    "tcg_low.fusion.4.bias": 0,
+    "tcg_mid.fusion.4.weight": 0,
+    "tcg_mid.fusion.4.bias": 0,
+    "tcg_out.fusion.4.weight": 0,
+    "tcg_out.fusion.4.bias": 0
+  },
+  "original_release_sources": {
+    "decoder": {
+      "git_commit": "b2a0895c0cf31cf2be3ab1c2571ca07c05866c03",
+      "git_path": "src/models/improved_model_gvcrt.py",
+      "sha256": "88a8caa6589c885e746472dcb5962cf1d2a501020e0d7b8745afde111469212c"
+    },
+    "video": {
+      "git_commit": "b2a0895c0cf31cf2be3ab1c2571ca07c05866c03",
+      "git_path": "src/models/video_model_gvcrt.py",
+      "sha256": "324cfb1c5c651ebe3929cb4478477722ddd1e73f586ec569cb824c9044af8bf0"
+    }
+  },
+  "current_source_sha256": {
+    "src/layers/layers.py": "cb1b620a6fdecdff087e1e59691536a8c7f6ae2447dec83bb460ace519cd0991",
+    "src/layers/cuda_inference.py": "ed75bd62f96520f6d0b7209f07caf373bccb645139675849fbf4a0c3d00ff8e0",
+    "src/models/improved_model_gvcrt.py": "5037c9e380e05b0e2fb5f3b94972c21791abfdf61aa3bd9bb813cabbb1fd7ea1",
+    "src/models/video_model_gvcrt.py": "6779edfc5c651a6c9e64059dc3c4676a9978cf397206e26efd0b7e0d890775ee",
+    "expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766",
+    "experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_evaluate.py": "a4b7dd74351e1691dd60225692461100d85c3f983ac448e5b27bfe46e9d7317a"
+  },
+  "receiver_probe": {
+    "device": "CPU",
+    "dtype": "FP16",
+    "cases": [
+      {
+        "qp": 0,
+        "frame": 0,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 0,
+        "frame": 1,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 0,
+        "frame": 2,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 5,
+        "frame": 0,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 5,
+        "frame": 1,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 5,
+        "frame": 2,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 9,
+        "frame": 0,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 9,
+        "frame": 1,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      },
+      {
+        "qp": 9,
+        "frame": 2,
+        "input_shape": [
+          1,
+          256,
+          8,
+          12
+        ],
+        "output_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "exact_equal": true,
+        "max_abs_difference": 0.0
+      }
+    ],
+    "shared_current_layer_implementation": true
+  },
+  "conclusion": "v6_34 step0 and the non-TCG pilot receiver tensors exactly match user-confirmed original P weights after the existing loader precision conversion; expanded step0 has zero TCG residual.",
+  "scope": "Weight identity and small synthetic receiver probes only. No independent full-dataset original-code RANS evaluation was performed. No training or metrics changes."
+}

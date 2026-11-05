@@ -1,5 +1,7 @@
 # Measured rate-quality review — 2026-11-05
 
+Superseded for dataset reporting by [separate dataset and individual-video curves](../rd_by_dataset_20261105/README.md). The historical_reference figure below pools six ULong, five HEVC-B, and two UVG videos; it must not be presented as a curve for any one dataset. See the new [tensor-level baseline audit](../rd_by_dataset_20261105/BASELINE_FINDINGS.md) for the identity and precision of parent0.
+
 These figures summarize the existing final measurements in ../../metrics_v3.csv. No training, decoding, new QP measurement, model selection, or source-metric changes were performed.
 
 - New held-out ULong: 32 videos, shown in new_holdout_test_rate_quality.png.
