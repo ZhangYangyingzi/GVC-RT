@@ -2,14 +2,16 @@
   "branch": "codex/tcg-stage1-data-expansion-ab-20261103",
   "protocol_revision": "online-development-earlystop-v3",
   "code_commit_remote_verified": true,
-  "results_remote_verified": false,
-  "core_blobs_verified": false,
-  "status": "CODE_PROTOCOL_PUBLISHED_RESULTS_PENDING",
-  "last_phase": "code",
-  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 74, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 24, in main\n    current=remote_head();git_run(['fetch','origin','refs/heads/'+BRANCH]);git_run(['merge-base','--is-ancestor',BASELINE,current])\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_publish.py\", line 7, in git_run\n    if r.returncode:raise RuntimeError(json.dumps(dict(command=['git',*args],returncode=r.returncode,stdout=r.stdout[-4000:],stderr=r.stderr[-8000:])))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"command\": [\"git\", \"fetch\", \"origin\", \"refs/heads/codex/tcg-stage1-data-expansion-ab-20261103\"], \"returncode\": 128, \"stdout\": \"\", \"stderr\": \"fatal: Could not read from remote repository.\\n\\nPlease make sure you have the correct access rights\\nand the repository exists.\\n\"}\n",
-  "recorded_unix": 1793765202.6916134,
+  "results_remote_verified": true,
+  "core_blobs_verified": true,
+  "status": "PUBLISHED",
+  "last_phase": "results",
   "code_commit": "deaa43c3328b5b2f13950f3afdf47fdaca4a3924",
   "code_core_blobs_verified": true,
   "code_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/deaa43c3328b5b2f13950f3afdf47fdaca4a3924",
-  "code_metadata_commit": "67bb279287d8071c2aa3652948502129ef287dc1"
+  "code_metadata_commit": "5af944169646ac517fd76e7fc9acb619f204afe5",
+  "previous_failure_record": "repairs/publication_csv_v1/before/migrations/eval_parallel_v1/publication_results.json.gz",
+  "results_data_commit": "c7142e7e644e1b67d18484626c8e1ba82d0ad49e",
+  "results_commit": "c7142e7e644e1b67d18484626c8e1ba82d0ad49e",
+  "results_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/c7142e7e644e1b67d18484626c8e1ba82d0ad49e"
 }
