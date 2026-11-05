@@ -1,11 +1,14 @@
 {
-  "status": "FAILED",
-  "current_stage": "development_validation_complete",
-  "time": 1793873379.7610912,
-  "PID": 3534921,
-  "committed_router_updates": 250,
-  "baseline_cumulative_tcg_step": 6500,
-  "failure_stage": "development_validation_complete",
-  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 129, in main\n    try:run(lease)\n        ^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 112, in run\n    snapshot('development_validation_complete');event('VALIDATION_COMPLETE',**state['checks'][-1])\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/common_s2.py\", line 74, in event\n    row=dict(event=name,time=time.time(),**fields)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: dict() got multiple values for keyword argument 'time'\n",
-  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py"
+  "status": "COMPLETE",
+  "current_stage": "experiment_complete",
+  "time": 1793894242.9405825,
+  "experiment_complete": true,
+  "committed_router_updates": 1000,
+  "stop_reason": "EARLY_STOPPED_PATIENCE",
+  "integrity_status": "PASS",
+  "final_test_points": 135,
+  "dataset_plots": 4,
+  "per_video_plots": 45,
+  "publication_status_file": "publication_status.json",
+  "publication_recorded_separately": true
 }

@@ -1,0 +1,11 @@
+{
+  "status": "FAILED",
+  "current_stage": "final_integrity_and_plotting",
+  "time": 1793893960.3391194,
+  "PID": 3671115,
+  "committed_router_updates": 1000,
+  "baseline_cumulative_tcg_step": 6500,
+  "failure_stage": "final_integrity_and_plotting",
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 129, in main\n    try:run(lease)\n        ^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 121, in run\n    commands([('finalize',[PYTHON,'-B','-u',str(ROOT/'finalize.py')])],'final_integrity_and_plotting',lease)\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py\", line 38, in commands\n    assert not any(codes),(stage,'CHILD_PROCESS_FAILURE',[(label,p.returncode) for p,h,label in children])\n           ^^^^^^^^^^^^^^\nAssertionError: ('final_integrity_and_plotting', 'CHILD_PROCESS_FAILURE', [('finalize', 1)])\n",
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_router_only_20261105/experiments/gvcrt_tcg_stage2_router_only_20261105/runner.py"
+}

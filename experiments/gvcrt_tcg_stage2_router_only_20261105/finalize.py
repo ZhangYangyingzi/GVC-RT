@@ -23,7 +23,7 @@ def group(v):
     if v['split']=='new_holdout_test':return 'ULong_new_holdout_32'
     if v['domain']=='ulong':return 'ULong_historical_6'
     if v['domain']=='hevc_b':return 'HEVC_B_5'
-    assert v['domain']=='uvg' and v['sequence'] in ['HoneyBee','Jockey'];return 'UVG_historical_HoneyBee_Jockey_2'
+    assert v['domain']=='uvg_holdout' and v['sequence'] in ['HoneyBee','Jockey'];return 'UVG_historical_HoneyBee_Jockey_2'
 
 def main():
     env();verify_sources();selection=load(ROOT/'selection.json');state=load(ROOT/'stopping_state.json');best=selection['best_trained_router']['step']
