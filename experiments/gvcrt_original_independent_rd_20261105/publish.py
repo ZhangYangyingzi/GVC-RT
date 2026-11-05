@@ -31,12 +31,12 @@ def publish():
         chosen=[]
         for path in sorted(ROOT.rglob('*')):
             relative=path.relative_to(ROOT)
-            if path.is_symlink() or not path.is_file() or any(p in ('cache','tmp','logs','bitstreams','__pycache__','progress') for p in relative.parts):continue
+            if path.is_symlink() or not path.is_file() or any(p in ('cache','tmp','logs','bitstreams','__pycache__','progress','invalidated_v1') for p in relative.parts):continue
             if path.suffix not in ('.py','.json','.csv','.md','.png') and path.name!='.gitignore':continue
             if path.name in ('publication.json','SHA256_MANIFEST.json'):continue
             assert path.stat().st_size<50*1024*1024,path
             chosen.append(path)
-        dump(ROOT/'SHA256_MANIFEST.json',dict(files=[dict(file=str(p.relative_to(ROOT)),sha256=sha(p),size_bytes=p.stat().st_size) for p in chosen],excludes='self and mutable publication metadata; media/weights/streams/cache/logs excluded'))
+        dump(ROOT/'SHA256_MANIFEST.json',dict(files=[dict(file=str(p.relative_to(ROOT)),sha256=sha(p),size_bytes=p.stat().st_size) for p in chosen if p.name not in ('run_status.json','staging_audit.json')],excludes='self and mutable publication/run/staging metadata; invalidated v1/media/weights/streams/cache/logs excluded'))
         chosen.append(ROOT/'SHA256_MANIFEST.json')
         allowed=[]
         for source in chosen:

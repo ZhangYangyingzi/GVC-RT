@@ -17,3 +17,5 @@
 ```
 
 `run_status.json` 为实际状态。只有 `final_integrity.json` 为 PASS 且 `metrics_original.csv` 有 135 点，才代表完整评测完成。`REPORT.md` 和 `plots/` 仅在完整实测校验通过后生成。GitHub 上传结果另记 `publication.json`，权重、视频和码流不上传。
+
+当前评分协议：`matched_rgb_fp32_v2`。初版FP16范围转换评分及其图片已失效，原始记录仅保留在本地 `invalidated_v1/`；本次重新执行全部135个fresh encode/independent decode点。修复记录：`audits/precision_alignment_v2/repair.json`。

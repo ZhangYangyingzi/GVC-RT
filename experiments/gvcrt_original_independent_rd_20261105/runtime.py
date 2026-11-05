@@ -21,7 +21,7 @@ def initialize(device):
         raise RuntimeError('Required pretrained metrics must already exist locally')
     torch.hub.download_url_to_file=no_download
     namespace=dict(torch=torch,F=F,math=math)
-    for path,names in [(TCG_REPO/'experiments/gvcrt_neural_wrapper_v2_joint/core.py',{'ms_ssim_rgb','quality_models'}),
+    for path,names in [(TCG_REPO/'experiments/gvcrt_neural_wrapper_v2_joint/core.py',{'unit','ms_ssim_rgb','quality_models'}),
                        (TCG_REPO/'experiments/gvcrt_neural_wrapper_v4_progressive_joint/eval_core.py',{'frame_metrics'})]:
         tree=ast.parse(path.read_text())
         selected=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names]
@@ -29,7 +29,7 @@ def initialize(device):
         exec(compile(ast.Module(body=selected,type_ignores=[]),str(path),'exec'),namespace)
     runtime=dict(torch=torch,device=torch.device(device),DMCI=DMCI,DMC=DMC,stream=stream_helper,
                  replicate_pad=replicate_pad,frame_metrics=namespace['frame_metrics'],
-                 quality_models=namespace['quality_models'],custom_cuda_kernels=CUSTOMIZED_CUDA_INFERENCE)
+                 quality_models=namespace['quality_models'],unit=namespace['unit'],custom_cuda_kernels=CUSTOMIZED_CUDA_INFERENCE)
     verify_codec_imports()
     return runtime
 

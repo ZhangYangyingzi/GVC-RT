@@ -50,6 +50,10 @@ def finalize():
             assert p['actual_qps']==oldp['actual_qps'] and p['source_frame_indices']==oldp['source_frame_indices']
             assert r['source_RGB_sha256']==old['source_RGB_sha256'] and r['source_sha256']==old['source_sha256']
             oldtrans=read_csv(old_points.parent/f'transitions/parent0_{v["domain"]}_{v["sequence"]}_qp{qp}.csv')
+            oldframes=read_csv(old_points.parent/f'frames/parent0_{v["domain"]}_{v["sequence"]}_qp{qp}.csv')
+            for new_frame,old_frame in zip(frames,oldframes):
+                if new_frame['reconstruction_tensor_sha256']==old_frame['reconstruction_tensor_sha256']:
+                    assert new_frame['decoded_RGB_tensor_sha256']==old_frame['decoded_RGB_tensor_sha256'],'Scoring RGB conversion differs despite identical raw reconstruction'
             assert [t['GT_flow_sha256'] for t in trans]==[t['GT_flow_sha256'] for t in oldtrans], 'Metric GT flow changed'
             comparisons.append(dict(domain=r['domain'],split=r['split'],sequence=r['sequence'],QP=qp,
                                     identical_bitstream=r['bitstream_sha256']==old['bitstream_sha256'],
@@ -83,7 +87,7 @@ def finalize():
                  source_frames_matched=True,GT_flow_hashes_matched=True,rate_and_metric_aggregation_verified=True,
                  protocol_sha256=sha(ROOT/'protocol.json'),metrics_original_sha256=sha(ROOT/'metrics_original.csv'),
                  previous_metrics_unchanged=sha(TCG/'metrics_v3.csv')==protocol['previous_metrics_sha256'],
-                 metric_runtime_hashes_matched=True,execution_sources_unchanged=True,dataset_plot_count=4,per_video_plot_count=45,
+                 metric_runtime_hashes_matched=True,execution_sources_unchanged=True,scoring_RGB_conversion_matched=True,dataset_plot_count=4,per_video_plot_count=45,
                  plot_files=[dict(file=str(p.relative_to(ROOT)),sha256=sha(p),size_bytes=p.stat().st_size) for p in expected_plots])
     dump(ROOT/'final_integrity.json',summary)
     report=['# GVC-RT 原版独立评测', '',

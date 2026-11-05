@@ -70,8 +70,8 @@ def run_point(rt,quality,flow,perceptual,arrays,v,qp):
             else:decoded=pa.decompress(payload,current,q)
             rec_hash=tensor_sha(decoded['x_hat']);recon_hashes.append(rec_hash)
             assert rec_hash==sync_hashes[i],('INDEPENDENT_DECODE_MISMATCH',key,i)
-            # Preserve the established half-precision range conversion before FP32 scoring.
-            output=((decoded['x_hat'].clamp(-1,1)+1)/2)[:,:,:h,:w].float();gt=gt_frame(i)
+            # Use the pinned historical unit() verbatim: FP32 before range conversion.
+            output=rt['unit'](decoded['x_hat'],h,w).float();gt=gt_frame(i)
             spatial=rt['frame_metrics'](output,gt,quality)
             assert all(math.isfinite(float(x)) for x in spatial.values())
             rows.append(dict(frame=i,external_qp=qp,actual_qp=q,real_bits=(reader.tell()-pos)*8,payload_bits=len(payload)*8,

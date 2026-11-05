@@ -80,5 +80,8 @@
   "independent_decoder_instances": true,
   "metric_implementations": "Exact spatial metric functions extracted from pinned prior scoring source; same PWC/FloLPIPS compatibility implementation.",
   "scope": "Independent original codec implementation under the matched experiment protocol; not a reproduction of every default in the paper evaluator.",
-  "full_benchmark_dataset_claim": false
+  "full_benchmark_dataset_claim": false,
+  "protocol_revision": "matched_rgb_fp32_v2",
+  "metric_RGB_conversion": "Pinned core.unit: (x.float().clamp(-1,1)+1)/2, then crop native h/w",
+  "supersedes_invalidated_protocol_sha256": "d76b25c5795391c005a8757875b3675d91c01af3719a8692e6be95b14eb55f47"
 }
