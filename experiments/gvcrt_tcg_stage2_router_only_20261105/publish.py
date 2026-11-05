@@ -16,6 +16,7 @@ def candidates():
     files=[]
     for p in sorted(ROOT.rglob('*')):
         rel=p.relative_to(ROOT)
+        if str(rel)=='publication_allowlist.json':continue
         if any(x in excluded for x in rel.parts) or p.is_symlink() or not p.is_file():continue
         if p.suffix not in allowed:continue
         assert p.stat().st_size<50*2**20,('PUBLICATION_FILE_TOO_LARGE',str(rel))
@@ -38,7 +39,7 @@ def main():
                 _,code=git(['merge-base','--is-ancestor',remote_head,'HEAD'],check=False)
                 assert code==0,'REMOTE_ADVANCED_OR_DIVERGED; no overwrite or force push allowed'
             files=candidates();allow=[str(p.relative_to(WORKTREE)) for p in files]
-            dump(ROOT/'publication_allowlist.json',dict(phase=args.phase,files=[dict(path=str(p.relative_to(ROOT)),bytes=p.stat().st_size,sha256=sha(p)) for p in files]))
+            dump(ROOT/'publication_allowlist.json',dict(phase=args.phase,manifest_self_file='publication_allowlist.json',manifest_self_hash_excluded=True,files=[dict(path=str(p.relative_to(ROOT)),bytes=p.stat().st_size,sha256=sha(p)) for p in files]))
             files.append(ROOT/'publication_allowlist.json');allow=[str(p.relative_to(WORKTREE)) for p in files]
             # Refuse pre-existing unrelated staged changes instead of unstaging or modifying them.
             staged,_=git(['diff','--cached','--name-only','-z']);assert not staged or all(x in allow for x in staged.split('\0') if x)

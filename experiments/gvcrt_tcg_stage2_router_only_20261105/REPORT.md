@@ -1,16 +1,13 @@
-# Stage2 Router-only execution record
+# Stage2 Router-only execution snapshot
 
+Snapshot UTC: 2026-11-05T08:55:14Z
 
-Snapshot UTC: 2026-11-05T08:44:12Z
+Status: RUNNING. Current work: enabled Router step0 development evaluation, 52/96 points. Formal Router updates:0.
 
-Status: RUNNING; stage: development_router_0000; committed Router updates: 0.
+Fixed baseline: B+1500, cumulative TCG step6500. Trainable module:33889-parameter Router only.
 
-Baseline: B+1500, cumulative TCG step6500; only the new 33889-parameter Router is trainable.
+Forward bypass/forced-mask, gradient, frozen-state, four-rank mean reduction, checkpoint reload and fixed real-RANS tests passed. Temporary engineering optimizer updates were discarded; formal checkpoint0 matches fresh seeded Router parameters with empty optimizer state.
 
-Frozen data: ULong pool8470, quarantined source groups236; source-plan cursor starts at1500.
+Existing development workers continue. The controlled coordinator restart waits for their inherited lifecycle leases and then resumes automatically. No user terminal action is required.
 
-Cap3000; validation every250 updates; FloLPIPS normalized to B+1500; patience4; min_delta0.001.
-
-Codec FP16; training Bridge/generator/Router FP32; evaluation Bridge/generator FP16 and Router FP32.
-
-No final PASS is claimed before full integrity validation.
+Checkpoint metadata, immutable step0 and manifest-scope repairs are recorded in audits/. Protocol, data plans, model/loss math and scoring remain unchanged. No final experiment PASS is claimed.

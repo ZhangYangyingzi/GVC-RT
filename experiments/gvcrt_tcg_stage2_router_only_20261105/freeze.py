@@ -17,7 +17,7 @@ def main():
     for name in ['source_manifest.json','runtime_protocol_addendum.json']:
         path=PARENT/name
         if path.exists():external[str(path)]=sha(path)
-    code_manifest=dict(revision='router_only_code_freeze_v3_checkpoint_metadata_immutable_step0',time=time.time(),code=files,protocol_sha256=sha(ROOT/'protocol.json'),
+    code_manifest=dict(revision='router_only_code_freeze_v4_checkpoint_and_manifest_integrity',time=time.time(),code=files,protocol_sha256=sha(ROOT/'protocol.json'),
         plan_index_sha256=sha(ROOT/'plans/index.json'),baseline_checkpoint_sha256=BASELINE_SHA,pilot_checkpoint_sha256=PILOT_SHA,
         inherited_external_sources=external,immutable_manifests={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'vendor/sealed').rglob('*.json'))},
         final_videos_sha256=sha(ROOT/'manifests/final_videos.json'))
