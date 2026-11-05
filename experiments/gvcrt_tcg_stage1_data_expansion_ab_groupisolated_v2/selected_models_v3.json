@@ -1,0 +1,118 @@
+{
+  "status": "SELECTION_FROZEN_BEFORE_FINAL_TEST",
+  "frozen_unix": 1793812440.7144558,
+  "protocol_sha256": "3702ff0d7f6d5aa63f6eb88b3bd47b7325f23caa98206a932e336c7383a24e48",
+  "K_common": 1500,
+  "common_selection_rule": "largest intersection of completed planned validation steps; independent of quality differences",
+  "per_arm": {
+    "A_clean_old_pool": {
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "actual_additional_updates": 1500,
+      "actual_absolute_optimizer_step": 6500,
+      "best_dev_step": 500,
+      "best_dev_M": 0.9983028525010113,
+      "theoretical_stop_step": 1500,
+      "early_stop_state_sha256": "a6ebc66fdddb5bbd594b514dc076853fcf5795249fe6b0cbe7284093be293956"
+    },
+    "B_expanded_ulong": {
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "actual_additional_updates": 3000,
+      "actual_absolute_optimizer_step": 8000,
+      "best_dev_step": 1500,
+      "best_dev_M": 0.993910725903603,
+      "theoretical_stop_step": 3000,
+      "early_stop_state_sha256": "55d01319ce047b87731e5c122d50997947a0b7af9397f31464f2e4eb3efeec85"
+    }
+  },
+  "states": [
+    {
+      "id": "parent0",
+      "checkpoint_path": "/Huang_group/zyyz/home_dir/tmp/gvcrt_tcg_stage1_expanded_20261103_worktree/experiments/gvcrt_tcg_stage1_expanded_5000/checkpoints/step_0.pt",
+      "checkpoint_filename": "step_0.pt",
+      "checkpoint_sha256": "eb2412f5c61665b128ef80f5e40a3f0cfc8cdce0e328461a22ebf486cae84a13",
+      "additional_step": null,
+      "absolute_step": 0,
+      "roles": [
+        "parent0"
+      ],
+      "model_signature": "4630b71aa404b167f09c67e86c64c9389b83958d701201cad6fbde0f5c2f97b1",
+      "aliases": [
+        "parent0"
+      ]
+    },
+    {
+      "id": "parent5000",
+      "checkpoint_path": "/Huang_group/zyyz/home_dir/tmp/gvcrt_tcg_stage1_expanded_20261103_worktree/experiments/gvcrt_tcg_stage1_expanded_5000/checkpoints/step_5000.pt",
+      "checkpoint_filename": "step_5000.pt",
+      "checkpoint_sha256": "d398c3760ef1351ce21dc1663cc20337b0ce98dfaf5b06bf8b1d550511210264",
+      "additional_step": 0,
+      "absolute_step": 5000,
+      "roles": [
+        "parent5000"
+      ],
+      "model_signature": "f4d2ee0debe3672359d1286b79bcf7afaa58468f13348285fd5724730588e547",
+      "aliases": [
+        "parent5000"
+      ]
+    },
+    {
+      "id": "A_common",
+      "checkpoint_path": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/A_clean_old_pool/checkpoints_v3/step_1500.pt",
+      "checkpoint_filename": "step_1500.pt",
+      "checkpoint_sha256": "ddbafca922ce355422a1e9aeb89cdd5f7c62477660d30dccc4c87f69ff300438",
+      "additional_step": 1500,
+      "absolute_step": 6500,
+      "roles": [
+        "A_common"
+      ],
+      "model_signature": "bc26f24ee17d201e8effdd9e13ff4faf53fe31fc2ed812dbf284a73ce40f692b",
+      "aliases": [
+        "A_common"
+      ]
+    },
+    {
+      "id": "A_best_dev",
+      "checkpoint_path": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/A_clean_old_pool/checkpoints/step_500.pt",
+      "checkpoint_filename": "step_500.pt",
+      "checkpoint_sha256": "e90ae433c5cc33a55c080f6c94f4c5894174edb3e4d77a0e2173ee36db9c6aa8",
+      "additional_step": 500,
+      "absolute_step": 5500,
+      "roles": [
+        "A_best_dev"
+      ],
+      "model_signature": "bbdd6b0ad7bab9aa80c06eef79cfe8572f3385e13bacfbd90e83731f8118a9cf",
+      "aliases": [
+        "A_best_dev"
+      ]
+    },
+    {
+      "id": "B_common",
+      "checkpoint_path": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "checkpoint_filename": "step_1500.pt",
+      "checkpoint_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+      "additional_step": 1500,
+      "absolute_step": 6500,
+      "roles": [
+        "B_common"
+      ],
+      "model_signature": "f019f4cf53409bf5d1c4ffc9d6fa16e24aea3a902012cd468dcf6793a6d409b7",
+      "aliases": [
+        "B_common",
+        "B_best_dev"
+      ]
+    }
+  ],
+  "role_to_unique_state": {
+    "parent0": "parent0",
+    "parent5000": "parent5000",
+    "A_common": "A_common",
+    "A_best_dev": "A_best_dev",
+    "B_common": "B_common",
+    "B_best_dev": "B_common"
+  },
+  "expected_final_points": 675,
+  "new_test_points": 480,
+  "historical_reference_points": 195,
+  "test_used_for_selection": false,
+  "roles_with_unequal_best_steps_are_not_same_budget": true
+}

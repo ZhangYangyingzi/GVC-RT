@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "dx": 0.0,
+      "center_input": 5.0,
+      "center_output": 5.0,
+      "corner_output": 0.0,
+      "valid_pixels": 99,
+      "maxabs_against_explicit_sampling": 0.0
+    },
+    {
+      "dx": 1.0,
+      "center_input": 5.0,
+      "center_output": 6.100000381469727,
+      "corner_output": 1.0999997854232788,
+      "valid_pixels": 81,
+      "maxabs_against_explicit_sampling": 0.0
+    },
+    {
+      "dx": -1.0,
+      "center_input": 5.0,
+      "center_output": 3.9000000953674316,
+      "corner_output": 0.0,
+      "valid_pixels": 81,
+      "maxabs_against_explicit_sampling": 0.0
+    },
+    {
+      "dx": 20.0,
+      "center_input": 5.0,
+      "center_output": 0.0,
+      "corner_output": 0.0,
+      "valid_pixels": 0,
+      "maxabs_against_explicit_sampling": 0.0
+    }
+  ],
+  "convention": "Existing pixel-center linspace(-1+1/W,1-1/W) base grid, flow normalized by (W-1)/2,(H-1)/2; grid_sample align_corners=False; positive dx samples to the right; bilinear zero padding; sampled appended-one mask >0.999. Zero flow preserves the image within floating interpolation precision. Pixel flow normalization uses W-1/H-1 as in the existing implementation; preserved explicitly.",
+  "denominator": "All H*W*3 image elements; invalid positions have zero warped reconstruction, not removed from the L1 denominator",
+  "S2VC_exact_implementation_reproduction_claim": false
+}

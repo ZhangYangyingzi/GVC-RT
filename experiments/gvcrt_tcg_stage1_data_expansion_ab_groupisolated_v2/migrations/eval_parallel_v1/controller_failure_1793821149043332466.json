@@ -1,0 +1,43 @@
+{
+  "status": "FAILED",
+  "stage": "result_publication",
+  "protocol_revision": "online-development-earlystop-v3",
+  "updated": 1793821149.0408382,
+  "arms": {
+    "A_clean_old_pool": {
+      "committed_additional_updates": 1500,
+      "absolute_optimizer_step": 6500,
+      "status": "EARLY_STOPPED_PATIENCE",
+      "best_dev_step": 500,
+      "bad_check_count": 3,
+      "next_validation_step": null
+    },
+    "B_expanded_ulong": {
+      "committed_additional_updates": 3000,
+      "absolute_optimizer_step": 8000,
+      "status": "EARLY_STOPPED_PATIENCE",
+      "best_dev_step": 1500,
+      "bad_check_count": 3,
+      "next_validation_step": null
+    }
+  },
+  "active_processes": [
+    {
+      "pid": 3029706,
+      "command": [
+        "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+        "-B",
+        "-u",
+        "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/eval_parallel_publish.py",
+        "--phase",
+        "results"
+      ],
+      "log": "logs/result_publication_v3.log",
+      "started_unix": 1793820983.3271015,
+      "physical_GPUs": []
+    }
+  ],
+  "evaluation_runtime_addendum": "evaluation-parallelism-v1",
+  "evaluation_workers_per_GPU": 2,
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/eval_parallel_controller.py\", line 30, in <module>\n    try:sys.exit(main())\n                 ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/eval_parallel_controller.py\", line 27, in main\n    with lock('eval_parallel_controller.lock'):return controller.main()\n                                                      ^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_controller.py\", line 154, in main\n    result=wait([command(script,f'{stage}_v3.log',*arguments)],stage)[0];assert result['exit_code']==0,(stage,'FAILED')\n                                                                                ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('result_publication', 'FAILED')\n"
+}

@@ -1,0 +1,181 @@
+{
+  "status": "INTERIM_DEVELOPMENT_SNAPSHOT_NOT_FINAL_TEST",
+  "snapshot_UTC": "2026-11-04T08:38:50.990207+00:00",
+  "snapshot_Asia_Shanghai": "2026-11-04T16:38:50.990207+08:00",
+  "experiment_status": "RUNNING",
+  "live_stage": "parallel_training",
+  "latest_training_progress": {
+    "A_clean_old_pool": {
+      "committed_additional_updates": 1308,
+      "absolute_optimizer_step": 6308,
+      "status": "RUNNING",
+      "best_dev_step": 500,
+      "bad_check_count": 2,
+      "next_validation_step": 1500
+    },
+    "B_expanded_ulong": {
+      "committed_additional_updates": 810,
+      "absolute_optimizer_step": 5810,
+      "status": "RUNNING",
+      "best_dev_step": 0,
+      "bad_check_count": 1,
+      "next_validation_step": 1000
+    }
+  },
+  "development_unique_videos": 32,
+  "QP": [
+    0,
+    5,
+    9
+  ],
+  "frames": 64,
+  "points_per_model": 96,
+  "completed_development_points": 384,
+  "unique_model_states": 4,
+  "primary_comparison_reference": "Parent checkpoint step5000; this snapshot is not a comparison to original step0",
+  "same_budget_AB_node_additional_step": 500,
+  "development_selection_not_final_test": true,
+  "final_test_completed_points": 0,
+  "viewing_previews_generated": false,
+  "aggregation": "Equal video weights within each QP; overall displayed means equally average all96 sequence/QP points. QPs are not independent videos. Per-sequence metric definitions unchanged.",
+  "normalized_M": "Equal mean of the3 per-QP video-mean FloLPIPS ratios to parent5000; different from ratio of pooled FloLPIPS means",
+  "summaries": [
+    {
+      "model_state": "parent5000",
+      "means": {
+        "bpp": 0.008291843241624871,
+        "kbps": 501.79440459670536,
+        "PSNR": 25.58788518677159,
+        "MS_SSIM": 0.8870531720264504,
+        "LPIPS": 0.13420087661537158,
+        "DISTS": 0.08198527029405038,
+        "FloLPIPS": 0.1307877712964977,
+        "WarpingError": 0.04033572676594039,
+        "WarpingError_ReconFlow_PWC": 0.04033572676594039,
+        "WarpingError_GTFlow_PWC": 0.04028532425374059
+      },
+      "paired_mean_delta_vs_parent5000": {
+        "bpp": 0.0,
+        "kbps": 0.0,
+        "PSNR": 0.0,
+        "MS_SSIM": 0.0,
+        "LPIPS": 0.0,
+        "DISTS": 0.0,
+        "FloLPIPS": 0.0,
+        "WarpingError": 0.0,
+        "WarpingError_ReconFlow_PWC": 0.0,
+        "WarpingError_GTFlow_PWC": 0.0
+      },
+      "normalized_FloLPIPS_M": 1.0,
+      "actual_streams_identical_to_parent5000": 96
+    },
+    {
+      "model_state": "A_clean_old_pool_add500",
+      "means": {
+        "bpp": 0.008291843241624871,
+        "kbps": 501.79440459670536,
+        "PSNR": 25.540138394726686,
+        "MS_SSIM": 0.8865570857597049,
+        "LPIPS": 0.13398972288905497,
+        "DISTS": 0.08231910614995286,
+        "FloLPIPS": 0.1305991439278134,
+        "WarpingError": 0.040571268021483864,
+        "WarpingError_ReconFlow_PWC": 0.040571268021483864,
+        "WarpingError_GTFlow_PWC": 0.04052136617000634
+      },
+      "paired_mean_delta_vs_parent5000": {
+        "bpp": 0.0,
+        "kbps": 0.0,
+        "PSNR": -0.04774679204490747,
+        "MS_SSIM": -0.0004960862667455027,
+        "LPIPS": -0.00021115372631660043,
+        "DISTS": 0.00033383585590248305,
+        "FloLPIPS": -0.00018862736868430622,
+        "WarpingError": 0.0002355412555434718,
+        "WarpingError_ReconFlow_PWC": 0.0002355412555434718,
+        "WarpingError_GTFlow_PWC": 0.00023604191626574862
+      },
+      "normalized_FloLPIPS_M": 0.9983028525010113,
+      "actual_streams_identical_to_parent5000": 96
+    },
+    {
+      "model_state": "B_expanded_ulong_add500",
+      "means": {
+        "bpp": 0.008291843241624871,
+        "kbps": 501.79440459670536,
+        "PSNR": 25.52421174512783,
+        "MS_SSIM": 0.886570695991395,
+        "LPIPS": 0.13460504577657653,
+        "DISTS": 0.08249031233329636,
+        "FloLPIPS": 0.13107089468194222,
+        "WarpingError": 0.040710999061865975,
+        "WarpingError_ReconFlow_PWC": 0.040710999061865975,
+        "WarpingError_GTFlow_PWC": 0.040667042751222474
+      },
+      "paired_mean_delta_vs_parent5000": {
+        "bpp": 0.0,
+        "kbps": 0.0,
+        "PSNR": -0.06367344164376261,
+        "MS_SSIM": -0.000482476035055394,
+        "LPIPS": 0.00040416916120496654,
+        "DISTS": 0.0005050420392459879,
+        "FloLPIPS": 0.00028312338544450117,
+        "WarpingError": 0.000375272295925589,
+        "WarpingError_ReconFlow_PWC": 0.000375272295925589,
+        "WarpingError_GTFlow_PWC": 0.00038171849748188703
+      },
+      "normalized_FloLPIPS_M": 1.002399471793262,
+      "actual_streams_identical_to_parent5000": 96
+    },
+    {
+      "model_state": "A_clean_old_pool_add1000",
+      "means": {
+        "bpp": 0.008291843241624871,
+        "kbps": 501.79440459670536,
+        "PSNR": 25.540114412109805,
+        "MS_SSIM": 0.8866789091941124,
+        "LPIPS": 0.1343930504284193,
+        "DISTS": 0.08234141972692062,
+        "FloLPIPS": 0.13081087223525165,
+        "WarpingError": 0.040548710444161085,
+        "WarpingError_ReconFlow_PWC": 0.040548710444161085,
+        "WarpingError_GTFlow_PWC": 0.040506620810394266
+      },
+      "paired_mean_delta_vs_parent5000": {
+        "bpp": 0.0,
+        "kbps": 0.0,
+        "PSNR": -0.04777077466178762,
+        "MS_SSIM": -0.0003742628323379904,
+        "LPIPS": 0.00019217381304770242,
+        "DISTS": 0.00035614943287024897,
+        "FloLPIPS": 2.310093875392941e-05,
+        "WarpingError": 0.00021298367822069727,
+        "WarpingError_ReconFlow_PWC": 0.00021298367822069727,
+        "WarpingError_GTFlow_PWC": 0.00022129655665368132
+      },
+      "normalized_FloLPIPS_M": 0.9995503092492787,
+      "actual_streams_identical_to_parent5000": 96
+    }
+  ],
+  "scientific_conclusions": "NOT_INCLUDED",
+  "source_files": [
+    {
+      "file": "evaluation_v3/development_69b9ef0ce41c7c4d7ca1/metrics.csv",
+      "sha256": "211468245a38ca649c4b606f5b59d3bfd097292f39d0c223274c1aebadeb717b",
+      "batch_integrity_sha256": "027ca7cb5fdbc091724e90d501113a88f10313a378e5e1fa015c4de0b98e80c5",
+      "completed_points": 192
+    },
+    {
+      "file": "evaluation_v3/development_a7caa6328cd58a6a6c2d/metrics.csv",
+      "sha256": "5a7c892ca850664021517beb04190d50ea0adbb08f2646e5c54ce432b2de74b7",
+      "batch_integrity_sha256": "77571599ce75567f442f8209de76ce36b00c1067313fdebf2103ad8a7573304b",
+      "completed_points": 96
+    },
+    {
+      "file": "evaluation_v3/development_f276433cb544de82ef8f/metrics.csv",
+      "sha256": "b56910b5c382be1cc076391692046d281f021662dd69c380fe85a4e45413ffe5",
+      "batch_integrity_sha256": "77571599ce75567f442f8209de76ce36b00c1067313fdebf2103ad8a7573304b",
+      "completed_points": 96
+    }
+  ]
+}

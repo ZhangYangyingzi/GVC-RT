@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "root_cause": "Three optional interim snapshot CSVs used CRLF, rejected by git diff --cached --check. Canonical evaluation CSVs and frozen sources unchanged.",
+  "changes": [
+    {
+      "file": "interim_results/20261104T083850Z/metrics.csv",
+      "before_sha256": "b561d0e69402bf4a2ac6039cf1bbfef0f65d1ad0aa88fd66f1e9bc48253083e5",
+      "after_sha256": "56d444c334bc894ca4d25cfbaa27ab1ab9d2517362d1a0d92dd1824b7bc885ae",
+      "before_bytes": 279524,
+      "after_bytes": 279139,
+      "data_rows": 384,
+      "parsed_values_identical": true,
+      "change": "CRLF to LF only; original bytes retained as deterministic gzip"
+    },
+    {
+      "file": "interim_results/20261104T083850Z/paired_deltas.csv",
+      "before_sha256": "67f1cad0702bc4418566c8d69ed9ca2fff3933ac3a09a9e5271accbdbcb998f2",
+      "after_sha256": "670a70743ff19a0d26a57236b3202334ca29241775dfe10b5691a8c655502712",
+      "before_bytes": 89502,
+      "after_bytes": 89213,
+      "data_rows": 288,
+      "parsed_values_identical": true,
+      "change": "CRLF to LF only; original bytes retained as deterministic gzip"
+    },
+    {
+      "file": "interim_results/20261104T083850Z/summary_by_QP.csv",
+      "before_sha256": "3120b1ebd54920a7ff6a859a7b6642b818a011d9fe501b4dfceb6c96f5bdf394",
+      "after_sha256": "1377532d8d8e452574f6200339afea3f0eb5620cff502a356f84d85b364e4efa",
+      "before_bytes": 3858,
+      "after_bytes": 3841,
+      "data_rows": 16,
+      "parsed_values_identical": true,
+      "change": "CRLF to LF only; original bytes retained as deterministic gzip"
+    }
+  ],
+  "canonical_and_frozen_hashes": {
+    "protocol.json": "7405c77ad6a32799f95eebaee9d81481938fe46a2b5b833e64d4fa51beb15c5e",
+    "source_manifest.json": "d8ff37d7a9ac8eb2df16703801c8235f58577a8db0266621f635faf2a8ecd1df",
+    "protocol_v3.json": "3702ff0d7f6d5aa63f6eb88b3bd47b7325f23caa98206a932e336c7383a24e48",
+    "source_manifest_v3.json": "59996ba3699a6e64896dbc804acfd14f5d8b749646b3a5c55582045c6fadc284",
+    "selected_models_v3.json": "9b9383616397195dd245fb1da9885d698fa189c108b903f3092b8c4b273bca35",
+    "final_integrity_v3.json": "125fb493a3e59f87550e0299ff6f76fc9cea13b31d5bb96920ad5fd8b70624b8",
+    "evaluation_v3/final_d2b5efc4d5756f3604d7/metrics.csv": "d413190251cdfe64a17ba05826c0769b09f2c6475012822d1d2f1d500ed55b86",
+    "metrics_v3.csv": "d413190251cdfe64a17ba05826c0769b09f2c6475012822d1d2f1d500ed55b86",
+    "paired_deltas_v3.csv": "5a3c4d2eb0c02cb26f486a36cec4dd70b8d7f813196fcb0b4e928e47e6e124fd"
+  },
+  "script_sha256": "a65657549381cc8c2ff81c35db83095c453ef95f8215f7554453048087b00c6b",
+  "training_or_evaluation_rerun": false,
+  "tolerance_changes": false
+}

@@ -1,0 +1,37 @@
+{
+  "status": "STARTED",
+  "PID": 2308249,
+  "command": [
+    "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+    "-B",
+    "-u",
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/launch_eval_parallel.py",
+    "--resume"
+  ],
+  "started_unix": 1793777435.7332718,
+  "log": "logs/launcher_eval_parallel.log",
+  "selected_workers_per_GPU": 2,
+  "resume_checkpoints": {
+    "A_clean_old_pool": {
+      "additional_step": 1028,
+      "absolute_optimizer_step": 6028,
+      "checkpoint": "migrations/eval_parallel_v1/checkpoints/A_clean_old_pool/step_1028.pt",
+      "sha256": "e0c813d8e36cfe6b0ac664a1fd46af5b186d76b54c8584add0d3a366510ada7d",
+      "receipt_sha256": "f094e1cd6ce36fe2c95a0828b3c8a1a2ac1a0555e989657b372e07741118dc36",
+      "RNG_streams": 4,
+      "plan_cursor": 1028,
+      "rank_sample_cursor": 4112
+    },
+    "B_expanded_ulong": {
+      "additional_step": 528,
+      "absolute_optimizer_step": 5528,
+      "checkpoint": "migrations/eval_parallel_v1/checkpoints/B_expanded_ulong/step_528.pt",
+      "sha256": "f54c6c766c5dfde0656303698eefa1ef275388ea07a3b5c86ca36e1b248ebce5",
+      "receipt_sha256": "dd3d0d98623b9535aae83887721191403a052d03526a02e7220f0bbf72cc8945",
+      "RNG_streams": 4,
+      "plan_cursor": 528,
+      "rank_sample_cursor": 2112
+    }
+  },
+  "no_optimizer_update_replayed": true
+}

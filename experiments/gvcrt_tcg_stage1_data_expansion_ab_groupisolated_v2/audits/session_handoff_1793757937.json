@@ -1,0 +1,94 @@
+{
+  "status": "RUNNING",
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2",
+  "protocol_revision": "source-group-isolation-v2",
+  "quarantined_source_groups": 236,
+  "removed_old_training_identities": [
+    "062c9c83-4a98-4535-8166-00657e9b9328",
+    "193c0806-ddab-44b7-b9a4-542dc732400f",
+    "1d104315-a237-48d0-831a-e11b73268fe0",
+    "252753e7-1456-494c-a79d-32a01f3276bd",
+    "69653fb0-4cff-42c6-af12-95f315bb4c06",
+    "8bd1c694-5a38-428e-8e88-958b7e292b0c",
+    "9f204f48-53e6-48dd-9d40-d163de33f2c8",
+    "bdf41881-153c-46aa-bc94-d1a4a5ea0043",
+    "cc5eb21b-99f9-48f9-b7eb-5895b0d2d241",
+    "d41fc2e9-22e5-4f41-ae50-71a288c1ae2c",
+    "d4264516-a1a6-4cdb-ac5b-8fdb1d41d9aa",
+    "e2543816-b159-4f25-bed6-c8fdfbebabe7",
+    "f31c0f3d-9d5d-4c76-b691-f5d0526896dd"
+  ],
+  "N_A": 923,
+  "N_B": 8470,
+  "S": 12710,
+  "data_plan_frozen": true,
+  "counts_scope": "Frozen protocol and accepted immutable plans",
+  "A": {
+    "committed_additional_updates": 159,
+    "absolute_optimizer_step": 5159
+  },
+  "B": {
+    "committed_additional_updates": 0,
+    "absolute_optimizer_step": 5000
+  },
+  "new_training_checkpoints": [
+    "A_clean_old_pool/checkpoints/latest.pt",
+    "A_clean_old_pool/checkpoints/step_0.pt",
+    "A_clean_old_pool/checkpoints/step_2.pt"
+  ],
+  "evaluation": {
+    "parent_GTFlow_reused_points": 156,
+    "development_completed_points": 0,
+    "final_test_completed_points": 0
+  },
+  "report_path": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/REPORT.md",
+  "metrics_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/evaluation/parent_gtflow/metrics.csv"
+  ],
+  "audit_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/audits",
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/graph",
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/split_audit.json"
+  ],
+  "integrity_path": "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/final_integrity.json",
+  "github": {
+    "branch": "codex/tcg-stage1-data-expansion-ab-20261103",
+    "commit_url": null,
+    "remote_verified": false,
+    "core_blobs_verified": false
+  },
+  "failure_stage": null,
+  "resume_command": "env CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/launch_repaired.py",
+  "resume_precondition": "Track a held coordinator/stage lease. After an actual exit, resolve its recorded error and resume the exact committed checkpoint; never repeat updates or alter the frozen data protocol.",
+  "current_stage": "train_A",
+  "state_updated_unix": 1793756734.2609956,
+  "snapshot_UTC": "2026-11-04T02:05:37.231434+00:00",
+  "coordinator_lease_held": true,
+  "active_stage_leases": [
+    "runner.lock",
+    "A_clean_old_pool/training.lock",
+    "A_clean_old_pool/rank0_active.lock"
+  ],
+  "engineering_checks": {
+    "runtime_equivalence": "PASS",
+    "historical_RANS_roundtrip": "PASS",
+    "focused_native_geometry": "PASS",
+    "A_first_two_updates": "PASS",
+    "B_first_two_updates": "NOT_RUN"
+  },
+  "final_integrity_status": "NOT_RUN",
+  "repair_audit_paths": [
+    "ENGINEERING_REPAIR.md",
+    "repairs/native_geometry_v1/transition.json",
+    "repairs/native_geometry_v1/source_revision.json",
+    "repairs/native_geometry_v1/focused_validation.json"
+  ],
+  "observed_lifetime_leases": {
+    "runner.lock": true,
+    "status_observer.lock": true,
+    "A_clean_old_pool/training.lock": true,
+    "A_clean_old_pool/rank0_active.lock": true
+  },
+  "atomic_latest_checkpoint_sha256": "79c102e54109720d96685066f87dd8d1e1b71f42f2bdcd4d52c1e4262bdc8851",
+  "engineering_source_revision": "native-geometry-metadata-errata-v1"
+}

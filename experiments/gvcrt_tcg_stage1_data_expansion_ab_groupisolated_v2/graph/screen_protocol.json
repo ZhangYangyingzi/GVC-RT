@@ -1,0 +1,16 @@
+{
+  "version": "source-group-isolation-v2",
+  "graph_before_exclusions": true,
+  "initial_anchors": [
+    0,
+    31,
+    63
+  ],
+  "dHash": "RGB -> cv2 gray -> INTER_AREA 9x8 -> horizontal comparisons -> big-endian64",
+  "candidate_edge": "All three dHash distances <=4 or all three native RGB hashes equal; file SHA exact and known aliases/forbidden-content edges also included",
+  "conservative_connected_components": true,
+  "whole_video_duplicate_proof": "file SHA only; anchor matching does not establish whole-video equality",
+  "dispersed_screen": "For every accessible archive and external YUV source, window starts round((frames-64)*k/4), k=0..4; native RGB anchors start+0/31/63. All sampled window triples compared across all sources, including train/history/reserved, before selecting dev/test. No model quality is read.",
+  "maximum_CPU_workers": 4,
+  "no_scientific_independence_exhaustiveness_claim": true
+}

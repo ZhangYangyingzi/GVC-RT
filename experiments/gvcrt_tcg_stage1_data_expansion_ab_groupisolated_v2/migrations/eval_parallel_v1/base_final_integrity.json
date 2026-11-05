@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "protocol_revision": "online-development-earlystop-v3",
+  "protocol_sha256": "3702ff0d7f6d5aa63f6eb88b3bd47b7325f23caa98206a932e336c7383a24e48",
+  "source_manifest_sha256": "59996ba3699a6e64896dbc804acfd14f5d8b749646b3a5c55582045c6fadc284",
+  "arms": {
+    "A_clean_old_pool": {
+      "status": "PASS",
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "actual_additional_updates": 1500,
+      "absolute_optimizer_step": 6500,
+      "logical_samples": 6000,
+      "legacy_prefix": 595,
+      "best_dev_step": 500,
+      "patience_count": 3
+    },
+    "B_expanded_ulong": {
+      "status": "PASS",
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "actual_additional_updates": 3000,
+      "absolute_optimizer_step": 8000,
+      "logical_samples": 12000,
+      "legacy_prefix": 0,
+      "best_dev_step": 1500,
+      "patience_count": 3
+    }
+  },
+  "K_common": 1500,
+  "largest_common_step_not_quality_selected": true,
+  "independent_patience_replay": true,
+  "parent_included_raw_best_and_tie_rules": true,
+  "four_logical_RNG_and_batch": true,
+  "actual_sample_order": true,
+  "frozen_state_checks": true,
+  "dynamic_final_state_deduplication": true,
+  "final_test_selection_locked": true,
+  "source_group_isolation": true,
+  "no_test_selection": true,
+  "development_points": 960,
+  "final_points": 675,
+  "evaluation_batches": [
+    {
+      "batch": "development_69b9ef0ce41c7c4d7ca1",
+      "kind": "development",
+      "points": 192
+    },
+    {
+      "batch": "development_6b25b37593eeb899e32e",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "development_a7b111bcd3a138898202",
+      "kind": "development",
+      "points": 192
+    },
+    {
+      "batch": "development_a7caa6328cd58a6a6c2d",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "development_c640d16978902780663b",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "development_ce8bb17a8f2b08b44f89",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "development_dad1549ea578f41eecb8",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "development_f276433cb544de82ef8f",
+      "kind": "development",
+      "points": 96
+    },
+    {
+      "batch": "final_d2b5efc4d5756f3604d7",
+      "kind": "final",
+      "points": 675
+    }
+  ],
+  "legal_early_stop_is_not_convergence_claim": true
+}

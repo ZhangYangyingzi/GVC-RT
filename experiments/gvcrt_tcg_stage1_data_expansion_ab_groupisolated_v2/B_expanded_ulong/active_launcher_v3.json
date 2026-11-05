@@ -1,0 +1,34 @@
+{
+  "command": [
+    "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--nnodes=1",
+    "--nproc_per_node=2",
+    "--master_addr=127.0.0.1",
+    "--master_port=55359",
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/v3_train.py",
+    "--arm",
+    "B_expanded_ulong",
+    "--source",
+    "/Huang_group/zyyz/Projects/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/latest.pt",
+    "--target",
+    "3000",
+    "--cards",
+    "6,7"
+  ],
+  "pid": 2838559,
+  "port": 55359,
+  "physical_GPUs": [
+    6,
+    7
+  ],
+  "physical_world_size": 2,
+  "logical_world_size": 4,
+  "effective_batch_size": 4,
+  "started_unix": 1793805298.403442,
+  "log": "logs/v3_B_expanded_ulong_to3000.log",
+  "arm": "B_expanded_ulong",
+  "start_additional_step": 2500,
+  "target_additional_step": 3000
+}
