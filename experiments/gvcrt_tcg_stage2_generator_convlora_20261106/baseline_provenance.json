@@ -106,10 +106,20 @@
     "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
   },
   "trainable_parameters": 59392,
-  "optimizer": null,
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 5e-05,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "state_entries": 0
+  },
   "precision": {
     "codec": "FP16",
-    "Bridge_and_nonTCG_generator": "FP16",
+    "Bridge_and_nonTCG_generator": "FP32",
     "TCG": "FP32 parameters/internal operations; incoming output dtype",
     "LoRA": "FP32 parameters/internal operations; incoming output dtype",
     "RGB_scoring": "matched_rgb_fp32_v2"
@@ -122,13 +132,22 @@
       "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
     },
     "Bridge": {
-      "sha256": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4"
+      "sha256": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3"
     },
     "generator_original_nonTCG": {
-      "sha256": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+      "sha256": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
     },
     "TCG": {
       "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+    },
+    "LPIPS": {
+      "sha256": "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f"
+    },
+    "DISTS": {
+      "sha256": "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    },
+    "RAFT": {
+      "sha256": "2821b880314230802e969b92a3da0bf072c975468f8b7ac2214d44cced88d7c1"
     }
   },
   "dispatch": "LoRA-safe PyTorch stage3/head dispatch shared with baseline",

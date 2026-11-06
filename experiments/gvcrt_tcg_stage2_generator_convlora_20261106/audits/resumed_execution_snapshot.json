@@ -1,0 +1,64 @@
+{
+  "status": "RUNNING",
+  "experiment_complete": false,
+  "snapshot_time": 1793981194.0502915,
+  "runner_PID": 463807,
+  "runner_identity_verified": true,
+  "lifecycle_lock_held": true,
+  "current_stage": "development_baseline",
+  "committed_optimizer_updates": 0,
+  "development_counts": {
+    "development_baseline": 28
+  },
+  "children": [
+    {
+      "PID": 464121,
+      "label": "development_baseline_rank0",
+      "alive": true,
+      "process_state": "R"
+    },
+    {
+      "PID": 464122,
+      "label": "development_baseline_rank1",
+      "alive": true,
+      "process_state": "R"
+    },
+    {
+      "PID": 464123,
+      "label": "development_baseline_rank2",
+      "alive": true,
+      "process_state": "R"
+    },
+    {
+      "PID": 464124,
+      "label": "development_baseline_rank3",
+      "alive": true,
+      "process_state": "R"
+    }
+  ],
+  "step0_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_generator_convlora_20261106/experiments/gvcrt_tcg_stage2_generator_convlora_20261106/checkpoints/step_0.pt",
+    "sha256": "31d36d7834aa6374e46587e6488d4801cef874d79f8b0f0271e575815ba7e3b9"
+  },
+  "engineering": {
+    "full_model_load_and_dispatch": "PASS",
+    "real_loss_gradients": "PASS",
+    "RANS_identity": "PASS",
+    "DDP_smoke": "PASS"
+  },
+  "publication": {
+    "status": "VERIFIED",
+    "published_artifact_commit": "9ff2f2d4fd983985545f15c170e2f4d3b9f7e6a5",
+    "branch_HEAD": "bcb62a4d3f15ebbfc5572e21a451d58a7e5d1f15",
+    "branch": "codex/tcg-stage2-generator-convlora-20261106",
+    "branch_url": "https://github.com/ZhangYangyingzi/GVC-RT/tree/codex/tcg-stage2-generator-convlora-20261106",
+    "HEAD_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/bcb62a4d3f15ebbfc5572e21a451d58a7e5d1f15",
+    "remote_verified": true,
+    "core_blobs_verified": true,
+    "time": 1793980661.0966814
+  },
+  "protocol_sha256": "adc9ef17f089c3f5c4855e53c6c076054bae09c856878c469c90c2fb122d97f6",
+  "source_manifest_sha256": "e239c10fcfbd2e86fe1c45ac7e58ed9ac0465702b9d5bced15bfbb478ef92c36",
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_generator_convlora_20261106/experiments/gvcrt_tcg_stage2_generator_convlora_20261106/runner.py",
+  "resume_precondition": "Only after current runner and children have stopped and lifecycle lock is free; do not launch another copy while RUNNING"
+}
