@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "layer_checks": [
+    {
+      "layer": "tcg_low",
+      "status": "PASS",
+      "history_zero_at_M1": true,
+      "current_projection_nonzero_at_M1": true,
+      "residual_norm_at_M1": 16.004873275756836,
+      "M1_claimed_TCG_disabled": false,
+      "spatial_mask_not_averaged": true,
+      "small_nonzero_mask_keep_distinct_from_one": true,
+      "output_dtype": "torch.float16",
+      "internal_dtype": "torch.float32",
+      "outer_autocast": "FP16",
+      "history_branch_only": true,
+      "pre_residual_cache_preserved": true
+    },
+    {
+      "layer": "tcg_mid",
+      "status": "PASS",
+      "history_zero_at_M1": true,
+      "current_projection_nonzero_at_M1": true,
+      "residual_norm_at_M1": 10.771791458129883,
+      "M1_claimed_TCG_disabled": false,
+      "spatial_mask_not_averaged": true,
+      "small_nonzero_mask_keep_distinct_from_one": true,
+      "output_dtype": "torch.float16",
+      "internal_dtype": "torch.float32",
+      "outer_autocast": "FP16",
+      "history_branch_only": true,
+      "pre_residual_cache_preserved": true
+    },
+    {
+      "layer": "tcg_out",
+      "status": "PASS",
+      "history_zero_at_M1": true,
+      "current_projection_nonzero_at_M1": true,
+      "residual_norm_at_M1": 7.046875476837158,
+      "M1_claimed_TCG_disabled": false,
+      "spatial_mask_not_averaged": true,
+      "small_nonzero_mask_keep_distinct_from_one": true,
+      "output_dtype": "torch.float16",
+      "internal_dtype": "torch.float32",
+      "outer_autocast": "FP16",
+      "history_branch_only": true,
+      "pre_residual_cache_preserved": true
+    }
+  ],
+  "parent_half_parameter_values_exact": true,
+  "all_Router_TCG_parameters_FP32": true,
+  "missing_history": true,
+  "update_buffer_false_exact": true,
+  "internal_reference_bypass_preserves_histories": true,
+  "dimension_reset": true,
+  "sequence_I_reset": true,
+  "formal_joint_updates": 0
+}

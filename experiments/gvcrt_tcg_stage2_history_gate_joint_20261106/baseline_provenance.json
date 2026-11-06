@@ -1,0 +1,175 @@
+{
+  "baseline_cumulative_tcg_step": 6500,
+  "baseline_checkpoint": {
+    "filename": "step_1500.pt",
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+    "sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260"
+  },
+  "receiver_initialization": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+    "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+    "keys_loaded_strictly": [
+      "wrapper",
+      "bridge",
+      "generator"
+    ]
+  },
+  "codec_files": [
+    {
+      "filename": "GVC-RT_I.pt",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d"
+    },
+    {
+      "filename": "GVC-RT_P.pt",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    }
+  ],
+  "TCG_partial_keys_verified": [
+    "tcg_low.current_adapter.bias",
+    "tcg_low.current_adapter.weight",
+    "tcg_low.fusion.0.bias",
+    "tcg_low.fusion.0.weight",
+    "tcg_low.fusion.2.bias",
+    "tcg_low.fusion.2.weight",
+    "tcg_low.fusion.4.bias",
+    "tcg_low.fusion.4.weight",
+    "tcg_low.previous_adapter.bias",
+    "tcg_low.previous_adapter.weight",
+    "tcg_mid.current_adapter.bias",
+    "tcg_mid.current_adapter.weight",
+    "tcg_mid.fusion.0.bias",
+    "tcg_mid.fusion.0.weight",
+    "tcg_mid.fusion.2.bias",
+    "tcg_mid.fusion.2.weight",
+    "tcg_mid.fusion.4.bias",
+    "tcg_mid.fusion.4.weight",
+    "tcg_mid.previous_adapter.bias",
+    "tcg_mid.previous_adapter.weight",
+    "tcg_out.current_adapter.bias",
+    "tcg_out.current_adapter.weight",
+    "tcg_out.fusion.0.bias",
+    "tcg_out.fusion.0.weight",
+    "tcg_out.fusion.2.bias",
+    "tcg_out.fusion.2.weight",
+    "tcg_out.fusion.4.bias",
+    "tcg_out.fusion.4.weight",
+    "tcg_out.previous_adapter.bias",
+    "tcg_out.previous_adapter.weight"
+  ],
+  "TCG_partial_parameter_count": 137760,
+  "generator_full_keys_verified": 242,
+  "original_codec_key_audit": {
+    "I": {
+      "verified_loaded_keys": 596,
+      "explicit_legacy_TCG_missing_keys": [],
+      "unexpected_keys": []
+    },
+    "P": {
+      "verified_loaded_keys": 537,
+      "explicit_legacy_TCG_missing_keys": [
+        "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+        "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+        "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+        "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+        "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+        "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+        "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+        "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+        "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+        "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+        "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+        "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+        "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+        "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+        "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+        "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+        "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+        "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+        "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+        "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+        "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+        "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+        "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+        "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+        "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+        "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+        "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+        "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+        "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+        "recon_generation_net.decoder.tcg_out.previous_adapter.weight"
+      ],
+      "unexpected_keys": []
+    }
+  },
+  "baseline_optimizer_loaded": false,
+  "new_router_optimizer_state_entries": 0,
+  "precision": {
+    "codec": "FP16",
+    "non_TCG_bridge_generator": "FP32",
+    "TCG_parameters_and_computation": "FP32",
+    "TCG_output": "incoming dtype after FP32 residual addition",
+    "router": "FP32",
+    "quality": "FP32",
+    "RAFT": "FP32"
+  },
+  "components": {
+    "I_model": {
+      "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+    },
+    "P_codec": {
+      "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+    },
+    "Bridge": {
+      "sha256": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3"
+    },
+    "generator_non_TCG": {
+      "sha256": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+    },
+    "TCG": {
+      "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+    },
+    "LPIPS": {
+      "sha256": "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f"
+    },
+    "DISTS": {
+      "sha256": "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    },
+    "RAFT": {
+      "sha256": "2821b880314230802e969b92a3da0bf072c975468f8b7ac2214d44cced88d7c1"
+    }
+  },
+  "backend": {
+    "customized_cuda": false,
+    "deterministic": true,
+    "matmul_TF32": false,
+    "cudnn_TF32": true
+  },
+  "model_source_root": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_history_gate_joint_20261106/experiments/gvcrt_tcg_stage2_history_gate_joint_20261106/runtime_tree",
+  "router_new_initialization": {
+    "seed": 20261106,
+    "conv_input_channels": 768,
+    "decoded_feature_channels": 256,
+    "trainable_parameters": 33889,
+    "last_weight_zero": true,
+    "last_bias": -1.3862943611198906,
+    "M_mean_at_zero_weight": 0.2,
+    "mode": "enabled"
+  },
+  "gate_position": "after_previous_adapter_before_concat",
+  "old_outer_residual_multiplication_removed": true,
+  "initialization_optimizer_state_entries": 0,
+  "optimizer_groups": [
+    {
+      "name": "Router",
+      "lr": 0.0001,
+      "parameters": 33889
+    },
+    {
+      "name": "TCG",
+      "lr": 1e-05,
+      "parameters": 137760
+    }
+  ]
+}

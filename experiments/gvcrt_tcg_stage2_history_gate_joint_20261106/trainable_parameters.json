@@ -1,0 +1,330 @@
+{
+  "modules": [
+    "Router",
+    "tcg_low",
+    "tcg_mid",
+    "tcg_out"
+  ],
+  "count": 171649,
+  "parameter_groups": [
+    {
+      "name": "Router",
+      "lr": 0.0001,
+      "count": 33889
+    },
+    {
+      "name": "TCG",
+      "lr": 1e-05,
+      "count": 137760
+    }
+  ],
+  "parameters": [
+    {
+      "name": "router.net.0.weight",
+      "shape": [
+        32,
+        768,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.0.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.2.weight",
+      "shape": [
+        32,
+        32,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.2.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.4.weight",
+      "shape": [
+        1,
+        32,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "router.net.4.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.previous_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.current_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.4.weight",
+      "shape": [
+        512,
+        32,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_low.fusion.4.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.previous_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.current_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.4.weight",
+      "shape": [
+        512,
+        32,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_mid.fusion.4.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.previous_adapter.weight",
+      "shape": [
+        32,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.current_adapter.weight",
+      "shape": [
+        32,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.4.weight",
+      "shape": [
+        320,
+        32,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.tcg_out.fusion.4.bias",
+      "shape": [
+        320
+      ],
+      "dtype": "torch.float32"
+    }
+  ],
+  "only_Router_TCG_requires_grad": true
+}
