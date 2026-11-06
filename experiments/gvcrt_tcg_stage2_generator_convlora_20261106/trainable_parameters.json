@@ -1,0 +1,117 @@
+{
+  "modules": [
+    "stage3 depthwise-parallel LoRA",
+    "head parallel LoRA"
+  ],
+  "count": 59392,
+  "parameter_groups": [
+    {
+      "name": "LoRA",
+      "lr": 5e-05,
+      "count": 59392
+    }
+  ],
+  "parameters": [
+    {
+      "name": "generator.stage3.blocks.0.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.0.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.1.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.1.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.2.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.2.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.3.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.stage3.blocks.3.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.head.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "generator.head.lora.up.weight",
+      "shape": [
+        192,
+        4,
+        3,
+        3
+      ],
+      "dtype": "torch.float32"
+    }
+  ],
+  "only_LoRA_requires_grad": true
+}

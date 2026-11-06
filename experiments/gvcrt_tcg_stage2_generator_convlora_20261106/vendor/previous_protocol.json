@@ -1,0 +1,302 @@
+{
+  "task": "tcg_stage2_history_gate_joint_20261106",
+  "revision": "internal_history_gate_joint_v1",
+  "seed": 20261106,
+  "baseline_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "baseline_cumulative_tcg_step": 6500,
+  "receiver_initialization": {
+    "pilot": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+    "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+    "loading": "strict original I/P, strict pilot Bridge/generator/buffers, exact FP32 B+1500 TCG overlay, new Router"
+  },
+  "previous_Router_checkpoint_loaded": false,
+  "TCG_fusion_rezeroed_after_load": false,
+  "trainable_modules": [
+    "Router",
+    "tcg_low",
+    "tcg_mid",
+    "tcg_out"
+  ],
+  "parameter_counts": {
+    "Router": 33889,
+    "TCG": 137760,
+    "total": 171649
+  },
+  "frozen": [
+    "I_model",
+    "P_codec_and_entropy",
+    "Bridge",
+    "non_TCG_generator",
+    "LPIPS",
+    "DISTS",
+    "RAFT"
+  ],
+  "gate": {
+    "position": "after_previous_adapter_before_concat",
+    "formula": "fusion(cat(previous_adapter(previous.float())*(1-resize(M.float())),current_adapter(current.float())))",
+    "residual": "(current.float()+delta).to(incoming_dtype)",
+    "mask_type": "single_channel_spatial_shared_across_three_TCG_layers",
+    "resize": "bilinear align_corners=False",
+    "old_outer_residual_gate": false,
+    "current_branch_kept": true,
+    "M1": "zeros directly projected previous branch; current branch and residual may remain; NOT a TCG-off mode",
+    "M0": "unattenuated history at the CURRENT weights; trained-joint M0 is not original B+1500"
+  },
+  "router": {
+    "decoded_C": 256,
+    "input": "Concat(pm.dec current, detached previous decoded feature, abs difference)",
+    "input_channels": 768,
+    "architecture": "Conv1x1(768,32),SiLU,Conv3x3(32,32,pad1),SiLU,Conv1x1(32,1),Sigmoid",
+    "spatial_pooling": false,
+    "initial_M": 0.2,
+    "last_weight": 0,
+    "last_bias": -1.3862943611198906,
+    "first_two_layers_seed": 20261106,
+    "additional_inputs": [],
+    "additional_heads": false
+  },
+  "precision": {
+    "codec": "historical FP16",
+    "training_Bridge_and_nonTCG_generator": "historical FP32",
+    "evaluation_Bridge_and_nonTCG_generator": "historical FP16",
+    "Router_and_three_TCG_parameters": "FP32; promoted before B state loading, no FP16 round trip",
+    "Router_and_TCG_forward": "autocast disabled; projection, mask interpolation, 1-mask, history product, fusion and current+delta FP32",
+    "TCG_output": "cast back to incoming dtype after FP32 addition; final rounding still possible",
+    "parent_half_or_to": "dtype islands preserve original FP32 values and device movement",
+    "backend_TF32": "record inherited actual backend flags; no whole-model precision conversion",
+    "scoring": "matched_rgb_fp32_v2: x.float(), clamp(-1,1), (x+1)/2, native crop"
+  },
+  "state": {
+    "TCG_cache": "detached pre-residual current in incoming dtype",
+    "Router_history": "detached decoded codec feature; read previous then commit current",
+    "codec_DPB": "original decoded feature and existing codec reference rules; no gated or generator features",
+    "update_buffer_false": "neither Router nor TCG history advances",
+    "internal_reference": "use_tcg=False/update_buffer=False bypasses both",
+    "reset": "sequence/I/GOP, compatible dimension boundary",
+    "BPTT": false
+  },
+  "data": {
+    "B_ULong_pool": 8470,
+    "quarantined_source_groups": 236,
+    "plan_index_sha256": "580af0a41f82c58be4ab894d101f034a2ec0f7b901700d9ba80a28c0a63c24d4",
+    "source_cursor_start": 1500,
+    "source_cursor_at_cap": 4500,
+    "immutable_B_rows": "6000:18000",
+    "plan_order": "unchanged",
+    "effective_batch": 4,
+    "samples_per_update": {
+      "uvg": 2,
+      "ulong": 2
+    },
+    "new_independent_samples_claim": false,
+    "split_and_source_hashes": "inherited sealed audited manifests",
+    "Vimeo": false,
+    "excluded_identities_reintroduced": false
+  },
+  "training": {
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "I0": "original I",
+    "warmup": [
+      1,
+      48
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "frame_mean_denominator": 15,
+    "external_QPs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "internal_QP": "inherited frame_qp/shift_qp",
+    "previous_reconstruction_detach": true,
+    "codec_reference_detach": true,
+    "loss": "LPIPS+0.5*DISTS+0.1383589248954108*RGB_L1+0.01*RAFT_motion+beta(q)*Rate+0.01*proxy",
+    "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "beta": "1/(0.08+q*(0.9-0.08)/9)",
+    "proxy": "Identity -> zero",
+    "rate_gradient": "none when codec frozen",
+    "VJP": "historical fused/15 then reconstruction*(4096/15), unscale gradient exactly once by4096, multiply0.1383589248954108, combine",
+    "RAFT": {
+      "local_weight_sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322",
+      "download": false,
+      "parameters_frozen": true,
+      "prediction_input_differentiable": true,
+      "transforms": "weights enum transforms"
+    },
+    "paper_identical_loss_claim": false,
+    "new_losses": [],
+    "smoke": "disposable engineering states; formal first2 included in budget"
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "fresh_state": true,
+    "historical_optimizer_loaded": false,
+    "groups": [
+      {
+        "name": "Router",
+        "lr": 0.0001
+      },
+      {
+        "name": "TCG",
+        "lr": 1e-05
+      }
+    ],
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_combined_norm": 1.0,
+    "reduction": "SUM4/4 then one global clip and one update per synchronized replica",
+    "schedule": null,
+    "TCG_learning_rate_status": "prespecified engineering default, not proven optimal or selected from test"
+  },
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "world_size": 4,
+  "stopping": {
+    "max_updates": 3000,
+    "cap_not_mandatory": true,
+    "validation_interval": 250,
+    "patience": 4,
+    "min_delta": 0.001,
+    "anchor_initial": 1.0,
+    "score": "mean_q(equal32video mean FloLPIPS(candidate,q)/equal32video mean FloLPIPS(B1500_matched_FP32,q))",
+    "mode": "min",
+    "initialization_counts_for_patience": false,
+    "valid_complete_checks_only": true,
+    "raw_best": "trained validation checkpoints >=250 only; strict lower score, ties earlier",
+    "anchor_update": "S < anchor-0.001 else bad_check_count+1",
+    "final_selection": "argmin of independently matched baseline score1 and best trained score; exact tie retains baseline",
+    "raw_and_meaningful_flags_separate": true,
+    "meaningful_improvement_threshold_met": "best_trained_score < 1.0-0.001",
+    "final_choice_not_a_scientific_improvement_claim": true,
+    "selection_frozen_before_final_test": true
+  },
+  "evaluation": {
+    "development_videos": 32,
+    "development_QPs": [
+      0,
+      5,
+      9
+    ],
+    "development_points": 96,
+    "matched_baseline": "independent frozen B+1500 instance, FP32 TCG parameters and internal operations; no Router, no optimizer or updates",
+    "historical_baseline": "historical deployment FP16 TCG metrics preserved separately, never used for normalization",
+    "matched_baseline_streams": "verified B streams may be independently decoded, input_stream_reused=True/fresh_encode=False; source/bytes/hash/window audited",
+    "joint_streams": "fresh RANS encode and new independent decoder per point",
+    "final_videos": 45,
+    "final_QPs": [
+      0,
+      5,
+      9
+    ],
+    "final_frames": 64,
+    "final_points_per_new_candidate": 135,
+    "final_states": [
+      "GVC_RT_original",
+      "B1500_historical",
+      "B1500_matched_FP32",
+      "trained_joint"
+    ],
+    "datasets": {
+      "ULong_new_holdout": 32,
+      "ULong_historical": 6,
+      "HEVC_B": 5,
+      "UVG_historical_HoneyBee_Jockey": 2
+    },
+    "metrics": [
+      "bpp",
+      "kbps",
+      "PSNR",
+      "MS_SSIM",
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "WarpingError_GTFlow_PWC",
+      "WarpingError_ReconFlow_PWC"
+    ],
+    "inherited_PWC_sampler": "pixel-center grid, align_cornersFalse, W-1/H-1 flow normalization, invalid zero, full-image denominator; width11 dx1 samples1.1px",
+    "PWC_metric_revision": false,
+    "pure_flicker_measure_claim": false,
+    "plotting": "separate four split/domain means with equal video weights and45 per-video figures; actual3QP points only",
+    "BD_rate": false,
+    "historical_and_matched_precision_differences_saved": true
+  },
+  "diagnostics": {
+    "development_sequences": [
+      "0aa91dd0-0594-4082-9154-d8d2bc94692e",
+      "0fa4df7a-d55f-4a20-b952-8fea3cbd4aae"
+    ],
+    "final_sequences": [
+      "Kimono1",
+      "081343d7-3c56-46bf-93a2-28718f33e6a7"
+    ],
+    "QP": 5,
+    "P_frames": [
+      1,
+      16,
+      49,
+      63
+    ],
+    "M_color_limits": [
+      0,
+      1
+    ],
+    "statistics": [
+      "mean",
+      "std",
+      "q01",
+      "q05",
+      "q50",
+      "q95",
+      "q99",
+      "M_lt_0.1",
+      "M_gt_0.9",
+      "projected_history_norm_before_after",
+      "current_projection_norm",
+      "residual_norm",
+      "actual_dtypes",
+      "keep_weight_eq1_ratio",
+      "Router_TCG_gradient_norms",
+      "relative_parameter_changes"
+    ],
+    "selection": "Fixed lexicographic development two, historical Kimono1 plus lexicographic new-test first; chosen before any new Router quality scoring",
+    "mask_semantics": "continuous projected-history suppression, no motion/occlusion supervision guarantee",
+    "fixed_M_checks": "0 and1 engineering checks only, no fixed-mask quality scan"
+  },
+  "resource_limits": {
+    "disk_reserve_GiB": 100,
+    "private_media_cache_GiB": 80,
+    "extra_large_artifacts_GiB": 20,
+    "max_CPU_preparation_workers": 4
+  },
+  "publication": {
+    "repo": "ZhangYangyingzi/GVC-RT",
+    "branch": "codex/tcg-stage2-history-gate-joint-20261106",
+    "allowlist_only": true,
+    "no_weights_videos_streams_cache_PDF_credentials": true,
+    "max_file_bytes": 52428800,
+    "force_push": false
+  }
+}

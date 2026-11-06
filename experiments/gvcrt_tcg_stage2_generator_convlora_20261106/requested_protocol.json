@@ -2,15 +2,18 @@
   "task": "tcg_stage2_generator_convlora_20261106",
   "base_commit": "6c3747d0e960f2fed656b509d4537e1226045cbe",
   "branch": "codex/tcg-stage2-generator-convlora-20261106",
-  "pilot_sha256": "06cf8f53f432d1f1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "pilot_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
   "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
   "baseline_cumulative_TCG_step": 6500,
   "rank": 4,
   "alpha_div_rank": 1,
-  "trainable_modules": ["stage3_depthwise_parallel_LoRA", "head_parallel_LoRA"],
+  "trainable_modules": [
+    "stage3_depthwise_parallel_LoRA",
+    "head_parallel_LoRA"
+  ],
   "router_instantiated": false,
   "TCG_trainable": false,
-  "learning_rate": 0.00005,
+  "learning_rate": 5e-05,
   "optimizer": "fresh AdamW",
   "source_cursor_start": 1500,
   "effective_batch": 4,
@@ -20,7 +23,13 @@
   "patience": 4,
   "min_delta": 0.001,
   "final_test_points": 135,
-  "physical_GPUs": [4, 5, 6, 7],
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
   "protocol_frozen": false,
-  "baseline_SHA_clarification_pending": true
+  "baseline_SHA_clarification_pending": false,
+  "correction_audit": "audits/sha_correction_20261106/correction.json"
 }
