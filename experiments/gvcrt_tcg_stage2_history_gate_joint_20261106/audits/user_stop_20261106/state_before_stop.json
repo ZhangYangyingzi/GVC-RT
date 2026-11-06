@@ -1,0 +1,155 @@
+{
+  "run_status.json": {
+    "status": "RUNNING",
+    "current_stage": "development_joint_1000",
+    "time": 1793953231.4395738,
+    "PID": 17897,
+    "committed_joint_updates": 1000,
+    "baseline_cumulative_tcg_step": 6500
+  },
+  "training_status.json": {
+    "status": "SEGMENT_COMPLETE",
+    "committed_joint_updates": 1000,
+    "next_cursor": 2500,
+    "time": 1793952711.4971173
+  },
+  "stopping_state.json": {
+    "status": "RUNNING",
+    "anchor": 1.0,
+    "bad_check_count": 3,
+    "checks": [
+      {
+        "step": 250,
+        "score": 1.0003183765275392,
+        "F_q": {
+          "0": 0.18592338195987165,
+          "5": 0.11253441071751276,
+          "9": 0.09177573054515209
+        },
+        "anchor_before": 1.0,
+        "anchor_after": 1.0,
+        "substantive_improvement": false,
+        "bad_check_count": 1,
+        "metrics_sha256": "c9dd54d7f75f573664e67c2de7b348bf3f5a82a6022fb109aff0b3e881d35ba4",
+        "checkpoint_sha256": "23ad713a77ced793ed5bf23e1951f404d962b6bf163c1484e3d1d6e86b960633",
+        "time": 1793943234.6841276
+      },
+      {
+        "step": 500,
+        "score": 1.0012210171252998,
+        "F_q": {
+          "0": 0.1860845197502169,
+          "5": 0.1126439322501288,
+          "9": 0.09185531598770813
+        },
+        "anchor_before": 1.0,
+        "anchor_after": 1.0,
+        "substantive_improvement": false,
+        "bad_check_count": 2,
+        "metrics_sha256": "40c5032f037dbe933895de3367dd0d39126457aa2730cbe50e75c8310884f503",
+        "checkpoint_sha256": "6c8fe68cd52619ada9863ffd13cda79e7811ddba844a2085915a8f15a0816a36",
+        "time": 1793947131.7701523
+      },
+      {
+        "step": 750,
+        "score": 1.0016593144212425,
+        "F_q": {
+          "0": 0.18613729690430716,
+          "5": 0.11268573743660772,
+          "9": 0.09191579977604783
+        },
+        "anchor_before": 1.0,
+        "anchor_after": 1.0,
+        "substantive_improvement": false,
+        "bad_check_count": 3,
+        "metrics_sha256": "874644549c165a5c9080a735f2fbe8aaec3944429ab17a97f30dae0ba5df4cdb",
+        "checkpoint_sha256": "fe59c1bb088456ec1676981f13aadc0c2f47322bd2ad48a9b24833eebbab0ea9",
+        "time": 1793950954.8307283
+      }
+    ],
+    "raw_best": {
+      "step": 250,
+      "score": 1.0003183765275392,
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_history_gate_joint_20261106/experiments/gvcrt_tcg_stage2_history_gate_joint_20261106/checkpoints/step_250.pt",
+      "checkpoint_sha256": "23ad713a77ced793ed5bf23e1951f404d962b6bf163c1484e3d1d6e86b960633"
+    },
+    "enabled0": {
+      "score": 1.0034649868452092,
+      "F_q": {
+        "0": 0.18660568505976466,
+        "5": 0.11290545389702958,
+        "9": 0.09200242574840399
+      },
+      "metrics_sha256": "b657aebfcc78deab3d9d32d86883ae6d2e1f83f67ac6258cc7ff325dd12b7c59"
+    },
+    "matched_baseline_F_q": {
+      "0": 0.18586495117883065,
+      "5": 0.11252980649800202,
+      "9": 0.0917207126289473
+    },
+    "matched_baseline_metrics_sha256": "be7b07be82cbdf066aa40191bad6613adf19cfdf50d177444aab25050f094cd0",
+    "last_validation_step": 750
+  },
+  "active_processes.json": {
+    "stage": "development_joint_1000",
+    "runner_PID": 17897,
+    "children": [
+      {
+        "PID": 268517,
+        "label": "development_joint_1000_rank0"
+      },
+      {
+        "PID": 268518,
+        "label": "development_joint_1000_rank1"
+      },
+      {
+        "PID": 268519,
+        "label": "development_joint_1000_rank2"
+      },
+      {
+        "PID": 268520,
+        "label": "development_joint_1000_rank3"
+      }
+    ],
+    "time": 1793952721.3648386
+  },
+  "runner_identity.json": {
+    "PID": 17897,
+    "proc_start": "5158358443",
+    "command": [
+      "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python",
+      "-B",
+      "-u",
+      "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_history_gate_joint_20261106/experiments/gvcrt_tcg_stage2_history_gate_joint_20261106/runner.py"
+    ],
+    "start_time": 1793936091.4226072
+  },
+  "publication_status.json": {
+    "status": "PUBLISHED",
+    "phase": "code",
+    "branch": "codex/tcg-stage2-history-gate-joint-20261106",
+    "commit": "6a3792f5c3d6b3cf53072f36c66dcb5f66be41f9",
+    "commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/6a3792f5c3d6b3cf53072f36c66dcb5f66be41f9",
+    "remote_verified": true,
+    "core_blobs_verified": true,
+    "core_blobs": [
+      {
+        "file": "protocol.json",
+        "blob": "b05456597b323f2bacdb6597fb8eb96e76dec87f"
+      },
+      {
+        "file": "model_context.py",
+        "blob": "b5e62b70998add39f9896bd62530b7c80fcd4644"
+      },
+      {
+        "file": "runtime_tree/src/models/spatial_tcg_router.py",
+        "blob": "f4aa7c5bfc610ffa2bc38e9016a9ef97ebeb3fd9"
+      },
+      {
+        "file": "source_manifest.json",
+        "blob": "f10a2360b335930bc97571cf9ad908643831ad7b"
+      }
+    ],
+    "time": 1793936281.4277964
+  }
+}
