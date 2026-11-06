@@ -1,0 +1,56 @@
+{
+  "task": "tcg_stage2_generator_convlora_20261106",
+  "base_commit": "6c3747d0e960f2fed656b509d4537e1226045cbe",
+  "branch": "codex/tcg-stage2-generator-convlora-20261106",
+  "pilot_sha256": "06cf8f53f432d1f1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "baseline_cumulative_TCG_step": 6500,
+  "rank": 4,
+  "alpha_div_rank": 1,
+  "trainable_modules": [
+    "stage3_depthwise_parallel_LoRA",
+    "head_parallel_LoRA"
+  ],
+  "router_instantiated": false,
+  "TCG_trainable": false,
+  "learning_rate": 5e-05,
+  "optimizer": "fresh AdamW",
+  "source_cursor_start": 1500,
+  "effective_batch": 4,
+  "max_updates": 3000,
+  "validation_interval": 250,
+  "development_points": 96,
+  "patience": 4,
+  "min_delta": 0.001,
+  "final_test_points": 135,
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "protocol_frozen": false,
+  "baseline_SHA_clarification_pending": true,
+  "status": "DRAFT_BLOCKED_ON_BASELINE_SHA",
+  "LoRA_parameter_count_prepared": 59392,
+  "targets": [
+    "stage3.blocks.0.dc.2",
+    "stage3.blocks.1.dc.2",
+    "stage3.blocks.2.dc.2",
+    "stage3.blocks.3.dc.2",
+    "head"
+  ],
+  "head_branch_channels": [
+    320,
+    4,
+    192
+  ],
+  "stage3_branch_channels": [
+    320,
+    4,
+    320
+  ],
+  "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+  "evaluation_dispatch": "Prepared stage3/head PyTorch fallback with identical baseline/candidate dispatch; real CUDA/full-model checks not run",
+  "formal_model_loaded": false
+}

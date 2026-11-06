@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED",
+  "checks": [
+    {
+      "component": "pilot_receiver",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "size_bytes": 139014208,
+      "expected_sha256": "06cf8f53f432d1f1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+      "actual_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+      "status": "FAILED"
+    },
+    {
+      "component": "B1500_TCG",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "size_bytes": 1774762,
+      "expected_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+      "actual_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+      "status": "PASS"
+    },
+    {
+      "component": "I_codec",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+      "size_bytes": 334225106,
+      "expected_sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "actual_sha256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "status": "PASS"
+    },
+    {
+      "component": "P_codec",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt",
+      "size_bytes": 206881943,
+      "expected_sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "actual_sha256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e",
+      "status": "PASS"
+    }
+  ],
+  "time": 1793959604.9353294,
+  "previous_protocol_sha256": "f5fc88dfdc25fe349f6a3a9164f772a7a9f41124d1953aa088a85f23a69daf52",
+  "previous_protocol_pilot_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "formal_model_loaded": false,
+  "formal_training_started": false,
+  "committed_optimizer_updates": 0,
+  "blocker": "PILOT_SHA_MISMATCH",
+  "resume_precondition": "User confirms a correction of the requested pilot SHA, or supplies the exact matching file; do not bypass the check",
+  "resume_command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_generator_convlora_20261106/experiments/gvcrt_tcg_stage2_generator_convlora_20261106/preflight.py",
+  "resume_command_scope": "Read-only preflight only; no training process is launched",
+  "disk_free_bytes": 606950506496
+}

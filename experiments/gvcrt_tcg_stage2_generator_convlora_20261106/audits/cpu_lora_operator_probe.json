@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic standalone CPU convolutions only; full model, CUDA dispatch, real loss and RANS not tested",
+  "rank": 4,
+  "alpha_div_rank": 1,
+  "operator_count": 5,
+  "parameters": 59392,
+  "zero_initialization_strict_equal": true,
+  "frozen_base_unchanged": true,
+  "base_gradients_absent": true,
+  "FP32_values_preserved_through_parent_half": true,
+  "disposable_optimizer_updates": 3,
+  "formal_optimizer_updates": 0,
+  "formal_model_loaded": false,
+  "gradients": [
+    {
+      "disposable_step": 1,
+      "down_gradient_norm": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "up_gradient_norm": [
+        452.4436950683594,
+        468.2335205078125,
+        440.0807800292969,
+        470.53466796875,
+        355.8363342285156
+      ]
+    },
+    {
+      "disposable_step": 2,
+      "down_gradient_norm": [
+        4.09882926940918,
+        4.354631423950195,
+        4.178053855895996,
+        4.172033786773682,
+        2.594181537628174
+      ],
+      "up_gradient_norm": [
+        452.4436950683594,
+        468.2335205078125,
+        440.0807800292969,
+        470.53466796875,
+        355.8363342285156
+      ]
+    },
+    {
+      "disposable_step": 3,
+      "down_gradient_norm": [
+        8.197653770446777,
+        8.709259033203125,
+        8.35610294342041,
+        8.344062805175781,
+        5.188360691070557
+      ],
+      "up_gradient_norm": [
+        453.4573974609375,
+        469.3087158203125,
+        441.08953857421875,
+        471.5594177246094,
+        356.67254638671875
+      ]
+    }
+  ]
+}
