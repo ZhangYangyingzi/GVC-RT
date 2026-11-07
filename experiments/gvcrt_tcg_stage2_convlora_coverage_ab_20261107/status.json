@@ -1,13 +1,67 @@
 {
-  "status": "READY",
-  "current_stage": "engineering_complete_ready_for_formal",
-  "time": 1794028843.4710572,
+  "status": "COMPLETE",
+  "experiment_complete": true,
+  "current_stage": "experiment_complete",
   "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107",
-  "experiment_complete": false,
-  "A_control": {
-    "committed_optimizer_updates": 0
+  "runner_running": false,
+  "groups": {
+    "A_control": {
+      "committed_optimizer_updates": 3000,
+      "best_dev_step": 2000,
+      "dev_score": 0.9959518954881964,
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt",
+      "checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+      "baseline_retained": false,
+      "shared_GPU_seconds_before_commit": 57464.97405385971
+    },
+    "B_expanded": {
+      "committed_optimizer_updates": 3000,
+      "best_dev_step": 2000,
+      "dev_score": 0.9954554167531234,
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/B_expanded/checkpoints/step_2000.pt",
+      "checkpoint_sha256": "aa000d8e3c5701636cf4a1ecc8b26b2d7db235bbe8dac39a2acc277c1a7903eb",
+      "baseline_retained": false,
+      "shared_GPU_seconds_before_commit": 57618.19796156883
+    }
   },
-  "B_expanded": {
-    "committed_optimizer_updates": 0
-  }
+  "common_validation_steps": [
+    250,
+    500,
+    750,
+    1000,
+    1250,
+    1500,
+    1750,
+    2000,
+    2250,
+    2500,
+    2750,
+    3000
+  ],
+  "final_test_points": {
+    "common_baseline": 135,
+    "A_control": 135,
+    "B_expanded": 135
+  },
+  "bpp_hash_frozen_state_checks": "PASS",
+  "result_paths": {
+    "REPORT.md": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/REPORT.md",
+    "protocol.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/protocol.json",
+    "source_manifest.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/source_manifest.json",
+    "baseline_provenance.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/baseline_provenance.json",
+    "metrics.csv": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/metrics.csv",
+    "paired_deltas_by_dataset_qp.csv": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/paired_deltas_by_dataset_qp.csv",
+    "matched_step_comparison.csv": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/matched_step_comparison.csv",
+    "stream_identity_checks.csv": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/stream_identity_checks.csv",
+    "checkpoints_manifest.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/checkpoints_manifest.json",
+    "decode_timing.csv": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/decode_timing.csv",
+    "plots/datasets": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/plots/datasets",
+    "plots/development_curves.png": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/plots/development_curves.png",
+    "plots/DISTS_changes.png": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/plots/DISTS_changes.png",
+    "final_integrity.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/final_integrity.json",
+    "publication_status.json": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/publication_status.json"
+  },
+  "time": 1794084640.8177488
 }

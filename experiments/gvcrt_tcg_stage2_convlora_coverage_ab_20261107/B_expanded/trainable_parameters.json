@@ -1,0 +1,173 @@
+{
+  "group": "B_expanded",
+  "count": 135168,
+  "configuration": {
+    "targets": [
+      {
+        "path": "stage3.blocks.0.dc.2",
+        "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+        "in_channels": 320,
+        "out_channels": 320,
+        "groups": 320,
+        "parameters": 12800,
+        "base_weight_shape": [
+          320,
+          1,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          320,
+          1,
+          1
+        ],
+        "up_shape": [
+          320,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "path": "stage3.blocks.1.dc.2",
+        "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+        "in_channels": 320,
+        "out_channels": 320,
+        "groups": 320,
+        "parameters": 12800,
+        "base_weight_shape": [
+          320,
+          1,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          320,
+          1,
+          1
+        ],
+        "up_shape": [
+          320,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "path": "stage3.blocks.2.dc.2",
+        "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+        "in_channels": 320,
+        "out_channels": 320,
+        "groups": 320,
+        "parameters": 12800,
+        "base_weight_shape": [
+          320,
+          1,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          320,
+          1,
+          1
+        ],
+        "up_shape": [
+          320,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "path": "stage3.blocks.3.dc.2",
+        "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+        "in_channels": 320,
+        "out_channels": 320,
+        "groups": 320,
+        "parameters": 12800,
+        "base_weight_shape": [
+          320,
+          1,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          320,
+          1,
+          1
+        ],
+        "up_shape": [
+          320,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "path": "head",
+        "kind": "parallel low-rank update alongside original dense3x3",
+        "in_channels": 320,
+        "out_channels": 192,
+        "groups": 1,
+        "parameters": 8192,
+        "base_weight_shape": [
+          192,
+          320,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          320,
+          1,
+          1
+        ],
+        "up_shape": [
+          192,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "path": "upsample.conv1",
+        "kind": "parallel update before depth_to_space, after tcg_low/ada3 and before tcg_mid",
+        "in_channels": 512,
+        "out_channels": 2048,
+        "groups": 1,
+        "parameters": 75776,
+        "base_weight_shape": [
+          2048,
+          512,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          512,
+          1,
+          1
+        ],
+        "up_shape": [
+          2048,
+          4,
+          3,
+          3
+        ]
+      }
+    ],
+    "rank": 4,
+    "alpha_div_rank": 1.0,
+    "parameter_count": 135168,
+    "extra_parameters": 75776,
+    "bias_parameters": false,
+    "extra_RNG_fork_independent": true,
+    "head_geometry_note": "Head output has192 channels; its branch is320->4->192, matching the actual frozen head output",
+    "precision": "LoRA FP32 internally; add to original-conv output in FP32 and cast back once",
+    "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
+  }
+}

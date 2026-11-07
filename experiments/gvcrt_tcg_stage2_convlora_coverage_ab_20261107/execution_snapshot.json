@@ -1,0 +1,93 @@
+{
+  "status": "RUNNING",
+  "complete": false,
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107",
+  "runner_PID": 861100,
+  "current_stage": "parallel_training_round",
+  "groups": {
+    "A_control": {
+      "status": "RUNNING",
+      "committed_updates": 16,
+      "source_cursor": 1516,
+      "best_dev_step": null,
+      "dev_score": null,
+      "stop_reason": null,
+      "physical_GPUs": [
+        4,
+        5
+      ],
+      "effective_batch": 4,
+      "LoRA_parameters": 59392,
+      "next_validation": 250,
+      "checkpoint_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2.pt",
+      "checkpoint_sha256": "edaf17ad78417016c1c93bdf01eb68c95608a5b41354324e31202c3f71d56b0d",
+      "checkpoint_updates": 2
+    },
+    "B_expanded": {
+      "status": "RUNNING",
+      "committed_updates": 16,
+      "source_cursor": 1516,
+      "best_dev_step": null,
+      "dev_score": null,
+      "stop_reason": null,
+      "physical_GPUs": [
+        6,
+        7
+      ],
+      "effective_batch": 4,
+      "LoRA_parameters": 135168,
+      "next_validation": 250,
+      "checkpoint_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/B_expanded/checkpoints/step_2.pt",
+      "checkpoint_sha256": "0cbff59a12ec7a4577dc429d8d72ee023cef3d6dc28b8f42d80335e7a0cbe776",
+      "checkpoint_updates": 2
+    }
+  },
+  "common_completed_validation_steps": [],
+  "development_points": {
+    "common_baseline": 96,
+    "A_control": 0,
+    "B_expanded": 0
+  },
+  "final_test_completed": {
+    "common_baseline": 0,
+    "A_control": 0,
+    "B_expanded": 0,
+    "expected_each": 135
+  },
+  "checks": {
+    "baseline_SHA": "PASS",
+    "shared_initialization": "PASS",
+    "two_card_accumulation": "PASS",
+    "RANS_engineering_bpp_hash": "PASS",
+    "first_two_formal_updates": "PASS",
+    "GPU_training_and_GT_auxiliary_mapping": "PASS",
+    "full_development_and_test_streams": "PENDING",
+    "final_integrity": "PENDING"
+  },
+  "report_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/REPORT.md",
+  "status_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/status.json",
+  "runner_log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/logs/runner.log",
+  "metrics_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/common_baseline/evaluation/development_baseline/metrics.csv"
+  ],
+  "RD_plot_paths": [],
+  "audits": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/audits/formal_first_two_updates.json",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/audits/aggregation_comparison.json",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/audits/RANS_coverage_identity.json"
+  ],
+  "github": {
+    "status": "VERIFIED",
+    "published_artifact_commit": "4f5922c34c3096e4cd809aad09ce574e8708b3e6",
+    "branch_HEAD": "da4cfd045c02ca31b98966c72a220a9148bbcde4",
+    "branch": "codex/tcg-stage2-convlora-coverage-ab-20261107",
+    "branch_url": "https://github.com/ZhangYangyingzi/GVC-RT/tree/codex/tcg-stage2-convlora-coverage-ab-20261107",
+    "HEAD_commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/da4cfd045c02ca31b98966c72a220a9148bbcde4",
+    "remote_verified": true,
+    "core_blobs_verified": true,
+    "time": 1794028899.1194568
+  },
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/runner.py",
+  "resume_precondition": "Only resume after confirming existing runner and children have exited and runner.lock is free; never launch concurrently.",
+  "time": 1794029078.3300781
+}

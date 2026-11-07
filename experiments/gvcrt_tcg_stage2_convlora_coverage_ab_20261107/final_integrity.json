@@ -1,9 +1,57 @@
 {
-  "status": "PENDING",
-  "experiment_complete": false,
-  "A_updates": 0,
-  "B_updates": 0,
+  "status": "PASS",
+  "experiment_complete": true,
+  "groups": {
+    "A_control": {
+      "committed_optimizer_updates": 3000,
+      "best_dev_step": 2000,
+      "dev_score": 0.9959518954881964,
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt",
+      "checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+      "baseline_retained": false,
+      "shared_GPU_seconds_before_commit": 57464.97405385971
+    },
+    "B_expanded": {
+      "committed_optimizer_updates": 3000,
+      "best_dev_step": 2000,
+      "dev_score": 0.9954554167531234,
+      "stop_reason": "EARLY_STOPPED_PATIENCE",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/B_expanded/checkpoints/step_2000.pt",
+      "checkpoint_sha256": "aa000d8e3c5701636cf4a1ecc8b26b2d7db235bbe8dac39a2acc277c1a7903eb",
+      "baseline_retained": false,
+      "shared_GPU_seconds_before_commit": 57618.19796156883
+    }
+  },
+  "common_validation_steps": [
+    250,
+    500,
+    750,
+    1000,
+    1250,
+    1500,
+    1750,
+    2000,
+    2250,
+    2500,
+    2750,
+    3000
+  ],
+  "final_points": {
+    "common_baseline": 135,
+    "A_control": 135,
+    "B_expanded": 135
+  },
+  "all_pairs_bpp_hash_codec_features_equal": true,
+  "frozen_original_components_unchanged": true,
+  "shared_initial_parameters_and_logical_RNG_equal": true,
+  "shared_update_sample_keys_equal": true,
+  "no_repeated_skipped_or_uncommitted_updates": true,
+  "TCG_cumulative_step_frozen_at": 6500,
+  "Router_instantiated": false,
+  "dataset_plots": 4,
+  "decoding_timing_records": 9,
+  "existing_test_set_reused": true,
   "selected_runtime": "two_card_parallel",
-  "formal_training": "NOT_STARTED",
-  "final_test_points": 0
+  "time": 1794084628.4513357
 }

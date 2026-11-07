@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "scope": "Engineering acceptance of first two actual committed updates, not full experiment integrity",
+  "records": {
+    "A_control": {
+      "step2_checkpoint": "A_control/checkpoints/step_2.pt",
+      "step2_SHA256": "edaf17ad78417016c1c93bdf01eb68c95608a5b41354324e31202c3f71d56b0d",
+      "LoRA_parameters": 59392,
+      "RNG_streams_saved": 4,
+      "optimizer_step": 2,
+      "checks": [
+        {
+          "step": 1,
+          "sample_keys": [
+            "c0af89167a47cc4cc891916952660651a95c125fdca4fcd073d93674702d8588",
+            "9854118931b3e176485384a1714b0e125f288db3e90a3f3595845441f78cfac2",
+            "4d97c59bffc6b95a9b763407aa4c26046d5ff6a0e382bb97b28ba99c6b4fbef7",
+            "1a178a0d48ae6d324c969802a16ec4721b901c1ee0d57b274877c1313a3d4936"
+          ],
+          "mean_gradient_norm": 0.02277188104481802,
+          "parameter_changes_L2": {
+            "stage3": 0.010722335318681324,
+            "head": 0.004155123186222397
+          },
+          "physical_GPUs": [
+            4,
+            5
+          ],
+          "peak_allocated_bytes": [
+            2397540864,
+            2397540864
+          ]
+        },
+        {
+          "step": 2,
+          "sample_keys": [
+            "9b44a2a18e4c79bc75b2feabaffe8ace77aebe5645c19ade8fab0e106092bd40",
+            "c8e694b1e7967f3b04cf664d2e183d0228aa07410a0c798e2f66a4f4f2ba7d63",
+            "fc4292bb2f7f234230cfa8a101824a571af3f00b3665152dbc43227c82569624",
+            "063522fe72353407b43ac3b09f3e0b49a8b45783695424f86b28b4778cecdd6d"
+          ],
+          "mean_gradient_norm": 0.03781479518249246,
+          "parameter_changes_L2": {
+            "stage3": 0.008055826503241544,
+            "head": 0.0030892588966416994
+          },
+          "physical_GPUs": [
+            4,
+            5
+          ],
+          "peak_allocated_bytes": [
+            2398761472,
+            2398761472
+          ]
+        }
+      ]
+    },
+    "B_expanded": {
+      "step2_checkpoint": "B_expanded/checkpoints/step_2.pt",
+      "step2_SHA256": "0cbff59a12ec7a4577dc429d8d72ee023cef3d6dc28b8f42d80335e7a0cbe776",
+      "LoRA_parameters": 135168,
+      "RNG_streams_saved": 4,
+      "optimizer_step": 2,
+      "checks": [
+        {
+          "step": 1,
+          "sample_keys": [
+            "c0af89167a47cc4cc891916952660651a95c125fdca4fcd073d93674702d8588",
+            "9854118931b3e176485384a1714b0e125f288db3e90a3f3595845441f78cfac2",
+            "4d97c59bffc6b95a9b763407aa4c26046d5ff6a0e382bb97b28ba99c6b4fbef7",
+            "1a178a0d48ae6d324c969802a16ec4721b901c1ee0d57b274877c1313a3d4936"
+          ],
+          "mean_gradient_norm": 0.022788003833986444,
+          "parameter_changes_L2": {
+            "stage3": 0.010722273154283717,
+            "head": 0.00415511686270064,
+            "upsample": 0.013380066933595657
+          },
+          "physical_GPUs": [
+            6,
+            7
+          ],
+          "peak_allocated_bytes": [
+            2408391168,
+            2408391168
+          ]
+        },
+        {
+          "step": 2,
+          "sample_keys": [
+            "9b44a2a18e4c79bc75b2feabaffe8ace77aebe5645c19ade8fab0e106092bd40",
+            "c8e694b1e7967f3b04cf664d2e183d0228aa07410a0c798e2f66a4f4f2ba7d63",
+            "fc4292bb2f7f234230cfa8a101824a571af3f00b3665152dbc43227c82569624",
+            "063522fe72353407b43ac3b09f3e0b49a8b45783695424f86b28b4778cecdd6d"
+          ],
+          "mean_gradient_norm": 0.03777044224544492,
+          "parameter_changes_L2": {
+            "stage3": 0.008050629717259958,
+            "head": 0.0030889706800071187,
+            "upsample": 0.00980326542635168
+          },
+          "physical_GPUs": [
+            6,
+            7
+          ],
+          "peak_allocated_bytes": [
+            2407796224,
+            2407796224
+          ]
+        }
+      ]
+    }
+  },
+  "initial_shared_parameters_and_four_logical_RNG_exact": true,
+  "same_sample_keys_A_B": true,
+  "only_LoRA_changed": true,
+  "frozen_unchanged": true,
+  "finite_nonzero_gradient": true,
+  "one_global_clip_and_optimizer_step": true,
+  "checkpoint_CPU_reload": true,
+  "time": 1794028996.9285817
+}
