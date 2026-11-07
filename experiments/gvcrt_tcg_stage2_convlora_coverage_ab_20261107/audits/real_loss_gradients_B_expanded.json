@@ -1,0 +1,535 @@
+{
+  "status": "PASS",
+  "sample_audits": [
+    {
+      "domain": "uvg",
+      "video": "Beauty",
+      "sample_key": "c0af89167a47cc4cc891916952660651a95c125fdca4fcd073d93674702d8588",
+      "component_gradient_norms": {
+        "LPIPS": 0.044124415835697005,
+        "weighted_reconstruction": 0.0009452168495992947,
+        "weighted_DISTS": 0.02956304036570145,
+        "rate_proxy": 0.0,
+        "weighted_motion": 0.0035486185429943317
+      },
+      "actual_repeated_reference_relative_L2": 0.00014189531121980192,
+      "auxiliary_relative_L2": 0.00013757245317734187,
+      "tolerance": 0.001,
+      "rate_proxy_constant_monitoring_only": true,
+      "deep_DISTS_gradient_checks": [
+        {
+          "position": 49,
+          "RGB_gradient_norm": 0.017334802076220512,
+          "DISTS_feature4_gradient_norm": 0.0020941304974257946,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 50,
+          "RGB_gradient_norm": 0.017094163224101067,
+          "DISTS_feature4_gradient_norm": 0.0019930072594434023,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 51,
+          "RGB_gradient_norm": 0.014128793962299824,
+          "DISTS_feature4_gradient_norm": 0.002110193483531475,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 52,
+          "RGB_gradient_norm": 0.010739753022789955,
+          "DISTS_feature4_gradient_norm": 0.002088201232254505,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 53,
+          "RGB_gradient_norm": 0.017663439735770226,
+          "DISTS_feature4_gradient_norm": 0.0019349888898432255,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 54,
+          "RGB_gradient_norm": 0.010976770892739296,
+          "DISTS_feature4_gradient_norm": 0.002365891123190522,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 55,
+          "RGB_gradient_norm": 0.011735028587281704,
+          "DISTS_feature4_gradient_norm": 0.0021155730355530977,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 56,
+          "RGB_gradient_norm": 0.011984648182988167,
+          "DISTS_feature4_gradient_norm": 0.0018901892472058535,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 57,
+          "RGB_gradient_norm": 0.013131027109920979,
+          "DISTS_feature4_gradient_norm": 0.0020937155932188034,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 58,
+          "RGB_gradient_norm": 0.013300157152116299,
+          "DISTS_feature4_gradient_norm": 0.0018899486167356372,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 59,
+          "RGB_gradient_norm": 0.010052456520497799,
+          "DISTS_feature4_gradient_norm": 0.0019306766334921122,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 60,
+          "RGB_gradient_norm": 0.010360443033277988,
+          "DISTS_feature4_gradient_norm": 0.0023279350716620684,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 61,
+          "RGB_gradient_norm": 0.011613368056714535,
+          "DISTS_feature4_gradient_norm": 0.002191807609051466,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 62,
+          "RGB_gradient_norm": 0.011126338504254818,
+          "DISTS_feature4_gradient_norm": 0.0022046868689358234,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 63,
+          "RGB_gradient_norm": 0.009279359132051468,
+          "DISTS_feature4_gradient_norm": 0.002141347387805581,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        }
+      ],
+      "losses": {
+        "motion_loss": 1.5733167052268981,
+        "weighted_motion_loss": 0.01573316705226898,
+        "LPIPS": 0.09368367046117783,
+        "DISTS": 0.12422461112340291,
+        "weighted_DISTS": 0.062112305561701456,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023903037856022515,
+        "weighted_reconstruction_L1": 0.0033071985313047965,
+        "total_loss": 0.1988301026367893
+      }
+    },
+    {
+      "domain": "ulong",
+      "video": "clips_long_1920/922ca057-4ada-44b6-b50f-6dfc48f0ef93.mp4",
+      "sample_key": "9854118931b3e176485384a1714b0e125f288db3e90a3f3595845441f78cfac2",
+      "component_gradient_norms": {
+        "LPIPS": 0.03510563293810964,
+        "weighted_reconstruction": 0.0007312504344034618,
+        "weighted_DISTS": 0.026978953805777982,
+        "rate_proxy": 0.0,
+        "weighted_motion": 0.007064885830908272
+      },
+      "actual_repeated_reference_relative_L2": 0.00022046951577988364,
+      "auxiliary_relative_L2": 0.00023010080817301322,
+      "tolerance": 0.001,
+      "rate_proxy_constant_monitoring_only": true,
+      "deep_DISTS_gradient_checks": [
+        {
+          "position": 49,
+          "RGB_gradient_norm": 0.015334125608205795,
+          "DISTS_feature4_gradient_norm": 0.0007002507336437702,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 50,
+          "RGB_gradient_norm": 0.010839562863111496,
+          "DISTS_feature4_gradient_norm": 0.0008358039194718003,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 51,
+          "RGB_gradient_norm": 0.012764872051775455,
+          "DISTS_feature4_gradient_norm": 0.0007656023954041302,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 52,
+          "RGB_gradient_norm": 0.009500810876488686,
+          "DISTS_feature4_gradient_norm": 0.0009430429199710488,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 53,
+          "RGB_gradient_norm": 0.01038016751408577,
+          "DISTS_feature4_gradient_norm": 0.0007534041651524603,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 54,
+          "RGB_gradient_norm": 0.011899314820766449,
+          "DISTS_feature4_gradient_norm": 0.0008497284725308418,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 55,
+          "RGB_gradient_norm": 0.009118825197219849,
+          "DISTS_feature4_gradient_norm": 0.000910250935703516,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 56,
+          "RGB_gradient_norm": 0.011608177796006203,
+          "DISTS_feature4_gradient_norm": 0.0008786889957264066,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 57,
+          "RGB_gradient_norm": 0.01704488880932331,
+          "DISTS_feature4_gradient_norm": 0.0008428998407907784,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 58,
+          "RGB_gradient_norm": 0.011382656171917915,
+          "DISTS_feature4_gradient_norm": 0.0010305017931386828,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 59,
+          "RGB_gradient_norm": 0.014174893498420715,
+          "DISTS_feature4_gradient_norm": 0.001126147573813796,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 60,
+          "RGB_gradient_norm": 0.008828205056488514,
+          "DISTS_feature4_gradient_norm": 0.0009430308127775788,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 61,
+          "RGB_gradient_norm": 0.012653430923819542,
+          "DISTS_feature4_gradient_norm": 0.0010081835789605975,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 62,
+          "RGB_gradient_norm": 0.01147545874118805,
+          "DISTS_feature4_gradient_norm": 0.0009479650179855525,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        },
+        {
+          "position": 63,
+          "RGB_gradient_norm": 0.013813672587275505,
+          "DISTS_feature4_gradient_norm": 0.0010283675510436296,
+          "feature_shape": [
+            1,
+            512,
+            32,
+            32
+          ],
+          "finite": true
+        }
+      ],
+      "losses": {
+        "motion_loss": 0.2501803199450175,
+        "weighted_motion_loss": 0.002501803199450175,
+        "LPIPS": 0.16508040130138396,
+        "DISTS": 0.1472521702448527,
+        "weighted_DISTS": 0.07362608512242635,
+        "rate_bpp": 0.0019022573256127846,
+        "beta_rate": 0.011117088010845084,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.03328067511320114,
+        "weighted_reconstruction_L1": 0.004604678290585677,
+        "total_loss": 0.25693005592469126
+      }
+    }
+  ],
+  "temporary_updates": [
+    {
+      "disposable_step": 1,
+      "gradient_norms": {
+        "generator.upsample.conv1.lora.down.weight": 0.0,
+        "generator.upsample.conv1.lora.up.weight": 0.001884933328256011,
+        "generator.stage3.blocks.0.dc.2.lora.down.weight": 0.0,
+        "generator.stage3.blocks.0.dc.2.lora.up.weight": 0.02705402486026287,
+        "generator.stage3.blocks.1.dc.2.lora.down.weight": 0.0,
+        "generator.stage3.blocks.1.dc.2.lora.up.weight": 0.02161043882369995,
+        "generator.stage3.blocks.2.dc.2.lora.down.weight": 0.0,
+        "generator.stage3.blocks.2.dc.2.lora.up.weight": 0.02099221758544445,
+        "generator.stage3.blocks.3.dc.2.lora.down.weight": 0.0,
+        "generator.stage3.blocks.3.dc.2.lora.up.weight": 0.012507368810474873,
+        "generator.head.lora.down.weight": 0.0,
+        "generator.head.lora.up.weight": 0.04429134353995323
+      },
+      "losses": {
+        "motion_loss": 1.5733167052268981,
+        "weighted_motion_loss": 0.01573316705226898,
+        "LPIPS": 0.09368367046117783,
+        "DISTS": 0.12422461112340291,
+        "weighted_DISTS": 0.062112305561701456,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023903037856022515,
+        "weighted_reconstruction_L1": 0.0033071985313047965,
+        "total_loss": 0.1988301026367893
+      }
+    },
+    {
+      "disposable_step": 2,
+      "gradient_norms": {
+        "generator.upsample.conv1.lora.down.weight": 0.00020490393217187375,
+        "generator.upsample.conv1.lora.up.weight": 0.001867944374680519,
+        "generator.stage3.blocks.0.dc.2.lora.down.weight": 0.0010463395155966282,
+        "generator.stage3.blocks.0.dc.2.lora.up.weight": 0.026593675836920738,
+        "generator.stage3.blocks.1.dc.2.lora.down.weight": 0.0010754452086985111,
+        "generator.stage3.blocks.1.dc.2.lora.up.weight": 0.021384576335549355,
+        "generator.stage3.blocks.2.dc.2.lora.down.weight": 0.001103944261558354,
+        "generator.stage3.blocks.2.dc.2.lora.up.weight": 0.02063388004899025,
+        "generator.stage3.blocks.3.dc.2.lora.down.weight": 0.0009733541519381106,
+        "generator.stage3.blocks.3.dc.2.lora.up.weight": 0.012289260514080524,
+        "generator.head.lora.down.weight": 0.0021553989499807358,
+        "generator.head.lora.up.weight": 0.043645039200782776
+      },
+      "losses": {
+        "motion_loss": 1.5730084379514058,
+        "weighted_motion_loss": 0.015730084379514057,
+        "LPIPS": 0.09338523397843043,
+        "DISTS": 0.12384164730707804,
+        "weighted_DISTS": 0.06192082365353902,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023912189652522405,
+        "weighted_reconstruction_L1": 0.003308464726433158,
+        "total_loss": 0.1983383677682529
+      }
+    },
+    {
+      "disposable_step": 3,
+      "gradient_norms": {
+        "generator.upsample.conv1.lora.down.weight": 0.0004005375667475164,
+        "generator.upsample.conv1.lora.up.weight": 0.0018624819349497557,
+        "generator.stage3.blocks.0.dc.2.lora.down.weight": 0.002036751015111804,
+        "generator.stage3.blocks.0.dc.2.lora.up.weight": 0.026105282828211784,
+        "generator.stage3.blocks.1.dc.2.lora.down.weight": 0.0020914138294756413,
+        "generator.stage3.blocks.1.dc.2.lora.up.weight": 0.021253393962979317,
+        "generator.stage3.blocks.2.dc.2.lora.down.weight": 0.0021533966064453125,
+        "generator.stage3.blocks.2.dc.2.lora.up.weight": 0.0204567052423954,
+        "generator.stage3.blocks.3.dc.2.lora.down.weight": 0.001872919499874115,
+        "generator.stage3.blocks.3.dc.2.lora.up.weight": 0.01218730304390192,
+        "generator.head.lora.down.weight": 0.004181391559541225,
+        "generator.head.lora.up.weight": 0.04285188391804695
+      },
+      "losses": {
+        "motion_loss": 1.574417800704638,
+        "weighted_motion_loss": 0.015744178007046382,
+        "LPIPS": 0.09308712879816691,
+        "DISTS": 0.12346132596333821,
+        "weighted_DISTS": 0.061730662981669106,
+        "rate_bpp": 0.015036089687297742,
+        "beta_rate": 0.023993761030336222,
+        "proxy_L1": 0.0,
+        "weighted_proxy_L1": 0.0,
+        "reconstruction_L1": 0.023921682064731917,
+        "weighted_reconstruction_L1": 0.0033097781240940096,
+        "total_loss": 0.19786550894131263
+      }
+    }
+  ],
+  "formal_updates": 0,
+  "only_LoRA_changed": true,
+  "all_original_parameters_gradient_none": true,
+  "frozen_state_hash": "297eba0f9cffd66af224e5e0289845075a80e88f6f43f8c494685b7b1853db2a",
+  "TCG_frozen": true,
+  "reconstruction_VJP_scale": 4096,
+  "unscale_count": 1,
+  "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+  "rate_gradient_role": "constant / monitoring, not training LoRA",
+  "proxy": "Identity, zero",
+  "optimizer_fresh": true
+}

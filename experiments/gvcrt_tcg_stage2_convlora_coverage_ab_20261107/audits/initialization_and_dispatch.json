@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "A_parameters": 59392,
+  "B_parameters": 135168,
+  "extra_target": {
+    "path": "upsample.conv1",
+    "kind": "parallel update before depth_to_space, after tcg_low/ada3 and before tcg_mid",
+    "in_channels": 512,
+    "out_channels": 2048,
+    "groups": 1,
+    "parameters": 75776,
+    "base_weight_shape": [
+      2048,
+      512,
+      3,
+      3
+    ],
+    "down_shape": [
+      4,
+      512,
+      1,
+      1
+    ],
+    "up_shape": [
+      2048,
+      4,
+      3,
+      3
+    ]
+  },
+  "shared_initialization_tensors_equal": true,
+  "common_state_sha256": "71395cb15567718edcdbd21cbb749a852a5f046c09db013551eac09d1e8d58be",
+  "zero_baseline_A_B_outputs_strict_equal": true,
+  "TCG_cache_strict_equal": true,
+  "actual_TCG_feature_shapes": {
+    "tcg_low": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "upsample_input": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "upsample_conv_output": [
+      1,
+      2048,
+      16,
+      16
+    ],
+    "tcg_mid": [
+      1,
+      512,
+      32,
+      32
+    ],
+    "tcg_out": [
+      1,
+      320,
+      32,
+      32
+    ]
+  },
+  "representative_codec_feature_shape": [
+    1,
+    256,
+    32,
+    32
+  ],
+  "three_distinct_TCG_resolutions_claimed": false,
+  "dispatch": [
+    {
+      "group": "A_control",
+      "branches": 5,
+      "CUDA_entry_matches_PyTorch": true,
+      "actual_forward_calls": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "group": "B_expanded",
+      "branches": 6,
+      "CUDA_entry_matches_PyTorch": true,
+      "actual_forward_calls": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    }
+  ],
+  "nonzero_upsample_output_difference": 0.00390625,
+  "original_components_equal_and_unchanged": true,
+  "update_buffer_false_unchanged": true,
+  "formal_updates": 0
+}

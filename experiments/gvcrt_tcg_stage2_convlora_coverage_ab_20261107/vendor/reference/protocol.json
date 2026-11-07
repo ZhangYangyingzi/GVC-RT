@@ -1,0 +1,223 @@
+{
+  "task": "tcg_stage2_generator_convlora_20261106",
+  "revision": "generator_convlora_v1_corrected_SHA",
+  "seed": 20261106,
+  "base_commit": "6c3747d0e960f2fed656b509d4537e1226045cbe",
+  "branch": "codex/tcg-stage2-generator-convlora-20261106",
+  "pilot_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "baseline_cumulative_TCG_step": 6500,
+  "baseline_composition": "Original I/P codec plus strict pilot Bridge/generator/persistent buffers plus exact FP32 B+1500 TCG overlay; not original GVC-RT weights",
+  "SHA_correction_audit": "audits/sha_correction_20261106/correction.json",
+  "model": {
+    "Router_instantiated": false,
+    "TCG_frozen": true,
+    "original_generator_frozen": true,
+    "Bridge_frozen": true,
+    "codec_frozen": true,
+    "quality_networks_frozen": true,
+    "targets": [
+      "stage3.blocks.0.dc.2",
+      "stage3.blocks.1.dc.2",
+      "stage3.blocks.2.dc.2",
+      "stage3.blocks.3.dc.2",
+      "head"
+    ],
+    "stage3": "Four parallel low-rank updates alongside existing depthwise3x3; not dense-convolution weight factorization",
+    "stage3_branch": [
+      320,
+      4,
+      320
+    ],
+    "head_branch": [
+      320,
+      4,
+      192
+    ],
+    "head_geometry": "Original head produces192 channels before PixelShuffle8",
+    "bias": false,
+    "rank": 4,
+    "alpha_div_rank": 1,
+    "parameters": 59392,
+    "initial_down": "Kaiming uniform, fixed seed20261106",
+    "initial_up": "exact zeros",
+    "LoRA_internal": "FP32, FP32 addition then cast once to incoming dtype",
+    "TCG": "FP32 parameters and computation; exact B1500 state remains frozen",
+    "deployment": "Original nonTCG FP16; matching baseline/candidate stage3/head safe PyTorch dispatch; codec dispatch unchanged",
+    "custom_CUDA": "No new fused kernel; both explicit CUDA and PyTorch generator entry routes execute LoRA; runtime backend availability recorded",
+    "additional_modules_or_losses": false
+  },
+  "data": {
+    "B_ULong_pool": 8470,
+    "quarantined_source_groups": 236,
+    "plan_index_sha256": "580af0a41f82c58be4ab894d101f034a2ec0f7b901700d9ba80a28c0a63c24d4",
+    "source_cursor_start": 1500,
+    "source_cursor_at_cap": 4500,
+    "immutable_B_rows": "6000:18000",
+    "plan_order": "unchanged",
+    "effective_batch": 4,
+    "samples_per_update": {
+      "uvg": 2,
+      "ulong": 2
+    },
+    "new_independent_samples_claim": false,
+    "split_and_source_hashes": "inherited sealed audited manifests",
+    "Vimeo": false,
+    "excluded_identities_reintroduced": false
+  },
+  "training": {
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "I0": "original I",
+    "warmup": [
+      1,
+      48
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "frame_mean_denominator": 15,
+    "external_QPs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "internal_QP": "inherited frame_qp/shift_qp",
+    "previous_reconstruction_detach": true,
+    "codec_reference_detach": true,
+    "loss": "LPIPS+0.5*DISTS+0.1383589248954108*RGB_L1+0.01*RAFT_motion+beta(q)*Rate+0.01*proxy",
+    "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "beta": "1/(0.08+q*(0.9-0.08)/9)",
+    "proxy": "Identity -> zero",
+    "rate_gradient": "none when codec frozen",
+    "VJP": "historical fused/15 then reconstruction*(4096/15), unscale gradient exactly once by4096, multiply0.1383589248954108, combine",
+    "RAFT": {
+      "local_weight_sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322",
+      "download": false,
+      "parameters_frozen": true,
+      "prediction_input_differentiable": true,
+      "transforms": "weights enum transforms"
+    },
+    "paper_identical_loss_claim": false,
+    "new_losses": [],
+    "smoke": "disposable engineering states; formal first2 included in budget"
+  },
+  "state": {
+    "TCG_cache": "detached pre-residual current",
+    "codec_reference": "unchanged feature DPB",
+    "previous_reconstruction_detach": true,
+    "BPTT": false
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "new": true,
+    "groups": [
+      {
+        "name": "LoRA",
+        "lr": 5e-05
+      }
+    ],
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_clip_norm": 1.0,
+    "reduction": "SUM4/4 before one clipping and optimizer update",
+    "schedule": null
+  },
+  "stopping": {
+    "max_updates": 3000,
+    "validation_interval": 250,
+    "patience": 4,
+    "min_delta": 0.001,
+    "mode": "min",
+    "anchor_initial": 1.0,
+    "score": "mean_q(mean32video FloLPIPS(candidate,q)/mean32video FloLPIPS(B1500 matched-FP32 safe-dispatch baseline,q))",
+    "raw_best": "trained checkpoints >=250, ties earlier",
+    "initialization_validation_counts": false,
+    "invalid_validation_counts": false,
+    "anchor_update": "score < anchor-0.001; otherwise bad_check_count+=1",
+    "final_selection": "lower of baseline1 and best trained score; tie baseline",
+    "keep_and_test_best_trained_even_if_baseline_retained": true,
+    "selection_before_final_test": true
+  },
+  "evaluation": {
+    "development_videos": 32,
+    "development_QPs": [
+      0,
+      5,
+      9
+    ],
+    "development_points": 96,
+    "final_videos": 45,
+    "final_QPs": [
+      0,
+      5,
+      9
+    ],
+    "final_points": 135,
+    "frames": 64,
+    "baseline": "B+1500 matched-FP32 TCG with same safe dispatch, no LoRA or optimizer",
+    "candidate": "LoRA-only selected checkpoint",
+    "bitstreams": "Same pre-encoded verified B streams for both baseline and every candidate; new independent decoder per point; no claimed fresh encoding",
+    "bpp_and_bitstream_SHA": "Exact per-point equality required before quality scoring; any mismatch stops evaluation",
+    "independent_fresh_RANS_engineering_probe": true,
+    "RGB": "matched_rgb_fp32_v2: float before clamp/range conversion/native crop",
+    "metrics": [
+      "bpp",
+      "kbps",
+      "PSNR",
+      "MS_SSIM",
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "WarpingError_GTFlow_PWC",
+      "WarpingError_ReconFlow_PWC"
+    ],
+    "datasets": {
+      "ULong_new_holdout": 32,
+      "ULong_historical": 6,
+      "HEVC_B": 5,
+      "UVG_historical_HoneyBee_Jockey": 2
+    },
+    "inherited_PWC_sampler": "pixel-center grid, align_cornersFalse, W-1/H-1 flow normalization, invalid zero, full-image denominator; width11 dx1 samples1.1px",
+    "weighting": "Equal videos within dataset/split/QP. Normalized dev score averages the three per-QP ratios.",
+    "historical_quality_metrics_reused": false,
+    "BD_rate": false
+  },
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "world_size": 4,
+  "effective_batch": 4,
+  "resource_limits": {
+    "disk_reserve_GiB": 100,
+    "private_media_cache_GiB": 80,
+    "extra_large_artifacts_GiB": 20,
+    "max_CPU_preparation_workers": 4
+  },
+  "publication": {
+    "repo": "ZhangYangyingzi/GVC-RT",
+    "branch": "codex/tcg-stage2-generator-convlora-20261106",
+    "allowlist_only": true,
+    "no_weights_media_streams_caches": true,
+    "max_file_bytes": 52428800,
+    "force_push": false
+  }
+}

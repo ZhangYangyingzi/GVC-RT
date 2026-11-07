@@ -1,0 +1,355 @@
+{
+  "task": "convlora_coverage_ab_20261107",
+  "revision": "coverage_AB_v1",
+  "seed": 20261106,
+  "base_commit": "b1f763f87e7239f5a4be2df7fe56d98f33616292",
+  "branch": "codex/tcg-stage2-convlora-coverage-ab-20261107",
+  "pilot_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "TCG_cumulative_step_frozen_at": 6500,
+  "baseline_composition": "Original I/P codec plus strict pilot Bridge/generator/persistent buffers plus exact FP32 B+1500 TCG overlay; not original GVC-RT weights",
+  "groups": {
+    "A_control": {
+      "targets": [
+        "stage3.blocks.0.dc.2",
+        "stage3.blocks.1.dc.2",
+        "stage3.blocks.2.dc.2",
+        "stage3.blocks.3.dc.2",
+        "head"
+      ],
+      "parameters": 59392
+    },
+    "B_expanded": {
+      "additional_target": "upsample.conv1",
+      "extra_target": {
+        "path": "upsample.conv1",
+        "kind": "parallel update before depth_to_space, after tcg_low/ada3 and before tcg_mid",
+        "in_channels": 512,
+        "out_channels": 2048,
+        "groups": 1,
+        "parameters": 75776,
+        "base_weight_shape": [
+          2048,
+          512,
+          3,
+          3
+        ],
+        "down_shape": [
+          4,
+          512,
+          1,
+          1
+        ],
+        "up_shape": [
+          2048,
+          4,
+          3,
+          3
+        ]
+      },
+      "parameters": 135168
+    }
+  },
+  "architecture_order": "stage1 -> stage2 -> tcg_low -> ada3 -> upsample -> tcg_mid -> stage3 -> ada4 -> stage4 -> tcg_out -> ada_final -> head",
+  "extra_position": "upsample.conv1 output before depth_to_space; after tcg_low and ada3, before tcg_mid",
+  "common_initialization": {
+    "path": "common_initialization/untrained_common.pt",
+    "sha256": "71395cb15567718edcdbd21cbb749a852a5f046c09db013551eac09d1e8d58be",
+    "fresh": true,
+    "shared_tensors_exact": true,
+    "extra_branch_RNG": "independent fork with seed20261106; restores caller RNG; no data RNG consumed"
+  },
+  "actual_TCG_feature_shapes": {
+    "tcg_low": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "upsample_input": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "upsample_conv_output": [
+      1,
+      2048,
+      16,
+      16
+    ],
+    "tcg_mid": [
+      1,
+      512,
+      32,
+      32
+    ],
+    "tcg_out": [
+      1,
+      320,
+      32,
+      32
+    ]
+  },
+  "three_distinct_TCG_resolutions_claimed": false,
+  "data": {
+    "B_ULong_pool": 8470,
+    "quarantined_source_groups": 236,
+    "plan_index_sha256": "580af0a41f82c58be4ab894d101f034a2ec0f7b901700d9ba80a28c0a63c24d4",
+    "source_cursor_start": 1500,
+    "source_cursor_at_cap": 4500,
+    "immutable_B_rows": "6000:18000",
+    "plan_order": "unchanged",
+    "effective_batch": 4,
+    "samples_per_update": {
+      "uvg": 2,
+      "ulong": 2
+    },
+    "new_independent_samples_claim": false,
+    "split_and_source_hashes": "inherited sealed audited manifests",
+    "Vimeo": false,
+    "excluded_identities_reintroduced": false
+  },
+  "training": {
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "I0": "original I",
+    "warmup": [
+      1,
+      48
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "frame_mean_denominator": 15,
+    "external_QPs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "internal_QP": "inherited frame_qp/shift_qp",
+    "previous_reconstruction_detach": true,
+    "codec_reference_detach": true,
+    "loss": "LPIPS+0.5*DISTS+0.1383589248954108*RGB_L1+0.01*RAFT_motion+beta(q)*Rate+0.01*proxy",
+    "loss_source_sha256": "90d40bb1348d96e02f3242195a7be87dbfd7474b2317cc5f4c1f303fc3d74515",
+    "beta": "1/(0.08+q*(0.9-0.08)/9)",
+    "proxy": "Identity -> zero",
+    "rate_gradient": "none when codec frozen",
+    "VJP": "historical fused/15 then reconstruction*(4096/15), unscale gradient exactly once by4096, multiply0.1383589248954108, combine",
+    "RAFT": {
+      "local_weight_sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322",
+      "download": false,
+      "parameters_frozen": true,
+      "prediction_input_differentiable": true,
+      "transforms": "weights enum transforms"
+    },
+    "paper_identical_loss_claim": false,
+    "new_losses": [],
+    "smoke": "disposable engineering states; formal first2 included in budget"
+  },
+  "state": {
+    "TCG_cache": "detached pre-residual current",
+    "codec_reference": "unchanged feature DPB",
+    "previous_reconstruction_detach": true,
+    "BPTT": false
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "new": true,
+    "groups": [
+      {
+        "name": "LoRA",
+        "lr": 5e-05
+      }
+    ],
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_clip_norm": 1.0,
+    "reduction": "four logical samples summed across physical ranks; divide4 once",
+    "schedule": null
+  },
+  "logical_samples": {
+    "per_update": 4,
+    "domains": [
+      "2UVG",
+      "2ULong"
+    ],
+    "same_plan_sample_keys_A_B": true,
+    "logical_RNG_streams": 4,
+    "two_card_mapping": {
+      "0": [
+        0,
+        2
+      ],
+      "1": [
+        1,
+        3
+      ]
+    },
+    "mean_gradient": "SUM of four per-sample15frame-mean gradients, divide4 exactly once, clip once, optimizer once"
+  },
+  "scheduling": {
+    "preferred": "two_card_parallel",
+    "A_GPUs": [
+      4,
+      5
+    ],
+    "B_GPUs": [
+      6,
+      7
+    ],
+    "fallback": "four_card_alternating_segments",
+    "fallback_GPUs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "decision_source": "audits/aggregation_comparison.json before formal training",
+    "selected_mode": "two_card_parallel"
+  },
+  "stopping": {
+    "max_updates": 3000,
+    "validation_interval": 250,
+    "min_delta": 0.0005,
+    "patience": 4,
+    "mode": "min",
+    "anchor_initial": 1.0,
+    "score": "mean_q(mean32video FloLPIPS(candidate,q)/mean32video FloLPIPS(B1500 matched-FP32 safe-dispatch baseline,q))",
+    "anchor_update": "S < anchor-0.0005; else bad_check_count+=1",
+    "invalid_or_initial_checks_count": false,
+    "raw_best": "lowest full trained-checkpoint score, ties earlier",
+    "independent_groups": true,
+    "baseline_retained": "best trained score >=1; min_delta status reported separately",
+    "matched_budget": "all common completed planned validation steps; no selection by quality gap"
+  },
+  "evaluation": {
+    "development_videos": 32,
+    "development_QPs": [
+      0,
+      5,
+      9
+    ],
+    "development_points": 96,
+    "final_videos": 45,
+    "final_QPs": [
+      0,
+      5,
+      9
+    ],
+    "final_points": 135,
+    "frames": 64,
+    "baseline": "B+1500 matched-FP32 TCG with same safe dispatch, no LoRA or optimizer",
+    "candidate": "LoRA-only selected checkpoint",
+    "bitstreams": "Same pre-encoded verified B streams for both baseline and every candidate; new independent decoder per point; no claimed fresh encoding",
+    "bpp_and_bitstream_SHA": "Exact per-point equality required before quality scoring; any mismatch stops evaluation",
+    "independent_fresh_RANS_engineering_probe": true,
+    "RGB": "matched_rgb_fp32_v2: float before clamp/range conversion/native crop",
+    "metrics": [
+      "bpp",
+      "kbps",
+      "PSNR",
+      "MS_SSIM",
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "WarpingError_GTFlow_PWC",
+      "WarpingError_ReconFlow_PWC"
+    ],
+    "datasets": {
+      "ULong_new_holdout": 32,
+      "ULong_historical": 6,
+      "HEVC_B": 5,
+      "UVG_historical_HoneyBee_Jockey": 2
+    },
+    "inherited_PWC_sampler": "pixel-center grid, align_cornersFalse, W-1/H-1 flow normalization, invalid zero, full-image denominator; width11 dx1 samples1.1px",
+    "weighting": "Equal videos within dataset/split/QP. Normalized dev score averages the three per-QP ratios.",
+    "historical_quality_metrics_reused": false,
+    "BD_rate": false,
+    "final_test_reused_from_prior_experiments": true,
+    "final_states": [
+      "common baseline",
+      "A_control best-trained",
+      "B_expanded best-trained"
+    ],
+    "final_selection_after_both_groups_stop": true,
+    "historical_baseline_reuse": "Only after source/protocol/weight/stream/frame/transition audits; no new decode claim",
+    "candidate_quality_reuse": false
+  },
+  "decoding_timing": {
+    "sequence": "0aa91dd0-0594-4082-9154-d8d2bc94692e",
+    "QP": 5,
+    "frames": 64,
+    "physical_GPU": 4,
+    "warmup_full_sequences": 1,
+    "repetitions": 3,
+    "timing_scope": "RANS+GPU decoder with CUDA synchronization; excludes file I/O, model load and metric networks",
+    "shared_GPU_interference": "Record nvidia process/utilization snapshots; operational timing, no exclusive real-time claim"
+  },
+  "publication": {
+    "repo": "ZhangYangyingzi/GVC-RT",
+    "branch": "codex/tcg-stage2-convlora-coverage-ab-20261107",
+    "allowlist_only": true,
+    "no_weights_media_cache": true,
+    "force_push": false
+  },
+  "resource_limits": {
+    "disk_reserve_GiB": 100,
+    "private_media_cache_GiB": 80,
+    "extra_large_artifacts_GiB": 20,
+    "max_CPU_preparation_workers": 4
+  },
+  "reference_A_model_configuration": {
+    "Router_instantiated": false,
+    "TCG_frozen": true,
+    "original_generator_frozen": true,
+    "Bridge_frozen": true,
+    "codec_frozen": true,
+    "quality_networks_frozen": true,
+    "targets": [
+      "stage3.blocks.0.dc.2",
+      "stage3.blocks.1.dc.2",
+      "stage3.blocks.2.dc.2",
+      "stage3.blocks.3.dc.2",
+      "head"
+    ],
+    "stage3": "Four parallel low-rank updates alongside existing depthwise3x3; not dense-convolution weight factorization",
+    "stage3_branch": [
+      320,
+      4,
+      320
+    ],
+    "head_branch": [
+      320,
+      4,
+      192
+    ],
+    "head_geometry": "Original head produces192 channels before PixelShuffle8",
+    "bias": false,
+    "rank": 4,
+    "alpha_div_rank": 1,
+    "parameters": 59392,
+    "initial_down": "Kaiming uniform, fixed seed20261106",
+    "initial_up": "exact zeros",
+    "LoRA_internal": "FP32, FP32 addition then cast once to incoming dtype",
+    "TCG": "FP32 parameters and computation; exact B1500 state remains frozen",
+    "deployment": "Original nonTCG FP16; matching baseline/candidate stage3/head safe PyTorch dispatch; codec dispatch unchanged",
+    "custom_CUDA": "No new fused kernel; both explicit CUDA and PyTorch generator entry routes execute LoRA; runtime backend availability recorded",
+    "additional_modules_or_losses": false
+  }
+}
