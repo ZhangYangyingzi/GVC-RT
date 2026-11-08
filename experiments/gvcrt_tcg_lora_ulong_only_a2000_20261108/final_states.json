@@ -1,0 +1,35 @@
+{
+  "states": [
+    {
+      "name": "Original_GVC_RT",
+      "label": "Original GVC-RT",
+      "candidate": "original",
+      "checkpoint": null,
+      "batch": "evaluation/final_original"
+    },
+    {
+      "name": "TCG_B1500",
+      "label": "TCG B+1500 matched-FP32",
+      "candidate": "baseline",
+      "checkpoint": null,
+      "batch": "evaluation/final_TCG_B1500"
+    },
+    {
+      "name": "A2000_s05",
+      "label": "TCG+LoRA A2000 s0.5",
+      "candidate": "lora",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt",
+      "batch": "evaluation/final_A2000_s05"
+    },
+    {
+      "name": "ULong_continuation_s05",
+      "label": "TCG+LoRA ULong-only continuation s0.5",
+      "candidate": "lora",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_lora_ulong_only_a2000_20261108/experiments/gvcrt_tcg_lora_ulong_only_a2000_20261108/checkpoints/step_750.pt",
+      "batch": "evaluation/final_ULong_s05"
+    }
+  ],
+  "deduplicated_parent_retained": false,
+  "selection_SHA256": "4229293a6a233faa68662a204d277fbc235c68ea6480a3113db6681715d784eb",
+  "time": 1794154698.6872547
+}

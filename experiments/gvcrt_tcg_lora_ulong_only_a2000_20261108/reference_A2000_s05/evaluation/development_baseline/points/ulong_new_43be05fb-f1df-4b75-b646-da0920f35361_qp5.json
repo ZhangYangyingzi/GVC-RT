@@ -1,0 +1,557 @@
+{
+  "status": "PASS",
+  "cache_identity": {
+    "checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+    "inference_gain": 0.5,
+    "external_QP": 5,
+    "domain": "ulong_new",
+    "sequence": "43be05fb-f1df-4b75-b646-da0920f35361",
+    "split": "development",
+    "frame_indices": [
+      3712,
+      3713,
+      3714,
+      3715,
+      3716,
+      3717,
+      3718,
+      3719,
+      3720,
+      3721,
+      3722,
+      3723,
+      3724,
+      3725,
+      3726,
+      3727,
+      3728,
+      3729,
+      3730,
+      3731,
+      3732,
+      3733,
+      3734,
+      3735,
+      3736,
+      3737,
+      3738,
+      3739,
+      3740,
+      3741,
+      3742,
+      3743,
+      3744,
+      3745,
+      3746,
+      3747,
+      3748,
+      3749,
+      3750,
+      3751,
+      3752,
+      3753,
+      3754,
+      3755,
+      3756,
+      3757,
+      3758,
+      3759,
+      3760,
+      3761,
+      3762,
+      3763,
+      3764,
+      3765,
+      3766,
+      3767,
+      3768,
+      3769,
+      3770,
+      3771,
+      3772,
+      3773,
+      3774,
+      3775
+    ],
+    "source_sha256": "a005b56494d09e0c3d0ff87073c6534ebfbe20f6c29f378991cad2cbab489788",
+    "source_RGB_sha256": "0a0c1477fadedcbd9477f176ee95ba0399429e11f8d4b3d65d6c62b05a35d437",
+    "protocol_sha256": "dd7cd393d777bcfd3b92fa5c3bca8840dfe55c67c0962e9c90aceaa9833a7d50",
+    "code_sources_sha256": "d6d2fbc49a22d12c9bde5584cff4dfcb18f813d11e6a8ca17858b8c312188afc"
+  },
+  "inference_gain": 0.5,
+  "training_updates": 0,
+  "optimizer_created": false,
+  "gain_targets": [
+    "head",
+    "stage3.blocks.0.dc.2",
+    "stage3.blocks.1.dc.2",
+    "stage3.blocks.2.dc.2",
+    "stage3.blocks.3.dc.2"
+  ],
+  "component_hashes": {
+    "I_model": {
+      "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+    },
+    "P_codec": {
+      "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+    },
+    "Bridge": {
+      "sha256": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4"
+    },
+    "generator_original_nonTCG": {
+      "sha256": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+    },
+    "TCG": {
+      "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+    }
+  },
+  "model_provenance": {
+    "baseline_cumulative_tcg_step": 6500,
+    "baseline_checkpoint": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260"
+    },
+    "receiver_initialization": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744"
+    },
+    "original_codec_key_audit": {
+      "I": {
+        "verified_loaded_keys": 596,
+        "explicit_legacy_TCG_missing_keys": [],
+        "unexpected_keys": []
+      },
+      "P": {
+        "verified_loaded_keys": 537,
+        "explicit_legacy_TCG_missing_keys": [
+          "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.weight"
+        ],
+        "unexpected_keys": []
+      }
+    },
+    "group": "A_control",
+    "TCG_exact_FP32_overlay": true,
+    "TCG_fusion_preserved": true,
+    "full_generator_keys_verified": 242,
+    "Bridge_loaded_strictly": true,
+    "persistent_buffers_restored": true,
+    "Router_instantiated": false,
+    "Router_checkpoint_loaded": false,
+    "historical_optimizer_loaded": false,
+    "LoRA_configuration": {
+      "targets": [
+        {
+          "path": "stage3.blocks.0.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.1.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.2.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.3.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "head",
+          "kind": "parallel low-rank update alongside original dense3x3",
+          "in_channels": 320,
+          "out_channels": 192,
+          "groups": 1,
+          "parameters": 8192,
+          "base_weight_shape": [
+            192,
+            320,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            192,
+            4,
+            3,
+            3
+          ]
+        }
+      ],
+      "rank": 4,
+      "alpha_div_rank": 1.0,
+      "parameter_count": 59392,
+      "extra_parameters": 0,
+      "bias_parameters": false,
+      "extra_RNG_fork_independent": true,
+      "head_geometry_note": "Head output has192 channels; its branch is320->4->192, matching the actual frozen head output",
+      "precision": "LoRA FP32 internally; add to original-conv output in FP32 and cast back once",
+      "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
+    },
+    "trainable_parameters": 59392,
+    "optimizer": null,
+    "precision": {
+      "codec": "FP16",
+      "Bridge_and_nonTCG_generator": "FP16",
+      "TCG": "FP32 parameters/internal operations; incoming output dtype",
+      "LoRA": "FP32 parameters/internal operations; incoming output dtype",
+      "RGB_scoring": "matched_rgb_fp32_v2"
+    },
+    "components": {
+      "I_model": {
+        "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+      },
+      "P_codec": {
+        "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+      },
+      "Bridge": {
+        "sha256": "ea23d534bda733339b6569571edb432d60bdc2a66bee1f5a996aa57438d701a4"
+      },
+      "generator_original_nonTCG": {
+        "sha256": "4961e491f6b837dd783b8d3756cf202503b7b064cba9da12645d67caaf2a83e1"
+      },
+      "TCG": {
+        "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+      }
+    },
+    "dispatch": "LoRA-safe PyTorch stage3/head dispatch shared with baseline",
+    "backend": {
+      "customized_cuda": false,
+      "deterministic": true,
+      "matmul_TF32": false,
+      "cudnn_TF32": true
+    }
+  },
+  "result": {
+    "domain": "ulong_new",
+    "sequence": "43be05fb-f1df-4b75-b646-da0920f35361",
+    "split": "development",
+    "QP": 5,
+    "model_state": "evaluation/s05",
+    "frames": 64,
+    "real_bytes": 216309,
+    "bpp": 0.013039460358796296,
+    "kbps": 810.3484015984016,
+    "bitstream_file": "B_expanded_ulong_add1500_ulong_new_43be05fb-f1df-4b75-b646-da0920f35361_qp5.bin",
+    "bitstream_sha256": "408bbcdac978627992b32fe74f1d34092f8601dbf0540c5ac3fb2eddf0343c46",
+    "source_sha256": "a005b56494d09e0c3d0ff87073c6534ebfbe20f6c29f378991cad2cbab489788",
+    "source_RGB_sha256": "0a0c1477fadedcbd9477f176ee95ba0399429e11f8d4b3d65d6c62b05a35d437",
+    "PSNR": 22.92601657103919,
+    "MS_SSIM": 0.8746183458715677,
+    "LPIPS": 0.15975475846789777,
+    "DISTS": 0.05905408691614866,
+    "FloLPIPS": 0.1686244403559064,
+    "WarpingError": 0.04740045692712542,
+    "WarpingError_GTFlow_PWC": 0.047120425554495006,
+    "WarpingError_ReconFlow_PWC": 0.04740045692712542
+  },
+  "lora_checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+  "baseline_sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+  "pilot_sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+  "protocol_sha256": "dd7cd393d777bcfd3b92fa5c3bca8840dfe55c67c0962e9c90aceaa9833a7d50",
+  "source_manifest_sha256": "d6d2fbc49a22d12c9bde5584cff4dfcb18f813d11e6a8ca17858b8c312188afc",
+  "fresh_encode": false,
+  "input_stream_reused": true,
+  "independent_decode": true,
+  "real_RANS": true,
+  "candidate": "lora",
+  "group": "A_control",
+  "bitstream_matches_canonical": true,
+  "bpp_matches_canonical": true,
+  "precision": "TCG_FP32_LoRA_FP32_shared_safe_dispatch_RGB_FP32_first",
+  "stream_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/large_artifacts/evaluation_v3/development_c640d16978902780663b/bitstreams/B_expanded_ulong_add1500_ulong_new_43be05fb-f1df-4b75-b646-da0920f35361_qp5.bin",
+  "historical_point_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/evaluation_v3/development_c640d16978902780663b/points/B_expanded_ulong_add1500_ulong_new_43be05fb-f1df-4b75-b646-da0920f35361_qp5.json",
+  "historical_reconstruction_sha256": "c9b7eb86892d8a26e69496b031b064e30c0dd9b426aee5c5c3093ae02c9eb073",
+  "model_hashes_unchanged": true,
+  "TCG_reset": true,
+  "codec_encoder_sync_independent_features_equal": false,
+  "historical_codec_feature_trace_checked": true,
+  "reconstruction_sha256": "79e5493fd9ac3f2469f502aa93987451006cf360ba0923eb1c333b88552f8495",
+  "actual_qps": [
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6,
+    5,
+    7,
+    5,
+    6,
+    5,
+    6,
+    5,
+    6
+  ],
+  "source_frame_indices": [
+    3712,
+    3713,
+    3714,
+    3715,
+    3716,
+    3717,
+    3718,
+    3719,
+    3720,
+    3721,
+    3722,
+    3723,
+    3724,
+    3725,
+    3726,
+    3727,
+    3728,
+    3729,
+    3730,
+    3731,
+    3732,
+    3733,
+    3734,
+    3735,
+    3736,
+    3737,
+    3738,
+    3739,
+    3740,
+    3741,
+    3742,
+    3743,
+    3744,
+    3745,
+    3746,
+    3747,
+    3748,
+    3749,
+    3750,
+    3751,
+    3752,
+    3753,
+    3754,
+    3755,
+    3756,
+    3757,
+    3758,
+    3759,
+    3760,
+    3761,
+    3762,
+    3763,
+    3764,
+    3765,
+    3766,
+    3767,
+    3768,
+    3769,
+    3770,
+    3771,
+    3772,
+    3773,
+    3774,
+    3775
+  ],
+  "metric_hashes": {
+    "quality": [
+      "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f",
+      "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+    ],
+    "flow": "676996132b5f57be78b71d1006a17c04f5629a31a6ea2221d792d4f3c670e1a4",
+    "FloLPIPS": "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f"
+  },
+  "seconds": 37.070414543151855,
+  "physical_GPU": 5,
+  "peak_reserved_bytes": 5236588544,
+  "bytes_consumed": 216309,
+  "record_file_sha256": {
+    "frames": "e8bf6835d774fc413fe96f362e5e665928cc86bc88f18af5463abb214e4c8872",
+    "transitions": "304bda7f1a2544c3db31d8d88de9423bdd655b8c29fb00c29586fffbe49edd86",
+    "codec_trace": "5ad0d2473a7e978ff3d0f0a05fcf2832beb12855805d8ba615da4f225c9f0b72",
+    "masks": "87e1509f76afe6e97cda3840a471bea893e6ebf1a2f2bf18a54e173485c51ad1"
+  },
+  "measurement_reused": true,
+  "reuse_provenance": {
+    "source_point": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp05_gain_20261108/evaluation/s05/points/ulong_new_43be05fb-f1df-4b75-b646-da0920f35361_qp5.json",
+    "source_point_SHA256": "695beda7e7003187ff05d7e9c6b606d38105e7efbea6c48d545e6d272c29623c",
+    "record_file_SHA256": {
+      "frames": "e8bf6835d774fc413fe96f362e5e665928cc86bc88f18af5463abb214e4c8872",
+      "transitions": "304bda7f1a2544c3db31d8d88de9423bdd655b8c29fb00c29586fffbe49edd86",
+      "codec_trace": "5ad0d2473a7e978ff3d0f0a05fcf2832beb12855805d8ba615da4f225c9f0b72",
+      "masks": "87e1509f76afe6e97cda3840a471bea893e6ebf1a2f2bf18a54e173485c51ad1"
+    },
+    "new_decode_performed": false,
+    "checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+    "source_protocol_sha256": "dd7cd393d777bcfd3b92fa5c3bca8840dfe55c67c0962e9c90aceaa9833a7d50",
+    "source_code_sha256": "d6d2fbc49a22d12c9bde5584cff4dfcb18f813d11e6a8ca17858b8c312188afc"
+  }
+}
