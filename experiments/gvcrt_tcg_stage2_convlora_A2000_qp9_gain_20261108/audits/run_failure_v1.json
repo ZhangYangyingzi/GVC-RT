@@ -1,0 +1,17 @@
+{
+  "status": "FAILED",
+  "complete": false,
+  "current_stage": "publication",
+  "PID": 3294709,
+  "formal_completed_points": 32,
+  "expected_points": 32,
+  "external_QP": 9,
+  "inference_gain": 0.5,
+  "training_updates": 0,
+  "checkpoint_sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+  "time": 1794121718.790979,
+  "failure_stage": "publication",
+  "error": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/runner.py\", line 57, in main\n    try:run(lease)\n        ^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/runner.py\", line 48, in run\n    jobs([('publish',[PYTHON,'-B','-u',str(ROOT/'publish.py')])],'publication',lease)\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/runner.py\", line 32, in jobs\n    assert all(p.returncode==0 for n,p,f in children),('CHILD_FAILED',stage,[(n,p.returncode) for n,p,f in children])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('CHILD_FAILED', 'publication', [('publish', 1)])\n",
+  "local_evaluation_complete": true,
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/runner.py"
+}

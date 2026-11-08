@@ -1,0 +1,133 @@
+{
+  "task": "A2000_QP9_fixed_checkpoint_inference_gain_20261108",
+  "revision": "fixed_gain_v1",
+  "source_experiment": "gvcrt_tcg_stage2_convlora_coverage_ab_20261107",
+  "checkpoint": {
+    "relative_to_SOURCE": "A_control/checkpoints/step_2000.pt",
+    "SHA256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+    "group": "A_control",
+    "LoRA_step": 2000,
+    "TCG_step": 6500
+  },
+  "baseline": "B+1500 matched-FP32 composite pilot receiver and TCG; not original GVC-RT",
+  "training_updates": 0,
+  "optimizer_creation": false,
+  "loss_changed": false,
+  "development_videos": 32,
+  "external_QP": 9,
+  "frames": 64,
+  "supervised_training_frames": null,
+  "new_formal_gain": 0.5,
+  "existing_endpoint_gains": [
+    0.0,
+    1.0
+  ],
+  "formal_points": 32,
+  "all_P_frames_same_gain": true,
+  "internal_frame_QP_schedule": "unchanged; externalQP9 includes internalQP9/10/11",
+  "LoRA": {
+    "targets": [
+      "stage3.blocks.0.dc.2",
+      "stage3.blocks.1.dc.2",
+      "stage3.blocks.2.dc.2",
+      "stage3.blocks.3.dc.2",
+      "head"
+    ],
+    "rank": 4,
+    "alpha": 4,
+    "alpha_div_rank": 1.0,
+    "parameters": 59392,
+    "scale_variable": "inference_gain",
+    "operation": "(base_output.float()+inference_gain*lora_delta.float()).to(base_output.dtype)",
+    "gain_multiply_dtype": "FP32",
+    "addition_dtype": "FP32",
+    "TCG_or_base_or_Bridge_or_RGB_scaled": false
+  },
+  "codec_precision": "unchanged FP16",
+  "TCG_precision": "unchanged FP32 internal",
+  "safe_dispatch": "same audited PyTorch-safe stage3/head; codec unchanged",
+  "source_and_metrics": "SOURCE sealed development rows; source file/RGB/crop hashes verified; matched_rgb_fp32_v2; native geometry",
+  "metric_list": [
+    "bpp",
+    "kbps",
+    "PSNR",
+    "MS_SSIM",
+    "LPIPS",
+    "DISTS",
+    "FloLPIPS",
+    "WarpingError_GTFlow_PWC",
+    "WarpingError_ReconFlow_PWC"
+  ],
+  "frame_aggregation": "64 frames; PSNR from overall pixel SSE, not mean frame PSNR",
+  "temporal_aggregation": "63 transitions",
+  "PWC_sampler": "unchanged pixel-center grid,align_cornersFalse,W-1/H-1 normalization,invalidzero,full-image denominator",
+  "source_pairing": [
+    "domain",
+    "sequence",
+    "split",
+    "QP"
+  ],
+  "sequence_smoke_rule": "first sequence in lexicographic order, fixed before new quality results",
+  "smoke_gains": [
+    0.0,
+    1.0,
+    0.5
+  ],
+  "smoke_full_decode_frames": 64,
+  "smoke_endpoint_reconstruction": "exact per-frame hash equality",
+  "existing_metric_tolerances": {
+    "PSNR_absolute": 1e-09,
+    "kbps_absolute": 1e-09,
+    "other_metric_aggregate_absolute": 1e-10
+  },
+  "endpoints_reuse": "Only after source audit and strict smoke matching; preserve complete provenance. Never interpolate RGB or CSV.",
+  "fresh_encode": false,
+  "input_stream_reused": true,
+  "independent_new_decoder_each_point": true,
+  "TCG_cache_reset_each_point": true,
+  "cache_identity": [
+    "checkpoint_SHA",
+    "gain",
+    "external_QP",
+    "domain",
+    "sequence",
+    "split",
+    "frame_indices",
+    "source_SHA",
+    "source_RGB_SHA",
+    "protocol_SHA",
+    "code_sources_SHA"
+  ],
+  "GPU_physical": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "CUDA_DEVICE_ORDER": "PCI_BUS_ID",
+  "CUDA_VISIBLE_DEVICES": "4,5,6,7",
+  "video_partition": "sorted sequence index modulo4; matching smoke s0.5 cached once",
+  "summary_weighting": "equal video",
+  "relative_percent": "(mean_candidate/mean_reference-1)*100",
+  "lower_is_better": [
+    "LPIPS",
+    "DISTS",
+    "FloLPIPS",
+    "WarpingError_GTFlow_PWC",
+    "WarpingError_ReconFlow_PWC"
+  ],
+  "higher_is_better": [
+    "PSNR",
+    "MS_SSIM"
+  ],
+  "no_final_test": true,
+  "no_other_QPs": true,
+  "no_other_checkpoints": true,
+  "no_training": true,
+  "no_BD_rate": true,
+  "plot_type": "fixedQP gain curve, not R-D",
+  "source_experiment_readonly": true,
+  "all_new_outputs_inside_DEST": true,
+  "publication_branch": "codex/tcg-stage2-convlora-coverage-ab-20261107",
+  "created_UTC": "2026-11-08T07:01:21Z"
+}
