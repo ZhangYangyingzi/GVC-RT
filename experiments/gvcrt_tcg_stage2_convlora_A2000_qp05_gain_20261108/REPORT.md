@@ -784,3 +784,7 @@ Means below weight32videos equally within each QP. Relative percent=(mean_candid
 ## Products
 
 metrics_s05_qp05.csv;metrics_s05_all_qps.csv;endpoint_metrics.csv;metrics_combined.csv;paired_deltas.csv;summary_by_qp.csv;summary.json;stream_identity_checks.csv. Raw64frame/63transition/codec/gain records: evaluation/s05/,reused_qp9/s05/,endpoints/s0/,endpoints/s1/. Audits:sources.json,audits/source_preflight.json,audits/smoke.json,audits/source_reuse.json. Figures:plots/qp{0,5,9}_mean_metrics_vs_gain.png and qp{0,5,9}_per_video_paired_deltas.png;video mapping:plots/video_index.csv.
+
+## Summary CSV layout
+
+summary_by_qp.csv contains81 per-QP/gain/metric mean rows and54 per-QP/reference/metric paired summaries,including absolute/relative changes and improved/worsened/equal video counts. summary_means_by_qp.csv retains the9-row wide mean table. Values come directly from summary.json; no metric or inference result is changed.
