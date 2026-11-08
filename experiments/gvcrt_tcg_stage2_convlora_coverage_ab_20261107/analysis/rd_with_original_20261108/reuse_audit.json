@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "date": "2026-11-08",
+  "scope": "CPU-only reuse and plotting; no new encoding, decoding or GPU training",
+  "original_code_commit": "b2a0895c0cf31cf2be3ab1c2571ca07c05866c03",
+  "original_checkpoint_checks": {
+    "GVC-RT_I.pt": true,
+    "GVC-RT_P.pt": true
+  },
+  "original_points": 135,
+  "current_points": 405,
+  "pairings": 405,
+  "all_pairs_same_source_frames_QP_schedule_source_RGB_bitstreams_and_metric_weights": true,
+  "metric_protocol": "matched_rgb_fp32_v2",
+  "original_model_has_TCG": false,
+  "original_model_loads_adapted_checkpoint": false,
+  "current_baseline": "B+1500 matched-FP32, frozen composite receiver plus TCG, no LoRA",
+  "frames_per_video": 64,
+  "QPs": [
+    0,
+    5,
+    9
+  ],
+  "dataset_counts": {
+    "ULong_new_holdout_32": 32,
+    "ULong_historical_6": 6,
+    "HEVC_B_5": 5,
+    "UVG_historical_HoneyBee_Jockey_2": 2
+  },
+  "datasets_pooled": false,
+  "existing_test_videos_reused": true,
+  "full_UVG_claim": false,
+  "full_ULong_claim": false,
+  "percent_changes_are_not_BDrate": true,
+  "upstream_sources": {
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_online_v3_publication_1793765286/experiments/gvcrt_original_independent_rd_20261105/metrics_original.csv": "2aa2bd1b2dcb2c5a6e07355cfd8064aed93c064c9c326a48f3f445398ce207b4",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_online_v3_publication_1793765286/experiments/gvcrt_original_independent_rd_20261105/protocol.json": "c2f4b77be7362bdcd207ea64fac70d5628d057ed869424bbe444492854f42742",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_online_v3_publication_1793765286/experiments/gvcrt_original_independent_rd_20261105/final_integrity.json": "624ee6ac4e86886fd809510510ddd9385dd7692b50a9c44be6ab4a74745cc2f0",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/metrics.csv": "76df033dcd83e37bf32e23be6c01e867f9f10d94609d8b9a88eea9605e39b1c9",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/protocol.json": "5af0c7a8d569d73688f5dc776ea38e9c08ef7871a94218f654e1729e530fe154"
+  },
+  "graphs": [
+    "HEVC_B_5_relative_to_original.png",
+    "HEVC_B_5_with_original.png",
+    "ULong_historical_6_relative_to_original.png",
+    "ULong_historical_6_with_original.png",
+    "ULong_new_holdout_32_relative_to_original.png",
+    "ULong_new_holdout_32_with_original.png",
+    "UVG_historical_HoneyBee_Jockey_2_relative_to_original.png",
+    "UVG_historical_HoneyBee_Jockey_2_with_original.png"
+  ]
+}
