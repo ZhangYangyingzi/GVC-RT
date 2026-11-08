@@ -1,0 +1,48 @@
+{
+  "status": "RECORDED",
+  "template": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108",
+  "changes": [
+    {
+      "file": "common_s2.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/common_s2.py",
+      "source_sha256": "bcc302e032eded1316c81ac717ae3a1ccf06796e254ea8f063ca7f509c3a4c83",
+      "diff": "--- QP9_SOURCE/common_s2.py\n+++ DEST/common_s2.py\n@@ -3,8 +3,9 @@\n import contextlib,csv,fcntl,gzip,hashlib,importlib.util,json,math,os,random,shutil,subprocess,sys,time\n ROOT=Path(__file__).resolve().parent\n SOURCE=ROOT.parent/'gvcrt_tcg_stage2_convlora_coverage_ab_20261107'\n+QP9_SOURCE=ROOT.parent/'gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108'\n CHECKPOINT=SOURCE/'A_control/checkpoints/step_2000.pt'\n-CHECKPOINT_SHA='8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e'\n+CHECKPOINT_SHA=json.loads((QP9_SOURCE/'protocol.json').read_text())['checkpoint']['SHA256']\n WORKTREE=ROOT.parents[1]\n PROJECT=Path('/Huang_group/zyyz/Projects/GVC-RT')\n HIST=PROJECT/'GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2'\n@@ -13,9 +14,9 @@\n ARCHIVES=Path('/Huang_group/zyyz/datasets/UltraVideo-Long/clips_long_1920')\n PYTHON='/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python'\n BASELINE=HIST/'B_expanded_ulong/checkpoints_v3/step_1500.pt'\n-BASELINE_SHA='e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260'\n+BASELINE_SHA=json.loads((SOURCE/'protocol.json').read_text())['baseline_sha256']\n PILOT=PROJECT/'experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt'\n-PILOT_SHA='06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744'\n+PILOT_SHA=json.loads((SOURCE/'protocol.json').read_text())['pilot_sha256']\n RAFT=Path('/Huang_group/zyyz/home_dir/.cache/torch/hub/checkpoints/raft_large_C_T_SKHT_V2-ff5fadd5.pth')\n RAFT_SHA='ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322'\n TCG_PREFIXES=('tcg_low.','tcg_mid.','tcg_out.')\n@@ -153,3 +154,7 @@\n     def full(self):\n         assert tensor_hash(self.items)==self.digest,'FROZEN_STATE_SHA256_CHANGED'\n         return self.digest\n+\n+\n+def expected_source_sha(path):\n+    return load(QP9_SOURCE/'sources.json')['protected_source_files'][str(Path(path).resolve())]\n"
+    },
+    {
+      "file": "model_context.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/model_context.py",
+      "source_sha256": "feac96ce85e0f09cf9c7b06a5e7e61461e1fab8283c79c1b4af0ccabc6623711",
+      "diff": "--- QP9_SOURCE/model_context.py\n+++ DEST/model_context.py\n@@ -26,7 +26,8 @@\n     torch,core,eco,tr,qp,tree=backend(reference,rank)\n     device=torch.device('cuda',rank)\n     assert sha(BASELINE)==BASELINE_SHA and sha(PILOT)==PILOT_SHA\n-    for name,h in [('GVC-RT_I.pt','c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d'),('GVC-RT_P.pt','7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e')]:\n+    for name in ['GVC-RT_I.pt','GVC-RT_P.pt']:\n+        h=expected_source_sha(tree/'checkpoints'/name)\n         assert sha(tree/'checkpoints'/name)==h\n     im,pm=core.load_models(device,force_zero_thres=.12)\n     load_audit={}\n"
+    },
+    {
+      "file": "convlora.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/convlora.py",
+      "source_sha256": "95a5d9da50ea4ed43823fddd707bd25bb0d60e53ecaaaa41b1cce124fd8dec1a",
+      "diff": ""
+    },
+    {
+      "file": "fp32_island.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/fp32_island.py",
+      "source_sha256": "ce3b1df339c03252a303f8241e8c5a9c6b7df8e83d97d9ee71319f752a6dc763",
+      "diff": ""
+    },
+    {
+      "file": "data_reader.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/data_reader.py",
+      "source_sha256": "a789f7765df5ea8d2b103398e81b714ecc9c310c3fa407737ed21b5e11e9df6e",
+      "diff": ""
+    },
+    {
+      "file": "resource_preflight.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/resource_preflight.py",
+      "source_sha256": "08b4962e9fbd074e37fdca418dc89dac19f7c3f7e1f1f14b9b809fd22c5ad639",
+      "diff": ""
+    },
+    {
+      "file": "evaluate_core.py",
+      "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_A2000_qp9_gain_20261108/evaluate_core.py",
+      "source_sha256": "8a701fd9f3a54649d28c9f8d876871981c558ae50a080f56a0a4b697705cc291",
+      "diff": "--- QP9_SOURCE/evaluate_core.py\n+++ DEST/evaluate_core.py\n@@ -75,7 +75,7 @@\n \n \n def point(v,qp,checkpoint,batch,rank=0,scoring=True,candidate='lora',reuse_input=True,group='A_control',inference_gain=0.5):\n-    assert qp==9 and v['split']=='development' and candidate=='lora' and group=='A_control' and reuse_input and scoring\n+    assert qp in (0,5) and v['split']=='development' and candidate=='lora' and group=='A_control' and reuse_input and scoring\n     assert inference_gain in (0.0,0.5,1.0) and Path(checkpoint)==CHECKPOINT and sha(checkpoint)==CHECKPOINT_SHA\n     import torch\n     from src.utils import stream_helper as sh\n@@ -206,6 +206,7 @@\n             metric_hashes=metric_hash if scoring else None,seconds=time.time()-begun,physical_GPU=physical_gpu(rank),peak_reserved_bytes=torch.cuda.max_memory_reserved(rank),bytes_consumed=reader.tell())\n         for name,records in [('frames',frames),('codec_trace',codec),('masks',masks),('transitions',transitions)]:\n             if records:write_csv(root/f'{name}/{key}.csv',records)\n+        p['record_file_sha256']={name:sha(root/name/(key+'.csv')) for name in ['frames','transitions','codec_trace','masks']}\n         dump(dest,p);del ci,ia,pa\n         if scoring:del quality,flow,perceptual\n         torch.cuda.empty_cache();disk()\n"
+    }
+  ]
+}
