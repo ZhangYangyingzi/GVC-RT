@@ -1,0 +1,19 @@
+{
+  "status": "PROPOSED_NOT_EXECUTED",
+  "candidate": "A_control/checkpoints/step_2000.pt",
+  "scope": "development only; no training; no test-set tuning",
+  "first_stage": {
+    "external_QP": 9,
+    "videos": 32,
+    "new_inference_gain": 0.5,
+    "existing_endpoints": {
+      "0": "TCG B+1500 matched-FP32 baseline, not original GVC-RT",
+      "1": "A2000 existing development measurements"
+    },
+    "engineering_checks": "Matched full-sequence smoke at gains 0 and 1 before endpoint reuse; all 5 LoRA branches scaled; original weights and TCG unchanged; reset temporal buffers and decode complete 64-frame sequence at each gain; identical streams, RGB conversion and metric weights"
+  },
+  "scale_definition": "extra gain s times existing (LoRA alpha/r)=1; keep rank=4 and intrinsic alpha=4; use s=0.5, not alpha=0.5",
+  "qp_definition": "Use one gain for the full P-frame sequence at external QP9; do not alternate gain according to inherited actual frame QP9/10/11 in this first probe; deployment lookup must use decoder-known rate setting, not external hidden metadata",
+  "interpretation": "An intermediate point that dominates gain1 supports excessive full-strength adaptation on the development set. Reduced DISTS cost alone, with proportional FloLPIPS loss, only shows a tradeoff. One QP cannot establish QP-specific causality.",
+  "followup_if_supported": "Evaluate the same gain0.5 at QP0/5 on the same 32 development videos before preferring QP-specific gain to a common global gain; preregister selection rule and then use untouched source-group-isolated confirmation data"
+}
