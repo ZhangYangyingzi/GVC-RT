@@ -1,0 +1,51 @@
+{
+  "task": {
+    "task": "B300_dataset_rd_existing_ULong_development_12",
+    "source": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+    "new_training_updates": 0,
+    "new_GPU_evaluation_points": 0,
+    "fixed_B300_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85"
+  },
+  "source_protocol_SHA256": "ed108f7e633670e85d474dddbe8316d790f6dc80b9e580a7b4d0cf797a7fc0d2",
+  "models": [
+    [
+      "Original",
+      0,
+      "Original GVC-RT"
+    ],
+    [
+      "A2000",
+      0,
+      "A2000 s0.5"
+    ],
+    [
+      "B",
+      300,
+      "B300 s0.5"
+    ]
+  ],
+  "dataset": "ULong_development_subset_12",
+  "videos": 12,
+  "frames": 64,
+  "QP": [
+    0,
+    5,
+    9
+  ],
+  "aggregation": "equal video weights within each QP; each video PSNR from total SSE",
+  "relative_percent": "100*(candidate_mean/reference_mean-1)",
+  "no_cross_QP_average": true,
+  "no_BD_rate": true,
+  "no_extrapolation": true,
+  "new_inference": false,
+  "historical_other_datasets_not_available_for_B300": true,
+  "precision": {
+    "codec": "FP16",
+    "training_Bridge_generator": "FP32",
+    "deployment_Bridge_generator": "FP16",
+    "TCG_LoRA_internal": "FP32",
+    "RGB": "matched_rgb_fp32_v2",
+    "GT_evaluation": "uint8 RGB -> CPU FP32 /255 -> GPU, matching historical endpoint; training retains GPU FP32 /255",
+    "new_native_GT_RAFT": "same CPU-normalized evaluation GT; cache_native_v2"
+  }
+}
