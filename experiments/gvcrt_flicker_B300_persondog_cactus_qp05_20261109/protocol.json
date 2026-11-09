@@ -1,0 +1,78 @@
+{
+  "task": "fixed_B300_vs_Original_person_dog_Cactus_QP0_QP5",
+  "revision": "posthoc_128_native_frames_v1",
+  "source_experiment": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+  "B_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+  "B_checkpoint_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+  "models": [
+    "Original GVC-RT",
+    "B300 TCG+LoRA+Bridge_mlp3"
+  ],
+  "additional_flicker_step": 300,
+  "TCG_cumulative_updates": 6800,
+  "LoRA_cumulative_updates": 2300,
+  "inference_gain": 0.5,
+  "training_updates": 0,
+  "new_optimizer": false,
+  "external_QPs": [
+    0,
+    5
+  ],
+  "videos": 2,
+  "expected_points": 8,
+  "frames_per_point": 128,
+  "transitions_per_point": 127,
+  "I_frames": 1,
+  "P_frames": 127,
+  "person_dog_source_indices": [
+    128,
+    255
+  ],
+  "Cactus_source_indices": [
+    0,
+    127
+  ],
+  "preserve_native_fps": true,
+  "source_geometry": [
+    1920,
+    1080
+  ],
+  "source_first64_matches_sealed_manifest": true,
+  "data_scope": "User-requested repeated existing held-out/historical sources after completed pilot; no model or hyperparameter selection",
+  "metric_RGB": "matched_rgb_fp32_v2: x.float then clamp(-1,1),then(x+1)/2,then native crop",
+  "PSNR_aggregation": "total128-frame pixel SSE, not mean of frame PSNR",
+  "temporal_aggregation": "127transitions; I-to-P separately; P-to-P126",
+  "real_RANS": "4new streams encoded by independent Original and independently decoded; both model measurements use these verified streams",
+  "codec_reference": "Original immutable DPB RGB and feature trajectory, inherited completed pilot protocol",
+  "precision": "Inherited Original FP16 codec and B deployment FP16 nonTCG/Bridge, FP32 TCG/LoRA; no AMP/TF32 changes",
+  "metrics": [
+    "bpp",
+    "kbps",
+    "PSNR",
+    "MS_SSIM",
+    "LPIPS",
+    "DISTS",
+    "FloLPIPS",
+    "WarpingError_GTFlow_PWC",
+    "WarpingError_ReconFlow_PWC",
+    "MCResidual_RGB_RAFT_pixelcenter_v1",
+    "MCResidual_Sobel_RAFT_pixelcenter_v1"
+  ],
+  "visualizations": "GT/Original/B300 full overview plus GT-defined native640x640 and explicit2x-nearest320x320 detail crops; full-native FFV1 and H264 viewing previews; neural scores from float32 decoder tensors",
+  "physical_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "mapping": "person_QP0->4,person_QP5->5,Cactus_QP0->6,Cactus_QP5->7; shared GPUs, no other process termination",
+  "sampling_or_budget_tuning": false,
+  "checkpoint_selection": false,
+  "no_RD_extrapolation_or_BD_rate": true,
+  "private_cache_limit_bytes": 85899345920,
+  "viewing_artifact_limit_bytes": 21474836480,
+  "disk_reserve_bytes": 107374182400,
+  "ROI_definition_before_model_metrics": true,
+  "rois_SHA256": "36b2b7f059f59d8e2921b594afb9b940f724edbd54ab46d5aed4e2accbd84b1a",
+  "time": 1794233125.8326662
+}

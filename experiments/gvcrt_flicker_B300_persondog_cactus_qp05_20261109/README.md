@@ -1,0 +1,1 @@
+Inference-only fixed B300 vs independent Original GVC-RT on person_dog/Cactus,QP0/5,128nativeframes. No training or model selection. Run runner.py with CUDA_VISIBLE_DEVICES=4,5,6,7; it owns a single-instance lock and resumes only verified caches/points. Source code/models/data are read-only; new outputs are local to this directory. See protocol.json and final REPORT.md.

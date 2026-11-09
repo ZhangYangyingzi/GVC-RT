@@ -1,0 +1,16 @@
+{
+  "status": "FAILED",
+  "complete": false,
+  "current_stage": "matched_original_and_B300_metrics_with_native_video_exports",
+  "PID": 708070,
+  "heartbeat": 1794233673.501963,
+  "completed_points": 4,
+  "expected_points": 8,
+  "training_updates": 0,
+  "checkpoint_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+  "children": {},
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_flicker_B300_persondog_cactus_qp05_20261109",
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_flicker_B300_persondog_cactus_qp05_20261109/runner.py",
+  "exception": "AssertionError(('WORKER_FAILED', {'evaluate_0': 1, 'evaluate_1': 1, 'evaluate_3': 1, 'evaluate_2': 1}))",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_flicker_B300_persondog_cactus_qp05_20261109/runner.py\", line 48, in main\n    phase('matched_original_and_B300_metrics_with_native_video_exports');workers('evaluate')\n                                                                         ^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_flicker_B300_persondog_cactus_qp05_20261109/runner.py\", line 35, in workers\n    assert not any(codes.values()),('WORKER_FAILED',codes)\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('WORKER_FAILED', {'evaluate_0': 1, 'evaluate_1': 1, 'evaluate_3': 1, 'evaluate_2': 1})\n"
+}
