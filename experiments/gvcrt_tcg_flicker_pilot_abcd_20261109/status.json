@@ -1,14 +1,17 @@
 {
-  "status": "RUNNING",
+  "status": "PARTIAL",
   "complete": false,
-  "current_stage": "freeze_formal_execution_sources",
-  "PID": 222302,
-  "heartbeat": 1794198876.4812546,
+  "current_stage": "local_experiment_finished",
   "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
   "groups": {
     "A": {
       "formal": {
-        "committed_updates": 0
+        "status": "RUNNING",
+        "committed_updates": 31,
+        "next_cursor": 124,
+        "time": 1794207408.408495,
+        "physical_GPU": 4,
+        "last_seconds": 12.29724907875061
       },
       "smoke": {
         "status": "RUNNING",
@@ -22,7 +25,12 @@
     },
     "B": {
       "formal": {
-        "committed_updates": 0
+        "status": "RUNNING",
+        "committed_updates": 31,
+        "next_cursor": 124,
+        "time": 1794207489.0565803,
+        "physical_GPU": 5,
+        "last_seconds": 14.797565460205078
       },
       "smoke": {
         "status": "RUNNING",
@@ -36,7 +44,12 @@
     },
     "C": {
       "formal": {
-        "committed_updates": 0
+        "status": "RUNNING",
+        "committed_updates": 31,
+        "next_cursor": 124,
+        "time": 1794207452.102744,
+        "physical_GPU": 6,
+        "last_seconds": 13.762886047363281
       },
       "smoke": {
         "status": "RUNNING",
@@ -50,7 +63,12 @@
     },
     "D": {
       "formal": {
-        "committed_updates": 0
+        "status": "RUNNING",
+        "committed_updates": 31,
+        "next_cursor": 124,
+        "time": 1794207530.2455988,
+        "physical_GPU": 7,
+        "last_seconds": 16.000553607940674
       },
       "smoke": {
         "status": "RUNNING",
@@ -63,7 +81,9 @@
       "completion": null
     }
   },
-  "children": {},
-  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py",
-  "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/logs/runner.log"
+  "final_integrity_status": "PARTIAL",
+  "training_updates_capped_at": 300,
+  "final_test_points": 0,
+  "report_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/REPORT.md",
+  "time": 1794207558.4293602
 }

@@ -3147,9 +3147,517 @@
     "D": 20
   },
   "formal_effective_batch_gradient_angles": {
-    "A": [],
-    "B": [],
-    "C": [],
-    "D": []
+    "A": [
+      {
+        "step": 1,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.11639939095985742,
+            "temporal_L2": 0.05014947503727285,
+            "cosine": -0.014723764139091247,
+            "degrees": 90.84364002760059
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.11639939095985742,
+            "temporal_L2": 0.057703165071973844,
+            "cosine": -0.058258483645571665,
+            "degrees": 93.33985632745372
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.09461379895729459,
+            "LoRA": 0.01890133477062466,
+            "Bridge_mlp3": 0.0
+          },
+          "DISTS_weighted": {
+            "TCG": 0.050026871794933814,
+            "LoRA": 0.009794170762844914,
+            "Bridge_mlp3": 0.0
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032854287266642027,
+            "LoRA": 0.0004687322684985095,
+            "Bridge_mlp3": 0.0
+          },
+          "RAFT_weighted": {
+            "TCG": 0.017985882102326343,
+            "LoRA": 0.004111544795499946,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.03866249804842304,
+            "LoRA": 0.008550955141813683,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.010784308553839272,
+            "LoRA": 0.0025202379053830674,
+            "Bridge_mlp3": 0.0
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.003705021474957258,
+            "relative_L2": 0.00022925552419113536
+          },
+          "LoRA": {
+            "absolute_L2": 0.012170412606151574,
+            "relative_L2": 0.004301353311311625
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0,
+            "relative_L2": null
+          }
+        }
+      },
+      {
+        "step": 20,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.14325839241543784,
+            "temporal_L2": 0.06745098391370145,
+            "cosine": -0.003037260599657151,
+            "degrees": 90.1740224812006
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.14325839241543784,
+            "temporal_L2": 0.07054344983728866,
+            "cosine": -0.02315033068632642,
+            "degrees": 91.32653475067798
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.1060968420736636,
+            "LoRA": 0.023200510143980568,
+            "Bridge_mlp3": 0.0
+          },
+          "DISTS_weighted": {
+            "TCG": 0.08074741715670185,
+            "LoRA": 0.018114439969293846,
+            "Bridge_mlp3": 0.0
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032128935212291125,
+            "LoRA": 0.0005220916982012983,
+            "Bridge_mlp3": 0.0
+          },
+          "RAFT_weighted": {
+            "TCG": 0.012620959574986016,
+            "LoRA": 0.0030059789651127075,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.055131907809797376,
+            "LoRA": 0.01008629865694414,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.012501108199121562,
+            "LoRA": 0.0026365664333826305,
+            "Bridge_mlp3": 0.0
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.023842225106585544,
+            "relative_L2": 0.0014752847862390254
+          },
+          "LoRA": {
+            "absolute_L2": 0.07366040683175401,
+            "relative_L2": 0.02603358202319115
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0,
+            "relative_L2": null
+          }
+        }
+      }
+    ],
+    "B": [
+      {
+        "step": 1,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.787235007043631,
+            "temporal_L2": 0.6385376844380364,
+            "cosine": 0.11310802858044823,
+            "degrees": 83.50548896360844
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.787235007043631,
+            "temporal_L2": 0.6800611433701726,
+            "cosine": 0.07889340866953978,
+            "degrees": 85.47503832553701
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.09461379895729459,
+            "LoRA": 0.01890133477062466,
+            "Bridge_mlp3": 0.5727145881923352
+          },
+          "DISTS_weighted": {
+            "TCG": 0.050026871794933814,
+            "LoRA": 0.009794170762844914,
+            "Bridge_mlp3": 0.25243111516402
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032854287266642027,
+            "LoRA": 0.0004687322684985095,
+            "Bridge_mlp3": 0.044758840122612234
+          },
+          "RAFT_weighted": {
+            "TCG": 0.01798601365587965,
+            "LoRA": 0.004111510960337843,
+            "Bridge_mlp3": 0.07198898592871937
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.03866247592915552,
+            "LoRA": 0.008550943597457013,
+            "Bridge_mlp3": 0.5083880237024088
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.010784298334284225,
+            "LoRA": 0.002520239011103047,
+            "Bridge_mlp3": 0.1340338453673023
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.0037045699613004043,
+            "relative_L2": 0.00022922758589151118
+          },
+          "LoRA": {
+            "absolute_L2": 0.012169366295266245,
+            "relative_L2": 0.004300983516717398
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 8.66640988643656e-05,
+            "relative_L2": 1.4680867141782997e-05
+          }
+        }
+      },
+      {
+        "step": 20,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.7208441245120123,
+            "temporal_L2": 0.6850407252396533,
+            "cosine": -0.16059479823977565,
+            "degrees": 99.24142211317664
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.7208441245120123,
+            "temporal_L2": 0.6837130100816216,
+            "cosine": -0.16501585467564853,
+            "degrees": 99.49815549979238
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.1078801538052725,
+            "LoRA": 0.023650864928078445,
+            "Bridge_mlp3": 0.5523435454195877
+          },
+          "DISTS_weighted": {
+            "TCG": 0.0788595214887913,
+            "LoRA": 0.017903227491809077,
+            "Bridge_mlp3": 0.32326843494139823
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032676319424465787,
+            "LoRA": 0.000526058529987805,
+            "Bridge_mlp3": 0.030242181296818132
+          },
+          "RAFT_weighted": {
+            "TCG": 0.012490418270874515,
+            "LoRA": 0.0029912984973711272,
+            "Bridge_mlp3": 0.038516819591354653
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.05479098247470723,
+            "LoRA": 0.010088150538634518,
+            "Bridge_mlp3": 0.5622368772389129
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.012412291640147836,
+            "LoRA": 0.0026331293771070445,
+            "Bridge_mlp3": 0.12815662321450907
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.02371480385609899,
+            "relative_L2": 0.0014674003446046562
+          },
+          "LoRA": {
+            "absolute_L2": 0.07346496972352339,
+            "relative_L2": 0.025964509257965753
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0007149472869226832,
+            "relative_L2": 0.00012111181296787089
+          }
+        }
+      }
+    ],
+    "C": [
+      {
+        "step": 1,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.12716498817693456,
+            "temporal_L2": 0.048791527609098974,
+            "cosine": -0.0063135107296112165,
+            "degrees": 90.36173992192849
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.12716498817693456,
+            "temporal_L2": 0.056135506581464274,
+            "cosine": -0.053122495745887455,
+            "degrees": 93.04512817532323
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.09433434796770829,
+            "LoRA": 0.01875742232472638,
+            "Bridge_mlp3": 0.0
+          },
+          "DISTS_weighted": {
+            "TCG": 0.06279816405716147,
+            "LoRA": 0.010464579881943796,
+            "Bridge_mlp3": 0.0
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032866772728676213,
+            "LoRA": 0.0004709820528953342,
+            "Bridge_mlp3": 0.0
+          },
+          "RAFT_weighted": {
+            "TCG": 0.017339019665339996,
+            "LoRA": 0.004038442670752853,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.0374867066301865,
+            "LoRA": 0.008515690854290523,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.010528593985064366,
+            "LoRA": 0.0025094375525479846,
+            "Bridge_mlp3": 0.0
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.0037047462166594843,
+            "relative_L2": 0.0002292384920401018
+          },
+          "LoRA": {
+            "absolute_L2": 0.012170754480384216,
+            "relative_L2": 0.004301474138921191
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0,
+            "relative_L2": null
+          }
+        }
+      },
+      {
+        "step": 20,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.14344660321236966,
+            "temporal_L2": 0.0660270108220516,
+            "cosine": 0.012838883670279695,
+            "degrees": 89.26436594114578
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.14344660321236966,
+            "temporal_L2": 0.06852514151621794,
+            "cosine": -0.010223216437122934,
+            "degrees": 90.58575735852058
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.10759774305082984,
+            "LoRA": 0.023808093008719264,
+            "Bridge_mlp3": 0.0
+          },
+          "DISTS_weighted": {
+            "TCG": 0.07707435427563347,
+            "LoRA": 0.017800151834658676,
+            "Bridge_mlp3": 0.0
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.0032770988590587764,
+            "LoRA": 0.000527273076169177,
+            "Bridge_mlp3": 0.0
+          },
+          "RAFT_weighted": {
+            "TCG": 0.01109474935116698,
+            "LoRA": 0.0027526437759693998,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.05387528960122715,
+            "LoRA": 0.01010807899079306,
+            "Bridge_mlp3": 0.0
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.012278328833511588,
+            "LoRA": 0.0026446111780678906,
+            "Bridge_mlp3": 0.0
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.024505623459830678,
+            "relative_L2": 0.0015163338700969007
+          },
+          "LoRA": {
+            "absolute_L2": 0.07509925144350088,
+            "relative_L2": 0.026542108663616802
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0,
+            "relative_L2": null
+          }
+        }
+      }
+    ],
+    "D": [
+      {
+        "step": 1,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.7784960886403323,
+            "temporal_L2": 0.6394878340797647,
+            "cosine": 0.08758329763252333,
+            "degrees": 84.97540887223046
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.7784960886403323,
+            "temporal_L2": 0.6815744978647623,
+            "cosine": 0.053579204466966956,
+            "degrees": 86.92866702214923
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.0943343750985858,
+            "LoRA": 0.01875742287079819,
+            "Bridge_mlp3": 0.5687039422467008
+          },
+          "DISTS_weighted": {
+            "TCG": 0.06279818894423608,
+            "LoRA": 0.01046458881330175,
+            "Bridge_mlp3": 0.2417703345566556
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.003286677865682032,
+            "LoRA": 0.00047098223526974796,
+            "Bridge_mlp3": 0.04536885288367385
+          },
+          "RAFT_weighted": {
+            "TCG": 0.017339163964357116,
+            "LoRA": 0.004038474839693919,
+            "Bridge_mlp3": 0.07295279111473078
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.03748663899958274,
+            "LoRA": 0.008515682122234032,
+            "Bridge_mlp3": 0.5097520866436763
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.01052859793558582,
+            "LoRA": 0.002509438016287572,
+            "Bridge_mlp3": 0.13387481839582513
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.003704380897263319,
+            "relative_L2": 0.0002292158871806614
+          },
+          "LoRA": {
+            "absolute_L2": 0.012170036730544865,
+            "relative_L2": 0.004301220466695926
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 8.66675172716036e-05,
+            "relative_L2": 1.4681446218738221e-05
+          }
+        }
+      },
+      {
+        "step": 20,
+        "angles": {
+          "direct_MC_temporal": {
+            "spatial_L2": 0.7193112657744596,
+            "temporal_L2": 0.687044402405117,
+            "cosine": -0.13849180424015375,
+            "degrees": 97.96058285230718
+          },
+          "RAFT_plus_MC_temporal": {
+            "spatial_L2": 0.7193112657744596,
+            "temporal_L2": 0.6814961259387792,
+            "cosine": -0.14513447852878716,
+            "degrees": 98.34506661803825
+          }
+        },
+        "global_component_gradient_norms": {
+          "LPIPS": {
+            "TCG": 0.10749248998324354,
+            "LoRA": 0.023931164212009456,
+            "Bridge_mlp3": 0.5588375280273825
+          },
+          "DISTS_weighted": {
+            "TCG": 0.0766542440590658,
+            "LoRA": 0.01779823730839199,
+            "Bridge_mlp3": 0.319271669277136
+          },
+          "RGB_L1_weighted": {
+            "TCG": 0.003345439714908208,
+            "LoRA": 0.0005301296178173061,
+            "Bridge_mlp3": 0.031419667831145165
+          },
+          "RAFT_weighted": {
+            "TCG": 0.011028646459942278,
+            "LoRA": 0.00273990185567926,
+            "Bridge_mlp3": 0.03692686605564203
+          },
+          "temp_RGB_weighted": {
+            "TCG": 0.05356463817036107,
+            "LoRA": 0.010075903686652302,
+            "Bridge_mlp3": 0.5635511977212198
+          },
+          "temp_Sobel_weighted": {
+            "TCG": 0.012196824621597534,
+            "LoRA": 0.0026317647827283305,
+            "Bridge_mlp3": 0.12885605251484128
+          }
+        },
+        "parameter_change_from_A2000": {
+          "TCG": {
+            "absolute_L2": 0.024300564571018278,
+            "relative_L2": 0.0015036454461936951
+          },
+          "LoRA": {
+            "absolute_L2": 0.07432321485783698,
+            "relative_L2": 0.026267836324176383
+          },
+          "Bridge_mlp3": {
+            "absolute_L2": 0.0007130481723218926,
+            "relative_L2": 0.00012079010363832649
+          }
+        }
+      }
+    ]
   }
 }

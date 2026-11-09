@@ -602,17 +602,22 @@
       "precision": "LoRA FP32 internally; add to original-conv output in FP32 and cast back once",
       "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
     },
-    "trainable_parameters": 59392,
+    "trainable_parameters": 197152,
     "optimizer": {
       "type": "AdamW",
-      "lr": 5e-05,
-      "betas": [
-        0.9,
-        0.999
-      ],
-      "eps": 1e-08,
-      "weight_decay": 0.0001,
-      "state_entries": 0
+      "state_entries": 0,
+      "param_groups": [
+        {
+          "name": "TCG",
+          "lr": 1e-05,
+          "parameter_count": 137760
+        },
+        {
+          "name": "LoRA",
+          "lr": 5e-05,
+          "parameter_count": 59392
+        }
+      ]
     },
     "precision": {
       "codec": "FP16",
@@ -656,22 +661,52 @@
     },
     "parent_A2000_SHA256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
     "parent_LoRA_step": 2000,
-    "optimizer_restored": true,
+    "optimizer_restored": false,
     "optimizer_name_order": [
-      "generator.stage3.blocks.0.dc.2.lora.down.weight",
-      "generator.stage3.blocks.0.dc.2.lora.up.weight",
-      "generator.stage3.blocks.1.dc.2.lora.down.weight",
-      "generator.stage3.blocks.1.dc.2.lora.up.weight",
-      "generator.stage3.blocks.2.dc.2.lora.down.weight",
-      "generator.stage3.blocks.2.dc.2.lora.up.weight",
-      "generator.stage3.blocks.3.dc.2.lora.down.weight",
-      "generator.stage3.blocks.3.dc.2.lora.up.weight",
-      "generator.head.lora.down.weight",
-      "generator.head.lora.up.weight"
+      "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+      "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+      "recon_generation_net.decoder.tcg_out.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+      "recon_generation_net.decoder.head.lora.down.weight",
+      "recon_generation_net.decoder.head.lora.up.weight"
     ],
     "s_train": 0.5,
     "s_eval": 0.5,
-    "optimizer_absolute_step_at_load": 2000,
+    "optimizer_absolute_step_at_load": 0,
     "experiment_group": "C",
     "parent_optimizer_restored": false,
     "new_optimizer_empty": true,
@@ -724,6 +759,14 @@
       "recon_generation_net.decoder.head.lora.down.weight",
       "recon_generation_net.decoder.head.lora.up.weight"
     ],
+    "runtime_versions": {
+      "Python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+      "Torch": "2.6.0+cu124",
+      "CUDA": "12.4",
+      "cuDNN": 90100,
+      "intraop_threads": 1,
+      "deterministic_warn_only": true
+    },
     "Bridge_mlp3_type": "DepthConvBlock",
     "frozen_codec_reference": "Independent original codec trajectory; candidate recon never committed to codec DPB"
   },

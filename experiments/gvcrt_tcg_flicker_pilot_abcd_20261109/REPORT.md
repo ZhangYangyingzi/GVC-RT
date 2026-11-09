@@ -1,6 +1,6 @@
 # TCG flicker pilot A/B/C/D
 
-Snapshot UTC: 2026-11-09T04:34:29Z
+Snapshot UTC: 2026-11-09T06:59:16Z
 
 Scope:12 existing ULong development sources, external QP0/5/9. No final test evaluation. Four independent single-GPU models.
 
@@ -14,15 +14,21 @@ Standard CUDA grid_sample backward may use nondeterministic atomic accumulation;
 
 |Group|Committed updates|Videos/groups/windows consumed|Stop reason|
 |---|---:|---|---|
-|A|0|0/0/0|NOT_STARTED|
-|B|0|0/0/0|NOT_STARTED|
-|C|0|0/0/0|NOT_STARTED|
-|D|0|0/0/0|NOT_STARTED|
+|A|31|124/124/124|FAILED: RuntimeError('EMPTY_GT_VALID_REGION_NOT_A_ZERO_ERROR')|
+|B|31|124/124/124|FAILED: RuntimeError('EMPTY_GT_VALID_REGION_NOT_A_ZERO_ERROR')|
+|C|31|124/124/124|FAILED: RuntimeError('EMPTY_GT_VALID_REGION_NOT_A_ZERO_ERROR')|
+|D|31|124/124/124|FAILED: RuntimeError('EMPTY_GT_VALID_REGION_NOT_A_ZERO_ERROR')|
 
 ## Validation records
 
 |Group|Step|Median per-video Sobel ratio|Videos ratio<1|Numeric screen|
 |---|---:|---:|---:|---|
+|Original|0|0.9826902006274723|8|NOT_PASSED|
+|A2000|0|1.0|0|NOT_PASSED|
+|A|0|1.0|0|NOT_PASSED|
+|B|0|1.0|0|NOT_PASSED|
+|C|0|1.0027490866313036|0|NOT_PASSED|
+|D|0|1.0027490866313036|0|NOT_PASSED|
 
 Full per-video/QP/frame/transition values: development_metrics.csv and evaluation/*/step_*/. Raw and weighted training terms plus component gradient norms: training_history.csv and compressed receipts.
 
