@@ -1,0 +1,56 @@
+{
+  "time": 1794234806.7869604,
+  "user_authorization": "\u53ef\u4ee5\u75284567\u6765\u505a\u7f13\u5b58\u751f\u4ea7",
+  "cache_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "cache_workers_per_GPU": 1,
+  "training_GPUs": {
+    "E": [
+      0,
+      1
+    ],
+    "F": [
+      2,
+      3
+    ]
+  },
+  "previous_scheduler": {
+    "startup_windows": 16,
+    "calibration_windows": 8,
+    "prefetch_windows": 32,
+    "derived_byte_cap": 171798691840,
+    "reserve_bytes": 107374182400,
+    "gpu_cache_workers": 1,
+    "cache_GPU": 0,
+    "overlap_allowed_after_probe": true,
+    "delete_only_before_both_committed_cursors": true
+  },
+  "new_scheduler": {
+    "startup_windows": 16,
+    "calibration_windows": 8,
+    "prefetch_windows": 32,
+    "derived_byte_cap": 171798691840,
+    "reserve_bytes": 107374182400,
+    "gpu_cache_workers": 4,
+    "overlap_allowed_after_probe": true,
+    "delete_only_before_both_committed_cursors": true,
+    "cache_GPUs": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "files": {
+    "pipeline.py": {
+      "before_SHA256": "8cf1f76fb4149114ce3403c5582fce7764673d98a01e1b1b75d2a469d9e37513",
+      "after_SHA256": "aae66f761e4075e56de8e204845f99d8836f890b5fd83c6c3629ba8e259e3855"
+    }
+  },
+  "training_objective_model_optimizer_data_unchanged": true,
+  "training_restarted": false
+}

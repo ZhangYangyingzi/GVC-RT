@@ -1,0 +1,115 @@
+{
+  "task": "gvcrt_tcg_flicker_ef_b300_20261109",
+  "source_commit": "2e70bdc4ad99934d987fe8c484f8430345792b83",
+  "branch": "codex/tcg-flicker-ef-b300-20261109",
+  "B300": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+    "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85"
+  },
+  "inherited_protocol": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/protocol.json",
+    "SHA256": "ed108f7e633670e85d474dddbe8316d790f6dc80b9e580a7b4d0cf797a7fc0d2"
+  },
+  "groups": {
+    "E": {
+      "GPUs": [
+        0,
+        1
+      ],
+      "detail": false
+    },
+    "F": {
+      "GPUs": [
+        2,
+        3
+      ],
+      "detail": true
+    }
+  },
+  "training": {
+    "max_additional_updates": 300,
+    "effective_batch": 4,
+    "windows_per_rank": 2,
+    "seed": 20261109,
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "supervised_frames": [
+      49,
+      63
+    ],
+    "segments": [
+      [
+        49,
+        52
+      ],
+      [
+        53,
+        56
+      ],
+      [
+        57,
+        60
+      ],
+      [
+        61,
+        63
+      ]
+    ],
+    "s_train": 0.5,
+    "s_eval": 0.5,
+    "optimizer": "fresh AdamW",
+    "learning_rates": {
+      "Bridge": 2e-06,
+      "Backbone": 2e-06,
+      "TCG": 1e-05,
+      "LoRA": 5e-05
+    },
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_clip_norm": 1.0,
+    "checkpoint_every": 50
+  },
+  "loss": {
+    "LPIPS": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "RAFT_motion": 0.05,
+    "lambda_temp": 2.603297563918803,
+    "Sobel_MCResidual": 0.5,
+    "detail": "mean of per-scale mean absolute RGB normalized replicate-Sobel differences; average pools 1,2,4",
+    "lambda_detail": "0.1*median(full-trainables spatial-gradient-L2/detail-gradient-L2) on first8 immutable training windows, unupdated B300"
+  },
+  "validation": {
+    "videos": 12,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "frames": 64,
+    "steps": [
+      100,
+      200,
+      300
+    ],
+    "scope": "ULong\u5f00\u53d1\u5b50\u96c612\u89c6\u9891",
+    "step0_check_profiles": [
+      0,
+      4
+    ],
+    "step0_points": 6,
+    "stop": "At BOTH100 and200: mean PtoP Sobel error >= B300 AND any QP mean LPIPS or DISTS >1.01*B300; otherwise300",
+    "final_test_points": 0
+  },
+  "codec": "independent original fixed trajectory; no candidate reference writes",
+  "history_warp": false,
+  "router": false,
+  "plan_SHA256": "97b05b87f0621b08863591a2b7734a12ba4bd7131df4784c20ef3c12e46a1876"
+}

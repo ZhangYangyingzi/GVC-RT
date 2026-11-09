@@ -1,0 +1,21 @@
+{
+  "status": "FAILED",
+  "complete": false,
+  "current_stage": "\u51c6\u5907",
+  "exception": "AssertionError(('CODE_CHANGED_AFTER_FREEZE', 'runner.py'))",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py\", line 78, in main\n    for n,h in load(ROOT/'source_manifest.json')['code'].items():assert sha(ROOT/n)==h,('CODE_CHANGED_AFTER_FREEZE',n)\n                                                                        ^^^^^^^^^^^^^^\nAssertionError: ('CODE_CHANGED_AFTER_FREEZE', 'runner.py')\n",
+  "children": {
+    "reload_E": {
+      "pid": 721244,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/reload_E.log",
+      "devices": "0,1,2,3"
+    },
+    "reload_F": {
+      "pid": 721245,
+      "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/reload_F.log",
+      "devices": "0,1,2,3"
+    }
+  },
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1,2,3 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py",
+  "time": 1794233995.668002
+}
