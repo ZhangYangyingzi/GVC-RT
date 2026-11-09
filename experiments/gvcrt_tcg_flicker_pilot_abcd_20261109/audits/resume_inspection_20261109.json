@@ -1,0 +1,169 @@
+{
+  "status": "RUNNING",
+  "inspection_time": 1794211031.9594877,
+  "inspection_local_time": "2026-11-09 15:57:11 +0800",
+  "runner_PID": 387736,
+  "runner_stage": "formal_four_independent_branches_with_100_step_validation",
+  "training_worker_PIDs": {
+    "formal_A": 397699,
+    "formal_B": 397700,
+    "formal_C": 397701,
+    "formal_D": 397702
+  },
+  "groups": {
+    "A": {
+      "committed_updates": 37,
+      "next_cursor": 148,
+      "new_optimizer_step": 37,
+      "LoRA_absolute_update_count": 2037,
+      "initial_TCG_cumulative_updates": 6500,
+      "physical_GPU": 4,
+      "receipts_contiguous_and_match_plan": true,
+      "latest_receipt_matches_checkpoint": true,
+      "step32_gradient_norm": 0.09447884720894656,
+      "step32_valid_and_empty_supervised_frames": [
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 14,
+          "empty": 1
+        }
+      ],
+      "step32_frozen_bytes_and_buffer_checks": "PASS"
+    },
+    "B": {
+      "committed_updates": 35,
+      "next_cursor": 140,
+      "new_optimizer_step": 35,
+      "LoRA_absolute_update_count": 2035,
+      "initial_TCG_cumulative_updates": 6500,
+      "physical_GPU": 5,
+      "receipts_contiguous_and_match_plan": true,
+      "latest_receipt_matches_checkpoint": true,
+      "step32_gradient_norm": 0.5227272735422227,
+      "step32_valid_and_empty_supervised_frames": [
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 14,
+          "empty": 1
+        }
+      ],
+      "step32_frozen_bytes_and_buffer_checks": "PASS"
+    },
+    "C": {
+      "committed_updates": 36,
+      "next_cursor": 144,
+      "new_optimizer_step": 36,
+      "LoRA_absolute_update_count": 2036,
+      "initial_TCG_cumulative_updates": 6500,
+      "physical_GPU": 6,
+      "receipts_contiguous_and_match_plan": true,
+      "latest_receipt_matches_checkpoint": true,
+      "step32_gradient_norm": 0.10828972305179511,
+      "step32_valid_and_empty_supervised_frames": [
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 14,
+          "empty": 1
+        }
+      ],
+      "step32_frozen_bytes_and_buffer_checks": "PASS"
+    },
+    "D": {
+      "committed_updates": 35,
+      "next_cursor": 140,
+      "new_optimizer_step": 35,
+      "LoRA_absolute_update_count": 2035,
+      "initial_TCG_cumulative_updates": 6500,
+      "physical_GPU": 7,
+      "receipts_contiguous_and_match_plan": true,
+      "latest_receipt_matches_checkpoint": true,
+      "step32_gradient_norm": 0.5337044496450335,
+      "step32_valid_and_empty_supervised_frames": [
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 15,
+          "empty": 0
+        },
+        {
+          "valid": 14,
+          "empty": 1
+        }
+      ],
+      "step32_frozen_bytes_and_buffer_checks": "PASS"
+    }
+  },
+  "step0_verified_points": {
+    "Original": 36,
+    "A2000": 36,
+    "A": 36,
+    "B": 36,
+    "C": 36,
+    "D": 36
+  },
+  "all_branches_committed_previously_failing_step32": true,
+  "shared_sample_keys_at_step32": true,
+  "source_and_protected_history_hashes": "PASS",
+  "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+  "protocol_SHA256": "ed108f7e633670e85d474dddbe8316d790f6dc80b9e580a7b4d0cf797a7fc0d2",
+  "plan_index_SHA256": "8cac30c688f3722e94dc4c0f4a99378c67566c88f33316f3d5ec9a34ee0c4fb6",
+  "guard": {
+    "status": "WATCHING",
+    "PID": 396983,
+    "watched_runner_PID": 387736,
+    "watched_stage": "formal_four_independent_branches_with_100_step_validation",
+    "automatic_restarts": 0,
+    "time": 1794211019.979868,
+    "no_processes_signaled": true,
+    "guard_source_SHA256": "51429d524a64298a27fa634ddc6ce98e86a2c168ee6ed5aae55b9cdbe01a9b1d"
+  },
+  "boundary_check": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/audits/resume_empty_mask_boundary_check.json",
+  "remaining_work": [
+    "Complete branch training and scheduled36-point evaluations under fixed200/300stop rules",
+    "Export and verify128-frame synchronized videos",
+    "Final integrity and results publication"
+  ],
+  "final_integrity_status": "PARTIAL",
+  "no_second_runner_started": true,
+  "no_unrelated_processes_signaled": true,
+  "training_configuration_changed_by_inspection": false
+}
