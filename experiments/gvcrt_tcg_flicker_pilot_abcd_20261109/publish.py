@@ -29,7 +29,7 @@ def package_receipts():
     dump(ROOT/'logs/bounded_summary.json',summaries)
 
 def core_paths():
-    names=['protocol.json','source_manifest.json','REPORT.md','final_integrity.json','status.json','development_metrics.csv','screening_history.json','training_history.csv']
+    names=['protocol.json','source_manifest.json','REPORT.md','final_integrity.json','development_metrics.csv','screening_history.json','training_history.csv']
     return [str((ROOT/n).relative_to(WORKTREE)) for n in names if (ROOT/n).exists()]
 
 def publish(phase):

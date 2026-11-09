@@ -88,7 +88,7 @@ def point(profile,qp,group,step,rank,training_probe=False,export=False,engineeri
                 oldgt=float((target-old_sampler(previous,gt_flow)).abs().mean());oldrecon=float((target-old_sampler(previous,flow(out,previous))).abs().mean())
                 rr,re,valid=temporal_errors(out,previous,target,previous_gt,data['GT_backward'][i].to(device),data['GT_valid'][i].to(device))
                 transitions.append(dict(from_frame=i-1,to_frame=i,transition_type='I_to_P' if i==1 else 'P_to_P',FloLPIPS=flo,MCResidual_RGB_RAFT_pixelcenter_v1=float(rr),MCResidual_Sobel_RAFT_pixelcenter_v1=float(re),valid_fraction=valid,
-                    GT_Sobel_strength=float(sobel(target).abs().mean()),reconstruction_Sobel_strength=float(sobel(out).abs().mean()),WarpingError_GTFlow_PWC=oldgt,WarpingError_ReconFlow_PWC=oldrecon,
+                    valid_pixels=int(data['GT_valid'][i].sum()),RGB_valid_channel_denominator=int(data['GT_valid'][i].sum())*3,Sobel_valid_channel_denominator=int(data['GT_valid'][i].sum())*6,GT_Sobel_strength=float(sobel(target).abs().mean()),reconstruction_Sobel_strength=float(sobel(out).abs().mean()),WarpingError_GTFlow_PWC=oldgt,WarpingError_ReconFlow_PWC=oldrecon,
                     GT_backward_flow_SHA256=tensor_sha(data['GT_backward'][i]),GT_valid_mask_SHA256=tensor_sha(data['GT_valid'][i])))
             if writer is not None:writer.stdin.write(out[0].permute(1,2,0).mul(255).round().clamp(0,255).byte().cpu().numpy().tobytes())
             previous,previous_gt=out,target

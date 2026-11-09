@@ -203,7 +203,7 @@
     "precision": "LoRA FP32 internally; add to original-conv output in FP32 and cast back once",
     "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
   },
-  "trainable_parameters": 59392,
+  "trainable_parameters": 197152,
   "optimizer": {
     "type": "AdamW",
     "state_entries": 0,
@@ -360,6 +360,14 @@
     "recon_generation_net.decoder.head.lora.down.weight",
     "recon_generation_net.decoder.head.lora.up.weight"
   ],
+  "runtime_versions": {
+    "Python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "Torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "cuDNN": 90100,
+    "intraop_threads": 1,
+    "deterministic_warn_only": true
+  },
   "Bridge_mlp3_type": "DepthConvBlock",
   "frozen_codec_reference": "Independent original codec trajectory; candidate recon never committed to codec DPB"
 }

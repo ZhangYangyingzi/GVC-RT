@@ -1,6 +1,6 @@
 # TCG flicker pilot A/B/C/D
 
-Snapshot UTC: 2026-11-09T04:21:17Z
+Snapshot UTC: 2026-11-09T04:34:29Z
 
 Scope:12 existing ULong development sources, external QP0/5/9. No final test evaluation. Four independent single-GPU models.
 

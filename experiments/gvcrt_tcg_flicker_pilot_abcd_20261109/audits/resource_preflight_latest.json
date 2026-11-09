@@ -8,7 +8,7 @@
       "uuid": "GPU-990e972c-5711-6d17-048b-577f18976ff3",
       "name": "NVIDIA A100-PCIE-40GB",
       "total_MiB": 40960,
-      "free_MiB": 40441
+      "free_MiB": 39334
     },
     {
       "logical_GPU": 1,
@@ -17,7 +17,7 @@
       "uuid": "GPU-e7309963-f9fb-d0be-1886-d26b609ddef0",
       "name": "NVIDIA A100-PCIE-40GB",
       "total_MiB": 40960,
-      "free_MiB": 40445
+      "free_MiB": 39724
     },
     {
       "logical_GPU": 2,
@@ -26,7 +26,7 @@
       "uuid": "GPU-76210030-c72b-28f8-f8ca-f21276be4417",
       "name": "NVIDIA A100-PCIE-40GB",
       "total_MiB": 40960,
-      "free_MiB": 40445
+      "free_MiB": 39330
     },
     {
       "logical_GPU": 3,
@@ -35,15 +35,44 @@
       "uuid": "GPU-09edf901-be5d-63cc-7971-373200bcc105",
       "name": "NVIDIA A100-PCIE-40GB",
       "total_MiB": 40960,
-      "free_MiB": 40445
+      "free_MiB": 39724
     }
   ],
-  "own_processes": [],
+  "own_processes": [
+    {
+      "pid": 210924,
+      "uuid": "GPU-990e972c-5711-6d17-048b-577f18976ff3",
+      "used_MiB": "1102",
+      "cwd": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+      "args": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/prepare_cache.py --kind training --rank 0 "
+    },
+    {
+      "pid": 210925,
+      "uuid": "GPU-e7309963-f9fb-d0be-1886-d26b609ddef0",
+      "used_MiB": "712",
+      "cwd": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+      "args": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/prepare_cache.py --kind training --rank 1 "
+    },
+    {
+      "pid": 210926,
+      "uuid": "GPU-76210030-c72b-28f8-f8ca-f21276be4417",
+      "used_MiB": "1106",
+      "cwd": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+      "args": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/prepare_cache.py --kind training --rank 2 "
+    },
+    {
+      "pid": 210927,
+      "uuid": "GPU-09edf901-be5d-63cc-7971-373200bcc105",
+      "used_MiB": "712",
+      "cwd": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
+      "args": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/prepare_cache.py --kind training --rank 3 "
+    }
+  ],
   "other_processes": [],
   "disk": {
-    "free_bytes": 385772507136,
+    "free_bytes": 370416271360,
     "total_bytes": 15240754356224
   },
-  "time": 1794197560.4178271,
+  "time": 1794198688.3203647,
   "no_other_GPU_used": true
 }

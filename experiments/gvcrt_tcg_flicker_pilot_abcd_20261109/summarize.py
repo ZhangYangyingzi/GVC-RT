@@ -15,7 +15,7 @@ def means(rows,key,q=None):
 def _screening():
     base=results('A2000',0)
     if len(base)!=36:return {}
-    bm={(r['sequence'],r['QP']):r for r in base};history={};deltas=[];metrics=[]
+    bm={(r['sequence'],r['QP']):r for r in base};history={};deltas=[];metrics=[];all_transitions=[]
     for group in ['Original','A2000',*GROUPS]:
         history[group]=[]
         for directory in sorted((ROOT/f'evaluation/{group}').glob('step_*')):
@@ -23,6 +23,10 @@ def _screening():
             if len(rr)!=36:continue
             assert {(r['sequence'],r['QP']) for r in rr}==set(bm)
             metrics+=rr
+            for point in (directory/'points').glob('*.json'):
+                item=load(point)['result']
+                with (directory/'transitions'/(point.stem+'.csv')).open() as f:
+                    for transition in csv.DictReader(f):all_transitions.append(dict(model=group,step=step,sequence=item['sequence'],QP=item['QP'],**transition))
             ratios=collections.defaultdict(list)
             for r in rr:
                 b=bm[(r['sequence'],r['QP'])]
@@ -57,8 +61,9 @@ def _screening():
                 own_step0_comparison_available=group in 'CD' and len(results(group,0))==36,
                 no_temporal_improvement=means(rr,PRIMARY)>=means(base,PRIMARY),spatial_regression_over_one_percent=not spatial_ok))
     if metrics:write_csv(ROOT/'development_metrics.csv',metrics)
+    if all_transitions:write_csv(ROOT/'temporal_metrics_by_frame.csv',all_transitions)
     if deltas:write_csv(ROOT/'paired_deltas_by_video_qp.csv',deltas)
-    dump(ROOT/'screening_history.json',dict(version=1,primary=PRIMARY,scope='12 ULong development groups; no cross-dataset claim',history=history,no_statistical_significance_claim=True))
+    dump(ROOT/'screening_history.json',dict(version=1,primary=PRIMARY,scope='12 ULong development groups; no cross-dataset claim',history=history,numeric_candidates=[dict(group=g,validation_step=r['step'],status=r['screening_status']) for g,records in history.items() if g in GROUPS for r in records if r['screening_status']=='NUMERIC_SCREEN_PASS'],no_statistical_significance_claim=True))
     return history
 
 def screening():
@@ -100,6 +105,9 @@ def training_summary():
         for cp in sorted((ROOT/group/'training/checkpoints').glob('*.pt')):
             checkpoints.append(dict(group=group,filename=cp.name,local_path=str(cp),bytes=cp.stat().st_size,sha256=sha(cp)))
     if rows:write_csv(ROOT/'training_history.csv',rows)
+    ga_path=ROOT/'gradient_audit.json'
+    if ga_path.exists():
+        ga=load(ga_path);ga['formal_effective_batch_gradient_angles']={g:[dict(step=r['additional_step'],angles=r.get('effective_batch_spatial_temporal_gradient_angles',{}),global_component_gradient_norms=r['global_component_gradient_norms'],parameter_change_from_A2000=r.get('parameter_change_from_A2000')) for r in [load(p) for p in sorted((ROOT/g/'training/receipts').glob('*.json'))] if r.get('effective_batch_spatial_temporal_gradient_angles')] for g in GROUPS};dump(ga_path,ga)
     dump(ROOT/'training_coverage.json',coverage);dump(ROOT/'runtime_profile.json',profiles);dump(ROOT/'checkpoint_manifest.json',dict(initial_checkpoint=dict(path=str(INIT),sha256=INIT_SHA),new_checkpoints=checkpoints))
     return coverage
 

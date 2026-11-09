@@ -44,7 +44,7 @@ def construct(group='A',train=True,rank=0):
     c['provenance'].update(experiment_group=group,s_train=.5,s_eval=.5,parent_optimizer_restored=False,new_optimizer_empty=optimizer is None or len(optimizer.state)==0,
         optimizer_restored=False,optimizer_absolute_step_at_load=0,optimizer_name_order=[n for n,p in named],optimizer=dict(type='AdamW',state_entries=0 if optimizer is not None else None,param_groups=[dict(name=k,lr=rates[k],parameter_count=sum(p.numel() for p in v)) for k,v in sets.items() if v]),
         initialization_LoRA_step=2000,initialization_TCG_step=6500,trainable_module_counts={k:sum(p.numel() for p in v) for k,v in sets.items()},
-        trainable_names=[n for n,p in named],Bridge_mlp3_type=bridge[3].__class__.__name__,frozen_codec_reference='Independent original codec trajectory; candidate recon never committed to codec DPB')
+        trainable_parameters=sum(p.numel() for n,p in named) if train else 0,trainable_names=[n for n,p in named],runtime_versions=dict(Python=sys.version,Torch=torch.__version__,CUDA=torch.version.cuda,cuDNN=torch.backends.cudnn.version(),intraop_threads=torch.get_num_threads(),deterministic_warn_only=torch.is_deterministic_algorithms_warn_only_enabled()),Bridge_mlp3_type=bridge[3].__class__.__name__,frozen_codec_reference='Independent original codec trajectory; candidate recon never committed to codec DPB')
     return c
 
 def detach_history(c):
