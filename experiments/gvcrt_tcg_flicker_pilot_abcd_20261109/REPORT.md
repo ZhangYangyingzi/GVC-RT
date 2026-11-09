@@ -1,6 +1,6 @@
 # TCG flicker pilot A/B/C/D
 
-Snapshot UTC: 2026-11-09T06:59:16Z
+Snapshot UTC: 2026-11-09T07:45:53Z
 
 Scope:12 existing ULong development sources, external QP0/5/9. No final test evaluation. Four independent single-GPU models.
 
@@ -9,6 +9,8 @@ Initialization: original A2000 LoRA over pilot receiver + B+1500 FP32 TCG. Fresh
 A: TCG+LoRA; B: A+Bridge mlp[3]; C: A+fixed causal original-reconstruction RAFT history warp; D: C+Bridge mlp[3].
 
 Main temporal metric: MCResidual_Sobel_RAFT_pixelcenter_v1_PtoP. I→P is separately recorded. Historical PWC metrics keep their prior sampler.
+
+Empty GT-valid regions are recorded as missing, never as zero temporal error. Temporal metrics average only valid transitions; training temporal terms average valid frames within each nonempty window and then nonempty windows. Spatial and RAFT terms retain 15-frame and four-window averaging.
 
 Standard CUDA grid_sample backward may use nondeterministic atomic accumulation; own-repeat relative gradient error is audited under1e-3. No bitwise gradient reproducibility claim.
 

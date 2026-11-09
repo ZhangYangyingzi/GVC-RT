@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "revision": "empty_GT_valid_region_handling_v2",
+  "reason": "Empty GT-valid masks previously aborted each branch; missing masks must be explicit and cannot enter temporal means as zero.",
+  "parent_commit": "55eae5556b66bae1824a6bd14fc3640587a718e5",
+  "previous_source_manifest_SHA256": "0a82576e2493ab2f29977d4ea0e76b0e491dd8d016ed3ddb085be7284706e509",
+  "new_source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+  "previous_manifest_backup": "audits/source_revisions/pre_empty_gt_valid_region/source_manifest.json",
+  "changed_sources": [
+    "evaluation.py",
+    "integrity.py",
+    "loss.py",
+    "summarize.py",
+    "temporal.py",
+    "train.py"
+  ],
+  "step0_points_migrated": 220,
+  "step0_transition_rows": 13860,
+  "step0_empty_transitions": 0,
+  "prior_formal_receipts": 31,
+  "prior_empty_supervised_frames": 0,
+  "calibration_lambda_temp": 2.603297563918803,
+  "checkpoints": [
+    {
+      "group": "A",
+      "path": "A/training/latest.pt",
+      "step": 31,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "2dbaae3fb2f93d42e9d967968e1b83411b27c8437006209cde0971e8809b6487",
+        "optimizer": "b0abd4cd8fd4ddb10619c2d385ca76adc5b4f41748584d09dd58dbbca24ab9d3",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "734a95a06c34f5a551022d8149c8fefca427f8647ea0d14b10ee707b48a12346"
+      },
+      "sha256": "dcfcae2351d1e0d149ac17b9f377061f9a1a5071f923822f0741490eaa4727d8"
+    },
+    {
+      "group": "A",
+      "path": "A/training/checkpoints/step_0000.pt",
+      "step": 0,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "1a47b3839ce13e574106d134fc4badd9a0a60e632a6d273fc9784bb080128a73",
+        "optimizer": "146950d923a8abd22cb6791acca062d6a3603c445c5c4000d34539709916ea22",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed"
+      },
+      "sha256": "7ad4161414d6341251007a2220a02de176d40a73af88e67bd10e8db023ba86c4"
+    },
+    {
+      "group": "B",
+      "path": "B/training/latest.pt",
+      "step": 31,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "e3ad879d0918d08493893703b679e10492797fdf1b24f7eab09c51614d94e86a",
+        "optimizer": "b914c7ed3ec092db45bfdba3889ded49bbab189194bfb0ad011c0b3c19ee2517",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "b0ed95a93bf4d31fae7c380b310023c6a0f30052b038be3c1fd4fcb3d0152c6c"
+      },
+      "sha256": "c1f974b817ee3b17f334b7a12ae9b1ecfb8b33100a747c25ac6eca3a9fbd189f"
+    },
+    {
+      "group": "B",
+      "path": "B/training/checkpoints/step_0000.pt",
+      "step": 0,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "55a7169f32bc47801932443c1fe25e9f5699a2f93d28989febd6f5c2ffe56607",
+        "optimizer": "ba8d5ed0f2902a8cae97873c61e3ae34940334dda2f62b21331f2ff0bb8ac401",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed"
+      },
+      "sha256": "1fd3542db8693866625d5489abed6bea5933bd7572088cddf7e4c470fc429e14"
+    },
+    {
+      "group": "C",
+      "path": "C/training/latest.pt",
+      "step": 31,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "257afc260d3769d4067ffdef9f85af642c1256cb59ea61971e0e56c7eec52221",
+        "optimizer": "0f2ee811203a5dd760b1c58d1ca062030e7268be0543e1feead23cc462893c27",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "33df31f2b9bbf29670d6c0ed2541c2f7390d76a640e743e1d77cf40ecbfad194"
+      },
+      "sha256": "b0bb07df47de5f74b595fbf11829f5aa4186adc6ae0abbbb5d7efa143761f6ce"
+    },
+    {
+      "group": "C",
+      "path": "C/training/checkpoints/step_0000.pt",
+      "step": 0,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "1a47b3839ce13e574106d134fc4badd9a0a60e632a6d273fc9784bb080128a73",
+        "optimizer": "146950d923a8abd22cb6791acca062d6a3603c445c5c4000d34539709916ea22",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed"
+      },
+      "sha256": "83459658c047fb07e0dada81065deae275f7bafa9b4c1132f9fbe5f5b76235da"
+    },
+    {
+      "group": "D",
+      "path": "D/training/latest.pt",
+      "step": 31,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "f780ae83b0b0b2d67d46e7556e9a0a2a01c10023fd2c93871416563ca9b35954",
+        "optimizer": "5b96204dec28360bcd70702cc5160f24f130864e8950acc89d8c2427364eadc9",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "ce8a05224383921a7f54fc7a610068a4aef92bde9d20adbdaf5b77ae98be00c3"
+      },
+      "sha256": "85ee5003da1ea837f800797e3dda023b7038c721c2a8895bbba60721f5ed883f"
+    },
+    {
+      "group": "D",
+      "path": "D/training/checkpoints/step_0000.pt",
+      "step": 0,
+      "source_manifest_SHA256": "9db617a3760afa5cd0d2c92d9160092bacf4876b4e2a52c887eb0c3949c0f451",
+      "unchanged_state_hashes": {
+        "trainable_state": "55a7169f32bc47801932443c1fe25e9f5699a2f93d28989febd6f5c2ffe56607",
+        "optimizer": "ba8d5ed0f2902a8cae97873c61e3ae34940334dda2f62b21331f2ff0bb8ac401",
+        "RNG": "9287dd3e34dfd461488e466a1d6ba9b9570cae8d7a4cc45e7693ec545c22cfdd",
+        "last_committed_receipt": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed"
+      },
+      "sha256": "39c6a0d3ff63ec13b981f8effca99f5b1096ce3123d9a8396eb0f954fac7211b"
+    }
+  ],
+  "checkpoint_parameters_optimizer_rng_receipts_unchanged": true,
+  "step31_recovery_preserved": true,
+  "freeze_verify": "PASS",
+  "time": 1794209747.3985648
+}

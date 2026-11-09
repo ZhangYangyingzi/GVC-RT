@@ -43,7 +43,7 @@ def sobel(x):
 
 def temporal_errors(current,previous,target,previous_gt,flow,valid):
     count=valid.float().sum()
-    if count.item()==0:raise RuntimeError('EMPTY_GT_VALID_REGION_NOT_A_ZERO_ERROR')
+    if count.item()==0:return None,None,float(valid.float().mean())
     errors=[]
     for op in (lambda x:x,sobel):
         a=op(current);b=op(previous);g=op(target);p=op(previous_gt)

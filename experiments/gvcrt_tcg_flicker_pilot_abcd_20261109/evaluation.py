@@ -87,8 +87,9 @@ def point(profile,qp,group,step,rank,training_probe=False,export=False,engineeri
                 gt_flow=flow(target,previous_gt)
                 oldgt=float((target-old_sampler(previous,gt_flow)).abs().mean());oldrecon=float((target-old_sampler(previous,flow(out,previous))).abs().mean())
                 rr,re,valid=temporal_errors(out,previous,target,previous_gt,data['GT_backward'][i].to(device),data['GT_valid'][i].to(device))
-                transitions.append(dict(from_frame=i-1,to_frame=i,transition_type='I_to_P' if i==1 else 'P_to_P',FloLPIPS=flo,MCResidual_RGB_RAFT_pixelcenter_v1=float(rr),MCResidual_Sobel_RAFT_pixelcenter_v1=float(re),valid_fraction=valid,
-                    valid_pixels=int(data['GT_valid'][i].sum()),RGB_valid_channel_denominator=int(data['GT_valid'][i].sum())*3,Sobel_valid_channel_denominator=int(data['GT_valid'][i].sum())*6,GT_Sobel_strength=float(sobel(target).abs().mean()),reconstruction_Sobel_strength=float(sobel(out).abs().mean()),WarpingError_GTFlow_PWC=oldgt,WarpingError_ReconFlow_PWC=oldrecon,
+                valid_pixels=int(data['GT_valid'][i].sum())
+                transitions.append(dict(from_frame=i-1,to_frame=i,transition_type='I_to_P' if i==1 else 'P_to_P',FloLPIPS=flo,MCResidual_RGB_RAFT_pixelcenter_v1=None if rr is None else float(rr),MCResidual_Sobel_RAFT_pixelcenter_v1=None if re is None else float(re),valid_fraction=valid,
+                    temporal_status='VALID' if valid_pixels else 'EMPTY_GT_VALID_REGION',valid_pixels=valid_pixels,RGB_valid_channel_denominator=valid_pixels*3,Sobel_valid_channel_denominator=valid_pixels*6,GT_Sobel_strength=float(sobel(target).abs().mean()),reconstruction_Sobel_strength=float(sobel(out).abs().mean()),WarpingError_GTFlow_PWC=oldgt,WarpingError_ReconFlow_PWC=oldrecon,
                     GT_backward_flow_SHA256=tensor_sha(data['GT_backward'][i]),GT_valid_mask_SHA256=tensor_sha(data['GT_valid'][i])))
             if writer is not None:writer.stdin.write(out[0].permute(1,2,0).mul(255).round().clamp(0,255).byte().cpu().numpy().tobytes())
             previous,previous_gt=out,target
@@ -98,12 +99,18 @@ def point(profile,qp,group,step,rank,training_probe=False,export=False,engineeri
     if c is not None:
         assert component_hashes(c)==before and tensor_hash(c['pm'].state_dict().items())==full_before
         assert_reset(c)
+    def transition_mean(key,rows):
+        values=[r[key] for r in rows if r[key] is not None]
+        return sum(values)/len(values) if values else None
+    temporal_valid=[r for r in transitions if r['MCResidual_RGB_RAFT_pixelcenter_v1'] is not None]
+    ptop=transitions[1:];ptop_valid=[r for r in ptop if r['MCResidual_RGB_RAFT_pixelcenter_v1'] is not None]
     metrics=dict(model=group,step=step,domain='ULong_development_subset_12',split='development',sequence=seq,QP=qp,frames=n,transitions=n-1,
         real_bytes=info['real_bytes'],bpp=info['bpp'],kbps=info['real_bytes']*8*float(__import__('fractions').Fraction(row.get('source_fps','30/1')))/n/1000,
         PSNR=-10*math.log10(max(sum(r['pixel_SSE'] for r in frames)/(n*h*w*3),1e-15)),**{k:sum(r[k] for r in frames)/n for k in SPATIAL},
-        **{k:sum(r[k] for r in transitions)/(n-1) for k in TEMPORAL},
-        **{k+'_PtoP':sum(r[k] for r in transitions[1:])/(n-2) for k in TEMPORAL},
-        **{k+'_I_to_P':transitions[0][k] for k in TEMPORAL},valid_fraction_PtoP=sum(r['valid_fraction'] for r in transitions[1:])/(n-2),
+        **{k:transition_mean(k,temporal_valid if k.startswith('MCResidual_') else transitions) for k in TEMPORAL},
+        **{k+'_PtoP':transition_mean(k,ptop_valid if k.startswith('MCResidual_') else ptop) for k in TEMPORAL},
+        **{k+'_I_to_P':transitions[0][k] for k in TEMPORAL},valid_temporal_transitions=len(temporal_valid),empty_temporal_transitions=(n-1)-len(temporal_valid),
+        valid_temporal_transitions_PtoP=len(ptop_valid),empty_temporal_transitions_PtoP=len(ptop)-len(ptop_valid),valid_fraction_PtoP=sum(r['valid_fraction'] for r in ptop)/(n-2),
         bitstream_SHA256=info['stream_SHA256'],codec_trace_SHA256=digest(traces),source_RGB_SHA256=digest([r['source_RGB_SHA256'] for r in frames]),checkpoint_SHA256=checkpoint_hash)
     assert all(math.isfinite(float(v)) for k,v in metrics.items() if isinstance(v,(float,int)))
     records={}

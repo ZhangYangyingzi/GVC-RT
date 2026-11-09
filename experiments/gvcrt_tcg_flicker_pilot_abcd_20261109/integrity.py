@@ -7,6 +7,10 @@ import collections
 def readcsv(p):
     with Path(p).open() as f:return list(csv.DictReader(f))
 
+def optional_float(row,key):
+    value=row.get(key)
+    return None if value in (None,'') else float(value)
+
 def check():
     env();verify();coverage=training_summary();history=screening();errors=[];points=0;frames=0;transitions=0;GT_reference_hashes={}
     base=results('A2000',0)
@@ -30,6 +34,18 @@ def check():
         assert all(r['frozen_exact_bytes_checked'] and r['buffers_reset'] and r['gradient_norm']>0 and r['post_clip_norm']<=1.00001 for r in receipts)
         hashes={r['frozen_state_SHA256'] for r in receipts};assert len(hashes)==1
         assert all(len(r['samples'])==4 and all(x['frames_supervised']==15 and x['segment_lengths']==[4,4,4,3] for x in r['samples']) for r in receipts)
+        for receipt in receipts:
+            computed_valid_windows=0
+            for sample in receipt['samples']:
+                valid_frames=sample.get('frames_temporal_valid',sum(t['valid_fraction']>0 for t in sample.get('raw_trace',[])))
+                empty_frames=sample.get('frames_temporal_empty',15-sum(t['valid_fraction']>0 for t in sample.get('raw_trace',[])))
+                assert valid_frames+empty_frames==15
+                computed_valid_windows+=int(valid_frames>0)
+                assert all(t.get('RGB_temporal') is not None and t.get('Sobel_temporal') is not None for t in sample.get('raw_trace',[]) if t.get('temporal_valid',t.get('valid_fraction',0)>0))
+                assert all(t.get('RGB_temporal') is None and t.get('Sobel_temporal') is None for t in sample.get('raw_trace',[]) if not t.get('temporal_valid',t.get('valid_fraction',0)>0))
+            assert 0<=computed_valid_windows<=4
+            assert receipt.get('batch_temporal_valid_windows',computed_valid_windows)==computed_valid_windows
+            assert receipt.get('batch_temporal_empty_windows',4-computed_valid_windows)==4-computed_valid_windows
         for i,r in enumerate(receipts):
             assert r['source_plan_cursor']==4*(i+1) and r['optimizer_steps']==[i+1]*len(r['optimizer_steps'])
         import torch
@@ -48,6 +64,16 @@ def check():
             gid=(r['sequence'],int(transition['to_frame']));identity=(transition['GT_backward_flow_SHA256'],transition['GT_valid_mask_SHA256'])
             if gid in GT_reference_hashes:assert GT_reference_hashes[gid]==identity,'GT_FLOW_OR_MASK_DIFFERS_ACROSS_MODEL_QP'
             else:GT_reference_hashes[gid]=identity
+            valid_pixels=int(transition['valid_pixels'])
+            rgb=optional_float(transition,'MCResidual_RGB_RAFT_pixelcenter_v1');edge=optional_float(transition,'MCResidual_Sobel_RAFT_pixelcenter_v1')
+            if valid_pixels==0:
+                assert rgb is None and edge is None
+                assert int(transition['RGB_valid_channel_denominator'])==0 and int(transition['Sobel_valid_channel_denominator'])==0
+                assert transition.get('temporal_status','EMPTY_GT_VALID_REGION')=='EMPTY_GT_VALID_REGION'
+            else:
+                assert rgb is not None and edge is not None
+                assert int(transition['RGB_valid_channel_denominator'])==valid_pixels*3 and int(transition['Sobel_valid_channel_denominator'])==valid_pixels*6
+                assert transition.get('temporal_status','VALID')=='VALID'
         assert len(ff)==64 and len(tt)==63 and len(records['codec_trace'])==64
         assert [int(x['frame']) for x in ff]==list(range(64)) and [int(x['to_frame']) for x in tt]==list(range(1,64))
         assert sum(int(x['real_bits']) for x in ff)==r['real_bytes']*8 and p['bytes_consumed']==r['real_bytes']
@@ -57,8 +83,16 @@ def check():
         assert abs(r['PSNR']-(-10*math.log10(max(mse,1e-15))))<1e-9
         for key in ['LPIPS','DISTS','MS_SSIM']:assert abs(r[key]-sum(float(x[key]) for x in ff)/64)<1e-9
         for key in ['FloLPIPS','MCResidual_RGB_RAFT_pixelcenter_v1','MCResidual_Sobel_RAFT_pixelcenter_v1']:
-            assert abs(r[key]-sum(float(x[key]) for x in tt)/63)<1e-9
-            assert abs(r[key+'_PtoP']-sum(float(x[key]) for x in tt[1:])/62)<1e-9
+            vals=[optional_float(x,key) for x in tt];vals=[v for v in vals if v is not None]
+            ptop_vals=[optional_float(x,key) for x in tt[1:]];ptop_vals=[v for v in ptop_vals if v is not None]
+            expected_mean=sum(vals)/len(vals) if vals else None
+            expected_ptop=sum(ptop_vals)/len(ptop_vals) if ptop_vals else None
+            assert r[key] is None if expected_mean is None else r[key] is not None and abs(r[key]-expected_mean)<1e-9
+            assert r[key+'_PtoP'] is None if expected_ptop is None else r[key+'_PtoP'] is not None and abs(r[key+'_PtoP']-expected_ptop)<1e-9
+        valid_count=sum(optional_float(x,'MCResidual_RGB_RAFT_pixelcenter_v1') is not None for x in tt)
+        ptop_valid_count=sum(optional_float(x,'MCResidual_RGB_RAFT_pixelcenter_v1') is not None for x in tt[1:])
+        assert r.get('valid_temporal_transitions',valid_count)==valid_count and r.get('empty_temporal_transitions',63-valid_count)==63-valid_count
+        assert r.get('valid_temporal_transitions_PtoP',ptop_valid_count)==ptop_valid_count and r.get('empty_temporal_transitions_PtoP',62-ptop_valid_count)==62-ptop_valid_count
         assert all(math.isfinite(float(v)) for k,v in r.items() if isinstance(v,(int,float)))
         points+=1;frames+=64;transitions+=63
     videos=load(ROOT/'videos/manifest.json') if (ROOT/'videos/manifest.json').exists() else None

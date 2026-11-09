@@ -6,6 +6,15 @@ from cache_codec import cache_paths
 from loss import window_gradients,gradient_norm,grouped_norms,TERMS
 import argparse,traceback
 
+def average_components(component_sum,valid_temporal_windows):
+    assert 0<=valid_temporal_windows<=4
+    averaged={}
+    for key,values in component_sum.items():
+        denominator=valid_temporal_windows if key.startswith('temp_') else 4
+        averaged[key]=[value/denominator for value in values] if denominator else values
+    total=[sum(averaged[k][i] for k in TERMS) for i in range(len(next(iter(averaged.values()))))]
+    return averaged,total
+
 def checkpoint(c,step,receipt,protocol_hash,code_hash):
     return dict(experiment_group=c['experiment_group'],initial_A2000_sha256=INIT_SHA,baseline_TCG_sha256=BASELINE_SHA,TCG_cumulative_step_at_initialization=6500,TCG_cumulative_training_updates=6500+step,
         committed_updates=step,additional_updates=step,LoRA_absolute_update_count=2000+step,new_optimizer_step=step,trainable_state=state(c),optimizer=c['optimizer'].state_dict(),
@@ -64,10 +73,11 @@ def run(group,rank,smoke=False):
                 assert data['info']['source_row']==row and data['info']['training'] and data['info']['actual_qps']==row['actual_frame_qps']
                 gradients,stats,components=window_gradients(c,data,lambda_temp,return_components=True)
                 for k,gg in components.items():
-                    for dst,g in zip(component_total[k],gg):dst.add_(g/4)
-                for dst,g in zip(total,gradients):dst.add_(g/4)
+                    for dst,g in zip(component_total[k],gg):dst.add_(g)
                 records.append(dict(actual_frame_qps=data['info']['actual_qps'],sample_key=row['sample_key'],source_group=row['source_group'],identity=row['identity'],external_QP=row['external_qp'],source_frame_indices=row['source_frame_indices'],crop=[row['crop_x'],row['crop_y'],256,256],codec_cache_identity=key,**stats))
                 del data,gradients,components
+            valid_temporal_windows=sum(r['frames_temporal_valid']>0 for r in records)
+            component_total,total=average_components(component_total,valid_temporal_windows)
             norm=gradient_norm(total);assert math.isfinite(norm) and norm>0
             group_norm=grouped_norms(c,total)
             effective_batch_angles={}
@@ -95,8 +105,8 @@ def run(group,rank,smoke=False):
             if group in 'BD':assert changes['Bridge_mlp3']>0
             assert_reset(c);torch.cuda.synchronize(rank)
             receipt=dict(experiment_group=group,disposable_engineering_update=smoke,additional_step=update,source_plan_cursor=4*update,sample_keys=[r['sample_key'] for r in sample_rows],
-                samples=records,gradient_norm=norm,group_gradient_norms=group_norm,global_component_gradient_norms={k:grouped_norms(c,v) for k,v in component_total.items()},post_clip_norm=gradient_norm([p.grad for p in c['params']]),parameter_change_L2=changes,parameter_change_from_A2000={k:dict(absolute_L2=math.sqrt(v),relative_L2=math.sqrt(v/base_norm[k]) if base_norm[k]>0 else None) for k,v in base_change.items()},effective_batch_spatial_temporal_gradient_angles=effective_batch_angles,trainable_SHA256=tensor_hash(c['named']),frozen_state_SHA256=frozen.digest,
-                frozen_exact_bytes_checked=True,buffers_reset=True,optimizer_steps=[int(s['step']) for s in c['optimizer'].state.values()],loss_normalization='15 frames and 4 windows once each',
+                samples=records,batch_temporal_valid_windows=valid_temporal_windows,batch_temporal_empty_windows=4-valid_temporal_windows,gradient_norm=norm,group_gradient_norms=group_norm,global_component_gradient_norms={k:grouped_norms(c,v) for k,v in component_total.items()},post_clip_norm=gradient_norm([p.grad for p in c['params']]),parameter_change_L2=changes,parameter_change_from_A2000={k:dict(absolute_L2=math.sqrt(v),relative_L2=math.sqrt(v/base_norm[k]) if base_norm[k]>0 else None) for k,v in base_change.items()},effective_batch_spatial_temporal_gradient_angles=effective_batch_angles,trainable_SHA256=tensor_hash(c['named']),frozen_state_SHA256=frozen.digest,
+                frozen_exact_bytes_checked=True,buffers_reset=True,optimizer_steps=[int(s['step']) for s in c['optimizer'].state.values()],loss_normalization='spatial/RAFT over15 frames per window then4 windows; temporal over valid frames and nonempty windows',
                 seconds=time.time()-begun,data_wait_seconds=data_wait,samples_per_second=4/(time.time()-begun),peak_allocated_bytes=torch.cuda.max_memory_allocated(rank),peak_reserved_bytes=torch.cuda.max_memory_reserved(rank),physical_GPU=physical_gpu(rank),logical_rank_samples=4,time=time.time())
             saved=checkpoint(c,update,receipt,protocol_hash,code_hash)
             # Commit point is this atomic latest checkpoint. A missing external
@@ -104,7 +114,8 @@ def run(group,rank,smoke=False):
             atomic_torch(latest,saved);dump(root/f'receipts/{update:04d}.json',receipt)
             if update%50==0 or update==cap:atomic_torch(root/f'checkpoints/step_{update:04d}.pt',saved)
             dump(root/'progress.json',dict(status='RUNNING',committed_updates=update,next_cursor=4*update,time=time.time(),physical_GPU=physical_gpu(rank),last_seconds=receipt['seconds']))
-            event('smoke_update_committed' if smoke else 'formal_update_committed',group=group,step=update,loss=sum(r['total_loss'] for r in records)/4,gradient_norm=norm,seconds=receipt['seconds'])
+            total_losses=[r['total_loss'] for r in records if r['total_loss'] is not None]
+            event('smoke_update_committed' if smoke else 'formal_update_committed',group=group,step=update,loss=sum(total_losses)/len(total_losses) if total_losses else None,gradient_norm=norm,seconds=receipt['seconds'])
             del saved,receipt,before,after,total,component_total
             if not smoke and update%100==0:
                 frozen.full()
