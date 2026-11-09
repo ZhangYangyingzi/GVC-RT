@@ -1,0 +1,1 @@
+Local-only128-frame development videos. Individual FFV1 clips retain native geometry; synchronized grids use960×540 panels and fixed labels. H264 previews are for viewing only. All neural metrics use float32 decoded tensors. See manifest.json for hashes and exact paths.

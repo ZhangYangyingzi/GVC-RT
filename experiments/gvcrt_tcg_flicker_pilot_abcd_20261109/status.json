@@ -1,89 +1,54 @@
 {
-  "status": "RUNNING",
-  "complete": false,
-  "current_stage": "freeze_formal_execution_sources",
-  "PID": 387736,
-  "heartbeat": 1794210369.3416157,
+  "status": "COMPLETE",
+  "complete": true,
+  "current_stage": "final_results_GitHub_publication",
+  "PID": 652114,
+  "heartbeat": 1794229899.9445844,
+  "time": 1794229899.9445846,
   "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109",
   "groups": {
     "A": {
-      "formal": {
-        "status": "RUNNING",
-        "committed_updates": 31,
-        "next_cursor": 124,
-        "time": 1794207408.408495,
-        "physical_GPU": 4,
-        "last_seconds": 12.29724907875061
-      },
-      "smoke": {
-        "status": "RUNNING",
-        "committed_updates": 20,
-        "next_cursor": 80,
-        "time": 1794195964.2427995,
-        "physical_GPU": 4,
-        "last_seconds": 12.144784450531006
-      },
-      "completion": null
+      "status": "PASS",
+      "group": "A",
+      "committed_updates": 300,
+      "stop_reason": "MAX_300_UPDATES_REACHED",
+      "disposable": false,
+      "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/A/training/checkpoints/step_0300.pt",
+      "time": 1794219892.4088411
     },
     "B": {
-      "formal": {
-        "status": "RUNNING",
-        "committed_updates": 31,
-        "next_cursor": 124,
-        "time": 1794207489.0565803,
-        "physical_GPU": 5,
-        "last_seconds": 14.797565460205078
-      },
-      "smoke": {
-        "status": "RUNNING",
-        "committed_updates": 20,
-        "next_cursor": 80,
-        "time": 1794196025.0364673,
-        "physical_GPU": 5,
-        "last_seconds": 15.147083282470703
-      },
-      "completion": null
+      "status": "PASS",
+      "group": "B",
+      "committed_updates": 300,
+      "stop_reason": "MAX_300_UPDATES_REACHED",
+      "disposable": false,
+      "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+      "time": 1794220721.1070247
     },
     "C": {
-      "formal": {
-        "status": "RUNNING",
-        "committed_updates": 31,
-        "next_cursor": 124,
-        "time": 1794207452.102744,
-        "physical_GPU": 6,
-        "last_seconds": 13.762886047363281
-      },
-      "smoke": {
-        "status": "RUNNING",
-        "committed_updates": 20,
-        "next_cursor": 80,
-        "time": 1794196004.3356273,
-        "physical_GPU": 6,
-        "last_seconds": 13.077635049819946
-      },
-      "completion": null
+      "status": "PASS",
+      "group": "C",
+      "committed_updates": 300,
+      "stop_reason": "MAX_300_UPDATES_REACHED",
+      "disposable": false,
+      "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/C/training/checkpoints/step_0300.pt",
+      "time": 1794220680.2066908
     },
     "D": {
-      "formal": {
-        "status": "RUNNING",
-        "committed_updates": 31,
-        "next_cursor": 124,
-        "time": 1794207530.2455988,
-        "physical_GPU": 7,
-        "last_seconds": 16.000553607940674
-      },
-      "smoke": {
-        "status": "RUNNING",
-        "committed_updates": 20,
-        "next_cursor": 80,
-        "time": 1794196062.602171,
-        "physical_GPU": 7,
-        "last_seconds": 16.104262113571167
-      },
-      "completion": null
+      "status": "PASS",
+      "group": "D",
+      "committed_updates": 300,
+      "stop_reason": "MAX_300_UPDATES_REACHED",
+      "disposable": false,
+      "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/D/training/checkpoints/step_0300.pt",
+      "time": 1794221003.810986
     }
   },
-  "children": {},
-  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py",
-  "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/logs/runner.log"
+  "training_complete": true,
+  "training_updates_by_finalizer": 0,
+  "new_evaluation_points_by_finalizer": 0,
+  "resume_command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/ops/finalize_completed.py",
+  "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/logs/finalize_completed.log",
+  "final_integrity_status": "PASS",
+  "publication_status": "PENDING"
 }

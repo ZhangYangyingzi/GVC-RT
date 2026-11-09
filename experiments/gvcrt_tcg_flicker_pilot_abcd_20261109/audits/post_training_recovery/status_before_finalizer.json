@@ -1,0 +1,119 @@
+{
+  "status": "FAILED",
+  "complete": false,
+  "current_stage": "disposable_20_update_functional_training",
+  "exception": "AssertionError(('CHILD_PROCESS_FAILED', {'current_engineering_A': 1, 'current_engineering_B': 1, 'current_engineering_C': 1, 'current_engineering_D': 1}))",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py\", line 124, in main\n    wait_processes([(f'current_engineering_{g}',start(f'current_engineering_{g}',[ROOT/'engineering.py','--group',g,'--rank',GROUPS.index(g)])) for g in healthy])\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py\", line 47, in wait_processes\n    if strict:assert not any(codes.values()),('CHILD_PROCESS_FAILED',codes)\n                     ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('CHILD_PROCESS_FAILED', {'current_engineering_A': 1, 'current_engineering_B': 1, 'current_engineering_C': 1, 'current_engineering_D': 1})\n",
+  "groups": {
+    "A": {
+      "formal": {
+        "status": "RUNNING",
+        "committed_updates": 300,
+        "next_cursor": 1200,
+        "time": 1794218077.6394992,
+        "physical_GPU": 4,
+        "last_seconds": 12.9162278175354
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794195964.2427995,
+        "physical_GPU": 4,
+        "last_seconds": 12.144784450531006
+      },
+      "completion": {
+        "status": "PASS",
+        "group": "A",
+        "committed_updates": 300,
+        "stop_reason": "MAX_300_UPDATES_REACHED",
+        "disposable": false,
+        "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/A/training/checkpoints/step_0300.pt",
+        "time": 1794219892.4088411
+      }
+    },
+    "B": {
+      "formal": {
+        "status": "RUNNING",
+        "committed_updates": 300,
+        "next_cursor": 1200,
+        "time": 1794218892.2951882,
+        "physical_GPU": 5,
+        "last_seconds": 16.54149103164673
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196025.0364673,
+        "physical_GPU": 5,
+        "last_seconds": 15.147083282470703
+      },
+      "completion": {
+        "status": "PASS",
+        "group": "B",
+        "committed_updates": 300,
+        "stop_reason": "MAX_300_UPDATES_REACHED",
+        "disposable": false,
+        "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+        "time": 1794220721.1070247
+      }
+    },
+    "C": {
+      "formal": {
+        "status": "RUNNING",
+        "committed_updates": 300,
+        "next_cursor": 1200,
+        "time": 1794218872.8316014,
+        "physical_GPU": 6,
+        "last_seconds": 14.182433128356934
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196004.3356273,
+        "physical_GPU": 6,
+        "last_seconds": 13.077635049819946
+      },
+      "completion": {
+        "status": "PASS",
+        "group": "C",
+        "committed_updates": 300,
+        "stop_reason": "MAX_300_UPDATES_REACHED",
+        "disposable": false,
+        "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/C/training/checkpoints/step_0300.pt",
+        "time": 1794220680.2066908
+      }
+    },
+    "D": {
+      "formal": {
+        "status": "RUNNING",
+        "committed_updates": 300,
+        "next_cursor": 1200,
+        "time": 1794219176.580012,
+        "physical_GPU": 7,
+        "last_seconds": 17.211608171463013
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196062.602171,
+        "physical_GPU": 7,
+        "last_seconds": 16.104262113571167
+      },
+      "completion": {
+        "status": "PASS",
+        "group": "D",
+        "committed_updates": 300,
+        "stop_reason": "MAX_300_UPDATES_REACHED",
+        "disposable": false,
+        "final_checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/D/training/checkpoints/step_0300.pt",
+        "time": 1794221003.810986
+      }
+    }
+  },
+  "time": 1794221976.2835798,
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py"
+}
