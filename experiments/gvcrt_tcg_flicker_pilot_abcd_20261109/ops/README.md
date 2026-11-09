@@ -22,3 +22,17 @@ data plan, loss, calibration, budgets or evaluation rules. The empty-validity
 region code revision and checkpoint migration are separately preserved in
 `audits/source_revision_empty_gt_valid_region.json`. The resumed step32 and
 checkpoint/receipt checks are recorded in `audits/resume_inspection_20261109.json`.
+
+The local FFmpeg supports `xstack` without its newer `fill` option. This was
+observed while exporting the step100 viewing preview. `ffmpeg_compat.py`
+translates only the exact seven-panel task layout to `hstack`/`vstack` with an
+explicit black eighth tile. The successful preview composition verifies that
+layout; its model outputs and measured-frame hashes are unchanged.
+
+`final_video_compat_guard.py` leaves the current runner and training processes
+untouched. If the final montage later fails with this exact verified FFmpeg
+error, after all four branches have completed, it archives the failure and
+resumes the unchanged runner once with a task-private FFmpeg executable in its
+PATH. The executable is generated from the guard's recorded source. It never
+modifies the system FFmpeg, signals a process, edits frozen research sources,
+replays completed optimizer updates, or retries an unrelated failure.
