@@ -1,6 +1,6 @@
 # GVC-RT E/F B300 execution report
 
-Factual snapshot UTC epoch: 1794235526.9112213.
+Factual snapshot UTC epoch: 1794239918.4992812.
 
 Status: INCOMPLETE
 
@@ -12,8 +12,8 @@ Scope: ULong开发子集12视频, QP0/5/9,64 frames. Original/A2000/B300 inherit
 
 Incremental cache: initially one GPU producer; now 4 controlled producers on GPUs [4, 5, 6, 7], authorized by the user.16 distinct startup windows,32-window prefetch, bounded bytes and backpressure. Rank readiness coordinated at full optimizer boundaries. Both cursors protect cache retention.
 
-E: additional optimizer updates=35; completed development points=0; stop reason=not stopped/completed.
-F: additional optimizer updates=35; completed development points=0; stop reason=not stopped/completed.
+E: additional optimizer updates=100; completed development points=36; stop reason=not stopped/completed.
+F: additional optimizer updates=100; completed development points=36; stop reason=not stopped/completed.
 
 No method superiority conclusion is made. MP4 preview bytes are excluded from R-D data. All neural codec bpp values originate from verified real RANS streams.
 

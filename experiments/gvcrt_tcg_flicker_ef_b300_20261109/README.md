@@ -7,3 +7,11 @@ The incremental cache producer initially started one GPU child; after explicit u
 Model loading follows the parent audited original/pilot/TCG/LoRA chain, then overlays every B300 trainable tensor LAST, including Bridge mlp[3]. The original Bridge and decoder become trainable with34,774,916 total parameters. Training masters stay FP32; deployment follows the parent's FP16 backbone/Bridge and FP32 TCG/LoRA arithmetic. Checkpoint loading casts once into that inherited execution precision; FP32 checkpoint values are retained intact on disk.
 
 Only the predeclared losses, learning rates, sample plan, budget and validation/stop rules are used. No final test, automatic deployment or method-quality interpretation is performed. Videos, cached tensors, weights and streams are local only. GitHub publication uses an explicit small-file allowlist.
+
+The detached task-private `supervise.py` watches only this experiment. It adopts active jobs, recovers abrupt interruptions from atomic checkpoints, and stops on recorded diagnostic failures. It ends after verified results_final publication; it never starts another experiment.
+
+After interruption, resume with:
+
+```bash
+CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1,2,3 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py
+```

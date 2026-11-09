@@ -25,7 +25,7 @@
     "publish.py": "081121eed417f2f674b514f59ea006d7eb6d6965a2b989bb72d6ec6415a30a37",
     "inherited_reader.py": "a789f7765df5ea8d2b103398e81b714ecc9c310c3fa407737ed21b5e11e9df6e",
     "evaluate.py": "1688631ad43cef1c878c2bcf15e370e0adae7a3f1f3227b1f6057e985d1316a2",
-    "deliver.py": "128d16f619c4426e1daec7282d147ba9391e0cfb12b2f0143a1516a0076ccddd",
+    "deliver.py": "32694d98ba2020899ed43ce3fac43dc5cbd8426d30ef408e197acf027ec034ff",
     "checkpoint_probe.py": "fedd250daedb27b1093cab66f3baaae8b073da9cfeb0b02e9a2a0c0639cc8a01",
     "data_reader.py": "05c00af3004addb5ab6195ed0404e60017ec58c52e8c105d16cb9b579e333404",
     "original_runtime.py": "7913c3f6c8593a402b3c2d082c71cb24e1c0cd83ad164f43911314508dce291d",
@@ -79,7 +79,9 @@
     "reference_tree/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/fullqp_common.py": "41695c0ea40ebd46bc4785f761515aec2a4a4f2f5471d9917d58f4cbcdbd5e6c",
     "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766",
     "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/common.py": "aa72ae3fcf2d3f6df4e244599c62a064552da8db3c9892bd1360dd565a3c5c66",
-    "monitor.py": "79ca9baa02bb508c3329e59c032c4757b2c493bbd990ef6f7a7e346c4e9ca2e8"
+    "monitor.py": "453933accefa9da79eda8ecbcdfe389e103fa3cb7b5a328e20e7024feb786e79",
+    "test_runner.py": "e84e7ba2862c09fb107e30d9537ce93b38bb2583b1069383afb5cb3f0139486a",
+    "supervise.py": "492beadd40d5982ebe4513317ab34173195e84c9110f2d21b85870702cf5e80c"
   },
   "protocol_SHA256": "35d02d27c400566a6201076ef36c57bf906b40e26c076c21054f563c1e952304",
   "plan_SHA256": "97b05b87f0621b08863591a2b7734a12ba4bd7131df4784c20ef3c12e46a1876",
@@ -208,6 +210,46 @@
       },
       "training_model_loss_optimizer_data_unchanged": true,
       "training_processes_to_be_preserved": true
+    },
+    {
+      "time": 1794235789.324765,
+      "reason": "distinguish E/F additional updates (B300+n) from baseline historical identities in video/ROI labels",
+      "files": {
+        "deliver.py": {
+          "before_SHA256": "128d16f619c4426e1daec7282d147ba9391e0cfb12b2f0143a1516a0076ccddd",
+          "after_SHA256": "4ea6113ecefb52661d5a0e848d3c8f328b963410aa8b1d8624a082d60ab70f03"
+        }
+      },
+      "training_unchanged": true
+    },
+    {
+      "time": 1794236124.2567363,
+      "reason": "detached task-private supervision recovers abrupt process interruption only; diagnostic failures stop and never trigger training replay",
+      "files": {
+        "supervise.py": {
+          "after_SHA256": "64e13fc66cc609459284161304c20a4185e001ccd35ba824901be0fdb9166af6"
+        }
+      },
+      "training_model_loss_optimizer_data_unchanged": true
+    },
+    {
+      "time": 1794236432.8117285,
+      "reason": "wait for final publication receipt before observer/watchdog exit; verify all point CSV hashes and immutable sample order in final integrity",
+      "files": {
+        "supervise.py": {
+          "before_SHA256": "cb84cc411c7e9bca3c388fef0f733ce04b939546e54ae73095548f9f3a0d3de1",
+          "after_SHA256": "492beadd40d5982ebe4513317ab34173195e84c9110f2d21b85870702cf5e80c"
+        },
+        "monitor.py": {
+          "before_SHA256": "79ca9baa02bb508c3329e59c032c4757b2c493bbd990ef6f7a7e346c4e9ca2e8",
+          "after_SHA256": "453933accefa9da79eda8ecbcdfe389e103fa3cb7b5a328e20e7024feb786e79"
+        },
+        "deliver.py": {
+          "before_SHA256": "4ea6113ecefb52661d5a0e848d3c8f328b963410aa8b1d8624a082d60ab70f03",
+          "after_SHA256": "32694d98ba2020899ed43ce3fac43dc5cbd8426d30ef408e197acf027ec034ff"
+        }
+      },
+      "training_model_loss_optimizer_data_unchanged": true
     }
   ]
 }

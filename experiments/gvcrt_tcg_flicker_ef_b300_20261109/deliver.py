@@ -8,6 +8,12 @@ def ffmpeg_probe():
     subprocess.run(['ffmpeg','-v','error','-nostdin','-y','-f','lavfi','-i','color=red:s=64x64:r=4:d=1','-f','lavfi','-i','color=blue:s=64x64:r=4:d=1','-filter_complex_threads','1','-filter_complex',filters,'-map','[out]','-c:v','libx264','-threads','1',str(dest)],check=True)
     dump(ROOT/'audits/ffmpeg_compatibility.json',dict(status='PASS',xstack_explicit_layout=True,drawtext_frame_counter=True,probe_SHA256=sha(dest),time=time.time()))
 
+def model_label(entry):
+    g=entry['model']
+    if g in GROUPS:return f"{g} B300+{entry['step']} s0.5"
+    if g in ['A2000','B300']:return g+' s0.5'
+    return g
+
 def videos():
     import torch
     from videos import export
@@ -32,7 +38,7 @@ def videos():
         # Native lossless clips remain individual. Preview is a labeled downsize
         # grid only; fixed contiguous native ROIs are exported separately.
         font='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-        labels=[f'{e["model"]} step{e["step"]} QP5 source_frame_%{{n}}' for e in entries]
+        labels=[f'{model_label(e)} QP5 source_frame_%{{n}}' for e in entries]
         filters=[f'[{i}:v]setpts=PTS-STARTPTS,scale=640:360,drawtext=fontfile={font}:text={label}:x=8:y=8:fontsize=16:fontcolor=white:box=1:boxcolor=black@0.7[v{i}]' for i,label in enumerate(labels)]
         filters+=[''.join(f'[v{i}]' for i in range(6))+'xstack=inputs=6:layout=0_0|640_0|1280_0|0_360|640_360|1280_360[out]']
         cmd=['ffmpeg','-v','error','-nostdin','-y']
@@ -44,9 +50,9 @@ def videos():
         roi=load(ROOT/'visual_ROIs.json')[seq]
         for e,label in zip(entries,labels):
             directory=ROOT/'videos/ROI'/seq/e['model'];directory.mkdir(parents=True,exist_ok=True)
-            vf=f'select=between(n\\,48\\,79),crop=256:256:{roi["x"]}:{roi["y"]},pad=256:280:0:24,drawtext=fontfile={font}:text={e["model"]} step{e["step"]} QP5 source_%{{n}}:start_number=48:x=3:y=3:fontsize=12:fontcolor=white'
+            vf=f'select=between(n\\,48\\,79),crop=256:256:{roi["x"]}:{roi["y"]},pad=256:280:0:24,drawtext=fontfile={font}:text={model_label(e)} QP5 src_%{{n}}:start_number=48:x=3:y=3:fontsize=12:fontcolor=white'
             subprocess.run(['ffmpeg','-v','error','-nostdin','-y','-i',e['path'],'-vf',vf,'-vsync','0','-frames:v','32','-start_number','48','-threads','1',str(directory/'frame_%03d.png')],check=True)
-            dump(directory/'identity.json',dict(model=e['model'],step=e['step'],QP=5,source_frame_indices=list(range(48,80)),ROI=roi,source_video_SHA256=e['sha256'],PNG_SHA256={p.name:sha(p) for p in sorted(directory.glob('*.png'))}))
+            dump(directory/'identity.json',dict(model=e['model'],step=e['step'],display_label=model_label(e),step_semantics='E/F additional updates from B300; A2000/B300 historical reference identities',QP=5,source_frame_indices=list(range(48,80)),ROI=roi,source_video_SHA256=e['sha256'],PNG_SHA256={p.name:sha(p) for p in sorted(directory.glob('*.png'))}))
         all_entries.append(dict(sequence=seq,preview=str(preview),preview_SHA256=sha(preview),native_lossless=entries,ROI=roi))
     dump(ROOT/'videos/manifest.json',dict(status='PASS',videos=all_entries,preview_excluded_from_metrics_and_rate=True))
 
@@ -54,10 +60,20 @@ def integrity():
     import torch
     from summarize import rows,should_stop
     env();rr=rows();checks=[];cp=[]
+    for point_path in (ROOT/'evaluation').glob('*/*/points/*.json'):
+        record=load(point_path);origin=PARENT_EXPERIMENT if record.get('reused_from') else ROOT
+        for name,h in record['record_SHA256'].items():assert sha(origin/name)==h,('POINT_RECORD_HASH',str(point_path),name)
+    plan=plan_rows()
     for g in GROUPS:
         done=load(ROOT/g/'training/completion.json');step=done['committed_updates'];assert done['status']=='PASS' and step in [200,300]
         if step==200:assert should_stop(g)
         expected=list(range(1,step+1));receipts=sorted((ROOT/g/'training/receipts').glob('*.json'));assert [int(p.stem) for p in receipts]==expected
+        for ix,receipt_path in enumerate(receipts,1):
+            record=load(receipt_path)
+            assert record['additional_step']==ix and record['global_batch']==4
+            assert record['sample_keys']==[r['sample_key'] for r in plan[4*(ix-1):4*ix]]
+            assert len(record['ranks'])==2 and all(len(r['records'])==2 for r in record['ranks'])
+            assert all(len(w['trace'])==15 for r in record['ranks'] for w in r['records'])
         for k in range(100,step+1,100):
             points=[a for a in rr if a['model']==g and a['step']==k];assert len(points)==36
             for a in points:
