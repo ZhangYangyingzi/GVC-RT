@@ -31,9 +31,30 @@ def heartbeat():
 
 def resume_command():return f'CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1,2,3 {PYTHON} -B -u {ROOT}/runner.py'
 
+def finalize_publication():
+    from summarize import report
+    from publish import publish
+    STOP.set()
+    for t in threading.enumerate():
+        if t is not threading.current_thread() and getattr(getattr(t,'_target',None),'__name__',None)=='heartbeat':t.join(timeout=12)
+    base=dict(status='RESULTS_READY',complete=False,current_stage='发布',experiment_directory=str(ROOT),groups={g:load(ROOT/g/'training/completion.json') for g in GROUPS},time=time.time(),resume_command=resume_command())
+    dump(ROOT/'status.json',base);report()
+    assert publish('results'),'RESULTS_PUBLICATION_FAILED; resume publication only'
+    final=dict(base,status='COMPLETE',complete=True,current_stage='发布完成',publication=load(ROOT/'publication_remote_receipt.json'),time=time.time())
+    dump(ROOT/'status.json',final);report()
+    # Publish the COMPLETE status/report only AFTER the results commit and core
+    # files were verified remotely. A failed receipt upload resumes this phase.
+    assert publish('results_final'),'FINAL_STATUS_PUBLICATION_FAILED; resume publication only'
+    final.update(publication=load(ROOT/'publication_remote_receipt.json'),time=time.time());dump(ROOT/'status.json',final)
+
+
 def main():
     env();assert os.environ['CUDA_VISIBLE_DEVICES']=='0,1,2,3'
     with lock('runner.lock'):
+        final=ROOT/'final_integrity.json'
+        if final.exists() and load(final).get('status')=='PASS':
+            from deliver import integrity
+            integrity();finalize_publication();return
         if not (ROOT/'launch.json').exists():dump(ROOT/'launch.json',dict(time=int(subprocess.check_output(['git','log','-g','--format=%at','-1','refs/heads/codex/tcg-flicker-ef-b300-20261109'],cwd=WORKTREE,text=True).strip()),clock_definition='branch creation reflog timestamp; beginning of task setup',resume_command=resume_command()))
         thread=threading.Thread(target=heartbeat,daemon=True);thread.start()
         try:
@@ -55,10 +76,21 @@ def main():
                     if n=='pipeline':continue
                     while Path(f'/proc/{a["pid"]}').exists():time.sleep(1)
                 dump(ROOT/'audits/controller_refresh_adopted.json',dict(status='PASS',time=time.time()))
+            try:
+                with lock('locks/status_monitor.lock'):start('status_monitor',[ROOT/'monitor.py'])
+            except BlockingIOError:pass
             stage('准备')
             from pipeline import wait_rows
             from baselines import reuse
             reuse()
+            # Adopt active formal chunks after a controller-only refresh.
+            def training_active(g):
+                try:
+                    with lock(f'locks/train_{g}_False.lock'):return False
+                except BlockingIOError:return True
+            if any(training_active(g) for g in GROUPS):
+                stage('训练')
+                while any(training_active(g) for g in GROUPS):time.sleep(2)
             # External preparation processes may already have completed these
             # receipts. Locks prevent repeating completed calibration or step0.
             if not (ROOT/'audits/calibration.json').exists():wait({'calibrate':start('calibrate',[ROOT/'calibrate.py'])})
@@ -100,16 +132,13 @@ def main():
                     if (ROOT/g/'training/completion.json').exists():continue
                     stopped=target==200 and should_stop(g)
                     if stopped or target==300:dump(ROOT/g/'training/completion.json',dict(status='PASS',committed_updates=target,stop_reason='PRESET_BOTH_100_200_CONDITIONS' if stopped else 'MAX_300_ADDITIONAL_UPDATES',final_checkpoint=str(ROOT/g/f'training/checkpoints/step_{target:04d}.pt'),time=time.time()))
-            stage('视频');wait({'videos':start('videos',[ROOT/'deliver.py','--videos'])})
+            stage('视频')
+            if not (ROOT/'videos/manifest.json').exists():wait({'videos':start('videos',[ROOT/'deliver.py','--videos'])})
             stage('完整性检查')
             from deliver import integrity
             result=integrity();assert result['status']=='PASS'
             from summarize import report
-            report();stage('发布')
-            from publish import publish
-            assert publish('results')
-            STOP.set();thread.join(12)
-            dump(ROOT/'status.json',dict(status='COMPLETE',complete=True,current_stage='发布完成',experiment_directory=str(ROOT),groups={g:load(ROOT/g/'training/completion.json') for g in GROUPS},publication=load(ROOT/'publication_remote_receipt.json'),time=time.time()))
+            report();stage('发布');finalize_publication()
         except Exception as error:
             STOP.set();thread.join(12)
             failure=dict(status='FAILED',complete=False,current_stage=CURRENT,exception=repr(error),traceback=traceback.format_exc(),children=CHILDREN,resume_command=resume_command(),time=time.time())

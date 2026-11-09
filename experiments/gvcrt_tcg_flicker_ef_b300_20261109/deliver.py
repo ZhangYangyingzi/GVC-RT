@@ -44,8 +44,8 @@ def videos():
         roi=load(ROOT/'visual_ROIs.json')[seq]
         for e,label in zip(entries,labels):
             directory=ROOT/'videos/ROI'/seq/e['model'];directory.mkdir(parents=True,exist_ok=True)
-            vf=f'select=between(n\\,48\\,79),crop=256:256:{roi["x"]}:{roi["y"]}'
-            subprocess.run(['ffmpeg','-v','error','-nostdin','-y','-i',e['path'],'-vf',vf,'-vsync','0','-frames:v','32','-threads','1',str(directory/'frame_%03d.png')],check=True)
+            vf=f'select=between(n\\,48\\,79),crop=256:256:{roi["x"]}:{roi["y"]},pad=256:280:0:24,drawtext=fontfile={font}:text={e["model"]} step{e["step"]} QP5 source_%{{n}}:start_number=48:x=3:y=3:fontsize=12:fontcolor=white'
+            subprocess.run(['ffmpeg','-v','error','-nostdin','-y','-i',e['path'],'-vf',vf,'-vsync','0','-frames:v','32','-start_number','48','-threads','1',str(directory/'frame_%03d.png')],check=True)
             dump(directory/'identity.json',dict(model=e['model'],step=e['step'],QP=5,source_frame_indices=list(range(48,80)),ROI=roi,source_video_SHA256=e['sha256'],PNG_SHA256={p.name:sha(p) for p in sorted(directory.glob('*.png'))}))
         all_entries.append(dict(sequence=seq,preview=str(preview),preview_SHA256=sha(preview),native_lossless=entries,ROI=roi))
     dump(ROOT/'videos/manifest.json',dict(status='PASS',videos=all_entries,preview_excluded_from_metrics_and_rate=True))
@@ -71,7 +71,12 @@ def integrity():
     assert len(list((ROOT/'baseline_detail').glob('*.json')))==36
     assert load(ROOT/'audits/step0_consistency.json')['status']=='PASS'
     assert all(load(ROOT/f'audits/engineering_{g}.json')['status']=='PASS' for g in GROUPS)
-    assert load(ROOT/'videos/manifest.json')['status']=='PASS'
+    media=load(ROOT/'videos/manifest.json');assert media['status']=='PASS'
+    for video in media['videos']:
+        assert sha(video['preview'])==video['preview_SHA256']
+        for entry in video['native_lossless']:
+            assert sha(entry['path'])==entry['sha256']
+            assert sha(entry['preview_path'])==entry['preview_sha256']
     assert sha(B300)==B300_SHA
     for n,h in load(ROOT/'source_manifest.json')['code'].items():assert sha(ROOT/n)==h,('SOURCE_HASH',n)
     dump(ROOT/'checkpoint_manifest.json',cp)

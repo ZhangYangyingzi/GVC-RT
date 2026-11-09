@@ -1,0 +1,37 @@
+{
+  "B300_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+  "ordered_readonly_sources": [
+    {
+      "role": "original codec I/P",
+      "paths": [
+        "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_I.pt",
+        "/Huang_group/zyyz/Projects/GVC-RT/checkpoints/GVC-RT_P.pt"
+      ]
+    },
+    {
+      "role": "pilot Bridge/full generator",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "SHA256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744"
+    },
+    {
+      "role": "trained TCG baseline",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "SHA256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+      "historical_TCG_update": 6500
+    },
+    {
+      "role": "A2000 existing LoRA",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt",
+      "SHA256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+      "historical_LoRA_update": 2000
+    },
+    {
+      "role": "B300 LAST complete partial overlay including Bridge mlp[3], TCG and LoRA",
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+      "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+      "parent_objective_additional_updates": 300
+    }
+  ],
+  "this_round_additional_updates": "E/F each independent0..300; optimizer reset; historical counts excluded",
+  "precision": "FP32 trainable master initialization; inherited deployment arithmetic independently hash-verified at6 points per group"
+}
