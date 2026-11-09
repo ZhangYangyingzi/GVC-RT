@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "group": "B",
+  "step0_exact_reconstruction": true,
+  "step0_exact_cache": true,
+  "alignment_disabled_for_step0_comparison": false,
+  "warp": {
+    "status": "PASS",
+    "version": "MCResidual_RAFT_pixelcenter_v1",
+    "identity_max_abs": 7.62939453125e-06,
+    "one_pixel_positive_dx_samples_right": true,
+    "align_corners": false,
+    "padding": "zeros",
+    "flow_units": "RGB pixels; resized by feature/RGB width,height",
+    "FB_threshold": ".01*(||b||^2+||f_warp||^2)+0.5",
+    "invalid_history_zero": true,
+    "warp_history_gradient": true
+  },
+  "cross_frame_gradient": {
+    "False": {
+      "previous_out_cache_requires_grad": true,
+      "later_loss_previous_cache_gradient": 7.272899529198185e-05,
+      "reachable_parameter_gradient_norm": 2.0304034671089704
+    },
+    "True": {
+      "previous_out_cache_requires_grad": true,
+      "later_loss_previous_cache_gradient": 0.0,
+      "reachable_parameter_gradient_norm": 2.0355597360254336
+    }
+  },
+  "segment_boundary_detach": true,
+  "update_buffer_false_unchanged": true,
+  "internal_reference_reconstruction_cache_unchanged": true,
+  "actual_TCG_cache_shapes": {
+    "tcg_low": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "tcg_mid": [
+      1,
+      512,
+      32,
+      32
+    ],
+    "tcg_out": [
+      1,
+      320,
+      32,
+      32
+    ]
+  },
+  "cache_position": "pre-residual current",
+  "RGB_VJP4096_unscale_once_relative_L2": 8.527143330890841e-05,
+  "trainable_parameters": 204676,
+  "Bridge_type": "DepthConvBlock",
+  "frozen_SHA256": "53899c14c8f79ceac0cb4c83208b3271f7ceffaeacb4a83c98489d3338f67d19",
+  "optimizer_updates": 0,
+  "source_model": "Original A2000 only",
+  "initial_A2000_SHA256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+  "physical_GPU": 5,
+  "time": 1794197925.544194
+}

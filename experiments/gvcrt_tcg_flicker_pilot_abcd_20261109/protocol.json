@@ -1,0 +1,194 @@
+{
+  "task": "tcg_flicker_pilot_abcd_20261109",
+  "revision": "flicker_short_BPTT_4_v1_matched_CPU_GT",
+  "base_commit": "142f73049f336b5b963d5e0e7030818149bc4c99",
+  "branch": "codex/tcg-flicker-pilot-abcd-20261109",
+  "parent_checkpoint": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt",
+    "sha256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e"
+  },
+  "dependency_protocol": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_lora_ulong_only_a2000_20261108/experiments/gvcrt_tcg_lora_ulong_only_a2000_20261108/protocol.json",
+    "sha256": "dab134194ff44c7903705407159b39a1a54a74a55214c874dc69f5eac2c14b09"
+  },
+  "original_codec_and_receiver": {
+    "pilot": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+    "pilot_SHA256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744",
+    "B1500_TCG": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+    "B1500_SHA256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260",
+    "original_I_SHA256": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+    "original_P_SHA256": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+  },
+  "groups": {
+    "A": {
+      "physical_GPU": 4,
+      "train_Bridge_mlp3": false,
+      "align_projected_history": false
+    },
+    "B": {
+      "physical_GPU": 5,
+      "train_Bridge_mlp3": true,
+      "align_projected_history": false
+    },
+    "C": {
+      "physical_GPU": 6,
+      "train_Bridge_mlp3": false,
+      "align_projected_history": true
+    },
+    "D": {
+      "physical_GPU": 7,
+      "train_Bridge_mlp3": true,
+      "align_projected_history": true
+    }
+  },
+  "training": {
+    "seed": 20261109,
+    "max_additional_updates": 300,
+    "effective_batch": 4,
+    "ULong": 4,
+    "UVG": 0,
+    "Vimeo": 0,
+    "s_train": 0.5,
+    "s_eval": 0.5,
+    "frames": 64,
+    "crop": 256,
+    "warmup": [
+      1,
+      48
+    ],
+    "supervision": [
+      49,
+      63
+    ],
+    "segments": [
+      [
+        49,
+        52
+      ],
+      [
+        53,
+        56
+      ],
+      [
+        57,
+        60
+      ],
+      [
+        61,
+        63
+      ]
+    ],
+    "cache": "pre-residual current; preserve graph inside segment, detach at boundary, reset after video",
+    "optimizer": "new AdamW; no inherited moments",
+    "learning_rates": {
+      "TCG": 1e-05,
+      "LoRA": 5e-05,
+      "Bridge_mlp3": 1e-06
+    },
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_norm": 1.0,
+    "loss_normalization": "15 supervised frames then 4 windows exactly once",
+    "disposable_smoke_updates": 20
+  },
+  "loss": {
+    "LPIPS": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "RAFT_motion": 0.05,
+    "temp": "lambda*(RGB_MCResidual+.5*Sobel_MCResidual)",
+    "lambda_calibration": {
+      "training_windows": [
+        "1f1a6f56c2a8d14a48ab58a0857c657387348731263820562eb376452fb51076",
+        "4043ad8f3656a2dc017e64820b9c9913388bf5f5153734b815428306e4473466",
+        "a8d2b169894a9161fb0ee1cffe0c128512c675116c1fe8329120df77870b2c33",
+        "fae0987df33123dbd98ce7678563645845efee27c9a24ece27b6bdab6f26ae6f",
+        "64c3f909e2bd24fd20a0c7928a18a46b425eb3d81b99dce0aba88bbd9d962041",
+        "e36f6bb3ef483d6c6e4d090ff277903eaeef7fa03e93e740bffe5684ffdb94e3",
+        "b5fc8f97d510ff15e9d5e0ff5c94e174877ffa5c002c7d0421ed642d20652d59",
+        "b58ebf1027981a292efe5f29535e8df8d4f4fcda61cca9695540343bf4a5487e"
+      ],
+      "rule": ".25*median(||grad spatial||/||grad temporal||)",
+      "trainables": "TCG+LoRA",
+      "unupdated_A2000": true
+    },
+    "rate_proxy": "monitoring only; not trainable objectives",
+    "VJP": "segment sums; RGB legacy4096/unscale-once equivalence checked separately"
+  },
+  "alignment": {
+    "flow": "local torchvision RAFT C_T_SKHT_V2",
+    "receiver": "independent original GVC-RT I/P only",
+    "source": "base reconstruction current->previous, detached; no GT or future",
+    "position": "after previous_adapter before concat",
+    "sampler": "pixelcenter align_corners=False zero padding; per-scale displacement rescaling",
+    "FB_valid": ".01*(backward^2+warped_forward^2)+.5",
+    "flow_geometry": "RAFT on native RGB; flow and validity padded to codec padded geometry with zero invalid outside native area, then displacement scales by feature/padded RGB geometry"
+  },
+  "validation": {
+    "points": 36,
+    "videos": 12,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "steps": [
+      0,
+      100,
+      200,
+      300
+    ],
+    "source": "ULong development subset",
+    "GT_selection_only": true,
+    "main_temporal": "MCResidual_Sobel_RAFT_pixelcenter_v1_PtoP",
+    "screen": {
+      "median_video_QP_ratio_max": 0.95,
+      "videos_ratio_lt1_min": 8,
+      "LPIPS_DISTS_QP_mean_max_ratio": 1.01,
+      "consecutive_validations": 2,
+      "near_zero_denominator": 1e-12
+    },
+    "stop_at_200": "At BOTH100 and200 mean PtoP Sobel temporal error not below A2000 and any QP mean LPIPS or DISTS exceeds 1.01*A2000; otherwise stop300",
+    "final_test_evaluated": false
+  },
+  "long_videos": {
+    "count": 4,
+    "frames": 128,
+    "QP": 5,
+    "lossless": true
+  },
+  "precision": {
+    "codec": "FP16",
+    "training_Bridge_generator": "FP32",
+    "deployment_Bridge_generator": "FP16",
+    "TCG_LoRA_internal": "FP32",
+    "RGB": "matched_rgb_fp32_v2",
+    "GT_evaluation": "uint8 RGB -> CPU FP32 /255 -> GPU, matching historical endpoint; training retains GPU FP32 /255",
+    "new_native_GT_RAFT": "same CPU-normalized evaluation GT; cache_native_v2"
+  },
+  "source_plan_sha256": "8cac30c688f3722e94dc4c0f4a99378c67566c88f33316f3d5ec9a34ee0c4fb6",
+  "cache": {
+    "media_cap_GiB": 80,
+    "derived_cap_GiB": 330,
+    "min_free_GiB": 100,
+    "CPU_workers": 4,
+    "codec_features_shared_readonly": true,
+    "release_training_tensors_after_all_formal_branches_stopped": true
+  },
+  "publication": {
+    "branch": "codex/tcg-flicker-pilot-abcd-20261109",
+    "no_weights_media_bitstreams": true
+  },
+  "time": 1794194429.3783057,
+  "runtime_determinism": {
+    "fixed_seed": 20261109,
+    "deterministic_algorithms": true,
+    "warn_only": true,
+    "reason": "Standard PyTorch CUDA grid_sample backward has atomic accumulation; forward sampler/math unmodified. Own-repeat and reference gradient relativeL2 must remain<1e-3. No bitwise gradient determinism claim.",
+    "TF32": "unchanged inherited settings"
+  }
+}

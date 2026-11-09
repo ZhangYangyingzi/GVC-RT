@@ -1,0 +1,857 @@
+{
+  "group": "B",
+  "parameters": [
+    {
+      "name": "recon_generation_net.mlp.3.adaptor.weight",
+      "shape": [
+        18,
+        256,
+        1,
+        1
+      ],
+      "count": 4608,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.adaptor.bias",
+      "shape": [
+        18
+      ],
+      "count": 18,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.0.weight",
+      "shape": [
+        18,
+        18,
+        1,
+        1
+      ],
+      "count": 324,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.0.bias",
+      "shape": [
+        18
+      ],
+      "count": 18,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.2.weight",
+      "shape": [
+        18,
+        1,
+        3,
+        3
+      ],
+      "count": 162,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.2.bias",
+      "shape": [
+        18
+      ],
+      "count": 18,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.3.weight",
+      "shape": [
+        18,
+        18,
+        1,
+        1
+      ],
+      "count": 324,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.dc.3.bias",
+      "shape": [
+        18
+      ],
+      "count": 18,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.ffn.0.weight",
+      "shape": [
+        72,
+        18,
+        1,
+        1
+      ],
+      "count": 1296,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.ffn.0.bias",
+      "shape": [
+        72
+      ],
+      "count": 72,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.ffn.2.weight",
+      "shape": [
+        18,
+        36,
+        1,
+        1
+      ],
+      "count": 648,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.mlp.3.ffn.2.bias",
+      "shape": [
+        18
+      ],
+      "count": 18,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "count": 1280,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "count": 11520,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "count": 1280,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "count": 11520,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "count": 1280,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "count": 11520,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "count": 1280,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.up.weight",
+      "shape": [
+        320,
+        4,
+        3,
+        3
+      ],
+      "count": 11520,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "count": 2048,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "count": 288,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+      "shape": [
+        512,
+        32,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+      "shape": [
+        512
+      ],
+      "count": 512,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+      "shape": [
+        32,
+        512,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "count": 2048,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "count": 288,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+      "shape": [
+        512,
+        32,
+        1,
+        1
+      ],
+      "count": 16384,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+      "shape": [
+        512
+      ],
+      "count": 512,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.previous_adapter.weight",
+      "shape": [
+        32,
+        320,
+        1,
+        1
+      ],
+      "count": 10240,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+      "shape": [
+        32,
+        320,
+        1,
+        1
+      ],
+      "count": 10240,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+      "shape": [
+        32,
+        64,
+        1,
+        1
+      ],
+      "count": 2048,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "count": 288,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+      "shape": [
+        32
+      ],
+      "count": 32,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+      "shape": [
+        320,
+        32,
+        1,
+        1
+      ],
+      "count": 10240,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+      "shape": [
+        320
+      ],
+      "count": 320,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.head.lora.down.weight",
+      "shape": [
+        4,
+        320,
+        1,
+        1
+      ],
+      "count": 1280,
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "recon_generation_net.decoder.head.lora.up.weight",
+      "shape": [
+        192,
+        4,
+        3,
+        3
+      ],
+      "count": 6912,
+      "dtype": "torch.float32"
+    }
+  ],
+  "provenance": {
+    "baseline_cumulative_tcg_step": 6500,
+    "baseline_checkpoint": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage1_data_expansion_ab_groupisolated_v2/experiments/gvcrt_tcg_stage1_data_expansion_ab_groupisolated_v2/B_expanded_ulong/checkpoints_v3/step_1500.pt",
+      "sha256": "e51f8a7353be85ffd47e3a6d76ce2e478f30a66ebc57778638ad5efe1c876260"
+    },
+    "receiver_initialization": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_tcg_stage1_pilot/checkpoints/adaptation_step_0.pt",
+      "sha256": "06cf8f53f432d1d1f0fed7e8a72e911af70f5ee1d2a0b869ceaabef94b1f8744"
+    },
+    "original_codec_key_audit": {
+      "I": {
+        "verified_loaded_keys": 596,
+        "explicit_legacy_TCG_missing_keys": [],
+        "unexpected_keys": []
+      },
+      "P": {
+        "verified_loaded_keys": 537,
+        "explicit_legacy_TCG_missing_keys": [
+          "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+          "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+          "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+          "recon_generation_net.decoder.tcg_out.previous_adapter.weight"
+        ],
+        "unexpected_keys": []
+      }
+    },
+    "group": "A_control",
+    "TCG_exact_FP32_overlay": true,
+    "TCG_fusion_preserved": true,
+    "full_generator_keys_verified": 242,
+    "Bridge_loaded_strictly": true,
+    "persistent_buffers_restored": true,
+    "Router_instantiated": false,
+    "Router_checkpoint_loaded": false,
+    "historical_optimizer_loaded": false,
+    "LoRA_configuration": {
+      "targets": [
+        {
+          "path": "stage3.blocks.0.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.1.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.2.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "stage3.blocks.3.dc.2",
+          "kind": "parallel low-rank update alongside existing depthwise3x3; not a dense-layer weight factorization",
+          "in_channels": 320,
+          "out_channels": 320,
+          "groups": 320,
+          "parameters": 12800,
+          "base_weight_shape": [
+            320,
+            1,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            320,
+            4,
+            3,
+            3
+          ]
+        },
+        {
+          "path": "head",
+          "kind": "parallel low-rank update alongside original dense3x3",
+          "in_channels": 320,
+          "out_channels": 192,
+          "groups": 1,
+          "parameters": 8192,
+          "base_weight_shape": [
+            192,
+            320,
+            3,
+            3
+          ],
+          "down_shape": [
+            4,
+            320,
+            1,
+            1
+          ],
+          "up_shape": [
+            192,
+            4,
+            3,
+            3
+          ]
+        }
+      ],
+      "rank": 4,
+      "alpha_div_rank": 1.0,
+      "parameter_count": 59392,
+      "extra_parameters": 0,
+      "bias_parameters": false,
+      "extra_RNG_fork_independent": true,
+      "head_geometry_note": "Head output has192 channels; its branch is320->4->192, matching the actual frozen head output",
+      "precision": "LoRA FP32 internally; add to original-conv output in FP32 and cast back once",
+      "dispatch": "stage3 DepthConvBlock and generator head use PyTorch operators on CPU/CUDA; other codec paths unchanged"
+    },
+    "trainable_parameters": 59392,
+    "optimizer": {
+      "type": "AdamW",
+      "lr": 5e-05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "state_entries": 0
+    },
+    "precision": {
+      "codec": "FP16",
+      "Bridge_and_nonTCG_generator": "FP32",
+      "TCG": "FP32 parameters/internal operations; incoming output dtype",
+      "LoRA": "FP32 parameters/internal operations; incoming output dtype",
+      "RGB_scoring": "matched_rgb_fp32_v2"
+    },
+    "components": {
+      "I_model": {
+        "sha256": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199"
+      },
+      "P_codec": {
+        "sha256": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+      },
+      "Bridge": {
+        "sha256": "9c4ca3f7a3e2f502688509ca82555f0ce7ee6fe8c31a89fa9f8dff1104953cd3"
+      },
+      "generator_original_nonTCG": {
+        "sha256": "318ea46772ebd1ae756b71edb430552e2e704c7fc248f8b140b5f28e77d11aab"
+      },
+      "TCG": {
+        "sha256": "103d713f0018b88d8cbdeb3a3e4781edbc998c3e5ac6ec3c91a876c2db2cd3e3"
+      },
+      "LPIPS": {
+        "sha256": "fd6dfd3089386596b0ca14eeb92a9f245e8ae6ca27f6192d03936bc93f6c843f"
+      },
+      "DISTS": {
+        "sha256": "1dea3a7200c8135f515655805499ae0d6719e973a002446592481464ad18b1e6"
+      },
+      "RAFT": {
+        "sha256": "2821b880314230802e969b92a3da0bf072c975468f8b7ac2214d44cced88d7c1"
+      }
+    },
+    "dispatch": "LoRA-safe PyTorch stage3/head dispatch shared with baseline",
+    "backend": {
+      "customized_cuda": false,
+      "deterministic": true,
+      "matmul_TF32": false,
+      "cudnn_TF32": true
+    },
+    "parent_A2000_SHA256": "8a69765befa6ed267d0a95d3932cd63d9513c1da9818fd2126d8bc1c165f5e4e",
+    "parent_LoRA_step": 2000,
+    "optimizer_restored": true,
+    "optimizer_name_order": [
+      "generator.stage3.blocks.0.dc.2.lora.down.weight",
+      "generator.stage3.blocks.0.dc.2.lora.up.weight",
+      "generator.stage3.blocks.1.dc.2.lora.down.weight",
+      "generator.stage3.blocks.1.dc.2.lora.up.weight",
+      "generator.stage3.blocks.2.dc.2.lora.down.weight",
+      "generator.stage3.blocks.2.dc.2.lora.up.weight",
+      "generator.stage3.blocks.3.dc.2.lora.down.weight",
+      "generator.stage3.blocks.3.dc.2.lora.up.weight",
+      "generator.head.lora.down.weight",
+      "generator.head.lora.up.weight"
+    ],
+    "s_train": 0.5,
+    "s_eval": 0.5,
+    "optimizer_absolute_step_at_load": 2000,
+    "experiment_group": "B",
+    "parent_optimizer_restored": false,
+    "new_optimizer_empty": true,
+    "initialization_LoRA_step": 2000,
+    "initialization_TCG_step": 6500,
+    "trainable_module_counts": {
+      "TCG": 137760,
+      "LoRA": 59392,
+      "Bridge_mlp3": 7524
+    },
+    "trainable_names": [
+      "recon_generation_net.mlp.3.adaptor.weight",
+      "recon_generation_net.mlp.3.adaptor.bias",
+      "recon_generation_net.mlp.3.dc.0.weight",
+      "recon_generation_net.mlp.3.dc.0.bias",
+      "recon_generation_net.mlp.3.dc.2.weight",
+      "recon_generation_net.mlp.3.dc.2.bias",
+      "recon_generation_net.mlp.3.dc.3.weight",
+      "recon_generation_net.mlp.3.dc.3.bias",
+      "recon_generation_net.mlp.3.ffn.0.weight",
+      "recon_generation_net.mlp.3.ffn.0.bias",
+      "recon_generation_net.mlp.3.ffn.2.weight",
+      "recon_generation_net.mlp.3.ffn.2.bias",
+      "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.0.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.1.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.2.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.down.weight",
+      "recon_generation_net.decoder.stage3.blocks.3.dc.2.lora.up.weight",
+      "recon_generation_net.decoder.tcg_low.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_low.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_low.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_low.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_low.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_low.fusion.4.bias",
+      "recon_generation_net.decoder.tcg_mid.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_mid.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_mid.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_mid.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_mid.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_mid.fusion.4.bias",
+      "recon_generation_net.decoder.tcg_out.previous_adapter.weight",
+      "recon_generation_net.decoder.tcg_out.previous_adapter.bias",
+      "recon_generation_net.decoder.tcg_out.current_adapter.weight",
+      "recon_generation_net.decoder.tcg_out.current_adapter.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.0.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.0.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.2.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.2.bias",
+      "recon_generation_net.decoder.tcg_out.fusion.4.weight",
+      "recon_generation_net.decoder.tcg_out.fusion.4.bias",
+      "recon_generation_net.decoder.head.lora.down.weight",
+      "recon_generation_net.decoder.head.lora.up.weight"
+    ],
+    "Bridge_mlp3_type": "DepthConvBlock",
+    "frozen_codec_reference": "Independent original codec trajectory; candidate recon never committed to codec DPB"
+  },
+  "frozen_SHA256": "53899c14c8f79ceac0cb4c83208b3271f7ceffaeacb4a83c98489d3338f67d19"
+}

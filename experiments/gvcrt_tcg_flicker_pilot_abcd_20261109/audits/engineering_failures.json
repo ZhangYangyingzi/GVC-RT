@@ -1,0 +1,21 @@
+[
+  {
+    "time": 1794194647.42656,
+    "stage": "cache_probe",
+    "error": "duplicate cache_identity keyword in final receipt; tensor already saved, no optimizer created",
+    "resolution": "construct receipt with dict(info,...)"
+  },
+  {
+    "time": 1794194647.426561,
+    "stage": "warp_probe",
+    "error": "strict deterministic CUDA grid_sample backward unsupported",
+    "resolution": "audit inherited training determinism configuration before continuation"
+  },
+  {
+    "time": 1794195702.5395248,
+    "stage": "smoke_model_quality_loading",
+    "error": "Redirected XDG_CACHE_HOME changed the implicit Torch pretrained-weight lookup location; blocked download guard correctly prevented network retrieval",
+    "resolution": "Pin TORCH_HOME to the already-existing read-only audited pretrained cache; all newly generated caches remain task-local",
+    "formal_updates": 0
+  }
+]

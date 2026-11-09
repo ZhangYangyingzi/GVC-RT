@@ -1,0 +1,67 @@
+{
+  "status": "FAILED",
+  "complete": false,
+  "current_stage": "full_native_64_frame_engineering_scoring",
+  "exception": "AssertionError(('CHILD_PROCESS_FAILED', {'native_probe_Original': 0, 'native_probe_A2000': 1, 'native_probe_C': 0, 'native_probe_D': 0}))",
+  "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py\", line 127, in main\n    wait_processes([(f'native_probe_{g}',start(f'native_probe_{g}',[ROOT/'evaluation.py','--group',g,'--step',0,'--rank',i,'--index',0,'--probe-native'])) for i,g in enumerate(['Original','A2000','C','D'])])\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py\", line 47, in wait_processes\n    if strict:assert not any(codes.values()),('CHILD_PROCESS_FAILED',codes)\n                     ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('CHILD_PROCESS_FAILED', {'native_probe_Original': 0, 'native_probe_A2000': 1, 'native_probe_C': 0, 'native_probe_D': 0})\n",
+  "groups": {
+    "A": {
+      "formal": {
+        "committed_updates": 0
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794195964.2427995,
+        "physical_GPU": 4,
+        "last_seconds": 12.144784450531006
+      },
+      "completion": null
+    },
+    "B": {
+      "formal": {
+        "committed_updates": 0
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196025.0364673,
+        "physical_GPU": 5,
+        "last_seconds": 15.147083282470703
+      },
+      "completion": null
+    },
+    "C": {
+      "formal": {
+        "committed_updates": 0
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196004.3356273,
+        "physical_GPU": 6,
+        "last_seconds": 13.077635049819946
+      },
+      "completion": null
+    },
+    "D": {
+      "formal": {
+        "committed_updates": 0
+      },
+      "smoke": {
+        "status": "RUNNING",
+        "committed_updates": 20,
+        "next_cursor": 80,
+        "time": 1794196062.602171,
+        "physical_GPU": 7,
+        "last_seconds": 16.104262113571167
+      },
+      "completion": null
+    }
+  },
+  "time": 1794197218.8533099,
+  "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=4,5,6,7 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/runner.py"
+}

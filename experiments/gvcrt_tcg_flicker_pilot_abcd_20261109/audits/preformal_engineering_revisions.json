@@ -1,0 +1,18 @@
+{
+  "time": 1794196173.4983618,
+  "formal_updates": 0,
+  "smoke_protocol_SHA256": "3bef3703214b818ba2ec5be6d012666b2992645ab23d3149c0128cc287092216",
+  "formal_protocol_SHA256": "e112613234b84007aaa6958299899084e4d8dd83001d5497f730c7eff51b06d7",
+  "changes": [
+    "Native RGB flow/mask explicitly padded to codec geometry before feature rescaling. 256x256 training behavior is unchanged; native scoring is rechecked before formal freeze.",
+    "Additional monitoring metadata: actual frame QPs, constant rate/proxy, cumulative TCG counts.",
+    "Recovery at committed100/200/300 validation boundaries now finishes pending evaluation before next optimizer update.",
+    "Detach RAFT runtime correlation pyramid after completed segment VJPs, so no past segment graph is retained in the frozen flow network.",
+    "Add explicit internal prepare_feature_adaptor_i buffer-pollution assertions; permit no-grad bypass when both use_tcg/update_buffer are false.",
+    "Actual tensor-loading uses read-only mmap, hash-inclusive data-wait telemetry, and validates full frame-QP schedules."
+  ],
+  "smoke_weights_discarded": true,
+  "formal_models_reload_original_A2000": true,
+  "protocol_change_before_formal_freeze": true,
+  "time_updated": 1794196819.4947872
+}

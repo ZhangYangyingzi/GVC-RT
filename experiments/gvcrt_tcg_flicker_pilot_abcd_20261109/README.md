@@ -1,0 +1,1 @@
+TCG flicker pilot A/B/C/D. See protocol.json for frozen training/data/stop/screen rules. Run runner.py with CUDA_VISIBLE_DEVICES=4,5,6,7; the controller resumes only committed atomic checkpoints and verified caches. It does not expand the300-update cap or evaluate the final test set. See status.json for live status; REPORT.md is a timestamped factual snapshot.
