@@ -78,7 +78,13 @@ def evict_native(cfg,need_bytes=0):
         except BlockingIOError:continue
 
 def task_list(rows,cfg,pos):
-    cursors=sorted({n for n in pos.values() if n<400});safe=min(pos.values());requested=[]
+    # Retention uses formal committed cursors; prefetch uses the active consumer phase.
+    demand=dict(pos)
+    for group in GROUPS:
+        engineering=ROOT/group/'engineering/progress.json'
+        if not (ROOT/group/'training/latest.pt').exists() and engineering.exists() and not (ROOT/f'audits/engineering_{group}.json').exists():
+            demand[group]=load(engineering)['next_cursor']
+    cursors=sorted({n for n in demand.values() if n<400});safe=min(pos.values());requested=[]
     for p in sorted((ROOT/'cache/requests').glob('*.json'),key=lambda p:p.stat().st_mtime):
         a=load(p)
         if a['training'] and a['row'].get('plan_slot',400)<safe:p.unlink();continue
@@ -93,6 +99,11 @@ def task_list(rows,cfg,pos):
             if index>=400:continue
             row=rows[index]
             if not ready(row,row['external_qp'],True):planned.append(dict(row=row,qp=row['external_qp'],training=True))
+    unique=[];seen=set()
+    for item in planned:
+        key=item['row']['sample_key']
+        if key not in seen:unique.append(item);seen.add(key)
+    planned=unique
     urgent={rows[i]['sample_key'] for cursor in cursors for i in range(cursor,min(400,cursor+4))}
     native=[a for a in requested if not a['training']];extra=[a for a in requested if a['training'] and a['row']['sample_key'] not in {x['row']['sample_key'] for x in planned}]
     early=[a for a in planned+extra if a['row']['sample_key'] in urgent];later=[a for a in planned+extra if a['row']['sample_key'] not in urgent]

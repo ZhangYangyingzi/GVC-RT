@@ -16,9 +16,9 @@ H2 mechanical gate: DIAGNOSTIC_ONLY_USER_DIRECTED_TRAINING; median16px/8px error
 
 | Group | Added updates | Dev50 | Dev100 | Numerical screen |
 |---|---:|---:|---:|---|
-| H0_control | 81 | 0/96 | 0/96 | pending |
-| H1_latent_self | 81 | 0/96 | 0/96 | pending |
-| H2_latent_equiv | 0 | 0/96 | 0/96 | pending |
+| H0_control | 87 | 0/96 | 0/96 | pending |
+| H1_latent_self | 87 | 0/96 | 0/96 | pending |
+| H2_latent_equiv | 2 | 0/96 | 0/96 | pending |
 
 Mechanical screen compares every QP mean DISTS, LPIPS-Alex, LPIPS-VGG and FloLPIPS to≤1.005×B300 and requires meanQP P→P Sobel ratio S<1. Eligible50/100 checkpoints are selected by lowest S; differences below0.0005 prefer earlier. NOT_QUALIFIED never substitutes step0. This is a numerical screen, not a claim about human-visible flicker.
 

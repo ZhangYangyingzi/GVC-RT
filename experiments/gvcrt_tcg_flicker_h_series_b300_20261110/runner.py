@@ -38,7 +38,10 @@ def heartbeat(stage):
   root=ROOT/g/'training';p=root/'progress.json';u=load(p)['committed_updates'] if p.exists() else 0;rec=[load(p) for p in (root/'receipts').glob('*.json')];state='MECHANICAL_CHECK_FAILED' if g==GROUPS[2] and (ROOT/'audits/H2_gate.json').exists() and not h2_training_allowed() else 'TRAINING_OR_WAITING_CACHE' if u<100 else 'TRAINING_FINISHED_EVALUATION_PENDING'
   if u==100 and progress(g,50)==progress(g,100)==96:state='DEVELOPMENT_COMPLETE'
   if state=='TRAINING_OR_WAITING_CACHE':state='TRAINING' if all(ready(r,r['external_qp'],True) for r in rows[u*4:u*4+4]) else 'WAITING_WINDOW'
-  a['groups'][g]=dict(committed_updates=u,state=state,step50_points=progress(g,50),step100_points=progress(g,100),next_window=rows[u*4]['sample_key'] if u<100 and state!='MECHANICAL_CHECK_FAILED' else None,cache_wait_seconds=sum(r['cache_wait_seconds'] for r in rec),recent_seconds_per_update=sum(r['seconds'] for r in rec[-10:])/len(rec[-10:]) if rec else None)
+  engineering=ROOT/g/'engineering/progress.json';engineer_updates=None;next_cursor=u*4
+  if not (ROOT/g/'training/latest.pt').exists() and engineering.exists() and not (ROOT/f'audits/engineering_{g}.json').exists():
+   engineer=load(engineering);engineer_updates=engineer['committed_updates'];next_cursor=engineer['next_cursor'];state='ENGINEERING_RUNNING' if all(ready(r,r['external_qp'],True) for r in rows[next_cursor:next_cursor+4]) else 'ENGINEERING_WAITING_WINDOW'
+  a['groups'][g]=dict(committed_updates=u,disposable_engineering_updates=engineer_updates,state=state,step50_points=progress(g,50),step100_points=progress(g,100),next_window=rows[next_cursor]['sample_key'] if next_cursor<400 and state!='MECHANICAL_CHECK_FAILED' else None,cache_wait_seconds=sum(r['cache_wait_seconds'] for r in rec),recent_seconds_per_update=sum(r['seconds'] for r in rec[-10:])/len(rec[-10:]) if rec else None)
  a['cache_request_queue_length']=len(list((ROOT/'cache/requests').glob('*.json')))
  a['evaluation_queue_length']=sum(not (ROOT/'audits/evaluation_queue_done'/p.name).exists() for p in (ROOT/'evaluation_queue/jobs').glob('*.json'))
  a['baseline_B300_points']=progress('B300',0)

@@ -23,5 +23,5 @@ def main():
  a=s.select();assert not a['any_qualified'] and all(a['groups'][g]['selected'] is None and a['groups'][g]['status']=='NOT_QUALIFIED' for g in GROUPS)
  from media import ffmpeg_probe
  ffmpeg_probe()
- dump(ROOT/'audits/mechanical_screen_tests.json',dict(status='PASS',synthetic_only=True,tests=['all three groups, including user-authorized H2, enter the same numerical screen; eligible earlier if S separation<0.0005','later if improvement>=0.0005','1.006 guard fails; no step0 substitution; H2 failure excluded','FFV1 xstack, labels and source-frame start_number'],time=time.time()));print('SCREEN_AND_FFMPEG_TEST_PASS')
+ dump(ROOT/'audits/mechanical_screen_tests.json',dict(status='PASS',synthetic_only=True,tests=['all three groups, including user-authorized H2, enter the same numerical screen; eligible earlier if S separation<0.0005','later if improvement>=0.0005','all three groups fail numerical qualification at1.006 guard ratio; no step0 substitution','FFV1 xstack, labels and source-frame start_number'],time=time.time()));print('SCREEN_AND_FFMPEG_TEST_PASS')
 if __name__=='__main__':main()
