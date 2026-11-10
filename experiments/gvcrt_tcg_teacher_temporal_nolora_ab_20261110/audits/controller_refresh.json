@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "owned_controller_processes": [
+    {
+      "PID": 1683000,
+      "script": "supervisor.py"
+    },
+    {
+      "PID": 1683002,
+      "script": "runner.py"
+    }
+  ],
+  "training_processes_not_signaled": true,
+  "updates_before": {
+    "G0_teacher_spatial": 13,
+    "G1_teacher_temporal": 13
+  },
+  "reason": "Load corrected registered min_delta anchor and stage recovery/adoption; protocol/objective/optimizer/RNG unchanged",
+  "time": 1794289405.7338557,
+  "adopted_existing_processes": {
+    "development_B300_original_reference_B300_noLoRA_step0_0_0": 1683006,
+    "development_B300_original_reference_B300_noLoRA_step0_0_1": 1683007,
+    "train_G0_teacher_spatial_50": 1683008,
+    "train_G1_teacher_temporal_50": 1683009
+  },
+  "updates_after": {
+    "G0_teacher_spatial": 16,
+    "G1_teacher_temporal": 16
+  },
+  "supervisor": {
+    "status": "RUNNING",
+    "PID": 1710286,
+    "runner_PID": 1710291,
+    "time": 1794289745.9193995
+  },
+  "no_optimizer_rewind": true,
+  "time_verified": 1794289746.4526985
+}

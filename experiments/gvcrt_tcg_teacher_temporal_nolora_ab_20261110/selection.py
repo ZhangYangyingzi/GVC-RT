@@ -20,13 +20,13 @@ def means(rows):
 def decide(step):
     no=means(points('development','B300_noLoRA_step0',0));original=means(points('development','B300_original_reference',0));history={}
     for g in GROUPS:
-        entries=[];best=None;patience=0
+        entries=[];best=1.0;patience=0
         for s in [50,100,200,300]:
             if s>step:continue
             raw=points('development',g,s);m=means(raw);S=sum(m[q]['Sobel_MCResidual_PtoP']/no[q]['Sobel_MCResidual_PtoP'] for q in no)/3;Sb=sum(m[q]['Sobel_MCResidual_PtoP']/original[q]['Sobel_MCResidual_PtoP'] for q in no)/3
             guards={str(q):{k:dict(value=m[q][k],noLoRA_limit=1.01*no[q][k],B300_limit=1.01*original[q][k],PASS=m[q][k]<=1.01*no[q][k] and m[q][k]<=1.01*original[q][k]) for k in ['DISTS','LPIPS_VGG']} for q in no}
             qualified=S<1 and Sb<1 and all(v['PASS'] for x in guards.values() for v in x.values())
-            improved=qualified and (best is None or best-S>=.0005)
+            improved=qualified and best-S>=.0005
             if improved:best=S;patience=0
             else:patience+=1
             entries.append(dict(step=s,S=S,ratio_vs_B300=Sb,qualified=qualified,guards=guards,qualified_improvement=improved,patience=patience))

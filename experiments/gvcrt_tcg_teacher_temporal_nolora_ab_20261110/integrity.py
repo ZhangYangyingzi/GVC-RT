@@ -2,6 +2,20 @@
 from common_s2 import *
 from collections import Counter
 
+def check_point(a):
+    r=a['result'];manifest='development' if r['phase']=='development' else 'test';videos=load(ROOT/f'manifests/{manifest}_videos.json');v=next(v for v in videos if (v['dataset'],v['sequence'])==(r['dataset'],r['sequence']))
+    frames_path=next(path for path in a['record_SHA256'] if '/frames/' in path);transitions_path=next(path for path in a['record_SHA256'] if '/transitions/' in path)
+    frames=list(csv.DictReader((ROOT/frames_path).open()));transitions=list(csv.DictReader((ROOT/transitions_path).open()));assert len(frames)==64 and len(transitions)==63
+    def avg(rows,key):
+        values=[float(x[key]) for x in rows if x[key]!=''];return sum(values)/len(values) if values else None
+    expected={k:avg(frames,k) for k in ['LPIPS_Alex','LPIPS_VGG','DISTS']};expected['PSNR']=-10*math.log10(max(sum(float(x['pixel_SSE']) for x in frames)/(64*v['height']*v['width']*3),1e-15));expected['FloLPIPS']=avg(transitions,'FloLPIPS')
+    for k in ['RGB_MCResidual','Sobel_MCResidual']:
+        expected[k]=avg(transitions,k);expected[k+'_PtoP']=avg(transitions[1:],k);expected[k+'_ItoP']=avg(transitions[:1],k)
+    for k,value in expected.items():assert (r[k] is None and value is None) or (r[k] is not None and value is not None and abs(r[k]-value)<1e-12),('POINT_VS_FRAME_CSV_DISAGREES',r['model'],r['sequence'],r['QP'],k)
+    assert sum(int(x['real_bits']) for x in frames)==r['real_bytes']*8 and r['bpp']==r['real_bytes']*8/(64*v['height']*v['width'])
+    assert [x['source_RGB_SHA256'] for x in frames]==v['frame_rgb_sha256']
+    return True
+
 def main():
     env();import torch
     from results import all_points,tables,FINAL_MODELS
@@ -48,8 +62,11 @@ def main():
     for a in all_points('final')+all_points('development'):
         assert a['status']=='PASS' and a['real_RANS'] and a['actual_I_frame_bits_included'] and a['input_feature_trace_checked'] and not a['reconstruction_uses_GT'] and not a['reconstruction_uses_Teacher']
         for p,h in a['record_SHA256'].items():assert sha(ROOT/p)==h
+        check_point(a)
         if a['result']['model']=='Original':assert a['original_baseline_source']['commit']==ORIGINAL_COMMIT and a['original_baseline_source']['no_v6_TCG_LoRA_B300_weights_in_Original_codec']
     checks['independent_Original_and_real_I_codec_trajectory']=True
+    checks['all_point_metrics_recomputed_from_64_frame_63_transition_records']=True
+    checks['GT_flow_and_validity_identity_equal_between_five_states']=True
     agg=list(csv.DictReader((ROOT/'rd_points_by_dataset.csv').open()));assert len(agg)==5*5*3
     for r in agg:
         z=[p for p in data['final'] if p['dataset']==r['dataset'] and p['model']==r['model'] and p['QP']==int(r['QP'])]

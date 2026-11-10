@@ -2,6 +2,7 @@
 from common_s2 import *
 import argparse
 MODELS=['GT','Original','B300_original_reference','B300_noLoRA_step0','G0_selected','G1_selected']
+LABELS.update(G0_selected='G0 teacher spatial selected',G1_selected='G1 teacher temporal selected')
 
 def ffmpeg_probe():
     import numpy as np
@@ -68,8 +69,8 @@ def montage(seq,records):
     if proof.exists():a=load(proof);assert sha(a['path'])==a['SHA256'];return a
     args=['ffmpeg','-v','error','-nostdin','-y'];filters=[];expected=[]
     for i,r in enumerate(records):
-        args+=['-i',r['path']];label=ROOT/f'tmp/roi_label_{i}.txt';label.write_text(f'{r["model"]} step {r["step"]} QP5\nsource_frame %{{n}} ROI ({x},{y},{w},{h})')
-        filters.append(f'[{i}:v]trim=start_frame={first}:end_frame={last+1},setpts=PTS-STARTPTS,crop={w}:{h}:{x}:{y},pad={w}:{h+48}:0:48:black,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:textfile={label}:fontcolor=white:fontsize=10:x=3:y=3:start_number={first}[v{i}]')
+        args+=['-i',r['path']];label=ROOT/f'tmp/roi_label_{i}.txt';label.write_text(f'{LABELS.get(r["model"],r["model"])}\nstep {r["step"]} QP5 source_frame %{{n}}\nROI ({x},{y},{w},{h})')
+        filters.append(f'[{i}:v]trim=start_frame={first}:end_frame={last+1},setpts=PTS-STARTPTS,crop={w}:{h}:{x}:{y},pad={w}:{h+48}:0:48:black,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:textfile={label}:fontcolor=white:fontsize=9:x=3:y=3:start_number={first}[v{i}]')
     layout='|'.join(f'{(i%2)*w}_{(i//2)*(h+48)}' for i in range(6));filters.append(''.join(f'[v{i}]' for i in range(6))+f'xstack=inputs=6:layout={layout}:shortest=1[out]')
     path=base/f'{seq}_QP5_unscaled_pixel_ROI_FFV1.mkv';temp=path.with_name(path.stem+'.partial.mkv');subprocess.run(args+['-filter_complex_threads','1','-filter_complex',';'.join(filters),'-map','[out]','-an','-c:v','ffv1','-level','3','-pix_fmt','bgr0','-threads','2',str(temp)],check=True);temp.replace(path)
     raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(path),'-frames:v','1','-f','rawvideo','-pix_fmt','rgb24','-threads','1','pipe:1']);grid=np.frombuffer(raw,np.uint8).reshape((3*(h+48),2*w,3))

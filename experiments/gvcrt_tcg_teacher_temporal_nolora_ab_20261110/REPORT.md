@@ -16,8 +16,8 @@ Teacher is the channel-compatible audited pretrain262144 EMA; its identity is no
 
 | Group | Real added updates | Stop reason | Selected step | Qualification | S |
 |---|---:|---|---:|---|---:|
-| G0_teacher_spatial | 7 | running | pending | pending | pending |
-| G1_teacher_temporal | 7 | running | pending | pending | pending |
+| G0_teacher_spatial | 18 | running | pending | pending | pending |
+| G1_teacher_temporal | 18 | running | pending | pending | pending |
 
 Selection uses development quality only. Missing metrics and engineering faults do not count as non-improvements. All same-step G1−G0 measurements are in development_G1_minus_G0_common_steps.csv. Final checkpoint identities are frozen in selection.json before final testing.
 

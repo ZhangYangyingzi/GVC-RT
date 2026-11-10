@@ -7,7 +7,8 @@ def serve():
     with lock('locks/supervisor.lock'):
         dump(ROOT/'supervisor.json',dict(status='RUNNING',PID=os.getpid(),time=time.time()))
         if (ROOT/'cache/STOP').exists() and load(ROOT/'status.json').get('status')!='COMPLETE':(ROOT/'cache/STOP').unlink()
-        if load(ROOT/'status.json').get('status')=='COMPLETE':return
+        if load(ROOT/'status.json').get('status')=='COMPLETE':
+            dump(ROOT/'supervisor.json',dict(status='COMPLETE',PID=os.getpid(),already_complete=True,time=time.time()));return
         # A live runner from a previous supervisor remains its sole controller.
         try:
             with lock('locks/runner.lock'):pass

@@ -13,15 +13,29 @@ def history():
     for g in GROUPS:
         for p in sorted((ROOT/g/'training/receipts').glob('*.json')):
             a=load(p);r={k:v for k,v in a.items() if not isinstance(v,(dict,list))}
-            traces=[t for rank in a['ranks'] for window in rank['records'] for t in window['trace']]
+            windows=[window for rank in a['ranks'] for window in rank['records']]
             for k in ['LPIPS_VGG','DISTS','RGB_L1','cosine','RAFT_motion','RGB_MCResidual','Sobel_MCResidual','latent_temporal']:
-                values=[x[k] for x in traces if x[k] is not None];r[k]=sum(values)/len(values) if values else None
+                means=[]
+                for window in windows:
+                    values=[x[k] for x in window['trace'] if x[k] is not None]
+                    if values:means.append(sum(values)/len(values))
+                r[k]=sum(means)/len(means) if means else None
+            coeff=load(ROOT/'gradient_calibration.json')
+            reconstructed=r['LPIPS_VGG']+.5*r['DISTS']+.1383589248954108*r['RGB_L1']+.2*r['cosine']+.05*r['RAFT_motion']
+            if r['RGB_MCResidual'] is not None:reconstructed+=coeff['lambda_out']*(r['RGB_MCResidual']+.5*r['Sobel_MCResidual'])
+            if g==GROUPS[1] and r['latent_temporal'] is not None:reconstructed+=coeff['lambda_latent']*r['latent_temporal']
+            r['objective_from_components_abs_difference']=abs(reconstructed-r['loss']);assert r['objective_from_components_abs_difference']<1e-5
+            r['component_aggregation']='valid frames per window, then equal nonempty windows'
             r['sample_keys']=';'.join(a['sample_keys']);rows.append(r)
     if rows:write_csv(ROOT/'training_history.csv',rows)
     return rows
 
 def tables():
-    h=history();dev=all_points('development');final=all_points('final');dv=[a['result'] for a in dev];fv=[a['result'] for a in final]
+    h=history();dev=all_points('development');final=all_points('final');dv=[a['result'] for a in dev];fv=[]
+    for a in final:
+        transitions_path=next(path for path in a['record_SHA256'] if '/transitions/' in path)
+        transitions=list(csv.DictReader((ROOT/transitions_path).open()))
+        row=dict(a['result']);row.update(GTflow_trace_SHA256=digest([t['GT_backward_SHA256'] for t in transitions]),GTvalid_trace_SHA256=digest([t['GT_valid_SHA256'] for t in transitions]));fv.append(row)
     if dv:write_csv(ROOT/'development_metrics.csv',dv)
     if fv:write_csv(ROOT/'metrics.csv',fv)
     matched=[]
@@ -45,8 +59,8 @@ def tables():
     for ds,seq,q in sorted({(r['dataset'],r['sequence'],r['QP']) for r in fv}):
         rows={m:look.get((ds,seq,q,m)) for m in FINAL_MODELS}
         if not all(rows.values()):continue
-        ref=rows['Original'];same=all(all(r[k]==ref[k] for k in ['real_bytes','bpp','stream_SHA256','codec_trace_SHA256','source_SHA256','source_RGB_SHA256']) for r in rows.values())
-        ids.append(dict(dataset=ds,sequence=seq,QP=q,status='PASS' if same else 'FAILED',real_bytes=ref['real_bytes'],bpp=ref['bpp'],stream_SHA256=ref['stream_SHA256'],codec_trace_SHA256=ref['codec_trace_SHA256'],source_RGB_SHA256=ref['source_RGB_SHA256'],models=len(rows)))
+        ref=rows['Original'];same=all(all(r[k]==ref[k] for k in ['real_bytes','bpp','stream_SHA256','codec_trace_SHA256','source_SHA256','source_RGB_SHA256','GTflow_trace_SHA256','GTvalid_trace_SHA256']) for r in rows.values())
+        ids.append(dict(dataset=ds,sequence=seq,QP=q,status='PASS' if same else 'FAILED',real_bytes=ref['real_bytes'],bpp=ref['bpp'],stream_SHA256=ref['stream_SHA256'],codec_trace_SHA256=ref['codec_trace_SHA256'],GTflow_trace_SHA256=ref['GTflow_trace_SHA256'],GTvalid_trace_SHA256=ref['GTvalid_trace_SHA256'],source_RGB_SHA256=ref['source_RGB_SHA256'],models=len(rows)))
         for lhs,rhs in [('G1_selected','G0_selected'),('G0_selected','B300_noLoRA_step0'),('G1_selected','B300_noLoRA_step0'),('G0_selected','B300_original_reference'),('G1_selected','B300_original_reference')]:
             a,b=rows[lhs],rows[rhs];deltas.append(dict(dataset=ds,sequence=seq,QP=q,lhs=lhs,rhs=rhs,**{k:a[k]-b[k] if a[k] is not None and b[k] is not None else None for k in METRIC_DIRECTIONS}))
     if ids:write_csv(ROOT/'stream_identity_checks.csv',ids)
@@ -101,13 +115,18 @@ def plots(data):
 
 def report(data,complete=False):
     init=load(ROOT/'initialization_audit.json');sel=load(ROOT/'selection.json') if (ROOT/'selection.json').exists() else None
-    text=['# Teacher temporal noLoRA A/B execution record','',f'Status: {"LOCAL_RESULTS_READY_PENDING_INTEGRITY_AND_PUBLICATION" if complete else "RUNNING"}.', '', 'Both groups inherit the B300 Bridge and TCG, which were previously trained with LoRA. Five LoRA wrappers were physically removed without merging their increments. The decoder backbone is frozen. G0 and G1 differ only by the latent temporal objective; Teacher is training-only.','',f'Common step0 SHA256: `{init["common_step0_SHA256"]}`.',f'B300 SHA256: `{B300_SHA}`.',f'Calibration: lambda_out={load(ROOT/"gradient_calibration.json")["lambda_out"]}; lambda_latent={load(ROOT/"gradient_calibration.json")["lambda_latent"]}.','', 'Training: FP32 Bridge/TCG and frozen decoder computation, fresh AdamW; global batch four, two ranks each sequentially processing two windows. GPU0/1: G0; GPU2/3: G1. Independent Original codec trajectory and real RANS rate, with no candidate image fed back to codec. Deployment follows the uniform inherited FP16 backbone/Bridge and FP32 TCG policy.','', 'Training LPIPS is VGG only. Evaluation records Alex and VGG separately, RGB [0,1], LPIPS normalize=True, v0.1 weights. Full numerical definitions and weight identities are in protocol.json, quality.py and per-point receipts. Temporal missing regions are excluded using valid denominators. No margin or extra detail loss is implemented.','', 'Teacher is the channel-compatible audited pretrain262144 EMA; its identity is not asserted to be the exact historical author checkpoint. Channel compatibility is not a claim of temporal stability.','', '| Group | Real added updates | Stop reason | Selected step | Qualification | S |','|---|---:|---|---:|---|---:|']
+    text=['# Teacher temporal noLoRA A/B execution record','',f'Status: {"NUMERICAL_RESULTS_RECORDED; integrity and publication statuses are in their separate JSON records" if complete else "RUNNING"}.', '', 'Both groups inherit the B300 Bridge and TCG, which were previously trained with LoRA. Five LoRA wrappers were physically removed without merging their increments. The decoder backbone is frozen. G0 and G1 differ only by the latent temporal objective; Teacher is training-only.','',f'Common step0 SHA256: `{init["common_step0_SHA256"]}`.',f'B300 SHA256: `{B300_SHA}`.',f'Calibration: lambda_out={load(ROOT/"gradient_calibration.json")["lambda_out"]}; lambda_latent={load(ROOT/"gradient_calibration.json")["lambda_latent"]}.','', 'Training: FP32 Bridge/TCG and frozen decoder computation, fresh AdamW; global batch four, two ranks each sequentially processing two windows. GPU0/1: G0; GPU2/3: G1. Independent Original codec trajectory and real RANS rate, with no candidate image fed back to codec. Deployment follows the uniform inherited FP16 backbone/Bridge and FP32 TCG policy.','', 'Training LPIPS is VGG only. Evaluation records Alex and VGG separately, RGB [0,1], LPIPS normalize=True, v0.1 weights. Full numerical definitions and weight identities are in protocol.json, quality.py and per-point receipts. Temporal missing regions are excluded using valid denominators. No margin or extra detail loss is implemented.','', 'Teacher is the channel-compatible audited pretrain262144 EMA; its identity is not asserted to be the exact historical author checkpoint. Channel compatibility is not a claim of temporal stability.','', '| Group | Real added updates | Stop reason | Selected step | Qualification | S |','|---|---:|---|---:|---|---:|']
     for g in GROUPS:
         p=ROOT/g/'training/progress.json';n=load(p)['committed_updates'] if p.exists() else 0;choice=sel['groups'][g] if sel else {};text.append(f'| {g} | {n} | {sel.get("stop_reason") if sel else "running"} | {choice.get("step", "pending")} | {choice.get("qualification", "pending")} | {choice.get("S", "pending")} |')
     text+=['','Selection uses development quality only. Missing metrics and engineering faults do not count as non-improvements. All same-step G1−G0 measurements are in development_G1_minus_G0_common_steps.csv. Final checkpoint identities are frozen in selection.json before final testing.','','Final coverage:','', '| Dataset / split | Model | Completed | Expected |','|---|---|---:|---:|']
     for ds,n in load(ROOT/'protocol.json')['final']['datasets'].items():
         for m in FINAL_MODELS:text.append(f'| {ds} | {LABELS[m]} | {sum(r["dataset"]==ds and r["model"]==m for r in data["final"])} | {n*3} |')
     text+=['','Aggregation: arithmetic mean across video-level measurements within each dataset/split/QP; each video has equal weight. Each per-video PSNR uses pixel SSE across 64 frames; spatial metrics use all 64 frames. I→P and P→P temporal measurements are separate. The main selection temporal score uses P→P Sobel MCResidual. Figures connect three actual RANS bpp points only. Dataset splits are plotted separately; UVG contains only the two historical HoneyBee/Jockey sequences. ULong historical six and new holdout 32 are separate. MCL-JCV is a historically used test collection. No BD-rate is reported.','','Original source: independently restored GVC-RT_I.pt and GVC-RT_P.pt, commit '+ORIGINAL_COMMIT+'. It loads no adaptation weights. Per-point byte counts, stream hashes and Original codec feature traces are checked; LPIPS-VGG and RAFT residual metrics are newly computed for every state. Compatible older scalar components are reused only after exact reconstructed RGB and metric-weight checks.','','See metrics.csv for raw values; rd_points_by_dataset.csv for equal-video aggregates; paired_deltas_by_dataset_qp.csv and paired_deltas_by_video.csv for paired differences. Local lossless media and SHA256 are recorded in video_manifest.json. Preview sizes are never used as neural rates. Videos are records, with no claim of a subjective blind test.','','Integrity and publication: final_integrity.json and publication_status.json. This report records execution and measurements only; it draws no method or causal conclusion.']
+    if data['aggregate']:
+        text+=['','Measured dataset/QP/model aggregates (full precision in rd_points_by_dataset.csv):','','| Dataset | Model | QP | bpp | PSNR | LPIPS-Alex | LPIPS-VGG | DISTS | FloLPIPS | P→P Sobel |','|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+        for r in data['aggregate']:
+            values=[format(r[k],'.8g') if r[k] is not None else 'MISSING' for k in ['bpp','PSNR','LPIPS_Alex','LPIPS_VGG','DISTS','FloLPIPS','Sobel_MCResidual_PtoP']]
+            text.append('| '+r['dataset']+' | '+LABELS[r['model']]+' | '+str(r['QP'])+' | '+' | '.join(values)+' |')
     (ROOT/'REPORT.md').write_text('\n'.join(text)+'\n')
 
 def main(snapshot=False):
