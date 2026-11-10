@@ -1,5 +1,6 @@
 """Matched independent100-update runs; GPU3 immutable-checkpoint evaluation queue."""
 from common_s2 import *
+from execution_policy import h2_training_allowed
 import traceback
 CHILDREN={}
 
@@ -34,7 +35,7 @@ def heartbeat(stage):
  a=dict(status='RUNNING',complete=False,current_stage=stage,groups={},cache=load(ROOT/'cache/progress.json') if (ROOT/'cache/progress.json').exists() else None,active_processes={n:dict(PID=p.pid,returncode=p.poll()) for n,p in CHILDREN.items()},GPU_allocation={g:i for i,g in enumerate(GROUPS)},GPU3='shared frozen codec/GT-flow producer and serialized evaluation',time=time.time())
  rows=plan_rows()
  for g in GROUPS:
-  root=ROOT/g/'training';p=root/'progress.json';u=load(p)['committed_updates'] if p.exists() else 0;rec=[load(p) for p in (root/'receipts').glob('*.json')];state='MECHANICAL_CHECK_FAILED' if g==GROUPS[2] and (ROOT/'audits/H2_gate.json').exists() and load(ROOT/'audits/H2_gate.json')['status']!='PASS' else 'TRAINING_OR_WAITING_CACHE' if u<100 else 'TRAINING_FINISHED_EVALUATION_PENDING'
+  root=ROOT/g/'training';p=root/'progress.json';u=load(p)['committed_updates'] if p.exists() else 0;rec=[load(p) for p in (root/'receipts').glob('*.json')];state='MECHANICAL_CHECK_FAILED' if g==GROUPS[2] and (ROOT/'audits/H2_gate.json').exists() and not h2_training_allowed() else 'TRAINING_OR_WAITING_CACHE' if u<100 else 'TRAINING_FINISHED_EVALUATION_PENDING'
   if u==100 and progress(g,50)==progress(g,100)==96:state='DEVELOPMENT_COMPLETE'
   if state=='TRAINING_OR_WAITING_CACHE':state='TRAINING' if all(ready(r,r['external_qp'],True) for r in rows[u*4:u*4+4]) else 'WAITING_WINDOW'
   a['groups'][g]=dict(committed_updates=u,state=state,step50_points=progress(g,50),step100_points=progress(g,100),next_window=rows[u*4]['sample_key'] if u<100 and state!='MECHANICAL_CHECK_FAILED' else None,cache_wait_seconds=sum(r['cache_wait_seconds'] for r in rec),recent_seconds_per_update=sum(r['seconds'] for r in rec[-10:])/len(rec[-10:]) if rec else None)
@@ -57,7 +58,7 @@ def main():
   # Preflight/calibration can be adopted from the active preparation turn.
   ensure_auxiliary();wait_audit('preflight','preflight.py','audits/preflight.json','0');wait_audit('calibration','calibrate.py','gradient_calibration.json','1')
   from freeze import main as freeze
-  freeze();verify_sources();active=[g for g in GROUPS if g!=GROUPS[2] or load(ROOT/'audits/H2_gate.json')['status']=='PASS']
+  freeze();verify_sources();active=[g for g in GROUPS if g!=GROUPS[2] or h2_training_allowed()]
   smokes={}
   for g in active:
    if not (ROOT/f'audits/engineering_{g}.json').exists():smokes[g]=start('smoke_'+g,['train.py','--group',g,'--smoke'],str(GROUPS.index(g)))

@@ -1,5 +1,6 @@
 """One GPU per model, sequential four-window accumulation and recoverable updates."""
 from common_s2 import *
+from execution_policy import h2_training_allowed,verify_checkpoint_protocol
 import argparse,traceback
 
 def run(group,until,smoke=False):
@@ -11,11 +12,11 @@ def run(group,until,smoke=False):
  from loss import backward_window,window_masks,norm
  assert int(os.environ['CUDA_VISIBLE_DEVICES'])==GROUPS.index(group)
  assert load(ROOT/'gradient_calibration.json')['status']=='PASS' and load(ROOT/'audits/preflight.json')['status']=='PASS'
- if group==GROUPS[2]:assert load(ROOT/'audits/H2_gate.json')['status']=='PASS'
+ if group==GROUPS[2]:assert h2_training_allowed()
  root=ROOT/group/('engineering' if smoke else 'training');root.mkdir(parents=True,exist_ok=True);latest=root/'latest.pt';rows=plan_rows();coeff=load(ROOT/'gradient_calibration.json');c=construct(group,True,0);seed(TRAIN_SEED);step=0
  if not smoke:assert load(ROOT/f'audits/engineering_{group}.json')['status']=='PASS'
  if latest.exists():
-  a=torch.load(latest,map_location='cpu',weights_only=True);assert a['protocol_SHA256']==sha(ROOT/'protocol.json') and a['plan_SHA256']==sha(ROOT/'plans/index.json');restore(c,a);restore_rng(a['RNG']);step=a['committed_updates']
+  a=torch.load(latest,map_location='cpu',weights_only=True);assert verify_checkpoint_protocol(a['protocol_SHA256']) and a['plan_SHA256']==sha(ROOT/'plans/index.json');restore(c,a);restore_rng(a['RNG']);step=a['committed_updates']
   if step:
    assert a['last_receipt']['global_optimizer_updates']==step
    dump(root/f'receipts/{step:04d}.json',a['last_receipt']);dump(root/'progress.json',dict(status='RUNNING',committed_updates=step,next_cursor=4*step,seconds=a['last_receipt']['seconds'],time=time.time()))

@@ -1,5 +1,6 @@
 """Coverage, immutable sources, matched stream and parameter checks; fail closed."""
 from common_s2 import *
+from execution_policy import h2_training_allowed
 from collections import Counter
 
 def main():
@@ -9,7 +10,7 @@ def main():
  from experiment_model import construct,restore,category
  verify_sources();sel=load(ROOT/'selection.json');assert sel['status']=='FROZEN';done=load(ROOT/'training_completion.json');assert done['status']=='PASS';checks={};rows=plan_rows();active=[]
  for group in GROUPS:
-  if group==GROUPS[2] and load(ROOT/'audits/H2_gate.json')['status']!='PASS':
+  if group==GROUPS[2] and not h2_training_allowed():
    assert sel['groups'][group]['status']=='MECHANICAL_CHECK_FAILED' and done['updates'][group]==0 and not list((ROOT/group/'training/receipts').glob('*.json'));continue
   active.append(group);assert done['updates'][group]==100
   assert load(ROOT/f'audits/engineering_{group}.json')['status']=='PASS' and load(ROOT/f'audits/aggregation_{group}.json')['status']=='PASS'
@@ -23,7 +24,7 @@ def main():
    if 'recon_generation_net.'+n not in c['trainable_parameter_names']:assert torch.equal(t.cpu(),base[n].to(t.dtype)),('FROZEN_RECON_PARAMETER_OR_BUFFER_CHANGED',n)
   assert all(t.dtype==torch.float32 for t in a['trainable_state'].values());del a,c;torch.cuda.empty_cache()
   for s in [50,100]:complete(points(group,s))
- checks.update(full_B300_LoRA_retained_s05=True,full_Bridge_TCG_LoRA_exact998276=True,frozen_backbone_and_buffers=True,real100_updates_and_matched_data=True,all_checkpoints_optimizer_RNG_cursor_present=True,H2_mechanical_failure_explicit=True)
+ checks.update(full_B300_LoRA_retained_s05=True,full_Bridge_TCG_LoRA_exact998276=True,frozen_backbone_and_buffers=True,real100_updates_and_matched_data=True,all_checkpoints_optimizer_RNG_cursor_present=True,H2_user_authority_and_original_controls_recorded=True)
  init=load(ROOT/'initialization_audit.json');assert all(a['max_abs']==0 for a in init['equality']) and init['common_step0_SHA256']==sha(ROOT/'checkpoints/common_B300_step0.pt');checks['step0_matches_B300_in_both_matching_precision_paths']=True
  complete(points('B300',0));all_records=records('development')+records('final');identity={};observed=Counter()
  for a in all_records:

@@ -1,7 +1,7 @@
 {
   "status": "FROZEN",
   "base_commit": "7d5010a488d3015d5946f1df5e4236a0e15f1edf",
-  "protocol_sha256": "9d0808ddcd4102d6caba591693db5dd1082c9611eff7aa170b2a031b28e90ca9",
+  "protocol_sha256": "78a7aebe1b0ac7bed2bf5710e64e7f5e948d1a1a744b41872b43ed215f3d7e8d",
   "plan_index_sha256": "f6a48438f780ad51d94b183671f36cb8637f2770f1dc09d53ba4bb4752539853",
   "code": {
     "common_s2.py": "d8eb86ad59022c45b182a4eea1bc824cf83a4cd28c50d6b3748e8a1d5a606874",
@@ -11,9 +11,9 @@
     "convlora.py": "95a5d9da50ea4ed43823fddd707bd25bb0d60e53ecaaaa41b1cce124fd8dec1a",
     "fp32_island.py": "ce3b1df339c03252a303f8241e8c5a9c6b7df8e83d97d9ee71319f752a6dc763",
     "loss.py": "37f750caf9dd6952e593d9bc44b5ddaa1d23e71d04b13892888c012800a966f3",
-    "train.py": "117a25df2f0e6f720be28d5ebda51e0bbef31b659125203dd598792b36e91a33",
+    "train.py": "1fe06a7e9c7434cbfe98a0ff504ea7dcb1e5ca72f02e2444b898aa556b267265",
     "calibrate.py": "ff3bfed1c77cf59732f59c421cc0c525fed1566c2dc33c04362fd38a29274cd1",
-    "preflight.py": "95a15dba171d7434caa785005e4c358f20f4571880be9ed6da311acfa13a82f9",
+    "preflight.py": "ec29411765196998128bb9096bf171e7b9d9248c5fffc95ec3f014391914923f",
     "temporal.py": "433ee18778d53afb74013e81219034c7a573fea6c5935614382951e3049b42b0",
     "cache_codec.py": "591b3f18deb3ee353c86a8b0223503e68383127fe93bb5b3bfbb943f9c80a13e",
     "data_reader.py": "05c00af3004addb5ab6195ed0404e60017ec58c52e8c105d16cb9b579e333404",
@@ -23,7 +23,7 @@
     "original_runtime.py": "7913c3f6c8593a402b3c2d082c71cb24e1c0cd83ad164f43911314508dce291d",
     "quality.py": "27efd9eb353c39a17a1dab1310ad4aad12ed44f3670306ae55a2a856aa7115e1",
     "evaluation.py": "81de991efba67205060622922df75cf62d66d8b22b57ec18bcca18bff998ddd3",
-    "selection.py": "b06795f7fe6466622bf5602329d74300d2845cd181753f1a50365ab33f41e62b",
+    "selection.py": "df8734bb214b4ba975b5c6e58ec8c5289b67f60144c1796f21045db502183e63",
     "runtime_tree/src/models/improved_model_gvcrt.py": "0038e8bc966e48c9246f4e064021ccc0fb9579ea6ca2f5472fd68db38d133d7f",
     "runtime_tree/src/models/common_model.py": "b8671f241847223dab55ffb7051ec0343fce5b61870b8576e8ed5f74e1c13ccf",
     "runtime_tree/src/models/image_model_gvcrt.py": "36b5af37ee3c356e7029c6cb3ca53bbc9fd22af0feb3bddd0bc4dd195ec69952",
@@ -73,7 +73,8 @@
     "reference_tree/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/v61_io.py": "716b6c89a5d9764e6dd9c503a2c8690e2c8a8d656395d16186d196b8f64d2305",
     "reference_tree/experiments/gvcrt_neural_wrapper_v6_2_objective_calibration/fullqp_common.py": "41695c0ea40ebd46bc4785f761515aec2a4a4f2f5471d9917d58f4cbcdbd5e6c",
     "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766",
-    "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/common.py": "aa72ae3fcf2d3f6df4e244599c62a064552da8db3c9892bd1360dd565a3c5c66"
+    "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/common.py": "aa72ae3fcf2d3f6df4e244599c62a064552da8db3c9892bd1360dd565a3c5c66",
+    "execution_policy.py": "cbbf2fa385591662ca830ba9db6a3db9bc65610fad431ddbe0a1fd377afd9a00"
   },
   "protected_sources": {
     "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
@@ -176,6 +177,59 @@
       "protocol_SHA256": "9d0808ddcd4102d6caba591693db5dd1082c9611eff7aa170b2a031b28e90ca9",
       "protocol_changed": false,
       "time": 1794318919.4684575
+    }
+  ],
+  "user_authorized_amendments": [
+    {
+      "record": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/audits/protocol_revisions/H2_user_directed_start/amendment.json",
+      "SHA256": "21226172fe0a6c25253dd4037f0b1f0567a962b30713409de18885fd685aee55",
+      "code_changes": [
+        {
+          "file": "train.py",
+          "before_SHA256": "117a25df2f0e6f720be28d5ebda51e0bbef31b659125203dd598792b36e91a33",
+          "after_SHA256": "1fe06a7e9c7434cbfe98a0ff504ea7dcb1e5ca72f02e2444b898aa556b267265"
+        },
+        {
+          "file": "pipeline.py",
+          "before_SHA256": "4b8e685761f71994505ed436ce4429ce2695f81e03afe4355c17deae64a6c2af",
+          "after_SHA256": "e207096d97a2cab8687f30aea72777ac638af0c98f2aece4674156e260810364"
+        },
+        {
+          "file": "runner.py",
+          "before_SHA256": "83900bc712e87ab5bf5df27f8a7ca20388af655bcda8c84a4d4c99514db149b7",
+          "after_SHA256": "4d16216bc53b6de9f2537c58dd0d2a448d008981b61765aff2cadc6740614c03"
+        },
+        {
+          "file": "selection.py",
+          "before_SHA256": "b06795f7fe6466622bf5602329d74300d2845cd181753f1a50365ab33f41e62b",
+          "after_SHA256": "df8734bb214b4ba975b5c6e58ec8c5289b67f60144c1796f21045db502183e63"
+        },
+        {
+          "file": "media.py",
+          "before_SHA256": "0b4a256b65df5d4b1838063ef83d9e747a76efde4bfa200a33aa6614eb9f791d",
+          "after_SHA256": "6c406d90efc13741450bae2f94360eb1b41983163fa60674b4069e9aa9599e02"
+        },
+        {
+          "file": "integrity.py",
+          "before_SHA256": "4dc913f68646b97d4a1edce751330d59b06e6cace13bf4f278d8ff34151efd44",
+          "after_SHA256": "acf4943318e4e5559d203dfbdf57fc26a4cd4e02e532ba3e3147faf2f2cf6fc3"
+        },
+        {
+          "file": "results.py",
+          "before_SHA256": "5fb93b35cc92abfcf504c0587b4963a65b449d7902af46d999f3fbee2032c801",
+          "after_SHA256": "b37a4ce1cdcb27810047ddb53d3c79c896542a21fccf6b19ca7c6f57a390a155"
+        },
+        {
+          "file": "preflight.py",
+          "before_SHA256": "95a15dba171d7434caa785005e4c358f20f4571880be9ed6da311acfa13a82f9",
+          "after_SHA256": "ec29411765196998128bb9096bf171e7b9d9248c5fffc95ec3f014391914923f"
+        },
+        {
+          "file": "freeze.py",
+          "before_SHA256": "b335b409db379ab1ecd01214cd79df36c324c19ef65a5331a2c92f43c1d61d8d",
+          "after_SHA256": "98ff9c567a6a55ea071a1b3a0691fa3abe35eb968ff0389806003a385a29bb76"
+        }
+      ]
     }
   ]
 }

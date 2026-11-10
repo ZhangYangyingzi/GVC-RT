@@ -56,8 +56,8 @@ def main(rank=0):
       if magnitude==0:assert val==0
       errs[(magnitude,crop)]=val;controls.append(dict(sample_key=row['sample_key'],QP=row['external_qp'],frame=i,feature_dy=dy,feature_dx=dx,RGB_dy=8*dy,RGB_dx=8*dx,crop_RGB=crop,error=val,padding='unchanged_original',no_history=True))
     assert errs[(1,64)]>0;ratios.append(errs[(2,64)]/errs[(1,64)])
- gate_pass=statistics.median(ratios)<load(ROOT/'protocol.json')['H2_gate']['ratio_threshold'];write_csv(ROOT/'equivariance_controls.csv',controls)
- dump(ROOT/'audits/H2_gate.json',dict(status='PASS' if gate_pass else 'MECHANICAL_CHECK_FAILED',median_16px_to_8px_error_ratio=statistics.median(ratios),ratios=ratios,pre_registered_threshold=.1,unchanged_padding=True,crop64_not_guarantee_boundary_eliminated=True,H2_training_allowed=gate_pass,H0_H1_can_continue=True,time=time.time()))
+ write_csv(ROOT/'equivariance_controls.csv',controls)
+ dump(ROOT/'audits/H2_gate.json',dict(status='DIAGNOSTIC_ONLY_USER_DIRECTED_TRAINING',median_16px_to_8px_error_ratio=statistics.median(ratios),ratios=ratios,unchanged_padding=True,crop64_not_guarantee_boundary_eliminated=True,H2_training_allowed=True,decision_authority='explicit user instruction',time=time.time()))
  dump(ROOT/'audits/preflight.json',dict(status='PASS',initialization='initialization_audit.json',flow=mathcheck,confidence_low_high_loss_ratio=float(low/high),common_scale_gradient=float(grad),empty_region_is_missing=True,auxiliary_gradients=norms,main_cache_identity_value_graph_unchanged=True,next_main_forward_exactly_unchanged=True,H2_gate='audits/H2_gate.json',time=time.time()))
- print('H_PREFLIGHT_PASS H2_GATE',gate_pass,statistics.median(ratios),flush=True)
+ print('H_PREFLIGHT_PASS H2_CONTROLS_DIAGNOSTIC',statistics.median(ratios),flush=True)
 if __name__=='__main__':main()

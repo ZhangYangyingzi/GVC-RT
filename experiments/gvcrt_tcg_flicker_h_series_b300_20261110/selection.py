@@ -1,5 +1,6 @@
 """Frozen numerical screen of complete96-point dev sets at50 and100."""
 from common_s2 import *
+from execution_policy import h2_training_allowed
 def points(model,step,phase='development'):
  return [load(p)['result'] for p in sorted((ROOT/'evaluation'/phase/model/f'step_{step:04d}/points').glob('*.json'))]
 def complete(rows,n=96):assert len(rows)==n and len({(r['sequence'],r['QP']) for r in rows})==n
@@ -7,7 +8,7 @@ def complete(rows,n=96):assert len(rows)==n and len({(r['sequence'],r['QP']) for
 def select():
  baseline=points('B300',0);complete(baseline);look={(r['sequence'],r['QP']):r for r in baseline};groups={};gate=load(ROOT/'audits/H2_gate.json')
  for g in GROUPS:
-  if g==GROUPS[2] and gate['status']!='PASS':groups[g]=dict(status='MECHANICAL_CHECK_FAILED',qualified=False,selected=None,updates=0,reason='H2 16px control error not separated from8px under unchanged padding');continue
+  if g==GROUPS[2] and not h2_training_allowed():groups[g]=dict(status='MECHANICAL_CHECK_FAILED',qualified=False,selected=None,updates=0,reason='H2 16px control error not separated from8px under unchanged padding');continue
   entries=[]
   for step in [50,100]:
    rows=points(g,step);complete(rows);qp={}

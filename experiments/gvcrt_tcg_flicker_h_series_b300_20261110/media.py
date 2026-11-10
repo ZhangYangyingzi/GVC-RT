@@ -1,5 +1,6 @@
 """Full-resolution FFV1 fixed development and historically exposed person_dog clips."""
 from common_s2 import *
+from execution_policy import h2_training_allowed
 import numpy as np
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 
@@ -29,7 +30,7 @@ def export(case):
  row=case['row'];wait_rows([row],False,5);key,p,rp=cache_paths(row,5,False)
  with lock('locks/lease_'+key+'.lock',blocking=True):
   assert sha(p)==load(rp)['cache_sha256'];d=torch.load(p,map_location='cpu',weights_only=True,mmap=True);info=d['info'];h,w=info['native_shape'];assert info['frames']==case['frames'];models=['GT','Original','A2000','B300',GROUPS[0],GROUPS[1]]
-  if load(ROOT/'audits/H2_gate.json')['status']=='PASS':models.append(GROUPS[2])
+  if h2_training_allowed():models.append(GROUPS[2])
   ev=Evaluator(2);records=[]
   for model in models:
    step=100 if model in GROUPS else 300 if model=='B300' else 2000 if model=='A2000' else 0;dest=ROOT/f'media/native/{case["sequence"]}_QP5_{model}_step{step:04d}.mkv';manifest=ROOT/f'media/manifests/{case["sequence"]}_{model}.json'
@@ -79,5 +80,5 @@ def main():
   for name,roi in case['ROIs'].items():
    for anon in [False,True]:comparisons.append(roi_comparison(case,rec,name,roi,anon))
   dump(ROOT/'audits/media_progress.json',dict(status='RUNNING',native_clips=len(clips),comparisons=len(comparisons),time=time.time()))
- dump(ROOT/'video_manifest.json',dict(status='PASS',native_clips=clips,ROI_comparisons=comparisons,H2_missing_reason=None if load(ROOT/'audits/H2_gate.json')['status']=='PASS' else 'H2_MECHANICAL_CHECK_FAILED; not replaced by another model',anonymous_labels_are_material_only=True,subjective_experiment_completed=False,all_paths_absolute=True,time=time.time()))
+ dump(ROOT/'video_manifest.json',dict(status='PASS',native_clips=clips,ROI_comparisons=comparisons,H2_missing_reason=None if h2_training_allowed() else 'H2_MECHANICAL_CHECK_FAILED; not replaced by another model',anonymous_labels_are_material_only=True,subjective_experiment_completed=False,all_paths_absolute=True,time=time.time()))
 if __name__=='__main__':main()

@@ -136,7 +136,6 @@
     "auxiliary_table_independent_rng": true
   },
   "H2_gate": {
-    "pre_registered_before_measurement": true,
     "windows": 10,
     "frames": [
       52,
@@ -155,9 +154,18 @@
       64
     ],
     "padding": "unchanged deployment padding",
-    "pass_rule": "delta0 exact0 and median(error16px/error8px at crop64) <0.1; a control within one order of magnitude or larger fails",
-    "ratio_threshold": 0.1,
-    "failure_action": "H2 MECHANICAL_CHECK_FAILED; no H2 training; H0/H1 continue"
+    "training_allowed": true,
+    "decision_authority": "explicit user instruction: \u4e0d\u884c\uff0c\u4f60\u4e0d\u80fd\u6709\u81ea\u5df1\u7684\u95e8\u69db\uff0c\u4f60\u5e94\u8be5\u542f\u52a8h2",
+    "control_errors": "diagnostic only; no assistant-defined numeric launch cutoff",
+    "required_implementation_checks": [
+      "same-dtype B300 step0 equality",
+      "finite losses/gradients",
+      "stateless auxiliary target/shifted paths",
+      "main-history object/value/gradient-connection preservation",
+      "correct sparse four-call/window and globalbatch normalization"
+    ],
+    "historical_gate_record": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/audits/protocol_revisions/H2_user_directed_start/H2_gate_before.json",
+    "assistant_added_cutoff_withdrawn": true
   },
   "development": {
     "videos": 32,

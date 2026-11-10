@@ -12,12 +12,12 @@ Fresh AdamW: Bridge2e-6, TCG1e-5, LoRA5e-5; betas(.9,.999), eps1e-8, weight_deca
 
 Calibration uses10 frozen training windows, no optimizer updates or development/test choice. lambda_lat=0.2953169862992426; lambda_equiv=0.10179495298276185.
 
-H2 mechanical gate: MECHANICAL_CHECK_FAILED; median16px/8px error ratio atcrop64=0.16182493976184825. Fixed threshold0.1 operationalizes separation by more than one order of magnitude; no padding/crop/target tuning after measurements.
+H2 mechanical gate: DIAGNOSTIC_ONLY_USER_DIRECTED_TRAINING; median16px/8px error ratio atcrop64=0.16182493976184825. The assistant-added0.1 launch cutoff was withdrawn by explicit user instruction. Original controls remain unchanged and diagnostic; H2 is trained with the original calibrated objective, padding and crop.
 
 | Group | Added updates | Dev50 | Dev100 | Numerical screen |
 |---|---:|---:|---:|---|
-| H0_control | 12 | 0/96 | 0/96 | pending |
-| H1_latent_self | 12 | 0/96 | 0/96 | pending |
+| H0_control | 81 | 0/96 | 0/96 | pending |
+| H1_latent_self | 81 | 0/96 | 0/96 | pending |
 | H2_latent_equiv | 0 | 0/96 | 0/96 | pending |
 
 Mechanical screen compares every QP mean DISTS, LPIPS-Alex, LPIPS-VGG and FloLPIPS to≤1.005×B300 and requires meanQP P→P Sobel ratio S<1. Eligible50/100 checkpoints are selected by lowest S; differences below0.0005 prefer earlier. NOT_QUALIFIED never substitutes step0. This is a numerical screen, not a claim about human-visible flicker.
@@ -28,7 +28,7 @@ Final test status: pending conditional numerical screen. No qualification means 
 
 Video materials retain full-resolution single-model FFV1 and unscaled ROI, with labels, source frames, fps and SHA. Anonymous label mapping is separate. person_dog is recovered from audited original RGB frames; its MP4 is identification material only, historical exposure is retained, and it is excluded from training and model selection. No subjective experiment is claimed.
 
-Raw development values: development_metrics.csv; paired baseline differences: development_paired_by_video_qp.csv; same-step H1−H0 and H2−H1 where available: development_matched_steps.csv. H2 missing rows are due to its mechanical gate, not replacement by another model. Edge/local energy values are diagnostics and not quality-improvement guarantees.
+Raw development values: development_metrics.csv; paired baseline differences: development_paired_by_video_qp.csv; same-step H1−H0 and H2−H1 where available: development_matched_steps.csv. H2 started later after the user withdrew the assistant-added cutoff; its matched-step rows are populated from actual completed evaluations. Edge/local energy values are diagnostics and not quality-improvement guarantees.
 
 Measured equal-video aggregates:
 

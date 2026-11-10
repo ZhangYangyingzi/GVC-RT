@@ -1,5 +1,6 @@
 """One queue owner, bounded GPU helpers, strict consumers and safe disk eviction."""
 from common_s2 import *
+from execution_policy import h2_training_allowed
 from cache_codec import cache_paths
 import traceback
 
@@ -44,7 +45,7 @@ def positions():
         p=ROOT/g/'training/progress.json';a=load(p)['committed_updates'] if p.exists() else 0
         out[g]=a*4
     gate=ROOT/'audits/H2_gate.json'
-    if gate.exists() and load(gate)['status']=='MECHANICAL_CHECK_FAILED':out[GROUPS[2]]=400
+    if gate.exists() and not h2_training_allowed():out[GROUPS[2]]=400
     if (ROOT/'training_completion.json').exists():return {g:400 for g in GROUPS}
     return out
 
@@ -77,20 +78,26 @@ def evict_native(cfg,need_bytes=0):
         except BlockingIOError:continue
 
 def task_list(rows,cfg,pos):
-    safe=min(pos.values());tasks=[]
+    cursors=sorted({n for n in pos.values() if n<400});safe=min(pos.values());requested=[]
     for p in sorted((ROOT/'cache/requests').glob('*.json'),key=lambda p:p.stat().st_mtime):
         a=load(p)
         if a['training'] and a['row'].get('plan_slot',400)<safe:p.unlink();continue
-        if not ready(a['row'],a['qp'],a['training']):tasks.append(a)
-    # Preflight only asks for first8. Once formal training starts, keep a finite
-    # lookahead at the slowest committed cursor without an all-cache barrier.
-    if (ROOT/'protocol.json').exists():
-        for i in range(safe,min(400,safe+cfg['training_prefetch_windows'])):
-            r=rows[i]
-            if not ready(r,r['external_qp'],True):tasks.append(dict(row=r,qp=r['external_qp'],training=True))
-    ahead=sum(ready(r,r['external_qp'],True) for r in rows[safe:min(400,safe+32)])
-    if ahead<16 and safe<400:tasks.sort(key=lambda a:(not a['training'],a['row'].get('plan_slot',400)))
-    return tasks
+        if not ready(a['row'],a['qp'],a['training']):requested.append(a)
+    # Bounded, fair lookahead for groups at different committed cursors.
+    # H2 backfill does not prevent H0/H1 next-batch preparation.
+    limit=max(4,cfg['training_prefetch_windows']//max(1,len(cursors)))
+    planned=[]
+    for offset in range(limit):
+        for cursor in cursors:
+            index=cursor+offset
+            if index>=400:continue
+            row=rows[index]
+            if not ready(row,row['external_qp'],True):planned.append(dict(row=row,qp=row['external_qp'],training=True))
+    urgent={rows[i]['sample_key'] for cursor in cursors for i in range(cursor,min(400,cursor+4))}
+    native=[a for a in requested if not a['training']];extra=[a for a in requested if a['training'] and a['row']['sample_key'] not in {x['row']['sample_key'] for x in planned}]
+    early=[a for a in planned+extra if a['row']['sample_key'] in urgent];later=[a for a in planned+extra if a['row']['sample_key'] not in urgent]
+    enough=all(sum(ready(r,r['external_qp'],True) for r in rows[n:min(400,n+16)])>=min(16,400-n) for n in cursors)
+    return early+(native+later if enough else later+native)
 
 def produce():
     env();rows=plan_rows();active={};produced=0;begin=time.time();latency=0.
