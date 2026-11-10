@@ -1,8 +1,8 @@
 # GVC-RT E/F B300 execution report
 
-Factual snapshot UTC epoch: 1794268806.1660283.
+Factual snapshot UTC epoch: 1794268863.2103667.
 
-Status: RESULTS_READY_PUBLICATION_PENDING
+Status: COMPLETE
 
 Initialization: B300 `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt`; SHA256 `7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85`. Source commit `2e70bdc4ad99934d987fe8c484f8430345792b83`.
 
