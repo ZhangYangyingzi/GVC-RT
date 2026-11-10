@@ -1,0 +1,62 @@
+{
+  "status": "REPAIR_VERIFIED_RESUMING",
+  "failure": "evaluation cache SHA256 did not match its receipt",
+  "runner_failure": {
+    "status": "FAILED",
+    "error": "RuntimeError(('STAGE_CHILD_FAILED', [('development_G1_teacher_temporal_50_1', 1)]))",
+    "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/runner.py\", line 139, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/runner.py\", line 100, in main\n    wait(jobs,f'development_step_{step}')\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/runner.py\", line 54, in wait\n    if failed:raise RuntimeError(('STAGE_CHILD_FAILED',failed))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: ('STAGE_CHILD_FAILED', [('development_G1_teacher_temporal_50_1', 1)])\n",
+    "time": 1794295779.988514
+  },
+  "cache_snapshot": {
+    "status": "RUNNING",
+    "READY_training_windows": 32,
+    "cache_bytes": 38595074448,
+    "positions": {
+      "G0_teacher_spatial": 200,
+      "G1_teacher_temporal": 200
+    },
+    "next_windows": {
+      "G0_teacher_spatial": "004bec6f4ed741ec311180dd0db9f431627dce9fc44039146f2a66da7a37085a",
+      "G1_teacher_temporal": "004bec6f4ed741ec311180dd0db9f431627dce9fc44039146f2a66da7a37085a"
+    },
+    "produced": 295,
+    "windows_per_second": 0.0324980078998615,
+    "producer_latency_sum": 13315.878632307053,
+    "active": {
+      "e5f66dd51d26ff09b76231649276578e87ea716540e99b238f97d865e783f589": {
+        "PID": 1817370,
+        "physical_GPU": 0,
+        "peak_MiB": 35277,
+        "GPU_utilization": 93
+      }
+    },
+    "time": 1794295993.9494734
+  },
+  "training_updates": {
+    "G0_teacher_spatial": 50,
+    "G1_teacher_temporal": 50
+  },
+  "hypothesis": "An evicted key kept its prior receipt; a regenerated tensor became visible before its new receipt while writer did not take consumer lease",
+  "original_sources_modified": false,
+  "time": 1794295994.2180462,
+  "verified_cause": "Regenerated tensor could be seen with previous-generation receipt before publication finished; writer now shares consumer/eviction lease and old receipt is retired before generation",
+  "cache_reverification": "audits/cache_pair_reverification.json",
+  "regression": "audits/cache_publication_regression.json",
+  "archived_failure": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/audits/resolved_failures/runner_cache_pair_1794296328331923843.json",
+  "evaluation_workers_reloaded": [],
+  "checkpoints": {
+    "G0_teacher_spatial": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G0_teacher_spatial/training/checkpoints/step_0050.pt",
+      "SHA256": "059b1f4f164b35570eb3a5bf1d26c8369847e3b86fc8b2f6fae2bd5fe895088e",
+      "updates": 50
+    },
+    "G1_teacher_temporal": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G1_teacher_temporal/training/checkpoints/step_0050.pt",
+      "SHA256": "5c97da2eefca510ce29180f4875992557e7b9e1b036f0e375e00341a54237725",
+      "updates": 50
+    }
+  },
+  "source_protocol_changed": false,
+  "hash_checks_not_relaxed": true,
+  "resumed_at": 1794296328.3335733
+}

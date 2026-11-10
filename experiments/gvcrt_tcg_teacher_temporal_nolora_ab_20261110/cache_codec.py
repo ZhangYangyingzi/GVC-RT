@@ -66,7 +66,8 @@ def load_raft(device):
 
 def ensure(row,qp,training=False,rank=0):
     env();key,path,rp=cache_paths(row,qp,training)
-    with lock('locks/derived_'+key+'.lock',blocking=True):
+    # Tensor and receipt are one generation; consumers and eviction share this lease.
+    with lock('locks/lease_'+key+'.lock',blocking=True), lock('locks/derived_'+key+'.lock',blocking=True):
         if path.exists():
             if not rp.exists():
                 import torch
@@ -75,6 +76,9 @@ def ensure(row,qp,training=False,rank=0):
             a=load(rp);assert a['status']=='PASS' and a['cache_identity']==key and a['cache_bytes']==path.stat().st_size and sha(path)==a['cache_sha256']
             if training:assert a['actual_qps']==row['actual_frame_qps']
             return a
+        if rp.exists():
+            assert rp.is_relative_to(ROOT)
+            archived=ROOT/'audits/codec_cache_history'/key/f'{time.time_ns()}.json';archived.parent.mkdir(parents=True,exist_ok=True);rp.replace(archived)
         disk();import torch,numpy as np
         from original_context import runtime
         from original_runtime import load_models

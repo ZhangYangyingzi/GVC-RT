@@ -6,15 +6,19 @@ import traceback
 
 def ready(row,qp,training,verify=False):
     key,p,rp=cache_paths(row,qp,training)
-    if not p.exists() or not rp.exists():return False
-    a=load(rp);assert a['status']=='PASS' and a['cache_identity']==key and p.stat().st_size==a['cache_bytes']
-    if verify:assert sha(p)==a['cache_sha256']
-    if training:
-        _,t,tp=teacher_paths(row,qp)
-        if not t.exists() or not tp.exists():return False
-        ta=load(tp);assert ta['status']=='PASS' and ta['codec_identity']==key and ta['Teacher_SHA256']==TEACHER_SHA
-        if verify:assert sha(t)==ta['SHA256']
-    return True
+    try:
+        # Readiness must not expose a tensor whose writer is still publishing its receipt.
+        with lock('locks/derived_'+key+'.lock'):
+            if not p.exists() or not rp.exists():return False
+            a=load(rp);assert a['status']=='PASS' and a['cache_identity']==key and p.stat().st_size==a['cache_bytes']
+            if verify:assert sha(p)==a['cache_sha256']
+            if training:
+                _,t,tp=teacher_paths(row,qp)
+                if not t.exists() or not tp.exists():return False
+                ta=load(tp);assert ta['status']=='PASS' and ta['codec_identity']==key and ta['Teacher_SHA256']==TEACHER_SHA
+                if verify:assert sha(t)==ta['SHA256']
+            return True
+    except (BlockingIOError,FileNotFoundError):return False
 
 def request(row,qp,training):
     key,_,_=cache_paths(row,qp,training)
@@ -59,7 +63,11 @@ def evict_native(cfg,need_bytes=0):
         if inventory()+need_bytes<=cfg['derived_byte_cap'] and shutil.disk_usage(ROOT).free-need_bytes>=cfg['min_free_bytes'] and len(candidates)<=cfg['max_native_ready']:break
         try:
             with lock('locks/lease_'+p.stem+'.lock'):
-                if p.exists():p.unlink();candidates.remove(p)
+                if p.exists():
+                    rp=ROOT/'audits/codec_cache'/f'{p.stem}.json'
+                    if rp.exists():
+                        archived=ROOT/'audits/codec_cache_history'/p.stem/f'{time.time_ns()}.json';archived.parent.mkdir(parents=True,exist_ok=True);rp.replace(archived)
+                    p.unlink();candidates.remove(p)
         except BlockingIOError:continue
 
 def task_list(rows,cfg,pos):
@@ -91,7 +99,8 @@ def produce():
                     if req.exists():req.unlink()
                     dt=time.time()-j['start'];produced+=1;latency+=dt;event('shared_cache_READY',key=key,training=a['training'],seconds=dt,physical_GPU=j['gpu'],total_GPU_peak_MiB=j['peak'],PID=j['p'].pid);j['log'].close();active.pop(key)
                 pos=positions();evict_training(rows,pos);evict_native(cfg)
-                jobs=task_list(rows,cfg,pos);free=[g for g in cfg['cache_GPUs'] if g not in {j['gpu'] for j in active.values()}]
+                assert set(cfg['cache_GPUs']).issubset({0,1,2,3})
+                jobs=task_list(rows,cfg,pos);free=[g for g in cfg['cache_GPUs'] if g not in {j['gpu'] for j in active.values()}][:max(0,cfg['max_cache_workers']-len(active))]
                 backpressure=False
                 if not stopping:
                     for a in jobs:
