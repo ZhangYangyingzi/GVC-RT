@@ -1,0 +1,40 @@
+{
+  "status": "REPAIR_VERIFIED_RESUMING",
+  "failed_keys": [
+    {
+      "key": "d3428096118b3659eb39cd0f94c7ef29ebade334dbb0cc15f445463e5b337ed4",
+      "slot": 342,
+      "verified_now": true
+    },
+    {
+      "key": "d05fb0d2682290b5ca707d44e0cce3498a2c22f551e3063427fbcf7bd9c5089f",
+      "slot": 343,
+      "verified_now": true
+    }
+  ],
+  "checkpoints": {
+    "G0_teacher_spatial": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G0_teacher_spatial/training/latest.pt",
+      "SHA256": "e6b0b4b14394a69dfd800d535f893274c6606596423882c634d1e37947fe36ba",
+      "updates": 85,
+      "RNG_ranks": 2
+    },
+    "G1_teacher_temporal": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G1_teacher_temporal/training/latest.pt",
+      "SHA256": "1414aa8dbea10003696ba3f23fd3451ee2c17557b0a7b661ca26511164065331",
+      "updates": 85,
+      "RNG_ranks": 2
+    }
+  },
+  "producer_error": "nonblocking readiness returned false; complete tensors, receipts and SHA currently verify",
+  "time": 1794305340.867781,
+  "resolved_failure_records": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/audits/resolved_failures/cache_failure_step85_1794305480128109264.json",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/audits/resolved_failures/runner_failure_step85_1794305480128189438.json"
+  ],
+  "reason": "Strict cache completion verification now waits for transient lock; polling remains nonblocking. Runner resumes after already validated step50 instead of asserting training must still be50.",
+  "protocol_or_loss_changed": false,
+  "repeating_training_or_step50_validation": false,
+  "source_steps": 85,
+  "time_repaired": 1794305480.128276
+}

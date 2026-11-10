@@ -8,7 +8,7 @@ def ready(row,qp,training,verify=False):
     key,p,rp=cache_paths(row,qp,training)
     try:
         # Readiness must not expose a tensor whose writer is still publishing its receipt.
-        with lock('locks/derived_'+key+'.lock'):
+        with lock('locks/derived_'+key+'.lock',blocking=verify):
             if not p.exists() or not rp.exists():return False
             a=load(rp);assert a['status']=='PASS' and a['cache_identity']==key and p.stat().st_size==a['cache_bytes']
             if verify:assert sha(p)==a['cache_sha256']
@@ -94,7 +94,8 @@ def produce():
                     code=j['p'].poll();raw=subprocess.check_output(['nvidia-smi','--query-gpu=memory.used,utilization.gpu','--format=csv,noheader,nounits','-i',str(j['gpu'])],text=True).strip().split(',')
                     j['peak']=max(j['peak'],int(raw[0]));j['utilization']=int(raw[1])
                     if code is None:continue
-                    assert code==0,('CACHE_CHILD_FAILED',key,code,j['gpu']);a=j['job'];assert ready(a['row'],a['qp'],a['training'],True)
+                    assert code==0,('CACHE_CHILD_FAILED',key,code,j['gpu']);a=j['job']
+                    assert ready(a['row'],a['qp'],a['training'],True),('CACHE_COMPLETION_NOT_VERIFIABLE',key,j['gpu'])
                     req=ROOT/'cache/requests'/f'{key}.json'
                     if req.exists():req.unlink()
                     dt=time.time()-j['start'];produced+=1;latency+=dt;event('shared_cache_READY',key=key,training=a['training'],seconds=dt,physical_GPU=j['gpu'],total_GPU_peak_MiB=j['peak'],PID=j['p'].pid);j['log'].close();active.pop(key)

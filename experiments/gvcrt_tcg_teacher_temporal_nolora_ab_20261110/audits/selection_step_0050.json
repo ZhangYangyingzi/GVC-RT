@@ -1,0 +1,140 @@
+{
+  "status": "PROVISIONAL",
+  "last_common_step": 50,
+  "groups": {
+    "G0_teacher_spatial": {
+      "history": [
+        {
+          "step": 50,
+          "S": 0.9585751248190538,
+          "ratio_vs_B300": 1.0097403226900596,
+          "qualified": false,
+          "guards": {
+            "0": {
+              "DISTS": {
+                "value": 0.11245952703757212,
+                "noLoRA_limit": 0.1094537796912482,
+                "B300_limit": 0.10960688445251435,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.31683268323831726,
+                "noLoRA_limit": 0.32311372101867164,
+                "B300_limit": 0.3239757925433514,
+                "PASS": true
+              }
+            },
+            "5": {
+              "DISTS": {
+                "value": 0.07604080648161471,
+                "noLoRA_limit": 0.07274317813338711,
+                "B300_limit": 0.07268013457622147,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.22762554201472085,
+                "noLoRA_limit": 0.2314108880285494,
+                "B300_limit": 0.2316322971282716,
+                "PASS": true
+              }
+            },
+            "9": {
+              "DISTS": {
+                "value": 0.06511883210623637,
+                "noLoRA_limit": 0.06167205578822177,
+                "B300_limit": 0.06150902940629749,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.19754379476216855,
+                "noLoRA_limit": 0.20056214349166113,
+                "B300_limit": 0.20067005450200667,
+                "PASS": true
+              }
+            }
+          },
+          "qualified_improvement": false,
+          "patience": 1
+        }
+      ],
+      "patience": 1,
+      "patience_satisfied": false,
+      "step": 50,
+      "S": 0.9585751248190538,
+      "qualified": false,
+      "qualification": "NOT_QUALIFIED",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G0_teacher_spatial/training/checkpoints/step_0050.pt",
+      "checkpoint_SHA256": "059b1f4f164b35570eb3a5bf1d26c8369847e3b86fc8b2f6fae2bd5fe895088e"
+    },
+    "G1_teacher_temporal": {
+      "history": [
+        {
+          "step": 50,
+          "S": 0.9596471595541823,
+          "ratio_vs_B300": 1.0108595254506787,
+          "qualified": false,
+          "guards": {
+            "0": {
+              "DISTS": {
+                "value": 0.11229612203896977,
+                "noLoRA_limit": 0.1094537796912482,
+                "B300_limit": 0.10960688445251435,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.31567065897979774,
+                "noLoRA_limit": 0.32311372101867164,
+                "B300_limit": 0.3239757925433514,
+                "PASS": true
+              }
+            },
+            "5": {
+              "DISTS": {
+                "value": 0.07725866936380044,
+                "noLoRA_limit": 0.07274317813338711,
+                "B300_limit": 0.07268013457622147,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.22813173591566738,
+                "noLoRA_limit": 0.2314108880285494,
+                "B300_limit": 0.2316322971282716,
+                "PASS": true
+              }
+            },
+            "9": {
+              "DISTS": {
+                "value": 0.06636487066862173,
+                "noLoRA_limit": 0.06167205578822177,
+                "B300_limit": 0.06150902940629749,
+                "PASS": false
+              },
+              "LPIPS_VGG": {
+                "value": 0.19834573167463532,
+                "noLoRA_limit": 0.20056214349166113,
+                "B300_limit": 0.20067005450200667,
+                "PASS": true
+              }
+            }
+          },
+          "qualified_improvement": false,
+          "patience": 1
+        }
+      ],
+      "patience": 1,
+      "patience_satisfied": false,
+      "step": 50,
+      "S": 0.9596471595541823,
+      "qualified": false,
+      "qualification": "NOT_QUALIFIED",
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_teacher_temporal_nolora_ab_20261110/experiments/gvcrt_tcg_teacher_temporal_nolora_ab_20261110/G1_teacher_temporal/training/checkpoints/step_0050.pt",
+      "checkpoint_SHA256": "5c97da2eefca510ce29180f4875992557e7b9e1b036f0e375e00341a54237725"
+    }
+  },
+  "stop": false,
+  "stop_reason": null,
+  "score": "mean_QP(mean_video(PtoP Sobel)/mean_video(noLoRA0 PtoP Sobel))",
+  "min_delta": 0.0005,
+  "final_test_quality_used": false,
+  "time": 1794301099.136832
+}

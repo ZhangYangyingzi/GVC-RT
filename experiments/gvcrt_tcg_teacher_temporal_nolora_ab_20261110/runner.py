@@ -85,6 +85,13 @@ def main():
             for step in [50,100,200,300]:
                 frozen=ROOT/'selection.json'
                 if frozen.exists() and load(frozen)['status']=='FROZEN':break
+                recorded=ROOT/f'audits/selection_step_{step:04d}.json'
+                if recorded.exists():
+                    previous=load(recorded);assert previous['last_common_step']==step
+                    assert all(load(ROOT/g/'training/progress.json')['committed_updates']>=step for g in GROUPS)
+                    for g in GROUPS:complete(points('development',g,step))
+                    if previous['stop']:break
+                    continue
                 names=[]
                 for g,gpu in zip(GROUPS,['0,1','2,3']):
                     progress=ROOT/g/'training/progress.json';done=load(progress)['committed_updates'] if progress.exists() else 0
