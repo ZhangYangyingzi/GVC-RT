@@ -30,13 +30,17 @@ def ensure_auxiliary():
 
 def heartbeat(stage):
  from evaluation_queue import progress
- from pipeline import positions
+ from pipeline import positions,ready
  a=dict(status='RUNNING',complete=False,current_stage=stage,groups={},cache=load(ROOT/'cache/progress.json') if (ROOT/'cache/progress.json').exists() else None,active_processes={n:dict(PID=p.pid,returncode=p.poll()) for n,p in CHILDREN.items()},GPU_allocation={g:i for i,g in enumerate(GROUPS)},GPU3='shared frozen codec/GT-flow producer and serialized evaluation',time=time.time())
  rows=plan_rows()
  for g in GROUPS:
   root=ROOT/g/'training';p=root/'progress.json';u=load(p)['committed_updates'] if p.exists() else 0;rec=[load(p) for p in (root/'receipts').glob('*.json')];state='MECHANICAL_CHECK_FAILED' if g==GROUPS[2] and (ROOT/'audits/H2_gate.json').exists() and load(ROOT/'audits/H2_gate.json')['status']!='PASS' else 'TRAINING_OR_WAITING_CACHE' if u<100 else 'TRAINING_FINISHED_EVALUATION_PENDING'
   if u==100 and progress(g,50)==progress(g,100)==96:state='DEVELOPMENT_COMPLETE'
+  if state=='TRAINING_OR_WAITING_CACHE':state='TRAINING' if all(ready(r,r['external_qp'],True) for r in rows[u*4:u*4+4]) else 'WAITING_WINDOW'
   a['groups'][g]=dict(committed_updates=u,state=state,step50_points=progress(g,50),step100_points=progress(g,100),next_window=rows[u*4]['sample_key'] if u<100 and state!='MECHANICAL_CHECK_FAILED' else None,cache_wait_seconds=sum(r['cache_wait_seconds'] for r in rec),recent_seconds_per_update=sum(r['seconds'] for r in rec[-10:])/len(rec[-10:]) if rec else None)
+ a['cache_request_queue_length']=len(list((ROOT/'cache/requests').glob('*.json')))
+ a['evaluation_queue_length']=sum(not (ROOT/'audits/evaluation_queue_done'/p.name).exists() for p in (ROOT/'evaluation_queue/jobs').glob('*.json'))
+ a['baseline_B300_points']=progress('B300',0)
  dump(ROOT/'status.json',a)
  last=ROOT/'readable_status.json'
  if not last.exists() or time.time()-load(last)['time']>=60:dump(last,a);event('heartbeat',stage=stage,groups=a['groups'],READY=None if a['cache'] is None else a['cache']['READY_training_windows'])

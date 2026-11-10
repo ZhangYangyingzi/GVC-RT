@@ -2,10 +2,18 @@
 from common_s2 import *
 import argparse,traceback
 ROOT_NAMES={'.gitignore','protocol.json','status.json','source_inputs.json','source_manifest.json','initialization_audit.json','trainable_parameters.json','gradient_calibration.json','scheduler_config.json','training_history.csv','development_metrics.csv','development_paired_by_video_qp.csv','development_matched_steps.csv','latent_temporal_diagnostics.csv','equivariance_controls.csv','equivariance_development_controls.csv','edge_strength_by_video_qp.csv','selection.json','training_completion.json','metrics.csv','rd_points_by_dataset.csv','video_manifest.json','checkpoint_manifest.json','final_integrity.json','final_test_status.json','REPORT.md','publication_status.json','task_started.json','visual_ROIs.json'}
-CODE_NAMES={'b300_loader.py','cache_codec.py','cache_job.py','calibrate.py','common_s2.py','convlora.py','data_reader.py','eval_data.py','evaluate.py','evaluation.py','evaluation_queue.py','experiment_model.py','fp32_island.py','freeze.py','inherited_reader.py','integrity.py','loss.py','media.py','model_context.py','original_context.py','original_runtime.py','pipeline.py','prepare.py','preflight.py','publication.py','quality.py','results.py','runner.py','selection.py','supervisor.py','temporal.py','train.py','videos.py','test_mechanics.py'}
+CODE_NAMES={'b300_loader.py','cache_codec.py','cache_job.py','calibrate.py','common_s2.py','convlora.py','data_reader.py','eval_data.py','evaluate.py','evaluation.py','evaluation_queue.py','experiment_model.py','fp32_island.py','freeze.py','inherited_reader.py','integrity.py','loss.py','media.py','model_context.py','original_context.py','original_runtime.py','pipeline.py','prepare.py','preflight.py','publication.py','quality.py','results.py','runner.py','selection.py','supervisor.py','temporal.py','train.py','videos.py','test_mechanics.py','verify_checkpoint.py'}
 SUBTREES={'audits':{'.json','.csv','.md'},'manifests':{'.json'},'plans':{'.json','.gz'},'receipts':{'.gz'},'runtime_tree':{'.py','.json','.cpp','.h','.cu','.cuh','.md'},'reference_tree':{'.py','.json','.cpp','.h','.cu','.cuh','.md'},'vendor':{'.py','.json','.cpp','.h','.cu','.cuh','.md'}}
 
-def git(args):return subprocess.run(['git',*args],cwd=WORKTREE,check=True,capture_output=True,text=True).stdout.strip()
+def git(args):
+    for attempt in range(4):
+        try:return subprocess.run(['git',*args],cwd=WORKTREE,check=True,capture_output=True,text=True).stdout.strip()
+        except subprocess.CalledProcessError as error:
+            network=args[0] in ['push','fetch','ls-remote']
+            transient=any(x in (error.stderr or '') for x in ['closed by remote host','Connection reset','Connection timed out','Could not resolve hostname'])
+            if not network or not transient or attempt==3:raise
+            event('publication_network_retry',operation=args[0],attempt=attempt+1,error=(error.stderr or '')[-500:]);time.sleep(5*(attempt+1))
+
 
 def allowlist():
     paths=[]
