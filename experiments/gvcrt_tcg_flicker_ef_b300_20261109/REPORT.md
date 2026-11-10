@@ -1,8 +1,8 @@
 # GVC-RT E/F B300 execution report
 
-Factual snapshot UTC epoch: 1794239918.4992812.
+Factual snapshot UTC epoch: 1794268806.1660283.
 
-Status: INCOMPLETE
+Status: RESULTS_READY_PUBLICATION_PENDING
 
 Initialization: B300 `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt`; SHA256 `7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85`. Source commit `2e70bdc4ad99934d987fe8c484f8430345792b83`.
 
@@ -12,8 +12,8 @@ Scope: ULong开发子集12视频, QP0/5/9,64 frames. Original/A2000/B300 inherit
 
 Incremental cache: initially one GPU producer; now 4 controlled producers on GPUs [4, 5, 6, 7], authorized by the user.16 distinct startup windows,32-window prefetch, bounded bytes and backpressure. Rank readiness coordinated at full optimizer boundaries. Both cursors protect cache retention.
 
-E: additional optimizer updates=100; completed development points=36; stop reason=not stopped/completed.
-F: additional optimizer updates=100; completed development points=36; stop reason=not stopped/completed.
+E: additional optimizer updates=300; completed development points=108; stop reason=MAX_300_ADDITIONAL_UPDATES.
+F: additional optimizer updates=300; completed development points=108; stop reason=MAX_300_ADDITIONAL_UPDATES.
 
 No method superiority conclusion is made. MP4 preview bytes are excluded from R-D data. All neural codec bpp values originate from verified real RANS streams.
 

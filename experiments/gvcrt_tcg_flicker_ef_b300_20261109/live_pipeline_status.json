@@ -1,14 +1,14 @@
 {
-  "status": "RUNNING",
+  "status": "FAILED",
   "complete": false,
-  "current_stage": "\u8bad\u7ec3",
-  "heartbeat": 1794240571.7107954,
+  "current_stage": "\u53d1\u5e03",
+  "heartbeat": 1794250798.749338,
   "groups": {
     "E": {
-      "committed_optimizer_steps": 127,
-      "next_window": "d9fe24dd2f1bc9beaead17853a7689a3872f0ed2689c1b8c8d8d4cd66b190bad",
-      "next_cursor": 508,
-      "cumulative_committed_cache_wait_seconds": 2324.6628873348236,
+      "committed_optimizer_steps": 300,
+      "next_window": null,
+      "next_cursor": 1200,
+      "cumulative_committed_cache_wait_seconds": 4640.891477584839,
       "seconds_from_task_start_to_first_formal_step": 977.5881803035736,
       "training_GPUs": [
         0,
@@ -16,10 +16,10 @@
       ]
     },
     "F": {
-      "committed_optimizer_steps": 127,
-      "next_window": "d9fe24dd2f1bc9beaead17853a7689a3872f0ed2689c1b8c8d8d4cd66b190bad",
-      "next_cursor": 508,
-      "cumulative_committed_cache_wait_seconds": 2352.1524007320404,
+      "committed_optimizer_steps": 300,
+      "next_window": null,
+      "next_cursor": 1200,
+      "cumulative_committed_cache_wait_seconds": 4667.965726852417,
       "seconds_from_task_start_to_first_formal_step": 975.5759704113007,
       "training_GPUs": [
         2,
@@ -29,7 +29,7 @@
   },
   "READY_windows": 0,
   "cache_bytes": 0,
-  "cache_production_windows_per_second": 0.08158018582286918,
+  "cache_production_windows_per_second": 0.0726554467996396,
   "cache_GPUs": [
     4,
     5,
@@ -37,32 +37,7 @@
     7
   ],
   "cache_workers": 4,
-  "active_cache_producers": {
-    "b20efd6c7831c796ebb59c22d8f360f3228c0a2dcb4f9b4b775dc89dbf7b9835": {
-      "physical_GPU": 4,
-      "PID": 1043848,
-      "started": 1794240550.8862493,
-      "peak_MiB": 3789
-    },
-    "6e0a4c2ca0109f08a6589a4cd6cf4672f9526aa33a80761736d4dc1ee48ff32a": {
-      "physical_GPU": 5,
-      "PID": 1043849,
-      "started": 1794240550.8875012,
-      "peak_MiB": 3763
-    },
-    "160e6ce5c2dd8717f09c435f3373d8b43644f1fa6468f1663119123927a6718f": {
-      "physical_GPU": 6,
-      "PID": 1043850,
-      "started": 1794240550.8887439,
-      "peak_MiB": 3793
-    },
-    "596454d558483df4f19864847944e71108a444744a4729fb1d3a4889d081901a": {
-      "physical_GPU": 7,
-      "PID": 1043877,
-      "started": 1794240552.3085392,
-      "peak_MiB": 3793
-    }
-  },
+  "active_cache_producers": {},
   "prefetch_target": 32,
   "disk_byte_cap": 171798691840,
   "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1,2,3 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py"

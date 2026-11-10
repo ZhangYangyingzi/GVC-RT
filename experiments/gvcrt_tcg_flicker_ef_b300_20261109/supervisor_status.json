@@ -1,13 +1,44 @@
 {
-  "status": "RUNNING",
+  "status": "DIAGNOSTIC_STOP",
   "complete": false,
-  "PID": 819517,
-  "heartbeat": 1794240575.735207,
-  "controller_active": true,
-  "cache_active": true,
-  "children": {
-    "monitor": 819518
+  "reason": "recorded engineering/training/cache failure; automatic retry disabled",
+  "runner": {
+    "status": "FAILED",
+    "complete": false,
+    "current_stage": "\u53d1\u5e03",
+    "exception": "AssertionError('RESULTS_PUBLICATION_FAILED; resume publication only')",
+    "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py\", line 141, in main\n    report();stage('\u53d1\u5e03');finalize_publication()\n                           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py\", line 42, in finalize_publication\n    assert publish('results'),'RESULTS_PUBLICATION_FAILED; resume publication only'\n           ^^^^^^^^^^^^^^^^^^\nAssertionError: RESULTS_PUBLICATION_FAILED; resume publication only\n",
+    "children": {
+      "status_monitor": {
+        "pid": 762447,
+        "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/status_monitor.log",
+        "devices": "0,1,2,3"
+      },
+      "eval_E": {
+        "pid": 1227521,
+        "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/eval_E.log",
+        "devices": "0,1,2,3"
+      },
+      "eval_F": {
+        "pid": 1227522,
+        "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/eval_F.log",
+        "devices": "0,1,2,3"
+      },
+      "train_E": {
+        "pid": 1136019,
+        "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/train_E.log",
+        "devices": "0,1"
+      },
+      "train_F": {
+        "pid": 1136020,
+        "log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/logs/train_F.log",
+        "devices": "2,3"
+      }
+    },
+    "resume_command": "CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1,2,3 /Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_ef_b300_20261109/experiments/gvcrt_tcg_flicker_ef_b300_20261109/runner.py",
+    "time": 1794250796.9830775
   },
-  "recorded_failures_are_not_retried": true,
-  "only_this_experiment": true
+  "cache_failure": null,
+  "heartbeat": 1794250800.6594627,
+  "PID": 819517
 }

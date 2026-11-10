@@ -22,7 +22,7 @@
     "common_s2.py": "545ce7d40ec9500f4af6fcc74cf805d0c9387f8e4d199864d9999d99d0a046e6",
     "prepare.py": "338c8652e4c46a29e35ec9a5ee2af95d6fc5f0fe1b3562cacc2ab93292e462bf",
     "fp32_island.py": "ce3b1df339c03252a303f8241e8c5a9c6b7df8e83d97d9ee71319f752a6dc763",
-    "publish.py": "081121eed417f2f674b514f59ea006d7eb6d6965a2b989bb72d6ec6415a30a37",
+    "publish.py": "7c13f643a8b59d38279d3eb5786b9057e3ac4df910de45528e49a2da45fb8905",
     "inherited_reader.py": "a789f7765df5ea8d2b103398e81b714ecc9c310c3fa407737ed21b5e11e9df6e",
     "evaluate.py": "1688631ad43cef1c878c2bcf15e370e0adae7a3f1f3227b1f6057e985d1316a2",
     "deliver.py": "32694d98ba2020899ed43ce3fac43dc5cbd8426d30ef408e197acf027ec034ff",
@@ -250,6 +250,22 @@
         }
       },
       "training_model_loss_optimizer_data_unchanged": true
+    },
+    {
+      "time": 1794268738.1907606,
+      "reason": "separately produced analysis CSVs use CRLF and were captured by the broad file-type allowlist; exclude analysis directory from execution-only publication and unstage it without editing or deleting those files",
+      "format_error_files": {
+        "experiments/gvcrt_tcg_flicker_ef_b300_20261109/analysis/interim_review_20261110_step0100/matched_PtoP_edge.csv": 73,
+        "experiments/gvcrt_tcg_flicker_ef_b300_20261109/analysis/interim_review_20261110_step0100/paired_summary.csv": 153
+      },
+      "files": {
+        "publish.py": {
+          "before_SHA256": "081121eed417f2f674b514f59ea006d7eb6d6965a2b989bb72d6ec6415a30a37",
+          "after_SHA256": "7c13f643a8b59d38279d3eb5786b9057e3ac4df910de45528e49a2da45fb8905"
+        }
+      },
+      "training_evaluation_video_results_unchanged": true,
+      "completed_stages_not_replayed": true
     }
   ]
 }

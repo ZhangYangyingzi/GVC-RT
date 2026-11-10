@@ -10,7 +10,7 @@ def allowlist():
     for p in ROOT.rglob('*'):
         if not p.is_file() or p.is_symlink():continue
         rel=p.relative_to(ROOT);parts=rel.parts
-        if any(x in parts for x in ['cache','tmp','locks','__pycache__','checkpoints','smoke','engineering','ROI']):continue
+        if any(x in parts for x in ['cache','tmp','locks','__pycache__','checkpoints','smoke','engineering','ROI','analysis']):continue
         if 'receipts' in parts and parts[0] in GROUPS:continue
         if parts[0]=='logs' and p.name!='bounded_summary.json':continue
         if p.name in ['publication_remote_receipt.json'] or p.suffix in ['.pt','.pth','.ckpt','.bin','.log','.lock','.mkv','.mp4','.mov','.yuv','.so']:continue
