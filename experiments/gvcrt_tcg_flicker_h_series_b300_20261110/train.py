@@ -15,7 +15,11 @@ def run(group,until,smoke=False):
  root=ROOT/group/('engineering' if smoke else 'training');root.mkdir(parents=True,exist_ok=True);latest=root/'latest.pt';rows=plan_rows();coeff=load(ROOT/'gradient_calibration.json');c=construct(group,True,0);seed(TRAIN_SEED);step=0
  if not smoke:assert load(ROOT/f'audits/engineering_{group}.json')['status']=='PASS'
  if latest.exists():
-  a=torch.load(latest,map_location='cpu',weights_only=True);assert a['protocol_SHA256']==sha(ROOT/'protocol.json') and a['plan_SHA256']==sha(ROOT/'plans/index.json');restore(c,a);restore_rng(a['RNG']);step=a['committed_updates'];del a
+  a=torch.load(latest,map_location='cpu',weights_only=True);assert a['protocol_SHA256']==sha(ROOT/'protocol.json') and a['plan_SHA256']==sha(ROOT/'plans/index.json');restore(c,a);restore_rng(a['RNG']);step=a['committed_updates']
+  if step:
+   assert a['last_receipt']['global_optimizer_updates']==step
+   dump(root/f'receipts/{step:04d}.json',a['last_receipt']);dump(root/'progress.json',dict(status='RUNNING',committed_updates=step,next_cursor=4*step,seconds=a['last_receipt']['seconds'],time=time.time()))
+  del a
  frozen=tensor_hash(frozen_items(c))
  def save(s,receipt):
   names={id(p):n for n,p in c['named']};a=dict(experiment_group=group,B300_SHA256=B300_SHA,common_step0_SHA256=sha(ROOT/'checkpoints/common_B300_step0.pt'),committed_updates=s,additional_updates=s,next_cursor=4*s,trainable_state=trainable_state(c),optimizer=c['optimizer'].state_dict(),optimizer_name_groups={g['group_name']:[names[id(p)] for p in g['params']] for g in c['optimizer'].param_groups},RNG=rng_state(),protocol_SHA256=sha(ROOT/'protocol.json'),plan_SHA256=sha(ROOT/'plans/index.json'),calibration_SHA256=sha(ROOT/'gradient_calibration.json'),s=.5,last_receipt=receipt,provenance=c['provenance'])

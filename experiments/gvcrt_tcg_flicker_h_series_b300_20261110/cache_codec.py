@@ -12,6 +12,7 @@ def cache_paths(row,qp,training):
         oldkey=legacy_key(row,qp,training)
         for src in [PARENT_EXPERIMENT,EF_SOURCE,G_SOURCE]:
             old=src/'cache/derived'/f'{oldkey}.pt';proof=src/'audits/codec_cache'/f'{oldkey}.json'
+            if (ROOT/'audits/cache_rejected'/f'{oldkey}.json').exists():continue
             if old.exists() and proof.exists():
                 a=load(proof)
                 if a['status']=='PASS' and a['cache_identity']==oldkey and old.stat().st_size==a['cache_bytes']:return oldkey,old,proof

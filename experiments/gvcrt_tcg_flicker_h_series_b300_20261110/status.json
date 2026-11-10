@@ -4,22 +4,22 @@
   "current_stage": "training_and_development",
   "groups": {
     "H0_control": {
-      "committed_updates": 8,
-      "state": "TRAINING_OR_WAITING_CACHE",
+      "committed_updates": 12,
+      "state": "WAITING_WINDOW",
       "step50_points": 0,
       "step100_points": 0,
-      "next_window": "4e244bb5a64ec4a644449f3b6fd03cec8c7410184cdf4a86de22334023c284aa",
-      "cache_wait_seconds": 67.55982255935669,
-      "recent_seconds_per_update": 29.43709546327591
+      "next_window": "1c38efaff8d47d4728ef7269964ff132083f4de1535139f64251d5de41123545",
+      "cache_wait_seconds": 334.9056589603424,
+      "recent_seconds_per_update": 54.577478194236754
     },
     "H1_latent_self": {
-      "committed_updates": 8,
-      "state": "TRAINING_OR_WAITING_CACHE",
+      "committed_updates": 12,
+      "state": "WAITING_WINDOW",
       "step50_points": 0,
       "step100_points": 0,
-      "next_window": "4e244bb5a64ec4a644449f3b6fd03cec8c7410184cdf4a86de22334023c284aa",
-      "cache_wait_seconds": 63.5203001499176,
-      "recent_seconds_per_update": 29.529130697250366
+      "next_window": "1c38efaff8d47d4728ef7269964ff132083f4de1535139f64251d5de41123545",
+      "cache_wait_seconds": 328.83485293388367,
+      "recent_seconds_per_update": 54.47786929607391
     },
     "H2_latent_equiv": {
       "committed_updates": 0,
@@ -33,50 +33,42 @@
   },
   "cache": {
     "status": "RUNNING",
-    "READY_training_windows": 4,
-    "cache_bytes": 350295000,
+    "READY_training_windows": 1,
+    "cache_bytes": 87573846,
     "positions": {
-      "H0_control": 32,
-      "H1_latent_self": 32,
+      "H0_control": 48,
+      "H1_latent_self": 48,
       "H2_latent_equiv": 400
     },
     "next_windows": {
-      "H0_control": "4e244bb5a64ec4a644449f3b6fd03cec8c7410184cdf4a86de22334023c284aa",
-      "H1_latent_self": "4e244bb5a64ec4a644449f3b6fd03cec8c7410184cdf4a86de22334023c284aa",
+      "H0_control": "1c38efaff8d47d4728ef7269964ff132083f4de1535139f64251d5de41123545",
+      "H1_latent_self": "1c38efaff8d47d4728ef7269964ff132083f4de1535139f64251d5de41123545",
       "H2_latent_equiv": null
     },
-    "produced": 21,
-    "windows_per_second": 0.03987543538716314,
-    "producer_latency_sum": 519.0654969215393,
+    "produced": 4,
+    "windows_per_second": 0.04376325897248728,
+    "producer_latency_sum": 75.699622631073,
     "active": {
-      "a5dc76d806acba065e6250e21de628ce3c289060120e3d917f706c5028a908b0": {
-        "PID": 2193171,
+      "0f1d49a1bce17fab038ac58c181dab600a3399c6da323ab7ad3da8669fd3f18d": {
+        "PID": 2199298,
         "physical_GPU": 3,
-        "peak_MiB": 12561,
-        "GPU_utilization": 89
+        "peak_MiB": 12927,
+        "GPU_utilization": 41
       }
     },
-    "time": 1794318628.8280952
+    "time": 1794319015.9682748
   },
   "active_processes": {
-    "evaluation_queue": {
-      "PID": 2186367,
+    "producer": {
+      "PID": 2198088,
       "returncode": null
     },
-    "smoke_H0_control": {
-      "PID": 2186410,
-      "returncode": 0
-    },
-    "smoke_H1_latent_self": {
-      "PID": 2186411,
-      "returncode": 0
-    },
     "training_H0_control": {
-      "PID": 2187649,
+      "PID": 2198123,
       "returncode": null
     },
     "training_H1_latent_self": {
-      "PID": 2187650,
+      "PID": 2198124,
       "returncode": null
     }
   },
@@ -86,5 +78,8 @@
     "H2_latent_equiv": 2
   },
   "GPU3": "shared frozen codec/GT-flow producer and serialized evaluation",
-  "time": 1794318629.6428976
+  "time": 1794319017.0198529,
+  "cache_request_queue_length": 3,
+  "evaluation_queue_length": 1,
+  "baseline_B300_points": 1
 }

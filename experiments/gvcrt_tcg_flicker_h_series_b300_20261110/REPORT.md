@@ -16,8 +16,8 @@ H2 mechanical gate: MECHANICAL_CHECK_FAILED; median16px/8px error ratio atcrop64
 
 | Group | Added updates | Dev50 | Dev100 | Numerical screen |
 |---|---:|---:|---:|---|
-| H0_control | 8 | 0/96 | 0/96 | pending |
-| H1_latent_self | 8 | 0/96 | 0/96 | pending |
+| H0_control | 12 | 0/96 | 0/96 | pending |
+| H1_latent_self | 12 | 0/96 | 0/96 | pending |
 | H2_latent_equiv | 0 | 0/96 | 0/96 | pending |
 
 Mechanical screen compares every QP mean DISTS, LPIPS-Alex, LPIPS-VGG and FloLPIPS to≤1.005×B300 and requires meanQP P→P Sobel ratio S<1. Eligible50/100 checkpoints are selected by lowest S; differences below0.0005 prefer earlier. NOT_QUALIFIED never substitutes step0. This is a numerical screen, not a claim about human-visible flicker.
@@ -34,5 +34,6 @@ Measured equal-video aggregates:
 
 | Phase | Dataset | Model | Step | QP | bpp | PSNR | Alex | VGG | DISTS | FloLPIPS | P→P Sobel |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| development | ULong_development_32 | B300 | 0 | 0 | 0.00097541715 | 22.271714 | 0.18045326 | 0.30948489 | 0.092652048 | 0.11655664 | 0.0037107049 |
 
 This report records execution, coverage and numbers only. Integrity/publication states are in final_integrity.json and publication_status.json.

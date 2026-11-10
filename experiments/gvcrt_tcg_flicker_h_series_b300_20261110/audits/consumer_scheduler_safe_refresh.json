@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETED_STEP_BOUNDARY",
+  "before": {
+    "H0_control": {
+      "status": "RUNNING",
+      "committed_updates": 11,
+      "next_cursor": 44,
+      "seconds": 98.22110176086426,
+      "time": 1794318838.358686
+    },
+    "H1_latent_self": {
+      "status": "RUNNING",
+      "committed_updates": 11,
+      "next_cursor": 44,
+      "seconds": 97.70052409172058,
+      "time": 1794318838.3453128
+    }
+  },
+  "signals_only_owned_task": [
+    {
+      "PID": 2195435,
+      "script": "supervisor.py"
+    },
+    {
+      "PID": 2195436,
+      "script": "runner.py"
+    },
+    {
+      "PID": 2187649,
+      "group": "H0_control"
+    },
+    {
+      "PID": 2187650,
+      "group": "H1_latent_self"
+    }
+  ],
+  "reason": "Load requested corrupt-cache regeneration and atomic-cursor recovery; optimizer/RNG/data restored from latest; no repeated updates",
+  "time": 1794318924.174028
+}

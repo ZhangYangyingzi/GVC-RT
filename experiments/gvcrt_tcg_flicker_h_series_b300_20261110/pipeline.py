@@ -13,6 +13,15 @@ def ready(row,qp,training,verify=False):
             if verify:assert sha(p)==a['cache_sha256']
             return True
     except (BlockingIOError,FileNotFoundError):return False
+    except (AssertionError,json.JSONDecodeError) as error:
+        # Preserve the error record; retire only this task's invalid derived copy.
+        with lock('locks/lease_'+key+'.lock',blocking=True),lock('locks/derived_'+key+'.lock',blocking=True):
+            report=dict(status='REJECTED_REBUILD_REQUESTED',key=key,path=str(p),receipt=str(rp),reason=repr(error),observed_SHA256=sha(p) if p.exists() else None,previous_receipt_SHA256=sha(rp) if rp.exists() else None,original_sources_modified=False,time=time.time())
+            dump(ROOT/'audits/cache_rejected'/f'{key}.json',report)
+            if p.is_relative_to(ROOT) and p.exists():p.unlink()
+            if rp.is_relative_to(ROOT) and rp.exists():
+                dest=ROOT/'audits/codec_cache_history'/key/f'rejected_{time.time_ns()}.json';dest.parent.mkdir(parents=True,exist_ok=True);rp.replace(dest)
+        return False
 
 def request(row,qp,training):
     key,_,_=cache_paths(row,qp,training)
@@ -21,12 +30,13 @@ def request(row,qp,training):
 
 def wait_rows(rows,training=True,qp=None):
     begin=time.time()
-    for r in rows:request(r,r['external_qp'] if qp is None else qp,training)
-    while not all(ready(r,r['external_qp'] if qp is None else qp,training) for r in rows):
-        fail=ROOT/'audits/cache_failure.json'
-        if fail.exists():raise RuntimeError(('CACHE_PRODUCTION_FAILURE',load(fail)))
+    while True:
+        for r in rows:request(r,r['external_qp'] if qp is None else qp,training)
+        if all(ready(r,r['external_qp'] if qp is None else qp,training) for r in rows):
+            if all(ready(r,r['external_qp'] if qp is None else qp,training,True) for r in rows):return time.time()-begin
+        failure=ROOT/'audits/cache_failure.json'
+        if failure.exists():raise RuntimeError(('CACHE_PRODUCTION_FAILURE',load(failure)))
         time.sleep(.5)
-    return time.time()-begin
 
 def positions():
     out={}

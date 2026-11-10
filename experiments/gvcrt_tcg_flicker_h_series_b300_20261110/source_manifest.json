@@ -11,11 +11,11 @@
     "convlora.py": "95a5d9da50ea4ed43823fddd707bd25bb0d60e53ecaaaa41b1cce124fd8dec1a",
     "fp32_island.py": "ce3b1df339c03252a303f8241e8c5a9c6b7df8e83d97d9ee71319f752a6dc763",
     "loss.py": "37f750caf9dd6952e593d9bc44b5ddaa1d23e71d04b13892888c012800a966f3",
-    "train.py": "ae0ff7b991c30f5ed19e9e53458b646e986f60f4a6bab1f4e23e3c58b850069a",
+    "train.py": "117a25df2f0e6f720be28d5ebda51e0bbef31b659125203dd598792b36e91a33",
     "calibrate.py": "ff3bfed1c77cf59732f59c421cc0c525fed1566c2dc33c04362fd38a29274cd1",
     "preflight.py": "95a15dba171d7434caa785005e4c358f20f4571880be9ed6da311acfa13a82f9",
     "temporal.py": "433ee18778d53afb74013e81219034c7a573fea6c5935614382951e3049b42b0",
-    "cache_codec.py": "b77314657239be36190d62a16e5e15afd71536a028fdb528089ba05db75397b9",
+    "cache_codec.py": "591b3f18deb3ee353c86a8b0223503e68383127fe93bb5b3bfbb943f9c80a13e",
     "data_reader.py": "05c00af3004addb5ab6195ed0404e60017ec58c52e8c105d16cb9b579e333404",
     "inherited_reader.py": "253d1b8fb6b9de4ee8ede30596bccd3e50114ddac2c23710087bee2e639fd553",
     "eval_data.py": "2d3526cebf863f18d0b49aae214de3f8ecf75be28fd22b7b740ef53ceb83890c",
@@ -156,5 +156,26 @@
     "manifests/calibration_windows.json": "0f9604e167ee90b37a9c6eebc5d9c0bf59a8cfbc025d9c9d0208901fa2f82261",
     "manifests/MCL_JCV_30.json": "e62298d715170633547bcd12a3847657695e03b03cd0c6750506c5d9bae4f7db"
   },
-  "time": 1794318209.6292255
+  "time": 1794318209.6292255,
+  "implementation_corrections": [
+    {
+      "file": "cache_codec.py",
+      "before_SHA256": "b77314657239be36190d62a16e5e15afd71536a028fdb528089ba05db75397b9",
+      "after_SHA256": "591b3f18deb3ee353c86a8b0223503e68383127fe93bb5b3bfbb943f9c80a13e",
+      "reason": "A rejected read-only source cache is skipped so producer can rebuild a private compatible entry; source data and numeric codec/flow computation unchanged",
+      "protocol_SHA256": "9d0808ddcd4102d6caba591693db5dd1082c9611eff7aa170b2a031b28e90ca9",
+      "protocol_changed": false,
+      "training_updates_reset": false,
+      "time": 1794318842.8948154
+    },
+    {
+      "file": "train.py",
+      "before_SHA256": "ae0ff7b991c30f5ed19e9e53458b646e986f60f4a6bab1f4e23e3c58b850069a",
+      "after_SHA256": "117a25df2f0e6f720be28d5ebda51e0bbef31b659125203dd598792b36e91a33",
+      "reason": "Recover last committed receipt and progress cursor from atomic latest on restart; no optimizer, gradient, loss or sample changes",
+      "protocol_SHA256": "9d0808ddcd4102d6caba591693db5dd1082c9611eff7aa170b2a031b28e90ca9",
+      "protocol_changed": false,
+      "time": 1794318919.4684575
+    }
+  ]
 }
