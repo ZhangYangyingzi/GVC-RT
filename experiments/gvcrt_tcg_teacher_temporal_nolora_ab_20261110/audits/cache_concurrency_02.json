@@ -1,0 +1,49 @@
+{
+  "status": "ENABLED",
+  "before": {
+    "training_prefetch_windows": 16,
+    "startup_windows": 8,
+    "cache_GPUs": [
+      0
+    ],
+    "max_cache_workers": 1,
+    "derived_byte_cap": 96636764160,
+    "media_byte_cap": 32212254720,
+    "min_free_bytes": 107374182400,
+    "max_native_ready": 8,
+    "source_cache_reuse": true,
+    "heartbeat_seconds": 10,
+    "readable_status_seconds": 60
+  },
+  "after": {
+    "training_prefetch_windows": 32,
+    "startup_windows": 8,
+    "cache_GPUs": [
+      0,
+      2
+    ],
+    "max_cache_workers": 2,
+    "derived_byte_cap": 96636764160,
+    "media_byte_cap": 32212254720,
+    "min_free_bytes": 107374182400,
+    "max_native_ready": 8,
+    "source_cache_reuse": true,
+    "heartbeat_seconds": 10,
+    "readable_status_seconds": 60
+  },
+  "measured_overlap_peak_MiB_GPU0": 13795,
+  "measured_free_MiB": {
+    "0": 27105,
+    "1": 20145,
+    "2": 27302,
+    "3": 20207
+  },
+  "observed_training_compute_seconds": [
+    12.64,
+    18.08
+  ],
+  "observed_single_producer_window_seconds": 34.38,
+  "reason": "next batch waiting while compute consumers idle; >26GiB measured free on cache GPUs0 and2",
+  "no_training_protocol_change": true,
+  "time": 1794288417.407528
+}

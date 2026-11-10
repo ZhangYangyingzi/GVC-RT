@@ -1,0 +1,215 @@
+{
+  "task": "gvcrt_tcg_teacher_temporal_nolora_ab_20261110",
+  "status": "FROZEN",
+  "branch": "codex/tcg-teacher-temporal-nolora-ab-20261110",
+  "base_commit": "7d5010a488d3015d5946f1df5e4236a0e15f1edf",
+  "groups": {
+    "G0_teacher_spatial": {
+      "GPUs": [
+        0,
+        1
+      ],
+      "latent_temporal": false
+    },
+    "G1_teacher_temporal": {
+      "GPUs": [
+        2,
+        3
+      ],
+      "latent_temporal": true
+    }
+  },
+  "B300": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+    "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85"
+  },
+  "initialization": "complete original/pilot+buffers/B1500/A2000 chain, B300 trainable overlay LAST, physically remove five LoRA wrappers without merging; preserve Bridge/TCG and base groups/dispatch",
+  "historically_LoRA_trained_Bridge_TCG": true,
+  "teacher": {
+    "candidate": "pretrain262144",
+    "EMA": true,
+    "checkpoint_SHA256": "8bd75e7f57c91be0cbf0a9a266e41bcf0105a2fc259d5117f8e721df69856078",
+    "output": "official continuous18 channels before LFQ sign",
+    "normalization": "none extra",
+    "frozen": true,
+    "train_only": true,
+    "historical_exact_teacher_identity_claim": false,
+    "old_coordinate_audit_does_not_prove_temporal_stability": true
+  },
+  "training": {
+    "seed": 20261110,
+    "global_batch": 4,
+    "ranks": 2,
+    "windows_per_rank": 2,
+    "max_additional_updates": 300,
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "warmup": [
+      1,
+      48
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "segments": [
+      [
+        49,
+        52
+      ],
+      [
+        53,
+        56
+      ],
+      [
+        57,
+        60
+      ],
+      [
+        61,
+        63
+      ]
+    ],
+    "fresh_optimizer": "AdamW",
+    "learning_rates": {
+      "Bridge": 2e-06,
+      "TCG": 1e-05
+    },
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_norm": 1.0,
+    "master_compute": "FP32",
+    "codec": "inherited FP16",
+    "trainables": {
+      "Bridge": 801124,
+      "TCG": 137760
+    },
+    "plan_SHA256": "8cac30c688f3722e94dc4c0f4a99378c67566c88f33316f3d5ec9a34ee0c4fb6",
+    "checkpoints": [
+      0,
+      50,
+      100,
+      150,
+      200,
+      250,
+      300
+    ]
+  },
+  "losses": {
+    "LPIPS_VGG": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "cosine": 0.2,
+    "cosine_dim": 1,
+    "cosine_eps": 1e-08,
+    "RAFT_motion": 0.05,
+    "output_temporal": "lambda_out*(RGB_MCResidual+.5*Sobel_MCResidual)",
+    "latent_temporal": "G1 only: masked mean abs((S_t-warp(S_prev))-(T_t-warp(T_prev))); previous student latent differentiable within segments",
+    "lambda_out": 0.7921341234204811,
+    "lambda_latent": 2.379767384936951,
+    "calibration_windows": [
+      "1f1a6f56c2a8d14a48ab58a0857c657387348731263820562eb376452fb51076",
+      "4043ad8f3656a2dc017e64820b9c9913388bf5f5153734b815428306e4473466",
+      "a8d2b169894a9161fb0ee1cffe0c128512c675116c1fe8329120df77870b2c33",
+      "fae0987df33123dbd98ce7678563645845efee27c9a24ece27b6bdab6f26ae6f",
+      "64c3f909e2bd24fd20a0c7928a18a46b425eb3d81b99dce0aba88bbd9d962041",
+      "e36f6bb3ef483d6c6e4d090ff277903eaeef7fa03e93e740bffe5684ffdb94e3",
+      "b5fc8f97d510ff15e9d5e0ff5c94e174877ffa5c002c7d0421ed642d20652d59",
+      "b58ebf1027981a292efe5f29535e8df8d4f4fcda61cca9695540343bf4a5487e"
+    ],
+    "calibration_rule": "0.1*median(unclipped gradient norm ratios); content includes cosine",
+    "margin_implemented": false,
+    "extra_Sobel_detail": false
+  },
+  "validation": {
+    "videos": 32,
+    "points_per_group_checkpoint": 96,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "shared_step0_may_be_measured_once_and_identity_reused": true
+  },
+  "selection": {
+    "score": "mean_q(mean_video_Sobel(model,q)/mean_video_Sobel(noLoRA_step0,q))",
+    "qualified": "S<1, mean_q temporal ratio to B300<1; every QP mean DISTS and LPIPS-VGG <=1.01*each reference",
+    "min_delta": 0.0005,
+    "patience": 2,
+    "joint_stop": "both groups satisfy patience at same validated update; faults/missing points never count",
+    "initial_anchor": 1.0,
+    "tie": "earlier checkpoint",
+    "fallback": "lowest S trained checkpoint; NOT_QUALIFIED; never step0"
+  },
+  "final": {
+    "videos": 75,
+    "points_per_state": 225,
+    "states": [
+      "Original",
+      "B300_original_reference",
+      "B300_noLoRA_step0",
+      "G0_selected",
+      "G1_selected"
+    ],
+    "expected_points": 1125,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "frames": 64,
+    "datasets": {
+      "HEVC_B_5": 5,
+      "ULong_historical_6": 6,
+      "UVG_historical_HoneyBee_Jockey_2": 2,
+      "ULong_new_holdout_32": 32,
+      "MCL_JCV_30": 30
+    },
+    "selection_frozen_before_test": true,
+    "metric_names": [
+      "PSNR",
+      "LPIPS_Alex",
+      "LPIPS_VGG",
+      "DISTS",
+      "FloLPIPS",
+      "MCResidual_RGB_PtoP",
+      "MCResidual_Sobel_PtoP"
+    ],
+    "no_BD_rate": true,
+    "no_extrapolation": true
+  },
+  "metrics": {
+    "RGB_range": [
+      0,
+      1
+    ],
+    "LPIPS_normalize": true,
+    "LPIPS_version": "0.1",
+    "spatial_frames": 64,
+    "temporal": "I_to_P and P_to_P separate",
+    "RAFT_GT_flow": "same frozen RAFT and FB-consistency/pixel-center align_cornersFalse as E/F",
+    "weighting": "equal videos within dataset/split/QP; no cross-dataset pooled curve"
+  },
+  "deployment_precision": "inherited FP16 codec/Bridge/backbone; FP32 TCG; RGB FP32-first",
+  "only_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "time": 1794286427.8742108
+}
