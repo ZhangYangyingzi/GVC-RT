@@ -1,0 +1,242 @@
+{
+  "task": "gvcrt_tcg_flicker_h_series_b300_20261110",
+  "status": "FROZEN",
+  "base_commit": "7d5010a488d3015d5946f1df5e4236a0e15f1edf",
+  "branch": "codex/tcg-flicker-h-series-b300-20261110",
+  "B300": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+    "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+    "overlay_last_keys": 52
+  },
+  "sources": "source_inputs.json",
+  "groups": {
+    "H0_control": {
+      "GPU": 0,
+      "latent": false,
+      "equiv": false
+    },
+    "H1_latent_self": {
+      "GPU": 1,
+      "latent": true,
+      "equiv": false
+    },
+    "H2_latent_equiv": {
+      "GPU": 2,
+      "latent": true,
+      "equiv": true,
+      "requires_mechanical_gate": true
+    }
+  },
+  "trainables": {
+    "Bridge": 801124,
+    "TCG": 137760,
+    "LoRA": 59392,
+    "total": 998276
+  },
+  "s_train": 0.5,
+  "s_eval": 0.5,
+  "training": {
+    "max_updates": 100,
+    "effective_batch": 4,
+    "single_GPU_sequential_windows": 4,
+    "seed": 20261110,
+    "frames": 64,
+    "crop": [
+      256,
+      256
+    ],
+    "warmup": [
+      1,
+      48
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "segments": [
+      [
+        49,
+        52
+      ],
+      [
+        53,
+        56
+      ],
+      [
+        57,
+        60
+      ],
+      [
+        61,
+        63
+      ]
+    ],
+    "save_steps": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ],
+    "optimizer": "fresh AdamW",
+    "learning_rates": {
+      "Bridge": 2e-06,
+      "TCG": 1e-05,
+      "LoRA": 5e-05
+    },
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "global_clip": 1.0,
+    "computation": "FP32 reconstruction master/compute; inherited frozen codec FP16"
+  },
+  "base_loss": {
+    "LPIPS_Alex": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "RAFT_motion": 0.05,
+    "output_temporal": 2.603297563918803,
+    "Sobel_MC_factor": 0.5,
+    "LPIPS_VGG_training": false
+  },
+  "new_losses": {
+    "lambda_lat": 0.2953169862992426,
+    "lambda_equiv": 0.10179495298276185,
+    "tau": 0.02,
+    "RMS_eps": 1e-08,
+    "RMS_min": 0.0001,
+    "RMS_gradient": true,
+    "pair_shared_RMS": true,
+    "denominator": "hard_valid_area; valid-framepairs/window; nonempty-windows/globalbatch once",
+    "equiv_calls": [
+      52,
+      56,
+      60,
+      63
+    ],
+    "equiv_window_divisor": 4,
+    "equiv_crop_RGB": 64,
+    "equiv_both_sides": "use_tcg=False update_buffer=False; target no_grad; current model/QP/precision",
+    "no_edge_floor": true,
+    "no_Teacher": true
+  },
+  "calibration": {
+    "windows": 10,
+    "QP_counts": {
+      "8": 1,
+      "5": 3,
+      "0": 3,
+      "9": 3
+    },
+    "rule": ".1*median(norm_Bridge spatial/norm_Bridge new)",
+    "optimizer_updates": 0,
+    "auxiliary_table_independent_rng": true
+  },
+  "H2_gate": {
+    "pre_registered_before_measurement": true,
+    "windows": 10,
+    "frames": [
+      52,
+      56,
+      60,
+      63
+    ],
+    "feature_shift_units": [
+      0,
+      1,
+      2
+    ],
+    "crop_RGB": [
+      16,
+      32,
+      64
+    ],
+    "padding": "unchanged deployment padding",
+    "pass_rule": "delta0 exact0 and median(error16px/error8px at crop64) <0.1; a control within one order of magnitude or larger fails",
+    "ratio_threshold": 0.1,
+    "failure_action": "H2 MECHANICAL_CHECK_FAILED; no H2 training; H0/H1 continue"
+  },
+  "development": {
+    "videos": 32,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "points": 96,
+    "steps": [
+      50,
+      100
+    ],
+    "baseline": "B300 s=.5",
+    "weights": "equal video within QP",
+    "training_early_stop": "only numerical/implementation fault; complete100 otherwise"
+  },
+  "screen": {
+    "per_QP_max_ratio": 1.005,
+    "guard_metrics": [
+      "DISTS",
+      "LPIPS_Alex",
+      "LPIPS_VGG",
+      "FloLPIPS"
+    ],
+    "score": "mean_q(mean_video PtoP Sobel(model)/mean_video PtoP Sobel(B300))",
+    "S_strictly_less_than": 1,
+    "allowed_steps": [
+      50,
+      100
+    ],
+    "tie_delta": 0.0005,
+    "tie_prefers": "earlier",
+    "no_qualified": "NOT_QUALIFIED; no automatic final test; no step0 substitution"
+  },
+  "final": {
+    "datasets": {
+      "HEVC_B_5": 5,
+      "ULong_historical_6": 6,
+      "UVG_historical_HoneyBee_Jockey_2": 2,
+      "ULong_new_holdout_32": 32,
+      "MCL_JCV_30": 30
+    },
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "points_per_state": 225,
+    "only_if_any_numerically_qualified": true,
+    "states": [
+      "Original",
+      "A2000",
+      "B300",
+      "qualified_candidates"
+    ],
+    "no_cross_dataset_pooling": true,
+    "no_BD_rate": true
+  },
+  "metrics": {
+    "RGB_range": [
+      0,
+      1
+    ],
+    "LPIPS_normalize": true,
+    "LPIPS_version": "0.1",
+    "spatial_frames": 64,
+    "temporal": "I_to_P and P_to_P separate",
+    "flow": "frozen RAFT estimated on GT RGB; not known ground-truth motion",
+    "sampler": "FP32 pixel-center, align_corners=False, zero padding, FB consistency",
+    "edge": "normalized /8 Sobel components with replicate boundaries; local16x16 energy bias diagnostic only"
+  },
+  "deployment_precision": "inherited FP16 codec/Bridge/backbone; FP32 TCG and LoRA; RGB FP32-first",
+  "only_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "reporting": "execution facts and numbers only; H0 combines wider Bridge boundary and continuation",
+  "time": 1794317511.494236
+}
