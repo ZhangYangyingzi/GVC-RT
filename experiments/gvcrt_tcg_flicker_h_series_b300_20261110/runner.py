@@ -55,6 +55,28 @@ def wait_audit(name,script,audit,gpus):
  while p.poll() is None:heartbeat(name);time.sleep(5)
  assert p.poll()==0 and load(ROOT/audit)['status']=='PASS',('STAGE_FAILED',name,p.poll())
 
+def recover_keyboard_interrupt(group):
+ # Resume only an explicitly recorded KeyboardInterrupt; numerical/implementation
+ # faults remain visible and are never silently classified as an interruption.
+ logfile=ROOT/'logs'/f'training_{group}.log'
+ if (ROOT/'pause_request.json').exists() or not logfile.exists():return None
+ if not logfile.read_text(errors='replace').rstrip().endswith('KeyboardInterrupt'):return None
+ import torch
+ from execution_policy import verify_checkpoint_protocol
+ checkpoint=ROOT/group/'training/latest.pt'
+ if not checkpoint.exists():return None
+ saved=torch.load(checkpoint,map_location='cpu',weights_only=True)
+ assert verify_checkpoint_protocol(saved['protocol_SHA256']) and saved['B300_SHA256']==B300_SHA and saved['plan_SHA256']==sha(ROOT/'plans/index.json')
+ step=saved['committed_updates'];assert 0<=step<=100 and saved['next_cursor']==4*step
+ assert all(int(v['step'])==step for v in saved['optimizer']['state'].values()) and saved['RNG']
+ if step:
+  receipt=saved['last_receipt'];assert receipt['global_optimizer_updates']==step
+  dump(ROOT/group/f'training/receipts/{step:04d}.json',receipt)
+  dump(ROOT/group/'training/progress.json',dict(status='RUNNING',committed_updates=step,next_cursor=4*step,seconds=receipt['seconds'],time=time.time()))
+ proof=dict(status='RESUMING_KEYBOARD_INTERRUPT',group=group,checkpoint=str(checkpoint),checkpoint_SHA256=sha(checkpoint),committed_updates=step,optimizer_RNG_cursor_preserved=True,no_completed_update_repeated=True,time=time.time())
+ dump(ROOT/f'audits/interruption_recoveries/{group}_{time.time_ns()}.json',proof);event('training_interruption_resume',group=group,step=step)
+ return start('training_'+group,['train.py','--group',group,'--until','100'],str(GROUPS.index(group)))
+
 def main():
  env()
  with lock('locks/runner.lock'):
@@ -82,7 +104,11 @@ def main():
       if (ROOT/g/f'training/checkpoints/step_{s:04d}.pt').exists():submit(g,s)
      p=ROOT/g/'training/progress.json';u=load(p)['committed_updates'] if p.exists() else 0
      if u<100:
-      all_done=False;assert g in training and training[g].poll() in [None],('GROUP_TRAINING_FAILED',g,u)
+      all_done=False
+      if g not in training or training[g].poll() is not None:
+       resumed=recover_keyboard_interrupt(g)
+       assert resumed is not None,('GROUP_TRAINING_FAILED',g,u)
+       training[g]=resumed
     if all_done:break
     time.sleep(5)
    dump(ROOT/'training_completion.json',dict(status='PASS',updates={g:100 if g in active else 0 for g in GROUPS},stop_reason={g:'maximum100' if g in active else 'H2_MECHANICAL_CHECK_FAILED' for g in GROUPS},time=time.time()))
