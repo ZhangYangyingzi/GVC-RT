@@ -1,6 +1,6 @@
 # Causal decoder adapter A/B: execution record
 
-Status: IN_PROGRESS. ULong development only; no final test.
+Status: COMPLETED_WITH_PENDING_PERFORMANCE. ULong development only; no final test.
 
 Experiment directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111`
 Branch: `codex/tcg-causal-decoder-adapter-ab-20261111`
@@ -27,12 +27,12 @@ Training uses FP32 frozen reconstruction prefix and head; codec features follow 
 
 | State | Completed points / 96 |
 |---|---:|
-| Original_step0 | 35 / 96 |
+| Original_step0 | 96 / 96 |
 | B300_step0 | 96 / 96 |
-| A_spatial_step50 | 32 / 96 |
-| A_spatial_step100 | 32 / 96 |
-| B_spatial_temporal_step50 | 32 / 96 |
-| B_spatial_temporal_step100 | 30 / 96 |
+| A_spatial_step50 | 96 / 96 |
+| A_spatial_step100 | 96 / 96 |
+| B_spatial_temporal_step50 | 96 / 96 |
+| B_spatial_temporal_step100 | 96 / 96 |
 
 Training source isolation and QP/crop/frame/order identities are inherited from H. No new dataset inventory scan or split. No training codec tensor for these400 windows was retained at startup; missing codec/GT-flow caches were regenerated with the pinned independent Original path. Native evaluation caches are read-only where reusable.
 Original is decoded using pinned independent b2a0895 original source and original I/P weights in an isolated process. Cached tensors carry independent-decode/real-RANS/source/feature hashes. Historical scalar reuse requires every RGB frame, source frame, stream, QP, precision and metric-weight identity to match. Missing metrics are computed anew.
@@ -45,24 +45,24 @@ CSV files contain every completed point, equal-video QP means and candidate-minu
 
 | Model | Step | QP | n | bpp | PSNR | LPIPS-Alex | DISTS | FloLPIPS P→P | RGB MC P→P | Sobel MC P→P |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| A_spatial | 50 | 0 | 11 | 0.0020944416 | 24.008048 | 0.18011768 | 0.10618538 | 0.16829723 | 0.016871224 | 0.0067006134 |
-| A_spatial | 50 | 5 | 11 | 0.0070522773 | 25.828331 | 0.1260142 | 0.073589969 | 0.1177899 | 0.015093066 | 0.006786417 |
-| A_spatial | 50 | 9 | 10 | 0.01642079 | 27.124523 | 0.095983399 | 0.059477695 | 0.086313448 | 0.013623165 | 0.0060770181 |
-| A_spatial | 100 | 0 | 11 | 0.0020944416 | 23.993814 | 0.18039269 | 0.10616441 | 0.16862927 | 0.016863684 | 0.0067017734 |
-| A_spatial | 100 | 5 | 11 | 0.0070522773 | 25.797604 | 0.12627894 | 0.073600744 | 0.1180689 | 0.01508727 | 0.0067889483 |
-| A_spatial | 100 | 9 | 10 | 0.01642079 | 27.085424 | 0.096287633 | 0.059549705 | 0.08665557 | 0.013615733 | 0.0060790734 |
+| A_spatial | 50 | 0 | 32 | 0.0019158333 | 24.111764 | 0.18630049 | 0.10898 | 0.18411609 | 0.016083455 | 0.00676262 |
+| A_spatial | 50 | 5 | 32 | 0.0069668447 | 26.467362 | 0.11612235 | 0.072310664 | 0.11178327 | 0.013586807 | 0.0061294325 |
+| A_spatial | 50 | 9 | 32 | 0.015992852 | 27.368216 | 0.095841871 | 0.061161303 | 0.091061818 | 0.013029727 | 0.0060042698 |
+| A_spatial | 100 | 0 | 32 | 0.0019158333 | 24.087807 | 0.18649463 | 0.10892689 | 0.18435377 | 0.016077376 | 0.0067636203 |
+| A_spatial | 100 | 5 | 32 | 0.0069668447 | 26.426374 | 0.11636246 | 0.072286558 | 0.11213517 | 0.013583744 | 0.0061325191 |
+| A_spatial | 100 | 9 | 32 | 0.015992852 | 27.319912 | 0.096082615 | 0.061193625 | 0.091467558 | 0.013025734 | 0.006007049 |
 | B300 | 0 | 0 | 32 | 0.0019158333 | 24.107245 | 0.18625056 | 0.10852167 | 0.18408114 | 0.016069916 | 0.0067526832 |
 | B300 | 0 | 5 | 32 | 0.0069668447 | 26.458508 | 0.11614086 | 0.071960529 | 0.11186831 | 0.013574805 | 0.0061206268 |
 | B300 | 0 | 9 | 32 | 0.015992852 | 27.357931 | 0.095882007 | 0.060900029 | 0.091178717 | 0.013017411 | 0.005995354 |
-| B_spatial_temporal | 50 | 0 | 11 | 0.0020944416 | 24.010882 | 0.18005839 | 0.10617141 | 0.16827143 | 0.016853548 | 0.0066822113 |
-| B_spatial_temporal | 50 | 5 | 11 | 0.0070522773 | 25.836009 | 0.12599249 | 0.073561579 | 0.11774362 | 0.015069937 | 0.0067668976 |
-| B_spatial_temporal | 50 | 9 | 10 | 0.01642079 | 27.134092 | 0.095947564 | 0.059443938 | 0.086277299 | 0.013601162 | 0.0060577845 |
-| B_spatial_temporal | 100 | 0 | 10 | 0.0019767253 | 23.782271 | 0.18389924 | 0.1075495 | 0.1722616 | 0.016834831 | 0.0068330483 |
-| B_spatial_temporal | 100 | 5 | 11 | 0.0070522773 | 25.78701 | 0.12643488 | 0.073660245 | 0.11823433 | 0.01504668 | 0.0067561737 |
-| B_spatial_temporal | 100 | 9 | 9 | 0.017105825 | 27.353547 | 0.094456042 | 0.056739404 | 0.087827919 | 0.014124291 | 0.0062772972 |
-| Original | 0 | 0 | 12 | 0.0021154886 | 23.566984 | 0.19962124 | 0.12248899 | 0.19611997 | 0.020099806 | 0.0086127894 |
-| Original | 0 | 5 | 12 | 0.0073782864 | 25.789856 | 0.13703684 | 0.084960474 | 0.12727102 | 0.015988345 | 0.0071066411 |
-| Original | 0 | 9 | 11 | 0.017179663 | 26.955556 | 0.10437853 | 0.069453869 | 0.09345184 | 0.014281869 | 0.0062768357 |
+| B_spatial_temporal | 50 | 0 | 32 | 0.0019158333 | 24.118142 | 0.18626512 | 0.10898593 | 0.18406886 | 0.016064902 | 0.0067455306 |
+| B_spatial_temporal | 50 | 5 | 32 | 0.0069668447 | 26.478265 | 0.11610149 | 0.072312611 | 0.11174166 | 0.013563253 | 0.006110381 |
+| B_spatial_temporal | 50 | 9 | 32 | 0.015992852 | 27.381007 | 0.095825311 | 0.061155582 | 0.091015239 | 0.01300506 | 0.0059847881 |
+| B_spatial_temporal | 100 | 0 | 32 | 0.0019158333 | 24.079514 | 0.18657948 | 0.10898178 | 0.18443033 | 0.01604243 | 0.0067337426 |
+| B_spatial_temporal | 100 | 5 | 32 | 0.0069668447 | 26.412414 | 0.11648866 | 0.072362179 | 0.11226297 | 0.013544061 | 0.0061002763 |
+| B_spatial_temporal | 100 | 9 | 32 | 0.015992852 | 27.303487 | 0.096220448 | 0.06125957 | 0.091614218 | 0.012984374 | 0.0059740964 |
+| Original | 0 | 0 | 32 | 0.0019158333 | 24.100589 | 0.20536066 | 0.12636838 | 0.20726631 | 0.017621831 | 0.0076982094 |
+| Original | 0 | 5 | 32 | 0.0069668447 | 26.169861 | 0.13191379 | 0.08712271 | 0.12709458 | 0.014728384 | 0.0066854134 |
+| Original | 0 | 9 | 32 | 0.015992852 | 26.977264 | 0.10901814 | 0.074146837 | 0.10347958 | 0.01407903 | 0.0064830991 |
 
 ## Checks and repaired exceptions
 

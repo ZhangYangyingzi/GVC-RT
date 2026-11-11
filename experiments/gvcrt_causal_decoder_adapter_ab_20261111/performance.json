@@ -1,30 +1,18 @@
 {
   "status": "PENDING_UNCONTENDED_GPU",
   "parameters": 21696,
-  "physical_GPU": 2,
+  "physical_GPU": 3,
   "foreign_GPU_processes": [
     {
-      "PID": 2757080,
+      "PID": 2757081,
       "process": "/Huang_group/zyyz/hcy/hyh/dualcodec_eval/venv/bin/python"
-    },
-    {
-      "PID": 3050604,
-      "process": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python"
-    },
-    {
-      "PID": 3075770,
-      "process": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python"
-    },
-    {
-      "PID": 3077222,
-      "process": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python"
     }
   ],
   "decode_timing_completed": false,
   "method": "same physical GPU/precision/canonical RANS packets; 8 warmup frames, 3 passes of P frames9..16; synchronized wall clock. Both full RANS+codec+reconstruction decode and reconstruction-only times; excludes file IO, GT and scoring.",
   "decision": "No timing taken while this GPU has another compute process. Task does not terminate foreign processes.",
   "resume": "CUDA_VISIBLE_DEVICES=<idle physical GPU0..3> python -B performance.py",
-  "time": 1794387096.3952801,
+  "time": 1794394526.2480948,
   "observed_memory_and_storage": {
     "training_by_group": {
       "A_spatial": {
@@ -36,8 +24,8 @@
         "peak_reserved_bytes": 452984832
       }
     },
-    "evaluation_peak_allocated_bytes": 6052747776,
-    "evaluation_peak_reserved_bytes": 7004487680,
+    "evaluation_peak_allocated_bytes": 6123577856,
+    "evaluation_peak_reserved_bytes": 7067402240,
     "deployment_history_tensor_bytes_observed": [
       0,
       41779200
