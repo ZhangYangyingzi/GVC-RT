@@ -1,0 +1,66 @@
+{
+  "status": "IMPLEMENTED_CHECKED_READY_TO_START",
+  "user_instruction": "gpu0123\u90fd\u53ef\u4ee5\u7528\uff0c\u4f60\u53ef\u4ee5\u591a\u8fdb\u7a0b",
+  "training_updates": {
+    "H0_control": 100,
+    "H1_latent_self": 100,
+    "H2_latent_equiv": 100
+  },
+  "checkpoints": {
+    "H0_control": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H0_control/training/latest.pt",
+      "SHA256": "8e94912a3a9f314622dc19e666bda5e039aba862041d825487b9c14b678f8327"
+    },
+    "H1_latent_self": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H1_latent_self/training/latest.pt",
+      "SHA256": "e23560156b688e7e2847cc9a5f8ec86d227097b78f7352392b8b62bdc3f71cfd"
+    },
+    "H2_latent_equiv": {
+      "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H2_latent_equiv/training/latest.pt",
+      "SHA256": "7631fe3e2cf58fd3fb959e8791e3cc607e505b23719f6dd857f051aeb1c2d175"
+    }
+  },
+  "existing_evaluation_points": 304,
+  "only_task_CPU_controllers_signaled": [
+    {
+      "PID": 2398715,
+      "script": "supervisor.py"
+    },
+    {
+      "PID": 2398721,
+      "script": "runner.py"
+    }
+  ],
+  "active_point_and_cache_worker_allowed_to_finish": true,
+  "numeric_evaluation_code_SHA256": "81de991efba67205060622922df75cf62d66d8b22b57ec18bcca18bff998ddd3",
+  "time": 1794363745.4767404,
+  "scheduler_config": {
+    "training_prefetch_windows": 24,
+    "startup_windows": 4,
+    "cache_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "max_cache_workers": 2,
+    "derived_byte_cap": 64424509440,
+    "media_byte_cap": 25769803776,
+    "min_free_bytes": 85899345920,
+    "max_native_ready": 8,
+    "evaluation_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "max_evaluation_workers": 4,
+    "native_prefetch_points": 6
+  },
+  "remaining_state_points": 368,
+  "remaining_source_QP_bundles": 74,
+  "no_duplicate_outputs": true,
+  "training_checkpoint_hashes_unchanged": true,
+  "numerical_code_unchanged": true,
+  "sources_verified": true
+}

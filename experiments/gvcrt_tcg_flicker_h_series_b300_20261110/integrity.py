@@ -65,4 +65,5 @@ def main():
  assert load(G_SOURCE/'status.json')['status']=='PAUSED';checks['old_experiments_unmodified_and_G_still_PAUSED']=True
  dump(ROOT/'checkpoint_manifest.json',dict(common_step0=dict(path=str(ROOT/'checkpoints/common_B300_step0.pt'),SHA256=sha(ROOT/'checkpoints/common_B300_step0.pt')),files=[dict(path=str(p),SHA256=sha(p),bytes=p.stat().st_size) for g in active for p in sorted((ROOT/g/'training/checkpoints').glob('*.pt'))],selected={g:sel['groups'][g].get('selected') for g in GROUPS}))
  dump(ROOT/'final_integrity.json',dict(status='PASS',complete_local=True,checks=checks,updates=done['updates'],development_points=sum(v for (phase,m,s),v in observed.items() if phase=='development'),final_test_status=final['status'],H2_status=load(ROOT/'audits/H2_gate.json')['status'],publication_complete=False,selection_SHA256=sha(ROOT/'selection.json'),time=time.time()))
-if __name__=='__main__':main()
+if __name__=='__main__':
+ with lock('locks/GPU0.lock',blocking=True):main()

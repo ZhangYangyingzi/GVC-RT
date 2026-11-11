@@ -1,4 +1,4 @@
-"""Matched independent100-update runs; GPU3 immutable-checkpoint evaluation queue."""
+"""Matched independent100-update runs; pooled immutable-checkpoint evaluation queue."""
 from common_s2 import *
 from execution_policy import h2_training_allowed
 import traceback
@@ -32,7 +32,7 @@ def ensure_auxiliary():
 def heartbeat(stage):
  from evaluation_queue import progress
  from pipeline import positions,ready
- a=dict(status='RUNNING',complete=False,current_stage=stage,groups={},cache=load(ROOT/'cache/progress.json') if (ROOT/'cache/progress.json').exists() else None,active_processes={n:dict(PID=p.pid,returncode=p.poll()) for n,p in CHILDREN.items()},GPU_allocation={g:i for i,g in enumerate(GROUPS)},GPU3='shared frozen codec/GT-flow producer and serialized evaluation',time=time.time())
+ a=dict(status='RUNNING',complete=False,current_stage=stage,groups={},cache=load(ROOT/'cache/progress.json') if (ROOT/'cache/progress.json').exists() else None,active_processes={n:dict(PID=p.pid,returncode=p.poll()) for n,p in CHILDREN.items()},GPU_allocation={g:i for i,g in enumerate(GROUPS)},evaluation_GPU_pool=load(ROOT/'scheduler_config.json').get('evaluation_GPUs',[3]),evaluation_pool=load(ROOT/'evaluation_queue/progress.json') if (ROOT/'evaluation_queue/progress.json').exists() else None,time=time.time())
  rows=plan_rows()
  for g in GROUPS:
   root=ROOT/g/'training';p=root/'progress.json';u=load(p)['committed_updates'] if p.exists() else 0;rec=[load(p) for p in (root/'receipts').glob('*.json')];state='MECHANICAL_CHECK_FAILED' if g==GROUPS[2] and (ROOT/'audits/H2_gate.json').exists() and not h2_training_allowed() else 'TRAINING_OR_WAITING_CACHE' if u<100 else 'TRAINING_FINISHED_EVALUATION_PENDING'
@@ -115,6 +115,7 @@ def main():
   for g in active:
    for s in [50,100]:submit(g,s)
   while progress('B300',0)<96 or any(progress(g,s)<96 for g in active for s in [50,100]):ensure_auxiliary();heartbeat('development');time.sleep(10)
+  while (ROOT/'evaluation_queue/progress.json').exists() and load(ROOT/'evaluation_queue/progress.json').get('active'):heartbeat('development_worker_drain');time.sleep(2)
   from selection import select
   choice=select()
   final_models=['Original','A2000','B300']+[g+'_selected' for g in active if choice['groups'][g]['qualified']]
@@ -123,6 +124,7 @@ def main():
    while any(progress(m,choice['groups'][m[:-9]]['selected']['step'] if m.endswith('_selected') else 0,'final')<225 for m in final_models):ensure_auxiliary();heartbeat('final_evaluation');time.sleep(10)
    dump(ROOT/'final_test_status.json',dict(status='PASS',models=final_models,points_per_model=225,selection_SHA256=sha(ROOT/'selection.json'),time=time.time()))
   else:dump(ROOT/'final_test_status.json',dict(status='NOT_RUN_NO_QUALIFIED_CANDIDATE',new_points=0,reason='pre-registered conditional final test',time=time.time()))
+  while (ROOT/'evaluation_queue/progress.json').exists() and load(ROOT/'evaluation_queue/progress.json').get('active'):heartbeat('evaluation_worker_drain');time.sleep(2)
   wait_audit('results','results.py','audits/results.json','0,1,2,3');wait_audit('media','media.py','video_manifest.json','0,1,2,3');wait_audit('integrity','integrity.py','final_integrity.json','0,1,2,3')
   p=start('publication_final',['publication.py','--final'])
   while p.poll() is None:heartbeat('publication');time.sleep(5)

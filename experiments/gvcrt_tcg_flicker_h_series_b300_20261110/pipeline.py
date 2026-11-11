@@ -127,18 +127,22 @@ def produce():
                     dt=time.time()-j['start'];produced+=1;latency+=dt;event('shared_cache_READY',key=key,training=a['training'],seconds=dt,physical_GPU=j['gpu'],total_GPU_peak_MiB=j['peak'],PID=j['p'].pid);j['log'].close();j.get('gpu_lease') and j['gpu_lease'].close();active.pop(key)
                 pos=positions();evict_training(rows,pos);evict_native(cfg)
                 assert set(cfg['cache_GPUs']).issubset({0,1,2,3})
-                jobs=task_list(rows,cfg,pos);free=[g for g in cfg['cache_GPUs'] if g not in {j['gpu'] for j in active.values()}][:max(0,cfg['max_cache_workers']-len(active))]
+                jobs=task_list(rows,cfg,pos);free=[g for g in cfg['cache_GPUs'] if g not in {j['gpu'] for j in active.values()}]
                 backpressure=False
                 if not stopping:
                     for a in jobs:
                         key,_,_=cache_paths(a['row'],a['qp'],a['training'])
                         if key in active:continue
-                        if not free:break
+                        if not free or len(active)>=cfg['max_cache_workers']:break
                         estimate=(1 if a['training'] else 7)*2**30;evict_native(cfg,estimate+sum(j['reserve'] for j in active.values()))
                         if inventory()+estimate+sum(j['reserve'] for j in active.values())>cfg['derived_byte_cap'] or shutil.disk_usage(ROOT).free-estimate-sum(j['reserve'] for j in active.values())<cfg['min_free_bytes']:backpressure=True;break
-                        gpu=free.pop(0);lease=(ROOT/f'locks/GPU{gpu}.lock').open('a')
-                        try:fcntl.flock(lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
-                        except BlockingIOError:lease.close();break
+                        lease=None;gpu=None
+                        while free:
+                            candidate=free.pop(0);f=(ROOT/f'locks/GPU{candidate}.lock').open('a')
+                            try:fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
+                            except BlockingIOError:f.close();continue
+                            lease=f;gpu=candidate;break
+                        if lease is None:break
                         file=ROOT/'tmp/cache_jobs'/f'{key}.json';dump(file,a)
                         e=dict(os.environ,CUDA_VISIBLE_DEVICES=str(gpu),MODEL_KIND='original');log=(ROOT/'logs'/f'cache_GPU{gpu}.log').open('ab')
                         p=subprocess.Popen([PYTHON,'-B','-u',str(ROOT/'cache_job.py'),str(file)],cwd=ROOT,env=e,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT)

@@ -81,4 +81,5 @@ def main():
    for anon in [False,True]:comparisons.append(roi_comparison(case,rec,name,roi,anon))
   dump(ROOT/'audits/media_progress.json',dict(status='RUNNING',native_clips=len(clips),comparisons=len(comparisons),time=time.time()))
  dump(ROOT/'video_manifest.json',dict(status='PASS',native_clips=clips,ROI_comparisons=comparisons,H2_missing_reason=None if h2_training_allowed() else 'H2_MECHANICAL_CHECK_FAILED; not replaced by another model',anonymous_labels_are_material_only=True,subjective_experiment_completed=False,all_paths_absolute=True,time=time.time()))
-if __name__=='__main__':main()
+if __name__=='__main__':
+ with lock('locks/GPU2.lock',blocking=True):main()
