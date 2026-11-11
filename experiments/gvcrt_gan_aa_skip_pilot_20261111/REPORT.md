@@ -4,16 +4,16 @@ status: RUNNING；stage: training_and_shared_prefetch
 
 experiment_directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111`
 
-最后心跳：1794417799.282831；runner PID：3561209
+最后心跳：1794417931.3829331；runner PID：3561209
 
 本轮只记录执行事实和计算数值。开发清单为 ULong_development_32，32 视频 × QP0/5/9，共 96 点；未启动最终测试。
 
 | 组 | committed_steps | step0 | step250 | step500 |
 |---|---:|---:|---:|---:|
-| J0 | 25 | 1/96 | 0/96 | 0/96 |
-| J1 | 25 | 1/96 | 0/96 | 0/96 |
-| J2 | 25 | 1/96 | 0/96 | 0/96 |
-| J3 | 24 | 1/96 | 0/96 | 0/96 |
+| J0 | 26 | 1/96 | 0/96 | 0/96 |
+| J1 | 26 | 1/96 | 0/96 | 0/96 |
+| J2 | 26 | 1/96 | 0/96 | 0/96 |
+| J3 | 26 | 1/96 | 0/96 | 0/96 |
 
 训练计划：ULong/Vimeo = 1000/1000 个窗口，effective batch=4，QP0–9 各 200 个。Vimeo 为真实 7 帧，ULong 为真实连续 64 帧。实际覆盖见 `training_coverage.json`。
 
@@ -44,7 +44,7 @@ experiment_directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_
 
 文件：`protocol.json`、`source_manifest.json`、`per_video_metrics.csv`、`per_dataset_metrics.csv`、`paired_B300_metrics.csv`、`plots/index.json`、`video_manifest.json`、`final_integrity.json`。FFV1 视频在 `media/native`，1:1 裁剪在 `media/crops`，并排在 `media/panels`。未生成的项目以其完成标记为准。
 
-GitHub 分支：`codex/gvcrt-gan-aa-skip-pilot-20261111`；最近发布状态：REMOTE_VERIFIED；commit URL：https://github.com/ZhangYangyingzi/GVC-RT/commit/6cb35e901d0c55b176e54d1b308fb8086f4612d0。
+GitHub 分支：`codex/gvcrt-gan-aa-skip-pilot-20261111`；最近发布状态：REMOTE_VERIFIED；commit URL：https://github.com/ZhangYangyingzi/GVC-RT/commit/8b7950671d2807612dc29bbdf8bd6dd979fd7ab1。
 
 四个固定开发片段及 ROI 复用 H 的 GT 选择记录：1 个 low_motion_high_texture、1 个 camera_motion、2 个 dynamic_occlusion_candidate。候选标签不等于人工逐帧确认；未依据候选模型输出重新选择案例，未另立 large_motion 标签。
 
