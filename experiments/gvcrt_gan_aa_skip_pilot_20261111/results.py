@@ -96,7 +96,7 @@ def main():
         def fmt(x):return 'NA' if x is None else f'{x:.7g}'
         for r in aggregates:lines.append('| '+' | '.join([r['dataset'],f"{r['model']}/{r['step']}",str(r['QP']),str(r['videos']),*[fmt(r.get(k)) for k in ['bpp','PSNR','delta_B300_PSNR','LPIPS_Alex','delta_B300_LPIPS_Alex','DISTS','delta_B300_DISTS','FloLPIPS','delta_B300_FloLPIPS']]])+' |')
     else:lines+=['开发指标尚未生成；相对 B300 变化目前无可报告数值。']
-    lines+=['','文件：`protocol.json`、`source_manifest.json`、`per_video_metrics.csv`、`per_dataset_metrics.csv`、`paired_B300_metrics.csv`、`plots/index.json`、`video_manifest.json`、`final_integrity.json`。FFV1 视频在 `media/native`，1:1 裁剪在 `media/crops`，并排在 `media/panels`。未生成的项目以其完成标记为准。','',f"GitHub 分支：`{BRANCH}`；最近发布状态：{publication.get('status','尚未发布')}；commit URL：{publication.get('commit_URL','暂无')}。",'','四个固定开发片段及 ROI 复用 H 的 GT 选择记录。其现有标签未明确标注遮挡类别；未据候选输出重新挑选案例。','', '失败/未完成项：']
+    lines+=['','文件：`protocol.json`、`source_manifest.json`、`per_video_metrics.csv`、`per_dataset_metrics.csv`、`paired_B300_metrics.csv`、`plots/index.json`、`video_manifest.json`、`final_integrity.json`。FFV1 视频在 `media/native`，1:1 裁剪在 `media/crops`，并排在 `media/panels`。未生成的项目以其完成标记为准。','',f"GitHub 分支：`{BRANCH}`；最近发布状态：{publication.get('status','尚未发布')}；commit URL：{publication.get('commit_URL','暂无')}。",'','四个固定开发片段及 ROI 复用 H 的 GT 选择记录：1 个 low_motion_high_texture、1 个 camera_motion、2 个 dynamic_occlusion_candidate。候选标签不等于人工逐帧确认；未依据候选模型输出重新选择案例，未另立 large_motion 标签。','', '失败/未完成项：']
     failures=list((ROOT/'audits').glob('*failure*.json'))+list((ROOT/'audits/cache_failures').glob('*.json'))+list(ROOT.glob('J*/training/failure.json'))
     lines.extend('- `'+str(p.relative_to(ROOT))+'`' for p in failures)
     lines.extend('- '+n+' 尚未完成。' for n,passed in required.items() if not passed)

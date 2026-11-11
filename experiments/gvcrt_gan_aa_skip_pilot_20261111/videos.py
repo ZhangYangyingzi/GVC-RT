@@ -85,7 +85,7 @@ def main():
         if path.is_relative_to(ROOT):path.unlink()
         original.unlink()
     records=[load(p) for p in sorted((ROOT/'media/receipts').glob('*.json'))]
-    dump(ROOT/'video_manifest.json',dict(status='PASS',records=records,clips=len(clips),GT_selection='inherited H GT-only selection and ROIs',no_final_test=True,missing_categories='occlusion category not explicitly annotated in inherited metadata; no new final-test example selected'))
+    dump(ROOT/'video_manifest.json',dict(status='PASS',records=records,clips=len(clips),GT_selection='inherited H GT-only selection and ROIs',no_final_test=True,category_metadata='one low_motion_high_texture, one camera_motion, two dynamic_occlusion_candidate; inherited GT rule labels, no added manual per-frame occlusion verification or separate large_motion label'))
 
 
 if __name__=='__main__':
