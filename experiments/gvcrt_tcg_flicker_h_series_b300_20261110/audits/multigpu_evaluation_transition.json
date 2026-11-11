@@ -1,5 +1,5 @@
 {
-  "status": "IMPLEMENTED_CHECKED_READY_TO_START",
+  "status": "RUNNING_VERIFIED",
   "user_instruction": "gpu0123\u90fd\u53ef\u4ee5\u7528\uff0c\u4f60\u53ef\u4ee5\u591a\u8fdb\u7a0b",
   "training_updates": {
     "H0_control": 100,
@@ -33,7 +33,7 @@
   ],
   "active_point_and_cache_worker_allowed_to_finish": true,
   "numeric_evaluation_code_SHA256": "81de991efba67205060622922df75cf62d66d8b22b57ec18bcca18bff998ddd3",
-  "time": 1794363745.4767404,
+  "time": 1794363970.694449,
   "scheduler_config": {
     "training_prefetch_windows": 24,
     "startup_windows": 4,
@@ -55,12 +55,147 @@
       3
     ],
     "max_evaluation_workers": 4,
-    "native_prefetch_points": 6
+    "native_prefetch_points": 4
   },
   "remaining_state_points": 368,
   "remaining_source_QP_bundles": 74,
   "no_duplicate_outputs": true,
   "training_checkpoint_hashes_unchanged": true,
   "numerical_code_unchanged": true,
-  "sources_verified": true
+  "sources_verified": true,
+  "metric_ids": [
+    "2c7d0a8d1c1a05da14bee58bbfe64d94d6457438cb282fa11643846175798811"
+  ],
+  "paired_stream_identity_checks": 257,
+  "actual_evaluation_processes": {
+    "development_0051": {
+      "PID": 2764013,
+      "physical_GPU": 0,
+      "phase": "development",
+      "point": 51,
+      "tasks": [
+        {
+          "model": "B300",
+          "step": 0
+        },
+        {
+          "model": "H0_control",
+          "step": 50
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 50
+        },
+        {
+          "model": "H0_control",
+          "step": 100
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 100
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 50
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 100
+        }
+      ],
+      "seconds": 111.03486633300781
+    },
+    "development_0052": {
+      "PID": 2764014,
+      "physical_GPU": 1,
+      "phase": "development",
+      "point": 52,
+      "tasks": [
+        {
+          "model": "B300",
+          "step": 0
+        },
+        {
+          "model": "H0_control",
+          "step": 50
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 50
+        },
+        {
+          "model": "H0_control",
+          "step": 100
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 100
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 50
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 100
+        }
+      ],
+      "seconds": 111.03137183189392
+    },
+    "development_0053": {
+      "PID": 2764015,
+      "physical_GPU": 2,
+      "phase": "development",
+      "point": 53,
+      "tasks": [
+        {
+          "model": "B300",
+          "step": 0
+        },
+        {
+          "model": "H0_control",
+          "step": 50
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 50
+        },
+        {
+          "model": "H0_control",
+          "step": 100
+        },
+        {
+          "model": "H1_latent_self",
+          "step": 100
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 50
+        },
+        {
+          "model": "H2_latent_equiv",
+          "step": 100
+        }
+      ],
+      "seconds": 111.0279381275177
+    }
+  },
+  "actual_cache_processes": {
+    "7c144f8218a236e7be398073f05450a9119ee7e97a92616e1e10ac51b7dbab24": {
+      "PID": 2766906,
+      "physical_GPU": 3,
+      "peak_MiB": 28115,
+      "GPU_utilization": 99
+    }
+  },
+  "coverage": {
+    "H1_latent_self@100": 50,
+    "H1_latent_self@50": 50,
+    "H0_control@100": 50,
+    "H0_control@50": 53,
+    "H2_latent_equiv@100": 22,
+    "H2_latent_equiv@50": 32,
+    "B300@0": 53
+  },
+  "native_prefetch_adjustment": "Four pending source/QP bundles plus up to four active bundles fit the eight native cache entry limit; no training or metric settings changed."
 }

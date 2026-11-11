@@ -8,7 +8,7 @@ Base objective: LPIPS-Alex +0.5 DISTS +0.1383589248954108 RGB-L1 +0.05 RAFT-moti
 
 H1 adds hard-mask-area-normalized confidence-weighted latent differences with shared differentiable channel RMS, tau0.02. Flow is estimated by frozen RAFT on GT RGB, not a known true motion field. H2 additionally proposes four stateless paired translation losses/window; both sides disable TCG and cache updates; target is no_grad. No edge-floor, Teacher, Router, GAN, SFT, history alignment or new upsampler.
 
-Fresh AdamW: Bridge2e-6, TCG1e-5, LoRA5e-5; betas(.9,.999), eps1e-8, weight_decay1e-4, globalclip1. Exactly four logical windows/update,64 frames/window, current-weight warmup1–48, supervised49–63 segmented4/4/4/3. Maximum100 updates; no automatic extension. GPU0 H0, GPU1 H1, GPU2 H2 if mechanically allowed, GPU3 serialized bounded cache/evaluation.
+Fresh AdamW: Bridge2e-6, TCG1e-5, LoRA5e-5; betas(.9,.999), eps1e-8, weight_decay1e-4, globalclip1. Exactly four logical windows/update,64 frames/window, current-weight warmup1–48, supervised49–63 segmented4/4/4/3. Maximum100 updates; no automatic extension. Training allocation: GPU0 H0, GPU1 H1, GPU2 H2. After the three100-update runs finished, the user authorized a shared GPU0–3 pool for independent evaluation processes and bounded frozen-cache production. Each GPU runs at most one heavy process belonging to this experiment; unrelated processes are retained.
 
 Calibration uses10 frozen training windows, no optimizer updates or development/test choice. lambda_lat=0.2953169862992426; lambda_equiv=0.10179495298276185.
 
@@ -16,8 +16,8 @@ H2 mechanical gate: DIAGNOSTIC_ONLY_USER_DIRECTED_TRAINING; median16px/8px error
 
 | Group | Added updates | Dev50 | Dev100 | Numerical screen |
 |---|---:|---:|---:|---|
-| H0_control | 100 | 50/96 | 50/96 | pending |
-| H1_latent_self | 100 | 50/96 | 50/96 | pending |
+| H0_control | 100 | 53/96 | 53/96 | pending |
+| H1_latent_self | 100 | 53/96 | 53/96 | pending |
 | H2_latent_equiv | 100 | 32/96 | 22/96 | pending |
 
 Mechanical screen compares every QP mean DISTS, LPIPS-Alex, LPIPS-VGG and FloLPIPS to≤1.005×B300 and requires meanQP P→P Sobel ratio S<1. Eligible50/100 checkpoints are selected by lowest S; differences below0.0005 prefer earlier. NOT_QUALIFIED never substitutes step0. This is a numerical screen, not a claim about human-visible flicker.
@@ -34,21 +34,21 @@ Measured equal-video aggregates:
 
 | Phase | Dataset | Model | Step | QP | bpp | PSNR | Alex | VGG | DISTS | FloLPIPS | P→P Sobel |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| development | ULong_development_32 | B300 | 0 | 0 | 0.0018748475 | 23.94677 | 0.19812257 | 0.32934209 | 0.10866159 | 0.19990953 | 0.00692275 |
-| development | ULong_development_32 | B300 | 0 | 5 | 0.0068020521 | 26.352704 | 0.12479232 | 0.23660998 | 0.072467612 | 0.12251218 | 0.0062908748 |
-| development | ULong_development_32 | B300 | 0 | 9 | 0.015599934 | 27.547183 | 0.097712438 | 0.2002339 | 0.05916972 | 0.093138896 | 0.0057845199 |
-| development | ULong_development_32 | H0_control | 50 | 0 | 0.0018748475 | 23.91737 | 0.19871762 | 0.33002499 | 0.1097038 | 0.20030598 | 0.0069892878 |
-| development | ULong_development_32 | H0_control | 50 | 5 | 0.0068020521 | 26.324876 | 0.12491805 | 0.23719026 | 0.073181997 | 0.12259702 | 0.0063477913 |
-| development | ULong_development_32 | H0_control | 50 | 9 | 0.015599934 | 27.521052 | 0.097727023 | 0.20095859 | 0.059882156 | 0.093137537 | 0.0058342419 |
-| development | ULong_development_32 | H0_control | 100 | 0 | 0.0018748475 | 23.895822 | 0.19935265 | 0.33024003 | 0.11010074 | 0.2007679 | 0.0068114445 |
-| development | ULong_development_32 | H0_control | 100 | 5 | 0.0068020521 | 26.290231 | 0.12592394 | 0.23675403 | 0.073402256 | 0.12346724 | 0.0061941572 |
-| development | ULong_development_32 | H0_control | 100 | 9 | 0.015599934 | 27.471298 | 0.098777304 | 0.20039041 | 0.06004312 | 0.094055403 | 0.0056987067 |
-| development | ULong_development_32 | H1_latent_self | 50 | 0 | 0.0018748475 | 23.871177 | 0.19902109 | 0.33109139 | 0.11014902 | 0.20053297 | 0.0069934322 |
-| development | ULong_development_32 | H1_latent_self | 50 | 5 | 0.0068020521 | 26.297529 | 0.12502691 | 0.2376987 | 0.072886812 | 0.12266988 | 0.0063366163 |
-| development | ULong_development_32 | H1_latent_self | 50 | 9 | 0.015599934 | 27.504189 | 0.097813048 | 0.20127804 | 0.059548669 | 0.093210414 | 0.0058217639 |
-| development | ULong_development_32 | H1_latent_self | 100 | 0 | 0.0018748475 | 23.783458 | 0.19996272 | 0.33157593 | 0.11089381 | 0.20143553 | 0.0068401369 |
-| development | ULong_development_32 | H1_latent_self | 100 | 5 | 0.0068020521 | 26.189069 | 0.12633213 | 0.23750944 | 0.073289501 | 0.12385716 | 0.0061968627 |
-| development | ULong_development_32 | H1_latent_self | 100 | 9 | 0.015599934 | 27.371816 | 0.099137829 | 0.20091951 | 0.059841166 | 0.094396099 | 0.0056957397 |
+| development | ULong_development_32 | B300 | 0 | 0 | 0.0019398429 | 24.139576 | 0.19417438 | 0.32557346 | 0.10637932 | 0.19576156 | 0.0068185055 |
+| development | ULong_development_32 | B300 | 0 | 5 | 0.006922445 | 26.589023 | 0.12163719 | 0.2330681 | 0.07065662 | 0.11930427 | 0.006183921 |
+| development | ULong_development_32 | B300 | 0 | 9 | 0.015870282 | 27.801319 | 0.094944902 | 0.19664695 | 0.057505183 | 0.090492792 | 0.005687279 |
+| development | ULong_development_32 | H0_control | 50 | 0 | 0.0019398429 | 24.110248 | 0.19477736 | 0.32626886 | 0.10741225 | 0.19617385 | 0.0068828643 |
+| development | ULong_development_32 | H0_control | 50 | 5 | 0.006922445 | 26.561568 | 0.12178925 | 0.23366826 | 0.071359057 | 0.1194216 | 0.0062390193 |
+| development | ULong_development_32 | H0_control | 50 | 9 | 0.015870282 | 27.776448 | 0.094980194 | 0.19737337 | 0.058189317 | 0.090518062 | 0.0057353445 |
+| development | ULong_development_32 | H0_control | 100 | 0 | 0.0019398429 | 24.090124 | 0.19538181 | 0.32646972 | 0.10778809 | 0.19661587 | 0.0067114405 |
+| development | ULong_development_32 | H0_control | 100 | 5 | 0.006922445 | 26.527588 | 0.12275361 | 0.23323979 | 0.071579448 | 0.12026274 | 0.0060905699 |
+| development | ULong_development_32 | H0_control | 100 | 9 | 0.015870282 | 27.72519 | 0.095997998 | 0.19682849 | 0.058367888 | 0.091412888 | 0.0056043706 |
+| development | ULong_development_32 | H1_latent_self | 50 | 0 | 0.0019398429 | 24.063803 | 0.19507115 | 0.32731013 | 0.10784578 | 0.1964012 | 0.0068865554 |
+| development | ULong_development_32 | H1_latent_self | 50 | 5 | 0.006922445 | 26.534535 | 0.12188796 | 0.23415182 | 0.071065055 | 0.11948555 | 0.0062275878 |
+| development | ULong_development_32 | H1_latent_self | 50 | 9 | 0.015870282 | 27.761591 | 0.095052779 | 0.19767022 | 0.057860943 | 0.090575673 | 0.0057226064 |
+| development | ULong_development_32 | H1_latent_self | 100 | 0 | 0.0019398429 | 23.976323 | 0.19597465 | 0.32777862 | 0.10856756 | 0.19727511 | 0.0067381863 |
+| development | ULong_development_32 | H1_latent_self | 100 | 5 | 0.006922445 | 26.425212 | 0.12313928 | 0.23395942 | 0.071465024 | 0.12063057 | 0.0060919672 |
+| development | ULong_development_32 | H1_latent_self | 100 | 9 | 0.015870282 | 27.626035 | 0.09633099 | 0.19732461 | 0.058169812 | 0.091724259 | 0.0056002963 |
 | development | ULong_development_32 | H2_latent_equiv | 50 | 0 | 0.0015253939 | 23.985867 | 0.18304046 | 0.32081746 | 0.11406405 | 0.1801208 | 0.006758084 |
 | development | ULong_development_32 | H2_latent_equiv | 50 | 5 | 0.0057169405 | 26.144765 | 0.11709069 | 0.23402221 | 0.076066199 | 0.11201449 | 0.0061557256 |
 | development | ULong_development_32 | H2_latent_equiv | 50 | 9 | 0.013700889 | 27.062761 | 0.10114037 | 0.21069529 | 0.064047206 | 0.093377572 | 0.0065168666 |
