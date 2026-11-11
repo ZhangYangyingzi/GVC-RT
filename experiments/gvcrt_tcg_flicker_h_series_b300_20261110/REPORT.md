@@ -1,6 +1,6 @@
 # Corrected H-series B300 execution record
 
-Status: RUNNING. See status.json for current stage.
+Status: COMPLETE. See status.json for current stage.
 
 All models restore original I/P → complete pilot generator/Bridge/persistent buffers → B+1500 TCG → A2000 LoRA → B30052-key overlay last. LoRA is retained without merging at s=0.5. Full Bridge801124, TCG137760, LoRA59392 are trainable; original decoder backbone, codec, I model, entropy and metric networks are frozen. H0 is a continuation control whose difference from B300 includes widening Bridge training and further updates; this report assigns no single-factor causal effect.
 
@@ -57,3 +57,62 @@ Measured equal-video aggregates:
 | development | ULong_development_32 | H2_latent_equiv | 100 | 9 | 0.015992852 | 27.117206 | 0.097409881 | 0.19953194 | 0.061652034 | 0.092504614 | 0.0058863846 |
 
 This report records execution, coverage and numbers only. Integrity/publication states are in final_integrity.json and publication_status.json.
+
+Completion records:
+
+- Training:100 updates/group; development:96 points/group at both50 and100; B300 reference96 points. Total672 state/video/QP development points.
+- Numerical screen:all three groups NOT_QUALIFIED. No checkpoint selected; no new final-test points; no additional training.
+- Media:21 native FFV1 clips and10 unscaled ROI comparisons;31 metadata checks PASS. Anonymous mappings remain separate viewing materials; no subjective study is claimed.
+- Integrity:PASS. Final result publication verified at https://github.com/ZhangYangyingzi/GVC-RT/commit/2ff847c3a5250e17319edd371d46e8d398e1b565; current branch receipt is publication_remote_receipt.json.
+- Original baseline:independent implementation b2a0895c0cf31cf2be3ab1c2571ca07c05866c03; original I/P identities are recorded in source_manifest.json and the media/cache audits.
+
+Absolute artifact paths:
+
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/REPORT.md
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/development_metrics.csv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/development_paired_by_video_qp.csv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/development_matched_steps.csv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/training_history.csv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/selection.json
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/checkpoint_manifest.json
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/video_manifest.json
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/final_integrity.json
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/audits/media_metadata.json
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/PSNR.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/LPIPS_Alex.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/LPIPS_VGG.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/DISTS.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/FloLPIPS.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/Sobel_MCResidual_PtoP.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/plots/development/ULong_development_32/local16_energy_abs_bias.png
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_GT_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_Original_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_A2000_step2000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_B300_step0300.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_H0_control_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_H1_latent_self_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/24747b35-04ca-416c-b1d0-0bc670fbac99_QP5_H2_latent_equiv_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_GT_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_Original_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_A2000_step2000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_B300_step0300.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_H0_control_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_H1_latent_self_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/28a7c428-1a8d-4bd1-afbc-fed596ec6153_QP5_H2_latent_equiv_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_GT_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_Original_step0000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_A2000_step2000.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_B300_step0300.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_H0_control_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_H1_latent_self_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/native/dce599d3-d196-4d87-b2b1-698acdbbb3d4_QP5_H2_latent_equiv_step0100.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/24747b35-04ca-416c-b1d0-0bc670fbac99_fixed_texture_named_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/24747b35-04ca-416c-b1d0-0bc670fbac99_fixed_texture_anonymous_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/28a7c428-1a8d-4bd1-afbc-fed596ec6153_fixed_texture_named_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/28a7c428-1a8d-4bd1-afbc-fed596ec6153_fixed_texture_anonymous_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_person_named_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_person_anonymous_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_dog_named_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_dog_anonymous_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_background_named_QP5_FFV1.mkv
+- /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/media/ROI/dce599d3-d196-4d87-b2b1-698acdbbb3d4_background_anonymous_QP5_FFV1.mkv

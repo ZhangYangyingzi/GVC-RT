@@ -1,144 +1,23 @@
 {
-  "status": "RUNNING",
-  "complete": false,
-  "current_stage": "publication",
-  "groups": {
-    "H0_control": {
-      "committed_updates": 100,
-      "disposable_engineering_updates": null,
-      "state": "DEVELOPMENT_COMPLETE",
-      "step50_points": 96,
-      "step100_points": 96,
-      "next_window": null,
-      "cache_wait_seconds": 7894.231032371521,
-      "recent_seconds_per_update": 109.78789989948272
-    },
-    "H1_latent_self": {
-      "committed_updates": 100,
-      "disposable_engineering_updates": null,
-      "state": "DEVELOPMENT_COMPLETE",
-      "step50_points": 96,
-      "step100_points": 96,
-      "next_window": null,
-      "cache_wait_seconds": 8639.845959186554,
-      "recent_seconds_per_update": 109.44046587944031
-    },
-    "H2_latent_equiv": {
-      "committed_updates": 100,
-      "disposable_engineering_updates": null,
-      "state": "DEVELOPMENT_COMPLETE",
-      "step50_points": 96,
-      "step100_points": 96,
-      "next_window": null,
-      "cache_wait_seconds": 10150.264211893082,
-      "recent_seconds_per_update": 136.10220935344697
-    }
+  "status": "COMPLETE",
+  "complete": true,
+  "current_stage": "complete",
+  "updates": {
+    "H0_control": 100,
+    "H1_latent_self": 100,
+    "H2_latent_equiv": 100
   },
-  "cache": {
-    "status": "RUNNING",
-    "READY_training_windows": 0,
-    "cache_bytes": 35792707728,
-    "positions": {
-      "H0_control": 400,
-      "H1_latent_self": 400,
-      "H2_latent_equiv": 400
-    },
-    "next_windows": {
-      "H0_control": null,
-      "H1_latent_self": null,
-      "H2_latent_equiv": null
-    },
-    "produced": 23,
-    "windows_per_second": 0.010798371363860219,
-    "producer_latency_sum": 1933.7102715969086,
-    "active": {},
-    "time": 1794380096.497307
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110",
+  "publication": {
+    "status": "VERIFIED",
+    "phase": "final_results",
+    "branch": "codex/tcg-flicker-h-series-b300-20261110",
+    "commit": "2ff847c3a5250e17319edd371d46e8d398e1b565",
+    "core_commit": "723eb52d141860eb73dc2d1f09628a4b5cbebddb",
+    "commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/2ff847c3a5250e17319edd371d46e8d398e1b565",
+    "remote_verified": true,
+    "core_files_verified": true,
+    "time": 1794380132.7649007
   },
-  "active_processes": {
-    "producer": {
-      "PID": 2928584,
-      "returncode": null
-    },
-    "evaluation_queue": {
-      "PID": 2928585,
-      "returncode": null
-    },
-    "results": {
-      "PID": 2949145,
-      "returncode": 0
-    },
-    "media": {
-      "PID": 2949223,
-      "returncode": 0
-    },
-    "integrity": {
-      "PID": 2965346,
-      "returncode": 0
-    },
-    "publication_final": {
-      "PID": 2965921,
-      "returncode": null
-    }
-  },
-  "GPU_allocation": {
-    "H0_control": 0,
-    "H1_latent_self": 1,
-    "H2_latent_equiv": 2
-  },
-  "evaluation_GPU_pool": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "evaluation_pool": {
-    "status": "IDLE",
-    "GPU_pool": [
-      0,
-      1,
-      2,
-      3
-    ],
-    "active": {},
-    "coverage": {
-      "development_B300_0000": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H0_control_0050": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H1_latent_self_0050": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H0_control_0100": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H1_latent_self_0100": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H2_latent_equiv_0050": {
-        "completed": 96,
-        "expected": 96
-      },
-      "development_H2_latent_equiv_0100": {
-        "completed": 96,
-        "expected": 96
-      }
-    },
-    "remaining_source_QP_bundles": 0,
-    "prefetch_bundles": 0,
-    "cache_wait_seconds": 518.6090500354767,
-    "new_state_points": 53,
-    "state_points_per_second": 0.024891585842997263,
-    "time": 1794380095.6797206
-  },
-  "time": 1794380096.8078318,
-  "cache_request_queue_length": 0,
-  "evaluation_queue_length": 0,
-  "baseline_B300_points": 96
+  "time": 1794380133.6212697
 }
