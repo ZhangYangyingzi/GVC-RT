@@ -3,25 +3,30 @@
   "complete": false,
   "training": {
     "A_spatial": {
-      "committed_updates": 35,
-      "unique_windows": 140,
+      "committed_updates": 100,
+      "unique_windows": 400,
       "plan_order_exact": true,
       "checkpoint0_common_exact": true
     },
     "B_spatial_temporal": {
-      "committed_updates": 35,
-      "unique_windows": 140,
+      "committed_updates": 100,
+      "unique_windows": 400,
       "plan_order_exact": true,
       "checkpoint0_common_exact": true
     }
   },
   "evaluation_coverage": {
+    "A_spatial_step50": 32,
+    "A_spatial_step100": 32,
     "B300_step0": 96,
-    "Original_step0": 9
+    "B_spatial_temporal_step50": 32,
+    "B_spatial_temporal_step100": 31,
+    "Original_step0": 35
   },
   "expected_state_points": 96,
-  "point_records_checked": 105,
+  "point_records_checked": 258,
   "all_matched_stream_bytes_bpp_SHA256": true,
+  "all_matched_GT_estimated_flows_and_masks": true,
   "protected_sources_unchanged": {
     "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt": true,
     "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_stage2_convlora_coverage_ab_20261107/experiments/gvcrt_tcg_stage2_convlora_coverage_ab_20261107/A_control/checkpoints/step_2000.pt": true,
@@ -39,7 +44,8 @@
   "model_weights_local_only": true,
   "dataset_copied": false,
   "final_test_run": false,
-  "media_status": "PENDING",
+  "media_status": "PASS",
+  "formal_training_code_unchanged": true,
   "no_effectiveness_decision": true,
-  "time": 1794387683.4461813
+  "time": 1794391270.5068433
 }

@@ -1,6 +1,6 @@
 """Same-GPU/precision/input deployment timing only on a GPU without foreign users."""
 from common_s2 import *
-import statistics
+import statistics,gc
 
 
 def foreign_processes():
@@ -32,6 +32,7 @@ def main():
     _,p,rp=cache_paths(row,5,False);assert p.exists() and sha(p)==load(rp)['cache_sha256']
     d=torch.load(p,map_location='cpu',weights_only=True,mmap=True);inputs=[None]+[x.to('cuda:0') for x in d['features'][1:17]];results=[]
     for model in ['B300',*GROUPS]:
+        gc.collect();torch.cuda.empty_cache()
         c=construct(model,False,0,with_adapter=model in GROUPS)
         if model in GROUPS:restore(c,torch.load(ROOT/model/'training/checkpoints/step_0100.pt',map_location='cpu',weights_only=True))
         passes=[];full_passes=[];torch.cuda.reset_peak_memory_stats();items=packets(c,d['info'])
@@ -54,7 +55,7 @@ def main():
             full_decode_seconds_per_P_frame=statistics.median(full_passes),raw_full_decode_passes=full_passes,
             history_bytes=c['adapter'].history_bytes() if model in GROUPS else 0,
             peak_allocated_bytes=torch.cuda.max_memory_allocated(),peak_reserved_bytes=torch.cuda.max_memory_reserved()))
-        del c;torch.cuda.empty_cache()
+        del c;gc.collect();torch.cuda.empty_cache()
     dump(ROOT/'performance.json',dict(status='PASS',parameters=21696,physical_GPU=physical_gpu(0),method=method,
         results=results,precision=DEPLOYMENT,input_stream_SHA256=d['info']['stream_SHA256'],no_foreign_compute_processes=True,time=time.time()))
 

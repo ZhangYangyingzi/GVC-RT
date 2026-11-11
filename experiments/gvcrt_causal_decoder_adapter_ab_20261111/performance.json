@@ -24,5 +24,26 @@
   "method": "same physical GPU/precision/canonical RANS packets; 8 warmup frames, 3 passes of P frames9..16; synchronized wall clock. Both full RANS+codec+reconstruction decode and reconstruction-only times; excludes file IO, GT and scoring.",
   "decision": "No timing taken while this GPU has another compute process. Task does not terminate foreign processes.",
   "resume": "CUDA_VISIBLE_DEVICES=<idle physical GPU0..3> python -B performance.py",
-  "time": 1794387096.3952801
+  "time": 1794387096.3952801,
+  "observed_memory_and_storage": {
+    "training_by_group": {
+      "A_spatial": {
+        "peak_allocated_bytes": 362511360,
+        "peak_reserved_bytes": 452984832
+      },
+      "B_spatial_temporal": {
+        "peak_allocated_bytes": 362511360,
+        "peak_reserved_bytes": 452984832
+      }
+    },
+    "evaluation_peak_allocated_bytes": 6052747776,
+    "evaluation_peak_reserved_bytes": 7004487680,
+    "deployment_history_tensor_bytes_observed": [
+      0,
+      41779200
+    ],
+    "shared_training_h_tensor_bytes": 9437184000,
+    "shared_training_h_cache_file_bytes": 14251007968,
+    "note": "actual per-process CUDA allocator peaks and logical tensor bytes; contended wall times are not used as performance benchmarks"
+  }
 }

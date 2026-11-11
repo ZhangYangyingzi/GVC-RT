@@ -1,0 +1,40 @@
+{
+  "status": "APPLIED",
+  "training_complete": true,
+  "previous_workers_per_GPU": {
+    "0": 1,
+    "1": 1,
+    "2": 1,
+    "3": 1
+  },
+  "trial_workers_per_GPU": {
+    "0": 1,
+    "1": 1,
+    "2": 2,
+    "3": 1
+  },
+  "rationale": "one scoring worker observed about7 GiB; GPU2 has capacity after cache workers exited; bounded two-worker trial to measure aggregate completed state points",
+  "time": 1794390572.600864,
+  "observed_trial": {
+    "2": {
+      "completed_state_points": 16,
+      "seconds": 587.7083897590637,
+      "state_points_per_minute": 1.6334631540542761,
+      "workers": 2
+    },
+    "3": {
+      "completed_state_points": 12,
+      "seconds": 587.7083897590637,
+      "state_points_per_minute": 1.225097365540707,
+      "workers": 1
+    }
+  },
+  "configured_workers_per_GPU": {
+    "0": 1,
+    "1": 2,
+    "2": 2,
+    "3": 2
+  },
+  "note": "Observed queue throughput only, not an uncontended decode benchmark; max two scoring workers per GPU with memory checks, one native-cache creator until cache ready",
+  "time_completed": 1794391160.3092537
+}

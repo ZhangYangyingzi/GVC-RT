@@ -61,6 +61,19 @@ def main():
         for p in sorted((ROOT/group/'training/receipts').glob('*.json')):
             a=load(p);traces.append({k:a[k] for k in ['group','committed_updates','next_cursor','loss','gradient_norm','upstream_gradient_norm','cache_wait_seconds','seconds','peak_allocated_bytes','peak_reserved_bytes','physical_GPU']})
     if traces:write_csv(ROOT/'training_logs/updates.csv',traces)
+    performance=load(ROOT/'performance.json') if (ROOT/'performance.json').exists() else {'status':'PENDING'}
+    memory={g:dict(peak_allocated_bytes=max([r['peak_allocated_bytes'] for r in traces if r['group']==g],default=0),
+        peak_reserved_bytes=max([r['peak_reserved_bytes'] for r in traces if r['group']==g],default=0)) for g in GROUPS}
+    bundles=[load(p) for p in (ROOT/'audits/evaluation_bundles').glob('*.json')]
+    histories=sorted({load(p).get('history_bytes',0) for p in (ROOT/'evaluation/development').glob('*/step_*/points/*.json')})
+    hc=[load(p) for p in (ROOT/'audits/h_cache').glob('*.json')]
+    performance['observed_memory_and_storage']=dict(training_by_group=memory,
+        evaluation_peak_allocated_bytes=max([r['peak_allocated_bytes'] for r in bundles],default=0),
+        evaluation_peak_reserved_bytes=max([r['peak_reserved_bytes'] for r in bundles],default=0),
+        deployment_history_tensor_bytes_observed=histories,shared_training_h_tensor_bytes=sum(r['h_bytes'] for r in hc),
+        shared_training_h_cache_file_bytes=sum(r['bytes'] for r in hc),
+        note='actual per-process CUDA allocator peaks and logical tensor bytes; contended wall times are not used as performance benchmarks')
+    dump(ROOT/'performance.json',performance)
     checkpoints=[]
     for group in GROUPS:
         for p in sorted((ROOT/group/'training/checkpoints').glob('step_*.pt')):
@@ -70,7 +83,6 @@ def main():
         for m,s in [('Original',0),('B300',0),*[(g,s) for g in GROUPS for s in [50,100]]]}
     updates={g:max([r['committed_updates'] for r in traces if r['group']==g],default=0) for g in GROUPS}
     protocol=load(ROOT/'protocol.json');cal=load(ROOT/'gradient_calibration.json')
-    performance=load(ROOT/'performance.json') if (ROOT/'performance.json').exists() else {'status':'PENDING'}
     data_done=all(u==100 for u in updates.values()) and all(n==96 for n in coverage.values())
     completion='COMPLETE' if data_done and performance['status']=='PASS' else 'COMPLETED_WITH_PENDING_PERFORMANCE' if data_done else 'IN_PROGRESS'
     rows=['# Causal decoder adapter A/B: execution record','',
@@ -91,6 +103,7 @@ def main():
         '| State | Completed points / 96 |','|---|---:|',*[f'| {m} | {n} / 96 |' for m,n in coverage.items()],'',
         'Training source isolation and QP/crop/frame/order identities are inherited from H. No new dataset inventory scan or split. No training codec tensor for these400 windows was retained at startup; missing codec/GT-flow caches were regenerated with the pinned independent Original path. Native evaluation caches are read-only where reusable.',
         'Original is decoded using pinned independent b2a0895 original source and original I/P weights in an isolated process. Cached tensors carry independent-decode/real-RANS/source/feature hashes. Historical scalar reuse requires every RGB frame, source frame, stream, QP, precision and metric-weight identity to match. Missing metrics are computed anew.','',
+        'Frozen PWC GT forward flows used internally by FloLPIPS are cached as FP32 CPU tensors within each source/QP evaluation bundle and shared across model states. A direct check found bit-exact flow and FloLPIPS equality. This cache does not change the RAFT MC supervision, any training loss, or deployment inputs. The official FloLPIPS source/weight identities are in metric_source_manifest.json.','',
         '## Development numbers','',
         'CSV files contain every completed point, equal-video QP means and candidate-minus-reference paired differences. Negative error differences and positive PSNR differences retain their numeric meaning; no subjective flicker percentage is inferred.','']
     if summaries:

@@ -13,6 +13,8 @@ def main(specpath):
             subprocess.run([PYTHON,'-B','-u','cache_codec.py','--row',str(r),'--qp',str(q)],cwd=ROOT,env=os.environ,check=True)
             key,p,rp=cache_paths(row,q,False)
         proof=load(rp);assert sha(p)==proof['cache_sha256']
+        dump(ROOT/'queue/evaluation_stages'/Path(specpath).name,dict(stage='scoring',native_cache_ready=True,
+            PID=os.getpid(),physical_GPU=physical_gpu(0),time=time.time()))
         import torch
         from evaluation import Evaluator
         data=torch.load(p,map_location='cpu',weights_only=True,mmap=True)

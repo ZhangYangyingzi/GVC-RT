@@ -62,6 +62,14 @@ class Evaluator:
         self.metric_id=digest(dict(version='causal_ab_development_metrics_v1',weights=self.weights,policy=metric_audit(),temporal=sha(ROOT/'temporal.py'),precision=DEPLOYMENT))
         dump(ROOT/f'audits/metric_identity_GPU{physical_gpu(0)}.json',dict(metric_id=self.metric_id,weights=self.weights,policy=metric_audit()))
         self.contexts={}
+        self.PWC_GT_flows={};self.PWC_GT_source=None
+
+    def gt_metric_flow(self,previous_gt,gt,frame):
+        # Same frozen PWC / same FP32 GT values for every state in this bundle.
+        # Keep only CPU flow tensors, not full-resolution generator features.
+        if frame not in self.PWC_GT_flows:
+            self.PWC_GT_flows[frame]=self.networks[3](previous_gt,gt).detach().cpu()
+        return self.PWC_GT_flows[frame].to(gt.device)
 
     def context(self,model,step):
         from experiment_model import construct,restore
@@ -96,6 +104,8 @@ class Evaluator:
         if c:assert_reset(c);before=tensor_hash(c['pm'].state_dict().items())
         lp,vgg,dists,flow,perceptual=self.networks;fr=[];tr=[];prev=prevgt=None;start=time.time()
         reuse=historical(v,q,model,info,self.weights)
+        source=digest(dict(source=v['source_sha256'],frames=v['source_frame_indices'],RGB=v['frame_rgb_sha256'],PWC=self.weights['PWC']))
+        if self.PWC_GT_source!=source:self.PWC_GT_flows={};self.PWC_GT_source=source
         with torch.no_grad():
             for i in range(64):
                 assert info['codec_trace'][i]['source_RGB_SHA256']==v['frame_rgb_sha256'][i]
@@ -120,7 +130,7 @@ class Evaluator:
                     GT_Sobel_edge_strength=gtstrength,edge_relative_GT_bias=strength/gtstrength-1 if gtstrength else None,
                     local16_energy_abs_bias=float((local-localgt).abs().mean()),local16_energy_signed_bias=float((local-localgt).mean())))
                 if i:
-                    flo=float(reuse['transitions'][i-1]['FloLPIPS']) if reuse else float(perceptual(prevgt,prev,flow(prevgt,gt)-flow(prev,out),normalize=True).mean())
+                    flo=float(reuse['transitions'][i-1]['FloLPIPS']) if reuse else float(perceptual(prevgt,prev,self.gt_metric_flow(prevgt,gt,i)-flow(prev,out),normalize=True).mean())
                     rr,ss,vf=temporal_errors(out,prev,gt,prevgt,data['GT_backward'][i].to('cuda:0'),data['GT_valid'][i].to('cuda:0'))
                     tr.append(dict(from_frame=i-1,to_frame=i,kind='I_to_P' if i==1 else 'P_to_P',FloLPIPS=flo,
                         RGB_MCResidual=None if rr is None else float(rr),Sobel_MCResidual=None if ss is None else float(ss),
@@ -163,6 +173,7 @@ class Evaluator:
             history_bytes=history_bytes,reuse_source=None if not reuse else {k:reuse[k] for k in ('source','source_SHA256','style')},
             reused_metrics=[] if not reuse else ['PSNR','LPIPS_Alex','DISTS','FloLPIPS']+(['LPIPS_VGG'] if reuse['style']=='H_B300' else []),
             reuse_verified_every_RGB_frame=True if reuse else False,physical_GPU=physical_gpu(0),seconds=time.time()-start,
+            PWC_GT_metric_flow_CPU_cache_bytes=sum(x.numel()*x.element_size() for x in self.PWC_GT_flows.values()),
             evaluation_code_SHA256=sha(ROOT/'evaluation.py'))
         dump(dest,a);event('development_point_complete',model=model,step=step,sequence=v['sequence'],QP=q,seconds=a['seconds'])
         return a

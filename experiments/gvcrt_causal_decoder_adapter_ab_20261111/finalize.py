@@ -59,6 +59,18 @@ def main():
         wait_job(launch('publish.py',['--phase','final_results']))
         summary.update(current_stage='complete',publication=load(ROOT/'publication_remote_receipt.json'),time=time.time())
         dump(ROOT/'status.json',summary)
+        # Commit the completed status after publication; this metadata references
+        # the already verified preceding results commit, avoiding self-hash claims.
+        relative=str((ROOT/'status.json').relative_to(WORKTREE))
+        subprocess.run(['git','add','--',relative],cwd=WORKTREE,check=True)
+        subprocess.run(['git','commit','-m','Record completed causal adapter execution status'],cwd=WORKTREE,check=True)
+        subprocess.run(['git','push','origin',BRANCH],cwd=WORKTREE,check=True)
+        commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=WORKTREE,text=True).strip()
+        remote=subprocess.check_output(['git','ls-remote','origin','refs/heads/'+BRANCH],cwd=WORKTREE,text=True).split()[0]
+        assert remote==commit
+        receipt=load(ROOT/'publication_remote_receipt.json');receipt.update(commit=commit,remote_commit=remote,
+            commit_URL='https://github.com/ZhangYangyingzi/GVC-RT/commit/'+commit,time=time.time())
+        dump(ROOT/'publication_remote_receipt.json',receipt)
         dump(ROOT/'queue/STOP',dict(reason='all fixed-budget authorized jobs completed; performance status recorded',time=time.time()))
         event('experiment_delivery_ready',status=summary['status'],remaining=pending)
 

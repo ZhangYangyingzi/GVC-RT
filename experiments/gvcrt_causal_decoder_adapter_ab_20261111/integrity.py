@@ -5,6 +5,8 @@ from common_s2 import *
 def main():
     env();import torch
     rows=plan_rows();training={};complete=True
+    formal_code=load(ROOT/'audits/formal_training_code.json')
+    for name,h in formal_code['code'].items():assert sha(ROOT/name)==h,('FORMAL_TRAINING_CODE_CHANGED',name)
     common=torch.load(ROOT/'checkpoints/common_adapter_step0.pt',map_location='cpu',weights_only=True)
     for g in GROUPS:
         receipts=[load(p) for p in sorted((ROOT/g/'training/receipts').glob('*.json'))]
@@ -25,10 +27,19 @@ def main():
             assert all(int(v['step'])==s for v in a['optimizer']['state'].values())
         training[g]=dict(committed_updates=len(steps),unique_windows=len(actual),plan_order_exact=True,checkpoint0_common_exact=cp0.exists())
         complete=complete and len(steps)==100
-    metric_points=[];identities={};coverage={}
+    metric_points=[];identities={};coverage={};flow_identities={}
     for p in sorted((ROOT/'evaluation/development').glob('*/step_*/points/*.json')):
         a=load(p);assert a['status']=='PASS' and a['real_RANS'];r=a['result'];metric_points.append(r)
+        reuse=a.get('reuse_source')
+        if reuse:
+            source_path=reuse.get('source',reuse.get('path'));source_sha=reuse.get('source_SHA256',reuse.get('SHA256'))
+            if source_path and source_sha:assert sha(source_path)==source_sha
         for f,h in a['record_SHA256'].items():assert sha(ROOT/f)==h
+        transition_file=next(ROOT/f for f in a['record_SHA256'] if '/transitions/' in f)
+        for tr in csv.DictReader(transition_file.open()):
+            fk=(r['sequence'],r['QP'],int(tr['to_frame']))
+            fh=(tr['GT_backward_SHA256'],tr['GT_valid_SHA256'])
+            assert flow_identities.setdefault(fk,fh)==fh,('GT_ESTIMATED_FLOW_OR_MASK_MISMATCH',fk)
         k=(r['sequence'],r['QP']);identity=(r['real_bytes'],r['bpp'],r['stream_SHA256'])
         assert identities.setdefault(k,identity)==identity,('STREAM_MISMATCH',k)
         assert all(r[k] is None or math.isfinite(r[k]) for k in ['PSNR','LPIPS_Alex','LPIPS_VGG','DISTS','FloLPIPS'])
@@ -38,6 +49,8 @@ def main():
         complete=complete and coverage.get(f'{m}_step{s}',0)==96
     source=load(ROOT/'source_manifest.json')
     protected={p:sha(p)==h for p,h in source['protected_sources'].items()};assert all(protected.values())
+    metric_sources=load(ROOT/'metric_source_manifest.json')
+    for p,a in metric_sources['sources'].items():assert sha(p)==a['SHA256'],('METRIC_RUNTIME_SOURCE_CHANGED',p)
     media=load(ROOT/'video_manifest.json') if (ROOT/'video_manifest.json').exists() else dict(status='PENDING')
     if media.get('status')=='PASS':
         for r in media['records']:
@@ -47,9 +60,9 @@ def main():
     assert load(ROOT/'audits/preflight.json')['status']=='PASS'
     dump(ROOT/'integrity.json',dict(status='PASS' if complete else 'PARTIAL_PASS',complete=complete,
         training=training,evaluation_coverage=coverage,expected_state_points=96,point_records_checked=len(metric_points),
-        all_matched_stream_bytes_bpp_SHA256=True,protected_sources_unchanged=protected,
+        all_matched_stream_bytes_bpp_SHA256=True,all_matched_GT_estimated_flows_and_masks=True,protected_sources_unchanged=protected,
         B300_expected_SHA256=B300_SHA,B300_actual_SHA256=sha(B300),common_step0_equal=True,
-        model_weights_local_only=True,dataset_copied=False,final_test_run=False,media_status=media['status'],
+        model_weights_local_only=True,dataset_copied=False,final_test_run=False,media_status=media['status'],formal_training_code_unchanged=True,
         no_effectiveness_decision=True,time=time.time()))
     print('INTEGRITY', 'PASS' if complete else 'PARTIAL_PASS')
 

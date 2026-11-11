@@ -16,9 +16,28 @@ def start(name,script,gpu=None):
     return dict(PID=p.pid,physical_GPU=gpu,command=script,log=str(log.name),time=time.time())
 
 
+def repair_commit_metadata(group):
+    """Recover a milestone/receipt if interrupted after atomic latest publication."""
+    import torch
+    root=ROOT/group/'training';latest=root/'latest.pt'
+    if not latest.exists():return
+    registered=load(ROOT/'queue/train_PIDs.json') if (ROOT/'queue/train_PIDs.json').exists() else {}
+    if alive(registered.get(group,{}).get('PID',0),'train.py --group '+group):return
+    saved=torch.load(latest,map_location='cpu',weights_only=True)
+    assert saved['group']==group and saved['protocol_SHA256']==sha(ROOT/'protocol.json')
+    step=saved['committed_updates'];assert saved['next_cursor']==4*step
+    if step in (0,25,50,75,100):
+        target=root/f'checkpoints/step_{step:04d}.pt'
+        if not target.exists():atomic_torch(target,saved)
+    if step:dump(root/f'receipts/{step:04d}.json',saved['receipt'])
+    dump(root/'progress.json',dict(status='RESUMABLE',committed_updates=step,next_cursor=4*step,
+        physical_GPU=GROUPS.index(group),recovered_from_atomic_latest=True,time=time.time()))
+
+
 def main():
     env();assert Path.cwd()==ROOT
     if (ROOT/'queue/STOP').exists():raise RuntimeError('TASK_MARKED_STOPPED_OR_COMPLETE; inspect status before resuming')
+    for group in GROUPS:repair_commit_metadata(group)
     caches=load(ROOT/'queue/cache_PIDs.json') if (ROOT/'queue/cache_PIDs.json').exists() else dict(children={})
     done=(ROOT/'training_completion.json').exists()
     if not done:

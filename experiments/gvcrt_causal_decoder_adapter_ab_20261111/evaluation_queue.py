@@ -3,6 +3,36 @@ from common_s2 import *
 import traceback
 
 
+class AdoptedWorker:
+    def __init__(self,pid,spec):self.pid=pid;self.spec=spec;self.returncode=None
+    def poll(self):
+        try:
+            cmd=Path(f'/proc/{self.pid}/cmdline').read_bytes().replace(b'\0',b' ').decode()
+            if 'evaluation_worker.py' in cmd and str(self.spec) in cmd:return None
+        except (FileNotFoundError,ProcessLookupError):pass
+        proof=ROOT/'audits/evaluation_bundles'/self.spec.name
+        self.returncode=0 if proof.exists() and load(proof)['status']=='PASS' else 1
+        return self.returncode
+
+
+def adopt_workers():
+    active={}
+    for proc in Path('/proc').iterdir():
+        if not proc.name.isdigit():continue
+        try:
+            if (proc/'cwd').resolve()!=ROOT:continue
+            args=(proc/'cmdline').read_bytes().decode().split('\0')
+            if 'evaluation_worker.py' not in args:continue
+            spec=Path(args[args.index('evaluation_worker.py')+1]);assert spec.is_relative_to(ROOT/'tmp')
+            b=load(spec);key=b.get('key',b['video']['sequence']+f'_qp{b["QP"]}')
+            envs=(proc/'environ').read_bytes().split(b'\0');gpu=int(next(x.split(b'=',1)[1] for x in envs if x.startswith(b'CUDA_VISIBLE_DEVICES=')))
+            assert gpu in [0,1,2,3]
+            active[key]=dict(p=AdoptedWorker(int(proc.name),spec),gpu=gpu,
+                log=(ROOT/f'logs/evaluation_GPU{gpu}.log').open('ab'),spec=spec,start=time.time(),creating_native_cache=not b.get('cache_exists',True))
+        except (FileNotFoundError,ProcessLookupError,PermissionError):continue
+    return active
+
+
 def states():
     out=[('B300',0),('Original',0)]
     for g in GROUPS:
@@ -24,14 +54,17 @@ def worker():
     from evaluation import point_path
     active={};videos=load(ROOT/'manifests/development_videos.json');rows=plan_rows();cooldowns={}
     with lock('locks/evaluation_queue.lock'):
+        active=adopt_workers()
         while not (ROOT/'queue/STOP').exists():
             for key,j in list(active.items()):
+                stage=ROOT/'queue/evaluation_stages'/j['spec'].name
+                if stage.exists() and load(stage).get('native_cache_ready'):j['creating_native_cache']=False
                 code=j['p'].poll()
                 if code is not None:
                     j['log'].close()
                     if code:
-                        failures=list((ROOT/'audits/evaluation_failures').glob(f'{j["spec"].stem}_*.json'))
-                        retryable=failures and load(failures[-1]).get('retryable_OOM')
+                        failure=ROOT/'audits/evaluation_failures'/f'{j["spec"].stem}_{j["p"].pid}.json'
+                        retryable=failure.exists() and load(failure).get('retryable_OOM')
                         if not retryable:raise RuntimeError(('EVALUATION_WORKER_FAILED',str(j['spec']),code))
                         cooldowns[j['gpu']]=time.time()+60
                     del active[key]
