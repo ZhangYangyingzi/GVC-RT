@@ -1,0 +1,100 @@
+{
+  "time": 1794387671.21897,
+  "PID": 3077834,
+  "committed_updates": {
+    "A_spatial": 35,
+    "B_spatial_temporal": 35
+  },
+  "evaluation_coverage": {
+    "B300_step0": 96,
+    "Original_step0": 9,
+    "A_spatial_step50": 0,
+    "A_spatial_step100": 0,
+    "B_spatial_temporal_step50": 0,
+    "B_spatial_temporal_step100": 0
+  },
+  "cache_h_windows": 143,
+  "processes": [
+    {
+      "PID": 3050604,
+      "CUDA_VISIBLE_DEVICES": "2",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_pipeline.py"
+    },
+    {
+      "PID": 3050605,
+      "CUDA_VISIBLE_DEVICES": "3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_pipeline.py"
+    },
+    {
+      "PID": 3068281,
+      "CUDA_VISIBLE_DEVICES": null,
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u supervisor.py"
+    },
+    {
+      "PID": 3068695,
+      "CUDA_VISIBLE_DEVICES": "0",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u train.py --group A_spatial"
+    },
+    {
+      "PID": 3068696,
+      "CUDA_VISIBLE_DEVICES": "1",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u train.py --group B_spatial_temporal"
+    },
+    {
+      "PID": 3075770,
+      "CUDA_VISIBLE_DEVICES": "2",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_pipeline.py"
+    },
+    {
+      "PID": 3075771,
+      "CUDA_VISIBLE_DEVICES": "3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_pipeline.py"
+    },
+    {
+      "PID": 3077834,
+      "CUDA_VISIBLE_DEVICES": null,
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u monitor.py"
+    },
+    {
+      "PID": 3081401,
+      "CUDA_VISIBLE_DEVICES": null,
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u finalize.py"
+    },
+    {
+      "PID": 3086615,
+      "CUDA_VISIBLE_DEVICES": "2,3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u evaluation_queue.py"
+    },
+    {
+      "PID": 3089945,
+      "CUDA_VISIBLE_DEVICES": "2",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_codec.py --row /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/cache_jobs/214eddb53d8ed769c39338325356526378e199f63fe997ce07a035cc4019c98d.json --qp 4 --training"
+    },
+    {
+      "PID": 3090038,
+      "CUDA_VISIBLE_DEVICES": "2",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u evaluation_worker.py /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/evaluation_jobs/f35d64ad-e310-4275-ab51-be083dc01cfd_qp0_1794387644218874233.json"
+    },
+    {
+      "PID": 3090039,
+      "CUDA_VISIBLE_DEVICES": "3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u evaluation_worker.py /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/evaluation_jobs/f35d64ad-e310-4275-ab51-be083dc01cfd_qp5_1794387644221422819.json"
+    },
+    {
+      "PID": 3090302,
+      "CUDA_VISIBLE_DEVICES": "3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_codec.py --row /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/cache_jobs/eb427b88103991fa013198fbd53400e0bb3e56d58b15ec50f918140acd54122c.json --qp 2 --training"
+    },
+    {
+      "PID": 3090415,
+      "CUDA_VISIBLE_DEVICES": "3",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_codec.py --row /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/cache_jobs/ff46809b94963e1638cb95ba29f31cefefd333f3ecaca4bb725e82084458c0eb.json --qp 3 --training"
+    },
+    {
+      "PID": 3090556,
+      "CUDA_VISIBLE_DEVICES": "2",
+      "command": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B -u cache_codec.py --row /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_causal_decoder_adapter_ab_20261111/experiments/gvcrt_causal_decoder_adapter_ab_20261111/tmp/cache_jobs/20c0a0b9d5ff2b89184919648d245dc1f657bd1582c10a7570850a95641c1b8b.json --qp 8 --training"
+    }
+  ],
+  "disk_free_bytes": 129953878016
+}

@@ -1,0 +1,189 @@
+{
+  "task": "gvcrt_causal_decoder_adapter_ab_20261111",
+  "branch": "codex/tcg-causal-decoder-adapter-ab-20261111",
+  "base_commit": "5996c4faafcbd4028721a63f05384f9576cfa8ab",
+  "status": "FIXED",
+  "B300": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+    "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+    "overlay_last_keys": 52
+  },
+  "recovery_chain": [
+    "Original I/P",
+    "pilot full receiver/buffers",
+    "B1500 TCG",
+    "A2000 LoRA",
+    "B300 LAST"
+  ],
+  "original": {
+    "commit": "b2a0895c0cf31cf2be3ab1c2571ca07c05866c03",
+    "worktree": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_original_independent_20261105",
+    "weights": {
+      "GVC-RT_I.pt": "c8a840415cc028307131c66f68076b7e9f6fcc4db7fed423c62e8b202f83a22d",
+      "GVC-RT_P.pt": "7a89bd342a1484b3da7dfc3f03834ff81e0e4180e02f8a286dec0d1025c99f4e"
+    }
+  },
+  "frozen": "all inherited I/P codec, entropy, full Bridge, 3 TCG, generator, 5 existing LoRA; s=.5 train/eval",
+  "adapter": {
+    "position": "after ada_final before existing head",
+    "C": 320,
+    "r": 32,
+    "A": {
+      "kernel": 1,
+      "bias": false
+    },
+    "depthwise3D": {
+      "kernel": [
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        0,
+        1,
+        1
+      ],
+      "groups": 32,
+      "bias": true
+    },
+    "B": {
+      "kernel": 1,
+      "bias": true,
+      "initialization": "zero weight and bias"
+    },
+    "parameters": 21696,
+    "precision": "internal FP32 and FP32 residual sum; cast once to existing head dtype",
+    "history": "last2 detached pre-adapter h; left replicate first available; clear at video/GOP reset only"
+  },
+  "groups": {
+    "A_spatial": {
+      "physical_GPU": 0,
+      "loss": "spatial"
+    },
+    "B_spatial_temporal": {
+      "physical_GPU": 1,
+      "loss": "spatial+lambda_temp*temporal"
+    }
+  },
+  "spatial": {
+    "LPIPS_Alex": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108
+  },
+  "temporal": {
+    "RGB_MCResidual": 1.0,
+    "Sobel_MCResidual": 0.5,
+    "definition": "reconstruction MC change minus GT MC change",
+    "flow": "frozen RAFT estimated from GT RGB, not annotated true flow; supervision/metrics only",
+    "valid": "FB consistency plus in-bounds; normalized valid pixels/channels then valid pairs/window then nonempty windows/batch"
+  },
+  "calibration": {
+    "windows": 10,
+    "QP_counts": {
+      "8": 1,
+      "4": 1,
+      "1": 1,
+      "3": 1,
+      "5": 1,
+      "7": 1,
+      "0": 1,
+      "2": 1,
+      "9": 1,
+      "6": 1
+    },
+    "rule": "0.1*median(||grad_B spatial||/||grad_B temporal||); finite nonzero denominators only",
+    "updates": 0,
+    "coefficient": "gradient_calibration.json; fixed after one training-only calibration",
+    "selection": "first plan occurrence of each external QP0..9; ten fixed windows"
+  },
+  "training": {
+    "updates": 100,
+    "effective_batch": 4,
+    "windows": 400,
+    "seed": 20261111,
+    "plan_seed": 20261109,
+    "optimizer": "AdamW",
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip": 1.0,
+    "checkpoints": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ],
+    "supervised": [
+      49,
+      63
+    ],
+    "segments": [
+      [
+        49,
+        52
+      ],
+      [
+        53,
+        56
+      ],
+      [
+        57,
+        60
+      ],
+      [
+        61,
+        63
+      ]
+    ],
+    "cached_h": [
+      46,
+      63
+    ],
+    "precision": "FP32 frozen reconstruction prefix and module head; codec features inherited FP16",
+    "gradient": "both outputs within each segment; previous frame recomputed using current adapter weights at segment start; detach previous output at boundaries; no backbone BPTT",
+    "budget_statement": "first-stage budget; no convergence or quality launch threshold"
+  },
+  "development": {
+    "videos": 32,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "points_per_state": 96,
+    "states": [
+      "Original",
+      "B300",
+      "A50",
+      "A100",
+      "B50",
+      "B100"
+    ],
+    "precision": "inherited FP16 codec/Bridge/backbone; FP32 TCG/LoRA/causal adapter; shared module head; RGB FP32-first",
+    "final_test": false,
+    "no_new_dataset_training": true
+  },
+  "exclusions": [
+    "differentiable RAFT loss",
+    "latent loss",
+    "equivariance loss",
+    "RMS diagnosis",
+    "GAN",
+    "Teacher",
+    "new LoRA",
+    "LPIPS-VGG training"
+  ],
+  "only_physical_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sources": "dependency_imports.json",
+  "time": 1794385776.3550582
+}
