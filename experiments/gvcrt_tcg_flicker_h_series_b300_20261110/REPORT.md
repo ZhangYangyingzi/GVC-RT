@@ -16,9 +16,9 @@ H2 mechanical gate: DIAGNOSTIC_ONLY_USER_DIRECTED_TRAINING; median16px/8px error
 
 | Group | Added updates | Dev50 | Dev100 | Numerical screen |
 |---|---:|---:|---:|---|
-| H0_control | 100 | 53/96 | 53/96 | pending |
-| H1_latent_self | 100 | 53/96 | 53/96 | pending |
-| H2_latent_equiv | 100 | 32/96 | 22/96 | pending |
+| H0_control | 100 | 93/96 | 93/96 | pending |
+| H1_latent_self | 100 | 93/96 | 93/96 | pending |
+| H2_latent_equiv | 100 | 82/96 | 72/96 | pending |
 
 Mechanical screen compares every QP mean DISTS, LPIPS-Alex, LPIPS-VGG and FloLPIPS to≤1.005×B300 and requires meanQP P→P Sobel ratio S<1. Eligible50/100 checkpoints are selected by lowest S; differences below0.0005 prefer earlier. NOT_QUALIFIED never substitutes step0. This is a numerical screen, not a claim about human-visible flicker.
 
@@ -34,26 +34,26 @@ Measured equal-video aggregates:
 
 | Phase | Dataset | Model | Step | QP | bpp | PSNR | Alex | VGG | DISTS | FloLPIPS | P→P Sobel |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| development | ULong_development_32 | B300 | 0 | 0 | 0.0019398429 | 24.139576 | 0.19417438 | 0.32557346 | 0.10637932 | 0.19576156 | 0.0068185055 |
-| development | ULong_development_32 | B300 | 0 | 5 | 0.006922445 | 26.589023 | 0.12163719 | 0.2330681 | 0.07065662 | 0.11930427 | 0.006183921 |
-| development | ULong_development_32 | B300 | 0 | 9 | 0.015870282 | 27.801319 | 0.094944902 | 0.19664695 | 0.057505183 | 0.090492792 | 0.005687279 |
-| development | ULong_development_32 | H0_control | 50 | 0 | 0.0019398429 | 24.110248 | 0.19477736 | 0.32626886 | 0.10741225 | 0.19617385 | 0.0068828643 |
-| development | ULong_development_32 | H0_control | 50 | 5 | 0.006922445 | 26.561568 | 0.12178925 | 0.23366826 | 0.071359057 | 0.1194216 | 0.0062390193 |
-| development | ULong_development_32 | H0_control | 50 | 9 | 0.015870282 | 27.776448 | 0.094980194 | 0.19737337 | 0.058189317 | 0.090518062 | 0.0057353445 |
-| development | ULong_development_32 | H0_control | 100 | 0 | 0.0019398429 | 24.090124 | 0.19538181 | 0.32646972 | 0.10778809 | 0.19661587 | 0.0067114405 |
-| development | ULong_development_32 | H0_control | 100 | 5 | 0.006922445 | 26.527588 | 0.12275361 | 0.23323979 | 0.071579448 | 0.12026274 | 0.0060905699 |
-| development | ULong_development_32 | H0_control | 100 | 9 | 0.015870282 | 27.72519 | 0.095997998 | 0.19682849 | 0.058367888 | 0.091412888 | 0.0056043706 |
-| development | ULong_development_32 | H1_latent_self | 50 | 0 | 0.0019398429 | 24.063803 | 0.19507115 | 0.32731013 | 0.10784578 | 0.1964012 | 0.0068865554 |
-| development | ULong_development_32 | H1_latent_self | 50 | 5 | 0.006922445 | 26.534535 | 0.12188796 | 0.23415182 | 0.071065055 | 0.11948555 | 0.0062275878 |
-| development | ULong_development_32 | H1_latent_self | 50 | 9 | 0.015870282 | 27.761591 | 0.095052779 | 0.19767022 | 0.057860943 | 0.090575673 | 0.0057226064 |
-| development | ULong_development_32 | H1_latent_self | 100 | 0 | 0.0019398429 | 23.976323 | 0.19597465 | 0.32777862 | 0.10856756 | 0.19727511 | 0.0067381863 |
-| development | ULong_development_32 | H1_latent_self | 100 | 5 | 0.006922445 | 26.425212 | 0.12313928 | 0.23395942 | 0.071465024 | 0.12063057 | 0.0060919672 |
-| development | ULong_development_32 | H1_latent_self | 100 | 9 | 0.015870282 | 27.626035 | 0.09633099 | 0.19732461 | 0.058169812 | 0.091724259 | 0.0056002963 |
-| development | ULong_development_32 | H2_latent_equiv | 50 | 0 | 0.0015253939 | 23.985867 | 0.18304046 | 0.32081746 | 0.11406405 | 0.1801208 | 0.006758084 |
-| development | ULong_development_32 | H2_latent_equiv | 50 | 5 | 0.0057169405 | 26.144765 | 0.11709069 | 0.23402221 | 0.076066199 | 0.11201449 | 0.0061557256 |
-| development | ULong_development_32 | H2_latent_equiv | 50 | 9 | 0.013700889 | 27.062761 | 0.10114037 | 0.21069529 | 0.064047206 | 0.093377572 | 0.0065168666 |
-| development | ULong_development_32 | H2_latent_equiv | 100 | 0 | 0.0015472261 | 24.027586 | 0.19581886 | 0.33358861 | 0.11192433 | 0.19219283 | 0.0070460847 |
-| development | ULong_development_32 | H2_latent_equiv | 100 | 5 | 0.005108283 | 26.446976 | 0.11808974 | 0.23186898 | 0.069824005 | 0.11023773 | 0.0058847867 |
-| development | ULong_development_32 | H2_latent_equiv | 100 | 9 | 0.012116023 | 27.231943 | 0.099886029 | 0.20367694 | 0.060248516 | 0.08869721 | 0.0058179899 |
+| development | ULong_development_32 | B300 | 0 | 0 | 0.0019226089 | 24.04944 | 0.18683833 | 0.32116994 | 0.10809914 | 0.1862228 | 0.0067969738 |
+| development | ULong_development_32 | B300 | 0 | 5 | 0.0070036293 | 26.393595 | 0.11674155 | 0.22994225 | 0.072073639 | 0.11287865 | 0.0061562798 |
+| development | ULong_development_32 | B300 | 0 | 9 | 0.016081268 | 27.292689 | 0.096457212 | 0.19929134 | 0.061028936 | 0.09178238 | 0.0060294138 |
+| development | ULong_development_32 | H0_control | 50 | 0 | 0.0019226089 | 24.020114 | 0.18741175 | 0.32195961 | 0.10904045 | 0.18668137 | 0.0068497041 |
+| development | ULong_development_32 | H0_control | 50 | 5 | 0.0070036293 | 26.369365 | 0.11691285 | 0.23057783 | 0.072717423 | 0.11306967 | 0.0062035445 |
+| development | ULong_development_32 | H0_control | 50 | 9 | 0.016081268 | 27.273014 | 0.096480665 | 0.19998428 | 0.061668334 | 0.091807084 | 0.0060738569 |
+| development | ULong_development_32 | H0_control | 100 | 0 | 0.0019226089 | 24.002128 | 0.18791244 | 0.32222206 | 0.10948998 | 0.18701324 | 0.0066892204 |
+| development | ULong_development_32 | H0_control | 100 | 5 | 0.0070036293 | 26.340398 | 0.11768903 | 0.23029057 | 0.07290946 | 0.11376154 | 0.0060618805 |
+| development | ULong_development_32 | H0_control | 100 | 9 | 0.016081268 | 27.231952 | 0.097397681 | 0.19959353 | 0.061867177 | 0.092664609 | 0.0059384901 |
+| development | ULong_development_32 | H1_latent_self | 50 | 0 | 0.0019226089 | 23.972858 | 0.18778745 | 0.32313333 | 0.10952609 | 0.1871084 | 0.0068562562 |
+| development | ULong_development_32 | H1_latent_self | 50 | 5 | 0.0070036293 | 26.342332 | 0.1170547 | 0.23112165 | 0.072489104 | 0.11319023 | 0.0061932203 |
+| development | ULong_development_32 | H1_latent_self | 50 | 9 | 0.016081268 | 27.257858 | 0.096591757 | 0.20027965 | 0.061363054 | 0.091872621 | 0.0060608223 |
+| development | ULong_development_32 | H1_latent_self | 100 | 0 | 0.0019226089 | 23.886104 | 0.18858277 | 0.32365622 | 0.11023021 | 0.18783385 | 0.006724751 |
+| development | ULong_development_32 | H1_latent_self | 100 | 5 | 0.0070036293 | 26.236681 | 0.11811865 | 0.23107532 | 0.072809763 | 0.11412498 | 0.0060687325 |
+| development | ULong_development_32 | H1_latent_self | 100 | 9 | 0.016081268 | 27.135563 | 0.097761693 | 0.20008183 | 0.061649573 | 0.092926773 | 0.0059399224 |
+| development | ULong_development_32 | H2_latent_equiv | 50 | 0 | 0.0019302537 | 23.995083 | 0.18042191 | 0.31709901 | 0.10958199 | 0.17805186 | 0.0068615398 |
+| development | ULong_development_32 | H2_latent_equiv | 50 | 5 | 0.0070262489 | 26.284349 | 0.11253502 | 0.22746194 | 0.07259468 | 0.10755312 | 0.0061886636 |
+| development | ULong_development_32 | H2_latent_equiv | 50 | 9 | 0.016125861 | 27.023617 | 0.096688099 | 0.20044792 | 0.062531422 | 0.091237006 | 0.0062856585 |
+| development | ULong_development_32 | H2_latent_equiv | 100 | 0 | 0.0019881386 | 23.941674 | 0.18486186 | 0.32129377 | 0.10880466 | 0.1822307 | 0.0068970497 |
+| development | ULong_development_32 | H2_latent_equiv | 100 | 5 | 0.0070687111 | 26.306188 | 0.11270257 | 0.2257826 | 0.07028842 | 0.10678311 | 0.0060353036 |
+| development | ULong_development_32 | H2_latent_equiv | 100 | 9 | 0.015973095 | 26.961039 | 0.096642409 | 0.19728683 | 0.061520691 | 0.090415901 | 0.0059807377 |
 
 This report records execution, coverage and numbers only. Integrity/publication states are in final_integrity.json and publication_status.json.

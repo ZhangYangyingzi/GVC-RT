@@ -1,0 +1,56 @@
+{
+  "status": "RECOVERING_REMAINING_EVALUATION",
+  "reason": "GT-flow cache production CUDA OOM; exact failure/log preserved",
+  "failed_key": "e5b887f7ae39658984663a6f110bd69f01870631a870ace9c995e7a7574d82bb",
+  "original_log": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/logs/cache_GPU0.log",
+  "training": {
+    "H0_control": {
+      "updates": 100,
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H0_control/training/latest.pt",
+      "SHA256": "8e94912a3a9f314622dc19e666bda5e039aba862041d825487b9c14b678f8327"
+    },
+    "H1_latent_self": {
+      "updates": 100,
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H1_latent_self/training/latest.pt",
+      "SHA256": "e23560156b688e7e2847cc9a5f8ec86d227097b78f7352392b8b62bdc3f71cfd"
+    },
+    "H2_latent_equiv": {
+      "updates": 100,
+      "checkpoint": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_h_series_b300_20261110/experiments/gvcrt_tcg_flicker_h_series_b300_20261110/H2_latent_equiv/training/latest.pt",
+      "SHA256": "7631fe3e2cf58fd3fb959e8791e3cc607e505b23719f6dd857f051aeb1c2d175"
+    }
+  },
+  "training_not_restarted": true,
+  "numerical_source_manifest_verified": true,
+  "changes": [
+    "free VRAM admission before heavy tasks",
+    "only torch.OutOfMemoryError requeues unfinished frozen computation",
+    "GPU/cache leases inherited by child for safe controller recovery"
+  ],
+  "scheduler_config": {
+    "training_prefetch_windows": 24,
+    "startup_windows": 4,
+    "cache_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "max_cache_workers": 2,
+    "derived_byte_cap": 64424509440,
+    "media_byte_cap": 25769803776,
+    "min_free_bytes": 85899345920,
+    "max_native_ready": 8,
+    "evaluation_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "max_evaluation_workers": 4,
+    "native_prefetch_points": 4,
+    "cache_min_free_MiB": 26000,
+    "evaluation_min_free_MiB": 12000
+  },
+  "time": 1794377966.160818
+}

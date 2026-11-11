@@ -1,6 +1,7 @@
 """Bounded multi-GPU queue for immutable checkpoint evaluation; numerical code unchanged."""
 from common_s2 import *
 import traceback
+from gpu_resources import memory_fits
 
 def submit(model,step,phase='development'):
  key=f'{phase}_{model}_{step:04d}';dest=ROOT/'evaluation_queue/jobs'/f'{key}.json'
@@ -43,7 +44,7 @@ def worker():
  env()
  from pipeline import ready,request,positions
  from cache_codec import cache_paths
- active={};completed=0;begin=time.time();cache_wait=0.;last=time.time()
+ active={};completed=0;begin=time.time();cache_wait=0.;last=time.time();cooldown={}
  with lock('locks/evaluation_queue.lock'):
   try:
    while True:
@@ -52,7 +53,10 @@ def worker():
      code=j['p'].poll()
      if code is None:continue
      try:
-      assert code==0,('EVALUATION_BUNDLE_FAILED',j['spec'],code,j['gpu'])
+      if code!=0:
+       if j['receipt'].exists() and load(j['receipt']).get('retryable_gpu_OOM'):
+        cooldown[j['gpu']]=time.time()+30;event('evaluation_resource_OOM_requeued',key=key,physical_GPU=j['gpu'],failure=str(j['receipt']));continue
+       raise AssertionError(('EVALUATION_BUNDLE_FAILED',j['spec'],code,j['gpu']))
       proof=load(j['receipt']);assert proof['status']=='PASS' and proof['numerical_evaluation_SHA256']==sha(ROOT/'evaluation.py')
       for task in j['spec']['tasks']:
        a=load(point_path(task['model'],task['step'],j['spec']['phase'],j['spec']['video'],j['spec']['QP']));assert a['status']=='PASS'
@@ -77,6 +81,7 @@ def worker():
         f=(ROOT/f'locks/GPU{candidate}.lock').open('a')
         try:fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError:f.close();continue
+        if time.time()<cooldown.get(candidate,0) or not memory_fits(candidate,'evaluation',cfg):f.close();continue
         lease=f;gpu=candidate;break
        if lease is None:break
        key,p,rp=cache_paths(row,q,False);cache_lease=(ROOT/f'locks/lease_{key}.lock').open('a')
@@ -86,7 +91,7 @@ def worker():
        spec=ROOT/'tmp/evaluation_jobs'/f'{b["key"]}_{time.time_ns()}.json';dump(spec,b)
        receipt=ROOT/'audits/evaluation_bundles'/spec.name;log=(ROOT/f'logs/evaluation_GPU{gpu}.log').open('ab')
        child_env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(gpu),H_CACHE_LEASE_HELD=key)
-       try:child=subprocess.Popen([PYTHON,'-B','-u','evaluation_point_worker.py',str(spec)],cwd=ROOT,env=child_env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT)
+       try:child=subprocess.Popen([PYTHON,'-B','-u','evaluation_point_worker.py',str(spec)],cwd=ROOT,env=child_env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,pass_fds=(lease.fileno(),cache_lease.fileno()))
        except Exception:log.close();cache_lease.close();lease.close();raise
        active[b['key']]=dict(p=child,spec=b,gpu=gpu,cache_lease=cache_lease,gpu_lease=lease,log=log,receipt=receipt,start=time.time())
     now=time.time()

@@ -2,6 +2,7 @@
 from common_s2 import *
 from execution_policy import h2_training_allowed
 from cache_codec import cache_paths
+from gpu_resources import memory_fits
 import traceback
 
 def ready(row,qp,training,verify=False):
@@ -111,7 +112,7 @@ def task_list(rows,cfg,pos):
     return early+(native+later if enough else later+native)
 
 def produce():
-    env();rows=plan_rows();active={};produced=0;begin=time.time();latency=0.
+    env();rows=plan_rows();active={};produced=0;begin=time.time();latency=0.;cooldown={}
     with lock('locks/producer.lock'):
         try:
             while True:
@@ -120,7 +121,13 @@ def produce():
                     code=j['p'].poll();raw=subprocess.check_output(['nvidia-smi','--query-gpu=memory.used,utilization.gpu','--format=csv,noheader,nounits','-i',str(j['gpu'])],text=True).strip().split(',')
                     j['peak']=max(j['peak'],int(raw[0]));j['utilization']=int(raw[1])
                     if code is None:continue
-                    assert code==0,('CACHE_CHILD_FAILED',key,code,j['gpu']);a=j['job']
+                    if code!=0:
+                        failure=ROOT/'audits/cache_attempts'/f'{key}_{j["p"].pid}.json'
+                        if failure.exists() and load(failure).get('retryable_gpu_OOM'):
+                            event('cache_resource_OOM_requeued',key=key,physical_GPU=j['gpu'],PID=j['p'].pid,failure=str(failure));cooldown[j['gpu']]=time.time()+30
+                            j['log'].close();j['gpu_lease'].close();active.pop(key);continue
+                        raise AssertionError(('CACHE_CHILD_FAILED',key,code,j['gpu']))
+                    a=j['job']
                     assert ready(a['row'],a['qp'],a['training'],True),('CACHE_COMPLETION_NOT_VERIFIABLE',key,j['gpu'])
                     req=ROOT/'cache/requests'/f'{key}.json'
                     if req.exists():req.unlink()
@@ -141,11 +148,12 @@ def produce():
                             candidate=free.pop(0);f=(ROOT/f'locks/GPU{candidate}.lock').open('a')
                             try:fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
                             except BlockingIOError:f.close();continue
+                            if time.time()<cooldown.get(candidate,0) or not memory_fits(candidate,'cache',cfg):f.close();continue
                             lease=f;gpu=candidate;break
                         if lease is None:break
                         file=ROOT/'tmp/cache_jobs'/f'{key}.json';dump(file,a)
                         e=dict(os.environ,CUDA_VISIBLE_DEVICES=str(gpu),MODEL_KIND='original');log=(ROOT/'logs'/f'cache_GPU{gpu}.log').open('ab')
-                        p=subprocess.Popen([PYTHON,'-B','-u',str(ROOT/'cache_job.py'),str(file)],cwd=ROOT,env=e,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT)
+                        p=subprocess.Popen([PYTHON,'-B','-u',str(ROOT/'cache_job.py'),str(file)],cwd=ROOT,env=e,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,pass_fds=(lease.fileno(),))
                         active[key]=dict(p=p,gpu=gpu,job=a,start=time.time(),peak=0,utilization=0,reserve=estimate,log=log,gpu_lease=lease)
                 elapsed=time.time()-begin
                 dump(ROOT/'cache/progress.json',dict(status='DRAINING' if stopping else 'BACKPRESSURE' if backpressure else 'RUNNING',READY_training_windows=sum(ready(r,r['external_qp'],True) for r in rows),cache_bytes=inventory(),positions=pos,next_windows={g:rows[n]['sample_key'] if n<400 else None for g,n in pos.items()},produced=produced,windows_per_second=produced/elapsed if elapsed else None,producer_latency_sum=latency,active={k:dict(PID=j['p'].pid,physical_GPU=j['gpu'],peak_MiB=j['peak'],GPU_utilization=j['utilization']) for k,j in active.items()},time=time.time()))

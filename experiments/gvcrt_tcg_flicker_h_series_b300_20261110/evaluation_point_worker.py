@@ -21,4 +21,9 @@ def main(spec_path):
  if path.is_relative_to(ROOT):os.utime(path,None)
  dump(ROOT/'audits/evaluation_bundles'/Path(spec_path).name,dict(status='PASS',physical_GPU=physical_gpu(0),PID=os.getpid(),phase=phase,point=spec['index'],records=records,numerical_evaluation_SHA256=sha(ROOT/'evaluation.py'),seconds=time.time()-begin,peak_allocated_bytes=torch.cuda.max_memory_allocated(0),peak_reserved_bytes=torch.cuda.max_memory_reserved(0),cache_SHA256=proof['cache_sha256'],time=time.time()))
 
-if __name__=='__main__':main(sys.argv[1])
+if __name__=='__main__':
+ try:main(sys.argv[1])
+ except Exception as error:
+  from gpu_resources import failure_record
+  dump(ROOT/'audits/evaluation_bundles'/Path(sys.argv[1]).name,failure_record(error,spec=load(sys.argv[1])))
+  raise
