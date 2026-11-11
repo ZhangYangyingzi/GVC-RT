@@ -65,19 +65,34 @@ def wait_stage(p,stage,others=()):
 def cache_request(items,tag,gpu=3):
     path=ROOT/'cache/requests'/f'{tag}.json';dump(path,items)
     for receipt in (ROOT/'receipts/processes').glob('*.json'):
-        record=load(receipt)
-        if record.get('args')==['cache_job.py',str(path)]:
-            pid=record['PID'];proc=Path(f'/proc/{pid}/cmdline')
-            if proc.exists() and b'cache_job.py' in proc.read_bytes() and Path(f'/proc/{pid}/cwd').resolve()==ROOT:
-                class Adopted:
-                    def __init__(self):self.pid=pid;self.returncode=None
-                    def poll(self):
-                        stat=Path(f'/proc/{self.pid}/stat')
-                        if stat.exists() and stat.read_text().split()[2]!='Z':return None
-                        from cache_codec import cache_paths
-                        self.returncode=0 if all(all(x.exists() for x in cache_paths(a['row'],a['qp'],a['training'])[1:]) for a in items) else 1
-                        return self.returncode
-                return Adopted()
+        record=load(receipt);args=record.get('args',[])
+        if len(args)!=2 or args[0]!='cache_job.py' or record.get('physical_GPU')!=gpu:continue
+        prior_request=Path(args[1])
+        if not prior_request.is_relative_to(ROOT/'cache/requests') or not prior_request.exists():continue
+        pid=record['PID'];proc=Path(f'/proc/{pid}/cmdline')
+        try:
+            actual=[v.decode() for v in proc.read_bytes().split(b'\0') if v]
+            alive=actual==[PYTHON,'-u',*args] and Path(f'/proc/{pid}/cwd').resolve()==ROOT
+        except FileNotFoundError:alive=False
+        if not alive:continue
+        prior_items=load(prior_request)
+        if not all(a['training'] for a in prior_items) or not all(a['training'] for a in items):
+            if args!=['cache_job.py',str(path)]:continue
+        class Adopted:
+            def __init__(self):self.pid=pid;self.returncode=None
+            def poll(self):
+                stat=Path(f'/proc/{self.pid}/stat')
+                try:
+                    if stat.exists() and stat.read_text().split()[2]!='Z':return None
+                except FileNotFoundError:pass
+                from cache_codec import cache_paths
+                # Successfully consumed tensors may already be evicted. Their
+                # atomic immutable receipts remain the worker completion proof.
+                receipts=[cache_paths(a['row'],a['qp'],a['training'])[2] for a in prior_items]
+                self.returncode=0 if all(r.exists() and load(r).get('status')=='PASS' for r in receipts) else 1
+                return self.returncode
+        event('cache_worker_adopted',PID=pid,existing_request=str(prior_request),new_cursor_request=str(path))
+        return Adopted()
     return launch(['cache_job.py',str(path)],gpu,tag)
 
 
@@ -143,7 +158,7 @@ def supervise():
                 if g in failed:continue
                 cursor=progress(g)['next_cursor']
                 if g not in trainers and cursor<2000 and all(cached(r) for r in rows[cursor:cursor+4]):
-                    if i==0 and progress(g)['committed_updates']>=250 and (not mid_attempted or mid is not None):continue
+                    if i==0 and not failed and progress(g)['committed_updates']>=250 and (not mid_attempted or mid is not None):continue
                     if i==3:
                         if (ROOT/'J3/yield_for_cache.json').exists():continue
                         if producer is not None and producer.poll() is None:

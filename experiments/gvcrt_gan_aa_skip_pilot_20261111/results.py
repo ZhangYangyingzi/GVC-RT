@@ -68,7 +68,7 @@ def main():
                     values=sorted([r for r in aggregates if (r['dataset'],r['model'],r['step'])==(dataset,model,step) and r.get(metric) is not None],key=lambda r:r['bpp'])
                     if not values:continue
                     ax.plot([r['bpp'] for r in values],[r[metric] for r in values],'-o',label=model if model in ['Original','B300'] else f'{model} step {step}')
-                ax.set_xlabel('actual bpp (real I/P bytes included)');ax.set_ylabel(metric+(' ↑' if metric=='PSNR' else ' ↓'));ax.set_title(dataset+' development, QP0/5/9');ax.grid(alpha=.3);ax.legend(fontsize=7,ncol=2)
+                ax.set_xlabel('actual bpp (real I/P bytes included)');ax.set_ylabel(metric+(' ↑' if metric=='PSNR' else ' ↓'));ax.set_title(dataset+' development; available QP='+','.join(str(q) for q in sorted({r['QP'] for r in aggregates if r['dataset']==dataset}))+'; max n/QP='+str(max(r['videos'] for r in aggregates if r['dataset']==dataset)));ax.grid(alpha=.3);ax.legend(fontsize=7,ncol=2)
                 path=ROOT/'plots'/dataset/f'RD_{metric}.png';path.parent.mkdir(parents=True,exist_ok=True);fig.tight_layout();fig.savefig(path,dpi=160);plt.close(fig);plots.append(dict(path=str(path),SHA256=sha(path)))
     dump(ROOT/'plots/index.json',dict(plots=plots,datasets=sorted({r['dataset'] for r in aggregates}),no_BD_rate=True))
     counts={g:{str(s):sum(p['model']==g and p['step']==s for p in points) for s in [0,250,500]} for g in GROUPS}

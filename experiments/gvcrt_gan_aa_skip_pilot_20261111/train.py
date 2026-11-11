@@ -28,6 +28,8 @@ def run(group,until):
         a=torch.load(latest,map_location='cpu',weights_only=True)
         assert a['protocol_SHA256']==sha(ROOT/'protocol.json') and a['plan_SHA256']==sha(ROOT/'plans/train.json.gz') and a['calibration_SHA256']==sha(ROOT/'gradient_calibration.json')
         restore(c,a);restore_rng(a['RNG']);step=a['committed_updates']
+        archive=root/f'checkpoints/step_{step:04d}.pt'
+        if step%25==0 and not archive.exists():atomic_torch(archive,a)
         assert a['sampler_cursor']==step*4 and a['GAN_ramp_progress']==min(step,100)
         if d is not None:d.load_state_dict(a['D']);dopt.load_state_dict(a['D_optimizer']);d_rng=a['D_RNG']
         dump(root/'progress.json',dict(status='RUNNING',committed_updates=step,next_cursor=4*step,seconds=a.get('last_receipt',{}).get('seconds',0),time=time.time()))

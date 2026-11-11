@@ -2,7 +2,7 @@
   "status": "FROZEN",
   "code": {
     "convlora.py": "95a5d9da50ea4ed43823fddd707bd25bb0d60e53ecaaaa41b1cce124fd8dec1a",
-    "runner.py": "ba8a42bc4ced9b14742c83b2bf7a1ca10629a18e34644ab9cde31bf29d3b7075",
+    "runner.py": "ef5ec2e5c782440b984b21def4ac0ae80ad6de8a4e00bbc722adaa94a0ec69b0",
     "videos.py": "6798ad7c113cf1866da583dfd7e47d1703870226be06d7be0eb4776c3055905f",
     "quality.py": "27efd9eb353c39a17a1dab1310ad4aad12ed44f3670306ae55a2a856aa7115e1",
     "model_context.py": "a2517b4b97a76d921784567018e849ac33cc62f677ab80107e1f410b4fedf14e",
@@ -10,7 +10,7 @@
     "eval_data.py": "2d3526cebf863f18d0b49aae214de3f8ecf75be28fd22b7b740ef53ceb83890c",
     "temporal.py": "433ee18778d53afb74013e81219034c7a573fea6c5935614382951e3049b42b0",
     "calibrate.py": "8efbe72474b88192ebeb7f990eaee7da1eb57124504ca1193cc44018382af8ca",
-    "train.py": "3e24660f3499a7b34153be391fc5dbd46a2000709fc06f6d19ad850804b9e69a",
+    "train.py": "01e5e707ed1c3767654370c0fdb7478bfbaf17a8b2409d6d97427557e05bac41",
     "experiment_model.py": "bb392d25ee8079c0ed257e7df5e69868da993f629f955d1c686d1da8914afdca",
     "original_context.py": "0bd185dcf09ab8d982f9ca95c095afd4542fcac525d0358a81b361468cc7918e",
     "cache_job.py": "879fd4bf6fa037f661b9f947fa8b4928bd4b3e5534b9b57b1fcfdfb8fc85c14d",
@@ -27,7 +27,7 @@
     "publish.py": "68a51038570f9c3d7e217b750adcd269d7410c6907d1b935176695abbc38d321",
     "inherited_reader.py": "253d1b8fb6b9de4ee8ede30596bccd3e50114ddac2c23710087bee2e639fd553",
     "evaluate.py": "990f44c78db53ba74f938dc66fd490b0bbd25709e561415ae672a85642831d17",
-    "results.py": "880b8b81ddfa28830d301cd2965c6a6f5cc1c66b3d2dc4d12003b328a16d4ef8",
+    "results.py": "139830eea43492925e5d89febd405689d7d24e737b57786d2f55556a5a605849",
     "data_reader.py": "05c00af3004addb5ab6195ed0404e60017ec58c52e8c105d16cb9b579e333404",
     "original_reconstruction.py": "82072d0e96b6d6cc54c67f3c2c67f7a8a6911013647e1ff3ce2d000eefe4429f",
     "original_runtime.py": "d089f29ba1ceb6c69143afe090dffc9616668b27ea959ebc55d8928464655a8e",
@@ -106,7 +106,8 @@
     "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/gvc_hooks.py": "c21ebd38503bfa06c6882c1d9b6b8758fbf95429d3356f23a0c2760c25681766",
     "reference_tree/expericent_generation_input/expericent_interface_causal_controls_v9/src/common.py": "aa72ae3fcf2d3f6df4e244599c62a064552da8db3c9892bd1360dd565a3c5c66",
     "audits/early_development_point.py": "54296547ac4ee1f3af50ff8fcf9aa8be40fa742eeb1fe1c7b3ed475a49734fef",
-    "audits/original_latency.py": "53685366c265b00bd8dd00acaec8d931cb9d25debdbfa71c654049cb111b6b8c"
+    "audits/original_latency.py": "53685366c265b00bd8dd00acaec8d931cb9d25debdbfa71c654049cb111b6b8c",
+    "audits/export_gt_media.py": "416524d9d8bb2109a7d1269da115807096d6b9c09ada0cdcd127dc9849a6b38b"
   },
   "immutable_manifests": {
     "manifests/bitstream_manifest.json": "7805d183e18203bf678d6e65120a8909bf5fc6e4a05a4da3646413760adcfffb",
@@ -142,5 +143,29 @@
     "training_numerical_code_unchanged": true,
     "protocol_unchanged": true,
     "time": 1794416716.1163836
-  }
+  },
+  "reporting_revisions": [
+    {
+      "reason": "label partial R-D figures with actual available QPs and sample counts",
+      "previous_results_SHA256": "880b8b81ddfa28830d301cd2965c6a6f5cc1c66b3d2dc4d12003b328a16d4ef8",
+      "current_results_SHA256": "139830eea43492925e5d89febd405689d7d24e737b57786d2f55556a5a605849",
+      "no_model_loss_metric_arithmetic_change": true,
+      "time": 1794417349.9506135
+    }
+  ],
+  "execution_revisions": [
+    {
+      "reason": "adopt any surviving own producer after cursor advancement; retain immutable receipt completion after eviction; allow healthy J0 to pass250 when another group stops; reconstruct a missing archive from committed latest without rerunning optimizer",
+      "previous": {
+        "runner.py": "ba8a42bc4ced9b14742c83b2bf7a1ca10629a18e34644ab9cde31bf29d3b7075",
+        "train.py": "3e24660f3499a7b34153be391fc5dbd46a2000709fc06f6d19ad850804b9e69a"
+      },
+      "current": {
+        "runner.py": "ef5ec2e5c782440b984b21def4ac0ae80ad6de8a4e00bbc722adaa94a0ec69b0",
+        "train.py": "01e5e707ed1c3767654370c0fdb7478bfbaf17a8b2409d6d97427557e05bac41"
+      },
+      "generator_forward_loss_optimizer_sampling_and_metric_arithmetic_unchanged": true,
+      "time": 1794417798.4648023
+    }
+  ]
 }
