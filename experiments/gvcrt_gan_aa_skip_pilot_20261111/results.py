@@ -78,9 +78,13 @@ def main():
     for p in sorted((ROOT/'media/receipts').glob('*.json')):
         a=load(p)
         if 'path' in a:integrity['large_artifacts'].append(dict(path=a['path'],SHA256=a['SHA256'],bytes=a.get('bytes')))
+    hashpath=ROOT/'audits/large_artifact_hashes.json';hashes=load(hashpath) if hashpath.exists() else {}
     for g in GROUPS:
         for p in sorted((ROOT/g/'training/checkpoints').glob('*.pt')):
-            integrity['large_artifacts'].append(dict(path=str(p),SHA256=sha(p),bytes=p.stat().st_size))
+            stat=p.stat();key=str(p);stamp=[stat.st_size,stat.st_mtime_ns]
+            if key not in hashes or hashes[key]['stamp']!=stamp:hashes[key]=dict(stamp=stamp,SHA256=sha(p))
+            integrity['large_artifacts'].append(dict(path=key,SHA256=hashes[key]['SHA256'],bytes=stat.st_size))
+    dump(hashpath,hashes)
     dump(ROOT/'final_integrity.json',integrity)
     lines=['# 执行事实报告','',f"status: {status['status']}；stage: {status.get('stage')}",f'','experiment_directory: `'+str(ROOT)+'`','',f"最后心跳：{status.get('heartbeat')}；runner PID：{status.get('PID')}",'','本轮只记录执行事实和计算数值。开发清单为 ULong_development_32，32 视频 × QP0/5/9，共 96 点；未启动最终测试。','', '| 组 | committed_steps | step0 | step250 | step500 |','|---|---:|---:|---:|---:|']
     for g in GROUPS:lines.append(f"| {g} | {consumed[g]['windows']//4} | {counts[g]['0']}/96 | {counts[g]['250']}/96 | {counts[g]['500']}/96 |")

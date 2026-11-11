@@ -9,6 +9,30 @@ import argparse,traceback,signal
 
 def launch(args,gpu,tag):
     assert gpu in range(4)
+    # A supervisor restart adopts matching surviving workers rather than
+    # launching a second process. PID, exact argv and cwd all have to agree.
+    markers={'calibrate.py':'gradient_calibration.json','preflight.py':'audits/preflight.json','evaluate.py':'evaluation/completion.json','videos.py':'video_manifest.json'}
+    if args[0] in markers or args[0]=='train.py':
+        for saved in (ROOT/'receipts/processes').glob('*.json'):
+            record=load(saved);pid=record.get('PID');proc=Path(f'/proc/{pid}/cmdline')
+            if record.get('args')!=args or not proc.exists():continue
+            actual=[s.decode() for s in proc.read_bytes().split(b'\0') if s]
+            if actual!=[PYTHON,'-u',*args] or Path(f'/proc/{pid}/cwd').resolve()!=ROOT:continue
+            class AdoptedWorker:
+                def __init__(self):self.pid=pid;self.returncode=None
+                def poll(self):
+                    stat=Path(f'/proc/{self.pid}/stat')
+                    if stat.exists() and stat.read_text().split()[2]!='Z':return None
+                    if args[0]=='train.py':
+                        g=args[2];failure=ROOT/g/'training/failure.json'
+                        self.returncode=1 if failure.exists() and load(failure)['time']>=record['start_time'] else (0 if progress(g)['committed_updates']==500 else 6)
+                    else:
+                        target=markers[args[0]]
+                        if args[0]=='evaluate.py' and '--through' in args and args[args.index('--through')+1]=='250':target='evaluation/through_250.json'
+                        marker=ROOT/target;self.returncode=0 if marker.exists() and load(marker).get('status')=='PASS' else 1
+                    return self.returncode
+            event('worker_adopted_after_supervisor_resume',PID=pid,args=args,physical_GPU=gpu)
+            return AdoptedWorker()
     out=(ROOT/'logs'/f'{tag}.log').open('a')
     e=os.environ.copy();e.update(CUDA_VISIBLE_DEVICES=str(gpu),CUDA_DEVICE_ORDER='PCI_BUS_ID')
     if args[0]=='train.py' and (ROOT/args[2]/'training/failure.json').exists():
@@ -82,32 +106,50 @@ def supervise():
             p=launch(['calibrate.py'],0,'GAN_calibration');wait_stage(p,'GAN_warmup_and_gradient_calibration')
         assert load(ROOT/'gradient_calibration.json')['status']=='PASS'
         verify_sources()
-        producer=None;trainers={};attempts={g:0 for g in GROUPS};last_publish=0;failed=set()
+        producer=None;trainers={};attempts={g:0 for g in GROUPS};last_publish=0;failed=set();cache_attempts=0;mid=None;mid_attempted=(ROOT/'evaluation/through_250.json').exists()
         while any(progress(g)['committed_updates']<500 for g in GROUPS if g not in failed):
             # Never keep a CUDA model resident waiting for unavailable data.
             for g,p in list(trainers.items()):
                 if p.poll() is not None:
                     del trainers[g]
-                    if p.returncode not in [0,6]:
+                    if p.returncode not in [0,6,7]:
                         attempts[g]+=1
                         fail=load(ROOT/g/'training/failure.json') if (ROOT/g/'training/failure.json').exists() else {}
                         if not fail.get('OOM') or attempts[g]>4:
                             failed.add(g);dump(ROOT/g/'stopped.json',dict(status='STOPPED_ENGINEERING_FAULT',failure=fail,time=time.time()))
+            if not mid_attempted and not failed and all(progress(g)['committed_updates']>=250 for g in GROUPS):
+                mid=launch(['evaluate.py','--through','250'],0,'development_through250');mid_attempted=True
+            if mid is not None and mid.poll() is not None:
+                if mid.returncode:dump(ROOT/'audits/mid_evaluation_failure.json',dict(status='FAILED_EVALUATION_ONLY',returncode=mid.returncode,time=time.time()))
+                mid=None
             active=[g for g in GROUPS if g not in failed and progress(g)['committed_updates']<500]
             if not active:break
             slow=min(progress(g)['next_cursor'] for g in active)
             stop=min(2000,slow+48)
             if producer is None or producer.poll() is not None:
                 if producer is not None and producer.returncode:
-                    raise RuntimeError('cache producer fault; inspect cache_failures')
+                    failure=load(ROOT/'audits/cache_failures'/f'{producer.pid}.json')
+                    if 'out of memory' in failure['error'].lower() and cache_attempts<4:
+                        cache_attempts+=1
+                        dump(ROOT/'J3/yield_for_cache.json',dict(reason='producer OOM; release GPU at next committed update boundary',attempt=cache_attempts,time=time.time()))
+                        if 'J3' in trainers:
+                            snapshot('waiting_for_J3_to_release_GPU_for_producer',list(trainers.values()));time.sleep(5);continue
+                        producer=None
+                    else:raise RuntimeError('cache producer fault; inspect cache_failures')
                 missing=[r for r in rows[slow:stop] if not cached(r)]
                 if missing:producer=cache_request([dict(row=r,qp=r['external_qp'],training=True) for r in missing],f'prefetch_{slow:04d}',3)
+                elif (ROOT/'J3/yield_for_cache.json').exists():(ROOT/'J3/yield_for_cache.json').unlink()
             for i,g in enumerate(GROUPS):
                 if g in failed:continue
                 cursor=progress(g)['next_cursor']
                 if g not in trainers and cursor<2000 and all(cached(r) for r in rows[cursor:cursor+4]):
-                    if i==3 and producer is not None and producer.poll() is None:continue
-                    trainers[g]=launch(['train.py','--group',g,'--until','500'],i,f'train_{g}')
+                    if i==0 and progress(g)['committed_updates']>=250 and (not mid_attempted or mid is not None):continue
+                    if i==3:
+                        if (ROOT/'J3/yield_for_cache.json').exists():continue
+                        if producer is not None and producer.poll() is None:
+                            available=int(subprocess.check_output(['nvidia-smi','--id=3','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).strip())
+                            if available<10000:continue
+                    trainers[g]=launch(['train.py','--group',g,'--until','250' if progress(g)['committed_updates']<250 else '500'],i,f'train_{g}')
             # A slow active consumer pins every unconsumed training cache.
             keep={r['sample_key'] for r in rows[max(0,slow-4):stop]}
             from cache_codec import cache_paths
@@ -115,11 +157,12 @@ def supervise():
                 _,path,receipt=cache_paths(r,r['external_qp'],True)
                 if path.is_relative_to(ROOT) and path.exists():
                     with lock('locks/lease_'+path.stem+'.lock',blocking=True):path.unlink()
-            snapshot('training_and_shared_prefetch',[*trainers.values(),*([producer] if producer else [])])
+            snapshot('training_and_shared_prefetch',[*trainers.values(),*([producer] if producer else []),*([mid] if mid else [])])
             if time.time()-last_publish>900:
                 subprocess.run([PYTHON,'publish.py','--interim'],cwd=ROOT,check=False);last_publish=time.time()
             time.sleep(5)
         if producer is not None:wait_stage(producer,'last_prefetch')
+        if mid is not None:wait_stage(mid,'development_through250_finishing')
         if failed:
             subprocess.run([PYTHON,'results.py'],cwd=ROOT,check=True)
             snapshot('partial_training_fault',state='FAILED_PARTIAL',error='stopped groups: '+','.join(sorted(failed)))
@@ -153,4 +196,4 @@ if __name__=='__main__':
     else:
         try:supervise()
         except Exception as error:
-            env();dump(ROOT/'audits/runner_failure.json',dict(error=repr(error),traceback=traceback.format_exc(),time=time.time()));snapshot('fault',state='FAILED',error=repr(error));raise
+            env();dump(ROOT/'runner_stop_request.json',dict(reason='supervisor fault',error=repr(error),time=time.time()));dump(ROOT/'audits/runner_failure.json',dict(error=repr(error),traceback=traceback.format_exc(),time=time.time()));snapshot('fault',state='FAILED',error=repr(error));raise

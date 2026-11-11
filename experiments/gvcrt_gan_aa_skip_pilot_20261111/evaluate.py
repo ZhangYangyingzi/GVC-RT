@@ -80,16 +80,16 @@ class Scorer:
         dump(dest,record);del c;torch.cuda.empty_cache();return record
 
 
-def point_worker(index,cache,original_path):
+def point_worker(index,cache,original_path,through=500):
     import torch
     data=torch.load(cache,map_location='cpu',weights_only=True,mmap=True)
     original=torch.load(original_path,map_location='cpu',weights_only=True,mmap=True)
     scorer=Scorer()
-    states=[('Original',0),('B300',0)]+[(g,s) for g in GROUPS for s in [0,250,500]]
+    states=[('Original',0),('B300',0)]+[(g,s) for g in GROUPS for s in [0,250,500] if s<=through]
     for model,step in states:scorer.point(data,model,step,original)
 
 
-def main():
+def main(through=500):
     from cache_codec import cache_paths
     videos=load(ROOT/'manifests/development_videos.json')
     assert len(videos)==32 and {v['dataset'] for v in videos}=={'ULong_development_32'}
@@ -100,15 +100,15 @@ def main():
         receipt=load(rp);assert sha(path)==receipt['cache_sha256']
         original=ROOT/'cache/original_FP32'/f'{key}.pt'
         if not original.exists():subprocess.run([PYTHON,'original_reconstruction.py',str(path),str(original)],cwd=ROOT,check=True)
-        subprocess.run([PYTHON,'evaluate.py','--point',str(index),'--cache',str(path),'--original',str(original)],cwd=ROOT,check=True)
+        subprocess.run([PYTHON,'evaluate.py','--point',str(index),'--cache',str(path),'--original',str(original),'--through',str(through)],cwd=ROOT,check=True)
         if path.is_relative_to(ROOT):path.unlink()
         if original.is_relative_to(ROOT):original.unlink()
         dump(ROOT/'evaluation/progress.json',dict(status='RUNNING',completed_common_points=index+1,total=96,time=time.time()))
         subprocess.run([PYTHON,'results.py'],cwd=ROOT,check=True)
-    dump(ROOT/'evaluation/completion.json',dict(status='PASS',points_per_state=96,states=14,development_only=True))
+    dump(ROOT/('evaluation/completion.json' if through==500 else f'evaluation/through_{through}.json'),dict(status='PASS',points_per_state=96,states=14 if through==500 else 10,development_only=True))
 
 
 if __name__=='__main__':
-    env();p=argparse.ArgumentParser();p.add_argument('--point',type=int);p.add_argument('--cache');p.add_argument('--original');a=p.parse_args()
-    if a.point is None:main()
-    else:point_worker(a.point,a.cache,a.original)
+    env();p=argparse.ArgumentParser();p.add_argument('--point',type=int);p.add_argument('--cache');p.add_argument('--original');p.add_argument('--through',type=int,choices=[250,500],default=500);a=p.parse_args()
+    if a.point is None:main(a.through)
+    else:point_worker(a.point,a.cache,a.original,a.through)

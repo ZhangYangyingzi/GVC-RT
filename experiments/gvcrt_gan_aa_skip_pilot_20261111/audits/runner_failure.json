@@ -1,5 +1,7 @@
 {
   "error": "RuntimeError('GAN_warmup_and_gradient_calibration exited 1; see logs and audits')",
   "traceback": "Traceback (most recent call last):\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111/runner.py\", line 129, in <module>\n    print(json.dumps(load(ROOT/'status.json'),indent=2));return\n        ^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111/runner.py\", line 66, in supervise\n    p=cache_request([dict(row=r,qp=r['external_qp'],training=True) for r in cal],'calibration_cache')\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111/runner.py\", line 36, in wait_stage\n    while p.poll() is None:\n                    ^^^^^^^^\nRuntimeError: GAN_warmup_and_gradient_calibration exited 1; see logs and audits\n",
-  "time": 1794415431.0744805
+  "time": 1794415431.0744805,
+  "status": "RESOLVED",
+  "resolution": "audits/resolved_calibration_beta_type.json"
 }

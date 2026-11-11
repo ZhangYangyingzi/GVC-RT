@@ -37,11 +37,14 @@ def run(group,until):
         if s%25==0:atomic_torch(root/f'checkpoints/step_{s:04d}.pt',a)
     if not latest.exists():save(0,{})
     for update in range(step+1,min(until,500)+1):
+        if (ROOT/'runner_stop_request.json').exists():return 7
+        if (ROOT/group/'yield_for_cache.json').exists():return 6
         batch=rows[4*(update-1):4*update];paths=[]
         for row in batch:
             _,path,receipt=cache_paths(row,row['external_qp'],True)
             if not path.exists() or not receipt.exists():
-                dump(root/'progress.json',dict(status='WAITING_FOR_CACHE_GPU_RELEASED',committed_updates=update-1,next_cursor=4*(update-1),time=time.time()))
+                prior=load(root/'progress.json') if (root/'progress.json').exists() else {}
+                dump(root/'progress.json',dict(status='WAITING_FOR_CACHE_GPU_RELEASED',committed_updates=update-1,next_cursor=4*(update-1),seconds=prior.get('seconds'),time=time.time()))
                 return 6
             paths.append((path,receipt))
         begin=time.time();c['optimizer'].zero_grad(set_to_none=True);traces=[];fakes=[];gradients={name:None for name in ['spatial','temporal','adversarial']}

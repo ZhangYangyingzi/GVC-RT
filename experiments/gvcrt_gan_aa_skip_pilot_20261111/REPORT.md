@@ -1,10 +1,10 @@
 # 执行事实报告
 
-status: RUNNING；stage: GAN_warmup_and_gradient_calibration
+status: RUNNING；stage: training_and_shared_prefetch
 
 experiment_directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111`
 
-最后心跳：1794415490.5891428；runner PID：3525009
+最后心跳：1794415956.6142662；runner PID：3530992
 
 本轮只记录执行事实和计算数值。开发清单为 ULong_development_32，32 视频 × QP0/5/9，共 96 点；未启动最终测试。
 
@@ -25,7 +25,7 @@ experiment_directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_
 | audits/filter_audit.json | PASS |
 | audits/gradient_audit.json | PASS |
 | audits/codec_audit.json | PASS |
-| gradient_calibration.json | 尚未完成/见文件 |
+| gradient_calibration.json | PASS |
 | evaluation/completion.json | 尚未完成/见文件 |
 | video_manifest.json | 尚未完成/见文件 |
 
@@ -37,12 +37,11 @@ experiment_directory: `/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_
 
 文件：`protocol.json`、`source_manifest.json`、`per_video_metrics.csv`、`per_dataset_metrics.csv`、`paired_B300_metrics.csv`、`plots/index.json`、`video_manifest.json`、`final_integrity.json`。FFV1 视频在 `media/native`，1:1 裁剪在 `media/crops`，并排在 `media/panels`。未生成的项目以其完成标记为准。
 
-GitHub 分支：`codex/gvcrt-gan-aa-skip-pilot-20261111`；最近发布状态：尚未发布；commit URL：暂无。
+GitHub 分支：`codex/gvcrt-gan-aa-skip-pilot-20261111`；最近发布状态：REMOTE_VERIFIED；commit URL：https://github.com/ZhangYangyingzi/GVC-RT/commit/a684ad23a7c70f18b5f845526a33ee8aed98512f。
 
 四个固定开发片段及 ROI 复用 H 的 GT 选择记录。其现有标签未明确标注遮挡类别；未据候选输出重新挑选案例。
 
 失败/未完成项：
 - `audits/runner_failure.json`
-- gradient_calibration.json 尚未完成。
 - evaluation/completion.json 尚未完成。
 - video_manifest.json 尚未完成。
