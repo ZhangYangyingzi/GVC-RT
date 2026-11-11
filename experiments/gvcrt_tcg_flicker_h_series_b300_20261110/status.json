@@ -1,14 +1,14 @@
 {
   "status": "RUNNING",
   "complete": false,
-  "current_stage": "development",
+  "current_stage": "publication",
   "groups": {
     "H0_control": {
       "committed_updates": 100,
       "disposable_engineering_updates": null,
-      "state": "TRAINING_FINISHED_EVALUATION_PENDING",
-      "step50_points": 93,
-      "step100_points": 93,
+      "state": "DEVELOPMENT_COMPLETE",
+      "step50_points": 96,
+      "step100_points": 96,
       "next_window": null,
       "cache_wait_seconds": 7894.231032371521,
       "recent_seconds_per_update": 109.78789989948272
@@ -16,9 +16,9 @@
     "H1_latent_self": {
       "committed_updates": 100,
       "disposable_engineering_updates": null,
-      "state": "TRAINING_FINISHED_EVALUATION_PENDING",
-      "step50_points": 93,
-      "step100_points": 93,
+      "state": "DEVELOPMENT_COMPLETE",
+      "step50_points": 96,
+      "step100_points": 96,
       "next_window": null,
       "cache_wait_seconds": 8639.845959186554,
       "recent_seconds_per_update": 109.44046587944031
@@ -26,9 +26,9 @@
     "H2_latent_equiv": {
       "committed_updates": 100,
       "disposable_engineering_updates": null,
-      "state": "TRAINING_FINISHED_EVALUATION_PENDING",
-      "step50_points": 82,
-      "step100_points": 72,
+      "state": "DEVELOPMENT_COMPLETE",
+      "step50_points": 96,
+      "step100_points": 96,
       "next_window": null,
       "cache_wait_seconds": 10150.264211893082,
       "recent_seconds_per_update": 136.10220935344697
@@ -37,7 +37,7 @@
   "cache": {
     "status": "RUNNING",
     "READY_training_windows": 0,
-    "cache_bytes": 35792713488,
+    "cache_bytes": 35792707728,
     "positions": {
       "H0_control": 400,
       "H1_latent_self": 400,
@@ -48,24 +48,11 @@
       "H1_latent_self": null,
       "H2_latent_equiv": null
     },
-    "produced": 0,
-    "windows_per_second": 0.0,
-    "producer_latency_sum": 0.0,
-    "active": {
-      "5322e7af4eb90838cd3ae918fbaa8e350d7f75bcd5af9d17fb030927de796c5f": {
-        "PID": 2928589,
-        "physical_GPU": 0,
-        "peak_MiB": 28527,
-        "GPU_utilization": 89
-      },
-      "e5b887f7ae39658984663a6f110bd69f01870631a870ace9c995e7a7574d82bb": {
-        "PID": 2928593,
-        "physical_GPU": 1,
-        "peak_MiB": 28427,
-        "GPU_utilization": 81
-      }
-    },
-    "time": 1794378019.3877573
+    "produced": 23,
+    "windows_per_second": 0.010798371363860219,
+    "producer_latency_sum": 1933.7102715969086,
+    "active": {},
+    "time": 1794380096.497307
   },
   "active_processes": {
     "producer": {
@@ -74,6 +61,22 @@
     },
     "evaluation_queue": {
       "PID": 2928585,
+      "returncode": null
+    },
+    "results": {
+      "PID": 2949145,
+      "returncode": 0
+    },
+    "media": {
+      "PID": 2949223,
+      "returncode": 0
+    },
+    "integrity": {
+      "PID": 2965346,
+      "returncode": 0
+    },
+    "publication_final": {
+      "PID": 2965921,
       "returncode": null
     }
   },
@@ -89,7 +92,7 @@
     3
   ],
   "evaluation_pool": {
-    "status": "WAITING_CACHE",
+    "status": "IDLE",
     "GPU_pool": [
       0,
       1,
@@ -99,43 +102,43 @@
     "active": {},
     "coverage": {
       "development_B300_0000": {
-        "completed": 93,
+        "completed": 96,
         "expected": 96
       },
       "development_H0_control_0050": {
-        "completed": 93,
+        "completed": 96,
         "expected": 96
       },
       "development_H1_latent_self_0050": {
-        "completed": 93,
+        "completed": 96,
         "expected": 96
       },
       "development_H0_control_0100": {
-        "completed": 93,
+        "completed": 96,
         "expected": 96
       },
       "development_H1_latent_self_0100": {
-        "completed": 93,
+        "completed": 96,
         "expected": 96
       },
       "development_H2_latent_equiv_0050": {
-        "completed": 82,
+        "completed": 96,
         "expected": 96
       },
       "development_H2_latent_equiv_0100": {
-        "completed": 72,
+        "completed": 96,
         "expected": 96
       }
     },
-    "remaining_source_QP_bundles": 24,
-    "prefetch_bundles": 4,
-    "cache_wait_seconds": 50.92221426963806,
-    "new_state_points": 0,
-    "state_points_per_second": 0.0,
-    "time": 1794378017.3683727
+    "remaining_source_QP_bundles": 0,
+    "prefetch_bundles": 0,
+    "cache_wait_seconds": 518.6090500354767,
+    "new_state_points": 53,
+    "state_points_per_second": 0.024891585842997263,
+    "time": 1794380095.6797206
   },
-  "time": 1794378019.4124424,
-  "cache_request_queue_length": 4,
-  "evaluation_queue_length": 7,
-  "baseline_B300_points": 93
+  "time": 1794380096.8078318,
+  "cache_request_queue_length": 0,
+  "evaluation_queue_length": 0,
+  "baseline_B300_points": 96
 }
