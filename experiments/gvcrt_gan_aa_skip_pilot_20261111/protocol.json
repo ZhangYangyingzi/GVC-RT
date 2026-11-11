@@ -1,0 +1,235 @@
+{
+  "task": "gvcrt_gan_aa_skip_pilot_20261111",
+  "status": "FROZEN",
+  "branch": "codex/gvcrt-gan-aa-skip-pilot-20261111",
+  "seed": 20261111,
+  "only_physical_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "B300": {
+    "path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/tcg_flicker_pilot_abcd_20261109/experiments/gvcrt_tcg_flicker_pilot_abcd_20261109/B/training/checkpoints/step_0300.pt",
+    "SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+    "overlay_last": true,
+    "incremental_keys": 52
+  },
+  "LoRA_gain": 0.5,
+  "groups": {
+    "J0": {
+      "GPU": 0,
+      "anti_alias": false,
+      "GAN": false
+    },
+    "J1": {
+      "GPU": 1,
+      "anti_alias": false,
+      "GAN": true
+    },
+    "J2": {
+      "GPU": 2,
+      "anti_alias": true,
+      "GAN": false
+    },
+    "J3": {
+      "GPU": 3,
+      "anti_alias": true,
+      "GAN": true
+    }
+  },
+  "training": {
+    "max_generator_updates": 500,
+    "effective_batch": 4,
+    "microbatch_windows": 1,
+    "source_mix_ULong_Vimeo": [
+      1,
+      1
+    ],
+    "mix_reason": "no applicable audited mixed ratio; registered budget choice",
+    "crop": [
+      256,
+      256
+    ],
+    "seed": 20261111,
+    "ULong": {
+      "real_frames": 64,
+      "I": 0,
+      "warmup_P": [
+        1,
+        48
+      ],
+      "supervised_P": [
+        49,
+        63
+      ],
+      "chunks": [
+        [
+          49,
+          52
+        ],
+        [
+          53,
+          56
+        ],
+        [
+          57,
+          60
+        ],
+        [
+          61,
+          63
+        ]
+      ]
+    },
+    "Vimeo": {
+      "real_frames": 7,
+      "I": 0,
+      "supervised_P": [
+        1,
+        6
+      ],
+      "chunks": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    "normalization": "pixels/channels, then supervised frames/transitions per window, then four windows",
+    "QP": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "save_every": 25,
+    "commit": "atomic resumable latest after each optimizer pair; archives every25",
+    "optimizer": {
+      "type": "AdamW",
+      "Skip_lr": 5e-05,
+      "Native_lr": 2e-06,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "clip": 1
+    }
+  },
+  "trainable_boundary": [
+    "skip_adapter",
+    "decoder.upsample.conv1",
+    "decoder.stage3 native Conv2d weight/bias"
+  ],
+  "frozen": [
+    "codec",
+    "Bridge",
+    "TCG",
+    "LoRA",
+    "norm",
+    "AdaGN",
+    "all other decoder parameters"
+  ],
+  "precision": "frozen codec FP16; reconstruction common PyTorch FP32; RGB FP32-first",
+  "loss": {
+    "LPIPS_Alex": 1,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "RAFT_motion": 0.05,
+    "MCResidual": 2.603297563918803,
+    "Sobel_factor": 0.5
+  },
+  "GAN": {
+    "channels": [
+      64,
+      128,
+      256,
+      512,
+      1
+    ],
+    "kernel": 4,
+    "strides": [
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "padding": 1,
+    "spectral_norm": true,
+    "activation": "LeakyReLU(.2) first four",
+    "D_optimizer": {
+      "type": "Adam",
+      "lr": 0.0002,
+      "betas": [
+        0,
+        0.9
+      ]
+    },
+    "warmup_updates": 50,
+    "calibration_windows": 24,
+    "calibration_QP_counts": {
+      "0": 8,
+      "5": 8,
+      "9": 8
+    },
+    "lambda_rule": ".1 * median(norm(g_base)/(norm(g_adv)+1e-12)); 24 windows per architecture, equal architectures",
+    "ramp_updates": 100,
+    "D_per_G": 1,
+    "G_D_buffers": "eval frozen including spectral norm power iteration"
+  },
+  "anti_alias": {
+    "upsample_main_lowpass_cutoff_cycles_per_pixel": 0.25,
+    "passband": "rectangular inclusive conjugate cutoff",
+    "WSiLU": "ideal2x -> x*sigmoid(4x) -> ideal downsample2x",
+    "halo": "reflection min(16,H-1,W-1)",
+    "FP32": true,
+    "Nyquist": "split on interpolation, conjugate sum on decimation"
+  },
+  "cache": {
+    "startup_windows": 16,
+    "prefetch_windows": 48,
+    "atomic": true,
+    "shared_all_groups": true,
+    "byte_cap": 25769803776,
+    "media_cap": 8589934592,
+    "min_free_bytes": 16106127360
+  },
+  "development": {
+    "datasets": {
+      "ULong_development_32": 32
+    },
+    "videos": 32,
+    "QP": [
+      0,
+      5,
+      9
+    ],
+    "points": 96,
+    "steps": [
+      0,
+      250,
+      500
+    ],
+    "baselines": [
+      "Original",
+      "B300"
+    ],
+    "precision": "frozen codec FP16; reconstruction common PyTorch FP32; RGB FP32-first",
+    "no_final_test": true
+  },
+  "stop": "500 G updates and prescribed evaluation; implementation/numerical/data/codec faults stop affected part",
+  "report": "execution facts and numerical results only"
+}
