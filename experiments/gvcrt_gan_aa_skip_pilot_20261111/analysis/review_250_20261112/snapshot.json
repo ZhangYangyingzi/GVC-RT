@@ -1,0 +1,127 @@
+{
+  "as_of_UTC": "2026-11-12T01:37:08.322410+00:00",
+  "source_CSV_SHA256": "a3cdd812d147e461edd915aa07e2286fe3b7a48ff59c605099d6eb44ea1aba1c",
+  "counts": {
+    "B300@0": 18,
+    "J0@0": 18,
+    "J0@250": 18,
+    "J1@0": 18,
+    "J1@250": 18,
+    "J2@0": 17,
+    "J2@250": 17,
+    "J3@0": 17,
+    "J3@250": 17,
+    "Original@0": 18
+  },
+  "common_points": 17,
+  "common_videos": 6,
+  "common_QP_counts": {
+    "0": 6,
+    "5": 6,
+    "9": 5
+  },
+  "mismatches": [],
+  "status": {
+    "status": "RUNNING",
+    "stage": "training_with_concurrent_development",
+    "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/gvcrt_gan_aa_skip_pilot_20261111/experiments/gvcrt_gan_aa_skip_pilot_20261111",
+    "PID": 3904533,
+    "heartbeat": 1794447424.9566169,
+    "experiment_complete": false,
+    "committed_steps": {
+      "J0": 264,
+      "J1": 264,
+      "J2": 264,
+      "J3": 264
+    },
+    "progress": {
+      "J0": {
+        "status": "RUNNING",
+        "committed_updates": 264,
+        "next_cursor": 1056,
+        "seconds": 20.68644618988037,
+        "ETA_seconds": 4882.001300811768,
+        "time": 1794447415.7457345
+      },
+      "J1": {
+        "status": "WAITING_FOR_CACHE_GPU_RELEASED",
+        "committed_updates": 264,
+        "next_cursor": 1056,
+        "seconds": 15.095545291900635,
+        "time": 1794447357.1681695
+      },
+      "J2": {
+        "status": "WAITING_FOR_CACHE_GPU_RELEASED",
+        "committed_updates": 264,
+        "next_cursor": 1056,
+        "seconds": 27.7903892993927,
+        "time": 1794447369.518444
+      },
+      "J3": {
+        "status": "WAITING_FOR_CACHE_GPU_RELEASED",
+        "committed_updates": 264,
+        "next_cursor": 1056,
+        "seconds": 29.93480658531189,
+        "time": 1794447374.114882
+      }
+    },
+    "children": [
+      {
+        "PID": 3904551,
+        "running": true
+      },
+      {
+        "PID": 3909288,
+        "running": true
+      },
+      {
+        "PID": 3909289,
+        "running": true
+      },
+      {
+        "PID": 3909293,
+        "running": true
+      },
+      {
+        "PID": 3906523,
+        "running": true
+      },
+      {
+        "PID": 3788808,
+        "running": true
+      }
+    ],
+    "error": null,
+    "evaluation": {
+      "J0": {
+        "0": 18,
+        "250": 18,
+        "500": 0
+      },
+      "J1": {
+        "0": 18,
+        "250": 18,
+        "500": 0
+      },
+      "J2": {
+        "0": 18,
+        "250": 18,
+        "500": 0
+      },
+      "J3": {
+        "0": 18,
+        "250": 17,
+        "500": 0
+      }
+    },
+    "ETA_seconds": {
+      "J0": 4882.001300811768,
+      "J1": 3562.54868888855,
+      "J2": 6558.531874656677,
+      "J3": 7064.614354133606
+    }
+  },
+  "percent_definition": "100*(mean(candidate)/mean(B300)-1) on identical matched keys",
+  "scope": "ULong development only; incomplete 96 points; no final-test conclusions",
+  "mutations": "analysis files only; no process or experiment changes"
+}
