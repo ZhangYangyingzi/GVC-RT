@@ -1,0 +1,125 @@
+{
+  "task": "gvcrt_bridge_aligned_latent_pilot_20261112",
+  "revision": "bridge_aligned_latent_v1",
+  "seed": 20261112,
+  "devices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "B300_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+  "LoRA_gain": 0.5,
+  "train_source_groups": 32,
+  "unique_temporal_windows": 128,
+  "crop": 256,
+  "train_frames": 16,
+  "development_frames": 16,
+  "external_qps": [
+    0,
+    5,
+    9
+  ],
+  "pretrain": {
+    "updates": 500,
+    "lr": 0.0001,
+    "batch": 4,
+    "checkpoints": [
+      0,
+      100,
+      250,
+      500
+    ]
+  },
+  "joint": {
+    "updates": 300,
+    "lr_aligner": 1e-05,
+    "lr_fusion": 5e-05,
+    "effective_batch_segments": 4,
+    "segment_frames": 4,
+    "checkpoints": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ]
+  },
+  "loss": {
+    "LPIPS_Alex": 1,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "align": 0.1,
+    "align_scales": [
+      1,
+      0.5,
+      0.25
+    ],
+    "charbonnier_eps": 0.001,
+    "lambda_temp_rule": "0.1*median(output_RGB_gradient_spatial/output_RGB_gradient_temporal) over fixed8 train segments"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_joint": 1
+  },
+  "matcher": {
+    "projection": [
+      256,
+      32
+    ],
+    "radius": 4,
+    "temperature": 0.1,
+    "scales": [
+      8,
+      16,
+      32
+    ],
+    "refiner": [
+      147,
+      64,
+      32,
+      2
+    ]
+  },
+  "fusion": {
+    "reliability": [
+      59,
+      32,
+      1
+    ],
+    "adapter": [
+      54,
+      64,
+      18
+    ],
+    "residual_blocks": 2,
+    "zero_output": true,
+    "gate_once": true
+  },
+  "precision": "FP32 reconstruction / losses / new modules; audited frozen original FP16 codec",
+  "reset": "first/I/GOP/resolution/missing history; no scene cut threshold",
+  "flow": "frozen audited GT RAFT pseudo-label current->previous, pixel centers, align_corners=False; supervision only",
+  "frozen": [
+    "codec",
+    "entropy",
+    "Bridge",
+    "decoder",
+    "TCG",
+    "LoRA"
+  ],
+  "trainable": [
+    "MotionAligner (U/T)",
+    "Reliability",
+    "Residual Adapter"
+  ],
+  "plan_sha256": "bc1531628c31ee02fb4a94559051a8b708f662703a397aa522ff0206a1872063",
+  "data_sha256": "da2f282055c89edb7daf4e40c74455e7f09f0051eb401d46475411e5b4d44f72",
+  "max_updates_strict": true,
+  "test135_used": false
+}

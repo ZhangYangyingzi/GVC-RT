@@ -1,0 +1,192 @@
+{
+  "status": "LOCAL_COMPLETE",
+  "stage": "GITHUB_PUBLICATION_PENDING",
+  "pid": 238398,
+  "heartbeat": 1794492393.4130635,
+  "started": 1794489536.6809535,
+  "children": {},
+  "failed": {},
+  "cache_completed": 384,
+  "dev_cache_completed": 17,
+  "evaluation_completed": 123,
+  "workers": {
+    "async_evaluation.status": {
+      "task": "async_evaluation",
+      "stage": "COMPLETE",
+      "pid": 250598,
+      "physical_gpu": "3",
+      "heartbeat": 1794491605.8111188
+    },
+    "evaluate0.status": {
+      "task": "evaluate0",
+      "stage": "EVALUATING",
+      "pid": 250598,
+      "physical_gpu": "3",
+      "heartbeat": 1794491604.5383503,
+      "job": {
+        "id": "dv_uvg_Bosphorus",
+        "qp": 9,
+        "label": "T_aligned",
+        "step": 300
+      },
+      "frame": 15
+    },
+    "evaluation.status": {
+      "task": "evaluation",
+      "stage": "EVALUATING",
+      "pid": 264761,
+      "physical_gpu": "0",
+      "heartbeat": 1794491600.6675282,
+      "pids": [
+        264762,
+        264763,
+        264764
+      ],
+      "complete": 121
+    },
+    "U_unaligned.status": {
+      "task": "U_unaligned",
+      "stage": "COMPLETE",
+      "pid": 247337,
+      "physical_gpu": "1",
+      "heartbeat": 1794491468.8881907,
+      "committed_updates": 300,
+      "training_seconds": 1437.691385269165
+    },
+    "devcache0.status": {
+      "task": "devcache0",
+      "stage": "COMPLETE",
+      "pid": 242580,
+      "physical_gpu": "3",
+      "heartbeat": 1794489833.8321092
+    },
+    "media64_render.status": {
+      "task": "media64_render",
+      "stage": "RENDERING_64_NATIVE",
+      "pid": 260715,
+      "physical_gpu": "2",
+      "heartbeat": 1794491610.772729,
+      "model": "T100",
+      "id": "dv_de12efc2-a6f3-4e96-a74a-921fc5fa2254",
+      "frame": 20
+    },
+    "auxiliary.status": {
+      "task": "auxiliary",
+      "stage": "COMPLETE",
+      "pid": 243977,
+      "physical_gpu": null,
+      "heartbeat": 1794489823.2699192
+    },
+    "evaluate2.status": {
+      "task": "evaluate2",
+      "stage": "COMPLETE",
+      "pid": 264764,
+      "physical_gpu": "2",
+      "heartbeat": 1794491601.8935852
+    },
+    "media64.status": {
+      "task": "media64",
+      "stage": "RUNNING",
+      "pid": 259270,
+      "physical_gpu": null,
+      "heartbeat": 1794491607.2106707,
+      "child_task": "media64_render",
+      "child_pid": 260715,
+      "child_physical_gpu": 2
+    },
+    "media64_cache.status": {
+      "task": "media64_cache",
+      "stage": "COMPLETE",
+      "pid": 258271,
+      "physical_gpu": "2",
+      "heartbeat": 1794490984.005907
+    },
+    "S_current.status": {
+      "task": "S_current",
+      "stage": "COMPLETE",
+      "pid": 247338,
+      "physical_gpu": "2",
+      "heartbeat": 1794490737.066162,
+      "committed_updates": 300,
+      "training_seconds": 726.1568338871002
+    },
+    "traincache0.status": {
+      "task": "traincache0",
+      "stage": "COMPLETE",
+      "pid": 229343,
+      "physical_gpu": "1",
+      "heartbeat": 1794489656.4004397
+    },
+    "delivery.status": {
+      "task": "delivery",
+      "stage": "WAITING_FOR_FIXED_EVALUATION_AND_64FRAME_MEDIA",
+      "pid": 258269,
+      "physical_gpu": null,
+      "heartbeat": 1794491607.8425844
+    },
+    "traincache1.status": {
+      "task": "traincache1",
+      "stage": "COMPLETE",
+      "pid": 229344,
+      "physical_gpu": "2",
+      "heartbeat": 1794489657.4325788
+    },
+    "T_aligned.status": {
+      "task": "T_aligned",
+      "stage": "COMPLETE",
+      "pid": 247336,
+      "physical_gpu": "0",
+      "heartbeat": 1794491462.294569,
+      "committed_updates": 300,
+      "training_seconds": 1431.4533097743988
+    },
+    "extracache0.status": {
+      "task": "extracache0",
+      "stage": "COMPLETE",
+      "pid": 243983,
+      "physical_gpu": "1",
+      "heartbeat": 1794489820.1799126
+    },
+    "traincache2.status": {
+      "task": "traincache2",
+      "stage": "COMPLETE",
+      "pid": 229345,
+      "physical_gpu": "3",
+      "heartbeat": 1794489654.169875
+    },
+    "evaluate1.status": {
+      "task": "evaluate1",
+      "stage": "COMPLETE",
+      "pid": 264763,
+      "physical_gpu": "1",
+      "heartbeat": 1794491591.5720634
+    },
+    "aligner.status": {
+      "task": "aligner",
+      "stage": "COMPLETE",
+      "pid": 238399,
+      "physical_gpu": "0",
+      "heartbeat": 1794489932.8753572,
+      "committed_updates": 500,
+      "training_seconds": 240.82061219215393
+    }
+  },
+  "experiment_complete": false,
+  "aligner_committed_updates": 500,
+  "groups": {
+    "S_current": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    },
+    "U_unaligned": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    },
+    "T_aligned": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    }
+  },
+  "final_verification": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/audits/final_verification.json",
+  "active_task_processes": []
+}

@@ -1,0 +1,74 @@
+{
+  "status": "RUNNING",
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112",
+  "base_model": "B300; Original→pilot→B1500 TCG→A2000 LoRA(s=0.5)→B300最后52键增量; composite SHA256=743218b24af1efe631d71e3f0626a6ffdf423cef2175f33fc41470fb064c8552",
+  "aligner_pretrain_updates": 500,
+  "groups": {
+    "S_current": {
+      "committed_updates": 300,
+      "status": "COMPLETE",
+      "pid": 247338,
+      "physical_gpu": 2
+    },
+    "U_unaligned": {
+      "committed_updates": 189,
+      "status": "RUNNING",
+      "pid": 247337,
+      "physical_gpu": 1
+    },
+    "T_aligned": {
+      "committed_updates": 193,
+      "status": "RUNNING",
+      "pid": 247336,
+      "physical_gpu": 0
+    }
+  },
+  "train_source_groups": 32,
+  "unique_temporal_windows": 128,
+  "evaluated_checkpoints": {
+    "fixed_steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "committed_evaluation_points": 71
+  },
+  "datasets_with_rd_curves": [],
+  "codec_invariance": "PASS: shared independent Original bitstreams/features; candidate replay does not write codec DPB",
+  "frozen_parameters_check": "S300 final PASS; U/T per-update guard passing; final hash pending",
+  "report_path": null,
+  "metrics_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/metrics"
+  ],
+  "figure_paths": [],
+  "video_index_path": null,
+  "github": {
+    "branch": "codex/bridge-aligned-latent-pilot-20261112",
+    "commit_url": null,
+    "remote_verified": false,
+    "large_artifacts_uploaded": false
+  },
+  "supervisor_pid": 238398,
+  "delivery_supervisor_pid": 258269,
+  "stage": "JOINT_TRAINING_WITH_ASYNC_EVALUATION_AND_64FRAME_MEDIA_CACHE",
+  "status_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/status.json",
+  "log_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/logs",
+  "resume_entry": "/Huang_group/zyyz/home_dir/.conda/envs/gvc-rt/bin/python -B /Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/manage.py resume",
+  "suggested_wake_after_minutes": [
+    25,
+    30
+  ],
+  "remaining_or_blocked": [
+    "U/T finish fixed300 updates",
+    "remaining fixed checkpoint/multi-QP evaluations",
+    "64-frame media rendering and lossless validation",
+    "actual-bitstream runtime profile",
+    "report/figures/video index and final checks",
+    "local commit, authorized origin push, remote SHA verification"
+  ],
+  "snapshot_time": 1794490946.0831861,
+  "historical_snapshot": true,
+  "superseded_by": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/summary.json"
+}

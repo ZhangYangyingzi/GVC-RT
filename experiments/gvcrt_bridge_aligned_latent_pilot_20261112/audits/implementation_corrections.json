@@ -1,0 +1,26 @@
+[
+  {
+    "issue": "Original audited protocol verifies C++ sources too; initial snapshot filter omitted cpp files. Workers stopped before encoding, with 0 committed caches/updates.",
+    "fix": "Copied required source files from the independently audited Original tree; kept strict hash assertions.",
+    "loss_or_structure_changed": false
+  },
+  {
+    "issue": "Upstream restore calls set_torch_env and resets deterministic warn_only. CUDA grid_sample backward then refused lambda calibration; 0 formal/pretrain optimizer updates committed.",
+    "fix": "Reassert deterministic algorithms with warn_only=True after restore, as in prior audited grid sampler protocol; fixed seed retained; CUDA backward is not claimed bitwise deterministic. Also pad native dev teacher flow/mask to codec geometry before grid-scale EPE.",
+    "loss_or_structure_changed": false
+  },
+  {
+    "issue": "At pretrain attempted update50, one H/32 supervision mask contains no valid pixels; assertion stopped before optimizer update.",
+    "fix": "An empty valid set contributes a graph-preserving zero and EPE=null for that scale, with no division by zero; remaining valid scales retain exact prescribed weights. Updates1..49 all passed prior nonempty checks; resume committed49. Loss terms, network, LR, samples unchanged.",
+    "committed_updates_preserved": 49
+  },
+  {
+    "issue": "Explicit complete fallback for a final all-invalid matching neighborhood was missing a validity signal into fusion.",
+    "fix": "Propagate final candidate geometric availability as valid8 and combine it with latent sampling bounds; invalid content is replaced by current latent with q=0. No matcher weights, pretrain loss or predictive displacement math changed.",
+    "joint_updates_at_fix": 0
+  },
+  {
+    "issue": "64-frame media supervisor status call used reserved task keyword after starting cache child.",
+    "fix": "Renamed status metadata fields and reattached the still-running own cache worker by PID; no cache, model or update changed."
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "status": "LOCAL_COMPLETE_PUBLICATION_PENDING",
+  "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112",
+  "base_model": "B300: Original→pilot→B1500 TCG→A2000 LoRA(s=0.5)→B300 last 52-key overlay; composite parameter SHA256 743218b24af1efe631d71e3f0626a6ffdf423cef2175f33fc41470fb064c8552",
+  "aligner_pretrain_updates": 500,
+  "groups": {
+    "S_current": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    },
+    "U_unaligned": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    },
+    "T_aligned": {
+      "committed_updates": 300,
+      "status": "COMPLETE"
+    }
+  },
+  "train_source_groups": 32,
+  "unique_temporal_windows": 128,
+  "evaluated_checkpoints": {
+    "steps": [
+      0,
+      50,
+      100,
+      200,
+      300
+    ],
+    "development_QP5_points": 60,
+    "total_points": 123,
+    "per_frame_records": 1968
+  },
+  "datasets_with_rd_curves": [
+    "ULong (4 development sources)",
+    "UVG (Bosphorus validation source)"
+  ],
+  "codec_invariance": "PASS: all candidates share verified bitstreams/raw decoded features; added candidate state is not written to codec DPB",
+  "frozen_parameters_check": "PASS: all three final parameter hashes unchanged; zero-step native metrics exactly match B300",
+  "report_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/REPORT.md",
+  "metrics_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/metrics/per_video_metrics.csv",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/metrics/paired_differences.csv",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/metrics/aggregate_metrics.csv"
+  ],
+  "figure_paths": [
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ulong_RD_PSNR.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ulong_RD_LPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ulong_RD_DISTS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ulong_RD_FloLPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/uvg_RD_PSNR.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/uvg_RD_LPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/uvg_RD_DISTS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/uvg_RD_FloLPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ULong_trajectory_LPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ULong_trajectory_DISTS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ULong_trajectory_FloLPIPS.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ULong_trajectory_MC_RGB.png",
+    "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/figures/ULong_trajectory_MC_Sobel.png"
+  ],
+  "video_index_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/VIDEO_INDEX.md",
+  "github": {
+    "branch": "codex/bridge-aligned-latent-pilot-20261112",
+    "commit_url": null,
+    "remote_verified": false,
+    "large_artifacts_uploaded": false
+  },
+  "remaining_or_blocked": [
+    "Git commit/push and remote SHA verification"
+  ],
+  "limitations": [
+    "Quantitative checkpoint evaluation uses16-frame native clips; two visual cases use64 frames",
+    "Only one seed; no convergence or method-efficacy conclusion",
+    "No verified legal HEVC/MCL development split; no corresponding RD curves",
+    "Final135-point test not run"
+  ],
+  "lossless_videos": 16,
+  "video_frames": 64,
+  "protocol_sha256": "0500016fdb69880e5c5931a1a07fd176ce5bab282c0f2536d91fd63d6ca81463",
+  "verification_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/audits/final_verification.json",
+  "time": 1794492565.5968695
+}
