@@ -1,5 +1,5 @@
 {
-  "status": "LOCAL_COMPLETE_PUBLICATION_PENDING",
+  "status": "COMPLETE_PILOT_WITH_LIMITATIONS",
   "experiment_directory": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112",
   "base_model": "B300: Original→pilot→B1500 TCG→A2000 LoRA(s=0.5)→B300 last 52-key overlay; composite parameter SHA256 743218b24af1efe631d71e3f0626a6ffdf423cef2175f33fc41470fb064c8552",
   "aligner_pretrain_updates": 500,
@@ -61,13 +61,12 @@
   "video_index_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/VIDEO_INDEX.md",
   "github": {
     "branch": "codex/bridge-aligned-latent-pilot-20261112",
-    "commit_url": null,
-    "remote_verified": false,
+    "commit_url": "https://github.com/ZhangYangyingzi/GVC-RT/commit/9c67059eb5ea7ed4eb5057f9d00b2117676e55a8",
+    "results_commit": "9c67059eb5ea7ed4eb5057f9d00b2117676e55a8",
+    "remote_verified": true,
     "large_artifacts_uploaded": false
   },
-  "remaining_or_blocked": [
-    "Git commit/push and remote SHA verification"
-  ],
+  "remaining_or_blocked": [],
   "limitations": [
     "Quantitative checkpoint evaluation uses16-frame native clips; two visual cases use64 frames",
     "Only one seed; no convergence or method-efficacy conclusion",
@@ -78,5 +77,6 @@
   "video_frames": 64,
   "protocol_sha256": "0500016fdb69880e5c5931a1a07fd176ce5bab282c0f2536d91fd63d6ca81463",
   "verification_path": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112/audits/final_verification.json",
-  "time": 1794492565.5968695
+  "time": 1794492565.5968695,
+  "completed_at": 1794492793.1146395
 }
