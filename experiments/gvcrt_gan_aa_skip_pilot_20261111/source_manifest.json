@@ -2,7 +2,7 @@
   "status": "FROZEN",
   "code": {
     "convlora.py": "95a5d9da50ea4ed43823fddd707bd25bb0d60e53ecaaaa41b1cce124fd8dec1a",
-    "runner.py": "ef5ec2e5c782440b984b21def4ac0ae80ad6de8a4e00bbc722adaa94a0ec69b0",
+    "runner.py": "2b124f4d5619c853d090b17271141339308345eed063a4fca76307238d7977a0",
     "videos.py": "6798ad7c113cf1866da583dfd7e47d1703870226be06d7be0eb4776c3055905f",
     "quality.py": "27efd9eb353c39a17a1dab1310ad4aad12ed44f3670306ae55a2a856aa7115e1",
     "model_context.py": "a2517b4b97a76d921784567018e849ac33cc62f677ab80107e1f410b4fedf14e",
@@ -10,7 +10,7 @@
     "eval_data.py": "2d3526cebf863f18d0b49aae214de3f8ecf75be28fd22b7b740ef53ceb83890c",
     "temporal.py": "433ee18778d53afb74013e81219034c7a573fea6c5935614382951e3049b42b0",
     "calibrate.py": "8efbe72474b88192ebeb7f990eaee7da1eb57124504ca1193cc44018382af8ca",
-    "train.py": "01e5e707ed1c3767654370c0fdb7478bfbaf17a8b2409d6d97427557e05bac41",
+    "train.py": "29c21614a425d558194c17347b6c16301ffbe2f1d6410949eac95e3692ad3c5e",
     "experiment_model.py": "bb392d25ee8079c0ed257e7df5e69868da993f629f955d1c686d1da8914afdca",
     "original_context.py": "0bd185dcf09ab8d982f9ca95c095afd4542fcac525d0358a81b361468cc7918e",
     "cache_job.py": "879fd4bf6fa037f661b9f947fa8b4928bd4b3e5534b9b57b1fcfdfb8fc85c14d",
@@ -166,6 +166,20 @@
       },
       "generator_forward_loss_optimizer_sampling_and_metric_arithmetic_unchanged": true,
       "time": 1794417798.4648023
+    },
+    {
+      "reason": "user requested ongoing training concurrent with evaluation; remove J0 evaluation wait, cap J0 allocator at0.20 of40GiB and require12GiB free to start onGPU0",
+      "previous": {
+        "runner.py": "ef5ec2e5c782440b984b21def4ac0ae80ad6de8a4e00bbc722adaa94a0ec69b0",
+        "train.py": "01e5e707ed1c3767654370c0fdb7478bfbaf17a8b2409d6d97427557e05bac41"
+      },
+      "current": {
+        "runner.py": "2b124f4d5619c853d090b17271141339308345eed063a4fca76307238d7977a0",
+        "train.py": "29c21614a425d558194c17347b6c16301ffbe2f1d6410949eac95e3692ad3c5e"
+      },
+      "protocol_loss_sampling_precision_optimizer_arithmetic_unchanged": true,
+      "checkpoint250_files_immutable": true,
+      "time": 1794447120.0591424
     }
   ]
 }

@@ -35,6 +35,7 @@ def launch(args,gpu,tag):
             return AdoptedWorker()
     out=(ROOT/'logs'/f'{tag}.log').open('a')
     e=os.environ.copy();e.update(CUDA_VISIBLE_DEVICES=str(gpu),CUDA_DEVICE_ORDER='PCI_BUS_ID')
+    if args[:3]==['train.py','--group','J0']:e['GVC_TRAIN_MEMORY_FRACTION']='0.20'
     if args[0]=='train.py' and (ROOT/args[2]/'training/failure.json').exists():
         if load(ROOT/args[2]/'training/failure.json').get('OOM'):e['GVC_GRAD_CHECKPOINT']='1'
     p=subprocess.Popen([PYTHON,'-u',*args],cwd=ROOT,env=e,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
@@ -158,7 +159,11 @@ def supervise():
                 if g in failed:continue
                 cursor=progress(g)['next_cursor']
                 if g not in trainers and cursor<2000 and all(cached(r) for r in rows[cursor:cursor+4]):
-                    if i==0 and not failed and progress(g)['committed_updates']>=250 and (not mid_attempted or mid is not None):continue
+                    if i==0 and mid is not None:
+                        # J0 and immutable checkpoint evaluation share GPU0.
+                        # Training's allocator is independently capped at8GiB.
+                        available=int(subprocess.check_output(['nvidia-smi','--id=0','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).strip())
+                        if available<12000:continue
                     if i==3:
                         if (ROOT/'J3/yield_for_cache.json').exists():continue
                         if producer is not None and producer.poll() is None:
@@ -172,7 +177,7 @@ def supervise():
                 _,path,receipt=cache_paths(r,r['external_qp'],True)
                 if path.is_relative_to(ROOT) and path.exists():
                     with lock('locks/lease_'+path.stem+'.lock',blocking=True):path.unlink()
-            snapshot('training_and_shared_prefetch',[*trainers.values(),*([producer] if producer else []),*([mid] if mid else [])])
+            snapshot('training_with_concurrent_development' if mid is not None else 'training_and_shared_prefetch',[*trainers.values(),*([producer] if producer else []),*([mid] if mid else [])])
             if time.time()-last_publish>900:
                 subprocess.run([PYTHON,'publish.py','--interim'],cwd=ROOT,check=False);last_publish=time.time()
             time.sleep(5)

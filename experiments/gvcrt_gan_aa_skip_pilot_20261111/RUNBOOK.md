@@ -21,8 +21,11 @@ ready. They never take samples in cache-arrival order.
 
 There is one shared producer with a 48-window lookahead measured from the
 slowest active consumer. Native evaluation runs on a released training card.
-At 250, J0 releases GPU0 for step0/250 development evaluation while other groups
-can continue within the shared cache horizon; J0 resumes after that evaluation.
+At 250, immutable step0/250 development evaluation starts on GPU0. J0 continues
+on that card with an8GiB allocator cap; a12GiB free-memory start check leaves
+space for the measured8.63GiB evaluation peak. All groups continue to500 while
+evaluation reads fixed checkpoint files. The48-window shared cache horizon
+remains pinned to the slowest active training consumer.
 The final evaluation adds the 500-step states. Already completed exact-identity
 points are reused. All evaluation is from the H development manifest.
 

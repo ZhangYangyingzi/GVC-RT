@@ -6,6 +6,8 @@ import argparse,traceback
 def run(group,until):
     env();verify_sources()
     import torch
+    memory_fraction=float(os.environ['GVC_TRAIN_MEMORY_FRACTION']) if 'GVC_TRAIN_MEMORY_FRACTION' in os.environ else None
+    if memory_fraction is not None:torch.cuda.set_per_process_memory_fraction(memory_fraction,0)
     from experiment_model import construct,restore,trainable_state
     from model_context import frozen_items,assert_reset
     from cache_codec import cache_paths
@@ -16,6 +18,7 @@ def run(group,until):
     coef=load(ROOT/'gradient_calibration.json');assert coef['status']=='PASS'
     root=ROOT/group/'training';root.mkdir(parents=True,exist_ok=True)
     c=construct(group,True,0);seed(TRAIN_SEED)
+    c['provenance']['runtime_resources']=dict(allocator_memory_fraction=memory_fraction,reason='GPU0 shares immutable development evaluation' if memory_fraction is not None else 'default')
     params=c['params'];initial={n:p.detach().cpu().clone() for n,p in c['named']}
     assert tensor_hash(c['named'])==load(ROOT/'audits/preflight.json')['common_trainable_SHA256']
     frozen=tensor_hash(frozen_items(c));d=dopt=d_rng=None
@@ -90,7 +93,7 @@ def run(group,until):
                 diagnostics[a+'_'+b+'_cosine']=dot(gradients[a],gradients[b])/(na*nb) if na*nb else None
             diagnostics['trainable_drift_L2']=norm([p.detach().cpu()-initial[n] for n,p in c['named']])
             diagnostics['Skip_and_main_RMS']=c.get('last_RMS')
-        receipt=dict(group=group,committed_updates=update,effective_batch=4,sample_keys=[r['sample_key'] for r in batch],domains=[r['domain'] for r in batch],QP=[r['external_qp'] for r in batch],actual_frame_QP=[r['actual_frame_qps'] for r in batch],next_cursor=4*update,G_loss=sum(t['objective_contribution'] for t in traces),G_preclip_norm=unclipped,G_adv_weight=weight,D_loss=dloss,D_real_logit=real_logit,D_fake_logit=fake_logit,diagnostics=diagnostics,windows=traces,frozen_SHA256=frozen,seconds=time.time()-begin,PID=os.getpid(),physical_GPU=physical_gpu(0),process_GPU=0,time=time.time())
+        receipt=dict(group=group,committed_updates=update,effective_batch=4,sample_keys=[r['sample_key'] for r in batch],domains=[r['domain'] for r in batch],QP=[r['external_qp'] for r in batch],actual_frame_QP=[r['actual_frame_qps'] for r in batch],next_cursor=4*update,G_loss=sum(t['objective_contribution'] for t in traces),G_preclip_norm=unclipped,allocator_memory_fraction=memory_fraction,G_adv_weight=weight,D_loss=dloss,D_real_logit=real_logit,D_fake_logit=fake_logit,diagnostics=diagnostics,windows=traces,frozen_SHA256=frozen,seconds=time.time()-begin,PID=os.getpid(),physical_GPU=physical_gpu(0),process_GPU=0,time=time.time())
         save(update,receipt)
         dump(root/f'receipts/{update:04d}.json',receipt)
         dump(root/'progress.json',dict(status='COMPLETE_500_UPDATES' if update==500 else 'RUNNING',committed_updates=update,next_cursor=4*update,seconds=receipt['seconds'],ETA_seconds=(500-update)*receipt['seconds'],time=time.time()))
