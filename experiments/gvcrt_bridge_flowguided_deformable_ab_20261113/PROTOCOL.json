@@ -1,0 +1,141 @@
+{
+  "task": "gvcrt_bridge_flowguided_deformable_ab_20261113",
+  "seed": 20261113,
+  "previous_experiment": "/Huang_group/zyyz/Projects/GVC-RT/GVC-RT_worktrees/bridge_aligned_latent_pilot_20261112/experiments/gvcrt_bridge_aligned_latent_pilot_20261112",
+  "base_commit": "71ed7e74c75cc21d1007dd63876ca08db01ddf27",
+  "B300_expected_composite_parameter_SHA256": "743218b24af1efe631d71e3f0626a6ffdf423cef2175f33fc41470fb064c8552",
+  "B300_load_order": [
+    "Original",
+    "pilot",
+    "B1500 TCG",
+    "A2000 LoRA s=0.5",
+    "B300 last"
+  ],
+  "groups": [
+    "A_zero_base",
+    "B_flow_guided"
+  ],
+  "max_updates": 300,
+  "saved_updates": [
+    0,
+    1,
+    10,
+    50,
+    100,
+    200,
+    300
+  ],
+  "evaluated_updates": [
+    0,
+    50,
+    100,
+    200,
+    300
+  ],
+  "fixed_RD_updates": [
+    100,
+    "last_common_evaluated"
+  ],
+  "learning_rate": 5e-05,
+  "optimizer": {
+    "name": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip": 1
+  },
+  "effective_batch_segments": 4,
+  "segment_frames": 4,
+  "loss": {
+    "LPIPS_Alex": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "lambda_temp": 4.63349060748,
+    "MC_Sobel": 0.5,
+    "L_align": 0
+  },
+  "network": {
+    "offset_input": 58,
+    "offset_width": 64,
+    "offset_output": 27,
+    "offset_limit_latent_pixels": 1.0,
+    "deform_groups": 1,
+    "kernel": 3,
+    "dcn_channels": 18,
+    "center_initialization": "2*I, all other weights/bias0; modulation sigmoid0.5",
+    "fusion": [
+      54,
+      64,
+      18
+    ],
+    "blocks": 2,
+    "q": [
+      59,
+      32,
+      1
+    ],
+    "global_geometric_validity": "center sampling location; each of9 points separately masked",
+    "beta_train": 1,
+    "scan_beta": [
+      0,
+      0.25,
+      0.5,
+      1
+    ]
+  },
+  "flow": {
+    "teacher": "audited torchvision RAFT_Large C_T_SKHT_V2",
+    "iterations": 12,
+    "inference_input": "FP32 independent Original reconstructed current and previous RGB only",
+    "direction": "current->previous",
+    "evidence": [
+      "absolute photometric RGB mean",
+      "forward/backward vector L2 residual"
+    ],
+    "evidence_normalization": "RMS on first8 train plan cache instances, frozen, floor0.01",
+    "padding": "replicate to codec padded dimensions before RAFT; field coordinates preserved; resize vectors by actual spatial ratios"
+  },
+  "precision": "FP32 reference/new modules/loss; inherited FP16 codec",
+  "train_source_groups": 32,
+  "temporal_windows": 128,
+  "train_crop": 256,
+  "train_frames": 16,
+  "development_frames": 64,
+  "external_QPs": [
+    0,
+    5,
+    9
+  ],
+  "train_plan_sha256": "bc1531628c31ee02fb4a94559051a8b708f662703a397aa522ff0206a1872063",
+  "train_manifest_sha256": "da2f282055c89edb7daf4e40c74455e7f09f0051eb401d46475411e5b4d44f72",
+  "development_sha256": "ae04593dbee025879c7c622a55d289dba4678dc7cbf5f5ea068c121dcaf785f9",
+  "RWE": {
+    "status": "RWE_NOT_VERIFIED",
+    "paper": "https://arxiv.org/html/2404.12388v2#S4.SS1",
+    "official_project": "https://videogigagan.github.io/",
+    "supplement": "https://videogigagan.github.io/assets/supp.pdf",
+    "verified": "Eq4 warps GT using candidate-predicted forward RAFT flow and squared RGB vector error/nonoccluded pixel count",
+    "unresolved": "Official project has no linked evaluation code; exact nonocclusion mask implementation/threshold and color/channel reduction details cannot be established byte-for-byte. No invented RWE values.",
+    "values": null
+  },
+  "stop_rule": {
+    "frozen_before_first_evaluation": true,
+    "metrics": [
+      "PSNR",
+      "LPIPS",
+      "DISTS",
+      "FloLPIPS",
+      "MC_Sobel"
+    ],
+    "relative_tolerance": 1e-06,
+    "criterion": "two consecutive completed milestone evaluations Pareto-dominated by the same earlier checkpoint; at least one strict component per domination; four ULong sources/QP5/beta1",
+    "max_evaluation_lead_intervals": 1,
+    "execution_policy": "wait at each milestone for its evaluation: zero lead, prevents overshoot"
+  },
+  "codec_DPB": "candidate RGB/latent/new state never enters codec DPB",
+  "storage": "read-only previous train caches; compressed decoded-reference sidecars; 64-frame evaluation streamed, no duplicated full-frame cache",
+  "test135_used": false
+}

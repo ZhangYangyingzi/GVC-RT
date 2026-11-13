@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "precision": "FP32, real native padded inputs, fixed final checkpoints, no updates",
+  "physical_gpu": "2",
+  "component_peaks": {
+    "codec_feature_only_P9": {
+      "mean_ms": 24.21739200750987,
+      "samples_ms": [
+        22.89959043264389,
+        25.232672691345215,
+        24.519912898540497
+      ],
+      "peak_allocated_bytes": 6997628416,
+      "resident_before_bytes": 6650868736,
+      "max_incremental_bytes": 363471360
+    },
+    "independent_reference_RGB": {
+      "mean_ms": 128.53574752807617,
+      "samples_ms": [
+        121.61388993263245,
+        137.68956065177917,
+        126.3037919998169
+      ],
+      "peak_allocated_bytes": 7328412160,
+      "resident_before_bytes": 6634157056,
+      "max_incremental_bytes": 694255104
+    },
+    "bidirectional_RAFT_and_evidence": {
+      "mean_ms": 878.2586380839348,
+      "samples_ms": [
+        886.5617960691452,
+        870.2006936073303,
+        878.0134245753288
+      ],
+      "peak_allocated_bytes": 15290807296,
+      "resident_before_bytes": 6634157056,
+      "max_incremental_bytes": 8656650240
+    },
+    "Bridge": {
+      "mean_ms": 2.4659335613250732,
+      "samples_ms": [
+        2.2483021020889282,
+        2.7838796377182007,
+        2.365618944168091
+      ],
+      "peak_allocated_bytes": 6818149376,
+      "resident_before_bytes": 6634157056,
+      "max_incremental_bytes": 183992320
+    },
+    "A_zero_base.DCN_and_offset": {
+      "mean_ms": 4.419547816117604,
+      "samples_ms": [
+        3.746606409549713,
+        4.7646090388298035,
+        4.747427999973297
+      ],
+      "peak_allocated_bytes": 6655077888,
+      "resident_before_bytes": 6644066304,
+      "max_incremental_bytes": 11011584
+    },
+    "A_zero_base.fusion_adapter": {
+      "mean_ms": 0.4508073131243388,
+      "samples_ms": [
+        0.45906007289886475,
+        0.4565119743347168,
+        0.4368498921394348
+      ],
+      "peak_allocated_bytes": 6650817024,
+      "resident_before_bytes": 6644066304,
+      "max_incremental_bytes": 6750720
+    },
+    "A_zero_base.q_head": {
+      "mean_ms": 1.8768136699994404,
+      "samples_ms": [
+        3.1103044748306274,
+        1.8691197037696838,
+        0.6510168313980103
+      ],
+      "peak_allocated_bytes": 6646155264,
+      "resident_before_bytes": 6644066304,
+      "max_incremental_bytes": 2088960
+    },
+    "A_zero_base.final_decoder": {
+      "mean_ms": 138.38324199120203,
+      "samples_ms": [
+        125.54162740707397,
+        133.05015861988068,
+        156.55793994665146
+      ],
+      "peak_allocated_bytes": 7421160960,
+      "resident_before_bytes": 6769403904,
+      "max_incremental_bytes": 710247936
+    },
+    "B_flow_guided.DCN_and_offset": {
+      "mean_ms": 2.350524067878723,
+      "samples_ms": [
+        2.6477575302124023,
+        2.306513488292694,
+        2.097301185131073
+      ],
+      "peak_allocated_bytes": 6780485120,
+      "resident_before_bytes": 6769473536,
+      "max_incremental_bytes": 11011584
+    },
+    "B_flow_guided.fusion_adapter": {
+      "mean_ms": 0.4381239414215088,
+      "samples_ms": [
+        0.4569441080093384,
+        0.43077021837234497,
+        0.426657497882843
+      ],
+      "peak_allocated_bytes": 6776154624,
+      "resident_before_bytes": 6769473536,
+      "max_incremental_bytes": 6681088
+    },
+    "B_flow_guided.q_head": {
+      "mean_ms": 0.604937473932902,
+      "samples_ms": [
+        0.6026849150657654,
+        0.6029307842254639,
+        0.6091967225074768
+      ],
+      "peak_allocated_bytes": 6771562496,
+      "resident_before_bytes": 6769473536,
+      "max_incremental_bytes": 2088960
+    },
+    "B_flow_guided.final_decoder": {
+      "mean_ms": 153.63177905480066,
+      "samples_ms": [
+        142.35471189022064,
+        167.24367439746857,
+        151.2969508767128
+      ],
+      "peak_allocated_bytes": 7421230592,
+      "resident_before_bytes": 6769473536,
+      "max_incremental_bytes": 651757056
+    }
+  },
+  "codec_peak_scope": "full noncached decode process peak recorded in performance.json; codec/entropy shares resident weights with reference decoder",
+  "cumulative_pipeline_peak_scope": "performance.json peak_GPU_GiB is cumulative within that process, not a per-component peak",
+  "implementation_sha256": "3da5ac6e744c4ac6e66e5cb7fd241753dff0ed87c06ed4355b8256dcb061b200"
+}
