@@ -1,0 +1,9 @@
+{
+  "status": "IMPLEMENTATION_FIXED_BEFORE_FIRST_UPDATE",
+  "formal_updates": 0,
+  "cause": "Original initializer re-enabled strict deterministic algorithms, conflicting with required disclosed CUDA grid_sample backward warn_only",
+  "fix": "setup_torch explicitly restores deterministic_algorithms(True,warn_only=True), including after independent Original initialization; preflight now exercises this path",
+  "protocol_loss_structure_schedule_unchanged": true,
+  "initial_seed_weights_schedule_unchanged": true,
+  "time": "2026-11-13 18:05:11 CST"
+}

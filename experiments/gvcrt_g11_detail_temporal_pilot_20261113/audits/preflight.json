@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "2cd613bce5a2b107ee22f397e2cc3449d4fd566da338984563d5140f0c98275e",
+  "synthetic": {
+    "identity_max_abs": 0.0,
+    "translations": [
+      {
+        "dx": 1.0,
+        "dy": 0.0,
+        "max_abs": 3.337860107421875e-06
+      },
+      {
+        "dx": -1.0,
+        "dy": 0.0,
+        "max_abs": 3.337860107421875e-06
+      },
+      {
+        "dx": 0.375,
+        "dy": -0.625,
+        "max_abs": 1.7434358596801758e-06
+      }
+    ],
+    "all_invalid_finite_fallback": true,
+    "offset_component_order": "dy,dx",
+    "pixel_centers": "8x+3.5,8y+3.5",
+    "align_corners": false
+  },
+  "step0_RGB_max_abs": 0.0,
+  "prefix_S_recompute_max_abs": 0.0,
+  "C_ref_base_state_hashes": {
+    "im": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "pm": "90d64a3325d23ffa950da7007828d081c75e3641c0b9a6169ef56fb20e9a2fad"
+  },
+  "C_ref_S_state_sha256": "0d603adc439e9359a0e6edffdc7edc72176e039d1d3a56f2f9a72b77766a70bd",
+  "C_ref_complete_sha256": "f415f4f386b6be2786819a52b5a58c460cb6661efa6d7620cf516d41932ff675",
+  "native_names": [
+    "stage3.blocks.0.adaptor.weight",
+    "stage3.blocks.0.adaptor.bias",
+    "stage3.blocks.0.dc.0.weight",
+    "stage3.blocks.0.dc.0.bias",
+    "stage3.blocks.0.dc.2.base.weight",
+    "stage3.blocks.0.dc.2.base.bias",
+    "stage3.blocks.0.dc.3.weight",
+    "stage3.blocks.0.dc.3.bias",
+    "stage3.blocks.0.ffn.0.weight",
+    "stage3.blocks.0.ffn.0.bias",
+    "stage3.blocks.0.ffn.2.weight",
+    "stage3.blocks.0.ffn.2.bias"
+  ],
+  "native_parameters": 988800,
+  "new_parameters": 1412251,
+  "zero_step_gradients": {
+    "dcn_weight": 0.0,
+    "predictor": 0.0,
+    "P_h": 0.0,
+    "fusion": 0.0,
+    "output": 0.023009255655034956,
+    "receiver_native": 0.2735302890611657
+  },
+  "smoke_gradient_groups": [
+    {
+      "dcn_weight": 0.0,
+      "predictor": 0.0,
+      "P_h": 0.0,
+      "fusion": 0.0,
+      "output": 0.023009255655034956,
+      "receiver_native": 0.2735302890611657
+    },
+    {
+      "dcn_weight": 0.00033052858034915455,
+      "predictor": 0.0007089625568966173,
+      "P_h": 0.0002685898320087728,
+      "fusion": 0.0009058205631836076,
+      "output": 0.021873314000678032,
+      "receiver_native": 0.2595835502337064
+    },
+    {
+      "dcn_weight": 0.0006686314928248331,
+      "predictor": 0.0015245099106680378,
+      "P_h": 0.0005514612959486113,
+      "fusion": 0.0018539066972409353,
+      "output": 0.02298644135492377,
+      "receiver_native": 0.2525654934774173
+    }
+  ],
+  "smoke_updates": 3,
+  "formal_updates": 0,
+  "initial_optimizer_RNG_weights_restored": true,
+  "TCG_previous_state_gradient_norms": [
+    1.4065220966585912e-05,
+    1.4058450688025914e-05,
+    1.3995665540278424e-05
+  ],
+  "temporal_gradients_both_endpoints": true,
+  "segment_state_local_and_reset": true,
+  "checkpoint_no_TCG_buffer_updates": true,
+  "reference_no_mutable_alias": true,
+  "frozen_before_after": {
+    "P_excluding_native_receiver": "71d140300f6ac253195205e30d81c64154cf6ff74f566dd6aacb0f9cd985efd9",
+    "I": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "Bridge": "44f22e8db739a4f28b4ec02c1b8da03a656e407a55453b105d88953862a00a70",
+    "S": "0d603adc439e9359a0e6edffdc7edc72176e039d1d3a56f2f9a72b77766a70bd",
+    "codec": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+  },
+  "codec_bitstream_feature_invariant": true,
+  "full_padded_suffix": true,
+  "device": {
+    "pid": 1342395,
+    "physical_GPU": "2",
+    "name": "NVIDIA A100-PCIE-40GB",
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "uuid": "5f8149df-f602-c427-303e-be5ebfd0de9e"
+  }
+}

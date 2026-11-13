@@ -1,0 +1,239 @@
+{
+  "status": "PASS",
+  "device": {
+    "pid": 1395819,
+    "physical_GPU": "3",
+    "name": "NVIDIA A100-PCIE-40GB",
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "uuid": "b058793e-38ab-91c0-828a-b0aefc4d888f"
+  },
+  "sequence": "53927dbd-5cf2-4dda-9f77-f7a2d3dd4500",
+  "frame": 56,
+  "measurements": {
+    "independent_Original_FP32_one_RGB": {
+      "mean_ms": 216.92399233579636,
+      "samples_ms": [
+        247.499480843544,
+        229.78126257658005,
+        163.02600502967834,
+        226.7511859536171,
+        217.5620272755623
+      ],
+      "peak_allocated_bytes": 1823896064,
+      "resident_before_bytes": 1160967168,
+      "incremental_peak_bytes": 662928896
+    },
+    "actual_parent_Original_FP16_one_RGB": {
+      "mean_ms": 44.51371729373932,
+      "samples_ms": [
+        41.34400188922882,
+        51.93174630403519,
+        44.41365599632263,
+        51.90219730138779,
+        32.97698497772217
+      ],
+      "peak_allocated_bytes": 1677776384,
+      "resident_before_bytes": 1330059776,
+      "incremental_peak_bytes": 347716608
+    },
+    "actual_parent_Original_FP16_pair_plus_RAFT12": {
+      "mean_ms": 986.9471987088522,
+      "samples_ms": [
+        984.0714186429977,
+        1002.2943019866943,
+        974.4758754968643
+      ],
+      "peak_allocated_bytes": 15470825472,
+      "resident_before_bytes": 6889900032,
+      "incremental_peak_bytes": 8580925440
+    },
+    "actual_parent_native_bidirectional_RAFT12": {
+      "mean_ms": 861.0597625374794,
+      "samples_ms": [
+        869.5431500673294,
+        860.9260022640228,
+        852.710135281086
+      ],
+      "peak_allocated_bytes": 15420690432,
+      "resident_before_bytes": 6889900032,
+      "incremental_peak_bytes": 8530790400
+    },
+    "actual_parent_Original_FP16_pair_RAFT_FB_H8_metadata": {
+      "mean_ms": 955.3608770171801,
+      "samples_ms": [
+        949.0271434187889,
+        940.4614120721817,
+        976.5940755605698
+      ],
+      "peak_allocated_bytes": 15470825472,
+      "resident_before_bytes": 6889900032,
+      "incremental_peak_bytes": 8580925440
+    },
+    "independent_Original_FP32_pair_plus_bidirectional_RAFT": {
+      "mean_ms": 1246.5406159559886,
+      "samples_ms": [
+        1199.744202196598,
+        1249.0620538592339,
+        1290.8155918121338
+      ],
+      "peak_allocated_bytes": 15697666560,
+      "resident_before_bytes": 6989835776,
+      "incremental_peak_bytes": 8707830784
+    },
+    "bidirectional_RAFT12_only": {
+      "mean_ms": 897.2875823577245,
+      "samples_ms": [
+        902.424082159996,
+        873.3882680535316,
+        916.0503968596458
+      ],
+      "peak_allocated_bytes": 15647009280,
+      "resident_before_bytes": 6990359040,
+      "incremental_peak_bytes": 8656650240
+    },
+    "frozen_S_encoder": {
+      "mean_ms": 3.519907593727112,
+      "samples_ms": [
+        2.151399850845337,
+        3.8588866591453552,
+        3.8604438304901123,
+        3.8662031292915344,
+        3.86260449886322
+      ],
+      "peak_allocated_bytes": 7042363904,
+      "resident_before_bytes": 6990359040,
+      "incremental_peak_bytes": 52004864
+    },
+    "G11_DCN_predictor_alignment": {
+      "mean_ms": 6.844095885753632,
+      "samples_ms": [
+        12.172773480415344,
+        6.326250731945038,
+        4.481092095375061,
+        5.595900118350983,
+        5.644463002681732
+      ],
+      "peak_allocated_bytes": 7223633408,
+      "resident_before_bytes": 6990359040,
+      "incremental_peak_bytes": 233274368
+    },
+    "G11_projection_fusion_output": {
+      "mean_ms": 7.132013142108917,
+      "samples_ms": [
+        6.7701637744903564,
+        7.187098264694214,
+        7.223598659038544,
+        7.248133420944214,
+        7.231071591377258
+      ],
+      "peak_allocated_bytes": 7131552256,
+      "resident_before_bytes": 7012277760,
+      "incremental_peak_bytes": 119274496
+    },
+    "G11_full_new_branch": {
+      "mean_ms": 14.171259105205536,
+      "samples_ms": [
+        17.329171299934387,
+        17.487846314907074,
+        9.409323334693909,
+        10.615251958370209,
+        16.0147026181221
+      ],
+      "peak_allocated_bytes": 7245150208,
+      "resident_before_bytes": 7012277760,
+      "incremental_peak_bytes": 232872448
+    },
+    "complete_receiver_suffix": {
+      "mean_ms": 95.12224346399307,
+      "samples_ms": [
+        94.57910060882568,
+        89.69162404537201,
+        91.9160470366478,
+        103.22577506303787,
+        96.198670566082
+      ],
+      "peak_allocated_bytes": 7845228544,
+      "resident_before_bytes": 7217885184,
+      "incremental_peak_bytes": 627343360
+    }
+  },
+  "actual_parent_Original_FP16_RGB_max_abs_to_audited_cache": 0.0,
+  "scope": "FP32 native padded features and RGB; Original+RAFT measured directly; codec feature/metadata inputs are existing verified cached data. This is NOT full entropy/codec end-to-end decode latency; no realtime claim.",
+  "flow_reference_scope": "Parent inference metadata is Original FP16; this supplementary timing uses independent Original FP32 RGB, explicitly named and does not replace inference metadata.",
+  "prior_reference_production_seconds": {
+    "e04f8217-1665-4c43-871f-04920c3d3827": {
+      "prefix_seconds": 19.812375962734222,
+      "GT_flow_seconds": 16.76166409999132
+    },
+    "003b2baa-245c-4ee3-a7ed-7ded01af7699": {
+      "prefix_seconds": 23.70376083254814,
+      "GT_flow_seconds": 20.463916666805744
+    },
+    "004ece07-3688-4ce7-b71d-0216fb7da3d0": {
+      "prefix_seconds": 20.456067644059658,
+      "GT_flow_seconds": 20.03191179782152
+    },
+    "00275968-44c2-40f4-b589-09eee7dc7742": {
+      "prefix_seconds": 24.46507252007723,
+      "GT_flow_seconds": 21.17202229052782
+    },
+    "00a8faf5-5407-463c-8f76-1a0285a4efd4": {
+      "prefix_seconds": 21.0183729454875,
+      "GT_flow_seconds": 19.48149509727955
+    },
+    "a4e7600d-7371-448a-9974-d6a9b0e62bf6": {
+      "prefix_seconds": 20.972274258732796,
+      "GT_flow_seconds": 18.828570879995823
+    },
+    "b21b42b7-1200-43d1-b9f2-e167305407d8": {
+      "prefix_seconds": 20.77555599808693,
+      "GT_flow_seconds": 16.695519268512726
+    },
+    "99aa2716-2575-49f3-af04-6bd424943a12": {
+      "prefix_seconds": 20.993307501077652,
+      "GT_flow_seconds": 19.515899404883385
+    },
+    "0087cdd0-96b2-44c6-bb32-b3b7922e13e6": {
+      "prefix_seconds": 20.636643707752228,
+      "GT_flow_seconds": 18.084453582763672
+    },
+    "0092c6e7-837c-438f-a180-a35f6177228c": {
+      "prefix_seconds": 20.99678484350443,
+      "GT_flow_seconds": 16.294485494494438
+    },
+    "3d78c0a8-4bb8-44c2-a016-84519719c805": {
+      "prefix_seconds": 20.09019695967436,
+      "GT_flow_seconds": 18.41368791460991
+    },
+    "00069dfd-a835-4eda-854f-bed88375a3b4": {
+      "prefix_seconds": 24.312708131968975,
+      "GT_flow_seconds": 17.007812283933163
+    },
+    "00932eed-390a-43d0-a0e1-6ae867f80e9a": {
+      "prefix_seconds": 20.336751110851765,
+      "GT_flow_seconds": 17.450498275458813
+    },
+    "00b559a7-ed76-4291-b9e4-5d766a8bbaa5": {
+      "prefix_seconds": 21.447799995541573,
+      "GT_flow_seconds": 18.38015589863062
+    },
+    "0029392b-9e5a-4d79-90e3-07709dc32000": {
+      "prefix_seconds": 25.433792181313038,
+      "GT_flow_seconds": 17.359281286597252
+    },
+    "009c45a0-ae18-41cf-86aa-f93ef8b07b98": {
+      "prefix_seconds": 21.759384714066982,
+      "GT_flow_seconds": 20.597622610628605
+    },
+    "53927dbd-5cf2-4dda-9f77-f7a2d3dd4500": {
+      "prefix_seconds": 21.44728134572506,
+      "GT_flow_seconds": 20.82720298320055
+    },
+    "0083426d-4150-4b35-8b48-1b4947642cdf": {
+      "prefix_seconds": 20.214610815048218,
+      "GT_flow_seconds": 20.187880247831345
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "device": {
+    "pid": 1305204,
+    "physical_GPU": "2",
+    "name": "NVIDIA A100-PCIE-40GB",
+    "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "uuid": "5f8149df-f602-c427-303e-be5ebfd0de9e"
+  },
+  "native_parameters": 988800,
+  "native_names": [
+    "stage3.blocks.0.adaptor.weight",
+    "stage3.blocks.0.adaptor.bias",
+    "stage3.blocks.0.dc.0.weight",
+    "stage3.blocks.0.dc.0.bias",
+    "stage3.blocks.0.dc.2.base.weight",
+    "stage3.blocks.0.dc.2.base.bias",
+    "stage3.blocks.0.dc.3.weight",
+    "stage3.blocks.0.dc.3.bias",
+    "stage3.blocks.0.ffn.0.weight",
+    "stage3.blocks.0.ffn.0.bias",
+    "stage3.blocks.0.ffn.2.weight",
+    "stage3.blocks.0.ffn.2.bias"
+  ],
+  "new_parameters": 1412251,
+  "C_ref_B300_composite": "90d64a3325d23ffa950da7007828d081c75e3641c0b9a6169ef56fb20e9a2fad",
+  "S_parameter_sha256": "0d603adc439e9359a0e6edffdc7edc72176e039d1d3a56f2f9a72b77766a70bd",
+  "frozen": {
+    "P_excluding_native_receiver": "71d140300f6ac253195205e30d81c64154cf6ff74f566dd6aacb0f9cd985efd9",
+    "I": "502cc8648abd788b19f4659b94c530ad6aa04b33080addb2be59747ec9575199",
+    "Bridge": "44f22e8db739a4f28b4ec02c1b8da03a656e407a55453b105d88953862a00a70",
+    "S": "0d603adc439e9359a0e6edffdc7edc72176e039d1d3a56f2f9a72b77766a70bd",
+    "codec": "dfd4e3ebd3558495f7ab807af80a5c5fd7c436d6a1d4d96e9bd1fa43f390ba82"
+  },
+  "modules": "G11(\n  (predictor): Sequential(\n    (0): Conv2d(388, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n    (1): SiLU()\n    (2): Conv2d(128, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  )\n  (P_h): Sequential(\n    (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)\n    (1): SiLU()\n  )\n  (fusion): Sequential(\n    (0): Conv2d(514, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)\n    (1): SiLU()\n    (2): Residual(\n      (a): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (b): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n    )\n    (3): Residual(\n      (a): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (b): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n    )\n  )\n  (output): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)\n)"
+}

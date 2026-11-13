@@ -1,0 +1,92 @@
+{
+  "task": "G11_single_seed_pilot",
+  "revision": 1,
+  "seed": 20261112,
+  "maximum_updates": 300,
+  "checkpoints": [
+    0,
+    50,
+    100,
+    200,
+    300
+  ],
+  "base_chain": [
+    "Original",
+    "pilot",
+    "B1500 TCG",
+    "A2000 LoRA gain0.5",
+    "old B300 overlay last",
+    "D12-S@900 seed20261112"
+  ],
+  "task_sha256": "876df0705823c142702b3abdb6f3a3cf626129cebd8c8638602e51f5dc9758ad",
+  "data_sha256": "26f22879db197bb93580f22f1c4011bb960c7331eef1a11a24202d4094b8e2a2",
+  "schedule_sha256": "1b5d9bfb982a025e20b110ceaa3848d358df311c7df5ac64be7640e3dccd6840",
+  "weight_manifest_sha256": "d92df26e42ecf8772ec8dd3b43863911bdebf5b97ef93edb562ed97974f7af8c",
+  "parent_protocol_sha256": "d3157fe28ca1acdd129d2662f5219f13f59d335975f275b16557ff650a266137",
+  "training": "one continuous4frame clip/update; full padded suffix;256ROI only for loss",
+  "loss": {
+    "LPIPS": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "budget_epsilon": 0.01,
+    "mu_initial": 0.1,
+    "mu_lr": 0.01,
+    "mu_max": 1.0,
+    "lambda_calibration_scale": 0.2,
+    "lambda_calibrate_after": 50,
+    "lambda_ramp_end": 100
+  },
+  "optimizer": {
+    "new_peak_lr": 5e-05,
+    "receiver_peak_lr": 5e-06,
+    "warmup": 20,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip_norm": 1.0
+  },
+  "trainable_receiver": "exact native Conv2d tensors in generator.stage3.blocks[0]; LoRA excluded",
+  "receiver_expected_parameters": 988800,
+  "operator": "torchvision deform_conv2d,128channels,3x3,mask,dx/dy converted to dy/dx",
+  "new_bias": "False except predictor final Conv128->27 bias=True",
+  "flow": "parent independent Original FP16 reference and frozen RAFT12 metadata;pixel centers8x+3.5;GT flow only supervision",
+  "validity": "shared parent external FB/native-center; actual DCN point bounds; center validity gates residual",
+  "normalization": "parent S unchanged, no new data-adaptive normalization",
+  "precision": "FP32 receiver/branch/loss/grad;TF32off;codec auditedFP16",
+  "stop_rule": {
+    "start": 100,
+    "consecutive_pairs": [
+      [
+        100,
+        200
+      ],
+      [
+        200,
+        300
+      ]
+    ],
+    "metrics": [
+      "LPIPS",
+      "DISTS",
+      "highpass_signed_error_MSE"
+    ],
+    "video_equal_mean_worse_fraction": 0.03,
+    "per_source_worse_fraction": 0.01,
+    "minimum_sources": 4
+  },
+  "evaluation": "validation6 only;47,48warmup;49..63native15frames14pairs;QP5scatter not R-D",
+  "GPU": {
+    "training": 2,
+    "bounded_cache": 0,
+    "allowed": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "no_final_test": true
+}

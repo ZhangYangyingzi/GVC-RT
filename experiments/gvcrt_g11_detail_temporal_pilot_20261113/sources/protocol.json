@@ -1,0 +1,127 @@
+{
+  "task": "gvcrt_stage3_source_step_scaling_pilot_20261112",
+  "revision": "source_step_scaling_v1",
+  "B300_SHA256": "7465b57f20bfe2a8d6064a87155cf45c31a488cdeaa68111a228c28f6335ea85",
+  "B300_overlay_last": true,
+  "LoRA_gain": 0.5,
+  "TCG_count": 3,
+  "trainable": "only newly added E,Q,K,V,gate,P_h,fusion,output; all original/B300/Bridge/codec frozen",
+  "positions": {
+    "stage3": "after tcg_mid, before stage3 (C=512)"
+  },
+  "width": 128,
+  "content_blocks": 2,
+  "fusion_blocks": 2,
+  "bias": "all new conv bias=False except gate final bias=True (default uniform)",
+  "initialization": "full audited B300 overlay hash; fresh matched branch by seed, never load prior S/T step300",
+  "normalization": "none; no train/dev input scale fitting",
+  "precision": "FP32 branch, complete decoder prefix/suffix and losses; inherited independent codec FP16; TF32 off",
+  "flow": {
+    "source": "independent Original decoded current/past RGB, frozen torchvision RAFT large C_T_SKHT_V2",
+    "grid": "RGB (8x+3.5,8y+3.5), align_corners=False, sample original projected K/V once",
+    "candidates": "3x3 fixed offsets",
+    "validity": "intersection of S and T per-candidate bounds, shared causal FB validity and native RGB center bounds",
+    "S": "current content on unshifted grid; shares past availability, decoded scene-cut, FB error and intersection mask with T",
+    "gate": "388->64 k3 SiLU ->1 k1 sigmoid times valid",
+    "scene_cut": "decoded RGB mean absolute difference>0.35 closes added history and resets TCG states at that frame when metadata is available"
+  },
+  "sequence": {
+    "prefix": "frozen causal tcg_low/mid through all P1..63, RAM-only prefix; never use old terminal h",
+    "warmup": "two candidate suffix frames start-2,start-1 under no_grad; independent tcg_out state, detach boundary",
+    "temporal_gradient": "within each supervised 2/4-frame clip, both history E and candidate tcg_out input state retain graph; detach between clips",
+    "TCG_out": "functional exact frozen module with explicit current-input state; never replay B300 state",
+    "first_available_flow": 47
+  },
+  "loss": {
+    "LPIPS_Alex": 1.0,
+    "DISTS": 0.5,
+    "RGB_L1": 0.1383589248954108,
+    "LPIPS_normalize": true,
+    "DISTS_require_grad": true
+  },
+  "training_spatial_scope": "entire padded feature grid through differentiable decoder suffix including GN; loss on fixed pre-scheduled 256x256 ROI, separately full-frame metrics",
+  "optimizer": {
+    "name": "AdamW",
+    "peak_lr": 5e-05,
+    "min_lr": 1e-05,
+    "warmup": 20,
+    "cosine_after": 20,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "clip": 1.0,
+    "effective_frames": 4,
+    "microbatch": "one continuous clip; loss summed by frame/4",
+    "cosine_end_step": 900
+  },
+  "seeds": [
+    20261112,
+    20261113
+  ],
+  "steps": 900,
+  "smoke_steps": 3,
+  "checkpoints": [
+    0,
+    300,
+    600,
+    900
+  ],
+  "selection": "no checkpoint-based stopping or model promotion; fixed 0/300/600/900 comparisons, final-test only900 after every group finishes",
+  "evaluation": "all own-training sources and identical new-to-ST validation6 at all4 checkpoints; final-test6 at900 only after all8 groups; video-equal means, source bootstrap CI; temporal observation only",
+  "interventions": [
+    "T source replaced by current at same true coordinates (distribution shift)",
+    "T added history gate off (distribution shift)"
+  ],
+  "devices": {
+    "allowed_physical_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "mapping": "one own worker per GPU, dynamically queued after free-memory check; existing jobs allowed by explicit authorization"
+  },
+  "storage": {
+    "reconstructible_cache": "/Huang_group/zyyz/Projects/GVC-RT/experiments/gvcrt_stage3_source_step_scaling_pilot_20261112/cache",
+    "reserve_GiB": 4,
+    "old_artifacts_read_only": true,
+    "original_RGB_storage": "lossless half m1p1 with exact unit roundtrip assertion"
+  },
+  "data_sha256": "ef2c9a609504dd66613286cf073b23192a07252633a85ec6f7039e7d56f5150d",
+  "schedule_sha256": "b1895f9ed6f1a326b53cc8aa9af4d98acfb0f0f6414dff7845dec32d5ee71519",
+  "determinism": "fixed seeds/schedule, TF32 off, cudnn deterministic; deterministic_algorithms(True,warn_only=True) after audited restore because CUDA grid_sample backward is nondeterministic; exact bitwise training reproducibility not claimed",
+  "groups": [
+    "D4_S",
+    "D4_T",
+    "D12_S",
+    "D12_T"
+  ],
+  "position": "stage3 only",
+  "stage4_changed": false,
+  "source_threshold_pass": true,
+  "preflight_sha256": "a0aa61d4baa6fa1107ef2be2804251ea02da747061d59eb21a8b4b7138a6c320",
+  "hardware": "GPU0-3 shared occupancy explicitly authorized if memory sufficient;1own worker/card, free-memory guard28000MiB; no unrelated termination",
+  "decision_rules": [
+    "train improves while new validation stagnates/worsens: overfitting risk under recorded900-step schedule",
+    "D12 validation better than D4 at same step across sources/seeds: evidence for source diversity effect",
+    "S and T both improve over B300 but T-S close: shared new branch effect, not history increment",
+    "only repeatable T superiority on multiple validation sources and both seeds supports added history"
+  ],
+  "uncertainty": "bootstrap source units, seeds averaged inside each source; separate seeds and per-source deltas; adjacent frames/pixels/crops not independent videos",
+  "test_exposure": "historically evaluated source-isolated holdout; not blind; no reuse of previous dev/confirm as fresh test",
+  "decision_thresholds": {
+    "overfit_plateau_relative_tolerance": 0.001,
+    "near_T_S_relative_error_tolerance": 0.001,
+    "near_T_S_PSNR_dB": 0.02,
+    "history_repeatability": "at900, LPIPS and DISTS mean improve in both seeds and joint improvement on>=4/6validation sources in each seed; report source bootstrap95% CI descriptively",
+    "primary_step": 900,
+    "secondary_steps": [
+      300,
+      600
+    ],
+    "no_claim": "engineering interpretation thresholds, not universal significance margins"
+  }
+}
